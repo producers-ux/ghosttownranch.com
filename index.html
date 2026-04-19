@@ -48,8 +48,9 @@
   .hero { height: 100vh; position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: 80px 48px; }
   .hero-bg {
     position: absolute; inset: 0;
-    background: linear-gradient(to bottom, rgba(26,21,18,0.1) 0%, rgba(26,21,18,0.55) 100%),
-    linear-gradient(145deg, #C4A882 0%, #A07A4A 25%, #7A5C35 50%, #4E3C28 75%, #2A211A 100%);
+    background-image: linear-gradient(to bottom, rgba(26,21,18,0.1) 0%, rgba(26,21,18,0.55) 100%), url('hero.png');
+    background-size: cover;
+    background-position: center;
   }
   .hero-bg::before {
     content: ''; position: absolute; bottom: 38%; left: 0; right: 0;
@@ -98,11 +99,15 @@
   .product-image:hover .product-image-inner { transform: scale(1.03); }
 
   .product-section:nth-child(odd) .product-image-inner {
-    background: linear-gradient(165deg, #C8AA85 0%, #96764A 40%, #5E4530 70%, #332618 100%);
+    background-image: url('dusktildawnnew.png');
+    background-size: cover;
+    background-position: center;
   }
 
   .product-section:nth-child(even) .product-image-inner {
-    background: linear-gradient(185deg, #DDD0B2 0%, #B8906A 45%, #7A5530 100%);
+    background-image: url('fragrancegtr.png');
+    background-size: cover;
+    background-position: center;
   }
 
   .product-content {
