@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghost Town Ranch — Frontier Modernism</title>
+<style>
+  @font-face {
+    font-family: 'PPEiko';
+    src: url('PPEiko-Medium.woff2') format('woff2');
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'PPEiko';
+    src: url('PPEiko-Thin.woff2') format('woff2');
+    font-weight: 300;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --parchment: #F4EFE6;
+    --warm-black: #1A1512;
+    --ochre: #9B7A3F;
+    --dust: #D4C9B5;
+    --serif: 'PPEiko', Georgia, serif;
+    --sans: 'PPEiko', Georgia, serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--parchment); color: var(--warm-black); font-family: var(--sans); font-weight: 400; letter-spacing: 0.03em; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 28px 48px; }
+  nav.light { color: #F4EFE6; }
+  nav.dark { color: var(--warm-black); }
+  .nav-logo { font-family: var(--serif); font-size: 13px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+  .nav-logo img { height: 32px; width: auto; }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; text-decoration: none; color: inherit; opacity: 0.8; transition: opacity 0.2s; cursor: pointer; }
+  .nav-links a:hover { opacity: 1; }
+
+  .page { display: none; }
+  .page.active { display: block; animation: fadeUp 0.35s ease forwards; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+  .hero { height: 100vh; position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: 80px 48px; }
+  .hero-bg { position: absolute; inset: 0; background-image: url('herogtr.png'); background-size: cover; background-position: center; }
+  .hero-bg::before { display: none; }
+  .hero-bg::after { display: none; }
+  .hero-text { position: relative; z-index: 2; color: #F4EFE6; }
+  .hero-eyebrow { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.6; margin-bottom: 18px; }
+  .hero-title { font-family: var(--serif); font-size: clamp(56px, 9vw, 100px); font-weight: 300; line-height: 0.93; letter-spacing: 0.08em; margin-bottom: 28px; text-transform: uppercase; }
+  .hero-sub { font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; opacity: 0.55; }
+  .hero-sub span { margin: 0 10px; opacity: 0.35; }
+
+  .brand-statement { padding: 120px 48px; max-width: 700px; }
+  .brand-statement p { font-family: var(--serif); font-size: clamp(22px, 2.8vw, 30px); font-weight: 400; line-height: 1.55; }
+
+  .product-section { display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh; border-top: 1px solid var(--dust); }
+  .product-section.reverse { direction: rtl; }
+  .product-section.reverse > * { direction: ltr; }
+  .product-image { position: relative; overflow: hidden; min-height: 600px; }
+  .product-image-inner { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.6s ease; }
+  .product-image:hover .product-image-inner { transform: scale(1.03); }
+  .product-section:nth-child(odd) .product-image-inner { background-image: url('dusktildawnnew.png'); background-size: cover; background-position: center; }
+  .product-section:nth-child(even) .product-image-inner { background-image: url('fragrancegtr.png'); background-size: cover; background-position: center; }
+  .product-content { padding: 80px 64px; display: flex; flex-direction: column; justify-content: center; }
+  .product-eyebrow { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.35; margin-bottom: 28px; }
+  .product-title { font-family: var(--serif); font-size: clamp(36px, 4vw, 54px); font-weight: 400; line-height: 1.05; margin-bottom: 28px; letter-spacing: -0.01em; }
+  .product-desc { font-family: var(--serif); font-size: 18px; font-weight: 400; line-height: 1.7; opacity: 0.6; max-width: 380px; }
+  .product-rule { width: 32px; height: 1px; background: var(--ochre); margin: 32px 0; }
+
+  .press-strip { padding: 80px 48px; border-top: 1px solid var(--dust); border-bottom: 1px solid var(--dust); }
+  .section-label { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.35; margin-bottom: 30px; }
+  .press-names { display: flex; gap: 44px; flex-wrap: wrap; align-items: center; }
+  .press-names a { font-family: var(--serif); font-size: 19px; font-weight: 400; color: var(--warm-black); text-decoration: none; opacity: 0.55; transition: opacity 0.2s; letter-spacing: 0.02em; }
+  .press-names a:hover { opacity: 1; }
+
+  .nourish { padding: 100px 48px; display: flex; justify-content: flex-end; }
+  .nourish-inner { max-width: 400px; text-align: right; }
+  .nourish-inner p { font-family: var(--serif); font-size: 28px; font-weight: 400; line-height: 1.35; margin: 14px 0 26px; }
+  .ochre-link { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ochre); text-decoration: none; border-bottom: 1px solid var(--ochre); padding-bottom: 2px; cursor: pointer; }
+
+  footer { padding: 56px 48px; border-top: 1px solid var(--dust); display: flex; justify-content: space-between; align-items: flex-end; }
+  .footer-left { font-family: var(--serif); font-size: 13px; letter-spacing: 0.08em; opacity: 0.4; display: flex; align-items: center; gap: 10px; }
+  .footer-left img { height: 24px; width: auto; opacity: 0.4; }
+  .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; }
+  .footer-right a { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-black); text-decoration: none; opacity: 0.4; transition: opacity 0.2s; }
+  .footer-right a:hover { opacity: 0.9; }
+
+  .w-hero { height: 58vh; position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: 60px 48px; }
+  .w-hero-bg { position: absolute; inset: 0; background-image: linear-gradient(to bottom, rgba(26,21,18,0.1) 0%, rgba(26,21,18,0.45) 100%), url('tradegtr.png'); background-size: cover; background-position: center; }
+  .w-hero-text { position: relative; z-index: 2; color: #F4EFE6; }
+  .w-hero-text h1 { font-family: var(--serif); font-size: clamp(44px, 6vw, 74px); font-weight: 400; letter-spacing: 0.04em; margin-bottom: 10px; }
+  .w-hero-text p { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; opacity: 0.55; }
+  .w-body { padding: 100px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+  .w-block h3 { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.35; margin-bottom: 22px; }
+  .w-block p { font-family: var(--serif); font-size: 18px; font-weight: 400; line-height: 1.75; }
+  .w-block ul { list-style: none; }
+  .w-block li { font-family: var(--serif); font-size: 17px; font-weight: 400; line-height: 1.6; margin-bottom: 18px; }
+  .w-pname { font-weight: 400; display: block; }
+  .w-psub { font-size: 14px; font-style: italic; opacity: 0.5; }
+  hr.divider { border: none; border-top: 1px solid var(--dust); margin: 0 48px; }
+  .w-stockists { padding: 80px 48px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; }
+  .stockist h4 { font-family: var(--serif); font-size: 19px; font-weight: 400; margin-bottom: 6px; }
+  .stockist p { font-size: 11px; letter-spacing: 0.08em; opacity: 0.5; line-height: 1.65; }
+  .badge { display: inline-block; margin-top: 10px; font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ochre); border: 1px solid var(--ochre); padding: 3px 8px; }
+  .w-cta { padding: 100px 48px; max-width: 540px; margin: 0 auto; text-align: center; }
+  .w-cta h2 { font-family: var(--serif); font-size: 32px; font-weight: 400; line-height: 1.35; margin-bottom: 24px; }
+  .w-cta a { font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ochre); text-decoration: none; border-bottom: 1px solid var(--ochre); padding-bottom: 2px; }
+
+  .switcher { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%); display: flex; gap: 2px; background: rgba(26,21,18,0.88); backdrop-filter: blur(10px); padding: 5px; border-radius: 2px; z-index: 200; }
+  .sw-btn { font-family: var(--sans); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(244,239,230,0.45); background: none; border: none; padding: 8px 20px; cursor: pointer; transition: all 0.2s; }
+  .sw-btn.active { color: var(--parchment); background: rgba(244,239,230,0.1); }
+  .sw-btn:hover { color: var(--parchment); }
+
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    .nav-links { gap: 16px; }
+    .nav-links a { font-size: 9px; }
+
+    .hero { padding: 48px 24px; }
+    .hero-title { font-size: clamp(38px, 12vw, 64px); letter-spacing: 0.04em; }
+
+    .brand-statement { padding: 60px 24px; }
+    .brand-statement p { font-size: clamp(18px, 5vw, 24px); }
+
+    .product-section { grid-template-columns: 1fr; min-height: auto; }
+    .product-section.reverse { direction: ltr; }
+    .product-section.reverse > * { direction: ltr; }
+    .product-image { min-height: 280px; }
+    .product-content { padding: 48px 24px; }
+    .product-title { font-size: clamp(30px, 9vw, 46px); }
+    .product-desc { font-size: 16px; max-width: 100%; }
+
+    .press-strip { padding: 48px 24px; }
+    .press-names { gap: 20px; }
+    .press-names a { font-size: 16px; }
+
+    .nourish { padding: 60px 24px; justify-content: flex-start; }
+    .nourish-inner { max-width: 100%; text-align: left; }
+    .nourish-inner p { font-size: 22px; }
+
+    footer { padding: 40px 24px; flex-direction: column; align-items: flex-start; gap: 20px; }
+    .footer-right { align-items: flex-start; }
+
+    .w-hero { padding: 40px 24px; }
+    .w-body { padding: 60px 24px; grid-template-columns: 1fr; gap: 40px; }
+    .w-stockists { padding: 48px 24px; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .w-cta { padding: 60px 24px; }
+    hr.divider { margin: 0 24px; }
+
+    .switcher { bottom: 16px; width: calc(100% - 48px); justify-content: center; }
+    .sw-btn { padding: 8px 16px; font-size: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav" class="light">
+  <div class="nav-logo"><img src="ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="GTR">Ghost Town Ranch</div>
+  <ul class="nav-links">
+    <li><a onclick="showPage('brand')">The Brand</a></li>
+    <li><a onclick="showPage('wholesale')">Wholesale</a></li>
+  </ul>
+</nav>
+
+<!-- BRAND -->
+<div id="page-brand" class="page active">
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-text">
+      <div class="hero-eyebrow">Frontier Modernism</div>
+      <h1 class="hero-title">Ghost Town Ranch</h1>
+      <p class="hero-sub">Skincare<span>·</span>Fragrance<span>·</span>Home</p>
+    </div>
+  </section>
+
+  <section class="brand-statement">
+    <p style="font-size: clamp(32px, 4vw, 48px); font-weight: 300; margin-bottom: 24px; opacity: 1;">Frontier Modernism.</p>
+    <p>Skincare, fragrance, and home goods rooted in the open spaces and wide light of the American West. Small-batch. COSMOS-compliant. For every day. For everybody.</p>
+  </section>
+
+  <section class="product-section">
+    <div class="product-image">
+      <div class="product-image-inner"></div>
+    </div>
+    <div class="product-content">
+      <div class="product-eyebrow">The Collection</div>
+      <h2 class="product-title">Body + Skin</h2>
+      <div class="product-rule"></div>
+      <p class="product-desc">Skin. Hair. Body. Made for everyone. From the wide open, for the every day.</p>
+    </div>
+  </section>
+
+  <section class="product-section reverse">
+    <div class="product-image">
+      <div class="product-image-inner"></div>
+    </div>
+    <div class="product-content">
+      <div class="product-eyebrow">The Collection</div>
+      <h2 class="product-title">Fragrance + Home</h2>
+      <div class="product-rule"></div>
+      <p class="product-desc">Scent as landscape. Mist, flame, and air. Six open range expressions.</p>
+    </div>
+  </section>
+
+  <section class="press-strip">
+    <div class="section-label">As Seen In</div>
+    <div class="press-names">
+      <a href="#">Dwell Magazine</a>
+      <a href="#">Los Angeles Times</a>
+      <a href="#">VoyageLA</a>
+      <a href="#">Bold Journey</a>
+    </div>
+  </section>
+
+  <section class="nourish">
+    <div class="nourish-inner">
+      <div class="section-label">Trade Recognition</div>
+      <p>Accepted into Shoppe Object Nourish 2026</p>
+      <span class="ochre-link" onclick="showPage('wholesale')">Wholesale Inquiries</span>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-left"><img src="ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="GTR">Frontier Modernism · High Desert · Coachella Valley</div>
+    <div class="footer-right">
+      <a href="https://instagram.com/ghosttownranch" target="_blank">@ghosttownranch</a>
+      <a href="#">ghosttownranch.com</a>
+      <a href="#">© Ghost Town Ranch · Pulp Media Lab, Inc.</a>
+    </div>
+  </footer>
+</div>
+
+<!-- WHOLESALE -->
+<div id="page-wholesale" class="page">
+  <section class="w-hero">
+    <div class="w-hero-bg"></div>
+    <div class="w-hero-text">
+      <h1>Trade</h1>
+      <p>Ghost Town Ranch · Wholesale</p>
+    </div>
+  </section>
+
+  <div class="w-body">
+    <div class="w-block">
+      <h3>For Trade Partners</h3>
+      <p>Built for the buyer who knows the difference. Ghost Town Ranch brings Frontier Modernism to retail — small-batch skincare, fragrance, and home goods made for boutique hotels, design-forward retail, and specialty stores. Accepted into Shoppe Object Nourish 2026.</p>
+    </div>
+    <div class="w-block">
+      <h3>The Collection</h3>
+      <ul>
+        <li><span class="w-pname">Body + Skin</span><span class="w-psub">Sink, shower, vanity. The full spa line. Featured in the Signature Facial at Miracle Manor.</span></li>
+        <li><span class="w-pname">Fragrance + Home</span><span class="w-psub">Ranch Water Mist · The Monument · The Slow · The Still · Six open range scents</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div style="padding: 60px 48px 0; display: flex; justify-content: space-between; align-items: baseline;">
+    <div class="section-label" style="margin-bottom: 0;">Featured Stockists</div>
+    <div class="section-label" style="margin-bottom: 0;">Find Us</div>
+  </div>
+
+  <div class="w-stockists">
+    <div class="stockist">
+      <h4>Miracle Manor</h4>
+      <p>Desert Hot Springs, CA<br>Featured in the Signature Miracle Facial</p>
+    </div>
+    <div class="stockist">
+      <h4>Shoppe Object</h4>
+      <p>Online · July 2026<br>Nourish · New York City<br>August 2–4</p>
+    </div>
+    <div class="stockist">
+      <h4>GTR @ SHU Atelier</h4>
+      <p>457 N Palm Canyon Dr<br>Palm Springs, CA 92262</p>
+    </div>
+    <div class="stockist">
+      <h4><a href="https://or-cre.com/search?type=product&q=Ghost+town+ranch" style="color:var(--warm-black);text-decoration:none;border-bottom:1px solid var(--dust);">GTR Showroom + Catalog</a></h4>
+      <p>Palm Springs, CA</p>
+    </div>
+  </div>
+
+  <div class="w-cta">
+    <h2>For wholesale pricing, minimum order quantities, and line sheets</h2>
+    <a href="mailto:wholesale@ghosttownranch.com">wholesale@ghosttownranch.com</a>
+  </div>
+
+  <footer>
+    <div class="footer-left"><img src="ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="GTR">Frontier Modernism · High Desert · Coachella Valley</div>
+    <div class="footer-right">
+      <a href="https://instagram.com/ghosttownranch" target="_blank">@ghosttownranch</a>
+      <a href="#">ghosttownranch.com</a>
+      <a href="#">© Ghost Town Ranch · Pulp Media Lab, Inc.</a>
+    </div>
+  </footer>
+</div>
+
+<div class="switcher">
+  <button class="sw-btn active" onclick="showPage('brand')">The Brand</button>
+  <button class="sw-btn" onclick="showPage('wholesale')">Wholesale</button>
+</div>
+
+<script>
+  function showPage(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + page).classList.add('active');
+    document.querySelectorAll('.sw-btn').forEach(b => b.classList.remove('active'));
+    const map = { brand: 0, wholesale: 1 };
+    document.querySelectorAll('.sw-btn')[map[page]].classList.add('active');
+    document.getElementById('nav').className = page === 'brand' ? 'light' : 'dark';
+    window.scrollTo(0, 0);
+  }
+</script>
+</body>
+</html>
