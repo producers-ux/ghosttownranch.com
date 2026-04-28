@@ -8,91 +8,53 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Barlow+Condensed:wght@300;400;500;600&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bone:   #F5F0E6;
-    --sand:   #E8DFC8;
-    --ochre:  #C4A882;
-    --stone:  #7A7060;
-    --dark:   #1C1814;
-    --ink:    #2E2820;
-    --white:  #FDFAF5;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { background: var(--white); color: var(--ink); font-family: 'Barlow', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; }
-
-  /* NAV */
-  nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 48px; border-bottom: 1px solid var(--sand); position: sticky; top: 0; background: rgba(253,250,245,0.92); backdrop-filter: blur(8px); z-index: 100; }
-  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-logo img { height: 32px; width: auto; }
-  .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--stone); text-decoration: none; font-weight: 500; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--dark); }
-  .nav-links a.nav-range { color: var(--dark); border-bottom: 1px solid currentColor; padding-bottom: 2px; }
-
-  /* BACK */
-  .back { max-width: 1400px; margin: 0 auto; padding: 20px 48px 0; }
-  .back a { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--stone); text-decoration: none; transition: color 0.2s; }
-  .back a:hover { color: var(--dark); }
-
-  /* PRODUCT LAYOUT */
-  .product { max-width: 1400px; margin: 0 auto; padding: 48px 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-  .product__gallery { position: sticky; top: 96px; }
-  .product__img { aspect-ratio: 3/4; overflow: hidden; background: var(--sand); }
-  .product__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-  /* PRODUCT CONTENT */
-  .product__content { display: flex; flex-direction: column; gap: 28px; padding-top: 8px; }
-  .product__category { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ochre); }
-  .product__name { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(44px, 5vw, 72px); line-height: 0.9; color: var(--dark); }
-  .product__sub { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); margin-top: -16px; }
-  .product__tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .tag { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--stone); padding: 4px 10px; border: 1px solid var(--sand); }
-  .product__price-row { display: flex; align-items: baseline; gap: 16px; }
-  .product__price { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--dark); }
-  .product__size { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 0.1em; color: var(--stone); }
-  .product__desc { font-size: 15px; line-height: 1.75; color: var(--stone); border-left: 2px solid var(--ochre); padding-left: 20px; font-style: italic; }
-
-  /* VARIANT SELECTOR */
-  .variant-selector, .variant-single { display: flex; flex-direction: column; gap: 16px; }
-  .opt-group { display: flex; flex-direction: column; gap: 10px; }
-  .opt-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ochre); }
-  .opt-btns { display: flex; flex-wrap: wrap; gap: 8px; }
-  .opt-btn { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); padding: 8px 16px; border: 1px solid var(--sand); background: transparent; cursor: pointer; transition: all 0.2s; }
-  .opt-btn:hover { border-color: var(--ochre); color: var(--dark); }
-  .opt-btn.active { background: var(--dark); color: var(--white); border-color: var(--dark); }
-  .btn-atc { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); background: var(--dark); border: 1px solid var(--dark); padding: 16px 32px; cursor: pointer; transition: all 0.2s; align-self: flex-start; }
-  .btn-atc:hover:not(:disabled) { background: var(--ink); }
-  .btn-atc:disabled { opacity: 0.5; cursor: default; }
-  .btn-atc.loading { opacity: 0.7; pointer-events: none; }
-  .atc-confirm { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 0.15em; color: var(--stone); display: none; }
-  .atc-confirm.show { display: block; }
-
-  /* DIVIDER */
-  .divider { height: 1px; background: var(--sand); }
-
-  /* MOMENT / SENSORY */
-  .section-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ochre); margin-bottom: 16px; }
-  .moment { font-family: 'Cormorant Garamond', serif; font-size: 19px; line-height: 1.7; color: var(--stone); font-style: italic; }
-
-  /* CALLOUTS */
-  .callouts { display: flex; flex-direction: column; gap: 20px; }
-  .callout { padding: 20px 0; border-bottom: 1px solid var(--sand); }
-  .callout:first-child { border-top: 1px solid var(--sand); }
-  .callout__title { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dark); margin-bottom: 8px; font-weight: 500; }
-  .callout__text { font-size: 14px; line-height: 1.7; color: var(--stone); }
-
-  /* INGREDIENTS */
-  .ingredients { font-size: 12px; line-height: 1.8; color: var(--stone); }
-
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    nav { padding: 20px 24px; }
-    .nav-links { gap: 16px; }
-    .back, .product { padding-left: 24px; padding-right: 24px; }
-    .product { grid-template-columns: 1fr; gap: 40px; }
-    .product__gallery { position: static; }
-  }
+  :root{--bone:#F5F0E6;--sand:#E8DFC8;--ochre:#C4A882;--stone:#7A7060;--dark:#1C1814;--ink:#2E2820;--white:#FDFAF5;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--white);color:var(--ink);font-family:'Barlow',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:24px 48px;border-bottom:1px solid var(--sand);position:sticky;top:0;background:rgba(253,250,245,0.95);backdrop-filter:blur(8px);z-index:100;}
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .nav-logo img{height:32px;width:auto;}
+  .nav-links{display:flex;gap:36px;list-style:none;}
+  .nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--stone);text-decoration:none;font-weight:500;transition:color 0.2s;}
+  .nav-links a:hover{color:var(--dark);}
+  .nav-links a.nav-range{color:var(--dark);border-bottom:1px solid currentColor;padding-bottom:2px;}
+  .back{max-width:1400px;margin:0 auto;padding:20px 48px 0;}
+  .back a{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--stone);text-decoration:none;transition:color 0.2s;}
+  .back a:hover{color:var(--dark);}
+  .product{max-width:1400px;margin:0 auto;padding:48px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+  .product__gallery{position:sticky;top:96px;}
+  .product__img{aspect-ratio:3/4;overflow:hidden;background:var(--sand);}
+  .product__img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .product__content{display:flex;flex-direction:column;gap:28px;padding-top:8px;}
+  .product__category{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ochre);}
+  .product__name{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(44px,5vw,72px);line-height:0.9;color:var(--dark);}
+  .product__sub{font-family:'Barlow Condensed',sans-serif;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-top:-16px;}
+  .product__tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--stone);padding:4px 10px;border:1px solid var(--sand);}
+  .product__price-row{display:flex;align-items:baseline;gap:16px;}
+  .product__price{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--dark);}
+  .product__size{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:0.1em;color:var(--stone);}
+  .product__desc{font-size:15px;line-height:1.75;color:var(--stone);border-left:2px solid var(--ochre);padding-left:20px;font-style:italic;}
+  .opt-group{display:flex;flex-direction:column;gap:10px;}
+  .opt-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ochre);}
+  .opt-btns{display:flex;flex-wrap:wrap;gap:8px;}
+  .opt-btn{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);padding:8px 16px;border:1px solid var(--sand);background:transparent;cursor:pointer;transition:all 0.2s;}
+  .opt-btn:hover{border-color:var(--ochre);color:var(--dark);}
+  .opt-btn.active{background:var(--dark);color:var(--white);border-color:var(--dark);}
+  .btn-atc{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);background:var(--dark);border:1px solid var(--dark);padding:16px 32px;cursor:pointer;transition:all 0.2s;align-self:flex-start;}
+  .btn-atc:hover:not(:disabled){background:var(--ink);}
+  .btn-atc:disabled{opacity:0.5;cursor:default;}
+  .divider{height:1px;background:var(--sand);}
+  .section-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--ochre);margin-bottom:16px;}
+  .moment{font-family:'Cormorant Garamond',serif;font-size:19px;line-height:1.7;color:var(--stone);font-style:italic;}
+  .callouts{display:flex;flex-direction:column;gap:20px;}
+  .callout{padding:20px 0;border-bottom:1px solid var(--sand);}
+  .callout:first-child{border-top:1px solid var(--sand);}
+  .callout__title{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--dark);margin-bottom:8px;font-weight:500;}
+  .callout__text{font-size:14px;line-height:1.7;color:var(--stone);}
+  .ingredients{font-size:12px;line-height:1.8;color:var(--stone);}
+  @media(max-width:900px){nav{padding:20px 24px;}.nav-links{gap:16px;}.back,.product{padding-left:24px;padding-right:24px;}.product{grid-template-columns:1fr;gap:40px;}.product__gallery{position:static;}}
 </style>
 </head>
 <body>
@@ -111,11 +73,8 @@
 
 <div class="product">
   <div class="product__gallery">
-    <div class="product__img">
-      <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/handcream1.png?v=1776858674" alt="Worn Soft Vegan Hand Cream">
-    </div>
+    <div class="product__img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/handcream1.png?v=1776858674" alt="Worn Soft Vegan Hand Cream"></div>
   </div>
-
   <div class="product__content">
     <p class="product__category">Body Care</p>
     <h1 class="product__name">Worn Soft</h1>
@@ -125,86 +84,23 @@
       <span class="product__price">$46</span>
       <span class="product__size">270ml · 9.13 fl oz</span>
     </div>
-    <p class="product__desc">Earned it. Rich, vegan hand cream built for hands that don't quit. Sinks in fast, stays all day. No greasy finish. Just soft, restored hands ready to go again.</p>
-
+    <p class="product__desc">Earned it. Rich, vegan hand cream built for hands that don't quit. Sinks in fast, stays all day. No greasy finish.</p>
     <div class="divider"></div>
-
-    
-      <div class="variant-selector">
-        <div class="opt-group"><p class="opt-label">Scent</p><div class="opt-btns scent-group"><button class="opt-btn scent-btn" data-vid="51744783827240" onclick="selectScent(this)">Citrus + Pink Peppercorn</button>
-<button class="opt-btn scent-btn" data-vid="51744783860008" onclick="selectScent(this)">Mesquite Amber + Leather</button></div></div>
-        <button class="btn-atc" id="atc-btn" onclick="doAddScent()" disabled>Select a Scent</button>
-      </div>
-      <script>
-        var selVid = null;
-        function selectScent(el) {
-          document.querySelectorAll('.scent-btn').forEach(b=>b.classList.remove('active'));
-          el.classList.add('active'); selVid = el.dataset.vid;
-          var btn = document.getElementById('atc-btn');
-          btn.disabled=false; btn.textContent='Add to Cart';
-        }
-        function doAddScent() { if(selVid) addToCart(selVid); }
-      </script>
-    <p class="atc-confirm" id="atc-confirm">Added to cart →</p>
-
+    <div style="display:flex;flex-direction:column;gap:16px;"><div class="opt-group"><p class="opt-label">Scent</p><div class="opt-btns" id="scent-grp"><button class="opt-btn" data-vid="51744783827240" data-title="Citrus + Pink Peppercorn" onclick="selScent(this)">Citrus + Pink Peppercorn</button>
+<button class="opt-btn" data-vid="51744783860008" data-title="Mesquite Amber + Leather" onclick="selScent(this)">Mesquite Amber + Leather</button></div></div>
+        <button class="btn-atc" id="atc-btn" onclick="doScent()" disabled>Select a Scent</button>
+        <script>var selVid=null,selTitle=null;
+        function selScent(el){document.querySelectorAll('#scent-grp .opt-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');selVid=el.dataset.vid;selTitle=el.dataset.title;var b=document.getElementById('atc-btn');b.disabled=false;b.textContent='Add to Cart';}
+        function doScent(){if(selVid)GTRCart.add(selVid,'Worn Soft',selTitle,46,'https://cdn.shopify.com/s/files/1/0984/0174/7240/files/handcream1.png?v=1776858674');}</script></div>
     <div class="divider"></div>
-
-    <div>
-      <p class="section-label">The Moment</p>
-      <p class="moment">After washing, before anything else. The formula absorbs faster than its richness suggests — jojoba and shea work together the way they're supposed to, one conditioning the surface and the other sealing it. No greasy residue means you can use it and keep going. Two scents: Mesquite Amber + Leather for when you want something that knows where it's been. Citrus + Pink Peppercorn for when you want something sharp and clean and ready.</p>
-    </div>
-
+    <div><p class="section-label">The Moment</p><p class="moment">After washing, before anything else. Jojoba and shea work together. Two scents: Mesquite Amber + Leather or Citrus + Pink Peppercorn.</p></div>
     <div class="divider"></div>
-
-    <div>
-      <p class="section-label">Key Ingredients</p>
-      <div class="callouts">
-          <div class="callout">
-            <h4 class="callout__title">Jojoba Oil</h4>
-            <p class="callout__text">Simmondsia Chinensis. Liquid wax that mirrors skin's sebum exactly. Absorbs without occlusion — the reason this cream disappears fast.</p>
-          </div>
-          <div class="callout">
-            <h4 class="callout__title">Shea Butter</h4>
-            <p class="callout__text">Butyrospermum Parkii. Rich in oleic acid and vitamins A and E. Seals and restores. The reason your hands stay soft hours later.</p>
-          </div>
-          <div class="callout">
-            <h4 class="callout__title">Lavender Flower Extract</h4>
-            <p class="callout__text">Lavandula Angustifolia. Anti-inflammatory and calming. Works on cracked, overworked, dry skin at the cellular level.</p>
-          </div></div>
-    </div>
-
+    <div><p class="section-label">Key Ingredients</p><div class="callouts"><div class="callout"><h4 class="callout__title">Jojoba Oil</h4><p class="callout__text">Liquid wax that mirrors skin's sebum. The reason this cream disappears fast.</p></div><div class="callout"><h4 class="callout__title">Shea Butter</h4><p class="callout__text">Rich in oleic acid and vitamins A and E. Softness hours later.</p></div><div class="callout"><h4 class="callout__title">Lavender Flower Extract</h4><p class="callout__text">Anti-inflammatory. Works on cracked, overworked, dry skin.</p></div></div></div>
     <div class="divider"></div>
-
-    <div>
-      <p class="section-label">Full Ingredient List</p>
-      <p class="ingredients">Aqua, Glycerin, Simmondsia Chinensis (Jojoba) Seed Oil, Butyrospermum Parkii (Shea Butter), Cetearyl Alcohol, Lavandula Angustifolia Flower Extract, Betaine, Parfum, Phenoxyethanol, Ethylhexylglycerin</p>
-    </div>
+    <div><p class="section-label">Full Ingredient List</p><p class="ingredients">Aqua, Glycerin, Simmondsia Chinensis (Jojoba) Seed Oil, Butyrospermum Parkii (Shea Butter), Cetearyl Alcohol, Lavandula Angustifolia Flower Extract, Betaine, Parfum, Phenoxyethanol, Ethylhexylglycerin</p></div>
   </div>
 </div>
 
-<script>
-function addToCart(variantId) {
-  var btn = document.getElementById('atc-btn');
-  if(btn) { btn.classList.add('loading'); btn.textContent = 'Adding...'; }
-  fetch('https://or-cre.com/cart/add.js', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({items: [{id: variantId, quantity: 1}]})
-  })
-  .then(r => r.json())
-  .then(() => {
-    if(btn) { btn.classList.remove('loading'); btn.textContent = 'Added ✓'; }
-    var conf = document.getElementById('atc-confirm');
-    if(conf) { conf.classList.add('show'); }
-    setTimeout(() => {
-      if(btn) btn.textContent = 'Add to Cart';
-    }, 3000);
-  })
-  .catch(() => {
-    window.location = 'https://or-cre.com/cart/' + variantId + ':1';
-  });
-}
-</script>
-
+<script src="/cart.js"></script>
 </body>
 </html>
