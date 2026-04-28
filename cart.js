@@ -11,7 +11,7 @@
   function loadCart() {
     try {
       var raw = localStorage.getItem(STORAGE_KEY);
-      return raw ? JSON.parse(raw) : { items: [], checkoutId: null, checkoutUrl: null };
+      var parsed = raw ? JSON.parse(raw) : {}; return { items: Array.isArray(parsed.items) ? parsed.items : [], checkoutId: parsed.checkoutId || null, checkoutUrl: parsed.checkoutUrl || null };
     } catch(e) { return { items: [], checkoutId: null, checkoutUrl: null }; }
   }
 
@@ -149,6 +149,7 @@
     var trigCount = document.getElementById('gtr-trigger-count');
     var subtotal  = document.getElementById('gtr-subtotal');
 
+    if (!Array.isArray(cart.items)) cart.items = [];
     var total = cart.items.reduce(function(s,i){ return s + i.price * i.qty; }, 0);
     var count = cart.items.reduce(function(s,i){ return s + i.qty; }, 0);
 
