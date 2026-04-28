@@ -51,10 +51,14 @@
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; justify-content: space-between; align-items: center;
-    padding: 28px 48px;
+    padding: 24px 48px;
+    background: rgba(28, 24, 20, 0.72);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background 0.3s ease;
   }
   nav.light { color: #F4EFE6; }
-  nav.dark  { color: var(--warm-black); }
+  nav.dark  { color: #F4EFE6; background: rgba(28, 24, 20, 0.88); }
   .nav-logo {
     font-family: var(--serif); font-size: 13px; font-weight: 400;
     letter-spacing: 0.2em; text-transform: uppercase;
@@ -64,13 +68,12 @@
   .nav-logo img { height: 32px; width: auto; }
   .nav-links { display: flex; gap: 40px; list-style: none; }
   .nav-links a {
-    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
-    text-decoration: none; color: inherit; opacity: 1;
+    font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+    text-decoration: none; color: #F4EFE6; opacity: 1;
     font-weight: 500;
     transition: opacity 0.2s; cursor: pointer;
   }
   .nav-links a:hover { opacity: 0.6; }
-  nav.light .nav-links a { text-shadow: 0 1px 4px rgba(0,0,0,0.25); }
   .nav-links a.nav-quiz-cta {
     opacity: 1 !important;
     border-bottom: 1px solid currentColor;
