@@ -1,1 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Claim — Ghost Town Ranch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Barlow+Condensed:wght@300;400;500;600&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bone:   #F5F0E6;
+    --sand:   #E8DFC8;
+    --ochre:  #C4A882;
+    --stone:  #7A7060;
+    --dark:   #1C1814;
+    --ink:    #2E2820;
+    --white:  #FDFAF5;
+    --accent: #4A5A3A;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--white); color: var(--ink); font-family: 'Barlow', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; }
 
+  /* NAV */
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 48px; border-bottom: 1px solid var(--sand); position: sticky; top: 0; background: var(--white); z-index: 100; }
+  .nav-logo img { height: 28px; width: auto; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--stone); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--dark); }
+  .nav-links a.nav-range { color: var(--dark); border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+
+  /* BACK LINK */
+  .back-link { max-width: 1400px; margin: 0 auto; padding: 24px 48px 0; }
+  .back-link a { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--stone); text-decoration: none; transition: color 0.2s; }
+  .back-link a:hover { color: var(--dark); }
+
+  /* HERO */
+  .hero { max-width: 1400px; margin: 0 auto; padding: 48px 48px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; }
+  .hero__image { aspect-ratio: 3/4; overflow: hidden; }
+  .hero__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero__content { padding-bottom: 24px; display: flex; flex-direction: column; gap: 24px; justify-content: flex-end; }
+  .hero__label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ochre); }
+  .hero__title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(52px, 6vw, 88px); line-height: 0.9; color: var(--dark); }
+  .hero__tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; line-height: 1.4; color: var(--stone); padding-left: 20px; border-left: 2px solid var(--ochre); }
+  .hero__bio { font-size: 15px; line-height: 1.75; color: var(--stone); max-width: 420px; }
+
+  /* SECTION HEADINGS */
+  .section-header { max-width: 1400px; margin: 0 auto; padding: 48px 48px 24px; border-top: 1px solid var(--sand); display: flex; align-items: center; gap: 24px; }
+  .section-header__title { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
+  .section-header__line { flex: 1; height: 1px; background: var(--sand); }
+  .section-header__desc { font-family: 'Barlow', sans-serif; font-size: 13px; color: var(--stone); }
+
+  /* PRODUCT GRID */
+  .product-grid { max-width: 1400px; margin: 0 auto; padding: 0 48px 80px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+
+  /* PRODUCT CARD */
+  .product-card { display: flex; flex-direction: column; }
+  .card-img { position: relative; aspect-ratio: 3/4; overflow: hidden; background: var(--sand); margin-bottom: 16px; }
+  .card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+  .product-card:hover .card-img img { transform: scale(1.04); }
+  .badge { position: absolute; top: 12px; left: 12px; font-family: 'Barlow Condensed', sans-serif; font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; padding: 4px 8px; }
+  .badge-primary { background: var(--accent); color: #fff; }
+  .badge-cross { background: var(--sand); color: var(--stone); }
+  .card-body { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .card-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dark); }
+  .card-sub { font-size: 12px; line-height: 1.5; color: var(--stone); flex: 1; }
+  .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--sand); }
+  .card-price { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--stone); }
+  .btn-buy { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dark); text-decoration: none; padding: 8px 14px; border: 1px solid var(--dark); transition: background 0.2s, color 0.2s; white-space: nowrap; }
+  .btn-buy:hover { background: var(--dark); color: var(--white); }
+  .btn-view { border-color: var(--sand); color: var(--stone); }
+  .btn-view:hover { background: var(--stone); border-color: var(--stone); color: var(--white); }
+
+  /* CLOSER */
+  .closer { max-width: 1400px; margin: 0 auto; padding: 64px 48px; border-top: 1px solid var(--sand); display: flex; justify-content: space-between; align-items: center; }
+  .closer__line { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 24px; color: var(--stone); }
+  .closer__link { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dark); text-decoration: none; border-bottom: 1px solid var(--ochre); padding-bottom: 2px; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1100px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    .nav-links { gap: 16px; }
+    .back-link, .hero, .section-header, .product-grid, .closer { padding-left: 24px; padding-right: 24px; }
+    .hero { grid-template-columns: 1fr; gap: 32px; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .closer { flex-direction: column; gap: 24px; text-align: center; }
+  }
+  @media (max-width: 560px) { .product-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-logo">
+    <a href="/"><img src="https://or-cre.com/cdn/shop/files/GTR_Wordmark_Lockup_Black.png?v=1776727397" alt="Ghost Town Ranch"></a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="/#brand">The Brand</a></li>
+    <li><a href="/#catalog">The Collection</a></li>
+    <li><a href="/#wholesale">Wholesale</a></li>
+    <li><a href="/range/index.html" class="nav-range">Find Your Range</a></li>
+  </ul>
+</nav>
+
+<div class="back-link"><a href="/range/index.html">← Find Your Range</a></div>
+
+<section class="hero">
+  <div class="hero__image">
+    <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/claim.png?v=1777346185" alt="The Claim — Ghost Town Ranch">
+  </div>
+  <div class="hero__content">
+    <p class="hero__label">The Modern Pioneer</p>
+    <h1 class="hero__title">The Claim</h1>
+    <p class="hero__tagline">You're building something. You know exactly what it should feel like.</p>
+    <p class="hero__bio">The place is coming together. So is the life around it. You're curating as you go — nothing provisional, nothing placeholder.</p>
+  </div>
+</section>
+
+<div class="section-header">
+  <span class="section-header__title">Primary</span>
+  <span class="section-header__line"></span>
+  <span class="section-header__desc">Built for this profile</span>
+</div>
+<div class="product-grid">
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/Desertdaycreamimage.png?v=1776856136&width=600" alt="Desert Day Cream" loading="lazy">
+          <span class="badge badge-primary">Primary</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Desert Day Cream</div>
+          <div class="card-sub">Antioxidant · All Skin Types · Daily Anchor</div>
+          <div class="card-footer">
+            <span class="card-price">$56</span>
+            <a href="https://or-cre.com/products/moisturising-day-cream" class="btn-buy btn-view">View Product</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/frontierfade_2.png?v=1776860857&width=600" alt="Frontier Fade" loading="lazy">
+          <span class="badge badge-primary">Primary</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Frontier Fade</div>
+          <div class="card-sub">Toning Exfoliant · Glycolic Acid · Brightening</div>
+          <div class="card-footer">
+            <span class="card-price">$48</span>
+            <a href="https://or-cre.com/products/glycolic-acid-exfoliating-toner" class="btn-buy btn-view">View Product</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/mojaveresetimage.png?v=1776860708&width=600" alt="Mojave Reset" loading="lazy">
+          <span class="badge badge-primary">Primary</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Mojave Reset</div>
+          <div class="card-sub">Cooling Face Mist · Prebiotic · All Skin Types</div>
+          <div class="card-footer">
+            <span class="card-price">$46</span>
+            <a href="https://or-cre.com/products/microbiome-prebiotics-face-mist-1" class="btn-buy btn-view">View Product</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/outlawswipeoutimage.png?v=1776861182&width=600" alt="Outlaw's Wipeout" loading="lazy">
+          <span class="badge badge-primary">Primary</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Outlaw's Wipeout</div>
+          <div class="card-sub">Makeup Remover · Fragrance-Free · Biphasic</div>
+          <div class="card-footer">
+            <span class="card-price">$48</span>
+            <a href="https://or-cre.com/products/biphasic-make-up-remover-fragrance-free" class="btn-buy btn-view">View Product</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/bodyoil.png?v=1776860130&width=600" alt="Golden Hour Body Oil" loading="lazy">
+          <span class="badge badge-primary">Primary</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Golden Hour Body Oil</div>
+          <div class="card-sub">Organic · 7 Cold-Pressed Oils · Lightweight Glow</div>
+          <div class="card-footer">
+            <span class="card-price">$64</span>
+            <a href="https://or-cre.com/products/omega-6-9-glowing-skin-body-oil" class="btn-buy btn-view">View Product</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/handcream1.png?v=1776858674&width=600" alt="Worn Soft" loading="lazy">
+          <span class="badge badge-primary">Primary</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Worn Soft</div>
+          <div class="card-sub">Hand Cream · Citrus + Pink Peppercorn</div>
+          <div class="card-footer">
+            <span class="card-price">$46</span>
+            <a href="https://or-cre.com/products/worn-soft-hand-cream-citrus-pink-peppercorn" class="btn-buy btn-view">View Product</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/thewash2.png?v=1776859358&width=600" alt="The Wash" loading="lazy">
+          <span class="badge badge-primary">Primary</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">The Wash</div>
+          <div class="card-sub">Peppermint & Dark Cedar · Hand + Body Wash</div>
+          <div class="card-footer">
+            <span class="card-price">$38</span>
+            <a href="https://or-cre.com/products/frost-line-the-wash-peppermint-dark-cedar" class="btn-buy btn-view">View Product</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/trailsendimage.png?v=1776861314&width=600" alt="Trail's End" loading="lazy">
+          <span class="badge badge-primary">Primary</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Trail's End</div>
+          <div class="card-sub">Keratin Hair Mist · Leave-In · Anti-Frizz</div>
+          <div class="card-footer">
+            <span class="card-price">$46</span>
+            <a href="https://or-cre.com/products/keratin-shine-leave-in-hair-mist" class="btn-buy btn-view">View Product</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/rosemaryminthairoilimage.png?v=1776860532&width=600" alt="Rosemary Mint Revive" loading="lazy">
+          <span class="badge badge-primary">Primary</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Rosemary Mint Revive</div>
+          <div class="card-sub">Hair + Scalp Oil · Growth · Strengthening</div>
+          <div class="card-footer">
+            <span class="card-price">$44</span>
+            <a href="https://or-cre.com/products/rosemary-hair-scalp-strengthening-oil" class="btn-buy btn-view">View Product</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/BlackDraw_TheSlow.png?v=1776726085&width=600" alt="The Slow" loading="lazy">
+          <span class="badge badge-primary">Primary</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">The Slow</div>
+          <div class="card-sub">18oz · 3-Wick · Hand-Poured · 6 Scents</div>
+          <div class="card-footer">
+            <span class="card-price">$68</span>
+            <a href="https://or-cre.com/products/the-slow-candle" class="btn-buy btn-view">View Product</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/RanchWater.png?v=1776856533&width=600" alt="Ranch Water" loading="lazy">
+          <span class="badge badge-primary">Primary</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Ranch Water</div>
+          <div class="card-sub">Body + Room Fragrance · 6 Scents</div>
+          <div class="card-footer">
+            <span class="card-price">$74</span>
+            <a href="https://or-cre.com/products/ranch-water-body-room-fragrance" class="btn-buy btn-view">View Product</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/Rosecut.png?v=1777339980&width=600" alt="Rose Cut" loading="lazy">
+          <span class="badge badge-primary">Primary</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Rose Cut</div>
+          <div class="card-sub">Daily Facial Wash · Brightening · Natural-Origin</div>
+          <div class="card-footer">
+            <span class="card-price">$54</span>
+            <a href="https://or-cre.com/cart/51754756440360:1" class="btn-buy">Add to Cart</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/Generated-with_Kive.ai_-_kive-image_28_6.png?v=1776814523&width=600" alt="GTR Tee" loading="lazy">
+          <span class="badge badge-primary">Primary</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">GTR Tee</div>
+          <div class="card-sub">Garment-Dyed · Unisex · Black or Bone</div>
+          <div class="card-footer">
+            <span class="card-price">$46</span>
+            <a href="https://or-cre.com/products/gtr-unisex-tee-in-black-or-bone" class="btn-buy btn-view">View Product</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/blackhoodie.png?v=1776857744&width=600" alt="GTR Hoodie" loading="lazy">
+          <span class="badge badge-primary">Primary</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">GTR Hoodie</div>
+          <div class="card-sub">Unisex · Black · Navy · Carbon Grey · XS–2XL</div>
+          <div class="card-footer">
+            <span class="card-price">$64</span>
+            <a href="https://or-cre.com/products/gtr-unisex-hoodie-in-black-french-navy-white-copy" class="btn-buy btn-view">View Product</a>
+          </div>
+        </div>
+      </article>
+</div>
+
+<div class="section-header">
+  <span class="section-header__title">Also Recommended</span>
+  <span class="section-header__line"></span>
+  <span class="section-header__desc">Cross-profile picks worth exploring</span>
+</div>
+<div class="product-grid">
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/peptidebottlemage.png?v=1776860380&width=600" alt="The Grade Peptide Serum" loading="lazy">
+          <span class="badge badge-cross">Also Recommended</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">The Grade Peptide Serum</div>
+          <div class="card-sub">Firms · Smooths · Reduces Fine Lines</div>
+          <div class="card-footer">
+            <span class="card-price">$58</span>
+            <a href="https://or-cre.com/products/peptide-anti-aging-serum" class="btn-buy btn-view">View Product</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/theholdantiage.png?v=1777337380&width=600" alt="The Hold" loading="lazy">
+          <span class="badge badge-cross">Also Recommended</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">The Hold</div>
+          <div class="card-sub">Anti-Age Day Cream · Full-Day Protection</div>
+          <div class="card-footer">
+            <span class="card-price">$64</span>
+            <a href="https://or-cre.com/products/the-hold-anti-aging-day-cream" class="btn-buy btn-view">View Product</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/dusktildawnimage_1be4ce6c-dce1-42d6-988f-67d2f5b556b6.png?v=1776861034&width=600" alt="Dusk Til Dawn" loading="lazy">
+          <span class="badge badge-cross">Also Recommended</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Dusk Til Dawn</div>
+          <div class="card-sub">Hydration Gel · Overnight Repair</div>
+          <div class="card-footer">
+            <span class="card-price">$52</span>
+            <a href="https://or-cre.com/cart/51729935270184:1" class="btn-buy">Add to Cart</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/desertglowimage_d4e6d652-4e70-4bda-bee5-de2bae93a1ba.png?v=1776855864&width=600" alt="Desert Glow Facial Oil" loading="lazy">
+          <span class="badge badge-cross">Also Recommended</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Desert Glow Facial Oil</div>
+          <div class="card-sub">6 Organic Oils · Hydrating · Glow</div>
+          <div class="card-footer">
+            <span class="card-price">$58</span>
+            <a href="https://or-cre.com/products/desert-glow-hydrating-facial-oil" class="btn-buy btn-view">View Product</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/AllTold.png?v=1777338299&width=600" alt="All Told" loading="lazy">
+          <span class="badge badge-cross">Also Recommended</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">All Told</div>
+          <div class="card-sub">3-in-1 Eye Cream · Anti-Age · Long-Lasting Hydration</div>
+          <div class="card-footer">
+            <span class="card-price">$48</span>
+            <a href="https://or-cre.com/cart/51730077483304:1" class="btn-buy">Add to Cart</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/handcream2_a81493a4-77a3-4385-8cf6-7e7543f276a2.png?v=1776858830&width=600" alt="Worn Soft" loading="lazy">
+          <span class="badge badge-cross">Also Recommended</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Worn Soft</div>
+          <div class="card-sub">Hand Cream · Mesquite Amber + Leather</div>
+          <div class="card-footer">
+            <span class="card-price">$46</span>
+            <a href="https://or-cre.com/products/hardwon-hand-cream-mesquite-amber-leather" class="btn-buy btn-view">View Product</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/thewashimage_7509c88e-32dc-4309-8da5-635175c5ab86.png?v=1776859541&width=600" alt="The Wash" loading="lazy">
+          <span class="badge badge-cross">Also Recommended</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">The Wash</div>
+          <div class="card-sub">Cold-Pressed Grapefruit · Hand + Body Wash</div>
+          <div class="card-footer">
+            <span class="card-price">$38</span>
+            <a href="https://or-cre.com/products/sunbroke-the-wash-cold-pressed-grapefruit" class="btn-buy btn-view">View Product</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/outlawsreserv.png?v=1776859755&width=600" alt="Outlaw's Reserve" loading="lazy">
+          <span class="badge badge-cross">Also Recommended</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Outlaw's Reserve</div>
+          <div class="card-sub">2-in-1 Hair + Skin Rinse · One Bag Essential</div>
+          <div class="card-footer">
+            <span class="card-price">$48</span>
+            <a href="https://or-cre.com/products/2-in-1-hair-body-wash-for-men" class="btn-buy btn-view">View Product</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/travelcandle1.png?v=1777034831&width=600" alt="The Wander" loading="lazy">
+          <span class="badge badge-cross">Also Recommended</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">The Wander</div>
+          <div class="card-sub">Travel Candle · 4oz · 36hr · 6 Scents</div>
+          <div class="card-footer">
+            <span class="card-price">$32</span>
+            <a href="https://or-cre.com/products/the-wander-travel-candle" class="btn-buy btn-view">View Product</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/TheMonument.png?v=1776856477&width=600" alt="The Monument" loading="lazy">
+          <span class="badge badge-cross">Also Recommended</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">The Monument</div>
+          <div class="card-sub">55oz · 4-Wick · 120hr Burn · 6 Scents</div>
+          <div class="card-footer">
+            <span class="card-price">$196</span>
+            <a href="https://or-cre.com/products/the-monument-candle" class="btn-buy btn-view">View Product</a>
+          </div>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="card-img">
+          <img src="https://or-cre.com/cdn/shop/files/GTRHoodie.png?v=1776857493&width=600" alt="GTR Sweatshirt" loading="lazy">
+          <span class="badge badge-cross">Also Recommended</span>
+        </div>
+        <div class="card-body">
+          <div class="card-name">GTR Sweatshirt</div>
+          <div class="card-sub">Unisex · Black · Navy · White · XS–2XL</div>
+          <div class="card-footer">
+            <span class="card-price">$74</span>
+            <a href="https://or-cre.com/products/gtr-unisex-sweatshirt-in-black-french-navy-white" class="btn-buy btn-view">View Product</a>
+          </div>
+        </div>
+      </article>
+</div>
+
+<div class="closer">
+  <p class="closer__line">Not where you expected to land?</p>
+  <a href="/range/index.html" class="closer__link">Explore All Profiles →</a>
+</div>
+
+</body>
+</html>
