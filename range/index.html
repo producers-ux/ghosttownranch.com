@@ -29,7 +29,8 @@
     background: var(--white);
     color: var(--ink);
     font-family: 'Barlow', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
+    font-size: 16px;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -222,17 +223,18 @@
   .archetype__tagline {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 20px;
-    line-height: 1.4;
+    font-size: 22px;
+    line-height: 1.5;
     color: var(--stone);
     padding-left: 20px;
     border-left: 2px solid var(--ochre);
   }
 
   .archetype__bio {
-    font-size: 15px;
-    line-height: 1.75;
+    font-size: 16px;
+    line-height: 1.8;
     color: var(--stone);
+    font-weight: 400;
   }
 
   /* ── TRAITS ── */
@@ -253,8 +255,8 @@
 
   .trait {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    letter-spacing: 0.08em;
+    font-size: 14px;
+    letter-spacing: 0.06em;
     color: var(--ink);
     display: flex;
     align-items: center;
@@ -315,9 +317,9 @@
 
   .product-item__sub {
     font-family: 'Barlow', sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     color: var(--stone);
-    font-weight: 300;
+    font-weight: 400;
     margin-top: 2px;
   }
 
@@ -417,7 +419,57 @@
   .page-closer__link:hover { color: var(--dark); }
 
   /* ── RESPONSIVE ── */
+  /* ── MOBILE — Goop/Rhode standard: 18px body min, 500 weight, generous spacing ── */
   @media (max-width: 900px) {
+    /* Layout */
+    .page-header { grid-template-columns: 1fr !important; gap: 20px !important; padding: 36px 20px 28px !important; }
+    .archetype { grid-template-columns: 1fr !important; gap: 28px !important; padding: 48px 20px !important; }
+    .archetype:nth-child(odd) .archetype__image { order: 0 !important; }
+    .archetype-nav { padding: 0 20px !important; overflow-x: auto !important; }
+    .page-closer { padding: 48px 20px !important; }
+
+    /* Page header */
+    .page-header__title { font-size: 48px !important; line-height: 1 !important; }
+    .page-header__desc { font-size: 18px !important; line-height: 1.8 !important; max-width: 100% !important; font-weight: 400 !important; }
+    .page-header__label { font-size: 13px !important; letter-spacing: 0.18em !important; }
+
+    /* Archetype identity */
+    .archetype__label { font-size: 13px !important; letter-spacing: 0.2em !important; }
+    .archetype__name { font-size: 60px !important; line-height: 0.92 !important; }
+    .archetype__tagline { font-size: 22px !important; line-height: 1.55 !important; }
+
+    /* Body copy — 18px matches Goop/Rhode mobile standard */
+    .archetype__bio { font-size: 18px !important; line-height: 1.85 !important; font-weight: 400 !important; }
+
+    /* Traits */
+    .archetype__traits-label { font-size: 13px !important; letter-spacing: 0.18em !important; }
+    .trait { font-size: 17px !important; line-height: 1.6 !important; font-family: 'Barlow', sans-serif !important; letter-spacing: 0 !important; }
+
+    /* Product rail */
+    .archetype__products-label { font-size: 13px !important; letter-spacing: 0.2em !important; }
+    .product-item { padding: 18px 0 !important; }
+    .product-item__name { font-size: 17px !important; font-weight: 500 !important; letter-spacing: 0.04em !important; }
+    .product-item__sub { font-size: 15px !important; line-height: 1.55 !important; margin-top: 4px !important; }
+    .product-item__price { font-size: 24px !important; }
+    .product-item__arrow { font-size: 18px !important; }
+
+    /* CTA button */
+    .archetype__cta {
+      width: 100% !important;
+      text-align: center !important;
+      justify-content: center !important;
+      padding: 18px 24px !important;
+      font-size: 13px !important;
+    }
+
+    /* Nav */
+    .archetype-nav__item { padding: 18px 16px 16px !important; font-size: 13px !important; white-space: nowrap !important; }
+
+    /* Closer */
+    .page-closer__line { font-size: 24px !important; line-height: 1.45 !important; }
+    .page-closer__label { font-size: 13px !important; }
+    .page-closer__link { font-size: 13px !important; }
+  }
     /* Layout */
     .page-header { grid-template-columns: 1fr !important; gap: 20px !important; padding: 36px 20px 28px !important; }
     .archetype { grid-template-columns: 1fr !important; gap: 32px !important; padding: 48px 20px !important; }
