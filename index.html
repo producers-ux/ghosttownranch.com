@@ -3181,7 +3181,15 @@ function openPDP(imgDiv) {
   }
 
   // Render badge on load
-  document.addEventListener('DOMContentLoaded', function() { renderCartDrawer(); updateCartBadge(); });
+  document.addEventListener('DOMContentLoaded', function() {
+    renderCartDrawer();
+    updateCartBadge();
+    // Handle deep links from external pages e.g. /#wholesale
+    var hash = window.location.hash.replace('#', '');
+    if (hash && ['brand','catalog','wholesale','quiz'].indexOf(hash) !== -1) {
+      showPage(hash);
+    }
+  });
 
 
   
