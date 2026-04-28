@@ -418,12 +418,34 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    .page-header { grid-template-columns: 1fr; gap: 24px; padding: 48px 24px 40px; }
-    .archetype { grid-template-columns: 1fr; gap: 40px; padding: 56px 24px; }
+    .page-header { grid-template-columns: 1fr; gap: 24px; padding: 40px 20px 32px; }
+    .page-header__title { font-size: clamp(48px, 12vw, 72px); }
+    .page-header__desc { font-size: 17px; line-height: 1.75; max-width: 100%; }
+    .page-header__label { font-size: 12px; }
+
+    .archetype { grid-template-columns: 1fr; gap: 32px; padding: 48px 20px; }
     .archetype:nth-child(odd) .archetype__image { order: 0; }
-    .archetype-nav { padding: 0 24px; overflow-x: auto; }
-    .archetype-nav__item { padding: 16px 20px 14px; white-space: nowrap; }
-    .page-closer { padding: 56px 24px; }
+
+    .archetype__label { font-size: 13px; }
+    .archetype__name { font-size: clamp(52px, 14vw, 80px); }
+    .archetype__tagline { font-size: 22px; line-height: 1.5; }
+    .archetype__bio { font-size: 17px; line-height: 1.8; }
+
+    .archetype__traits-label { font-size: 12px; }
+    .trait { font-size: 16px; line-height: 1.5; }
+
+    .archetype__products-label { font-size: 12px; }
+    .product-item__name { font-size: 16px; }
+    .product-item__sub { font-size: 14px; line-height: 1.5; }
+    .product-item__price { font-size: 22px; }
+
+    .archetype__cta { padding: 16px 28px; font-size: 13px; width: 100%; text-align: center; justify-content: center; }
+
+    .archetype-nav { padding: 0 20px; overflow-x: auto; }
+    .archetype-nav__item { padding: 16px 18px 14px; white-space: nowrap; font-size: 13px; }
+
+    .page-closer { padding: 48px 20px; }
+    .page-closer__line { font-size: clamp(22px, 6vw, 32px); }
   }
   .btn-buy{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;padding:8px 14px;border:1px solid var(--dark);background:var(--dark);color:var(--white);cursor:pointer;transition:all 0.2s;white-space:nowrap;}
   .btn-buy:hover{background:var(--ink);}
