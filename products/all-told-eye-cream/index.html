@@ -54,11 +54,6 @@
   .callout__title{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--dark);margin-bottom:8px;font-weight:500;}
   .callout__text{font-size:14px;line-height:1.7;color:var(--stone);}
   .ingredients{font-size:12px;line-height:1.8;color:var(--stone);}
-  /* MINI CART */
-  .mini-cart{display:none;position:fixed;bottom:24px;right:24px;background:var(--dark);color:var(--white);padding:16px 24px;align-items:center;gap:16px;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,0.2);}
-  .mini-cart__text{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;}
-  .mini-cart__checkout{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ochre);text-decoration:none;border-bottom:1px solid var(--ochre);padding-bottom:1px;}
-  .mini-cart__close{background:none;border:none;color:var(--white);cursor:pointer;font-size:18px;opacity:0.6;padding:0 0 0 8px;}
   @media(max-width:900px){nav{padding:20px 24px;}.nav-links{gap:16px;}.back,.product{padding-left:24px;padding-right:24px;}.product{grid-template-columns:1fr;gap:40px;}.product__gallery{position:static;}}
 </style>
 </head>
@@ -91,11 +86,9 @@
     </div>
     <p class="product__desc">Resilient plants meet potent actives. Moisture boost, luxurious texture, and long-lasting hydration. Aloe juice, Jojoba oil, Shea butter, Hyaluronic acid, Alteromonas Ferment Extract.</p>
     <div class="divider"></div>
-    <div style="display:flex;flex-direction:column;gap:16px;">
-      <button class="btn-atc" id="atc-btn" onclick="addToCartSDK(51729909350696)">Add to Cart</button>
-    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;"><button class="btn-atc" id="atc-btn" onclick="GTRCart.add(51729909350696, 'All Told', 'Default', 48, 'https://cdn.shopify.com/s/files/1/0984/0174/7240/files/AllTold.png?v=1777338299')">Add to Cart</button></div>
     <div class="divider"></div>
-    <div><p class="section-label">The Moment</p><p class="moment">Morning and evening, last step before you're done. A small amount around the eye — not too much, not too little. The texture is richer than it looks, settles fast. Alteromonas ferment extract is the sleeper ingredient here: a marine-derived active that mimics how deep-sea bacteria adapt to pressure and cold. Your skin recognizes the signal. Moisture locks in. Fine lines soften over time, not overnight. That's the honest version.</p></div>
+    <div><p class="section-label">The Moment</p><p class="moment">Morning and evening, last step before you're done. A small amount around the eye — not too much, not too little. The texture is richer than it looks, settles fast. Alteromonas ferment extract is the sleeper ingredient here: a marine-derived active that mimics how deep-sea bacteria adapt to pressure and cold. Your skin recognizes the signal. Moisture locks in. Fine lines soften over time, not overnight.</p></div>
     <div class="divider"></div>
     <div><p class="section-label">Key Ingredients</p><div class="callouts"><div class="callout"><h4 class="callout__title">Alteromonas Ferment Extract</h4><p class="callout__text">Marine-derived active. Mimics the survival adaptation of deep-sea bacteria under pressure. Supports skin resilience and moisture retention at the cellular level.</p></div><div class="callout"><h4 class="callout__title">Multi-Molecular Hyaluronic Acid</h4><p class="callout__text">Different chain lengths penetrate at different skin depths — surface hydration and deeper structural support in one formula.</p></div><div class="callout"><h4 class="callout__title">Shea Butter</h4><p class="callout__text">Rich fatty acid base. Conditions the delicate eye area without heaviness. Locks the active layer in place.</p></div></div></div>
     <div class="divider"></div>
@@ -103,71 +96,6 @@
   </div>
 </div>
 
-<!-- Mini cart confirmation -->
-<div class="mini-cart" id="mini-cart">
-  <span class="mini-cart__text">Added to cart</span>
-  <a href="#" class="mini-cart__checkout" id="cart-checkout-btn">Checkout →</a>
-  <button class="mini-cart__close" onclick="document.getElementById('mini-cart').style.display='none'">×</button>
-</div>
-
-
-<div id="shopify-node-all-told-eye-cream" style="display:none"></div>
-<script type="text/javascript">
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) { ShopifyBuyInit(); } else { loadScript(); }
-  } else { loadScript(); }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true; script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'muq7w3-im.myshopify.com',
-      storefrontAccessToken: 'e6b9c8a576fcc2f38b5d7ac76ac9e9dc',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      window.gtrUI = ui;
-      window.gtrClient = client;
-      window.gtrProductId = '10254507966760';
-    });
-  }
-})();
-</script>
-
-<script>
-function addToCartSDK(variantId) {
-  var btn = document.getElementById('atc-btn');
-  var confirm = document.getElementById('atc-confirm');
-  if(btn) { btn.disabled = true; btn.textContent = 'Adding...'; }
-
-  if(!window.gtrClient) {
-    // SDK not ready yet — fallback to direct Shopify URL
-    window.location.href = 'https://or-cre.com/cart/' + variantId + ':1';
-    return;
-  }
-
-  window.gtrClient.checkout.create().then(function(checkout) {
-    return window.gtrClient.checkout.addLineItems(checkout.id, [{variantId: 'gid://shopify/ProductVariant/' + variantId, quantity: 1}]);
-  }).then(function(checkout) {
-    if(btn) { btn.disabled = false; btn.textContent = 'Added ✓'; }
-    if(confirm) { confirm.style.display = 'flex'; }
-    // Show mini cart or redirect to checkout
-    if(window.checkoutUrl) {
-      window.checkoutUrl = checkout.webUrl;
-    } else {
-      window.checkoutUrl = checkout.webUrl;
-    }
-    document.getElementById('cart-checkout-btn').href = checkout.webUrl;
-    document.getElementById('mini-cart').style.display = 'flex';
-    setTimeout(function() { if(btn) btn.textContent = 'Add to Cart'; }, 3000);
-  }).catch(function() {
-    window.location.href = 'https://or-cre.com/cart/' + variantId + ':1';
-  });
-}
-</script>
+<script src="/cart.js"></script>
 </body>
 </html>
