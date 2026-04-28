@@ -3184,10 +3184,28 @@ function openPDP(imgDiv) {
   document.addEventListener('DOMContentLoaded', function() {
     renderCartDrawer();
     updateCartBadge();
-    // Handle deep links from external pages e.g. /#wholesale
-    var hash = window.location.hash.replace('#', '');
+    // Handle deep links from external pages e.g. /#wholesale or /#catalog?filter=skin
+    var hashFull = window.location.hash.replace('#', '');
+    var hashParts = hashFull.split('?');
+    var hash = hashParts[0];
+    var filterParam = null;
+    if (hashParts[1]) {
+      var params = hashParts[1].split('&');
+      for (var p = 0; p < params.length; p++) {
+        var kv = params[p].split('=');
+        if (kv[0] === 'filter') filterParam = kv[1];
+      }
+    }
     if (hash && ['brand','catalog','wholesale','quiz'].indexOf(hash) !== -1) {
       showPage(hash);
+      if (filterParam && hash === 'catalog') {
+        var filterBtns = document.querySelectorAll('.filter-btn');
+        var filterMap = { all: 0, fragrance: 1, skin: 2, hair: 3, tools: 4, bundles: 5, merch: 6 };
+        var idx = filterMap[filterParam];
+        if (idx !== undefined && filterBtns[idx]) {
+          filterProducts(filterParam, filterBtns[idx]);
+        }
+      }
     }
   });
 
