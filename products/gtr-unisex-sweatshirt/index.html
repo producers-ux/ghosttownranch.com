@@ -8,91 +8,53 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Barlow+Condensed:wght@300;400;500;600&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bone:   #F5F0E6;
-    --sand:   #E8DFC8;
-    --ochre:  #C4A882;
-    --stone:  #7A7060;
-    --dark:   #1C1814;
-    --ink:    #2E2820;
-    --white:  #FDFAF5;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { background: var(--white); color: var(--ink); font-family: 'Barlow', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; }
-
-  /* NAV */
-  nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 48px; border-bottom: 1px solid var(--sand); position: sticky; top: 0; background: rgba(253,250,245,0.92); backdrop-filter: blur(8px); z-index: 100; }
-  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-logo img { height: 32px; width: auto; }
-  .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--stone); text-decoration: none; font-weight: 500; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--dark); }
-  .nav-links a.nav-range { color: var(--dark); border-bottom: 1px solid currentColor; padding-bottom: 2px; }
-
-  /* BACK */
-  .back { max-width: 1400px; margin: 0 auto; padding: 20px 48px 0; }
-  .back a { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--stone); text-decoration: none; transition: color 0.2s; }
-  .back a:hover { color: var(--dark); }
-
-  /* PRODUCT LAYOUT */
-  .product { max-width: 1400px; margin: 0 auto; padding: 48px 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-  .product__gallery { position: sticky; top: 96px; }
-  .product__img { aspect-ratio: 3/4; overflow: hidden; background: var(--sand); }
-  .product__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-  /* PRODUCT CONTENT */
-  .product__content { display: flex; flex-direction: column; gap: 28px; padding-top: 8px; }
-  .product__category { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ochre); }
-  .product__name { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(44px, 5vw, 72px); line-height: 0.9; color: var(--dark); }
-  .product__sub { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); margin-top: -16px; }
-  .product__tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .tag { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--stone); padding: 4px 10px; border: 1px solid var(--sand); }
-  .product__price-row { display: flex; align-items: baseline; gap: 16px; }
-  .product__price { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--dark); }
-  .product__size { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 0.1em; color: var(--stone); }
-  .product__desc { font-size: 15px; line-height: 1.75; color: var(--stone); border-left: 2px solid var(--ochre); padding-left: 20px; font-style: italic; }
-
-  /* VARIANT SELECTOR */
-  .variant-selector, .variant-single { display: flex; flex-direction: column; gap: 16px; }
-  .opt-group { display: flex; flex-direction: column; gap: 10px; }
-  .opt-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ochre); }
-  .opt-btns { display: flex; flex-wrap: wrap; gap: 8px; }
-  .opt-btn { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); padding: 8px 16px; border: 1px solid var(--sand); background: transparent; cursor: pointer; transition: all 0.2s; }
-  .opt-btn:hover { border-color: var(--ochre); color: var(--dark); }
-  .opt-btn.active { background: var(--dark); color: var(--white); border-color: var(--dark); }
-  .btn-atc { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); background: var(--dark); border: 1px solid var(--dark); padding: 16px 32px; cursor: pointer; transition: all 0.2s; align-self: flex-start; }
-  .btn-atc:hover:not(:disabled) { background: var(--ink); }
-  .btn-atc:disabled { opacity: 0.5; cursor: default; }
-  .btn-atc.loading { opacity: 0.7; pointer-events: none; }
-  .atc-confirm { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 0.15em; color: var(--stone); display: none; }
-  .atc-confirm.show { display: block; }
-
-  /* DIVIDER */
-  .divider { height: 1px; background: var(--sand); }
-
-  /* MOMENT / SENSORY */
-  .section-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ochre); margin-bottom: 16px; }
-  .moment { font-family: 'Cormorant Garamond', serif; font-size: 19px; line-height: 1.7; color: var(--stone); font-style: italic; }
-
-  /* CALLOUTS */
-  .callouts { display: flex; flex-direction: column; gap: 20px; }
-  .callout { padding: 20px 0; border-bottom: 1px solid var(--sand); }
-  .callout:first-child { border-top: 1px solid var(--sand); }
-  .callout__title { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dark); margin-bottom: 8px; font-weight: 500; }
-  .callout__text { font-size: 14px; line-height: 1.7; color: var(--stone); }
-
-  /* INGREDIENTS */
-  .ingredients { font-size: 12px; line-height: 1.8; color: var(--stone); }
-
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    nav { padding: 20px 24px; }
-    .nav-links { gap: 16px; }
-    .back, .product { padding-left: 24px; padding-right: 24px; }
-    .product { grid-template-columns: 1fr; gap: 40px; }
-    .product__gallery { position: static; }
-  }
+  :root{--bone:#F5F0E6;--sand:#E8DFC8;--ochre:#C4A882;--stone:#7A7060;--dark:#1C1814;--ink:#2E2820;--white:#FDFAF5;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--white);color:var(--ink);font-family:'Barlow',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:24px 48px;border-bottom:1px solid var(--sand);position:sticky;top:0;background:rgba(253,250,245,0.95);backdrop-filter:blur(8px);z-index:100;}
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .nav-logo img{height:32px;width:auto;}
+  .nav-links{display:flex;gap:36px;list-style:none;}
+  .nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--stone);text-decoration:none;font-weight:500;transition:color 0.2s;}
+  .nav-links a:hover{color:var(--dark);}
+  .nav-links a.nav-range{color:var(--dark);border-bottom:1px solid currentColor;padding-bottom:2px;}
+  .back{max-width:1400px;margin:0 auto;padding:20px 48px 0;}
+  .back a{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--stone);text-decoration:none;transition:color 0.2s;}
+  .back a:hover{color:var(--dark);}
+  .product{max-width:1400px;margin:0 auto;padding:48px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+  .product__gallery{position:sticky;top:96px;}
+  .product__img{aspect-ratio:3/4;overflow:hidden;background:var(--sand);}
+  .product__img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .product__content{display:flex;flex-direction:column;gap:28px;padding-top:8px;}
+  .product__category{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ochre);}
+  .product__name{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(44px,5vw,72px);line-height:0.9;color:var(--dark);}
+  .product__sub{font-family:'Barlow Condensed',sans-serif;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-top:-16px;}
+  .product__tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--stone);padding:4px 10px;border:1px solid var(--sand);}
+  .product__price-row{display:flex;align-items:baseline;gap:16px;}
+  .product__price{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--dark);}
+  .product__size{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:0.1em;color:var(--stone);}
+  .product__desc{font-size:15px;line-height:1.75;color:var(--stone);border-left:2px solid var(--ochre);padding-left:20px;font-style:italic;}
+  .opt-group{display:flex;flex-direction:column;gap:10px;}
+  .opt-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ochre);}
+  .opt-btns{display:flex;flex-wrap:wrap;gap:8px;}
+  .opt-btn{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);padding:8px 16px;border:1px solid var(--sand);background:transparent;cursor:pointer;transition:all 0.2s;}
+  .opt-btn:hover{border-color:var(--ochre);color:var(--dark);}
+  .opt-btn.active{background:var(--dark);color:var(--white);border-color:var(--dark);}
+  .btn-atc{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);background:var(--dark);border:1px solid var(--dark);padding:16px 32px;cursor:pointer;transition:all 0.2s;align-self:flex-start;}
+  .btn-atc:hover:not(:disabled){background:var(--ink);}
+  .btn-atc:disabled{opacity:0.5;cursor:default;}
+  .divider{height:1px;background:var(--sand);}
+  .section-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--ochre);margin-bottom:16px;}
+  .moment{font-family:'Cormorant Garamond',serif;font-size:19px;line-height:1.7;color:var(--stone);font-style:italic;}
+  .callouts{display:flex;flex-direction:column;gap:20px;}
+  .callout{padding:20px 0;border-bottom:1px solid var(--sand);}
+  .callout:first-child{border-top:1px solid var(--sand);}
+  .callout__title{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--dark);margin-bottom:8px;font-weight:500;}
+  .callout__text{font-size:14px;line-height:1.7;color:var(--stone);}
+  .ingredients{font-size:12px;line-height:1.8;color:var(--stone);}
+  @media(max-width:900px){nav{padding:20px 24px;}.nav-links{gap:16px;}.back,.product{padding-left:24px;padding-right:24px;}.product{grid-template-columns:1fr;gap:40px;}.product__gallery{position:static;}}
 </style>
 </head>
 <body>
@@ -111,114 +73,41 @@
 
 <div class="product">
   <div class="product__gallery">
-    <div class="product__img">
-      <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/GTRHoodie.png?v=1776857493" alt="GTR Sweatshirt Unisex Garment-Dyed Sweatshirt">
-    </div>
+    <div class="product__img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/GTRHoodie.png?v=1776857493" alt="GTR Sweatshirt Unisex Garment-Dyed Sweatshirt"></div>
   </div>
-
   <div class="product__content">
     <p class="product__category">Merch</p>
     <h1 class="product__name">GTR Sweatshirt</h1>
     <p class="product__sub">Unisex Garment-Dyed Sweatshirt</p>
     <div class="product__tags"><span class="tag">Unisex</span> <span class="tag">Garment-Dyed</span> <span class="tag">Relaxed Fit</span></div>
     <div class="product__price-row">
-      <span class="product__price">From $74</span>
-      <span class="product__size">XS · S · M · L · XL · 2XL</span>
+      <span class="product__price">$74</span>
+      <span class="product__size">XS–2XL</span>
     </div>
-    <p class="product__desc">The bull icon over the heart. Garment-dyed ringspun cotton — soft, lived-in, and deepens with wear. Relaxed fit. Printed in the desert.</p>
-
+    <p class="product__desc">The bull icon over the heart. Garment-dyed ringspun cotton — soft, lived-in, and deepens with wear. Relaxed fit.</p>
     <div class="divider"></div>
-
-    
-      <div class="variant-selector">
-        <div class="opt-group"><p class="opt-label">Color</p><div class="opt-btns" id="opt1-group"><button class="opt-btn" data-opt1="Black" onclick="selectOpt(this,'opt1')">Black</button>
-<button class="opt-btn" data-opt1="White" onclick="selectOpt(this,'opt1')">White</button>
-<button class="opt-btn" data-opt1="Navy" onclick="selectOpt(this,'opt1')">Navy</button></div></div>
-        <div class="opt-group"><p class="opt-label">Size</p><div class="opt-btns" id="opt2-group"><button class="opt-btn" data-opt2="2XL" onclick="selectOpt(this,'opt2')">2XL</button>
-<button class="opt-btn" data-opt2="XL" onclick="selectOpt(this,'opt2')">XL</button>
-<button class="opt-btn" data-opt2="L" onclick="selectOpt(this,'opt2')">L</button>
-<button class="opt-btn" data-opt2="M" onclick="selectOpt(this,'opt2')">M</button>
-<button class="opt-btn" data-opt2="S" onclick="selectOpt(this,'opt2')">S</button>
-<button class="opt-btn" data-opt2="XS" onclick="selectOpt(this,'opt2')">XS</button></div></div>
-        <button class="btn-atc" id="atc-btn" onclick="doAddToCart()" disabled>Select Color + Size</button>
-      </div>
-      <script>
-        var varMap = {"Black / 2XL": 51738885390632, "Black / XL": 51738885423400, "Black / L": 51738885456168, "Black / M": 51738885488936, "Black / S": 51738885521704, "Black / XS": 51738885554472, "White / 2XL": 51738885587240, "White / XL": 51738885620008, "White / L": 51738885652776, "White / M": 51738885685544, "White / S": 51738885718312, "White / XS": 51738885751080, "Navy / 2XL": 51738885783848, "Navy / XL": 51738885816616, "Navy / L": 51738885849384, "Navy / M": 51738885882152, "Navy / S": 51738885914920, "Navy / XS": 51738885947688};
-        var sel1 = null, sel2 = null;
-        function selectOpt(el, group) {
-          document.querySelectorAll('#'+group+'-group .opt-btn').forEach(b=>b.classList.remove('active'));
-          el.classList.add('active');
-          if(group==='opt1') sel1 = el.dataset.opt1; else sel2 = el.dataset.opt2;
-          var btn = document.getElementById('atc-btn');
-          if(sel1 && sel2) { btn.disabled=false; btn.textContent='Add to Cart'; }
-        }
-        function doAddToCart() {
-          if(!sel1||!sel2) return;
-          var key = sel1+' / '+sel2;
-          var vid = varMap[key];
-          if(vid) addToCart(vid);
-        }
-      </script>
-    <p class="atc-confirm" id="atc-confirm">Added to cart →</p>
-
+    <div style="display:flex;flex-direction:column;gap:16px;"><div class="opt-group"><p class="opt-label">Color</p><div class="opt-btns" id="o1-grp"><button class="opt-btn" data-o1="Black" onclick="selO(this,'o1')">Black</button>
+<button class="opt-btn" data-o1="White" onclick="selO(this,'o1')">White</button>
+<button class="opt-btn" data-o1="Navy" onclick="selO(this,'o1')">Navy</button></div></div>
+        <div class="opt-group"><p class="opt-label">Size</p><div class="opt-btns" id="o2-grp"><button class="opt-btn" data-o2="2XL" onclick="selO(this,'o2')">2XL</button>
+<button class="opt-btn" data-o2="XL" onclick="selO(this,'o2')">XL</button>
+<button class="opt-btn" data-o2="L" onclick="selO(this,'o2')">L</button>
+<button class="opt-btn" data-o2="M" onclick="selO(this,'o2')">M</button>
+<button class="opt-btn" data-o2="S" onclick="selO(this,'o2')">S</button>
+<button class="opt-btn" data-o2="XS" onclick="selO(this,'o2')">XS</button></div></div>
+        <button class="btn-atc" id="atc-btn" onclick="doATC()" disabled>Select Color + Size</button>
+        <script>var vmap={"Black / 2XL": 51738885390632, "Black / XL": 51738885423400, "Black / L": 51738885456168, "Black / M": 51738885488936, "Black / S": 51738885521704, "Black / XS": 51738885554472, "White / 2XL": 51738885587240, "White / XL": 51738885620008, "White / L": 51738885652776, "White / M": 51738885685544, "White / S": 51738885718312, "White / XS": 51738885751080, "Navy / 2XL": 51738885783848, "Navy / XL": 51738885816616, "Navy / L": 51738885849384, "Navy / M": 51738885882152, "Navy / S": 51738885914920, "Navy / XS": 51738885947688},s1=null,s2=null;
+        function selO(el,g){document.querySelectorAll('#'+g+'-grp .opt-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');g==='o1'?s1=el.dataset.o1:s2=el.dataset.o2;var b=document.getElementById('atc-btn');if(s1&&s2){b.disabled=false;b.textContent='Add to Cart';}}
+        function doATC(){if(!s1||!s2)return;var vid=vmap[s1+' / '+s2];if(vid)GTRCart.add(vid,'GTR Sweatshirt',s1+' / '+s2,74,'https://cdn.shopify.com/s/files/1/0984/0174/7240/files/GTRHoodie.png?v=1776857493');}</script></div>
     <div class="divider"></div>
-
-    <div>
-      <p class="section-label">The Moment</p>
-      <p class="moment">Same garment-dye process as the tee — color in the fabric, not on it. The relaxed fit means it works as a layering piece or a standalone. Black, White, Navy. The white is not bright white — it's the white that's been somewhere. The navy is deep. The black deepens.</p>
-    </div>
-
+    <div><p class="section-label">The Moment</p><p class="moment">Same garment-dye process as the tee — color in the fabric. The relaxed fit works as a layering piece or standalone. Black, White, Navy.</p></div>
     <div class="divider"></div>
-
-    <div>
-      <p class="section-label">Key Ingredients</p>
-      <div class="callouts">
-          <div class="callout">
-            <h4 class="callout__title">Garment-Dyed Ringspun Cotton</h4>
-            <p class="callout__text">Post-construction dyeing for lived-in color from the first wear.</p>
-          </div>
-          <div class="callout">
-            <h4 class="callout__title">Relaxed Fit</h4>
-            <p class="callout__text">Cut for layering and comfort. Not oversized — intentionally relaxed.</p>
-          </div>
-          <div class="callout">
-            <h4 class="callout__title">Printed in the Desert</h4>
-            <p class="callout__text">Windmill City Screen Printing.</p>
-          </div></div>
-    </div>
-
+    <div><p class="section-label">Key Ingredients</p><div class="callouts"><div class="callout"><h4 class="callout__title">Garment-Dyed Ringspun Cotton</h4><p class="callout__text">Post-construction dyeing for lived-in color from first wear.</p></div><div class="callout"><h4 class="callout__title">Relaxed Fit</h4><p class="callout__text">Cut for layering and comfort.</p></div><div class="callout"><h4 class="callout__title">Printed in the Desert</h4><p class="callout__text">Windmill City Screen Printing.</p></div></div></div>
     <div class="divider"></div>
-
-    <div>
-      <p class="section-label">Full Ingredient List</p>
-      <p class="ingredients">100% Ringspun Cotton</p>
-    </div>
+    <div><p class="section-label">Full Ingredient List</p><p class="ingredients">100% Ringspun Cotton</p></div>
   </div>
 </div>
 
-<script>
-function addToCart(variantId) {
-  var btn = document.getElementById('atc-btn');
-  if(btn) { btn.classList.add('loading'); btn.textContent = 'Adding...'; }
-  fetch('https://or-cre.com/cart/add.js', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({items: [{id: variantId, quantity: 1}]})
-  })
-  .then(r => r.json())
-  .then(() => {
-    if(btn) { btn.classList.remove('loading'); btn.textContent = 'Added ✓'; }
-    var conf = document.getElementById('atc-confirm');
-    if(conf) { conf.classList.add('show'); }
-    setTimeout(() => {
-      if(btn) btn.textContent = 'Add to Cart';
-    }, 3000);
-  })
-  .catch(() => {
-    window.location = 'https://or-cre.com/cart/' + variantId + ':1';
-  });
-}
-</script>
-
+<script src="/cart.js"></script>
 </body>
 </html>
