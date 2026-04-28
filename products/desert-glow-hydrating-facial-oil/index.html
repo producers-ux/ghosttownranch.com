@@ -8,91 +8,53 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Barlow+Condensed:wght@300;400;500;600&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bone:   #F5F0E6;
-    --sand:   #E8DFC8;
-    --ochre:  #C4A882;
-    --stone:  #7A7060;
-    --dark:   #1C1814;
-    --ink:    #2E2820;
-    --white:  #FDFAF5;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { background: var(--white); color: var(--ink); font-family: 'Barlow', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; }
-
-  /* NAV */
-  nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 48px; border-bottom: 1px solid var(--sand); position: sticky; top: 0; background: rgba(253,250,245,0.92); backdrop-filter: blur(8px); z-index: 100; }
-  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-logo img { height: 32px; width: auto; }
-  .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--stone); text-decoration: none; font-weight: 500; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--dark); }
-  .nav-links a.nav-range { color: var(--dark); border-bottom: 1px solid currentColor; padding-bottom: 2px; }
-
-  /* BACK */
-  .back { max-width: 1400px; margin: 0 auto; padding: 20px 48px 0; }
-  .back a { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--stone); text-decoration: none; transition: color 0.2s; }
-  .back a:hover { color: var(--dark); }
-
-  /* PRODUCT LAYOUT */
-  .product { max-width: 1400px; margin: 0 auto; padding: 48px 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-  .product__gallery { position: sticky; top: 96px; }
-  .product__img { aspect-ratio: 3/4; overflow: hidden; background: var(--sand); }
-  .product__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-  /* PRODUCT CONTENT */
-  .product__content { display: flex; flex-direction: column; gap: 28px; padding-top: 8px; }
-  .product__category { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ochre); }
-  .product__name { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(44px, 5vw, 72px); line-height: 0.9; color: var(--dark); }
-  .product__sub { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); margin-top: -16px; }
-  .product__tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .tag { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--stone); padding: 4px 10px; border: 1px solid var(--sand); }
-  .product__price-row { display: flex; align-items: baseline; gap: 16px; }
-  .product__price { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--dark); }
-  .product__size { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 0.1em; color: var(--stone); }
-  .product__desc { font-size: 15px; line-height: 1.75; color: var(--stone); border-left: 2px solid var(--ochre); padding-left: 20px; font-style: italic; }
-
-  /* VARIANT SELECTOR */
-  .variant-selector, .variant-single { display: flex; flex-direction: column; gap: 16px; }
-  .opt-group { display: flex; flex-direction: column; gap: 10px; }
-  .opt-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ochre); }
-  .opt-btns { display: flex; flex-wrap: wrap; gap: 8px; }
-  .opt-btn { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); padding: 8px 16px; border: 1px solid var(--sand); background: transparent; cursor: pointer; transition: all 0.2s; }
-  .opt-btn:hover { border-color: var(--ochre); color: var(--dark); }
-  .opt-btn.active { background: var(--dark); color: var(--white); border-color: var(--dark); }
-  .btn-atc { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); background: var(--dark); border: 1px solid var(--dark); padding: 16px 32px; cursor: pointer; transition: all 0.2s; align-self: flex-start; }
-  .btn-atc:hover:not(:disabled) { background: var(--ink); }
-  .btn-atc:disabled { opacity: 0.5; cursor: default; }
-  .btn-atc.loading { opacity: 0.7; pointer-events: none; }
-  .atc-confirm { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 0.15em; color: var(--stone); display: none; }
-  .atc-confirm.show { display: block; }
-
-  /* DIVIDER */
-  .divider { height: 1px; background: var(--sand); }
-
-  /* MOMENT / SENSORY */
-  .section-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ochre); margin-bottom: 16px; }
-  .moment { font-family: 'Cormorant Garamond', serif; font-size: 19px; line-height: 1.7; color: var(--stone); font-style: italic; }
-
-  /* CALLOUTS */
-  .callouts { display: flex; flex-direction: column; gap: 20px; }
-  .callout { padding: 20px 0; border-bottom: 1px solid var(--sand); }
-  .callout:first-child { border-top: 1px solid var(--sand); }
-  .callout__title { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dark); margin-bottom: 8px; font-weight: 500; }
-  .callout__text { font-size: 14px; line-height: 1.7; color: var(--stone); }
-
-  /* INGREDIENTS */
-  .ingredients { font-size: 12px; line-height: 1.8; color: var(--stone); }
-
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    nav { padding: 20px 24px; }
-    .nav-links { gap: 16px; }
-    .back, .product { padding-left: 24px; padding-right: 24px; }
-    .product { grid-template-columns: 1fr; gap: 40px; }
-    .product__gallery { position: static; }
-  }
+  :root{--bone:#F5F0E6;--sand:#E8DFC8;--ochre:#C4A882;--stone:#7A7060;--dark:#1C1814;--ink:#2E2820;--white:#FDFAF5;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--white);color:var(--ink);font-family:'Barlow',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:24px 48px;border-bottom:1px solid var(--sand);position:sticky;top:0;background:rgba(253,250,245,0.95);backdrop-filter:blur(8px);z-index:100;}
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .nav-logo img{height:32px;width:auto;}
+  .nav-links{display:flex;gap:36px;list-style:none;}
+  .nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--stone);text-decoration:none;font-weight:500;transition:color 0.2s;}
+  .nav-links a:hover{color:var(--dark);}
+  .nav-links a.nav-range{color:var(--dark);border-bottom:1px solid currentColor;padding-bottom:2px;}
+  .back{max-width:1400px;margin:0 auto;padding:20px 48px 0;}
+  .back a{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--stone);text-decoration:none;transition:color 0.2s;}
+  .back a:hover{color:var(--dark);}
+  .product{max-width:1400px;margin:0 auto;padding:48px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+  .product__gallery{position:sticky;top:96px;}
+  .product__img{aspect-ratio:3/4;overflow:hidden;background:var(--sand);}
+  .product__img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .product__content{display:flex;flex-direction:column;gap:28px;padding-top:8px;}
+  .product__category{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ochre);}
+  .product__name{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(44px,5vw,72px);line-height:0.9;color:var(--dark);}
+  .product__sub{font-family:'Barlow Condensed',sans-serif;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-top:-16px;}
+  .product__tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--stone);padding:4px 10px;border:1px solid var(--sand);}
+  .product__price-row{display:flex;align-items:baseline;gap:16px;}
+  .product__price{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--dark);}
+  .product__size{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:0.1em;color:var(--stone);}
+  .product__desc{font-size:15px;line-height:1.75;color:var(--stone);border-left:2px solid var(--ochre);padding-left:20px;font-style:italic;}
+  .opt-group{display:flex;flex-direction:column;gap:10px;}
+  .opt-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ochre);}
+  .opt-btns{display:flex;flex-wrap:wrap;gap:8px;}
+  .opt-btn{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);padding:8px 16px;border:1px solid var(--sand);background:transparent;cursor:pointer;transition:all 0.2s;}
+  .opt-btn:hover{border-color:var(--ochre);color:var(--dark);}
+  .opt-btn.active{background:var(--dark);color:var(--white);border-color:var(--dark);}
+  .btn-atc{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);background:var(--dark);border:1px solid var(--dark);padding:16px 32px;cursor:pointer;transition:all 0.2s;align-self:flex-start;}
+  .btn-atc:hover:not(:disabled){background:var(--ink);}
+  .btn-atc:disabled{opacity:0.5;cursor:default;}
+  .divider{height:1px;background:var(--sand);}
+  .section-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--ochre);margin-bottom:16px;}
+  .moment{font-family:'Cormorant Garamond',serif;font-size:19px;line-height:1.7;color:var(--stone);font-style:italic;}
+  .callouts{display:flex;flex-direction:column;gap:20px;}
+  .callout{padding:20px 0;border-bottom:1px solid var(--sand);}
+  .callout:first-child{border-top:1px solid var(--sand);}
+  .callout__title{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--dark);margin-bottom:8px;font-weight:500;}
+  .callout__text{font-size:14px;line-height:1.7;color:var(--stone);}
+  .ingredients{font-size:12px;line-height:1.8;color:var(--stone);}
+  @media(max-width:900px){nav{padding:20px 24px;}.nav-links{gap:16px;}.back,.product{padding-left:24px;padding-right:24px;}.product{grid-template-columns:1fr;gap:40px;}.product__gallery{position:static;}}
 </style>
 </head>
 <body>
@@ -111,11 +73,8 @@
 
 <div class="product">
   <div class="product__gallery">
-    <div class="product__img">
-      <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertglowimage_d4e6d652-4e70-4bda-bee5-de2bae93a1ba.png?v=1776855864" alt="Desert Glow Hydrating Facial Oil">
-    </div>
+    <div class="product__img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertglowimage_d4e6d652-4e70-4bda-bee5-de2bae93a1ba.png?v=1776855864" alt="Desert Glow Hydrating Facial Oil"></div>
   </div>
-
   <div class="product__content">
     <p class="product__category">Face Care</p>
     <h1 class="product__name">Desert Glow</h1>
@@ -126,73 +85,17 @@
       <span class="product__size">15ml · 0.51 fl oz</span>
     </div>
     <p class="product__desc">Long-lasting hydration and comfort for dry skin. Six organic cold-pressed oils. A sparkling, juicy mandarin aroma in a floral cloud — refreshed and revitalized.</p>
-
     <div class="divider"></div>
-
-    
-      <div class="variant-single">
-        <button class="btn-atc" onclick="addToCart(51730077286696)">Add to Cart — </button>
-      </div>
-    <p class="atc-confirm" id="atc-confirm">Added to cart →</p>
-
+    <div style="display:flex;flex-direction:column;gap:16px;"><button class="btn-atc" id="atc-btn" onclick="GTRCart.add(51730077286696, 'Desert Glow', 'Default', 58, 'https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertglowimage_d4e6d652-4e70-4bda-bee5-de2bae93a1ba.png?v=1776855864')">Add to Cart</button></div>
     <div class="divider"></div>
-
-    <div>
-      <p class="section-label">The Moment</p>
-      <p class="moment">A few drops, morning or evening. Press into skin — don't rub. The mandarin aroma is real and brief, gone in a minute. What stays is the glow: sea-buckthorn delivers beta-carotene, the natural pigment that gives skin warmth. Evening primrose supports the skin barrier overnight. The formula is concentrated — 15ml goes further than you expect. COSMOS Organic certified: six cold-pressed oils, nothing synthetic.</p>
-    </div>
-
+    <div><p class="section-label">The Moment</p><p class="moment">A few drops, morning or evening. Press into skin — don't rub. Sea-buckthorn delivers beta-carotene, the natural pigment that gives skin warmth. COSMOS Organic certified.</p></div>
     <div class="divider"></div>
-
-    <div>
-      <p class="section-label">Key Ingredients</p>
-      <div class="callouts">
-          <div class="callout">
-            <h4 class="callout__title">Sea-Buckthorn Oil</h4>
-            <p class="callout__text">Hippophae Rhamnoides. Extremely high in beta-carotene and vitamins C and E. Gives skin its warm, luminous tone. The reason this oil has color.</p>
-          </div>
-          <div class="callout">
-            <h4 class="callout__title">Evening Primrose Oil</h4>
-            <p class="callout__text">Rich in GLA — gamma-linolenic acid. Supports and repairs the skin barrier. Particularly effective on dry, sensitive, or mature skin.</p>
-          </div>
-          <div class="callout">
-            <h4 class="callout__title">Rosehip Seed Oil</h4>
-            <p class="callout__text">Cold-pressed Rosa Canina. High in vitamin A precursors that support cell turnover. The retinol alternative that doesn't irritate.</p>
-          </div></div>
-    </div>
-
+    <div><p class="section-label">Key Ingredients</p><div class="callouts"><div class="callout"><h4 class="callout__title">Sea-Buckthorn Oil</h4><p class="callout__text">Extremely high in beta-carotene and vitamins C and E. Gives skin its warm, luminous tone.</p></div><div class="callout"><h4 class="callout__title">Evening Primrose Oil</h4><p class="callout__text">Rich in GLA. Supports and repairs the skin barrier.</p></div><div class="callout"><h4 class="callout__title">Rosehip Seed Oil</h4><p class="callout__text">High in vitamin A precursors that support cell turnover.</p></div></div></div>
     <div class="divider"></div>
-
-    <div>
-      <p class="section-label">Full Ingredient List</p>
-      <p class="ingredients">Simmondsia Chinensis (Jojoba) Seed Oil*, Persea Gratissima (Avocado) Oil*, Prunus Amygdalus Dulcis (Sweet Almond) Oil*, Oenothera Biennis (Evening Primrose) Oil*, Hippophae Rhamnoides (Sea-Buckthorn) Fruit Oil*, Rubus Idaeus (Raspberry) Seed Oil*, Tocopherol. *Organic</p>
-    </div>
+    <div><p class="section-label">Full Ingredient List</p><p class="ingredients">Simmondsia Chinensis (Jojoba) Seed Oil*, Persea Gratissima (Avocado) Oil*, Prunus Amygdalus Dulcis (Sweet Almond) Oil*, Oenothera Biennis (Evening Primrose) Oil*, Hippophae Rhamnoides (Sea-Buckthorn) Fruit Oil*, Rubus Idaeus (Raspberry) Seed Oil*, Tocopherol. *Organic</p></div>
   </div>
 </div>
 
-<script>
-function addToCart(variantId) {
-  var btn = document.getElementById('atc-btn');
-  if(btn) { btn.classList.add('loading'); btn.textContent = 'Adding...'; }
-  fetch('https://or-cre.com/cart/add.js', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({items: [{id: variantId, quantity: 1}]})
-  })
-  .then(r => r.json())
-  .then(() => {
-    if(btn) { btn.classList.remove('loading'); btn.textContent = 'Added ✓'; }
-    var conf = document.getElementById('atc-confirm');
-    if(conf) { conf.classList.add('show'); }
-    setTimeout(() => {
-      if(btn) btn.textContent = 'Add to Cart';
-    }, 3000);
-  })
-  .catch(() => {
-    window.location = 'https://or-cre.com/cart/' + variantId + ':1';
-  });
-}
-</script>
-
+<script src="/cart.js"></script>
 </body>
 </html>
