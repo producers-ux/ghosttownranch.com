@@ -139,9 +139,10 @@
   /* ── IMAGE BLOCK ── */
   .archetype__image {
     position: relative;
-    aspect-ratio: 3/4;
+    aspect-ratio: 4/5;
     background: var(--sand);
     overflow: hidden;
+    max-height: 600px;
   }
 
   .archetype__image img {
@@ -425,6 +426,7 @@
     .page-header { grid-template-columns: 1fr !important; gap: 20px !important; padding: 36px 20px 28px !important; }
     .archetype { grid-template-columns: 1fr !important; gap: 28px !important; padding: 48px 20px !important; }
     .archetype:nth-child(odd) .archetype__image { order: 0 !important; }
+    .archetype__image { aspect-ratio: 3/2 !important; max-height: 280px !important; }
     .archetype-nav { padding: 0 20px !important; overflow-x: auto !important; }
     .page-closer { padding: 48px 20px !important; }
 
@@ -474,6 +476,7 @@
     .page-header { grid-template-columns: 1fr !important; gap: 20px !important; padding: 36px 20px 28px !important; }
     .archetype { grid-template-columns: 1fr !important; gap: 32px !important; padding: 48px 20px !important; }
     .archetype:nth-child(odd) .archetype__image { order: 0 !important; }
+    .archetype__image { aspect-ratio: 3/2 !important; max-height: 280px !important; }
     .archetype-nav { padding: 0 20px !important; overflow-x: auto !important; }
     .page-closer { padding: 48px 20px !important; }
 
