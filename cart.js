@@ -1,6 +1,6 @@
 // GTR Cart — persistent across pages via localStorage
 (function() {
-  var DOMAIN  = 'muq7w3-im.myshopify.com';
+  var DOMAIN  = 'shop.ghosttownranch.com';
   var TOKEN   = 'e6b9c8a576fcc2f38b5d7ac76ac9e9dc';
   var STORAGE_KEY = 'gtr_cart';
 
