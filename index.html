@@ -2954,11 +2954,23 @@ function openPDP(imgDiv) {
       buyTarget2.dataset.productTitle = rawName.split('\n').join(' ').trim();
       buyTarget2.dataset.price = priceEl ? (priceEl.textContent.replace(/[^0-9.]/g,'') || '0') : '0';
 
+      // Re-wire scent pickers for all variant selectors in the cloned buy area
+      buyTarget2.querySelectorAll('.variant-selector').forEach(function(vs) {
+        // Strip cloned scent-picker so it rebuilds fresh for the drawer
+        var existingPicker = vs.querySelector('.scent-picker');
+        if (existingPicker) existingPicker.remove();
+        var hiddenSel = vs.querySelector('.scent-picker-hidden');
+        if (hiddenSel) hiddenSel.classList.remove('scent-picker-hidden');
+        // Reset to first option
+        var sel = vs.querySelector('select.variant-select');
+        if (sel) sel.selectedIndex = 0;
+        buildScentPicker(vs);
+      });
       // Wire scent callouts inside the cloned PDP buy area
       var pdpWashSel = buyTarget2.querySelector('[data-handle="sunbroke-the-wash-cold-pressed-grapefruit"]');
-      if (pdpWashSel && !pdpWashSel.querySelector('.scent-callout')) buildScentCallout(pdpWashSel, GTR_WASH_SCENTS);
+      if (pdpWashSel) { var ws = pdpWashSel.querySelector('select'); if(ws) ws.selectedIndex=0; var wc = pdpWashSel.querySelector('.scent-callout'); if(wc) wc.remove(); buildScentCallout(pdpWashSel, GTR_WASH_SCENTS); }
       var pdpCreamSel = buyTarget2.querySelector('[data-handle="worn-soft-hand-cream-citrus-pink-peppercorn"]');
-      if (pdpCreamSel && !pdpCreamSel.querySelector('.scent-callout')) buildScentCallout(pdpCreamSel, GTR_CREAM_SCENTS);
+      if (pdpCreamSel) { var cs = pdpCreamSel.querySelector('select'); if(cs) cs.selectedIndex=0; var cc = pdpCreamSel.querySelector('.scent-callout'); if(cc) cc.remove(); buildScentCallout(pdpCreamSel, GTR_CREAM_SCENTS); }
     }
 
     // Render sensory story if available
