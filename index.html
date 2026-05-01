@@ -942,6 +942,7 @@
     align-self:flex-start; margin-top:2px;
   }
   .scent-picker-guide-link:hover { color: var(--ink); border-color: var(--ink); }
+  /* hide the real select but keep it for form value */
   .scent-picker-hidden { display:none; }
 
   /* ══ CART DRAWER ══ */
@@ -2342,7 +2343,7 @@ Body Oil" style="cursor:pointer"><img src="https://or-cre.com/cdn/shop/files/gol
 
     <article class="product-card" data-category="skin">
       <div class="product-image pdp-trigger" onclick="openPDP(this)" data-product-name="Desert Glow
-Hydrating Facial Oil" style="cursor:pointer"><img src="https://or-cre.com/cdn/shop/files/desertglowimage.png?v=1776856287&width=1920" alt="Desert Glow Hydrating Facial Oil"></div>
+Hydrating Facial Oil" style="cursor:pointer"><img src="https://or-cre.com/cdn/shop/files/desertglowimage_d4e6d652-4e70-4bda-bee5-de2bae93a1ba.png?v=1776855864&width=1920" alt="Desert Glow Hydrating Facial Oil"></div>
       <p class="product-category">Body + Skin</p>
       <h2 class="product-name">Desert Glow<br>Hydrating Facial Oil</h2>
       <p class="product-desc">Long-lasting hydration and comfort for dry skin. A sparkling, juicy mandarin aroma in a floral cloud — refreshed and revitalized. Jojoba Seed Oil, Avocado Oil, Almond Oil, Evening Primrose Oil, Sea-Buckthorn Oil, Raspberry Seed Oil.</p>
@@ -3360,7 +3361,7 @@ function openPDP(imgDiv) {
         { name: "The Still Reed Diffuser", sub: "Amber Glass · Refillable · Choose Scent", price: "$58", img: "https://or-cre.com/cdn/shop/files/TheStill_allitems.png?v=1776726357&width=600", cat: "Fragrance" },
         { name: "The Wander Candle", sub: "Travel · Choose Scent", price: "$32", img: "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/travelcandle1.png?v=1777034831&width=600", cat: "Fragrance" },
         { name: "Desert Veil CC Stick", sub: "COSMOS Natural · Mineral CC · 4 Shades", price: "$48", img: "https://or-cre.com/cdn/shop/files/desertveilsingle.png?v=1777556947&width=600", cat: "Body + Skin" },
-        { name: "Desert Glow Facial Oil", sub: "COSMOS Organic · 6 Organic Oils", price: "$58", img: "https://or-cre.com/cdn/shop/files/desertglowimage.png?v=1776856287&width=600", cat: "Body + Skin" },
+        { name: "Desert Glow Facial Oil", sub: "COSMOS Organic · 6 Organic Oils", price: "$58", img: "https://or-cre.com/cdn/shop/files/desertglowimage_d4e6d652-4e70-4bda-bee5-de2bae93a1ba.png?v=1776855864&width=600", cat: "Body + Skin" },
         { name: "Dusk Til Dawn Gel", sub: "COSMOS Natural · Overnight Repair", price: "$52", img: "https://or-cre.com/cdn/shop/files/dusktildawnimage.png?v=1776856287&width=600", cat: "Body + Skin" },
         { name: "Outlaw's Wipeout", sub: "Makeup Remover · COSMOS Natural", price: "$48", img: "https://or-cre.com/cdn/shop/files/outlawswipeoutimage.png?v=1776861182&width=600", cat: "Body + Skin" },
         { name: "GTR Unisex Tee", sub: "Black or Bone · S–XL", price: "$46", img: "https://or-cre.com/cdn/shop/files/Generated-with_Kive.ai_-_kive-image_28_6.png?v=1776814523&width=600", cat: "Merch" },
@@ -3551,6 +3552,8 @@ function openPDP(imgDiv) {
     }
   }
 
+
+
   /* ══ SCENT PICKER ══ */
   const GTR_SCENTS = {
     'Rough Hewn':  { color:'#6b4c3b', note:'Cade & Cedarwood',    desc:'Sweet smoke and cedarwood. Sandalwood underneath, leather at the edges. Slow burn.' },
@@ -3564,29 +3567,41 @@ function openPDP(imgDiv) {
   function buildScentPicker(wrapper) {
     const select = wrapper.querySelector('select.variant-select');
     if (!select || wrapper.querySelector('.scent-picker')) return;
-    const hasScents = Array.from(select.options).some(function(o) { return GTR_SCENTS[o.text.trim()]; });
+    // Check if options match scent names
+    const hasScents = Array.from(select.options).some(o => GTR_SCENTS[o.text.trim()]);
     if (!hasScents) return;
+
     select.classList.add('scent-picker-hidden');
+
     const picker = document.createElement('div');
     picker.className = 'scent-picker';
+
+    // Swatch row
     const swatchRow = document.createElement('div');
     swatchRow.className = 'scent-picker-swatches';
+
+    // Label line
     const label = document.createElement('div');
     label.className = 'scent-picker-label';
     label.innerHTML = 'Scent: <strong>' + select.options[select.selectedIndex].text + '</strong>';
+
+    // Desc line
     const descEl = document.createElement('div');
     descEl.className = 'scent-picker-desc';
     const firstScent = GTR_SCENTS[select.options[select.selectedIndex].text.trim()];
     descEl.textContent = firstScent ? firstScent.note + ' - ' + firstScent.desc : '';
+
+    // Guide link
     const guideLink = document.createElement('a');
     guideLink.className = 'scent-picker-guide-link';
-    guideLink.textContent = 'Full Scent Guide below';
-    guideLink.href = '#';
+    guideLink.textContent = 'Full Scent Guide ↓';
+    guideLink.href = '#scent-guide-anchor';
     guideLink.onclick = function(e) {
       e.preventDefault();
       var guide = document.querySelector('.scent-guide');
       if (guide) guide.scrollIntoView({ behavior:'smooth', block:'start' });
     };
+
     Array.from(select.options).forEach(function(opt, idx) {
       var name = opt.text.trim();
       var scent = GTR_SCENTS[name];
@@ -3600,13 +3615,14 @@ function openPDP(imgDiv) {
       btn.addEventListener('click', function() {
         select.selectedIndex = idx;
         select.dispatchEvent(new Event('change'));
-        wrapper.querySelectorAll('.scent-swatch-btn').forEach(function(b) { b.classList.remove('active'); });
+        wrapper.querySelectorAll('.scent-swatch-btn').forEach(function(b){ b.classList.remove('active'); });
         btn.classList.add('active');
         label.innerHTML = 'Scent: <strong>' + name + '</strong>';
         descEl.textContent = scent.note + ' - ' + scent.desc;
       });
       swatchRow.appendChild(btn);
     });
+
     picker.appendChild(swatchRow);
     picker.appendChild(label);
     picker.appendChild(descEl);
@@ -3618,6 +3634,7 @@ function openPDP(imgDiv) {
     document.querySelectorAll('.variant-selector').forEach(buildScentPicker);
   });
 
+
   /*
   SHOPIFY BUY BUTTON INTEGRATION
   When ready:
@@ -3625,6 +3642,7 @@ function openPDP(imgDiv) {
   2. Create a button for each product
   3. Copy the generated script snippet
   4. Replace the shopify-buy-target div with the Shopify-generated snippet
+  5. The .shopify-buy__btn CSS above will restyle automatically
   */
 
 </script>
