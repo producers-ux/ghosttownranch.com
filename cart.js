@@ -1,7 +1,7 @@
 // GTR Cart — persistent across pages via localStorage
 (function() {
-  var DOMAIN  = 'muq7w3-im.myshopify.com';
-  var TOKEN   = 'e6b9c8a576fcc2f38b5d7ac76ac9e9dc';
+  var DOMAIN  = 'or-cre.com';
+  var TOKEN   = 'c6efa00d9c5d9849c6c13d59cca6ab82';
   var STORAGE_KEY = 'gtr_cart';
 
   // ── PERSIST / RESTORE ─────────────────────────────────────────────────────
