@@ -148,6 +148,7 @@
     var triggerEl = document.getElementById('gtr-trigger');
     var trigCount = document.getElementById('gtr-trigger-count');
     var subtotal  = document.getElementById('gtr-subtotal');
+    if (!itemsEl || !footerEl || !countEl || !triggerEl) return;
 
     if (!Array.isArray(cart.items)) cart.items = [];
     var total = cart.items.reduce(function(s,i){ return s + i.price * i.qty; }, 0);
@@ -208,13 +209,18 @@
   // ── PUBLIC API ─────────────────────────────────────────────────────────────
   window.GTRCart = {
     open: function() {
-      document.getElementById('gtr-drawer').classList.add('open');
-      document.getElementById('gtr-overlay').classList.add('open');
+      var drawer  = document.getElementById('gtr-drawer');
+      var overlay = document.getElementById('gtr-overlay');
+      if (!drawer || !overlay) { setTimeout(function(){ GTRCart.open(); }, 100); return; }
+      drawer.classList.add('open');
+      overlay.classList.add('open');
       document.body.style.overflow = 'hidden';
     },
     close: function() {
-      document.getElementById('gtr-drawer').classList.remove('open');
-      document.getElementById('gtr-overlay').classList.remove('open');
+      var drawer  = document.getElementById('gtr-drawer');
+      var overlay = document.getElementById('gtr-overlay');
+      if (drawer)  drawer.classList.remove('open');
+      if (overlay) overlay.classList.remove('open');
       document.body.style.overflow = '';
     },
     add: function(variantId, name, variant, price, img) {
@@ -273,5 +279,11 @@
     tryInit();
   }
 
-  render();
+  // Render after DOM is fully ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', render);
+  } else {
+    render();
+  }
+
 })();
