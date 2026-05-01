@@ -2953,6 +2953,12 @@ function openPDP(imgDiv) {
     if (buyTarget2) {
       buyTarget2.dataset.productTitle = rawName.split('\n').join(' ').trim();
       buyTarget2.dataset.price = priceEl ? (priceEl.textContent.replace(/[^0-9.]/g,'') || '0') : '0';
+
+      // Wire scent callouts inside the cloned PDP buy area
+      var pdpWashSel = buyTarget2.querySelector('[data-handle="sunbroke-the-wash-cold-pressed-grapefruit"]');
+      if (pdpWashSel && !pdpWashSel.querySelector('.scent-callout')) buildScentCallout(pdpWashSel, GTR_WASH_SCENTS);
+      var pdpCreamSel = buyTarget2.querySelector('[data-handle="worn-soft-hand-cream-citrus-pink-peppercorn"]');
+      if (pdpCreamSel && !pdpCreamSel.querySelector('.scent-callout')) buildScentCallout(pdpCreamSel, GTR_CREAM_SCENTS);
     }
 
     // Render sensory story if available
