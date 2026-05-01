@@ -944,6 +944,18 @@
   .scent-picker-guide-link:hover { color: var(--ink); border-color: var(--ink); }
   .scent-picker-hidden { display:none; }
 
+  /* ══ SCENT CALLOUT (Wash + Hand Cream) ══ */
+  .scent-callout { margin: 6px 0 8px; min-height: 2.8em; }
+  .scent-callout-name {
+    display: block;
+    font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink); font-weight: 500; margin-bottom: 3px;
+  }
+  .scent-callout-desc {
+    display: block;
+    font-size: 11px; color: #6b6660; line-height: 1.5;
+  }
+
   /* ══ CART DRAWER ══ */
   #cart-overlay {
     display: none;
@@ -2281,10 +2293,10 @@ Hand-Poured Travel Candle" style="cursor:pointer"><img src="https://cdn.shopify.
 Hydrating Hand Wash" style="cursor:pointer"><img src="https://or-cre.com/cdn/shop/files/thewashimage_7509c88e-32dc-4309-8da5-635175c5ab86.png?v=1776859541&width=1920" alt="The Wash Hydrating Hand Wash"></div>
       <p class="product-category">Body + Skin</p>
       <h2 class="product-name">The Wash<br>Hydrating Hand Wash</h2>
-      <p class="product-desc">Gentle, vegan hydrating wash built on an aloe juice base — not water. Sulfate-free. Jojoba oil, Shea butter, Hyaluronic acid. Three scents, one formula. Choose yours.</p>
+      <p class="product-desc">Rugged meets refined. Gentle, vegan hydrating wash built for the long day. Aloe juice base, Jojoba oil, Shea butter, Hyaluronic acid. Three scents, one formula.</p>
       <div class="product-footer">
         <span class="product-price">$38</span>
-        <span class="product-size">16.57 fl oz</span>
+        <span class="product-size">490ml / 16.57 fl oz</span>
       </div>
       <div class="shopify-buy-target" id="shopify-btn-002">
         <div class="variant-selector" data-handle="sunbroke-the-wash-cold-pressed-grapefruit">
@@ -2307,10 +2319,10 @@ Hydrating Hand Wash" style="cursor:pointer"><img src="https://or-cre.com/cdn/sho
 Vegan Hand Cream" style="cursor:pointer"><img src="https://or-cre.com/cdn/shop/files/handcream1.png?v=1776858674&width=1920" alt="Worn Soft Vegan Hand Cream"></div>
       <p class="product-category">Body + Skin</p>
       <h2 class="product-name">Worn Soft<br>Vegan Hand Cream</h2>
-      <p class="product-desc">Rich but fast-absorbing — no greasy residue. Jojoba and shea base, lavender extract for calm. Built for hands that work. Two scents.</p>
+      <p class="product-desc">Earned it. Rich, vegan hand cream built for hands that don't quit. Sinks in fast, stays all day. No greasy finish. Jojoba oil, Shea butter, Lavender flower, Betaine. Two scents.</p>
       <div class="product-footer">
         <span class="product-price">$46</span>
-        <span class="product-size">9.13 fl oz</span>
+        <span class="product-size">270ml / 9.13 fl oz</span>
       </div>
       <div class="shopify-buy-target" id="shopify-btn-005">
         <div class="variant-selector" data-handle="worn-soft-hand-cream-citrus-pink-peppercorn">
@@ -3614,8 +3626,46 @@ function openPDP(imgDiv) {
     wrapper.insertBefore(picker, select);
   }
 
+  /* ══ WASH + HAND CREAM SCENT CALLOUTS ══ */
+  const GTR_WASH_SCENTS = {
+    'Cold-Pressed Grapefruit': 'Sharp, bright bite of cold-pressed grapefruit. Zero sweetness. All edge. Cuts through and clears the head from the first lather.',
+    'Peppermint + Dark Cedar': 'Cool and grounded. Peppermint sharpens. Dark cedar settles. Elevation and tree cover, cut with clean cold air.',
+    'Ginger + Smoky Cardamom': 'Ginger, cardamom, and warm spice linger long after the rinse. Fragrance-rich. Built for daily use.'
+  };
+  const GTR_CREAM_SCENTS = {
+    'Citrus + Pink Peppercorn': 'Bright citrus and a quiet bite of pink peppercorn.',
+    'Mesquite Amber + Leather': 'Smoldering mesquite and warm amber settle deep. Leather underneath.'
+  };
+
+  function buildScentCallout(selector, scentMap) {
+    if (!selector || selector.querySelector('.scent-callout')) return;
+    var select = selector.querySelector('select.variant-select');
+    if (!select) return;
+
+    var callout = document.createElement('div');
+    callout.className = 'scent-callout';
+
+    function update() {
+      var name = select.options[select.selectedIndex].text.trim();
+      var desc = scentMap[name] || '';
+      callout.innerHTML = desc
+        ? '<span class="scent-callout-name">' + name + '</span><span class="scent-callout-desc">' + desc + '</span>'
+        : '';
+    }
+
+    select.addEventListener('change', update);
+    selector.insertBefore(callout, select.nextSibling);
+    update();
+  }
+
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.variant-selector').forEach(buildScentPicker);
+
+    var washSelector = document.querySelector('[data-handle="sunbroke-the-wash-cold-pressed-grapefruit"]');
+    buildScentCallout(washSelector, GTR_WASH_SCENTS);
+
+    var creamSelector = document.querySelector('[data-handle="worn-soft-hand-cream-citrus-pink-peppercorn"]');
+    buildScentCallout(creamSelector, GTR_CREAM_SCENTS);
   });
 
   /*
