@@ -1,1 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Your Range — Ghost Town Ranch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Barlow+Condensed:wght@300;400;500;600&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bone:    #F5F0E6;
+    --sand:    #E8DFC8;
+    --ochre:   #C4A882;
+    --stone:   #7A7060;
+    --dark:    #1C1814;
+    --ink:     #2E2820;
+    --rust:    #8B4A2A;
+    --sage:    #6B7A5A;
+    --white:   #FDFAF5;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--ink);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ── */
+  .page-header {
+    padding: 80px 48px 64px;
+    border-bottom: 1px solid var(--sand);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .page-header__label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 20px;
+  }
+
+  .page-header__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(42px, 5vw, 72px);
+    line-height: 1;
+    color: var(--dark);
+  }
+
+  .page-header__title em {
+    font-style: italic;
+    color: var(--stone);
+  }
+
+  .page-header__desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--stone);
+    max-width: 400px;
+    align-self: end;
+    padding-bottom: 6px;
+  }
+
+  /* ── NAV TABS ── */
+  .archetype-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--sand);
+    padding: 0 48px;
+  }
+
+  .archetype-nav__inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0;
+  }
+
+  .archetype-nav__item {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--stone);
+    text-decoration: none;
+    padding: 18px 32px 16px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .archetype-nav__item:hover,
+  .archetype-nav__item.active {
+    color: var(--dark);
+    border-bottom-color: var(--dark);
+  }
+
+  /* ── ARCHETYPE SECTION ── */
+  .archetype {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 48px;
+    border-bottom: 1px solid var(--sand);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .archetype.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .archetype:nth-child(odd) .archetype__image { order: -1; }
+
+  /* ── IMAGE BLOCK ── */
+  .archetype__image {
+    position: relative;
+    aspect-ratio: 4/5;
+    background: var(--sand);
+    overflow: hidden;
+    max-height: 600px;
+  }
+
+  .archetype__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s ease;
+  }
+
+  .archetype__image:hover img {
+    transform: scale(1.03);
+  }
+
+  /* placeholder state */
+  .archetype__image--placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: var(--sand);
+  }
+
+  .archetype__image--placeholder .placeholder-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone);
+    opacity: 0.6;
+  }
+
+  .archetype__image--placeholder .placeholder-size {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--ochre);
+    opacity: 0.8;
+  }
+
+  .archetype__number {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: var(--white);
+    background: var(--dark);
+    padding: 4px 10px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── CONTENT BLOCK ── */
+  .archetype__content {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding-top: 16px;
+  }
+
+  .archetype__label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ochre);
+  }
+
+  .archetype__name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(40px, 4vw, 62px);
+    line-height: 0.95;
+    color: var(--dark);
+  }
+
+  .archetype__tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--stone);
+    padding-left: 20px;
+    border-left: 2px solid var(--ochre);
+  }
+
+  .archetype__bio {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--stone);
+    font-weight: 400;
+  }
+
+  /* ── TRAITS ── */
+  .archetype__traits {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .archetype__traits-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    margin-bottom: 4px;
+  }
+
+  .trait {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .trait::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: var(--ochre);
+    flex-shrink: 0;
+  }
+
+  /* ── PRODUCT RAIL ── */
+  .archetype__products {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .archetype__products-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    margin-bottom: 4px;
+  }
+
+  .product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--sand);
+    text-decoration: none;
+    color: var(--ink);
+    transition: padding-left 0.2s ease;
+  }
+
+  .product-item:hover {
+    padding-left: 8px;
+  }
+
+  .product-item:first-of-type {
+    border-top: 1px solid var(--sand);
+  }
+
+  .product-item__name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .product-item__sub {
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    color: var(--stone);
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .product-item__price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--stone);
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+
+  .product-item__arrow {
+    font-size: 16px;
+    color: var(--ochre);
+    margin-left: 12px;
+    transition: transform 0.2s ease;
+  }
+
+  .product-item:hover .product-item__arrow {
+    transform: translateX(4px);
+  }
+
+  .archetype__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dark);
+    text-decoration: none;
+    padding: 14px 24px;
+    border: 1px solid var(--dark);
+    margin-top: 8px;
+    align-self: flex-start;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .archetype__cta:hover {
+    background: var(--dark);
+    color: var(--white);
+  }
+
+  /* ── SECTION COLORS ── */
+  .archetype--landed { background: transparent; }
+  .archetype--claim  { background: var(--white); }
+  .archetype--scout  { background: transparent; }
+
+  .archetype--landed .archetype__number { background: #2E2820; }
+  .archetype--claim  .archetype__number { background: #4A5A3A; }
+  .archetype--scout  .archetype__number { background: #6B5A3A; }
+
+  /* ── CLOSER ── */
+  .page-closer {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 48px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .page-closer__label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+
+  .page-closer__line {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(26px, 3vw, 40px);
+    color: var(--dark);
+    max-width: 600px;
+    line-height: 1.3;
+  }
+
+  .page-closer__link {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ochre);
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+
+  .page-closer__link:hover { color: var(--dark); }
+
+  /* ── RESPONSIVE ── */
+  /* ── MOBILE — Goop/Rhode standard: 18px body min, 500 weight, generous spacing ── */
+  @media (max-width: 900px) {
+    /* Layout */
+    .page-header { grid-template-columns: 1fr !important; gap: 20px !important; padding: 36px 20px 28px !important; }
+    .archetype { grid-template-columns: 1fr !important; gap: 28px !important; padding: 48px 20px !important; }
+    .archetype__image { order: -1 !important; aspect-ratio: 3/2 !important; max-height: 280px !important; }
+    .archetype-nav { padding: 0 20px !important; overflow-x: auto !important; }
+    .page-closer { padding: 48px 20px !important; }
+
+    /* Page header */
+    .page-header__title { font-size: 48px !important; line-height: 1 !important; }
+    .page-header__desc { font-size: 18px !important; line-height: 1.8 !important; max-width: 100% !important; font-weight: 400 !important; }
+    .page-header__label { font-size: 13px !important; letter-spacing: 0.18em !important; }
+
+    /* Archetype identity */
+    .archetype__label { font-size: 13px !important; letter-spacing: 0.2em !important; }
+    .archetype__name { font-size: 60px !important; line-height: 0.92 !important; }
+    .archetype__tagline { font-size: 22px !important; line-height: 1.55 !important; }
+
+    /* Body copy — 18px matches Goop/Rhode mobile standard */
+    .archetype__bio { font-size: 18px !important; line-height: 1.85 !important; font-weight: 400 !important; }
+
+    /* Traits */
+    .archetype__traits-label { font-size: 13px !important; letter-spacing: 0.18em !important; }
+    .trait { font-size: 17px !important; line-height: 1.6 !important; font-family: 'Barlow', sans-serif !important; letter-spacing: 0 !important; }
+
+    /* Product rail */
+    .archetype__products-label { font-size: 13px !important; letter-spacing: 0.2em !important; }
+    .product-item { padding: 18px 0 !important; }
+    .product-item__name { font-size: 17px !important; font-weight: 500 !important; letter-spacing: 0.04em !important; }
+    .product-item__sub { font-size: 15px !important; line-height: 1.55 !important; margin-top: 4px !important; }
+    .product-item__price { font-size: 24px !important; }
+    .product-item__arrow { font-size: 18px !important; }
+
+    /* CTA button */
+    .archetype__cta {
+      width: 100% !important;
+      text-align: center !important;
+      justify-content: center !important;
+      padding: 18px 24px !important;
+      font-size: 13px !important;
+    }
+
+    /* Nav */
+    .archetype-nav__item { padding: 18px 16px 16px !important; font-size: 13px !important; white-space: nowrap !important; }
+
+    /* Closer */
+    .page-closer__line { font-size: 24px !important; line-height: 1.45 !important; }
+    .page-closer__label { font-size: 13px !important; }
+    .page-closer__link { font-size: 13px !important; }
+  }
+    /* Layout */
+    .page-header { grid-template-columns: 1fr !important; gap: 20px !important; padding: 36px 20px 28px !important; }
+    .archetype { grid-template-columns: 1fr !important; gap: 32px !important; padding: 48px 20px !important; }
+    .archetype__image { order: -1 !important; aspect-ratio: 3/2 !important; max-height: 280px !important; }
+    .archetype-nav { padding: 0 20px !important; overflow-x: auto !important; }
+    .page-closer { padding: 48px 20px !important; }
+
+    /* Header text */
+    .page-header__title { font-size: 52px !important; line-height: 1 !important; }
+    .page-header__desc { font-size: 17px !important; line-height: 1.8 !important; max-width: 100% !important; }
+    .page-header__label { font-size: 12px !important; }
+
+    /* Archetype text — The Landed audience needs this large */
+    .archetype__label { font-size: 13px !important; letter-spacing: 0.2em !important; }
+    .archetype__name { font-size: 64px !important; line-height: 0.9 !important; }
+    .archetype__tagline { font-size: 22px !important; line-height: 1.55 !important; }
+    .archetype__bio { font-size: 17px !important; line-height: 1.85 !important; }
+
+    /* Traits */
+    .archetype__traits-label { font-size: 12px !important; }
+    .trait { font-size: 16px !important; line-height: 1.6 !important; }
+
+    /* Product rail */
+    .archetype__products-label { font-size: 12px !important; }
+    .product-item { padding: 16px 0 !important; }
+    .product-item__name { font-size: 16px !important; font-weight: 500 !important; }
+    .product-item__sub { font-size: 14px !important; line-height: 1.55 !important; margin-top: 4px !important; }
+    .product-item__price { font-size: 22px !important; }
+    .product-item__arrow { font-size: 18px !important; }
+
+    /* CTA */
+    .archetype__cta { 
+      width: 100% !important; 
+      text-align: center !important; 
+      justify-content: center !important; 
+      padding: 18px 24px !important; 
+      font-size: 13px !important;
+    }
+
+    /* Nav */
+    .archetype-nav__item { padding: 18px 18px 16px !important; font-size: 13px !important; white-space: nowrap !important; }
+
+    /* Closer */
+    .page-closer__line { font-size: 24px !important; line-height: 1.4 !important; }
+    .page-closer__label { font-size: 12px !important; }
+    .page-closer__link { font-size: 12px !important; }
+  }
+  .btn-buy{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;padding:8px 14px;border:1px solid var(--dark);background:var(--dark);color:var(--white);cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+  .btn-buy:hover{background:var(--ink);}
+</style>
+</head>
+
+<body>
+
+<!-- BACK LINK -->
+<div style="padding: 20px 48px 0; max-width: 1400px; margin: 0 auto;">
+  <a href="/" style="font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #7A7060; text-decoration: none; transition: color 0.2s;">← Back</a>
+</div>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div>
+    <p class="page-header__label">Ghost Town Ranch — Collections</p>
+    <h1 class="page-header__title">Find Your<br><em>Range</em></h1>
+  </div>
+  <p class="page-header__desc">GTR travels with you. Whether you're rooted, building, or still in motion — there's something here that fits.</p>
+</header>
+
+<!-- STICKY NAV -->
+<nav class="archetype-nav">
+  <div class="archetype-nav__inner">
+    <a href="#landed" class="archetype-nav__item">The Landed</a>
+    <a href="#claim"  class="archetype-nav__item">The Claim</a>
+    <a href="#scout"  class="archetype-nav__item">The Scout</a>
+  </div>
+</nav>
+
+<!-- ── THE LANDED ────────────────────────────────────── -->
+<section class="archetype archetype--landed" id="landed">
+
+  <div class="archetype__image archetype__image--placeholder">
+    <span class="archetype__number">01</span>
+    <!-- Replace with Kive image: late afternoon light, olive grove, weathered gate, no people -->
+    <!-- Recommended: 900×1200px portrait -->
+    <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/collections/thelanded.png?v=1777373756" alt="The Landed — Ghost Town Ranch"
+         onerror="this.style.display='none'; this.parentElement.classList.add('archetype__image--placeholder')">
+  </div>
+
+  <div class="archetype__content">
+    <p class="archetype__label">Archetype 01</p>
+    <h2 class="archetype__name">The<br>Landed</h2>
+    <p class="archetype__tagline">You've arrived. You know what belongs.</p>
+    <p class="archetype__bio">The space is considered. The routine is set. You buy once and keep it. GTR fits into a life already built with intention — a place that has earned its view, products that have earned their shelf.</p>
+
+    <div class="archetype__traits">
+      <p class="archetype__traits-label">This is you if</p>
+      <span class="trait">You own land, or a home that reflects a point of view</span>
+      <span class="trait">Your routine is consistent, not experimental</span>
+      <span class="trait">You buy fewer things, and keep them</span>
+      <span class="trait">You'd rather restock than discover</span>
+    </div>
+
+    <div class="archetype__products">
+      <p class="archetype__products-label">Start here</p>
+
+      <a href="/products/all-told-eye-cream" class="product-item">
+        <div>
+          <div class="product-item__name">All Told</div>
+          <div class="product-item__sub">3-in-1 Eye Cream · Anti-Age · Long-Lasting Hydration</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <span class="product-item__price">$48</span>
+          <span class="product-item__arrow">→</span>
+        </div>
+      </a>
+
+      <a href="/products/the-monument-candle" class="product-item">
+        <div>
+          <div class="product-item__name">The Monument</div>
+          <div class="product-item__sub">55oz · 4-Wick · 120hr Burn</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <span class="product-item__price">$196</span>
+          <span class="product-item__arrow">→</span>
+        </div>
+      </a>
+
+      <a href="/products/peptide-anti-aging-serum" class="product-item">
+        <div>
+          <div class="product-item__name">The Grade Peptide Serum</div>
+          <div class="product-item__sub">Firms · Smooths · Reduces Fine Lines</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <span class="product-item__price">$58</span>
+          <span class="product-item__arrow">→</span>
+        </div>
+      </a>
+
+      <a href="/products/anti-age-day-cream" class="product-item">
+        <div>
+          <div class="product-item__name">The Hold</div>
+          <div class="product-item__sub">Anti-Age Day Cream · Full-Day Protection</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <span class="product-item__price">$64</span>
+          <span class="product-item__arrow">→</span>
+        </div>
+      </a>
+
+      <a href="/products/ranch-water-body-room-fragrance" class="product-item">
+        <div>
+          <div class="product-item__name">Ranch Water</div>
+          <div class="product-item__sub">Body + Linen Fragrance · 6 Scents</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <span class="product-item__price">$74</span>
+          <span class="product-item__arrow">→</span>
+        </div>
+      </a>
+
+      <a href="https://or-cre.com/products/desert-veil-tone-correction-barrier-protection" class="product-item">
+        <div>
+          <div class="product-item__name">Desert Veil CC Stick</div>
+          <div class="product-item__sub">Tone Correction · Barrier Protection · 4 Shades</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <span class="product-item__price">$48</span>
+          <span class="product-item__arrow">→</span>
+        </div>
+      </a>
+
+    </div>
+    <a href="/collections/the-landed" class="archetype__cta">Shop The Landed →</a>
+  </div>
+</section>
+
+<!-- ── THE CLAIM ─────────────────────────────────────── -->
+<section class="archetype archetype--claim" id="claim">
+
+  <div class="archetype__content">
+    <p class="archetype__label">Archetype 02</p>
+    <h2 class="archetype__name">The<br>Claim</h2>
+    <p class="archetype__tagline">You're building something. You know exactly what it should feel like.</p>
+    <p class="archetype__bio">The place is coming together. So is the life around it. You're curating as you go — nothing provisional, nothing placeholder. Every choice is deliberate, even the first one.</p>
+
+    <div class="archetype__traits">
+      <p class="archetype__traits-label">This is you if</p>
+      <span class="trait">You're assembling the life, not settling into one</span>
+      <span class="trait">Your home is a work in progress with a clear vision</span>
+      <span class="trait">You research before you buy</span>
+      <span class="trait">You know quality before you can afford all of it</span>
+    </div>
+
+    <div class="archetype__products">
+      <p class="archetype__products-label">Start here</p>
+
+      <a href="/products/ranch-water-body-room-fragrance" class="product-item">
+        <div>
+          <div class="product-item__name">Ranch Water</div>
+          <div class="product-item__sub">Body + Linen Fragrance · 6 Scents</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <span class="product-item__price">$74</span>
+          <span class="product-item__arrow">→</span>
+        </div>
+      </a>
+
+      <a href="/products/the-slow-candle" class="product-item">
+        <div>
+          <div class="product-item__name">The Slow</div>
+          <div class="product-item__sub">18oz · 3-Wick · Hand-Poured</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <span class="product-item__price">$68</span>
+          <span class="product-item__arrow">→</span>
+        </div>
+      </a>
+
+      <a href="/products/moisturising-day-cream" class="product-item">
+        <div>
+          <div class="product-item__name">Desert Day Cream</div>
+          <div class="product-item__sub">Antioxidant · All Skin Types · Daily Anchor</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <span class="product-item__price">$56</span>
+          <span class="product-item__arrow">→</span>
+        </div>
+      </a>
+
+      <a href="/products/omega-6-9-glowing-skin-body-oil" class="product-item">
+        <div>
+          <div class="product-item__name">Golden Hour Body Oil</div>
+          <div class="product-item__sub">Organic · Lightweight · Glow Formula</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <span class="product-item__price">$64</span>
+          <span class="product-item__arrow">→</span>
+        </div>
+      </a>
+
+      <a href="/products/desert-glow-hydrating-facial-oil" class="product-item">
+        <div>
+          <div class="product-item__name">Desert Glow Facial Oil</div>
+          <div class="product-item__sub">Hydrating · Glow · 6 Organic Oils</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <span class="product-item__price">$58</span>
+          <span class="product-item__arrow">→</span>
+        </div>
+      </a>
+
+      <a href="https://or-cre.com/products/desert-veil-tone-correction-barrier-protection" class="product-item">
+        <div>
+          <div class="product-item__name">Desert Veil CC Stick</div>
+          <div class="product-item__sub">Tone Correction · Barrier Protection · 4 Shades</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <span class="product-item__price">$48</span>
+          <span class="product-item__arrow">→</span>
+        </div>
+      </a>
+
+    </div>
+    <a href="/collections/the-claim" class="archetype__cta">Shop The Claim →</a>
+  </div>
+
+  <div class="archetype__image archetype__image--placeholder">
+    <span class="archetype__number">02</span>
+    <!-- Replace with Kive image: partially finished outdoor space, concrete + stone, fig tree, architectural drawings, morning light -->
+    <!-- Recommended: 900×1200px portrait -->
+    <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/collections/theclaim.png?v=1777373721" alt="The Claim — Ghost Town Ranch"
+         onerror="this.style.display='none'; this.parentElement.classList.add('archetype__image--placeholder')">
+  </div>
+
+</section>
+
+<!-- ── THE SCOUT ──────────────────────────────────────── -->
+<section class="archetype archetype--scout" id="scout">
+
+  <div class="archetype__image archetype__image--placeholder">
+    <span class="archetype__number">03</span>
+    <!-- Replace with Kive image: canvas weekender on truck tailgate, GTR travel kit inside, desert highway, palo verde in bloom -->
+    <!-- Recommended: 900×1200px portrait -->
+    <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/collections/thescout.png?v=1777373823" alt="The Scout — Ghost Town Ranch"
+         onerror="this.style.display='none'; this.parentElement.classList.add('archetype__image--placeholder')">
+  </div>
+
+  <div class="archetype__content">
+    <p class="archetype__label">Archetype 03</p>
+    <h2 class="archetype__name">The<br>Scout</h2>
+    <p class="archetype__tagline">You found this. That's the point.</p>
+    <p class="archetype__bio">You buy one right thing at a time. You know quality before you can afford all of it. GTR is the find — not the splurge. It earns a place in your bag before it earns a place on your shelf.</p>
+
+    <div class="archetype__traits">
+      <p class="archetype__traits-label">This is you if</p>
+      <span class="trait">You discovered GTR before anyone told you about it</span>
+      <span class="trait">You travel with one product you trust completely</span>
+      <span class="trait">You give things that say: I know you</span>
+      <span class="trait">You're building toward the full picture</span>
+    </div>
+
+    <div class="archetype__products">
+      <p class="archetype__products-label">Start here</p>
+
+      <a href="/products/sunbroke-the-wash" class="product-item">
+        <div>
+          <div class="product-item__name">The Wash</div>
+          <div class="product-item__sub">Hydrating Hand Wash · 3 Scents</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <span class="product-item__price">$38</span>
+          <span class="product-item__arrow">→</span>
+        </div>
+      </a>
+
+      <a href="/products/the-wander-candle" class="product-item">
+        <div>
+          <div class="product-item__name">The Wander</div>
+          <div class="product-item__sub">Travel Candle · 4oz · 36hr · 6 Scents</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <span class="product-item__price">$32</span>
+          <span class="product-item__arrow">→</span>
+        </div>
+      </a>
+
+      <a href="/products/microbiome-prebiotics-face-mist-1" class="product-item">
+        <div>
+          <div class="product-item__name">Mojave Reset</div>
+          <div class="product-item__sub">Cooling Face Mist · Prebiotic · All Skin Types</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <span class="product-item__price">$46</span>
+          <span class="product-item__arrow">→</span>
+        </div>
+      </a>
+
+      <a href="/products/gtr-unisex-tee" class="product-item">
+        <div>
+          <div class="product-item__name">GTR Tee</div>
+          <div class="product-item__sub">Garment-Dyed · Unisex · Black or Bone</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <span class="product-item__price">$46</span>
+          <span class="product-item__arrow">→</span>
+        </div>
+      </a>
+
+      <a href="/products/2-in-1-hair-body-wash-for-men" class="product-item">
+        <div>
+          <div class="product-item__name">Outlaw's Reserve</div>
+          <div class="product-item__sub">2-in-1 Hair + Body Wash · One Bag Essential</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <span class="product-item__price">$48</span>
+          <span class="product-item__arrow">→</span>
+        </div>
+      </a>
+
+      <a href="https://or-cre.com/products/desert-veil-tone-correction-barrier-protection" class="product-item">
+        <div>
+          <div class="product-item__name">Desert Veil CC Stick</div>
+          <div class="product-item__sub">Tone Correction · Barrier Protection · 4 Shades</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <span class="product-item__price">$48</span>
+          <span class="product-item__arrow">→</span>
+        </div>
+      </a>
+
+    </div>
+    <a href="/collections/the-scout" class="archetype__cta">Shop The Scout →</a>
+  </div>
+
+</section>
+
+<!-- CLOSER -->
+<div class="page-closer">
+  <p class="page-closer__label">Ghost Town Ranch — Elevated Essentials</p>
+  <p class="page-closer__line">Not sure where you land? Take the full range quiz.</p>
+  <a href="/land/index.html" class="page-closer__link">Find Your Territory →</a>
+</div>
+
+<script>
+  // Scroll-triggered reveal
+  const sections = document.querySelectorAll('.archetype');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  sections.forEach(s => observer.observe(s));
+
+  // Active nav highlight on scroll
+  const navItems = document.querySelectorAll('.archetype-nav__item');
+  const archetypeIds = ['landed', 'claim', 'scout'];
+  window.addEventListener('scroll', () => {
+    let current = '';
+    archetypeIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 100) current = id;
+    });
+    navItems.forEach(item => {
+      item.classList.toggle('active', item.getAttribute('href') === `#${current}`);
+    });
+  });
+</script>
+
+<script src="/cart.js"></script>
+</body>
+</html>
 
