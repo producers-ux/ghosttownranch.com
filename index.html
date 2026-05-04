@@ -94,28 +94,33 @@
 
   /* ── HERO ── */
   .hero {
-    height: 100vh; position: relative; overflow: hidden;
-    display: flex; align-items: flex-end; padding: 80px 48px;
+    height: 100vh; min-height: 600px; position: relative; overflow: hidden;
+    display: flex; align-items: flex-end; padding: 60px 48px;
   }
   .hero-bg {
     position: absolute; inset: 0;
     background-image: url('herogtr.png');
-    background-size: cover; background-position: center;
+    background-size: cover; background-position: center top;
   }
   .hero-bg::before { display: none; }
-  .hero-bg::after  { display: none; }
-  .hero-text { position: relative; z-index: 2; color: #F4EFE6; }
+  .hero-bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.5) 35%, transparent 100%);
+  }
+  .hero-text { position: relative; z-index: 2; color: #FFFFFF; }
+  .hero-eyebrow, .hero-title, .hero-sub { color: #FFFFFF !important; text-shadow: 0 1px 12px rgba(0,0,0,0.6); }
   .hero-eyebrow {
-    font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
-    opacity: 0.6; margin-bottom: 18px;
+    font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+    opacity: 0.85; margin-bottom: 14px;
   }
   .hero-title {
     font-family: var(--serif); font-size: clamp(32px, 5.5vw, 64px);
     font-weight: 300; line-height: 1.05; letter-spacing: 0.08em;
     margin-bottom: 28px; text-transform: uppercase;
   }
-  .hero-sub { font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; opacity: 0.55; }
-  .hero-sub span { margin: 0 10px; opacity: 0.35; }
+  .hero-sub { font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; opacity: 0.8; }
+  .hero-sub span { margin: 0 10px; opacity: 0.5; }
 
   /* ── BRAND STATEMENT ── */
   .brand-statement { padding: 120px 48px; max-width: 700px; }
