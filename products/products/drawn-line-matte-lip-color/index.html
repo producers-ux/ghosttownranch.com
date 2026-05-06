@@ -1,1 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drawn Line Matte Lip Color — Ghost Town Ranch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Barlow+Condensed:wght@300;400;500;600&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bone:#F5F0E6;--sand:#E8DFC8;--ochre:#C4A882;--stone:#7A7060;--dark:#1C1814;--ink:#2E2820;--white:#FDFAF5;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--white);color:var(--ink);font-family:'Barlow',sans-serif;font-weight:400;font-size:16px;-webkit-font-smoothing:antialiased;}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:24px 48px;border-bottom:1px solid var(--sand);position:sticky;top:0;background:rgba(253,250,245,0.95);backdrop-filter:blur(8px);z-index:100;}
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .nav-logo img{height:32px;width:auto;}
+  .nav-links{display:flex;gap:36px;list-style:none;}
+  .nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--stone);text-decoration:none;font-weight:500;transition:color 0.2s;}
+  .nav-links a:hover{color:var(--dark);}
+  .nav-links a.nav-range{color:var(--dark);border-bottom:1px solid currentColor;padding-bottom:2px;}
+  .back{max-width:1400px;margin:0 auto;padding:20px 48px 0;}
+  .back a{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--stone);text-decoration:none;transition:color 0.2s;}
+  .back a:hover{color:var(--dark);}
+  .product{max-width:1400px;margin:0 auto;padding:48px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+  .product__gallery{position:sticky;top:96px;}
+  .product__img{aspect-ratio:3/4;overflow:hidden;background:var(--sand);}
+  .product__img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .product__content{display:flex;flex-direction:column;gap:28px;padding-top:8px;}
+  .product__category{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ochre);}
+  .product__name{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(44px,5vw,72px);line-height:0.9;color:var(--dark);}
+  .product__sub{font-family:'Barlow Condensed',sans-serif;font-size:15px;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-top:-16px;}
+  .product__tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--stone);padding:4px 10px;border:1px solid var(--sand);}
+  .product__price-row{display:flex;align-items:baseline;gap:16px;}
+  .product__price{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--dark);}
+  .product__size{font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:0.1em;color:var(--stone);}
+  .product__desc{font-size:16px;line-height:1.8;color:var(--stone);border-left:2px solid var(--ochre);padding-left:20px;font-style:italic;}
+  .shade-row{display:flex;align-items:center;gap:16px;padding:16px 0;border-top:1px solid var(--sand);border-bottom:1px solid var(--sand);}
+  .shade-swatch{width:36px;height:36px;border-radius:50%;border:1px solid rgba(0,0,0,0.1);background:#C27A5A;flex-shrink:0;}
+  .shade-info{display:flex;flex-direction:column;gap:2px;}
+  .shade-name{font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--dark);font-weight:500;}
+  .shade-desc{font-family:'Barlow',sans-serif;font-size:13px;color:var(--stone);}
+  .btn-atc{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);background:var(--dark);border:1px solid var(--dark);padding:16px 32px;cursor:pointer;transition:all 0.2s;align-self:flex-start;}
+  .btn-atc:hover{background:var(--ink);}
+  .divider{height:1px;background:var(--sand);}
+  .section-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--ochre);margin-bottom:16px;}
+  .moment{font-family:'Cormorant Garamond',serif;font-size:20px;line-height:1.8;color:var(--stone);font-style:italic;}
+  .callouts{display:flex;flex-direction:column;gap:20px;}
+  .callout{padding:20px 0;border-bottom:1px solid var(--sand);}
+  .callout:first-child{border-top:1px solid var(--sand);}
+  .callout__title{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--dark);margin-bottom:8px;font-weight:500;}
+  .callout__text{font-size:15px;line-height:1.75;color:var(--stone);}
+  .ingredients{font-size:13px;line-height:1.9;color:var(--stone);}
+  @media(max-width:900px){
+    nav{padding:20px 24px;}
+    .nav-links{gap:16px;}
+    .back,.product{padding-left:20px;padding-right:20px;}
+    .product{grid-template-columns:1fr;gap:32px;padding-top:32px;padding-bottom:48px;}
+    .product__gallery{position:static;}
+    .product__content{gap:22px;}
+    .product__desc{font-size:17px;line-height:1.85;}
+    .moment{font-size:19px;line-height:1.85;}
+    .callout__text{font-size:16px;line-height:1.8;}
+    .btn-atc{width:100%;text-align:center;padding:18px;}
+  }
+</style>
+</head>
+<body>
 
+<nav>
+  <a href="/" class="nav-logo"><img src="/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="GTR"></a>
+  <ul class="nav-links">
+    <li><a href="/#brand">The Brand</a></li>
+    <li><a href="/#catalog">The Collection</a></li>
+    <li><a href="/#wholesale">Wholesale</a></li>
+    <li><a href="/range/index.html" class="nav-range">Find Your Range</a></li>
+  </ul>
+</nav>
+
+<div class="back"><a href="javascript:history.back()" style="cursor:pointer">← Back</a></div>
+
+<div class="product">
+  <div class="product__gallery">
+    <div class="product__img">
+      <img src="https://or-cre.com/cdn/shop/files/liptint.png?v=1778076184&width=1920" alt="Drawn Line Matte Lip Color — 01 Nude">
+    </div>
+  </div>
+
+  <div class="product__content">
+    <p class="product__category">Face + Lip</p>
+    <h1 class="product__name">Drawn Line</h1>
+    <p class="product__sub">Matte Lip Color</p>
+    <div class="product__tags">
+      <span class="tag">Vegan</span>
+      <span class="tag">Natural Pigments</span>
+      <span class="tag">No Synthetic Dyes</span>
+      <span class="tag">Long Wear</span>
+    </div>
+    <div class="product__price-row">
+      <span class="product__price">$34</span>
+      <span class="product__size">4g · 0.14 oz</span>
+    </div>
+    <p class="product__desc">Rich pigment, velvety satin finish. Natural pigments — no synthetic dyes. Bold enough to say something, comfortable enough to forget you're wearing it.</p>
+    <div class="divider"></div>
+
+    <div>
+      <p class="section-label">Shade</p>
+      <div class="shade-row">
+        <div class="shade-swatch"></div>
+        <div class="shade-info">
+          <span class="shade-name">01 Nude — Terracotta Nude</span>
+          <span class="shade-desc">Warm, earthy terracotta with a muted nude base. Everyday and statement-ready.</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <button class="btn-atc" id="atc-btn" onclick="GTRCart.add(51799358538024, 'Drawn Line', '01 Nude', 0, 'https://or-cre.com/cdn/shop/files/liptint.png?v=1778076184&width=1200')">Add to Cart</button>
+    </div>
+    <div class="divider"></div>
+
+    <div>
+      <p class="section-label">The Moment</p>
+      <p class="moment">Press it on with a fingertip for a diffused wash. Line and fill for full impact. Either way, it sets and stays — through coffee, through the drive, through a long afternoon in the sun.</p>
+    </div>
+    <div class="divider"></div>
+
+    <div>
+      <p class="section-label">Key Ingredients</p>
+      <div class="callouts">
+        <div class="callout">
+          <h4 class="callout__title">Natural Iron Oxides + Titanium Dioxide</h4>
+          <p class="callout__text">Rich, true-to-tone pigment from natural sources. No synthetic dyes. Bold payoff that doesn't compromise the formula.</p>
+        </div>
+        <div class="callout">
+          <h4 class="callout__title">Castor Oil + Candelilla Wax</h4>
+          <p class="callout__text">The nourishing base that keeps a matte finish from going dry. Lips stay comfortable from first application through the end of the day.</p>
+        </div>
+        <div class="callout">
+          <h4 class="callout__title">Tocopherol (Vitamin E)</h4>
+          <p class="callout__text">Antioxidant protection. Conditions the lip barrier during wear so skin stays hydrated underneath the color.</p>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+
+    <div>
+      <p class="section-label">Full Ingredient List</p>
+      <p class="ingredients">Ricinus Communis (Castor) Seed Oil, Caprylic/Capric Triglyceride, Euphorbia Cerifera (Candelilla) Wax, Copernicia Cerifera (Carnauba) Wax, Ozokerite, Iron Oxides (CI 77491, CI 77492, CI 77499), Titanium Dioxide (CI 77891), Tocopherol, Phenoxyethanol</p>
+    </div>
+  </div>
+</div>
+
+<script src="/cart.js"></script>
+</body>
+</html>
