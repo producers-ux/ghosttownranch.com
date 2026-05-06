@@ -132,12 +132,12 @@
   /* ── PRODUCT SECTIONS (Brand page) ── */
   .product-section {
     display: grid; grid-template-columns: 1fr 1fr;
-    min-height: 80vh; border-top: 1px solid var(--dust);
+    min-height: 50vh; border-top: 1px solid var(--dust);
   }
   .product-section.reverse { direction: rtl; }
   .product-section.reverse > * { direction: ltr; }
   .product-image {
-    position: relative; overflow: hidden; min-height: 600px;
+    position: relative; overflow: hidden; min-height: 360px;
   }
   .product-image-inner {
     position: absolute; inset: 0;
@@ -148,7 +148,7 @@
   .product-section:nth-child(odd)  .product-image-inner { background-image: url('dusktildawnnew.png'); }
   .product-section:nth-child(even) .product-image-inner { background-image: url('fragrancegtr.png'); }
   .product-content {
-    padding: 80px 64px; display: flex;
+    padding: 56px 64px; display: flex;
     flex-direction: column; justify-content: center;
   }
   .product-eyebrow {
