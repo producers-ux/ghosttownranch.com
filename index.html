@@ -2955,7 +2955,22 @@ function openPDP(imgDiv) {
     var buyTarget2 = document.getElementById('pdp-buy-area');
     if (buyTarget2) {
       buyTarget2.dataset.productTitle = rawName.split('\n').join(' ').trim();
-      buyTarget2.dataset.price = priceEl ? (priceEl.textContent.replace(/[^0-9.]/g,'') || '0') : '0';
+      // For multi-price products (e.g. Sink Tray), read price from first option's data-price
+      var clonedSelect = buyTarget2.querySelector('.variant-select');
+      var firstOption = clonedSelect ? clonedSelect.options[0] : null;
+      var basePrice = (firstOption && firstOption.dataset.price)
+        ? firstOption.dataset.price
+        : (priceEl ? (priceEl.textContent.replace(/[^0-9.]/g,'') || '0') : '0');
+      buyTarget2.dataset.price = basePrice;
+      // Also update price when PDP variant changes
+      if (clonedSelect) {
+        clonedSelect.addEventListener('change', function() {
+          var selOpt = this.options[this.selectedIndex];
+          if (selOpt && selOpt.dataset.price) {
+            buyTarget2.dataset.price = selOpt.dataset.price;
+          }
+        });
+      }
 
       // Re-wire scent pickers for all variant selectors in the cloned buy area
       buyTarget2.querySelectorAll('.variant-selector').forEach(function(vs) {
@@ -3193,7 +3208,12 @@ function openPDP(imgDiv) {
     var productTitle, price;
     if (inDrawer) {
       productTitle = buyArea.dataset.productTitle || handle;
-      price = buyArea.dataset.price || '0';
+      // Prefer data-price from selected option over stored dataset price
+      var drawerSelect = buyArea ? buyArea.querySelector('.variant-select') : null;
+      var drawerOption = drawerSelect ? drawerSelect.options[drawerSelect.selectedIndex] : null;
+      price = (drawerOption && drawerOption.dataset.price)
+        ? drawerOption.dataset.price
+        : (buyArea.dataset.price || '0');
     } else {
       var nameEl = article ? article.querySelector('.product-name') : null;
       productTitle = nameEl ? (nameEl.textContent || nameEl.innerText || '').replace(/\s+/g,' ').trim() : handle;
