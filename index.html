@@ -2942,6 +2942,14 @@ function openPDP(imgDiv) {
           '<span class="pdp-badge">Printed in the Desert</span>' +
           '';
       }
+    } else if (rawName && rawName.indexOf('Sink Tray') > -1) {
+      if (badgesEl) {
+        badgesEl.style.display = 'flex';
+        badgesEl.innerHTML =
+          '<span class="pdp-badge">Eco-Packaging</span>' +
+          '<span class="pdp-badge">Sustainably Sourced</span>' +
+          '<span class="pdp-badge">Waterproof</span>';
+      }
     } else if (badgesEl) {
       badgesEl.innerHTML =
         '<span class="pdp-badge">COSMOS Certified</span>' +
