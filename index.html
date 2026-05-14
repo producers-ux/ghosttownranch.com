@@ -67,7 +67,6 @@
 
 <meta name="theme-color" content="#1A1512">
 <meta name="robots" content="index, follow">
-<link rel="preload" as="image" href="herogtr.png" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
   /* ── CUSTOM FONTS ── */
@@ -222,9 +221,12 @@
     display: flex; align-items: flex-end; padding: 60px 48px;
   }
   .hero-bg {
-    position: absolute; inset: 0;
-    background-image: url('herogtr.png');
-    background-size: cover; background-position: center top;
+    position: absolute; inset: 0; overflow: hidden;
+  }
+  .hero-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: 60% center;
+    display: block;
   }
   .hero-bg::before { display: none; }
   .hero-bg::after {
@@ -265,12 +267,16 @@
   }
   .product-image-inner {
     position: absolute; inset: 0;
-    background-size: cover; background-position: center;
+    transition: transform 0.6s ease;
+    overflow: hidden;
+  }
+  .product-image-inner img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    display: block;
     transition: transform 0.6s ease;
   }
-  .product-image:hover .product-image-inner { transform: scale(1.03); }
-  .product-section:nth-child(odd)  .product-image-inner { background-image: url('dusktildawnnew.png'); }
-  .product-section:nth-child(even) .product-image-inner { background-image: url('fragrancegtr.png'); }
+  .product-image:hover .product-image-inner img { transform: scale(1.03); }
   .product-content {
     padding: 56px 64px; display: flex;
     flex-direction: column; justify-content: center;
@@ -343,9 +349,17 @@
     display: flex; align-items: flex-end; padding: 60px 48px;
   }
   .w-hero-bg {
+    position: absolute; inset: 0; overflow: hidden;
+  }
+  .w-hero-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    display: block;
+  }
+  .w-hero-bg::after {
+    content: '';
     position: absolute; inset: 0;
-    background-image: linear-gradient(to bottom, rgba(26,21,18,0.1) 0%, rgba(26,21,18,0.45) 100%), url('tradegtr.png');
-    background-size: cover; background-position: center;
+    background: linear-gradient(to bottom, rgba(26,21,18,0.1) 0%, rgba(26,21,18,0.45) 100%);
   }
   .w-hero-text { position: relative; z-index: 2; color: #F4EFE6; }
   .w-hero-text h1 {
@@ -2075,7 +2089,27 @@
 <div id="page-brand" class="page active">
 
   <section class="hero">
-    <div class="hero-bg" role="img" aria-label="Wide open desert landscape — Ghost Town Ranch, Twentynine Palms, California"></div>
+    <div class="hero-bg">
+      <picture>
+        <source
+          media="(max-width: 768px)"
+          srcset="herogtr-mobile.webp"
+          type="image/webp"
+        >
+        <source
+          srcset="herogtr-cinematic.webp"
+          type="image/webp"
+        >
+        <img
+          src="herogtr.png"
+          alt="Ghost Town Ranch — amber glass bottle cradled in hang-dried desert botanicals, Twentynine Palms California"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          width="1600" height="685"
+        >
+      </picture>
+    </div>
     <div class="hero-text">
       <div class="hero-eyebrow">Frontier Modernism</div>
       <h1 class="hero-title">Ghost Town Ranch</h1>
@@ -2090,7 +2124,22 @@
 
   <section class="product-section" aria-label="Body and Skin Collection">
     <div class="product-image" onclick="showPage('catalog'); filterProducts('skin', document.querySelectorAll('.filter-btn')[2]);" style="cursor:pointer;" role="button" aria-label="Shop Body and Skin collection">
-      <div class="product-image-inner"></div>
+      <div class="product-image-inner">
+        <picture>
+          <source
+            srcset="dusktildawnnew-mobile.webp 750w, dusktildawnnew.webp 1400w"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            type="image/webp"
+          >
+          <img
+            src="dusktildawnnew.png"
+            alt="Ghost Town Ranch body and skin collection — amber glass bottle with dried desert botanicals"
+            loading="lazy"
+            decoding="async"
+            width="1400" height="1756"
+          >
+        </picture>
+      </div>
     </div>
     <div class="product-content">
       <div class="product-eyebrow">The Collection</div>
@@ -2103,7 +2152,22 @@
 
   <section class="product-section reverse" aria-label="Fragrance and Home Collection">
     <div class="product-image" onclick="showPage('catalog'); filterProducts('fragrance', document.querySelectorAll('.filter-btn')[1]);" style="cursor:pointer;" role="button" aria-label="Shop Fragrance and Home collection">
-      <div class="product-image-inner"></div>
+      <div class="product-image-inner">
+        <picture>
+          <source
+            srcset="fragrancegtr-mobile.webp 750w, fragrancegtr.webp 1400w"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            type="image/webp"
+          >
+          <img
+            src="fragrancegtr.png"
+            alt="Ghost Town Ranch fragrance and home collection — Ember body and linen fragrance with full product lineup"
+            loading="lazy"
+            decoding="async"
+            width="1400" height="1758"
+          >
+        </picture>
+      </div>
     </div>
     <div class="product-content">
       <div class="product-eyebrow">The Collection</div>
@@ -2889,7 +2953,15 @@
 <div id="page-wholesale" class="page">
 
   <section class="w-hero">
-    <div class="w-hero-bg"></div>
+    <div class="w-hero-bg">
+      <img
+        src="tradegtr.png"
+        alt="Ghost Town Ranch wholesale and trade — Frontier Modernism desert goods"
+        loading="lazy"
+        decoding="async"
+        width="1600" height="900"
+      >
+    </div>
     <div class="w-hero-text">
       <h1>Trade</h1>
       <p>Ghost Town Ranch · Wholesale</p>
