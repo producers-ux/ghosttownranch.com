@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Disallow cart/checkout internal state (no actual pages but good hygiene)
+Disallow: /cart
+Disallow: /checkout
+
+Sitemap: https://ghosttownranch.com/sitemap.xml
