@@ -2928,6 +2928,72 @@
 
   </main>
 
+  <!-- SCENT GUIDE -->
+  <section class="scent-guide" id="scent-guide">
+    <div class="scent-guide-header">
+      <div>
+        <div class="scent-guide-label">Ranch Water Body + Linen Fragrance</div>
+        <div class="scent-guide-sub">Six open range expressions. One formula — body and linen.</div>
+      </div>
+    </div>
+    <div class="scent-guide-grid">
+      <div class="scent-card">
+        <div class="scent-card-top">
+          <div class="scent-swatch" style="background:#b8b5c8;"></div>
+          <div class="scent-num">01</div>
+        </div>
+        <div class="scent-name">Hang Dried</div>
+        <div class="scent-note">White Sage &amp; Lavender</div>
+        <div class="scent-desc">White sage, lavender, rosemary, a little cedar underneath. Clean without trying to smell like clean.</div>
+      </div>
+      <div class="scent-card">
+        <div class="scent-card-top">
+          <div class="scent-swatch" style="background:#6b4c3b;"></div>
+          <div class="scent-num">02</div>
+        </div>
+        <div class="scent-name">Rough Hewn</div>
+        <div class="scent-note">Cade &amp; Cedarwood</div>
+        <div class="scent-desc">Sweet smoke and cedarwood. Sandalwood underneath, leather at the edges. Slow burn.</div>
+      </div>
+      <div class="scent-card">
+        <div class="scent-card-top">
+          <div class="scent-swatch" style="background:#c4955a;"></div>
+          <div class="scent-num">03</div>
+        </div>
+        <div class="scent-name">Dusk</div>
+        <div class="scent-note">Palo Santo</div>
+        <div class="scent-desc">Palo santo and dry earth. Ancient and mineral. The canyon wall after a long afternoon of sun.</div>
+      </div>
+      <div class="scent-card">
+        <div class="scent-card-top">
+          <div class="scent-swatch" style="background:#2d2926;"></div>
+          <div class="scent-num">04</div>
+        </div>
+        <div class="scent-name">Ember</div>
+        <div class="scent-note">Charcoal &amp; Amber</div>
+        <div class="scent-desc">Dark and smoky with a deep resin finish. The canyon after rain.</div>
+      </div>
+      <div class="scent-card">
+        <div class="scent-card-top">
+          <div class="scent-swatch" style="background:#7c8c6a;"></div>
+          <div class="scent-num">05</div>
+        </div>
+        <div class="scent-name">Graze</div>
+        <div class="scent-note">Sweetgrass &amp; Sage</div>
+        <div class="scent-desc">Sweetgrass and sage. River-clean and sharp. The good scrub after a day of actual work.</div>
+      </div>
+      <div class="scent-card">
+        <div class="scent-card-top">
+          <div class="scent-swatch" style="background:#e8c87a;"></div>
+          <div class="scent-num">06</div>
+        </div>
+        <div class="scent-name">Flax</div>
+        <div class="scent-note">Cotton &amp; Citrus</div>
+        <div class="scent-desc">Lemon, cotton blossom, blonde woods. Before there was bleach, there was the sun.</div>
+      </div>
+    </div>
+  </section>
+
   <!-- EDITORIAL BREAK -->
   <section class="editorial-break">
     <span class="label">The Ranch · Est. Twentynine Palms</span>
@@ -3834,7 +3900,7 @@ function openPDP(imgDiv) {
     var cards = document.querySelectorAll('.product-card'); for (var ci=0;ci<cards.length;ci++) { cards[ci].style.display = (category === 'all' || cards[ci].dataset.category === category) ? 'flex' : 'none'; }
 
     // Show scent guide only for all or fragrance filters
-    const guide = document.querySelector('.scent-guide');
+    const guide = document.getElementById('scent-guide') || document.querySelector('.scent-guide');
     if (guide) {
       guide.style.display = (category === 'all' || category === 'fragrance') ? 'block' : 'none';
     }
@@ -3867,15 +3933,6 @@ function openPDP(imgDiv) {
     descEl.className = 'scent-picker-desc';
     const firstScent = GTR_SCENTS[select.options[select.selectedIndex].text.trim()];
     descEl.textContent = firstScent ? firstScent.note + ' - ' + firstScent.desc : '';
-    const guideLink = document.createElement('a');
-    guideLink.className = 'scent-picker-guide-link';
-    guideLink.textContent = 'Full Scent Guide below';
-    guideLink.href = '#';
-    guideLink.onclick = function(e) {
-      e.preventDefault();
-      var guide = document.querySelector('.scent-guide');
-      if (guide) guide.scrollIntoView({ behavior:'smooth', block:'start' });
-    };
     Array.from(select.options).forEach(function(opt, idx) {
       var name = opt.text.trim();
       var scent = GTR_SCENTS[name];
@@ -3899,7 +3956,6 @@ function openPDP(imgDiv) {
     picker.appendChild(swatchRow);
     picker.appendChild(label);
     picker.appendChild(descEl);
-    picker.appendChild(guideLink);
     wrapper.insertBefore(picker, select);
   }
 
