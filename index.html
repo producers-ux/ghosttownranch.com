@@ -2161,11 +2161,11 @@
           >
           <img
             src="fragrancegtr.png"
-            alt="Ghost Town Ranch Hang Dried body and linen fragrance held by a woman in a wide-brim hat against a backdrop of dried desert botanicals and river stones"
+            alt="Ghost Town Ranch fragrance and home collection — Ember candle, Desert Glow facial oil, Hang Dried body linen fragrance and hand wash with desert botanicals"
             loading="lazy"
             decoding="async"
-            width="1400" height="1757"
-            style="object-position: top center;"
+            width="1400" height="1759"
+            style="object-position: center 20%;"
           >
         </picture>
       </div>
@@ -2863,18 +2863,18 @@
       <h2 class="product-name">GTR Garment-Dyed<br>Long-Sleeve Tee</h2>
       <p class="product-desc">Cotton that looks like it's been somewhere. Garment-dyed for a lived-in finish that gets better with every wash. Heavyweight enough to hold its shape. Relaxed cut, dropped shoulders. The GTR bull on the chest. One color. Wears alone or layered. Built to outlast the season.</p>
       <div class="product-footer">
-        <span class="product-price">$58</span>
+        <span class="product-price" id="tee-price">$64</span>
         <span class="product-size">XS – 2XL · Unisex</span>
       </div>
       <div class="shopify-buy-target" id="shopify-btn-032">
         <div class="variant-selector" data-handle="gtr-garment-dyed-long-sleeve-tee">
-          <select class="variant-select" onchange="swapVariantImage(this)">
-            <option value="51848278409512">XS</option>
-            <option value="51848278442280">S</option>
-            <option value="51848278475048">M</option>
-            <option value="51848278507816">L</option>
-            <option value="51848278540584">XL</option>
-            <option value="51848278573352">2XL</option>
+          <select class="variant-select" onchange="swapVariantImage(this); document.getElementById('tee-price').textContent = this.options[this.selectedIndex].dataset.price;">
+            <option value="51848278409512" data-price="$64">XS</option>
+            <option value="51848278442280" data-price="$64">S</option>
+            <option value="51848278475048" data-price="$64">M</option>
+            <option value="51848278507816" data-price="$64">L</option>
+            <option value="51848278540584" data-price="$64">XL</option>
+            <option value="51848278573352" data-price="$72">2XL</option>
           </select>
         </div>
         <button class="btn-cta btn-add-variant" onclick="addVariantToCart(event, this, 'gtr-garment-dyed-long-sleeve-tee')">Add to Cart</button>
@@ -3682,7 +3682,7 @@ function openPDP(imgDiv) {
         { name: "Mojave Reset Face Mist", sub: "COSMOS Natural · Prebiotic", price: "$38", img: "https://or-cre.com/cdn/shop/files/mojaveresetimage.png?v=1776860708&width=600", cat: "Body + Skin" },
         { name: "The Wash", sub: "Cold-Pressed Grapefruit", price: "$44", img: "https://or-cre.com/cdn/shop/files/thewashimage_7509c88e-32dc-4309-8da5-635175c5ab86.png?v=1776859541&width=600", cat: "Body + Skin" },
         { name: "Dusk Til Dawn Gel", sub: "COSMOS Natural · Overnight Repair", price: "$60", img: "https://or-cre.com/cdn/shop/files/dusktildawnimage.png?v=1776856287&width=600", cat: "Body + Skin" },
-        { name: "GTR Garment-Dyed Long-Sleeve Tee", sub: "XS – 2XL · Unisex", price: "$58", img: "https://or-cre.com/cdn/shop/files/GTRlongsleeveT.png?v=1779369267&width=1200", cat: "Merch" },
+        { name: "GTR Garment-Dyed Long-Sleeve Tee", sub: "XS – 2XL · Unisex", price: "$64", img: "https://or-cre.com/cdn/shop/files/GTRlongsleeveT.png?v=1779369267&width=1200", cat: "Merch" },
       ]
     },
     rimrock: {
