@@ -1,1 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Routines — Ghost Town Ranch</title>
+  <meta name="description" content="Three routines. Morning skin, the face, and evening. COSMOS-certified skincare and clean beauty from Ghost Town Ranch.">
+  <link rel="canonical" href="https://ghosttownranch.com/routines">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'PPEiko';
+      src: url('PPEiko-Medium.woff2') format('woff2');
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'PPEiko';
+      src: url('PPEiko-Thin.woff2') format('woff2');
+      font-weight: 300;
+      font-display: swap;
+    }
 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --parchment: #F4EFE6;
+      --warm-black: #1A1512;
+      --ochre: #9B7A3F;
+      --dust: #D4C9B5;
+      --army: #7c8260;
+      --cream: #f2ede4;
+      --sand: #d9d0bf;
+      --ink: #1e1c18;
+      --mist: #e8e2d6;
+      --serif: 'PPEiko', 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Jost', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--parchment);
+      color: var(--warm-black);
+      font-family: var(--sans);
+      font-weight: 300;
+      letter-spacing: 0.03em;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 24px 48px;
+      background: rgba(28, 24, 20, 0.72);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .nav-logo {
+      font-family: var(--serif); font-size: 13px; font-weight: 400;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      text-decoration: none; color: #F4EFE6;
+    }
+    .nav-links { display: flex; gap: 40px; list-style: none; }
+    .nav-links a {
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      text-decoration: none; color: #F4EFE6; opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; }
+    .nav-links a.active { border-bottom: 1px solid rgba(244,239,230,0.5); padding-bottom: 2px; }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      padding: 160px 48px 80px;
+      border-bottom: 1px solid var(--dust);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: end;
+    }
+    .hero-eyebrow {
+      font-size: 12px; letter-spacing: 0.35em; text-transform: uppercase;
+      opacity: 0.4; margin-bottom: 20px;
+    }
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: clamp(64px, 7vw, 110px);
+      font-weight: 300; line-height: 1.05;
+      letter-spacing: -0.01em;
+    }
+    .hero-headline em { font-style: italic; }
+    .hero-body {
+      font-family: var(--serif);
+      font-size: 26px; font-weight: 300;
+      line-height: 1.7; opacity: 0.55;
+      max-width: 480px;
+      align-self: end;
+    }
+
+    /* ── ROUTINE NAV ── */
+    .routine-nav {
+      position: sticky; top: 72px; z-index: 50;
+      background: var(--parchment);
+      border-bottom: 1px solid var(--dust);
+      display: flex;
+      padding: 0 48px;
+    }
+    .routine-nav-item {
+      font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+      padding: 22px 0; margin-right: 48px;
+      text-decoration: none; color: var(--warm-black);
+      opacity: 0.4; transition: opacity 0.2s;
+      border-bottom: 1px solid transparent;
+      cursor: pointer;
+    }
+    .routine-nav-item:hover { opacity: 0.8; }
+    .routine-nav-item.active { opacity: 1; border-bottom-color: var(--ochre); }
+
+    /* ── ROUTINE SECTION ── */
+    .routine-section {
+      padding: 96px 48px;
+      border-bottom: 1px solid var(--dust);
+    }
+    .routine-section:last-of-type { border-bottom: none; }
+
+    .routine-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 64px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--dust);
+    }
+    .routine-label {
+      font-size: 12px; letter-spacing: 0.35em; text-transform: uppercase;
+      opacity: 0.35; margin-bottom: 12px;
+    }
+    .routine-title {
+      font-family: var(--serif);
+      font-size: clamp(52px, 6vw, 88px);
+      font-weight: 300; line-height: 1.1;
+    }
+    .routine-title em { font-style: italic; }
+    .routine-hero-callout {
+      font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ochre);
+      border: 1px solid rgba(155,122,63,0.3);
+      padding: 12px 24px;
+      white-space: nowrap;
+      align-self: flex-end;
+    }
+
+    /* ── STEPS GRID ── */
+    .steps-grid {
+      display: grid;
+      gap: 0;
+    }
+    .steps-grid.count-6 { grid-template-columns: repeat(6, 1fr); }
+    .steps-grid.count-5 { grid-template-columns: repeat(5, 1fr); }
+    .steps-grid.count-4 { grid-template-columns: repeat(4, 1fr); }
+
+    .step-card {
+      padding: 0 24px 0 0;
+      border-right: 1px solid var(--dust);
+      position: relative;
+    }
+    .step-card:last-child { border-right: none; padding-right: 0; }
+    .step-card:first-child { padding-left: 0; }
+
+    .step-img-wrap {
+      position: relative;
+      width: 100%;
+      padding-bottom: 130%;
+      overflow: hidden;
+      background: var(--mist);
+      margin-bottom: 24px;
+    }
+    .step-img-wrap img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: contain;
+      object-position: center bottom;
+      padding: 12% 16% 8%;
+      transition: transform 0.6s ease;
+    }
+    .step-card:hover .step-img-wrap img { transform: scale(1.04); }
+
+    .step-number {
+      font-size: 12px; letter-spacing: 0.3em;
+      opacity: 0.35; margin-bottom: 10px;
+      display: block;
+    }
+    .step-function {
+      font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--ochre); margin-bottom: 10px; display: block;
+    }
+    .step-name {
+      font-family: var(--serif);
+      font-size: clamp(18px, 1.6vw, 26px);
+      font-weight: 400; line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .step-note {
+      font-size: 13px; letter-spacing: 0.04em;
+      opacity: 0.45; line-height: 1.65;
+    }
+
+    /* ── EVENING SECTION BG ── */
+    .routine-section.evening {
+      background: var(--ink);
+      color: var(--parchment);
+    }
+    .routine-section.evening .routine-header { border-bottom-color: rgba(212,201,181,0.2); }
+    .routine-section.evening .step-img-wrap { background: rgba(255,255,255,0.05); }
+    .routine-section.evening .step-card { border-right-color: rgba(212,201,181,0.2); }
+    .routine-section.evening .step-number { color: var(--parchment); }
+    .routine-section.evening .step-name { color: var(--parchment); }
+    .routine-section.evening .routine-hero-callout {
+      color: var(--sand); border-color: rgba(212,201,181,0.25);
+    }
+    .routine-section.evening .routine-title { color: var(--parchment); }
+    .routine-section.evening .routine-label { color: var(--parchment); }
+    .routine-section.evening .routine-nav-item { color: var(--parchment); }
+
+    /* ── MAKEUP SECTION BG ── */
+    .routine-section.makeup {
+      background: var(--mist);
+    }
+
+    /* ── NOTES STRIP ── */
+    .routine-notes {
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid var(--dust);
+      display: flex;
+      gap: 48px;
+    }
+    .routine-section.evening .routine-notes { border-top-color: rgba(212,201,181,0.2); }
+    .routine-note {
+      display: flex;
+      gap: 14px;
+      align-items: baseline;
+      flex: 1;
+    }
+    .routine-note-label {
+      font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--ochre); white-space: nowrap; flex-shrink: 0;
+    }
+    .routine-note-text {
+      font-family: var(--serif);
+      font-size: 18px; line-height: 1.65; opacity: 0.55;
+    }
+    .routine-section.evening .routine-note-text { opacity: 0.5; color: var(--parchment); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 56px 48px;
+      border-top: 1px solid var(--dust);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-left {
+      font-family: var(--serif); font-size: 13px;
+      letter-spacing: 0.08em; opacity: 0.4;
+    }
+    .footer-right {
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      opacity: 0.4;
+    }
+    .footer-right a { color: var(--warm-black); text-decoration: none; }
+    .footer-right a:hover { opacity: 0.8; }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: none; }
+
+    .step-card { opacity: 0; transform: translateY(16px); }
+    .step-card.visible { opacity: 1; transform: none; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav { padding: 20px 24px; }
+      .nav-links { display: none; }
+      .page-hero { grid-template-columns: 1fr; padding: 120px 24px 60px; }
+      .routine-nav { padding: 0 24px; overflow-x: auto; }
+      .routine-section { padding: 64px 24px; }
+      .routine-header { flex-direction: column; gap: 20px; }
+      .steps-grid.count-6 { grid-template-columns: repeat(3, 1fr); gap: 32px 0; }
+      .steps-grid.count-5 { grid-template-columns: repeat(3, 1fr); gap: 32px 0; }
+      .steps-grid.count-4 { grid-template-columns: repeat(2, 1fr); gap: 32px 0; }
+      .step-card { border-right: none; padding: 0; border-bottom: 1px solid var(--dust); padding-bottom: 24px; }
+      .step-card:last-child { border-bottom: none; }
+      .routine-notes { flex-direction: column; gap: 20px; }
+      footer { flex-direction: column; gap: 12px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="https://ghosttownranch.com">Ghost Town Ranch</a>
+    <ul class="nav-links">
+      <li><a href="https://ghosttownranch.com">Home</a></li>
+      <li><a href="https://ghosttownranch.com/#catalog">Shop</a></li>
+      <li><a href="#" class="active">Routines</a></li>
+      <li><a href="https://ghosttownranch.com/#wholesale">Wholesale</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="fade-up">
+      <div class="hero-eyebrow">Ghost Town Ranch</div>
+      <h1 class="hero-headline">Three routines.<br><em>All day covered.</em></h1>
+    </div>
+    <p class="hero-body fade-up">
+      Morning skin. The face. Evening repair. Every GTR formula is COSMOS-certified and built for the wide open — desert climate, long days, and skin that has to hold.
+    </p>
+  </section>
+
+  <!-- ROUTINE NAV -->
+  <nav class="routine-nav" aria-label="Routine navigation">
+    <a class="routine-nav-item active" href="#morning">Morning Skin</a>
+    <a class="routine-nav-item" href="#face">The Face</a>
+    <a class="routine-nav-item" href="#evening">Evening</a>
+  </nav>
+
+  <!-- ── ROUTINE 01: MORNING SKIN ── -->
+  <section class="routine-section" id="morning">
+    <div class="routine-header fade-up">
+      <div>
+        <div class="routine-label">Routine 01</div>
+        <h2 class="routine-title">Morning<br><em>Skin</em></h2>
+      </div>
+      <div class="routine-hero-callout">featuring the two-peptide serum</div>
+    </div>
+
+    <div class="steps-grid count-6">
+
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="https://or-cre.com/cdn/shop/files/Rosecut.png?v=1777339980" alt="Rose Cut Daily Facial Wash" loading="lazy">
+        </div>
+        <span class="step-number">01</span>
+        <span class="step-function">Cleanse</span>
+        <div class="step-name">Rose Cut<br>Daily Facial Wash</div>
+        <div class="step-note">Aloe base. Blackberry + sage. Lactic acid. Shake first.</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="https://or-cre.com/cdn/shop/files/peptidebottlemage.png?v=1776860380&width=1200" alt="The Grade Peptide Serum" loading="lazy">
+        </div>
+        <span class="step-number">02</span>
+        <span class="step-function">Treat</span>
+        <div class="step-name">The Grade<br>Peptide Serum</div>
+        <div class="step-note">Two peptides. Smooths, firms, reduces expression lines over time.</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="https://or-cre.com/cdn/shop/files/desertglowimage.png?v=1776856287&width=600" alt="Desert Glow Hydrating Facial Oil" loading="lazy">
+        </div>
+        <span class="step-number">03</span>
+        <span class="step-function">Restore</span>
+        <div class="step-name">Desert Glow<br>Hydrating Facial Oil</div>
+        <div class="step-note">Six organic oils. Sea-buckthorn beta-carotene. Two drops.</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="https://or-cre.com/cdn/shop/files/AllTold.png?v=1777338299" alt="All Told 3-in-1 Eye Cream" loading="lazy">
+        </div>
+        <span class="step-number">04</span>
+        <span class="step-function">Eye</span>
+        <div class="step-name">All Told<br>3-in-1 Eye Cream</div>
+        <div class="step-note">Alteromonas ferment. Multi-molecular HA. Morning or night.</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="https://or-cre.com/cdn/shop/files/theholdantiage.png?v=1777337380&width=1200" alt="The Hold Anti-Age Day Cream" loading="lazy">
+        </div>
+        <span class="step-number">05</span>
+        <span class="step-function">Hold</span>
+        <div class="step-name">The Hold<br>Anti-Age Day Cream</div>
+        <div class="step-note">Multi-molecular HA. Shea. Aloe base. Holds all day.</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="https://or-cre.com/cdn/shop/files/desertveilsingle.png?v=1777556947&width=600" alt="Desert Veil CC Stick" loading="lazy">
+        </div>
+        <span class="step-number">06</span>
+        <span class="step-function">Protect</span>
+        <div class="step-name">Desert Veil<br>CC Stick</div>
+        <div class="step-note">Zinc oxide. Ceramides. 98% natural. Sheer mineral protection.</div>
+      </div>
+
+    </div>
+
+    <div class="routine-notes fade-up">
+      <div class="routine-note">
+        <span class="routine-note-label">Order</span>
+        <span class="routine-note-text">Cleanser → serum on damp skin → oil → eye cream → moisturizer → CC stick last.</span>
+      </div>
+      <div class="routine-note">
+        <span class="routine-note-label">Certification</span>
+        <span class="routine-note-text">All six products COSMOS-certified. No parabens, phthalates, or synthetic dyes.</span>
+      </div>
+      <div class="routine-note">
+        <span class="routine-note-label">Climate</span>
+        <span class="routine-note-text">Formulated for desert conditions — wind, heat, UV, and dry air.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ROUTINE 02: THE FACE ── -->
+  <section class="routine-section makeup" id="face">
+    <div class="routine-header fade-up">
+      <div>
+        <div class="routine-label">Routine 02</div>
+        <h2 class="routine-title">The<br><em>Face</em></h2>
+      </div>
+      <div class="routine-hero-callout">featuring the peptide foundation</div>
+    </div>
+
+    <div class="steps-grid count-4">
+
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="https://or-cre.com/cdn/shop/files/desertveilsingle.png?v=1777556947&width=600" alt="Desert Veil CC Stick" loading="lazy">
+        </div>
+        <span class="step-number">01</span>
+        <span class="step-function">Correct</span>
+        <div class="step-name">Desert Veil<br>CC Stick</div>
+        <div class="step-note">Tone correction + mineral SPF. The bridge between skin and makeup.</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="https://or-cre.com/cdn/shop/files/softproof.png?v=1778068045&width=1200" alt="Soft Proof Peptide Foundation" loading="lazy">
+        </div>
+        <span class="step-number">02</span>
+        <span class="step-function">Build</span>
+        <div class="step-name">Soft Proof<br>Peptide Foundation</div>
+        <div class="step-note">Buildable, self-setting. Peptide complex works during wear. 10 shades.</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="https://or-cre.com/cdn/shop/files/lonshot.png?v=1779314446&width=3840" alt="Long Shot Peptide Mascara" loading="lazy">
+        </div>
+        <span class="step-number">03</span>
+        <span class="step-function">Define</span>
+        <div class="step-name">Long Shot<br>Peptide Mascara</div>
+        <div class="step-note">Natural pigments. Conditions and strengthens with consistent use.</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="https://or-cre.com/cdn/shop/files/liptint.png?v=1778076184&width=1200" alt="Drawn Line Matte Lip Color" loading="lazy">
+        </div>
+        <span class="step-number">04</span>
+        <span class="step-function">Finish</span>
+        <div class="step-name">Drawn Line<br>Matte Lip Color</div>
+        <div class="step-note">01 Nude — terracotta. Vegan. No synthetic dyes. Satin finish.</div>
+      </div>
+
+    </div>
+
+    <div class="routine-notes fade-up">
+      <div class="routine-note">
+        <span class="routine-note-label">Note</span>
+        <span class="routine-note-text">Desert Veil anchors both the morning skin and face routines. One product, two jobs.</span>
+      </div>
+      <div class="routine-note">
+        <span class="routine-note-label">Remove</span>
+        <span class="routine-note-text">Use Outlaw's Wipeout Makeup Remover at the end of the day — see the evening routine.</span>
+      </div>
+      <div class="routine-note">
+        <span class="routine-note-label">Clean</span>
+        <span class="routine-note-text">All makeup products vegan, no parabens, no phthalates, no synthetic dyes.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ROUTINE 03: EVENING ── -->
+  <section class="routine-section evening" id="evening">
+    <div class="routine-header fade-up">
+      <div>
+        <div class="routine-label">Routine 03</div>
+        <h2 class="routine-title">Evening<br><em>Repair</em></h2>
+      </div>
+      <div class="routine-hero-callout">featuring the toning exfoliant</div>
+    </div>
+
+    <div class="steps-grid count-6">
+
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="https://or-cre.com/cdn/shop/files/outlawswipeoutimage.png?v=1776861182&width=600" alt="Outlaw's Wipeout Makeup Remover" loading="lazy">
+        </div>
+        <span class="step-number">01</span>
+        <span class="step-function">Remove</span>
+        <div class="step-name">Outlaw's Wipeout<br>Makeup Remover</div>
+        <div class="step-note">Biphasic. Shake to combine. Dissolves everything. Chamomile calms.</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="https://or-cre.com/cdn/shop/files/Rosecut.png?v=1777339980" alt="Rose Cut Daily Facial Wash" loading="lazy">
+        </div>
+        <span class="step-number">02</span>
+        <span class="step-function">Cleanse</span>
+        <div class="step-name">Rose Cut<br>Daily Facial Wash</div>
+        <div class="step-note">Second cleanse. Removes residue. Lactic acid works through the rinse.</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="https://or-cre.com/cdn/shop/files/frontierfade_2.png?v=1776860857&width=600" alt="Frontier Fade Toning Exfoliant" loading="lazy">
+        </div>
+        <span class="step-number">03</span>
+        <span class="step-function">Resurface</span>
+        <div class="step-name">Frontier Fade<br>Toning Exfoliant</div>
+        <div class="step-note">Glycolic acid. Cranberry + lingonberry. 2–3 nights per week.</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="https://or-cre.com/cdn/shop/files/peptidebottlemage.png?v=1776860380&width=1200" alt="The Grade Peptide Serum" loading="lazy">
+        </div>
+        <span class="step-number">04</span>
+        <span class="step-function">Treat</span>
+        <div class="step-name">The Grade<br>Peptide Serum</div>
+        <div class="step-note">Peptides need contact time. Press in. The work happens overnight.</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="https://or-cre.com/cdn/shop/files/AllTold.png?v=1777338299" alt="All Told 3-in-1 Eye Cream" loading="lazy">
+        </div>
+        <span class="step-number">05</span>
+        <span class="step-function">Eye</span>
+        <div class="step-name">All Told<br>3-in-1 Eye Cream</div>
+        <div class="step-note">Rich without heavy. Sinks faster than expected. Restores, not coats.</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="https://or-cre.com/cdn/shop/files/dusktildawnimage.png?v=1776856287&width=600" alt="Dusk Til Dawn Hydration Gel" loading="lazy">
+        </div>
+        <span class="step-number">06</span>
+        <span class="step-function">Restore</span>
+        <div class="step-name">Dusk Til Dawn<br>Hydration Gel</div>
+        <div class="step-note">Overnight gel. Sodium PCA draws moisture from air while you sleep.</div>
+      </div>
+
+    </div>
+
+    <div class="routine-notes fade-up">
+      <div class="routine-note">
+        <span class="routine-note-label">Exfoliant</span>
+        <span class="routine-note-text">Use Frontier Fade 2–3 nights per week, not every night. Skip on nights following waxing or any skin sensitivity.</span>
+      </div>
+      <div class="routine-note">
+        <span class="routine-note-label">Peptides</span>
+        <span class="routine-note-text">The Grade rewards patience — results build over weeks. Consistent use is the variable.</span>
+      </div>
+      <div class="routine-note">
+        <span class="routine-note-label">Morning</span>
+        <span class="routine-note-text">By morning your skin has done eight hours of work. Proceed to the morning routine.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-left">Ghost Town Ranch &nbsp;·&nbsp; Frontier Modernism</div>
+    <div class="footer-right">
+      <a href="https://ghosttownranch.com/#catalog">Shop all products</a>
+    </div>
+  </footer>
+
+  <script>
+    // Intersection observer for fade-ups
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Staggered step cards
+    const stepObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const section = entry.target.closest('.routine-section');
+          const cards = section.querySelectorAll('.step-card');
+          cards.forEach((card, i) => {
+            setTimeout(() => card.classList.add('visible'), i * 80);
+          });
+          stepObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.steps-grid').forEach(grid => stepObserver.observe(grid));
+
+    // Routine nav active state on scroll
+    const sections = document.querySelectorAll('.routine-section[id]');
+    const navItems = document.querySelectorAll('.routine-nav-item');
+
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navItems.forEach(item => item.classList.remove('active'));
+          const active = document.querySelector(`.routine-nav-item[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.4 });
+
+    sections.forEach(s => sectionObserver.observe(s));
+  </script>
+
+</body>
+</html>
