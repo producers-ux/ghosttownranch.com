@@ -34,7 +34,7 @@
       "@type": "Brand",
       "name": "Ghost Town Ranch",
       "alternateName": "GTR",
-      "description": "Small-batch COSMOS-compliant skincare, fragrance, and home goods rooted in the open spaces and wide light of the American West. Frontier Modernism.",
+      "description": "Ghost Town Ranch is a small-batch COSMOS-certified skincare, fragrance, and home goods brand rooted in the high desert of California. Founded in Twentynine Palms near Joshua Tree, the brand is built around Frontier Modernism — a design and formulation philosophy that draws from the open landscape, western heritage, and mid-century modernism of the American West. All skincare is third-party certified by ECOCERT under the COSMOS Natural or COSMOS Organic standard. No parabens, phthalates, or synthetic dyes.",
       "url": "https://ghosttownranch.com",
       "logo": "https://ghosttownranch.com/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png",
       "sameAs": ["https://instagram.com/ghosttownranch"],
@@ -50,6 +50,34 @@
       },
       "areaServed": "US",
       "slogan": "From the wide open. For every day."
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": "Ghost Town Ranch Showroom",
+      "description": "Ghost Town Ranch skincare and fragrance showroom located inside Windermere Commercial, Palm Springs. Open June 2026. Wholesale appointments available.",
+      "url": "https://ghosttownranch.com",
+      "telephone": "+1-442-677-0396",
+      "email": "howdy@ghosttownranch.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "296 N Palm Canyon Dr",
+        "addressLocality": "Palm Springs",
+        "addressRegion": "CA",
+        "postalCode": "92262",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 33.8303,
+        "longitude": -116.5453
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      "sameAs": ["https://instagram.com/ghosttownranch"]
     },
     {
       "@type": "WebSite",
@@ -2133,7 +2161,7 @@
   <ul class="nav-links" id="nav-links" role="navigation" aria-label="Main navigation">
     <li><a onclick="showPage('brand'); closeNav();" role="button" tabindex="0">The Brand</a></li>
     <li><a onclick="showPage('catalog'); closeNav();" role="button" tabindex="0">The Collection</a></li>
-    <li><a href="/routines.html">Routines</a></li>
+    <li><a href="/routines/">Routines</a></li>
     <li><a onclick="showPage('wholesale'); closeNav();" role="button" tabindex="0">Wholesale</a></li>
     <li><a href="/range/index.html" class="nav-quiz-cta">Find Your Range</a></li>
   </ul>
@@ -2183,38 +2211,10 @@
 
   <section class="brand-statement">
     <p style="font-size: clamp(32px, 4vw, 48px); font-weight: 300; margin-bottom: 24px; opacity: 1;">Frontier Modernism.</p>
-    <p>Skincare, fragrance, and home goods rooted in the open spaces and wide light of the American West. Small-batch. COSMOS-compliant. Rooted in the SoCal high desert — born in Twentynine Palms, now based in Palm Springs.</p>
+    <p>Ghost Town Ranch makes small-batch skincare, fragrance, and home goods rooted in the high desert of California. Every skincare formula is third-party certified by ECOCERT under the COSMOS Natural or COSMOS Organic standard — the highest certification available for natural cosmetics, independently verified. The line includes peptide serums, organic facial oils, glycolic acid exfoliants, and mineral CC sticks, alongside a clean makeup collection with peptide foundation and mascara. Fragrance runs across six open range scents in candle, reed diffuser, and body and linen mist. Founded in Twentynine Palms near Joshua Tree. Showroom at 296 N Palm Canyon Drive, Palm Springs, CA. Wholesale through Shoppe Object Nourish, August 2026.</p>
   </section>
 
-  <section class="product-section" aria-label="Body and Skin Collection">
-    <div class="product-image" onclick="showPage('catalog'); filterProducts('skin', document.querySelectorAll('.filter-btn')[2]);" style="cursor:pointer;" role="button" aria-label="Shop Body and Skin collection">
-      <div class="product-image-inner">
-        <picture>
-          <source
-            srcset="rosemary-scalp-oil-mobile.webp 750w, rosemary-scalp-oil.webp 1400w"
-            sizes="(max-width: 768px) 100vw, 50vw"
-            type="image/webp"
-          >
-          <img
-            src="dusktildawnnew.png"
-            alt="Ghost Town Ranch body and skin collection — Rosemary Mint Revive Hair and Scalp Oil with desert botanicals"
-            loading="lazy"
-            decoding="async"
-            width="1400" height="1737"
-          >
-        </picture>
-      </div>
-    </div>
-    <div class="product-content">
-      <div class="product-eyebrow">The Collection</div>
-      <h2 class="product-title">Body + Skin</h2>
-      <div class="product-rule"></div>
-      <p class="product-desc">Skin. Hair. Body. COSMOS-certified by ECOCERT — third-party verified, not self-declared. The highest natural standard. Made for everyone, for every day.</p>
-      <a class="explore-btn" onclick="showPage('catalog'); filterProducts('skin', document.querySelectorAll('.filter-btn')[2]);">Explore Body + Skin</a>
-    </div>
-  </section>
-
-  <section class="product-section reverse" aria-label="Fragrance and Home Collection">
+  <section class="product-section" aria-label="Fragrance and Home Collection">
     <div class="product-image" onclick="showPage('catalog'); filterProducts('fragrance', document.querySelectorAll('.filter-btn')[1]);" style="cursor:pointer;" role="button" aria-label="Shop Fragrance and Home collection">
       <div class="product-image-inner">
         <picture>
@@ -2240,6 +2240,34 @@
       <div class="product-rule"></div>
       <p class="product-desc">Scent as landscape. Mist, flame, and air. Six open range expressions across body spray, candle, diffuser, and linen mist — all from the wide open.</p>
       <a class="explore-btn" onclick="showPage('catalog'); filterProducts('fragrance', document.querySelectorAll('.filter-btn')[1]);">Explore Fragrance + Home</a>
+    </div>
+  </section>
+
+  <section class="product-section reverse" aria-label="Body and Skin Collection">
+    <div class="product-image" onclick="showPage('catalog'); filterProducts('skin', document.querySelectorAll('.filter-btn')[2]);" style="cursor:pointer;" role="button" aria-label="Shop Body and Skin collection">
+      <div class="product-image-inner">
+        <picture>
+          <source
+            srcset="rosemary-scalp-oil-mobile.webp 750w, rosemary-scalp-oil.webp 1400w"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            type="image/webp"
+          >
+          <img
+            src="dusktildawnnew.png"
+            alt="Ghost Town Ranch body and skin collection — Rosemary Mint Revive Hair and Scalp Oil with desert botanicals"
+            loading="lazy"
+            decoding="async"
+            width="1400" height="1737"
+          >
+        </picture>
+      </div>
+    </div>
+    <div class="product-content">
+      <div class="product-eyebrow">The Collection</div>
+      <h2 class="product-title">Body + Skin</h2>
+      <div class="product-rule"></div>
+      <p class="product-desc">Skin. Hair. Body. COSMOS-certified by ECOCERT — third-party verified, not self-declared. The highest natural standard. Made for everyone, for every day.</p>
+      <a class="explore-btn" onclick="showPage('catalog'); filterProducts('skin', document.querySelectorAll('.filter-btn')[2]);">Explore Body + Skin</a>
     </div>
   </section>
 
@@ -2280,79 +2308,6 @@
     </div>
   </section>
 
-  <!-- ── ROUTINES TEASER ── -->
-  <section class="routines-teaser">
-    <div class="routines-teaser-left">
-      <div class="routines-teaser-eyebrow">Ghost Town Ranch · Routines</div>
-      <h2 class="routines-teaser-headline">Three routines.<br><em>All day covered.</em></h2>
-      <p class="routines-teaser-body">Morning skin. The face. Evening repair. Every formula is COSMOS-certified and built for the wide open — desert climate, long days, and skin that has to hold.</p>
-      <a href="/routines/" class="routines-teaser-link">View All Routines</a>
-    </div>
-    <div class="routines-teaser-right">
-      <a href="/routines/#morning" class="routine-row" style="text-decoration:none;">
-        <span class="routine-row-num">01</span>
-        <span class="routine-row-name">Morning <em>Skin</em></span>
-        <span class="routine-row-callout">featuring the two-peptide serum</span>
-      </a>
-      <a href="/routines/#face" class="routine-row" style="text-decoration:none;">
-        <span class="routine-row-num">02</span>
-        <span class="routine-row-name">The <em>Face</em></span>
-        <span class="routine-row-callout">featuring the peptide foundation</span>
-      </a>
-      <a href="/routines/#evening" class="routine-row" style="text-decoration:none;">
-        <span class="routine-row-num">03</span>
-        <span class="routine-row-name">Evening <em>Repair</em></span>
-        <span class="routine-row-callout">featuring the toning exfoliant</span>
-      </a>
-    </div>
-  </section>
-
-
-  <!-- ── LAND QUIZ TEASER ── -->
-  <section class="brand-quiz-teaser">
-    <div class="brand-quiz-inner">
-      <div class="brand-quiz-left">
-        <div class="brand-quiz-eyebrow">Ghost Town Ranch · The Land Quiz</div>
-        <h2 class="brand-quiz-headline">Which territory<br>are you?</h2>
-        <p class="brand-quiz-body">Six questions. Five territories. One collection built for the land you belong to.</p>
-        <div class="brand-quiz-icons">
-          <div class="brand-quiz-icon-item">
-            <svg viewBox="0 0 32 32" fill="none" width="44" height="44"><circle cx="16" cy="10" r="5" stroke="currentColor" stroke-width="1.8"/><line x1="16" y1="2" x2="16" y2="0.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="16" y1="20" x2="16" y2="21.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="8" y1="10" x2="6.5" y2="10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="24" y1="10" x2="25.5" y2="10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="10.3" y1="4.3" x2="9.2" y2="3.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="21.7" y1="4.3" x2="22.8" y2="3.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 26 Q10 22 13 23 Q15 19 18 21 Q20 18 23 20 Q25 23 24 26Z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
-            <span>High Desert</span>
-          </div>
-          <div class="brand-quiz-icon-item">
-            <svg viewBox="0 0 32 32" fill="none" width="44" height="44"><line x1="2" y1="20" x2="30" y2="20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="2" y1="24" x2="30" y2="24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="7" y1="16" x2="7" y2="26" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="25" y1="16" x2="25" y2="26" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M4 18 Q8 12 12 14 Q16 10 20 13 Q24 9 28 12" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
-            <span>Open Range</span>
-          </div>
-          <div class="brand-quiz-icon-item">
-            <svg viewBox="0 0 32 32" fill="none" width="44" height="44"><path d="M4 14 Q8 10 12 14 Q16 18 20 14 Q24 10 28 14" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M4 20 Q8 16 12 20 Q16 24 20 20 Q24 16 28 20" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
-            <span>River Basin</span>
-          </div>
-          <div class="brand-quiz-icon-item">
-            <svg viewBox="0 0 32 32" fill="none" width="44" height="44"><path d="M2 26 L10 10 L14 16 L18 8 L24 18 L28 14 L30 26Z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/><line x1="2" y1="26" x2="30" y2="26" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-            <span>Dusk</span>
-          </div>
-          <div class="brand-quiz-icon-item">
-            <svg viewBox="0 0 32 32" fill="none" width="44" height="44"><path d="M2 4 L2 24 Q2 28 8 28 L24 28 Q30 28 30 24 L30 4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M8 4 L8 20 Q8 24 12 24 L20 24 Q24 24 24 20 L24 4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
-            <span>Canyon Floor</span>
-          </div>
-        </div>
-        <button class="brand-quiz-btn" onclick="showPage('quiz')">Find Your Land Type</button>
-      </div>
-      <div class="brand-quiz-right">
-        <div class="brand-quiz-eyebrow">Sample Question</div>
-        <div class="brand-quiz-q">"Your version of clean smells like —"</div>
-        <div class="brand-quiz-answers">
-          <div class="brand-quiz-answer" onclick="showPage('quiz')"><span class="brand-quiz-answer-letter">A</span>Hang Dried — white sage and lavender.</div>
-          <div class="brand-quiz-answer" onclick="showPage('quiz')"><span class="brand-quiz-answer-letter">B</span>Rough Hewn — cedar bark and worn leather.</div>
-          <div class="brand-quiz-answer" onclick="showPage('quiz')"><span class="brand-quiz-answer-letter">C</span>Graze — sweetgrass and sage. River-sharp.</div>
-          <div class="brand-quiz-answer" onclick="showPage('quiz')"><span class="brand-quiz-answer-letter">D</span>Dusk — palo santo and dry earth.</div>
-          <div class="brand-quiz-answer" onclick="showPage('quiz')"><span class="brand-quiz-answer-letter">E</span>Flax — lemon and cotton blossom.</div>
-          <div class="brand-quiz-answer" onclick="showPage('quiz')"><span class="brand-quiz-answer-letter">F</span>Ember — dark soil and iron mineral.</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <footer itemscope itemtype="https://schema.org/Organization">
     <div class="footer-left">
