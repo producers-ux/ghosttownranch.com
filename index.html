@@ -420,6 +420,69 @@
   .product-image[onclick] { transition: opacity 0.2s; }
   .product-image[onclick]:hover { opacity: 0.9; }
 
+  /* ── ROUTINES TEASER ── */
+  .routines-teaser {
+    background: var(--warm-black);
+    padding: 96px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: center;
+    border-top: 1px solid rgba(212,201,181,0.1);
+  }
+  .routines-teaser-eyebrow {
+    font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--ochre); margin-bottom: 24px; opacity: 0.8;
+  }
+  .routines-teaser-headline {
+    font-family: var(--serif);
+    font-size: clamp(36px, 4vw, 60px);
+    font-weight: 300; line-height: 1.08;
+    color: var(--parchment);
+    margin-bottom: 24px; letter-spacing: -0.01em;
+  }
+  .routines-teaser-headline em { font-style: italic; }
+  .routines-teaser-body {
+    font-family: var(--serif);
+    font-size: 18px; line-height: 1.75;
+    color: var(--dust); opacity: 0.65;
+    max-width: 340px; margin-bottom: 36px;
+  }
+  .routines-teaser-link {
+    display: inline-block;
+    font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--ochre); text-decoration: none;
+    border-bottom: 1px solid rgba(155,122,63,0.5);
+    padding-bottom: 3px; transition: opacity 0.2s;
+  }
+  .routines-teaser-link:hover { opacity: 0.7; }
+  .routines-teaser-right { display: flex; flex-direction: column; }
+  .routine-row {
+    display: flex; align-items: baseline;
+    gap: 24px; padding: 28px 0;
+    border-bottom: 1px solid rgba(212,201,181,0.12);
+  }
+  .routine-row:first-child { border-top: 1px solid rgba(212,201,181,0.12); }
+  .routine-row-num {
+    font-size: 9px; letter-spacing: 0.3em;
+    color: var(--ochre); flex-shrink: 0; width: 28px;
+  }
+  .routine-row-name {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2vw, 30px);
+    font-weight: 300; color: var(--parchment); flex: 1;
+  }
+  .routine-row-name em { font-style: italic; }
+  .routine-row-callout {
+    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--dust); opacity: 0.35; white-space: nowrap;
+  }
+  @media (max-width: 900px) {
+    .routines-teaser { grid-template-columns: 1fr; gap: 48px; padding: 72px 24px; }
+    .routines-teaser-body { max-width: 100%; }
+    .routine-row-callout { display: none; }
+  }
+
 
   /* ── BRAND PAGE QUIZ TEASER ── */
   #page-brand .brand-quiz-teaser {
@@ -2070,6 +2133,7 @@
   <ul class="nav-links" id="nav-links" role="navigation" aria-label="Main navigation">
     <li><a onclick="showPage('brand'); closeNav();" role="button" tabindex="0">The Brand</a></li>
     <li><a onclick="showPage('catalog'); closeNav();" role="button" tabindex="0">The Collection</a></li>
+    <li><a href="/routines.html">Routines</a></li>
     <li><a onclick="showPage('wholesale'); closeNav();" role="button" tabindex="0">Wholesale</a></li>
     <li><a href="/range/index.html" class="nav-quiz-cta">Find Your Range</a></li>
   </ul>
@@ -2186,6 +2250,33 @@
       <a href="https://www.latimes.com/lifestyle/list/29-palms-near-joshua-tree-9-great-shops-new-businesses" target="_blank" rel="noopener noreferrer">Los Angeles Times</a>
       <a href="https://voyagela.com/interview/life-values-legacy-our-chat-with-kate-pawlicki-bourne-of-palm-springs-joshua-tree-highlight/" target="_blank" rel="noopener noreferrer">VoyageLA</a>
       <a href="https://boldjourney.com/meet-kate-pawlicki-bourne/" target="_blank" rel="noopener noreferrer">Bold Journey</a>
+    </div>
+  </section>
+
+  <!-- ── ROUTINES TEASER ── -->
+  <section class="routines-teaser">
+    <div class="routines-teaser-left">
+      <div class="routines-teaser-eyebrow">Ghost Town Ranch · Routines</div>
+      <h2 class="routines-teaser-headline">Three routines.<br><em>All day covered.</em></h2>
+      <p class="routines-teaser-body">Morning skin. The face. Evening repair. Every formula is COSMOS-certified and built for the wide open — desert climate, long days, and skin that has to hold.</p>
+      <a href="/routines.html" class="routines-teaser-link">View All Routines</a>
+    </div>
+    <div class="routines-teaser-right">
+      <a href="/routines.html#morning" class="routine-row" style="text-decoration:none;">
+        <span class="routine-row-num">01</span>
+        <span class="routine-row-name">Morning <em>Skin</em></span>
+        <span class="routine-row-callout">featuring the two-peptide serum</span>
+      </a>
+      <a href="/routines.html#face" class="routine-row" style="text-decoration:none;">
+        <span class="routine-row-num">02</span>
+        <span class="routine-row-name">The <em>Face</em></span>
+        <span class="routine-row-callout">featuring the peptide foundation</span>
+      </a>
+      <a href="/routines.html#evening" class="routine-row" style="text-decoration:none;">
+        <span class="routine-row-num">03</span>
+        <span class="routine-row-name">Evening <em>Repair</em></span>
+        <span class="routine-row-callout">featuring the toning exfoliant</span>
+      </a>
     </div>
   </section>
 
