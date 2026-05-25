@@ -81,6 +81,7 @@
       text-decoration: none;
     }
     .nav-logo img { height: 32px; width: auto; }
+    .nav-right { display: flex; align-items: center; gap: 32px; }
     .nav-links { display: flex; gap: 40px; list-style: none; }
     .nav-links a {
       font-family: var(--sans);
@@ -453,6 +454,8 @@
     @media (max-width: 900px) {
       nav { padding: 20px 24px; }
       .nav-hamburger { display: flex; }
+      .nav-right { gap: 12px; }
+      .cart-nav-btn { z-index: 101; }
       .nav-links {
         display: none;
         position: fixed;
@@ -503,16 +506,25 @@
     <a class="nav-logo" href="https://ghosttownranch.com/">
       <img src="../ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="Ghost Town Ranch">
     </a>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="https://ghosttownranch.com/">Home</a></li>
-      <li><a href="https://ghosttownranch.com/#catalog">Shop</a></li>
-      <li><a href="https://ghosttownranch.com/routines/">Routines</a></li>
-      <li><a href="#" class="active">Ritual</a></li>
-      <li><a href="https://ghosttownranch.com/#wholesale">Wholesale</a></li>
-    </ul>
-    <button class="nav-hamburger" id="nav-hamburger" onclick="toggleNav()" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-right">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="https://ghosttownranch.com/">Home</a></li>
+        <li><a href="https://ghosttownranch.com/#catalog">Shop</a></li>
+        <li><a href="https://ghosttownranch.com/routines/">Routines</a></li>
+        <li><a href="#" class="active">Ritual</a></li>
+        <li><a href="https://ghosttownranch.com/#wholesale">Wholesale</a></li>
+      </ul>
+      <a class="cart-nav-btn" href="https://ghosttownranch.com/#catalog" aria-label="Shop">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#F4EFE6;display:block;">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+      </a>
+      <button class="nav-hamburger" id="nav-hamburger" onclick="toggleNav()" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
 
   <!-- HERO -->
