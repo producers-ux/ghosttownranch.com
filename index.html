@@ -449,6 +449,88 @@
   .product-image[onclick] { transition: opacity 0.2s; }
   .product-image[onclick]:hover { opacity: 0.9; }
 
+  /* ── THE RITUAL ── */
+  .ritual-strip {
+    position: relative;
+    background: #0E0C0A;
+    overflow: hidden;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+  }
+  .ritual-strip-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .ritual-strip-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    display: block;
+    opacity: 0.38;
+  }
+  .ritual-copy {
+    position: relative;
+    z-index: 2;
+    padding: 96px 48px;
+    max-width: 640px;
+  }
+  .ritual-eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    opacity: 0.75;
+    margin-bottom: 40px;
+  }
+  .ritual-line {
+    display: block;
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.4vw, 30px);
+    font-weight: 300;
+    line-height: 1.55;
+    color: var(--parchment);
+    letter-spacing: 0.02em;
+  }
+  .ritual-line + .ritual-line {
+    margin-top: 4px;
+  }
+  .ritual-rule {
+    width: 28px; height: 1px;
+    background: var(--ochre);
+    margin-top: 40px;
+    opacity: 0.55;
+  }
+  .ritual-products {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .ritual-product-link {
+    font-size: 9px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--parchment);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(244,239,230,0.3);
+    padding-bottom: 2px;
+    opacity: 0.55;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .ritual-product-link:hover { opacity: 1; }
+  .ritual-product-sep {
+    font-size: 9px;
+    color: var(--ochre);
+    opacity: 0.5;
+  }
+  @media (max-width: 700px) {
+    .ritual-copy { padding: 72px 24px; }
+    .ritual-strip { min-height: 380px; }
+  }
+
   /* ── ROUTINES TEASER ── */
   .routines-teaser {
     background: var(--warm-black);
@@ -2157,14 +2239,13 @@
 <nav id="nav" class="light">
   <div class="nav-logo" onclick="showPage('brand')" style="cursor:pointer;" aria-label="Ghost Town Ranch — Home">
     <img src="/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="Ghost Town Ranch logo">
-    Ghost Town Ranch
   </div>
   <ul class="nav-links" id="nav-links" role="navigation" aria-label="Main navigation">
     <li><a onclick="showPage('brand'); closeNav();" role="button" tabindex="0">The Brand</a></li>
     <li><a onclick="showPage('catalog'); closeNav();" role="button" tabindex="0">The Collection</a></li>
     <li><a href="/routines/">Routines</a></li>
     <li><a onclick="showPage('wholesale'); closeNav();" role="button" tabindex="0">Wholesale</a></li>
-    <li><a href="/range/index.html" class="nav-quiz-cta">Find Your Range</a></li>
+
   </ul>
   <div style="display:flex;align-items:center;gap:12px;">
     <button class="cart-nav-btn" onclick="openCart()" aria-label="Open cart">
@@ -2183,6 +2264,7 @@
 
   <section class="hero">
     <div class="hero-bg">
+      <!-- TODO: Replace with model/routines image — person in the brand, desert light, wide frame. Hands or partial body preferred over portrait. Bottle present in environment. -->
       <picture>
         <source
           media="(max-width: 768px)"
@@ -2218,6 +2300,7 @@
     <div class="product-image" onclick="showPage('catalog'); filterProducts('fragrance', document.querySelectorAll('.filter-btn')[1]);" style="cursor:pointer;" role="button" aria-label="Shop Fragrance and Home collection">
       <div class="product-image-inner">
         <picture>
+          <!-- TODO: Replace with wider editorial shot showing multiple products — candle, mist, diffuser together. Current rope/botanicals bottle image moved to Ritual section. -->
           <source
             srcset="fragrancegtr-mobile.webp 750w, fragrancegtr.webp 1400w"
             sizes="(max-width: 768px) 100vw, 50vw"
@@ -2268,6 +2351,27 @@
       <div class="product-rule"></div>
       <p class="product-desc">Skin. Hair. Body. COSMOS-certified by ECOCERT — third-party verified, not self-declared. The highest natural standard. Made for everyone, for every day.</p>
       <a class="explore-btn" onclick="showPage('catalog'); filterProducts('skin', document.querySelectorAll('.filter-btn')[2]);">Explore Body + Skin</a>
+    </div>
+  </section>
+
+  <!-- ── THE RITUAL ── -->
+  <section class="ritual-strip" aria-label="The Ritual">
+    <div class="ritual-strip-bg">
+      <!-- IMAGE: amber pump bottle against hang-dried botanicals and rope — use Screenshot_2026-05-25_134108 or production crop of same shoot -->
+      <img src="ranchwater-botanicals.png" alt="Ghost Town Ranch amber bottle cradled in hang-dried desert botanicals and rope" loading="lazy" decoding="async">
+    </div>
+    <div class="ritual-copy">
+      <div class="ritual-eyebrow">The Ritual</div>
+      <span class="ritual-line">Spray the body. Mist the linens.</span>
+      <span class="ritual-line">Light the palo santo. Let it smoke.</span>
+      <span class="ritual-line">Light the candle when the room settles.</span>
+      <span class="ritual-line">Keep the matchbook on the shelf.</span>
+      <div class="ritual-rule"></div>
+      <div class="ritual-products">
+        <a class="ritual-product-link" onclick="showPage('catalog'); filterProducts('fragrance', document.querySelectorAll('.filter-btn')[1]);">Ranch Water Body + Linen Fragrance</a>
+        <span class="ritual-product-sep">+</span>
+        <a class="ritual-product-link" onclick="showPage('catalog'); filterProducts('fragrance', document.querySelectorAll('.filter-btn')[1]);">The Field Kit</a>
+      </div>
     </div>
   </section>
 
