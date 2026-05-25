@@ -139,6 +139,32 @@
     .nav-links a:hover, .nav-links a.active { opacity: 1; }
     .nav-links a.active { border-bottom: 1px solid rgba(244,239,230,0.5); padding-bottom: 2px; }
 
+    /* ── HAMBURGER NAV (mobile) ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      min-width: 44px;
+      min-height: 44px;
+      align-items: center;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 20px;
+      height: 1.5px;
+      background: #F4EFE6;
+      transition: all 0.25s ease;
+      transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
     /* ── PAGE HERO ── */
     .page-hero {
       padding: 160px 48px 80px;
@@ -367,18 +393,21 @@
     footer {
       padding: 56px 48px;
       border-top: 1px solid var(--dust);
-      display: flex; justify-content: space-between; align-items: center;
+      display: flex; justify-content: space-between; align-items: flex-end;
     }
     .footer-left {
       font-family: var(--serif); font-size: 13px;
       letter-spacing: 0.08em; opacity: 0.4;
+      display: flex; align-items: center; gap: 10px;
     }
+    .footer-left img { height: 24px; width: auto; opacity: 0.4; }
     .footer-right {
+      display: flex; flex-direction: column; align-items: flex-end; gap: 7px;
       font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
       opacity: 0.4;
     }
-    .footer-right a { color: var(--warm-black); text-decoration: none; }
-    .footer-right a:hover { opacity: 0.8; }
+    .footer-right a { color: var(--warm-black); text-decoration: none; transition: opacity 0.2s; }
+    .footer-right a:hover { opacity: 0.9; }
 
     /* ── ANIMATIONS ── */
     .fade-up {
@@ -393,7 +422,32 @@
     /* ── MOBILE ── */
     @media (max-width: 900px) {
       nav { padding: 20px 24px; }
-      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(26,21,18,0.97);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+        z-index: 99;
+        padding: 80px 32px 40px;
+        list-style: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; border-bottom: 1px solid rgba(244,239,230,0.1); }
+      .nav-links li:first-child { border-top: 1px solid rgba(244,239,230,0.1); }
+      .nav-links a {
+        font-size: 13px !important;
+        letter-spacing: 0.25em;
+        padding: 22px 0;
+        display: flex;
+        align-items: center;
+        min-height: 44px;
+        width: 100%;
+      }
       .page-hero { grid-template-columns: 1fr; padding: 120px 24px 60px; }
       .routine-nav { padding: 0 24px; overflow-x: auto; }
       .routine-section { padding: 64px 24px; }
@@ -459,13 +513,16 @@
   <!-- NAV -->
   <nav>
     <a class="nav-logo" href="https://ghosttownranch.com">Ghost Town Ranch</a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li><a href="https://ghosttownranch.com/">Home</a></li>
       <li><a href="https://ghosttownranch.com/#catalog">Shop</a></li>
       <li><a href="#" class="active">Routines</a></li>
       <li><a href="https://ghosttownranch.com/ritual/">Ritual</a></li>
       <li><a href="https://ghosttownranch.com/#wholesale">Wholesale</a></li>
     </ul>
+    <button class="nav-hamburger" id="nav-hamburger" onclick="toggleNav()" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <!-- PAGE HERO IMAGE -->
@@ -752,10 +809,23 @@
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-left">Ghost Town Ranch &nbsp;·&nbsp; Frontier Modernism</div>
+  <footer itemscope itemtype="https://schema.org/Organization">
+    <div class="footer-left">
+      <img src="../ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="Ghost Town Ranch bull icon — Frontier Modernism">
+      <address style="font-style:normal;" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+        Frontier Modernism ·
+        <span itemprop="addressLocality">Palm Springs</span>,
+        <span itemprop="addressRegion">CA</span> ·
+        High Desert · Born in Twentynine Palms
+      </address>
+    </div>
     <div class="footer-right">
-      <a href="https://ghosttownranch.com/#catalog">Shop all products</a>
+      <a href="https://instagram.com/ghosttownranch" target="_blank" rel="noopener noreferrer" itemprop="sameAs">@ghosttownranch</a>
+      <a href="mailto:howdy@ghosttownranch.com" itemprop="email">howdy@ghosttownranch.com</a>
+      <a href="https://ghosttownranch.com/#catalog">Shop</a>
+      <a href="https://ghosttownranch.com/ritual/">Ritual</a>
+      <a href="https://ghosttownranch.com" itemprop="url">ghosttownranch.com</a>
+      <span style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;opacity:0.4;">© Ghost Town Ranch · Pulp Media Lab, Inc.</span>
     </div>
   </footer>
 
@@ -803,6 +873,28 @@
     }, { threshold: 0.4 });
 
     sections.forEach(s => sectionObserver.observe(s));
+
+    // ── Hamburger nav ──
+    function toggleNav() {
+      var links = document.getElementById('nav-links');
+      var btn = document.getElementById('nav-hamburger');
+      if (!links || !btn) return;
+      var isOpen = links.classList.contains('open');
+      links.classList.toggle('open');
+      btn.classList.toggle('open');
+      btn.setAttribute('aria-expanded', !isOpen);
+      document.body.style.overflow = isOpen ? '' : 'hidden';
+    }
+    // Close menu when a link is clicked
+    document.querySelectorAll('#nav-links a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        var links = document.getElementById('nav-links');
+        var btn = document.getElementById('nav-hamburger');
+        if (links) links.classList.remove('open');
+        if (btn) { btn.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+        document.body.style.overflow = '';
+      });
+    });
   </script>
 
 </body>
