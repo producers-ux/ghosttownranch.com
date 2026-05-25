@@ -2230,7 +2230,7 @@
   <a class="nav-logo" href="https://ghosttownranch.com/">Ghost Town Ranch</a>
   <ul class="nav-links" id="nav-links" role="navigation" aria-label="Main navigation">
     <li><a href="https://ghosttownranch.com/">Home</a></li>
-    <li><a href="https://ghosttownranch.com/#catalog">Shop</a></li>
+    <li><a href="#" onclick="event.preventDefault(); showPage('catalog');">Shop</a></li>
     <li><a href="https://ghosttownranch.com/routines/">Routines</a></li>
     <li><a href="https://ghosttownranch.com/ritual/">Ritual</a></li>
     <li><a href="https://ghosttownranch.com/#wholesale">Wholesale</a></li>
@@ -4130,6 +4130,8 @@ function openPDP(imgDiv) {
     if (!page) return;
     var target = document.getElementById('page-' + page);
     if (!target) return;
+
+    closeNav();
 
     var pages = document.querySelectorAll('.page');
     for (var i = 0; i < pages.length; i++) pages[i].classList.remove('active');
