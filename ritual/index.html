@@ -1,1 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ritual — Ghost Town Ranch | Fragrance + Home</title>
+  <meta name="description" content="Spray the body. Mist the linens. Light the palo santo. Let it smoke. Light the candle when the room settles. Keep the matchbook on the shelf. The Ghost Town Ranch Ritual — Ranch Water, The Field Kit, The Votive, and all fragrance + home goods.">
+  <link rel="canonical" href="https://ghosttownranch.com/ritual/">
+  <meta name="robots" content="index, follow">
 
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ghosttownranch.com/ritual/">
+  <meta property="og:title" content="Ritual — Ghost Town Ranch">
+  <meta property="og:description" content="Spray the body. Mist the linens. Light the palo santo. Let it smoke. Light the candle when the room settles. Keep the matchbook on the shelf.">
+  <meta property="og:image" content="https://ghosttownranch.com/theritual.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Ghost Town Ranch">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ritual — Ghost Town Ranch">
+  <meta name="twitter:description" content="Spray the body. Mist the linens. Light the palo santo. Let it smoke. Light the candle when the room settles.">
+  <meta name="twitter:image" content="https://ghosttownranch.com/theritual.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'PPEiko';
+      src: url('../PPEiko-Medium.woff2') format('woff2');
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'PPEiko';
+      src: url('../PPEiko-Thin.woff2') format('woff2');
+      font-weight: 300;
+      font-display: swap;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --parchment: #F4EFE6;
+      --warm-black: #1A1512;
+      --ochre: #9B7A3F;
+      --dust: #D4C9B5;
+      --army: #7c8260;
+      --cream: #f2ede4;
+      --sand: #d9d0bf;
+      --ink: #1e1c18;
+      --mist: #e8e2d6;
+      --serif: 'PPEiko', 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Jost', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--parchment);
+      color: var(--warm-black);
+      font-family: var(--sans);
+      font-weight: 300;
+      letter-spacing: 0.03em;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 24px 48px;
+      background: rgba(28, 24, 20, 0.72);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo img { height: 32px; width: auto; }
+    .nav-links { display: flex; gap: 40px; list-style: none; }
+    .nav-links a {
+      font-family: var(--sans);
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      text-decoration: none; color: #F4EFE6; opacity: 0.7;
+      font-weight: 300;
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; }
+    .nav-links a.active { opacity: 1; border-bottom: 1px solid rgba(244,239,230,0.5); padding-bottom: 2px; }
+
+    /* ── HERO ── */
+    .page-hero-img {
+      position: relative; width: 100%; height: 85vh; min-height: 560px;
+      overflow: hidden;
+    }
+    .page-hero-img img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 30%;
+      display: block;
+    }
+    .page-hero-img::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(26,21,18,0.35) 0%,
+        rgba(26,21,18,0.1) 40%,
+        rgba(26,21,18,0.65) 100%);
+    }
+    .page-hero-overlay {
+      position: absolute; inset: 0; z-index: 2;
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      padding: 64px 48px;
+    }
+    .hero-eyebrow {
+      font-size: 10px; letter-spacing: 0.38em; text-transform: uppercase;
+      color: rgba(244,239,230,0.6); margin-bottom: 16px;
+    }
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: clamp(52px, 7vw, 96px);
+      font-weight: 300; line-height: 1.0;
+      color: var(--parchment); margin-bottom: 20px;
+    }
+    .hero-headline em { font-style: italic; }
+    .hero-body {
+      font-family: var(--serif);
+      font-size: clamp(16px, 1.6vw, 22px);
+      font-weight: 300; line-height: 1.85;
+      color: rgba(244,239,230,0.65);
+      max-width: 480px;
+    }
+
+    /* ── RITUAL COPY STRIP ── */
+    .ritual-copy-strip {
+      padding: 80px 48px;
+      border-bottom: 1px solid var(--dust);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .ritual-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .ritual-step {
+      display: flex;
+      align-items: baseline;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--dust);
+    }
+    .ritual-step:first-child { border-top: 1px solid var(--dust); }
+    .ritual-step-num {
+      font-size: 9px; letter-spacing: 0.3em;
+      color: var(--ochre); flex-shrink: 0; width: 28px;
+    }
+    .ritual-step-text {
+      font-family: var(--serif);
+      font-size: clamp(18px, 1.8vw, 26px);
+      font-weight: 300; color: var(--warm-black);
+      line-height: 1.4;
+    }
+    .ritual-aside {
+      max-width: 380px;
+    }
+    .ritual-aside-label {
+      font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--ochre); margin-bottom: 20px; opacity: 0.8;
+    }
+    .ritual-aside-body {
+      font-family: var(--serif);
+      font-size: clamp(20px, 2vw, 28px);
+      font-weight: 300; line-height: 1.6;
+      color: var(--warm-black); opacity: 0.6;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      padding: 80px 48px 40px;
+      border-bottom: 1px solid var(--dust);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .section-label {
+      font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase;
+      opacity: 0.35;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(40px, 5vw, 72px);
+      font-weight: 300; line-height: 1.05;
+    }
+    .section-title em { font-style: italic; }
+    .section-count {
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      opacity: 0.35;
+    }
+
+    /* ── PRODUCT GRID ── */
+    .product-grid {
+      padding: 0 48px 96px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .ritual-product {
+      padding: 48px 32px 48px 0;
+      border-right: 1px solid var(--dust);
+      display: flex;
+      flex-direction: column;
+    }
+    .ritual-product:last-child { border-right: none; }
+    .ritual-product:nth-child(4n) { border-right: none; }
+    .ritual-product:nth-child(n+5) { border-top: 1px solid var(--dust); }
+
+    .product-img-wrap {
+      position: relative;
+      width: 100%;
+      padding-bottom: 120%;
+      overflow: hidden;
+      background: var(--mist);
+      margin-bottom: 24px;
+    }
+    .product-img-wrap img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: contain;
+      object-position: center bottom;
+      padding: 10% 14% 6%;
+      transition: transform 0.6s ease;
+    }
+    .ritual-product:hover .product-img-wrap img { transform: scale(1.04); }
+
+    .product-cat {
+      font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--ochre); margin-bottom: 10px; opacity: 0.8;
+    }
+    .product-name {
+      font-family: var(--serif);
+      font-size: clamp(18px, 1.5vw, 24px);
+      font-weight: 400; line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .product-desc {
+      font-family: var(--serif);
+      font-size: 14px; line-height: 1.7;
+      opacity: 0.5; margin-bottom: 20px;
+      flex: 1;
+    }
+    .product-footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 16px;
+    }
+    .product-price {
+      font-family: var(--serif);
+      font-size: 18px; font-weight: 400;
+    }
+    .product-size {
+      font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
+      opacity: 0.4;
+    }
+
+    /* ── FEATURED: FIELD KIT ── */
+    .featured-strip {
+      background: var(--ink);
+      padding: 96px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: center;
+      border-top: 1px solid rgba(212,201,181,0.1);
+    }
+    .featured-label {
+      font-size: 9px; letter-spacing: 0.38em; text-transform: uppercase;
+      color: var(--ochre); margin-bottom: 24px; opacity: 0.8;
+    }
+    .featured-title {
+      font-family: var(--serif);
+      font-size: clamp(40px, 5vw, 68px);
+      font-weight: 300; line-height: 1.05;
+      color: var(--parchment); margin-bottom: 24px;
+    }
+    .featured-title em { font-style: italic; }
+    .featured-desc {
+      font-family: var(--serif);
+      font-size: 18px; line-height: 1.75;
+      color: var(--dust); opacity: 0.65;
+      margin-bottom: 36px;
+      max-width: 400px;
+    }
+    .featured-price {
+      font-family: var(--serif);
+      font-size: 24px; color: var(--parchment);
+      margin-bottom: 28px; display: block;
+    }
+    .featured-img-wrap {
+      position: relative;
+      width: 100%;
+      padding-bottom: 100%;
+      overflow: hidden;
+      background: rgba(255,255,255,0.04);
+    }
+    .featured-img-wrap img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: contain;
+      padding: 10%;
+      transition: transform 0.6s ease;
+    }
+    .featured-strip:hover .featured-img-wrap img { transform: scale(1.03); }
+
+    /* ── SCENT GUIDE ── */
+    .scent-section {
+      padding: 96px 48px;
+      border-top: 1px solid var(--dust);
+      border-bottom: 1px solid var(--dust);
+    }
+    .scent-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0;
+      margin-top: 56px;
+    }
+    .scent-card {
+      padding: 32px 24px 32px 0;
+      border-right: 1px solid var(--dust);
+    }
+    .scent-card:last-child { border-right: none; }
+    .scent-swatch {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+    .scent-name {
+      font-family: var(--serif);
+      font-size: 20px; font-weight: 400;
+      line-height: 1.2; margin-bottom: 10px;
+    }
+    .scent-note {
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ochre); margin-bottom: 10px; display: block;
+    }
+    .scent-desc {
+      font-family: var(--serif);
+      font-size: 14px; line-height: 1.65;
+      opacity: 0.45;
+    }
+
+    /* ── ADD TO CART BUTTON ── */
+    .btn-cta {
+      display: block; width: 100%;
+      padding: 14px 0;
+      background: var(--warm-black);
+      color: var(--parchment);
+      border: 1px solid var(--warm-black);
+      font-family: var(--sans);
+      font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
+      cursor: pointer; transition: all 0.2s;
+      font-weight: 300;
+    }
+    .btn-cta:hover { background: transparent; color: var(--warm-black); }
+    .btn-cta.light {
+      background: transparent;
+      color: var(--parchment);
+      border-color: rgba(244,239,230,0.4);
+    }
+    .btn-cta.light:hover { background: var(--parchment); color: var(--warm-black); }
+
+    select.variant-select {
+      width: 100%; padding: 10px 12px;
+      background: transparent;
+      border: 1px solid var(--dust);
+      font-family: var(--sans); font-size: 11px;
+      letter-spacing: 0.12em; color: var(--warm-black);
+      margin-bottom: 10px; cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%231A1512' stroke-opacity='0.4' stroke-width='1.2'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+    }
+    select.variant-select.light {
+      color: var(--parchment);
+      border-color: rgba(244,239,230,0.25);
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23F4EFE6' stroke-opacity='0.4' stroke-width='1.2'/%3E%3C/svg%3E");
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 56px 48px;
+      border-top: 1px solid var(--dust);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-left {
+      font-family: var(--serif); font-size: 13px;
+      letter-spacing: 0.08em; opacity: 0.4;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .footer-left img { height: 22px; width: auto; opacity: 0.5; }
+    .footer-right {
+      display: flex; flex-direction: column; align-items: flex-end; gap: 6px;
+    }
+    .footer-right a {
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--warm-black); text-decoration: none; opacity: 0.4;
+      transition: opacity 0.2s;
+    }
+    .footer-right a:hover { opacity: 0.9; }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: none; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav { padding: 20px 24px; }
+      .nav-links { display: none; }
+      .page-hero-img { height: 70vh; min-height: 400px; }
+      .page-hero-overlay { padding: 40px 24px; }
+      .ritual-copy-strip { grid-template-columns: 1fr; gap: 48px; padding: 56px 24px; }
+      .section-header { padding: 56px 24px 32px; flex-direction: column; gap: 12px; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); padding: 0 24px 64px; }
+      .ritual-product { border-right: none; padding-right: 0; border-bottom: 1px solid var(--dust); }
+      .ritual-product:nth-child(odd) { border-right: 1px solid var(--dust); padding-right: 16px; }
+      .ritual-product:nth-child(n+5) { border-top: none; }
+      .featured-strip { grid-template-columns: 1fr; gap: 40px; padding: 64px 24px; }
+      .featured-img-wrap { max-width: 360px; margin: 0 auto; }
+      .scent-section { padding: 64px 24px; }
+      .scent-grid { grid-template-columns: repeat(3, 1fr); gap: 24px 0; }
+      .scent-card { border-right: none; border-bottom: 1px solid var(--dust); padding-bottom: 24px; }
+      .scent-card:nth-child(odd) { border-right: 1px solid var(--dust); }
+      footer { flex-direction: column; gap: 12px; align-items: flex-start; padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="https://ghosttownranch.com/">
+      <img src="../ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="Ghost Town Ranch">
+    </a>
+    <ul class="nav-links">
+      <li><a href="https://ghosttownranch.com/">Home</a></li>
+      <li><a href="https://ghosttownranch.com/#catalog">Shop</a></li>
+      <li><a href="https://ghosttownranch.com/routines/">Routines</a></li>
+      <li><a href="#" class="active">Ritual</a></li>
+      <li><a href="https://ghosttownranch.com/#wholesale">Wholesale</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero-img">
+    <img src="../theritual.png"
+      alt="Ghost Town Ranch Hang Dried Body + Linen Fragrance in hang-dried botanicals and rope, warm desert light"
+      loading="eager">
+    <div class="page-hero-overlay">
+      <div class="hero-eyebrow fade-up">Ghost Town Ranch</div>
+      <h1 class="hero-headline fade-up">The <em>Ritual.</em></h1>
+      <p class="hero-body fade-up">Spray the body. Mist the linens. Light the palo santo. Let it smoke. Light the candle when the room settles. Keep the matchbook on the shelf.</p>
+    </div>
+  </section>
+
+  <!-- RITUAL STEPS -->
+  <section class="ritual-copy-strip">
+    <div class="ritual-steps">
+      <div class="ritual-step">
+        <span class="ritual-step-num">01</span>
+        <span class="ritual-step-text">Spray the body. Mist the linens.</span>
+      </div>
+      <div class="ritual-step">
+        <span class="ritual-step-num">02</span>
+        <span class="ritual-step-text">Light the palo santo. Let it smoke.</span>
+      </div>
+      <div class="ritual-step">
+        <span class="ritual-step-num">03</span>
+        <span class="ritual-step-text">Light the candle when the room settles.</span>
+      </div>
+      <div class="ritual-step">
+        <span class="ritual-step-num">04</span>
+        <span class="ritual-step-text">Keep the matchbook on the shelf.</span>
+      </div>
+    </div>
+    <div class="ritual-aside">
+      <div class="ritual-aside-label">From the wide open</div>
+      <p class="ritual-aside-body">Six open range scents across body spray, candle, diffuser, and linen mist. All from the wide open. All COSMOS-compliant. Built for daily use.</p>
+    </div>
+  </section>
+
+  <!-- FIELD KIT FEATURED -->
+  <section class="featured-strip">
+    <div>
+      <div class="featured-label">The Starting Point</div>
+      <h2 class="featured-title">The Field<br><em>Kit.</em></h2>
+      <p class="featured-desc">One GTR votive in your chosen scent. One palo santo stick. One GTR matchbook. Held together with a wide flat matte black elastic. A good gift. A better ritual.</p>
+      <span class="featured-price">$34</span>
+      <select class="variant-select light" id="fieldkit-scent-selector" style="max-width:280px;margin-bottom:12px;">
+        <option value="51849834627368">Rough Hewn</option>
+        <option value="51849834660136">Hang Dried</option>
+        <option value="51849834692904">Ember</option>
+        <option value="51849834725672">Graze</option>
+        <option value="51849834758440">Flax</option>
+        <option value="51849834791208">Dusk</option>
+      </select>
+      <button class="btn-cta light" style="max-width:280px;" onclick="addFieldKitToCart(event, this)">Add to Cart</button>
+    </div>
+    <div class="featured-img-wrap">
+      <img src="../ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png"
+        alt="The Field Kit — Ghost Town Ranch"
+        style="opacity:0.25;">
+      <!-- TODO: Replace with Field Kit product image when available -->
+    </div>
+  </section>
+
+  <!-- ALL FRAGRANCE + HOME -->
+  <div class="section-header">
+    <div>
+      <div class="section-label">Fragrance + Home</div>
+      <h2 class="section-title">All of it.</h2>
+    </div>
+    <span class="section-count">Eight products</span>
+  </div>
+
+  <div class="product-grid">
+
+    <!-- Ranch Water -->
+    <article class="ritual-product">
+      <div class="product-img-wrap">
+        <img src="https://or-cre.com/cdn/shop/files/Graze__bodylinen.png?v=1777820218&width=1200" alt="Ranch Water Body + Linen Fragrance">
+      </div>
+      <div class="product-cat">Body + Linen</div>
+      <h2 class="product-name">Ranch Water<br>Body + Linen Fragrance</h2>
+      <p class="product-desc">One formula. Every surface. Mist on linens, into a room, or directly on skin. No dyes, parabens, or phthalates. Skin-safe fragrance oils. Six open range scents. 100ml / 3.4 fl oz.</p>
+      <div class="product-footer-row">
+        <span class="product-price">$85</span>
+        <span class="product-size">100ml · Six scents</span>
+      </div>
+      <select class="variant-select" onchange="">
+        <option value="51849817063720">Rough Hewn</option>
+        <option value="51849817096488">Hang Dried</option>
+        <option value="51849817129256">Ember</option>
+        <option value="51849817162024">Graze</option>
+        <option value="51849817194792">Flax</option>
+        <option value="51849817227560">Dusk</option>
+      </select>
+      <button class="btn-cta" onclick="addVariantToCart(event, this, 'ranch-water-body-room-fragrance')">Add to Cart</button>
+    </article>
+
+    <!-- The Votive -->
+    <article class="ritual-product">
+      <div class="product-img-wrap">
+        <img src="https://or-cre.com/cdn/shop/files/thevotive.png?v=1779410827&width=1920" alt="The Votive Colored Wax Candle">
+      </div>
+      <div class="product-cat">Candle</div>
+      <h2 class="product-name">The Votive<br>Colored Wax Candle</h2>
+      <p class="product-desc">Hand-poured in small batches. Each votive is made in the color of its scent. 3oz glass vessel. Burns up to 24 hours. Arrives in a matte black display box. Made in the USA.</p>
+      <div class="product-footer-row">
+        <span class="product-price">$26</span>
+        <span class="product-size">3oz · Colored wax</span>
+      </div>
+      <select class="variant-select" id="ritual-votive-selector">
+        <option value="51851827609896">Rough Hewn</option>
+        <option value="51851827577128">Hang Dried</option>
+        <option value="51851827544360">Ember</option>
+        <option value="51851827511592">Flax</option>
+        <option value="51851827478824">Graze</option>
+        <option value="51851827446056">Dusk</option>
+      </select>
+      <button class="btn-cta" onclick="addVotiveToCart(event, this)">Add to Cart</button>
+    </article>
+
+    <!-- The Wander -->
+    <article class="ritual-product">
+      <div class="product-img-wrap">
+        <img src="https://or-cre.com/cdn/shop/files/thewandermain_802949e9-d5a7-487e-8ba2-a92b113061f7.png?v=1779743213&width=1920" alt="The Wander Hand-Poured Travel Candle">
+      </div>
+      <div class="product-cat">Candle · Travel</div>
+      <h2 class="product-name">The Wander<br>Hand-Poured Travel Candle</h2>
+      <p class="product-desc">Each Wander is poured in the color of its scent. Travel-ready vessel. Burns approximately 30 hours. Cotton wick, no lead. All six GTR open range scents.</p>
+      <div class="product-footer-row">
+        <span class="product-price">$40</span>
+        <span class="product-size">Travel · Colored wax</span>
+      </div>
+      <select class="variant-select">
+        <option value="51744957694248">Rough Hewn</option>
+        <option value="51744957792552">Hang Dried</option>
+        <option value="51744957825320">Ember</option>
+        <option value="51744957661480">Graze</option>
+        <option value="51744957759784">Flax</option>
+        <option value="51744957727016">Dusk</option>
+      </select>
+      <button class="btn-cta" onclick="addVariantToCart(event, this, 'soy-wax-candle-wild-flower')">Add to Cart</button>
+    </article>
+
+    <!-- The Slow -->
+    <article class="ritual-product">
+      <div class="product-img-wrap">
+        <img src="https://or-cre.com/cdn/shop/files/theslow-ember_ff2e04e9-aff6-465c-82c2-13d03c2aabbe.png?v=1779742644&width=1920" alt="The Slow Hand-Poured 11oz Candle">
+      </div>
+      <div class="product-cat">Candle · Large</div>
+      <h2 class="product-name">The Slow<br>Hand-Poured 11oz Candle</h2>
+      <p class="product-desc">Each Slow is poured in the color of its scent. 11oz vessel. Burns approximately 65 hours. Cotton wick. Six GTR open range scents, each in its own color.</p>
+      <div class="product-footer-row">
+        <span class="product-price">$54</span>
+        <span class="product-size">11oz · Colored wax</span>
+      </div>
+      <select class="variant-select">
+        <option value="51730076467496">Rough Hewn</option>
+        <option value="51730076500264">Hang Dried</option>
+        <option value="51730076533032">Ember</option>
+        <option value="51730076565800">Graze</option>
+        <option value="51730076598568">Flax</option>
+        <option value="51730076631336">Dusk</option>
+      </select>
+      <button class="btn-cta" onclick="addVariantToCart(event, this, 'the-slow-candle')">Add to Cart</button>
+    </article>
+
+    <!-- The Monument -->
+    <article class="ritual-product">
+      <div class="product-img-wrap">
+        <img src="https://or-cre.com/cdn/shop/files/monument.png?v=1778095987&width=3840" alt="The Monument 4-Wick Candle">
+      </div>
+      <div class="product-cat">Candle · Statement</div>
+      <h2 class="product-name">The Monument<br>4-Wick, 55oz</h2>
+      <p class="product-desc">Four-wick, 55oz tumbler. 120-hour burn time. Hand-poured, small batch. Natural wax. Made for great rooms and open plans. Six GTR open range scents.</p>
+      <div class="product-footer-row">
+        <span class="product-price">$190</span>
+        <span class="product-size">55oz · 4-wick · Natural wax</span>
+      </div>
+      <select class="variant-select">
+        <option value="51730076893480">Rough Hewn</option>
+        <option value="51730076926248">Hang Dried</option>
+        <option value="51730076959016">Ember</option>
+        <option value="51730076991784">Graze</option>
+        <option value="51730077024552">Flax</option>
+        <option value="51730077057320">Dusk</option>
+      </select>
+      <button class="btn-cta" onclick="addVariantToCart(event, this, 'the-monument-candle')">Add to Cart</button>
+    </article>
+
+    <!-- The Still -->
+    <article class="ritual-product">
+      <div class="product-img-wrap">
+        <img src="https://or-cre.com/cdn/shop/files/TheStill_allitems.png?v=1776726357&width=1200" alt="The Still Amber Glass Reed Diffuser">
+      </div>
+      <div class="product-cat">Reed Diffuser</div>
+      <h2 class="product-name">The Still<br>Amber Glass Reed Diffuser</h2>
+      <p class="product-desc">Continuous, quiet scent. Flip reeds every 7–10 days. Lasts 3–4 months. Amber glass vessel is refillable. Six open range scents.</p>
+      <div class="product-footer-row">
+        <span class="product-price">$72</span>
+        <span class="product-size">Reed diffuser · Refillable</span>
+      </div>
+      <select class="variant-select">
+        <option value="51730076696872">Rough Hewn</option>
+        <option value="51730076729640">Hang Dried</option>
+        <option value="51730076762408">Ember</option>
+        <option value="51730076795176">Graze</option>
+        <option value="51730076827944">Flax</option>
+        <option value="51730076860712">Dusk</option>
+      </select>
+      <button class="btn-cta" onclick="addVariantToCart(event, this, 'the-still-amber-glass-reed-diffuser')">Add to Cart</button>
+    </article>
+
+    <!-- The Votive Six -->
+    <article class="ritual-product">
+      <div class="product-img-wrap" style="background:var(--army);display:flex;align-items:center;justify-content:center;">
+        <img src="../ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png"
+          alt="The Votive Six" style="opacity:0.3;padding:20%;">
+      </div>
+      <div class="product-cat">Gift · Set of Six</div>
+      <h2 class="product-name">The Votive Six<br>All 6 Scents</h2>
+      <p class="product-desc">All six GTR scents in one matte black gift box. Each votive hand-poured in the color of its scent. Six colors. No duplicates. Burns up to 24 hours per candle.</p>
+      <div class="product-footer-row">
+        <span class="product-price">$148</span>
+        <span class="product-size">Set of 6 · All scents</span>
+      </div>
+      <button class="btn-cta" onclick="addVotiveSixToCart(event, this)">Add to Cart</button>
+    </article>
+
+  </div>
+
+  <!-- SCENT GUIDE -->
+  <section class="scent-section">
+    <div class="section-label">The Six Open Range Scents</div>
+    <div class="scent-grid">
+      <div class="scent-card">
+        <div class="scent-swatch" style="background:#e8e0d0;border:1px solid var(--dust);"></div>
+        <h3 class="scent-name">Rough Hewn</h3>
+        <span class="scent-note">Raw wood · Dry earth</span>
+        <p class="scent-desc">Raw wood, dry earth. The smell of something being made. Raw linen wax.</p>
+      </div>
+      <div class="scent-card">
+        <div class="scent-swatch" style="background:#f0ede8;border:1px solid var(--dust);"></div>
+        <h3 class="scent-name">Hang Dried</h3>
+        <span class="scent-note">White sage · Lavender</span>
+        <p class="scent-desc">White sage, lavender, clean air. Chalk white wax.</p>
+      </div>
+      <div class="scent-card">
+        <div class="scent-swatch" style="background:#2a2a2a;"></div>
+        <h3 class="scent-name">Ember</h3>
+        <span class="scent-note">Smoke · Cedar</span>
+        <p class="scent-desc">Smoke, cedar, the last hour of a good night. Dark charcoal wax.</p>
+      </div>
+      <div class="scent-card">
+        <div class="scent-swatch" style="background:#7c8260;"></div>
+        <h3 class="scent-name">Graze</h3>
+        <span class="scent-note">Sage · Dry grass</span>
+        <p class="scent-desc">Sage, dry grass, high desert morning. Sage green wax.</p>
+      </div>
+      <div class="scent-card">
+        <div class="scent-swatch" style="background:#c9a84c;"></div>
+        <h3 class="scent-name">Flax</h3>
+        <span class="scent-note">Warm stone · Prairie grass</span>
+        <p class="scent-desc">Warm stone, prairie grasses. Straw gold wax.</p>
+      </div>
+      <div class="scent-card">
+        <div class="scent-swatch" style="background:#9B7A3F;"></div>
+        <h3 class="scent-name">Dusk</h3>
+        <span class="scent-note">Palo santo · Amber</span>
+        <p class="scent-desc">Palo santo, dry earth, warm amber. Warm amber wax.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-left">
+      <img src="../ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="GTR">
+      Frontier Modernism · High Desert · Palm Springs
+    </div>
+    <div class="footer-right">
+      <a href="https://instagram.com/ghosttownranch" target="_blank">@ghosttownranch</a>
+      <a href="mailto:howdy@ghosttownranch.com">howdy@ghosttownranch.com</a>
+      <a href="https://ghosttownranch.com/routines/">Routines</a>
+      <a href="https://ghosttownranch.com">ghosttownranch.com</a>
+      <span style="opacity:0.4;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;">© Ghost Town Ranch · Pulp Media Lab, Inc.</span>
+    </div>
+  </footer>
+
+<script>
+  // ── FADE UP ANIMATIONS ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ── CART HELPERS ──
+  function addVariantToCart(e, btn, handle) {
+    e.preventDefault();
+    var card = btn.closest('.ritual-product') || btn.closest('div');
+    var sel = card ? card.querySelector('select.variant-select') : null;
+    var variantId = sel ? sel.value : null;
+    if (!variantId) return;
+    var orig = btn.textContent;
+    btn.textContent = 'Adding...'; btn.disabled = true;
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: variantId, quantity: 1 })
+    }).then(function() {
+      btn.textContent = 'Added';
+      setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 2000);
+    }).catch(function() { btn.textContent = orig; btn.disabled = false; });
+  }
+
+  function addVotiveToCart(e, btn) {
+    e.preventDefault();
+    var sel = document.getElementById('ritual-votive-selector');
+    var variantId = sel ? sel.value : '51851827609896';
+    var orig = btn.textContent;
+    btn.textContent = 'Adding...'; btn.disabled = true;
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: variantId, quantity: 1 })
+    }).then(function() {
+      btn.textContent = 'Added';
+      setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 2000);
+    }).catch(function() { btn.textContent = orig; btn.disabled = false; });
+  }
+
+  function addVotiveSixToCart(e, btn) {
+    e.preventDefault();
+    var variantId = '51849820766504';
+    var orig = btn.textContent;
+    btn.textContent = 'Adding...'; btn.disabled = true;
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: variantId, quantity: 1 })
+    }).then(function() {
+      btn.textContent = 'Added';
+      setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 2000);
+    }).catch(function() { btn.textContent = orig; btn.disabled = false; });
+  }
+
+  function addFieldKitToCart(e, btn) {
+    e.preventDefault();
+    var variantId = '51849834627368';
+    var scentSel = document.getElementById('fieldkit-scent-selector');
+    var scent = scentSel ? scentSel.options[scentSel.selectedIndex].text.trim() : '';
+    var orig = btn.textContent;
+    btn.textContent = 'Adding...'; btn.disabled = true;
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: variantId, quantity: 1, properties: { 'Votive Scent': scent } })
+    }).then(function() {
+      btn.textContent = 'Added';
+      setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 2000);
+    }).catch(function() { btn.textContent = orig; btn.disabled = false; });
+  }
+</script>
+
+</body>
+</html>
