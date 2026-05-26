@@ -77,10 +77,10 @@
       -webkit-backdrop-filter: blur(8px);
     }
     .nav-logo {
-      display: flex; align-items: center; gap: 10px;
-      text-decoration: none;
+      font-family: var(--serif); font-size: 11px; font-weight: 400;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      text-decoration: none; color: #F4EFE6;
     }
-    .nav-logo img { height: 32px; width: auto; }
     .nav-right { display: flex; align-items: center; gap: 32px; }
     .nav-links { display: flex; gap: 40px; list-style: none; }
     .nav-links a {
@@ -451,7 +451,7 @@
     .fade-up.visible { opacity: 1; transform: none; }
 
     /* ── MOBILE ── */
-    @media (max-width: 900px) {
+    @media (max-width: 700px) {
       nav { padding: 20px 24px; }
       .nav-hamburger { display: flex; }
       .nav-right { gap: 12px; }
@@ -503,9 +503,7 @@
 
   <!-- NAV -->
   <nav>
-    <a class="nav-logo" href="https://ghosttownranch.com/">
-      <img src="../ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="Ghost Town Ranch">
-    </a>
+    <a class="nav-logo" href="https://ghosttownranch.com/">Ghost Town Ranch</a>
     <div class="nav-right">
       <ul class="nav-links" id="nav-links">
         <li><a href="https://ghosttownranch.com/">Home</a></li>
