@@ -77,10 +77,10 @@
       -webkit-backdrop-filter: blur(8px);
     }
     .nav-logo {
-      font-family: var(--serif); font-size: 11px; font-weight: 400;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      text-decoration: none; color: #F4EFE6;
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
     }
+    .nav-logo img { height: 32px; width: auto; }
     .nav-right { display: flex; align-items: center; gap: 32px; }
     .nav-links { display: flex; gap: 40px; list-style: none; }
     .nav-links a {
@@ -405,20 +405,30 @@
 
     select.variant-select {
       width: 100%; padding: 10px 12px;
-      background: transparent;
+      background: var(--parchment);
       border: 1px solid var(--dust);
       font-family: var(--sans); font-size: 11px;
       letter-spacing: 0.12em; color: var(--warm-black);
       margin-bottom: 10px; cursor: pointer;
       appearance: none;
+      -webkit-appearance: none;
+      color-scheme: light;
       background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%231A1512' stroke-opacity='0.4' stroke-width='1.2'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 12px center;
     }
     select.variant-select.light {
-      color: var(--parchment);
-      border-color: rgba(244,239,230,0.25);
-      background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23F4EFE6' stroke-opacity='0.4' stroke-width='1.2'/%3E%3C/svg%3E");
+      background: #2a2420;
+      color: #F4EFE6;
+      border-color: rgba(244,239,230,0.3);
+      color-scheme: light;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23F4EFE6' stroke-opacity='0.6' stroke-width='1.2'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+    }
+    select.variant-select.light option {
+      background: #2a2420;
+      color: #F4EFE6;
     }
 
     /* ── FOOTER ── */
@@ -451,7 +461,7 @@
     .fade-up.visible { opacity: 1; transform: none; }
 
     /* ── MOBILE ── */
-    @media (max-width: 700px) {
+    @media (max-width: 900px) {
       nav { padding: 20px 24px; }
       .nav-hamburger { display: flex; }
       .nav-right { gap: 12px; }
@@ -503,7 +513,9 @@
 
   <!-- NAV -->
   <nav>
-    <a class="nav-logo" href="https://ghosttownranch.com/">Ghost Town Ranch</a>
+    <a class="nav-logo" href="https://ghosttownranch.com/">
+      <img src="../ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="Ghost Town Ranch">
+    </a>
     <div class="nav-right">
       <ul class="nav-links" id="nav-links">
         <li><a href="https://ghosttownranch.com/">Home</a></li>
@@ -607,16 +619,16 @@
       <h2 class="product-name">Ranch Water<br>Body + Linen Fragrance</h2>
       <p class="product-desc">One formula. Every surface. Mist on linens, into a room, or directly on skin. No dyes, parabens, or phthalates. Skin-safe fragrance oils. Six open range scents. 100ml / 3.4 fl oz.</p>
       <div class="product-footer-row">
-        <span class="product-price">$88</span>
+        <span class="product-price">$85</span>
         <span class="product-size">100ml · Six scents</span>
       </div>
       <select class="variant-select" onchange="">
-        <option value="51730077090088">Rough Hewn</option>
-        <option value="51730077122856">Hang Dried</option>
-        <option value="51730077155624">Ember</option>
-        <option value="51730077188392">Graze</option>
-        <option value="51730077221160">Flax</option>
-        <option value="51730077253928">Dusk</option>
+        <option value="51849817063720">Rough Hewn</option>
+        <option value="51849817096488">Hang Dried</option>
+        <option value="51849817129256">Ember</option>
+        <option value="51849817162024">Graze</option>
+        <option value="51849817194792">Flax</option>
+        <option value="51849817227560">Dusk</option>
       </select>
       <button class="btn-cta" onclick="addVariantToCart(event, this, 'ranch-water-body-room-fragrance')">Add to Cart</button>
     </article>
@@ -826,70 +838,45 @@
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
   // ── CART HELPERS ──
+  // Sends to Shopify cart permalink — works from any standalone page
+  var GTR_CART = 'https://or-cre.com';
+
+  function gtrGoToCart(variantId, qty) {
+    window.location.href = GTR_CART + '/cart/' + variantId + ':' + (qty || 1);
+  }
+
   function addVariantToCart(e, btn, handle) {
     e.preventDefault();
     var card = btn.closest('.ritual-product') || btn.closest('div');
     var sel = card ? card.querySelector('select.variant-select') : null;
     var variantId = sel ? sel.value : null;
     if (!variantId) return;
-    var orig = btn.textContent;
-    btn.textContent = 'Adding...'; btn.disabled = true;
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: variantId, quantity: 1 })
-    }).then(function() {
-      btn.textContent = 'Added';
-      setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 2000);
-    }).catch(function() { btn.textContent = orig; btn.disabled = false; });
+    btn.textContent = 'Going to cart…'; btn.disabled = true;
+    gtrGoToCart(variantId, 1);
   }
 
   function addVotiveToCart(e, btn) {
     e.preventDefault();
     var sel = document.getElementById('ritual-votive-selector');
     var variantId = sel ? sel.value : '51851827609896';
-    var orig = btn.textContent;
-    btn.textContent = 'Adding...'; btn.disabled = true;
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: variantId, quantity: 1 })
-    }).then(function() {
-      btn.textContent = 'Added';
-      setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 2000);
-    }).catch(function() { btn.textContent = orig; btn.disabled = false; });
+    btn.textContent = 'Going to cart…'; btn.disabled = true;
+    gtrGoToCart(variantId, 1);
   }
 
-  function addVotiveSixToCart(e, btn) {
+  function addWanderSixToCart(e, btn) {
     e.preventDefault();
+    // The Wander All Six Scents — bundle variant
     var variantId = '51849820766504';
-    var orig = btn.textContent;
-    btn.textContent = 'Adding...'; btn.disabled = true;
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: variantId, quantity: 1 })
-    }).then(function() {
-      btn.textContent = 'Added';
-      setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 2000);
-    }).catch(function() { btn.textContent = orig; btn.disabled = false; });
+    btn.textContent = 'Going to cart…'; btn.disabled = true;
+    gtrGoToCart(variantId, 1);
   }
 
   function addFieldKitToCart(e, btn) {
     e.preventDefault();
-    var variantId = '51849834627368';
     var scentSel = document.getElementById('fieldkit-scent-selector');
-    var scent = scentSel ? scentSel.options[scentSel.selectedIndex].text.trim() : '';
-    var orig = btn.textContent;
-    btn.textContent = 'Adding...'; btn.disabled = true;
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: variantId, quantity: 1, properties: { 'Votive Scent': scent } })
-    }).then(function() {
-      btn.textContent = 'Added';
-      setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 2000);
-    }).catch(function() { btn.textContent = orig; btn.disabled = false; });
+    var variantId = scentSel ? scentSel.value : '51849834627368';
+    btn.textContent = 'Going to cart…'; btn.disabled = true;
+    gtrGoToCart(variantId, 1);
   }
 
   // ── Hamburger nav ──
