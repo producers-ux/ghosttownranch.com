@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Desert Veil CC Stick — Ghost Town Ranch</title>
+<title>Desert Veil CC Stick &#8212; Ghost Town Ranch</title>
 <meta name="description" content="Tone correction. Barrier protection. Mineral coverage that evens skin tone while Ceramides, Cocoa Butter, and Jojoba Oil support your skin barrier. 98% natural ">
 <link rel="canonical" href="https://ghosttownranch.com/products/desert-veil-tone-correction-barrier-protection/">
 <meta property="og:type" content="product">
 <meta property="og:url" content="https://ghosttownranch.com/products/desert-veil-tone-correction-barrier-protection/">
-<meta property="og:title" content="Desert Veil CC Stick — Ghost Town Ranch">
+<meta property="og:title" content="Desert Veil CC Stick &#8212; Ghost Town Ranch">
 <meta property="og:image" content="https://or-cre.com/cdn/shop/files/desertveilsingle.png?v=1777556947">
 <meta property="og:site_name" content="Ghost Town Ranch">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -21,6 +21,7 @@ html{scroll-behavior:smooth}
 body{background:var(--parchment);color:var(--warm-black);font-family:var(--serif);font-weight:400;letter-spacing:0.03em;-webkit-font-smoothing:antialiased}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 48px;background:rgba(28,24,20,0.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .nav-logo img{height:28px;width:auto;opacity:0.9}
+.nav-right{display:flex;align-items:center;gap:8px}
 .nav-links{display:flex;gap:36px;list-style:none;align-items:center}
 .nav-links a{font-family:var(--sans);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;color:#F4EFE6;opacity:0.7;font-weight:300;transition:opacity 0.2s}
 .nav-links a:hover{opacity:1}
@@ -30,6 +31,37 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .nav-hamburger.open span:nth-child(2){opacity:0}
 .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 @media(max-width:700px){nav{padding:0 20px;height:60px}.nav-hamburger{display:flex}.nav-links{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(22,18,14,0.98);backdrop-filter:blur(12px);flex-direction:column;align-items:stretch;gap:0;z-index:98;padding:8px 0 12px;border-top:1px solid rgba(244,239,230,0.1);box-shadow:0 8px 24px rgba(0,0,0,0.4)}.nav-links.open{display:flex}.nav-links li+li{border-top:1px solid rgba(244,239,230,0.07)}.nav-links a{font-size:11px!important;padding:14px 24px!important;display:flex!important;align-items:center!important;min-height:48px!important;color:#F4EFE6!important;opacity:0.85!important}}
+
+  #cart-overlay{display:none;position:fixed;inset:0;background:rgba(26,21,18,0.5);z-index:300;backdrop-filter:blur(2px)}
+  #cart-overlay.open{display:block}
+  #cart-drawer{position:fixed;top:0;right:0;bottom:0;width:400px;max-width:100vw;background:var(--parchment);z-index:400;display:flex;flex-direction:column;transform:translateX(100%);transition:transform 0.3s ease;box-shadow:-4px 0 32px rgba(26,21,18,0.15)}
+  #cart-drawer.open{transform:translateX(0)}
+  .cart-header{display:flex;justify-content:space-between;align-items:center;padding:28px 32px 24px;border-bottom:1px solid var(--dust)}
+  .cart-title{font-family:var(--serif);font-size:13px;letter-spacing:0.25em;text-transform:uppercase}
+  .cart-close{background:none;border:none;cursor:pointer;font-size:16px;color:var(--warm-black);opacity:0.5;transition:opacity 0.2s;padding:4px}
+  .cart-close:hover{opacity:1}
+  .cart-items{flex:1;overflow-y:auto;padding:24px 32px;display:flex;flex-direction:column;gap:20px}
+  .cart-empty{font-family:var(--serif);font-size:15px;opacity:0.4;text-align:center;margin-top:40px}
+  .cart-item{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding-bottom:20px;border-bottom:1px solid var(--dust)}
+  .cart-item:last-child{border-bottom:none;padding-bottom:0}
+  .cart-item-info{flex:1}
+  .cart-item-title{display:block;font-family:var(--serif);font-size:15px;margin-bottom:4px}
+  .cart-item-variant{display:block;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;opacity:0.45}
+  .cart-item-right{text-align:right;flex-shrink:0}
+  .cart-item-price{display:block;font-family:var(--serif);font-size:15px}
+  .cart-item-qty-ctrl{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+  .qty-btn{background:none;border:1px solid var(--dust);width:22px;height:22px;cursor:pointer;font-size:14px;color:var(--warm-black);opacity:0.6;transition:opacity 0.15s;display:flex;align-items:center;justify-content:center}
+  .qty-btn:hover{opacity:1}
+  .cart-footer{padding:20px 32px 32px;border-top:1px solid var(--dust)}
+  .cart-subtotal-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+  .cart-subtotal-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;opacity:0.5}
+  .cart-subtotal-amount{font-family:var(--serif);font-size:18px}
+  .cart-note{font-size:10px;letter-spacing:0.1em;opacity:0.35;margin-bottom:16px}
+  .cart-checkout-btn{display:block;width:100%;padding:16px;background:var(--warm-black);color:var(--parchment);font-family:var(--sans);font-size:11px;letter-spacing:0.25em;text-transform:uppercase;border:none;cursor:pointer;text-align:center;text-decoration:none;transition:background 0.2s}
+  .cart-checkout-btn:hover{background:var(--army)}
+  .cart-nav-btn{background:none;border:none;cursor:pointer;color:inherit;opacity:0.8;position:relative;display:flex;align-items:center;transition:opacity 0.2s;padding:0}
+  .cart-nav-btn:hover{opacity:1}
+  .cart-count{position:absolute;top:-6px;right:-8px;background:var(--ochre);color:#fff;font-size:9px;font-family:var(--sans);width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;letter-spacing:0}
 .product-page{padding-top:100px;max-width:1100px;margin:0 auto;padding-left:48px;padding-right:48px;padding-bottom:120px}
 .back-link{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--warm-black);opacity:0.4;text-decoration:none;margin-bottom:48px;transition:opacity 0.2s}
 .back-link:hover{opacity:0.8}
@@ -73,22 +105,32 @@ footer a{color:var(--warm-black);text-decoration:none}
   <a class="nav-logo" href="https://ghosttownranch.com/">
     <img src="/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="Ghost Town Ranch">
   </a>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="https://ghosttownranch.com/">Home</a></li>
-    <li><a href="https://ghosttownranch.com/#catalog">Shop</a></li>
-    <li><a href="https://ghosttownranch.com/routines/">Routines</a></li>
-    <li><a href="https://ghosttownranch.com/ritual/">Ritual</a></li>
-    <li><a href="https://ghosttownranch.com/#wholesale">Wholesale</a></li>
-  </ul>
-  <button class="nav-hamburger" id="nav-hamburger" onclick="toggleNav()" aria-label="Toggle navigation" aria-expanded="false">
-    <span></span><span></span><span></span>
+  <div class="nav-right">
+    <ul class="nav-links" id="nav-links">
+      <li><a href="https://ghosttownranch.com/">Home</a></li>
+      <li><a href="https://ghosttownranch.com/#catalog">Shop</a></li>
+      <li><a href="https://ghosttownranch.com/routines/">Routines</a></li>
+      <li><a href="https://ghosttownranch.com/ritual/">Ritual</a></li>
+      <li><a href="https://ghosttownranch.com/#wholesale">Wholesale</a></li>
+    </ul>
+    <button class="cart-nav-btn" onclick="openCart()" aria-label="Open cart" style="margin-left:8px;">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F4EFE6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:block">
+      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <path d="M16 10a4 4 0 0 1-8 0"/>
+    </svg>
+    <span class="cart-count" id="cart-count" style="display:none">0</span>
   </button>
+    <button class="nav-hamburger" id="nav-hamburger" onclick="toggleNav()" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 <main class="product-page">
   <a class="back-link" href="javascript:history.back()">&#8592; Back</a>
   <div class="product-layout">
     <div class="product-img-col">
-      <img src="https://or-cre.com/cdn/shop/files/desertveilsingle.png?v=1777556947" alt="Desert Veil CC Stick" id="product-main-img">
+      <img src="https://or-cre.com/cdn/shop/files/desertveilsingle.png?v=1777556947" alt="Desert Veil CC Stick">
     </div>
     <div class="product-info-col">
       <p class="product-category">Body + Skin</p>
@@ -100,21 +142,18 @@ footer a{color:var(--warm-black);text-decoration:none}
         <span class="product-size-label">Choose shade</span>
       </div>
       <p class="product-desc">Tone correction. Barrier protection. Mineral coverage that evens skin tone while Ceramides, Cocoa Butter, and Jojoba Oil support your skin barrier. 98% natural origin, ECOCERT COSMOS Natural certified.</p>
-      <div class="variant-selector"><label class="variant-label">Choose your shade</label><select class="variant-select" id="variant-select"><option value="51761886953768">Light Beige</option><option value="51761887019304">Medium Beige</option><option value="51761886921000">Tan Brown</option><option value="51761886986536">Deep Beige</option></select></div>
+      <div class="variant-selector"><label class="variant-label">Choose your shade</label><select class="variant-select" id="variant-select" onchange="onVariantChange(this)"><option value="51761886953768">Light Beige</option><option value="51761887019304">Medium Beige</option><option value="51761886921000">Tan Brown</option><option value="51761886986536">Deep Beige</option></select></div>
       <button class="btn-atc" id="atc-btn" onclick="addToCart()">Add to Cart</button>
       <div class="product-rule"></div>
       <div class="moment-block">
         <span class="block-label">The Moment</span>
-        <p class="moment-text">After moisturizer, before anything else. Swipe directly onto skin and blend with fingertips — it warms on contact and sheers out in seconds. The mineral coverage evens tone without masking it. One product doing two jobs: protecting the barrier while correcting color. Use it alone or under Soft Proof.</p>
+        <p class="moment-text">After moisturizer, before anything else. Swipe directly onto skin and blend with fingertips — it warms on contact and sheers out in seconds. Mineral coverage that evens tone without masking it. One product doing two jobs. Use it alone or under Soft Proof.</p>
       </div>
       <span class="ingredients-label">Key Ingredients</span>
-      <div class="key-ingredient"><div class="key-ingredient-name">Zinc Oxide</div><p class="key-ingredient-desc">Broad-spectrum mineral UV filter. Physical, not chemical — sits on top of skin and reflects light. Also anti-inflammatory.</p></div>
-<div class="key-ingredient"><div class="key-ingredient-name">Ceramides + Glycosphingolipids</div><p class="key-ingredient-desc">Barrier-restoring lipids that fill gaps in the skin structure. Supports the skin you have while the coverage evens what shows.</p></div>
-<div class="key-ingredient"><div class="key-ingredient-name">Sea Buckthorn Fruit Oil</div><p class="key-ingredient-desc">Organic. Beta-carotene gives this formula warmth. Anti-inflammatory and rich in fatty acids that support rapid barrier repair.</p></div>
-
+      <div class="key-ingredient"><div class="key-ingredient-name">Zinc Oxide</div><p class="key-ingredient-desc">Broad-spectrum mineral filter. Physical, not chemical — reflects light. Also anti-inflammatory.</p></div><div class="key-ingredient"><div class="key-ingredient-name">Ceramides + Glycosphingolipids</div><p class="key-ingredient-desc">Barrier-restoring lipids that fill gaps in the skin structure. Protects the barrier while correcting color.</p></div><div class="key-ingredient"><div class="key-ingredient-name">Sea Buckthorn Fruit Oil</div><p class="key-ingredient-desc">Organic. Beta-carotene gives warmth. Anti-inflammatory and rich in fatty acids that support rapid barrier repair.</p></div>
       <div class="full-ingredients">
         <span class="full-ingredients-label">Full Ingredient List</span>
-        <p class="full-ingredients-text">Zinc Oxide, Dicaprylyl Carbonate, Oryza Sativa (Rice) Bran Oil, Vegetable Oil, Isoamyl Laurate, Helianthus Annuus (Sunflower) Seed Wax, Oryza Sativa (Rice) Bran Wax, Rhus Succedanea Fruit Wax, Simmondsia Chinensis (Jojoba) Seed Oil (organic), Silica, Theobroma Cacao (Cocoa) Seed Butter (organic), Parfum/Fragrance, Tocopherol, Hippophae Rhamnoides (Sea Buckthorn) Fruit Oil (organic), Nigella Sativa (Black Cumin) Seed Oil (organic), Glycolipids, Aluminum Hydroxide, Glycosphingolipids, Aqua/Water, Vanillin, Terpineol (natural), Linalyl Acetate (natural), Anethole (natural), Geraniol (natural), CI 77891 (Titanium Dioxide), CI 77491, CI 77492, CI 77499 (Iron Oxides)</p>
+        <p class="full-ingredients-text">Zinc Oxide, Dicaprylyl Carbonate, Oryza Sativa (Rice) Bran Oil, Vegetable Oil, Isoamyl Laurate, Helianthus Annuus (Sunflower) Seed Wax, Oryza Sativa (Rice) Bran Wax, Rhus Succedanea Fruit Wax, Simmondsia Chinensis (Jojoba) Seed Oil (organic), Silica, Theobroma Cacao (Cocoa) Seed Butter (organic), Tocopherol, Hippophae Rhamnoides (Sea Buckthorn) Fruit Oil (organic), Glycolipids, Aluminum Hydroxide, Glycosphingolipids, CI 77891 (Titanium Dioxide), CI 77491, CI 77492, CI 77499 (Iron Oxides)</p>
       </div>
     </div>
   </div>
@@ -123,12 +162,128 @@ footer a{color:var(--warm-black);text-decoration:none}
   <span>&#169; Ghost Town Ranch &middot; Pulp Media Lab, Inc.</span>
   <a href="https://instagram.com/ghosttownranch">@ghosttownranch</a>
 </footer>
+
+<div id="cart-overlay" onclick="closeCart()"></div>
+<div id="cart-drawer">
+  <div class="cart-header">
+    <span class="cart-title">Cart</span>
+    <button class="cart-close" onclick="closeCart()">&#x2715;</button>
+  </div>
+  <div id="cart-items" class="cart-items">
+    <p class="cart-empty">Your cart is empty.</p>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-subtotal-row">
+      <span class="cart-subtotal-label">Subtotal</span>
+      <span id="cart-subtotal" class="cart-subtotal-amount">&#8212;</span>
+    </div>
+    <p class="cart-note">Shipping calculated at checkout</p>
+    <a id="cart-checkout-btn" href="#" target="_blank" class="cart-checkout-btn">Checkout</a>
+  </div>
+</div>
 <script>
-var GTR_SHOP='or-cre.com';
-var VARIANTS=[{"id": "51761886953768", "name": "Light Beige"}, {"id": "51761887019304", "name": "Medium Beige"}, {"id": "51761886921000", "name": "Tan Brown"}, {"id": "51761886986536", "name": "Deep Beige"}];
-function addToCart(){var sel=document.getElementById('variant-select');var variantId=sel?sel.value:VARIANTS[0].id;var btn=document.getElementById('atc-btn');btn.textContent='Going to cart…';btn.disabled=true;window.location.href='https://'+GTR_SHOP+'/cart/'+variantId+':1';}
-function toggleNav(){var links=document.getElementById('nav-links');var btn=document.getElementById('nav-hamburger');if(!links||!btn)return;var isOpen=links.classList.contains('open');links.classList.toggle('open');btn.classList.toggle('open');btn.setAttribute('aria-expanded',String(!isOpen));if(!isOpen){setTimeout(function(){document.addEventListener('click',function outsideTap(e){if(!e.target.closest('nav')){closeNav();document.removeEventListener('click',outsideTap);}});},100);}}
-function closeNav(){var links=document.getElementById('nav-links');var btn=document.getElementById('nav-hamburger');if(!links||!btn)return;links.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+
+  var GTR_SHOP = 'or-cre.com';
+  var PRODUCT_TITLE = 'Desert Veil CC Stick';
+  var PRODUCT_PRICE = 55;
+  var VARIANTS = [{"id": "51761886953768", "name": "Light Beige"}, {"id": "51761887019304", "name": "Medium Beige"}, {"id": "51761886921000", "name": "Tan Brown"}, {"id": "51761886986536", "name": "Deep Beige"}];
+
+  var gtrCart = (function(){try{var r=JSON.parse(localStorage.getItem('gtr_cart')||'[]');return Array.isArray(r)?r:(Array.isArray(r.items)?r.items:[]);}catch(e){return [];}})();
+  gtrCart = gtrCart.map(function(i){return Object.assign({},i,{price:isNaN(i.price)?0:i.price});});
+
+  function cartSave(){localStorage.setItem('gtr_cart',JSON.stringify(gtrCart));}
+
+  function updateCartBadge(){
+    var total=gtrCart.reduce(function(s,i){return s+i.qty;},0);
+    var badge=document.getElementById('cart-count');
+    if(badge){badge.textContent=total;badge.style.display=total>0?'flex':'none';}
+  }
+
+  function renderCartDrawer(){
+    updateCartBadge();
+    var items=document.getElementById('cart-items');
+    if(!items)return;
+    var subtotal=0;
+    gtrCart.forEach(function(i){subtotal+=isNaN(i.price)?0:i.price*i.qty;});
+    items.innerHTML=gtrCart.length===0
+      ?'<p class="cart-empty">Your cart is empty.</p>'
+      :gtrCart.map(function(item,idx){
+        return '<div class="cart-item">'+
+          '<div class="cart-item-info">'+
+            '<span class="cart-item-title">'+item.productTitle+'</span>'+
+            (item.variantTitle?'<span class="cart-item-variant">'+item.variantTitle+'</span>':'')+
+          '</div>'+
+          '<div class="cart-item-right">'+
+            '<div class="cart-item-qty-ctrl">'+
+              '<button onclick="cartChangeQty('+idx+',-1)" class="qty-btn">&#8722;</button>'+
+              '<span style="font-family:var(--serif);font-size:14px;min-width:16px;text-align:center;">'+item.qty+'</span>'+
+              '<button onclick="cartChangeQty('+idx+',1)" class="qty-btn">+</button>'+
+            '</div>'+
+            '<span class="cart-item-price">'+(item.price>0?'$'+(item.price*item.qty).toFixed(2):'&#8212;')+'</span>'+
+          '</div>'+
+        '</div>';
+      }).join('');
+    var sub=document.getElementById('cart-subtotal');
+    if(sub)sub.textContent='$'+subtotal.toFixed(2);
+    var ckBtn=document.getElementById('cart-checkout-btn');
+    if(ckBtn){
+      ckBtn.href=gtrCart.length>0
+        ?'https://'+GTR_SHOP+'/cart/'+gtrCart.map(function(i){return i.variantId+':'+i.qty;}).join(',')
+        :'#';
+    }
+  }
+
+  function cartChangeQty(idx,delta){
+    gtrCart[idx].qty+=delta;
+    if(gtrCart[idx].qty<=0)gtrCart.splice(idx,1);
+    cartSave();renderCartDrawer();
+  }
+
+  function openCart(){
+    document.getElementById('cart-drawer').classList.add('open');
+    document.getElementById('cart-overlay').classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function closeCart(){
+    document.getElementById('cart-drawer').classList.remove('open');
+    document.getElementById('cart-overlay').classList.remove('open');
+    document.body.style.overflow='';
+  }
+
+  function addToCart(){
+    var sel=document.getElementById('variant-select');
+    var variantId=sel?sel.value:VARIANTS[0].id;
+    var variantTitle=sel?sel.options[sel.selectedIndex].text:'';
+    var btn=document.getElementById('atc-btn');
+    // Add to shared localStorage cart (same key as main SPA)
+    var existing=null;
+    for(var i=0;i<gtrCart.length;i++){if(gtrCart[i].variantId===variantId){existing=gtrCart[i];break;}}
+    if(existing){existing.qty+=1;}
+    else{gtrCart.push({variantId:variantId,productTitle:PRODUCT_TITLE,variantTitle:variantTitle,price:PRODUCT_PRICE,qty:1});}
+    cartSave();
+    btn.textContent='Added \u2713';
+    setTimeout(function(){btn.textContent='Add to Cart';},1400);
+    renderCartDrawer();
+    openCart();
+  }
+
+  function toggleNav(){
+    var links=document.getElementById('nav-links');
+    var btn=document.getElementById('nav-hamburger');
+    if(!links||!btn)return;
+    var isOpen=links.classList.contains('open');
+    links.classList.toggle('open');btn.classList.toggle('open');
+    btn.setAttribute('aria-expanded',String(!isOpen));
+    if(!isOpen){setTimeout(function(){document.addEventListener('click',function outsideTap(e){if(!e.target.closest('nav')){closeNav();document.removeEventListener('click',outsideTap);}});},100);}
+  }
+  function closeNav(){
+    var links=document.getElementById('nav-links');var btn=document.getElementById('nav-hamburger');
+    if(!links||!btn)return;
+    links.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');
+  }
+
+  document.addEventListener('DOMContentLoaded',function(){renderCartDrawer();updateCartBadge();});
+  function onVariantChange(sel){/* price static for now */}
 </script>
 </body>
 </html>
