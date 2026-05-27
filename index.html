@@ -169,6 +169,45 @@
   }
   .nav-links a:hover { opacity: 1; }
 
+  /* ── SHOP DROPDOWN ── */
+  .nav-dropdown { position: relative; }
+  .nav-dropdown-toggle {
+    font-family: 'Jost', system-ui, sans-serif;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #F4EFE6; opacity: 0.7; font-weight: 300;
+    background: none; border: none; cursor: pointer;
+    display: flex; align-items: center; gap: 6px;
+    transition: opacity 0.2s; padding: 0;
+  }
+  .nav-dropdown-toggle:hover,
+  .nav-dropdown.open .nav-dropdown-toggle { opacity: 1; }
+  .nav-dropdown-toggle svg { transition: transform 0.2s; flex-shrink: 0; }
+  .nav-dropdown.open .nav-dropdown-toggle svg { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    display: none;
+    position: absolute; top: calc(100% + 16px); left: 50%;
+    transform: translateX(-50%);
+    background: rgba(22, 18, 14, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(244,239,230,0.08);
+    min-width: 180px;
+    padding: 6px 0;
+    z-index: 200;
+  }
+  .nav-dropdown.open .nav-dropdown-menu { display: block; }
+  .nav-dropdown-menu a {
+    display: block;
+    font-family: 'Jost', system-ui, sans-serif;
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #F4EFE6; opacity: 0.65; font-weight: 300;
+    text-decoration: none; padding: 12px 20px;
+    transition: opacity 0.15s, background 0.15s;
+    white-space: nowrap;
+  }
+  .nav-dropdown-menu a:hover { opacity: 1; background: rgba(244,239,230,0.05); }
+  .nav-dropdown-menu a + a { border-top: 1px solid rgba(244,239,230,0.06); }
+
   /* ── HAMBURGER NAV (mobile) ── */
   .nav-hamburger {
     display: none;
@@ -240,6 +279,33 @@
     }
     .nav-links a:active { opacity: 1 !important; background: rgba(244,239,230,0.06); }
     .cart-nav-btn { z-index: 101; flex-shrink: 0; }
+
+    /* mobile dropdown — inline expansion */
+    .nav-dropdown { width: 100%; }
+    .nav-dropdown-toggle {
+      font-size: 11px !important;
+      letter-spacing: 0.22em !important;
+      padding: 14px 24px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      min-height: 48px !important;
+      width: 100% !important;
+      color: #F4EFE6 !important;
+      opacity: 0.85 !important;
+    }
+    .nav-dropdown-menu {
+      position: static; transform: none;
+      background: rgba(255,255,255,0.03);
+      border: none; border-top: 1px solid rgba(244,239,230,0.06);
+      min-width: auto; padding: 0;
+    }
+    .nav-dropdown-menu a {
+      padding: 12px 24px 12px 36px !important;
+      font-size: 10px !important;
+      opacity: 0.6 !important;
+    }
+    .nav-dropdown-menu a:hover { opacity: 0.9 !important; }
   }
 
 
@@ -2246,7 +2312,20 @@
   <div class="nav-right">
     <ul class="nav-links" id="nav-links" role="navigation" aria-label="Main navigation">
       <li><a href="https://ghosttownranch.com/">Home</a></li>
-      <li><a href="#" onclick="event.preventDefault(); showPage('catalog');">Shop</a></li>
+      <li class="nav-dropdown" id="shop-dropdown">
+        <button class="nav-dropdown-toggle" onclick="toggleShopDropdown(event)" aria-expanded="false" aria-haspopup="true">
+          Shop
+          <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 2.5L4 5.5L7 2.5" stroke="#F4EFE6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="#" onclick="event.preventDefault(); closeShopDropdown(); showPage('catalog'); filterProducts('fragrance', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Fragrance + Home'));" role="menuitem">Fragrance + Home</a>
+          <a href="#" onclick="event.preventDefault(); closeShopDropdown(); showPage('catalog'); filterProducts('wash', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Wash House'));" role="menuitem">Wash House</a>
+          <a href="#" onclick="event.preventDefault(); closeShopDropdown(); showPage('catalog'); filterProducts('skin', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Body + Skin'));" role="menuitem">Body + Skin</a>
+          <a href="#" onclick="event.preventDefault(); closeShopDropdown(); showPage('catalog'); filterProducts('all', document.querySelector('.filter-btn'));" role="menuitem">Shop All</a>
+        </div>
+      </li>
       <li><a href="https://ghosttownranch.com/routines/">Routines</a></li>
       <li><a href="https://ghosttownranch.com/ritual/">Ritual</a></li>
       <li><a href="#" onclick="event.preventDefault(); showPage('wholesale');">Wholesale</a></li>
@@ -2361,6 +2440,28 @@
     </div>
   </section>
 
+  <section class="product-section" aria-label="Wash House Collection">
+    <div class="product-content">
+      <div class="product-eyebrow">The Collection</div>
+      <h2 class="product-title">Wash House</h2>
+      <div class="product-rule"></div>
+      <p class="product-desc">Hand, hair, and body. Everything that happens at the sink and in the shower — hand wash, hand cream, the two-bottle set, scalp oil, finishing mist. One place. All of it.</p>
+      <a class="explore-btn" onclick="showPage('catalog'); filterProducts('wash', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Wash House'));">Explore Wash House</a>
+    </div>
+    <div class="product-image" onclick="showPage('catalog'); filterProducts('wash', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Wash House'));" style="cursor:pointer;" role="button" aria-label="Shop Wash House collection">
+      <div class="product-image-inner">
+        <img
+          src="https://or-cre.com/cdn/shop/files/TheWashSet2.png?v=1778570623"
+          alt="Ghost Town Ranch Wash House — matte black glass bottles, hand wash, hair and body wash"
+          loading="lazy"
+          decoding="async"
+          width="1400" height="1759"
+          style="object-position: center 35%;"
+        >
+      </div>
+    </div>
+  </section>
+
   <!-- ── RITUAL ── -->
   <section class="ritual-strip" aria-label="Ritual">
     <div class="ritual-strip-bg">
@@ -2461,7 +2562,7 @@
     <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
     <button class="filter-btn" onclick="filterProducts('fragrance', this)">Fragrance + Home</button>
     <button class="filter-btn" onclick="filterProducts('skin', this)">Body + Skin</button>
-    <button class="filter-btn" onclick="filterProducts('hair', this)">Hair + Skin</button>
+    <button class="filter-btn" onclick="filterProducts('wash', this)">Wash House</button>
     <button class="filter-btn" onclick="filterProducts('tools', this)">Tools + Accessories</button>
     <button class="filter-btn" onclick="filterProducts('bundles', this)">Bundles</button>
     <button class="filter-btn" onclick="filterProducts('merch', this)">Merch</button>
@@ -2670,9 +2771,9 @@
 
     <!-- ── BODY + SKIN ── -->
 
-        <article class="product-card" data-category="skin">
+        <article class="product-card" data-category="wash">
       <div class="product-image pdp-trigger" onclick="openPDP(this)" data-product-name="The Wash Hydrating Hand Wash" style="cursor:pointer"><img src="https://or-cre.com/cdn/shop/files/thewashimage_7509c88e-32dc-4309-8da5-635175c5ab86.png?v=1776859541&width=1920" alt="The Wash Hydrating Hand Wash"></div>
-      <p class="product-category">Body + Skin</p>
+      <p class="product-category">Wash House</p>
       <h2 class="product-name">The Wash<br>Hydrating Hand Wash</h2>
       <p class="product-desc">A hydrating hand wash built for daily use. Aloe juice base with Jojoba, Shea, and Hyaluronic Acid — cleans without drying. Three scents, one formula.</p>
       <div class="product-footer">
@@ -2695,9 +2796,9 @@
 
     
 
-        <article class="product-card" data-category="skin">
+        <article class="product-card" data-category="wash">
       <div class="product-image pdp-trigger" onclick="openPDP(this)" data-product-name="Hand Cream Vegan Hand Cream" style="cursor:pointer"><img src="https://or-cre.com/cdn/shop/files/handcream1.png?v=1776858674&width=1920" alt="Worn Soft Vegan Hand Cream"></div>
-      <p class="product-category">Body + Skin</p>
+      <p class="product-category">Wash House</p>
       <h2 class="product-name">Worn Soft<br>Vegan Hand Cream</h2>
       <p class="product-desc">A rich, fast-absorbing cream for hands that work. Jojoba, Shea, and Lavender sink in without a greasy finish. Two scents. No fuss.</p>
       <div class="product-footer">
@@ -2857,9 +2958,9 @@
       </div>
     </article>
 
-    <article class="product-card" data-category="hair">
+    <article class="product-card" data-category="wash">
       <div class="product-image pdp-trigger" onclick="openPDP(this)" data-product-name="Outlaw\'s Reserve 2-in-1 Hair + Body Wash" style="cursor:pointer"><img src="https://or-cre.com/cdn/shop/files/outlawsreserv.png?v=1776859755&width=1200" alt="Outlaw's Reserve 2-in-1 Hair + Body Wash"></div>
-      <p class="product-category">Hair + Skin</p>
+      <p class="product-category">Wash House</p>
       <h2 class="product-name">Outlaw's Reserve<br>2-in-1 Hair + Body Wash</h2>
       <p class="product-desc">One formula, head to toe. Rosa Flower Water, Quince, and Nettle clean thoroughly without stripping. Made with ingredients from organic farming. No shortcuts, no residue.</p>
       <div class="product-footer">
@@ -2870,9 +2971,9 @@
         <button class="btn-cta" data-handle="outlaws-reserve-2-in-1-hair-skin-rinse" data-variant-id="51729943626024" onclick="addToCart(event,this)">Add to Cart</button>
       </div>
     </article>
-    <article class="product-card" data-category="hair">
+    <article class="product-card" data-category="wash">
       <div class="product-image pdp-trigger" onclick="openPDP(this)" data-product-name="The Wash House" style="cursor:pointer"><img src="https://or-cre.com/cdn/shop/files/TheWashSet2.png?v=1778570623&width=1920" alt="The Wash House — matte black glass bottles with aluminum cap"></div>
-      <p class="product-category">Hair + Body</p>
+      <p class="product-category">Wash House</p>
       <h2 class="product-name">The Wash House</h2>
       <p class="product-desc">Outlaw's Reserve 2-in-1 Hair + Body Wash and Charcoal Conditioner — hand-filled into matte black glass with aluminum cap, wall-mounted or counter. Refillable. Start with the set. Keep it running with refills.</p>
       <div class="product-footer">
@@ -2901,9 +3002,9 @@
 
 
 
-    <article class="product-card" data-category="hair">
+    <article class="product-card" data-category="wash">
       <div class="product-image pdp-trigger" onclick="openPDP(this)" data-product-name="Rosemary Mint Revive Hair + Scalp Oil" style="cursor:pointer"><img src="https://or-cre.com/cdn/shop/files/rosemaryminthairoilimage.png?v=1776860532&width=1200" alt="Rosemary Mint Revive Hair + Scalp Oil"></div>
-      <p class="product-category">Hair + Skin</p>
+      <p class="product-category">Wash House</p>
       <h2 class="product-name">Rosemary Mint Revive<br>Hair + Scalp Oil</h2>
       <p class="product-desc">Rosemary and peppermint, straight to the scalp. Stimulates circulation, encourages growth, cuts through buildup. Almond Oil carries it in. Works while you work.</p>
       <div class="product-footer">
@@ -2916,9 +3017,9 @@
     </article>
 
 
-    <article class="product-card" data-category="hair">
+    <article class="product-card" data-category="wash">
       <div class="product-image pdp-trigger" onclick="openPDP(this)" data-product-name="Trail\'s End Keratin Hair Mist" style="cursor:pointer"><img src="https://or-cre.com/cdn/shop/files/trailsendimage.png?v=1776861314&width=1200" alt="Trail's End Keratin Hair Mist"></div>
-      <p class="product-category">Hair + Skin</p>
+      <p class="product-category">Wash House</p>
       <h2 class="product-name">Trail's End<br>Keratin Hair Mist</h2>
       <p class="product-desc">Smooth trails ahead. Keep frizz at bay and shine on point, wherever the day takes you. Apply to clean, damp hair — no rinse necessary. Keratin, Lactic Acid, Citrus Aurantium Peel Oil.</p>
       <div class="product-footer">
@@ -3834,7 +3935,7 @@ function openPDP(imgDiv) {
       showPage(hash);
       if (filterParam && hash === 'catalog') {
         var filterBtns = document.querySelectorAll('.filter-btn');
-        var filterMap = { all: 0, fragrance: 1, skin: 2, hair: 3, tools: 4, bundles: 5, merch: 6 };
+        var filterMap = { all: 0, fragrance: 1, skin: 2, wash: 3, tools: 4, bundles: 5, merch: 6 };
         var idx = filterMap[filterParam];
         if (idx !== undefined && filterBtns[idx]) {
           filterProducts(filterParam, filterBtns[idx]);
@@ -4126,6 +4227,34 @@ function openPDP(imgDiv) {
   }
 
   /* ── Hamburger nav ── */
+  /* ── SHOP DROPDOWN ── */
+  function toggleShopDropdown(e) {
+    e.stopPropagation();
+    var dd = document.getElementById('shop-dropdown');
+    var isOpen = dd.classList.contains('open');
+    if (isOpen) {
+      closeShopDropdown();
+    } else {
+      dd.classList.add('open');
+      dd.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'true');
+      setTimeout(function() {
+        document.addEventListener('click', function outsideClick(ev) {
+          if (!ev.target.closest('#shop-dropdown')) {
+            closeShopDropdown();
+            document.removeEventListener('click', outsideClick);
+          }
+        });
+      }, 50);
+    }
+  }
+  function closeShopDropdown() {
+    var dd = document.getElementById('shop-dropdown');
+    if (!dd) return;
+    dd.classList.remove('open');
+    var toggle = dd.querySelector('.nav-dropdown-toggle');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+  }
+
   function toggleNav() {
     var links = document.getElementById('nav-links');
     var btn = document.getElementById('nav-hamburger');
@@ -4147,6 +4276,7 @@ function openPDP(imgDiv) {
     var links = document.getElementById('nav-links');
     var btn = document.getElementById('nav-hamburger');
     if (!links || !btn) return;
+    closeShopDropdown();
     links.classList.remove('open');
     btn.classList.remove('open');
     btn.setAttribute('aria-expanded', 'false');
