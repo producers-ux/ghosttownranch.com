@@ -421,15 +421,48 @@
       background: #2a2420;
       color: #F4EFE6;
       border-color: rgba(244,239,230,0.3);
-      color-scheme: light;
+      color-scheme: dark;
       background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23F4EFE6' stroke-opacity='0.6' stroke-width='1.2'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 12px center;
     }
     select.variant-select.light option {
-      background: #2a2420;
+      background: #1e1a17;
       color: #F4EFE6;
     }
+
+
+    /* ── CART DRAWER ── */
+    #cart-overlay{display:none;position:fixed;inset:0;background:rgba(26,21,18,0.5);z-index:300;backdrop-filter:blur(2px)}
+    #cart-overlay.open{display:block}
+    #cart-drawer{position:fixed;top:0;right:0;bottom:0;width:400px;max-width:100vw;background:#F4EFE6;z-index:400;display:flex;flex-direction:column;transform:translateX(100%);transition:transform 0.3s ease;box-shadow:-4px 0 32px rgba(26,21,18,0.15)}
+    #cart-drawer.open{transform:translateX(0)}
+    .cart-header{display:flex;justify-content:space-between;align-items:center;padding:28px 32px 24px;border-bottom:1px solid #D4C9B5}
+    .cart-title{font-family:var(--serif);font-size:13px;letter-spacing:0.25em;text-transform:uppercase;color:#1A1512}
+    .cart-close{background:none;border:none;cursor:pointer;font-size:16px;color:#1A1512;opacity:0.5;transition:opacity 0.2s;padding:4px}
+    .cart-close:hover{opacity:1}
+    .cart-items-list{flex:1;overflow-y:auto;padding:24px 32px;display:flex;flex-direction:column;gap:20px}
+    .cart-empty{font-family:var(--serif);font-size:15px;opacity:0.4;text-align:center;margin-top:40px;color:#1A1512}
+    .cart-item{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding-bottom:20px;border-bottom:1px solid #D4C9B5}
+    .cart-item:last-child{border-bottom:none;padding-bottom:0}
+    .cart-item-info{flex:1}
+    .cart-item-title{display:block;font-family:var(--serif);font-size:15px;color:#1A1512;margin-bottom:4px}
+    .cart-item-variant{display:block;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;opacity:0.45;color:#1A1512}
+    .cart-item-right{text-align:right;flex-shrink:0}
+    .cart-item-price{display:block;font-family:var(--serif);font-size:15px;color:#1A1512}
+    .cart-item-qty-ctrl{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+    .qty-btn{background:none;border:1px solid #D4C9B5;width:22px;height:22px;cursor:pointer;font-size:14px;color:#1A1512;opacity:0.6;transition:opacity 0.15s;display:flex;align-items:center;justify-content:center}
+    .qty-btn:hover{opacity:1}
+    .cart-footer-block{padding:20px 32px 32px;border-top:1px solid #D4C9B5}
+    .cart-subtotal-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+    .cart-subtotal-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;opacity:0.5;color:#1A1512}
+    .cart-subtotal-amount{font-family:var(--serif);font-size:18px;color:#1A1512}
+    .cart-note{font-size:10px;letter-spacing:0.1em;opacity:0.35;margin-bottom:16px;color:#1A1512}
+    .cart-checkout-link{display:block;width:100%;padding:16px;background:#1A1512;color:#F4EFE6;font-family:var(--sans);font-size:11px;letter-spacing:0.25em;text-transform:uppercase;border:none;cursor:pointer;text-align:center;text-decoration:none;transition:background 0.2s}
+    .cart-checkout-link:hover{background:#7c8260}
+    .cart-nav-btn-open{background:none;border:none;cursor:pointer;position:relative;display:flex;align-items:center;transition:opacity 0.2s;padding:0;opacity:0.8}
+    .cart-nav-btn-open:hover{opacity:1}
+    .cart-badge{position:absolute;top:-6px;right:-8px;background:#9B7A3F;color:#fff;font-size:9px;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center}
 
     /* ── FOOTER ── */
     footer {
@@ -524,13 +557,14 @@
         <li><a href="#" class="active">Ritual</a></li>
         <li><a href="https://ghosttownranch.com/#wholesale">Wholesale</a></li>
       </ul>
-      <a class="cart-nav-btn" href="https://ghosttownranch.com/#catalog" aria-label="Shop">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#F4EFE6;display:block;">
+      <button class="cart-nav-btn-open" onclick="openCart()" aria-label="Open cart">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F4EFE6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:block;">
           <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
           <line x1="3" y1="6" x2="21" y2="6"/>
           <path d="M16 10a4 4 0 0 1-8 0"/>
         </svg>
-      </a>
+        <span class="cart-badge" id="cart-count" style="display:none">0</span>
+      </button>
       <button class="nav-hamburger" id="nav-hamburger" onclick="toggleNav()" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -837,47 +871,118 @@
   }, { threshold: 0.15 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  // ── CART HELPERS ──
-  // Sends to Shopify cart permalink — works from any standalone page
-  var GTR_CART = 'https://or-cre.com';
+  // ── LOCAL CART (shared localStorage key with main SPA) ──
+  var GTR_SHOP = 'or-cre.com';
+  var gtrCart = (function(){
+    try { var r = JSON.parse(localStorage.getItem('gtr_cart') || '[]'); return Array.isArray(r) ? r : (Array.isArray(r.items) ? r.items : []); }
+    catch(e) { return []; }
+  })();
+  gtrCart = gtrCart.map(function(i){ return Object.assign({}, i, {price: isNaN(i.price) ? 0 : i.price}); });
 
-  function gtrGoToCart(variantId, qty) {
-    window.location.href = GTR_CART + '/cart/' + variantId + ':' + (qty || 1);
+  function cartSave() { localStorage.setItem('gtr_cart', JSON.stringify(gtrCart)); }
+
+  function updateCartBadge() {
+    var total = gtrCart.reduce(function(s, i){ return s + i.qty; }, 0);
+    var badge = document.getElementById('cart-count');
+    if (badge) { badge.textContent = total; badge.style.display = total > 0 ? 'flex' : 'none'; }
   }
 
-  function addVariantToCart(e, btn, handle) {
-    e.preventDefault();
-    var card = btn.closest('.ritual-product') || btn.closest('div');
-    var sel = card ? card.querySelector('select.variant-select') : null;
-    var variantId = sel ? sel.value : null;
-    if (!variantId) return;
-    btn.textContent = 'Going to cart…'; btn.disabled = true;
-    gtrGoToCart(variantId, 1);
+  function renderCartDrawer() {
+    updateCartBadge();
+    var items = document.getElementById('cart-items-list');
+    if (!items) return;
+    var subtotal = 0;
+    gtrCart.forEach(function(i){ subtotal += isNaN(i.price) ? 0 : i.price * i.qty; });
+    items.innerHTML = gtrCart.length === 0
+      ? '<p class="cart-empty">Your cart is empty.</p>'
+      : gtrCart.map(function(item, idx){
+          return '<div class="cart-item">' +
+            '<div class="cart-item-info">' +
+              '<span class="cart-item-title">' + item.productTitle + '</span>' +
+              (item.variantTitle ? '<span class="cart-item-variant">' + item.variantTitle + '</span>' : '') +
+            '</div>' +
+            '<div class="cart-item-right">' +
+              '<div class="cart-item-qty-ctrl">' +
+                '<button onclick="cartChangeQty(' + idx + ',-1)" class="qty-btn">&#8722;</button>' +
+                '<span style="font-family:var(--serif);font-size:14px;min-width:16px;text-align:center;color:#1A1512;">' + item.qty + '</span>' +
+                '<button onclick="cartChangeQty(' + idx + ',1)" class="qty-btn">+</button>' +
+              '</div>' +
+              '<span class="cart-item-price">' + (item.price > 0 ? '$' + (item.price * item.qty).toFixed(2) : '&mdash;') + '</span>' +
+            '</div>' +
+          '</div>';
+        }).join('');
+    var sub = document.getElementById('cart-subtotal');
+    if (sub) sub.textContent = '$' + subtotal.toFixed(2);
+    var ck = document.getElementById('cart-checkout-btn');
+    if (ck) ck.href = gtrCart.length > 0 ? 'https://' + GTR_SHOP + '/cart/' + gtrCart.map(function(i){ return i.variantId + ':' + i.qty; }).join(',') : '#';
   }
 
-  function addVotiveToCart(e, btn) {
-    e.preventDefault();
-    var sel = document.getElementById('ritual-votive-selector');
-    var variantId = sel ? sel.value : '51851827609896';
-    btn.textContent = 'Going to cart…'; btn.disabled = true;
-    gtrGoToCart(variantId, 1);
+  function cartChangeQty(idx, delta) {
+    gtrCart[idx].qty += delta;
+    if (gtrCart[idx].qty <= 0) gtrCart.splice(idx, 1);
+    cartSave(); renderCartDrawer();
   }
 
-  function addWanderSixToCart(e, btn) {
-    e.preventDefault();
-    // The Wander All Six Scents — bundle variant
-    var variantId = '51849820766504';
-    btn.textContent = 'Going to cart…'; btn.disabled = true;
-    gtrGoToCart(variantId, 1);
+  function clientAddToCart(variantId, title, variant, price) {
+    var existing = null;
+    for (var i = 0; i < gtrCart.length; i++) { if (gtrCart[i].variantId === variantId) { existing = gtrCart[i]; break; } }
+    if (existing) { existing.qty += 1; } else { gtrCart.push({variantId: variantId, productTitle: title, variantTitle: variant, price: parseFloat(price) || 0, qty: 1}); }
+    cartSave(); renderCartDrawer(); openCart();
+  }
+
+  function openCart() {
+    document.getElementById('cart-drawer').classList.add('open');
+    document.getElementById('cart-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeCart() {
+    document.getElementById('cart-drawer').classList.remove('open');
+    document.getElementById('cart-overlay').classList.remove('open');
+    document.body.style.overflow = '';
   }
 
   function addFieldKitToCart(e, btn) {
     e.preventDefault();
     var scentSel = document.getElementById('fieldkit-scent-selector');
     var variantId = scentSel ? scentSel.value : '51849834627368';
-    btn.textContent = 'Going to cart…'; btn.disabled = true;
-    gtrGoToCart(variantId, 1);
+    var scent = scentSel ? scentSel.options[scentSel.selectedIndex].text.trim() : '';
+    btn.textContent = 'Added ✓';
+    setTimeout(function(){ btn.textContent = 'Add to Cart'; btn.disabled = false; }, 1400);
+    clientAddToCart(variantId, 'The Field Kit', scent, 34);
   }
+
+  function addVariantToCart(e, btn, handle) {
+    e.preventDefault();
+    var card = btn.closest('.ritual-product') || btn.closest('div');
+    var sel = card ? card.querySelector('select.variant-select') : null;
+    if (!sel) return;
+    var variantId = sel.value;
+    var variantTitle = sel.options[sel.selectedIndex].text.trim();
+    var titleEl = card.querySelector('h3, .product-name, strong');
+    var title = titleEl ? titleEl.textContent.trim() : handle;
+    btn.textContent = 'Added ✓';
+    setTimeout(function(){ btn.textContent = 'Add to Cart'; btn.disabled = false; }, 1400);
+    clientAddToCart(variantId, title, variantTitle, 0);
+  }
+
+  function addVotiveToCart(e, btn) {
+    e.preventDefault();
+    var sel = document.getElementById('ritual-votive-selector');
+    var variantId = sel ? sel.value : '51851827609896';
+    var scent = sel ? sel.options[sel.selectedIndex].text.trim() : '';
+    btn.textContent = 'Added ✓';
+    setTimeout(function(){ btn.textContent = 'Add to Cart'; btn.disabled = false; }, 1400);
+    clientAddToCart(variantId, 'The Votive', scent, 26);
+  }
+
+  function addWanderSixToCart(e, btn) {
+    e.preventDefault();
+    btn.textContent = 'Added ✓';
+    setTimeout(function(){ btn.textContent = 'Add to Cart'; btn.disabled = false; }, 1400);
+    clientAddToCart('51849820766504', 'The Wander All Six Scents', '', 240);
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){ renderCartDrawer(); updateCartBadge(); });
 
   // ── Hamburger nav ──
   function toggleNav() {
@@ -901,6 +1006,26 @@
     });
   });
 </script>
+
+
+<div id="cart-overlay" onclick="closeCart()"></div>
+<div id="cart-drawer">
+  <div class="cart-header">
+    <span class="cart-title">Cart</span>
+    <button class="cart-close" onclick="closeCart()">&#x2715;</button>
+  </div>
+  <div id="cart-items-list" class="cart-items-list">
+    <p class="cart-empty">Your cart is empty.</p>
+  </div>
+  <div class="cart-footer-block">
+    <div class="cart-subtotal-row">
+      <span class="cart-subtotal-label">Subtotal</span>
+      <span id="cart-subtotal" class="cart-subtotal-amount">&#8212;</span>
+    </div>
+    <p class="cart-note">Shipping calculated at checkout</p>
+    <a id="cart-checkout-btn" href="#" target="_blank" class="cart-checkout-link">Checkout</a>
+  </div>
+</div>
 
 </body>
 </html>
