@@ -159,25 +159,25 @@
   .nav-right {
     display: flex; align-items: center; gap: 32px;
   }
-  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
   .nav-links a {
     font-family: 'Jost', system-ui, sans-serif;
     font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
     text-decoration: none; color: #F4EFE6; opacity: 0.7;
-    font-weight: 300;
+    font-weight: 300; line-height: 1;
     transition: opacity 0.2s; cursor: pointer;
   }
   .nav-links a:hover { opacity: 1; }
 
   /* ── SHOP DROPDOWN ── */
-  .nav-dropdown { position: relative; }
+  .nav-dropdown { position: relative; display: flex; align-items: center; }
   .nav-dropdown-toggle {
     font-family: 'Jost', system-ui, sans-serif;
     font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: #F4EFE6; opacity: 0.7; font-weight: 300;
+    color: #F4EFE6; opacity: 0.7; font-weight: 300; line-height: 1;
     background: none; border: none; cursor: pointer;
     display: flex; align-items: center; gap: 6px;
-    transition: opacity 0.2s; padding: 0;
+    transition: opacity 0.2s; padding: 0; margin: 0;
   }
   .nav-dropdown-toggle:hover,
   .nav-dropdown.open .nav-dropdown-toggle { opacity: 1; }
@@ -668,133 +668,6 @@
   }
 
 
-  /* ── BRAND PAGE QUIZ TEASER ── */
-  #page-brand .brand-quiz-teaser {
-    background: var(--ink);
-    padding: 100px 48px;
-  }
-  #page-brand .brand-quiz-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-  #page-brand .brand-quiz-headline {
-    font-family: var(--serif);
-    font-size: clamp(40px, 5.5vw, 64px);
-    font-weight: 300;
-    line-height: 0.95;
-    letter-spacing: 0.04em;
-    color: var(--cream);
-    margin-bottom: 20px;
-  }
-  #page-brand .brand-quiz-body {
-    font-family: var(--serif);
-    font-size: 17px;
-    line-height: 1.75;
-    color: rgba(212,201,181,0.7);
-    font-style: italic;
-    margin-bottom: 32px;
-  }
-  #page-brand .brand-quiz-icons {
-    display: flex;
-    gap: 24px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-  }
-  #page-brand .brand-quiz-icon-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    color: rgba(212,201,181,0.7);
-  }
-  #page-brand .brand-quiz-icon-item span {
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(212,201,181,0.6);
-  }
-  #page-brand .brand-quiz-btn {
-    background: var(--army);
-    border: 2px solid var(--army);
-    color: var(--cream);
-    padding: 20px 0;
-    width: 100%;
-    max-width: 360px;
-    font-size: 13px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    cursor: pointer;
-    font-family: var(--serif);
-    display: block;
-    transition: all 0.2s;
-  }
-  #page-brand .brand-quiz-btn:hover {
-    background: transparent;
-    color: var(--army);
-  }
-  #page-brand .brand-quiz-right {
-    border-left: 1px solid rgba(212,201,181,0.12);
-    padding-left: 60px;
-    padding-top: 8px;
-  }
-  #page-brand .brand-quiz-eyebrow {
-    font-family: var(--sans);
-    font-size: 10px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--army);
-    margin-bottom: 24px;
-  }
-  #page-brand .brand-quiz-q {
-    font-family: var(--serif);
-    font-size: clamp(24px, 3.5vw, 36px);
-    font-weight: 300;
-    line-height: 1.2;
-    color: var(--cream);
-    font-style: italic;
-    margin-bottom: 32px;
-    letter-spacing: 0.02em;
-  }
-  #page-brand .brand-quiz-answers {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-  #page-brand .brand-quiz-answer {
-    font-family: var(--serif);
-    font-size: 16px;
-    color: rgba(212,201,181,0.55);
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(212,201,181,0.1);
-    font-style: italic;
-    letter-spacing: 0.01em;
-    cursor: pointer;
-    transition: color 0.2s;
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-  }
-  #page-brand .brand-quiz-answer:hover {
-    color: rgba(212,201,181,0.95);
-  }
-  #page-brand .brand-quiz-answer-letter {
-    font-family: var(--sans);
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    color: var(--army);
-    flex-shrink: 0;
-    font-style: normal;
-  }
-
-  @media (max-width: 860px) {
-    #page-brand .brand-quiz-inner { grid-template-columns: 1fr; gap: 48px; }
-    #page-brand .brand-quiz-right { border-left: none; padding-left: 0; border-top: 1px solid rgba(212,201,181,0.1); padding-top: 40px; }
-    #page-brand .brand-quiz-teaser { padding: 72px 24px; }
-  }
 
   /* ── BOTTOM SWITCHER ── */
   .switcher {
@@ -2103,205 +1976,6 @@
 
   /* ══ PRODUCT DRAWER ══ */
   
-  /* ══ LAND QUIZ PAGE ══ */
-  #page-quiz {
-    background: var(--dust);
-    min-height: 100vh;
-    font-family: var(--serif);
-    position: relative;
-    overflow-x: hidden;
-  }
-  #page-quiz .quiz-grain {
-    position: fixed; inset: 0;
-    opacity: 0.015;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-size: 180px;
-    pointer-events: none;
-    z-index: 0;
-  }
-  #page-quiz .quiz-wrap {
-    position: relative; z-index: 1;
-    padding: 100px 32px 80px;
-    max-width: 700px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* Intro */
-  #page-quiz .quiz-intro { width: 100%; max-width: 520px; text-align: center; }
-  #page-quiz .quiz-eyebrow {
-    font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--army); margin-bottom: 32px;
-  }
-  #page-quiz .quiz-headline {
-    font-size: clamp(48px, 9vw, 80px); font-weight: 300; line-height: 0.92;
-    letter-spacing: 0.04em; color: var(--ink); margin-bottom: 24px;
-  }
-  #page-quiz .quiz-divider {
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--army), transparent);
-    margin: 28px auto; width: 120px;
-  }
-  #page-quiz .quiz-intro-body {
-    font-size: clamp(16px, 2.8vw, 20px); line-height: 1.8;
-    color: var(--army); font-style: italic; margin-bottom: 16px;
-  }
-  #page-quiz .quiz-intro-sub {
-    font-size: 15px; line-height: 1.75; color: rgba(124,130,96,0.9);
-    margin-bottom: 48px;
-  }
-  #page-quiz .quiz-icons {
-    display: flex; gap: 24px; justify-content: center; margin-bottom: 48px;
-  }
-  #page-quiz .quiz-icon-item {
-    display: flex; flex-direction: column; align-items: center; gap: 8px;
-    color: var(--army);
-  }
-  #page-quiz .quiz-icon-label {
-    font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--army);
-  }
-  #page-quiz .quiz-begin-btn {
-    background: var(--ink); border: 2px solid var(--ink); color: var(--parchment);
-    padding: 22px 0; font-size: 14px; letter-spacing: 0.3em;
-    text-transform: uppercase; cursor: pointer; font-family: var(--serif);
-    transition: all 0.25s; width: 100%; max-width: 420px;
-    display: block; margin: 0 auto;
-  }
-  #page-quiz .quiz-begin-btn:hover {
-    background: transparent; color: var(--ink); border-color: var(--ink);
-  }
-
-  /* Question */
-  #page-quiz .quiz-question { width: 100%; max-width: 600px; }
-  #page-quiz .quiz-progress {
-    width: 100%; height: 3px; background: rgba(124,130,96,0.2); margin-bottom: 48px;
-  }
-  #page-quiz .quiz-progress-fill {
-    height: 100%; background: var(--army); transition: width 0.5s ease;
-  }
-  #page-quiz .quiz-qnum {
-    font-size: 12px; letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--army); margin-bottom: 28px; font-weight: 600;
-  }
-  #page-quiz .quiz-prompt {
-    font-size: clamp(24px, 4.5vw, 34px); font-weight: 300; line-height: 1.3;
-    color: var(--ink); margin-bottom: 40px; letter-spacing: 0.02em;
-  }
-  #page-quiz .quiz-options { display: flex; flex-direction: column; gap: 14px; }
-  #page-quiz .quiz-option {
-    background: transparent; border: 1px solid rgba(124,130,96,0.4);
-    color: var(--ink); padding: 22px 28px;
-    text-align: left; cursor: pointer; font-family: var(--serif);
-    font-size: 18px; font-style: italic; line-height: 1.55;
-    transition: all 0.2s; display: flex; align-items: flex-start; gap: 20px;
-    width: 100%;
-  }
-  #page-quiz .quiz-option:hover {
-    border-color: var(--army); color: var(--ink); background: rgba(124,130,96,0.08);
-  }
-  #page-quiz .quiz-option.selected {
-    border-color: var(--army); color: var(--parchment);
-    background: var(--army);
-  }
-  #page-quiz .quiz-opt-letter {
-    color: var(--army); font-size: 12px; letter-spacing: 0.2em;
-    margin-top: 3px; flex-shrink: 0; font-style: normal; font-weight: 600;
-  }
-
-  /* Result */
-  #page-quiz .quiz-result { width: 100%; max-width: 640px; }
-  #page-quiz .quiz-result-eyebrow {
-    font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 16px;
-  }
-  #page-quiz .quiz-land-name {
-    font-size: clamp(52px, 9vw, 84px); font-weight: 300; line-height: 0.9;
-    letter-spacing: 0.04em; color: var(--ink); margin-bottom: 12px;
-  }
-  #page-quiz .quiz-tagline {
-    font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 32px;
-  }
-  #page-quiz .quiz-result-divider { height: 1px; margin-bottom: 36px; }
-  #page-quiz .quiz-result-desc {
-    font-size: clamp(17px, 2.8vw, 21px); line-height: 1.8;
-    color: var(--ink); font-style: italic; margin-bottom: 20px;
-  }
-  #page-quiz .quiz-result-character {
-    font-size: 15px; line-height: 1.7; margin-bottom: 14px; letter-spacing: 0.02em; color: var(--army); font-weight: 600;
-  }
-  #page-quiz .quiz-result-landscape {
-    font-size: 14px; line-height: 1.75; color: var(--army);
-    opacity: 0.85; margin-bottom: 36px;
-  }
-  #page-quiz .quiz-section-label {
-    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--army); margin-bottom: 14px; font-weight: 600;
-  }
-  #page-quiz .quiz-scents {
-    display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px;
-  }
-  #page-quiz .quiz-scent-tag {
-    font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
-    border: 1px solid; padding: 7px 16px;
-  }
-  #page-quiz .quiz-products {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 40px;
-  }
-  #page-quiz .quiz-product-img {
-    aspect-ratio: 3/4; overflow: hidden; background: rgba(244,239,230,0.04);
-    margin-bottom: 12px;
-  }
-  #page-quiz .quiz-product-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  #page-quiz .quiz-product-name { color: var(--ink); font-size: 15px; line-height: 1.3; margin-bottom: 4px; }
-  #page-quiz .quiz-product-sub {
-    color: var(--army); font-size: 10px; letter-spacing: 0.12em;
-    text-transform: uppercase; margin-bottom: 4px;
-  }
-  #page-quiz .quiz-product-price { color: var(--army); font-size: 15px; }
-  #page-quiz .quiz-cta {
-    display: block; background: var(--army); color: var(--parchment); text-align: center;
-    padding: 20px; font-size: 12px; letter-spacing: 0.25em; text-transform: uppercase;
-    text-decoration: none; cursor: pointer; margin-bottom: 12px; border: 1px solid var(--army);
-    font-family: var(--serif); width: 100%;
-    transition: all 0.2s;
-  }
-  #page-quiz .quiz-cta:hover { background: transparent; color: var(--army); }
-  #page-quiz .quiz-retake {
-    background: transparent; border: 1px solid rgba(124,130,96,0.4);
-    color: var(--army); padding: 16px; font-size: 12px;
-    letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer;
-    font-family: var(--serif); width: 100%; transition: all 0.2s;
-  }
-  #page-quiz .quiz-retake:hover { border-color: var(--army); background: rgba(124,130,96,0.08); }
-
-  #page-quiz .quiz-products-cats { display: flex; flex-direction: column; gap: 28px; }
-  #page-quiz .quiz-cat-group { display: flex; flex-direction: column; gap: 10px; }
-  #page-quiz .quiz-cat-label {
-    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--army); padding-bottom: 8px; font-weight: 600;
-    border-bottom: 1px solid rgba(124,130,96,0.25);
-  }
-  #page-quiz .quiz-products--single { grid-template-columns: repeat(1, 1fr); }
-  #page-quiz .quiz-products--single > div { display: flex; align-items: center; gap: 14px; }
-  #page-quiz .quiz-products--single .quiz-product-img {
-    width: 60px; aspect-ratio: 1/1; flex-shrink: 0; margin-bottom: 0;
-  }
-
-  #page-quiz .quiz-border-section {
-    border-top: 1px solid rgba(124,130,96,0.25); padding-top: 28px; margin-bottom: 28px;
-  }
-  #page-quiz .quiz-actions { border-top: 1px solid rgba(124,130,96,0.25); padding-top: 28px; }
-
-  .quiz-fade { animation: quizFadeIn 0.45s ease forwards; }
-  @keyframes quizFadeIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
-
-  @media (max-width: 600px) {
-    #page-quiz .quiz-wrap { padding: 80px 20px 60px; }
-    #page-quiz .quiz-products { grid-template-columns: repeat(3, 1fr); gap: 8px; }
-    #page-quiz .quiz-icons { gap: 14px; }
-  }
-
 </style>
 </head>
 <body>
@@ -3931,7 +3605,7 @@ function openPDP(imgDiv) {
         if (kv[0] === 'filter') filterParam = kv[1];
       }
     }
-    if (hash && ['brand','catalog','wholesale','quiz'].indexOf(hash) !== -1) {
+    if (hash && ['brand','catalog','wholesale'].indexOf(hash) !== -1) {
       showPage(hash);
       if (filterParam && hash === 'catalog') {
         var filterBtns = document.querySelectorAll('.filter-btn');
@@ -3947,142 +3621,7 @@ function openPDP(imgDiv) {
 
   
   /* ══ LAND QUIZ ══ */
-  var QUIZ_QUESTIONS = [
-    { id: "q1", prompt: "You pull off the highway. No plan. Where do you end up?",
-      options: [
-        { id: "a", text: "A dry wash. Cottonwood trees. The sound of nothing.", scores: { highdesert:3, openrange:1, riverbasin:2, rimrock:1, canyonfloor:0 } },
-        { id: "b", text: "Flat land. Long horizon. The road looks like it goes on forever.", scores: { highdesert:0, openrange:3, riverbasin:1, rimrock:0, canyonfloor:1 } },
-        { id: "c", text: "A river. You sit down on the bank and stay longer than you meant to.", scores: { highdesert:0, openrange:1, riverbasin:3, rimrock:1, canyonfloor:2 } },
-        { id: "d", text: "A wall of rock. You look up for a long time.", scores: { highdesert:1, openrange:0, riverbasin:0, rimrock:3, canyonfloor:2 } },
-      ]
-    },
-    { id: "q2", prompt: "What time of day belongs to you?",
-      options: [
-        { id: "a", text: "Before first light. Before anyone else is moving.", scores: { highdesert:2, openrange:2, riverbasin:1, rimrock:1, canyonfloor:1 } },
-        { id: "b", text: "Mid-morning. The day is yours and you know it.", scores: { highdesert:1, openrange:3, riverbasin:1, rimrock:2, canyonfloor:1 } },
-        { id: "c", text: "Late afternoon. The light shifts and everything settles.", scores: { highdesert:2, openrange:1, riverbasin:2, rimrock:2, canyonfloor:2 } },
-        { id: "d", text: "After dark. You\'re not in a hurry to get inside.", scores: { highdesert:1, openrange:1, riverbasin:2, rimrock:1, canyonfloor:3 } },
-      ]
-    },
-    { id: "q3", prompt: "Your version of clean smells like —",
-      options: [
-        { id: "a", text: "Hang Dried — white sage and lavender. Wind-dried. Nothing more.", scores: { highdesert:2, openrange:1, riverbasin:3, rimrock:1, canyonfloor:0 } },
-        { id: "b", text: "Graze — sweetgrass and sage. River-sharp. Two notes, no apologies.", scores: { highdesert:1, openrange:3, riverbasin:2, rimrock:0, canyonfloor:1 } },
-        { id: "c", text: "Flax — lemon and cotton blossom. The house properly aired out.", scores: { highdesert:1, openrange:1, riverbasin:3, rimrock:1, canyonfloor:1 } },
-        { id: "d", text: "Dusk — palo santo and dry earth. Land that\'s been here a long time.", scores: { highdesert:2, openrange:0, riverbasin:1, rimrock:3, canyonfloor:2 } },
-      ]
-    },
-    { id: "q4", prompt: "The thing you\'re most likely to fix rather than replace is —",
-      options: [
-        { id: "a", text: "A piece of leather gear. Saddle, belt, boot. Whatever took the most years.", scores: { highdesert:2, openrange:3, riverbasin:1, rimrock:2, canyonfloor:1 } },
-        { id: "b", text: "Something made of wood. A door, a table, a fence post.", scores: { highdesert:2, openrange:2, riverbasin:2, rimrock:1, canyonfloor:2 } },
-        { id: "c", text: "A cast iron pan or old cookware. The kind that only gets better.", scores: { highdesert:1, openrange:2, riverbasin:3, rimrock:1, canyonfloor:2 } },
-        { id: "d", text: "Something structural. A wall, a foundation, a stone path.", scores: { highdesert:1, openrange:1, riverbasin:1, rimrock:3, canyonfloor:3 } },
-      ]
-    },
-    { id: "q5", prompt: "A good day ends with —",
-      options: [
-        { id: "a", text: "Sitting outside until the stars come in. No agenda.", scores: { highdesert:3, openrange:1, riverbasin:1, rimrock:2, canyonfloor:2 } },
-        { id: "b", text: "Something finished. Something you can see from where you\'re standing.", scores: { highdesert:1, openrange:3, riverbasin:1, rimrock:2, canyonfloor:1 } },
-        { id: "c", text: "A long shower or soak. Water doing the work your hands already did.", scores: { highdesert:1, openrange:1, riverbasin:3, rimrock:1, canyonfloor:2 } },
-        { id: "d", text: "Somewhere high up. A view that makes the rest of it small.", scores: { highdesert:2, openrange:2, riverbasin:0, rimrock:3, canyonfloor:1 } },
-      ]
-    },
-    { id: "q6", prompt: "The landscape you carry with you everywhere is —",
-      options: [
-        { id: "a", text: "Open desert. Joshua trees or saguaro. Bone-dry and absolute.", scores: { highdesert:3, openrange:1, riverbasin:0, rimrock:2, canyonfloor:1 } },
-        { id: "b", text: "A long valley between two mountain ranges. Sky as big as the land.", scores: { highdesert:1, openrange:3, riverbasin:1, rimrock:2, canyonfloor:1 } },
-        { id: "c", text: "A river corridor. Cottonwoods, cold water, the sound of moving things.", scores: { highdesert:0, openrange:1, riverbasin:3, rimrock:1, canyonfloor:2 } },
-        { id: "d", text: "A canyon. Red walls, layered time, something sheltered and ancient.", scores: { highdesert:1, openrange:0, riverbasin:1, rimrock:2, canyonfloor:3 } },
-      ]
-    },
-  ];
 
-    var LAND_TYPES = {
-    highdesert: {
-      name: "High Desert", tagline: "Still. Mineral. Watching.", color: "#c4955a",
-      desc: "You know how to be somewhere without needing it to be anything other than what it is. The high desert keeps its own counsel — ancient, spare, unhurried. So do you. There's a kind of clarity that only comes from standing in a place where the quiet is loud. You've stood there.",
-      character: "You're not restless. You're patient. There's a difference.",
-      landscape: "Creosote flats at elevation. The smell of sage before the rain arrives. Joshua trees doing exactly what Joshua trees do. Light that goes amber before you're ready for the day to end.",
-      scents: ["Dusk", "Graze", "Hang Dried"],
-      products: [
-        { name: "Ranch Water", sub: "Body + Linen Fragrance", price: "$85", img: "https://or-cre.com/cdn/shop/files/Graze__bodylinen.png?v=1777820218&width=600", cat: "Fragrance" },
-        { name: "The Slow Candle", sub: "11oz · Colored Wax · Choose Scent", price: "$54", img: "https://or-cre.com/cdn/shop/files/theslow-ember_ff2e04e9-aff6-465c-82c2-13d03c2aabbe.png?v=1779742644&width=1920", cat: "Fragrance" },
-        { name: "Desert Veil CC Stick", sub: "COSMOS Natural · Mineral CC · 4 Shades", price: "$55", img: "https://or-cre.com/cdn/shop/files/desertveilsingle.png?v=1777556947&width=600", cat: "Body + Skin" },
-        { name: "Desert Day Cream", sub: "COSMOS Natural · Hydration + Shield", price: "$64", img: "https://or-cre.com/cdn/shop/files/Desertdaycreamimage.png?v=1776856136&width=600", cat: "Body + Skin" },
-        { name: "Golden Hour Body Oil", sub: "COSMOS Organic · 7 Organic Oils", price: "$62", img: "https://or-cre.com/cdn/shop/files/goldenhour.png?v=1777575723&width=600", cat: "Body + Skin" },
-        { name: "Mojave Reset Face Mist", sub: "COSMOS Natural · Prebiotic", price: "$38", img: "https://or-cre.com/cdn/shop/files/mojaveresetimage.png?v=1776860708&width=600", cat: "Body + Skin" },
-        { name: "GTR Unisex Tee", sub: "Black or Bone · S–XL", price: "$44", img: "https://or-cre.com/cdn/shop/files/newgtrbonet.png?v=1778979877&width=2560", cat: "Merch" },
-      ]
-    },
-    openrange: {
-      name: "Open Range", tagline: "Worn. Moving. Earned.", color: "#7c8c6a",
-      desc: "You cover ground. Not because you're running from anything — because you like the feeling of moving through the world. The open range rewards the person who shows up, does the work, and doesn't make a big thing about it. That's you. Long horizon, easy gait, earned weariness.",
-      character: "You're the person who knows how to make camp and doesn't need to talk about it.",
-      landscape: "Bunch grass and barbed wire. A windmill turning slow. The particular flatness of the Texas panhandle or the eastern Oregon high plateau — land so open it makes people nervous who aren't from it.",
-      scents: ["Rough Hewn", "Ember", "Graze"],
-      products: [
-        { name: "The Field Kit", sub: "Votive + Palo Santo + Matchbook", price: "$34", img: "fieldkit.png", cat: "Fragrance" },
-        { name: "The Wander All Six Scents", sub: "All 6 Scents · Travel Candle Set", price: "$240", img: "thewandermain.png", cat: "Fragrance" },
-        { name: "The Votive", sub: "Colored Wax · Single $26", price: "$26", img: "https://or-cre.com/cdn/shop/files/thevotive.png?v=1779410827&width=600", cat: "Fragrance" },
-        { name: "The Monument Candle", sub: "4-Wick · 55oz · Choose Scent", price: "$190", img: "https://or-cre.com/cdn/shop/files/monument.png?v=1778095987&width=600", cat: "Fragrance" },
-        { name: "The Wander Candle", sub: "Travel · Colored Wax · Choose Scent", price: "$40", img: "https://or-cre.com/cdn/shop/files/thewandermain_802949e9-d5a7-487e-8ba2-a92b113061f7.png?v=1779743213&width=1920", cat: "Fragrance" },
-        { name: "Desert Veil CC Stick", sub: "COSMOS Natural · Mineral CC · 4 Shades", price: "$55", img: "https://or-cre.com/cdn/shop/files/desertveilsingle.png?v=1777556947&width=600", cat: "Body + Skin" },
-        { name: "Worn Soft Hand Cream", sub: "Mesquite Amber + Leather", price: "$53", img: "https://or-cre.com/cdn/shop/files/handcream1.png?v=1776858674&width=600", cat: "Body + Skin" },
-        { name: "Outlaw's Reserve", sub: "2-in-1 Hair + Body Wash · COSMOS Natural", price: "$55", img: "https://or-cre.com/cdn/shop/files/outlawsreserv.png?v=1776859755&width=600", cat: "Body + Skin" },
-        { name: "The Wash", sub: "Ginger + Smoky Cardamom", price: "$44", img: "https://or-cre.com/cdn/shop/files/thewashimage_7509c88e-32dc-4309-8da5-635175c5ab86.png?v=1776859541&width=600", cat: "Body + Skin" },
-        { name: "GTR Unisex Hoodie", sub: "Black · Navy · Carbon Grey · XS–2XL", price: "$74", img: "https://or-cre.com/cdn/shop/files/gtrblackhoodie.png?v=1778572385&width=600", cat: "Merch" },
-      ]
-    },
-    riverbasin: {
-      name: "River Basin", tagline: "Clear. Moving. Restorative.", color: "#7B9EA6",
-      desc: "Water is where you think. You find rivers, creeks, irrigation ditches — any moving water will do. The river basin is the most giving landscape in the American West. It's where things grow, where animals gather, where people stop and stay. You know the value of a place that replenishes what the dry land takes.",
-      character: "You restore things. People, spaces, yourself. That's not soft — that's a skill.",
-      landscape: "Cottonwood and willow along a canyon creek. The Green River in September. Snowmelt hitting warm granite. Water that's been traveling a long time to get to where you're standing.",
-      scents: ["Hang Dried", "Graze", "Flax"],
-      products: [
-        { name: "Ranch Water", sub: "Body + Linen Fragrance", price: "$85", img: "https://or-cre.com/cdn/shop/files/Graze__bodylinen.png?v=1777820218&width=600", cat: "Fragrance" },
-        { name: "The Still Reed Diffuser", sub: "Amber Glass · Refillable · Choose Scent", price: "$67", img: "https://or-cre.com/cdn/shop/files/TheStill_allitems.png?v=1776726357&width=600", cat: "Fragrance" },
-        { name: "Desert Veil CC Stick", sub: "COSMOS Natural · Mineral CC · 4 Shades", price: "$55", img: "https://or-cre.com/cdn/shop/files/desertveilsingle.png?v=1777556947&width=600", cat: "Body + Skin" },
-        { name: "Mojave Reset Face Mist", sub: "COSMOS Natural · Prebiotic", price: "$38", img: "https://or-cre.com/cdn/shop/files/mojaveresetimage.png?v=1776860708&width=600", cat: "Body + Skin" },
-        { name: "The Wash", sub: "Cold-Pressed Grapefruit", price: "$44", img: "https://or-cre.com/cdn/shop/files/thewashimage_7509c88e-32dc-4309-8da5-635175c5ab86.png?v=1776859541&width=600", cat: "Body + Skin" },
-        { name: "Dusk Til Dawn Gel", sub: "COSMOS Natural · Overnight Repair", price: "$60", img: "https://or-cre.com/cdn/shop/files/dusktildawnimage.png?v=1776856287&width=600", cat: "Body + Skin" },
-        { name: "GTR Garment-Dyed Long-Sleeve Tee", sub: "XS – 2XL · Unisex", price: "$64", img: "https://or-cre.com/cdn/shop/files/GTRlongsleeveT.png?v=1779369267&width=1200", cat: "Merch" },
-      ]
-    },
-    rimrock: {
-      name: "Dusk", tagline: "High. Anchored. Long View.", color: "#8A7A9B",
-      desc: "You like a high vantage. Not from arrogance — from instinct. Dusk is what happens when the land lifts itself up and refuses to apologize. Basalt and sandstone, carved by weather over time you can't comprehend. You understand something about the long view that other people are still working toward.",
-      character: "You're the one who sees what's coming. That's a gift and sometimes a burden.",
-      landscape: "The Owyhee canyonlands. John Day country. The rimrock of eastern Montana where the land breaks into color at sunset and looks like something out of another time. It is from another time.",
-      scents: ["Dusk", "Rough Hewn", "Ember"],
-      products: [
-        { name: "The Monument Candle", sub: "4-Wick · 55oz · Choose Scent", price: "$190", img: "https://or-cre.com/cdn/shop/files/monument.png?v=1778095987&width=600", cat: "Fragrance" },
-        { name: "The Still Reed Diffuser", sub: "Amber Glass · Refillable · Choose Scent", price: "$67", img: "https://or-cre.com/cdn/shop/files/TheStill_allitems.png?v=1776726357&width=600", cat: "Fragrance" },
-        { name: "Desert Veil CC Stick", sub: "COSMOS Natural · Mineral CC · 4 Shades", price: "$55", img: "https://or-cre.com/cdn/shop/files/desertveilsingle.png?v=1777556947&width=600", cat: "Body + Skin" },
-        { name: "The Grade Peptide Serum", sub: "COSMOS Natural · Anti-age", price: "$67", img: "https://or-cre.com/cdn/shop/files/peptidebottlemage.png?v=1776860380&width=600", cat: "Body + Skin" },
-        { name: "Rosemary Mint Revive", sub: "Hair + Scalp Oil · COSMOS Organic", price: "$51", img: "https://or-cre.com/cdn/shop/files/rosemaryminthairoilimage.png?v=1776860532&width=600", cat: "Body + Skin" },
-        { name: "Frontier Fade Exfoliant", sub: "COSMOS Natural · Glycolic Toner", price: "$53", img: "https://or-cre.com/cdn/shop/files/frontierfade_2.png?v=1776860857&width=600", cat: "Body + Skin" },
-        { name: "GTR Unisex Hoodie", sub: "Black · Navy · Carbon Grey · XS–2XL", price: "$74", img: "https://or-cre.com/cdn/shop/files/gtrblackhoodie.png?v=1778572385&width=600", cat: "Merch" },
-      ]
-    },
-    canyonfloor: {
-      name: "Canyon Floor", tagline: "Deep. Sheltered. Ancient.", color: "#8B4A2A",
-      desc: "You go down into things. The canyon floor is the interior — sheltered by walls that took ten million years to form, watered by the same creek that carved them. You're drawn to depth rather than breadth. You know that the most interesting things are usually at the bottom, not the top.",
-      character: "You're not afraid of the dark. You understand what it takes to sit with something.",
-      landscape: "The Grand Canyon inner gorge. Zion Narrows in April, water still cold, walls close, light strange. A slot canyon in Arizona where the only way out is up and the stone has been polished smooth by a thousand floods.",
-      scents: ["Ember", "Dusk", "Rough Hewn"],
-      products: [
-        { name: "The Still Reed Diffuser", sub: "Amber Glass · Refillable · Choose Scent", price: "$67", img: "https://or-cre.com/cdn/shop/files/TheStill_allitems.png?v=1776726357&width=600", cat: "Fragrance" },
-        { name: "The Wander Candle", sub: "Travel · Colored Wax · Choose Scent", price: "$40", img: "https://or-cre.com/cdn/shop/files/thewandermain_802949e9-d5a7-487e-8ba2-a92b113061f7.png?v=1779743213&width=1920", cat: "Fragrance" },
-        { name: "Desert Veil CC Stick", sub: "COSMOS Natural · Mineral CC · 4 Shades", price: "$55", img: "https://or-cre.com/cdn/shop/files/desertveilsingle.png?v=1777556947&width=600", cat: "Body + Skin" },
-        { name: "Desert Glow Facial Oil", sub: "COSMOS Organic · 6 Organic Oils", price: "$67", img: "https://or-cre.com/cdn/shop/files/desertglowimage.png?v=1776856287&width=600", cat: "Body + Skin" },
-        { name: "Dusk Til Dawn Gel", sub: "COSMOS Natural · Overnight Repair", price: "$60", img: "https://or-cre.com/cdn/shop/files/dusktildawnimage.png?v=1776856287&width=600", cat: "Body + Skin" },
-        { name: "Outlaw's Wipeout", sub: "Makeup Remover · COSMOS Natural", price: "$55", img: "https://or-cre.com/cdn/shop/files/outlawswipeoutimage.png?v=1776861182&width=600", cat: "Body + Skin" },
-        { name: "GTR Unisex Tee", sub: "Black or Bone · S–XL", price: "$44", img: "https://or-cre.com/cdn/shop/files/newgtrbonet.png?v=1778979877&width=2560", cat: "Merch" },
-      ]
-    },
-  };
 
   var LAND_ICONS = {
     highdesert: '<svg viewBox="0 0 32 32" fill="none" width="52" height="52"><circle cx="16" cy="10" r="5" stroke="currentColor" stroke-width="1.8"/><line x1="16" y1="2" x2="16" y2="0.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="16" y1="20" x2="16" y2="21.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="8" y1="10" x2="6.5" y2="10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="24" y1="10" x2="25.5" y2="10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="10.3" y1="4.3" x2="9.2" y2="3.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="21.7" y1="15.7" x2="22.8" y2="16.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="21.7" y1="4.3" x2="22.8" y2="3.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="10.3" y1="15.7" x2="9.2" y2="16.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 26 Q10 22 13 23 Q15 19 18 21 Q20 18 23 20 Q25 23 24 26Z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>',
@@ -4092,139 +3631,6 @@ function openPDP(imgDiv) {
     canyonfloor: '<svg viewBox="0 0 32 32" fill="none" width="52" height="52"><path d="M2 4 L2 24 Q2 28 8 28 L24 28 Q30 28 30 24 L30 4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M8 4 L8 20 Q8 24 12 24 L20 24 Q24 24 24 20 L24 4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-opacity="0.8"/><line x1="14" y1="28" x2="18" y2="28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
   };
 
-  var quizState = { phase: 'intro', qIndex: 0, answers: {}, result: null };
-
-  function quizGetResult(answers) {
-    var totals = { highdesert:0, openrange:0, riverbasin:0, rimrock:0, canyonfloor:0 };
-    Object.keys(answers).forEach(function(qid) {
-      var optId = answers[qid];
-      var q = QUIZ_QUESTIONS.find(function(q) { return q.id === qid; });
-      var opt = q && q.options.find(function(o) { return o.id === optId; });
-      if (opt) Object.keys(opt.scores).forEach(function(k) { totals[k] += opt.scores[k]; });
-    });
-    return Object.keys(totals).sort(function(a,b) { return totals[b]-totals[a]; })[0];
-  }
-
-  function quizRender() {
-    var wrap = document.getElementById('quiz-wrap');
-    if (!wrap) return;
-    var html = '';
-    if (quizState.phase === 'intro') {
-      var icons = Object.keys(LAND_TYPES).map(function(k) {
-        var lt = LAND_TYPES[k];
-        return '<div class="quiz-icon-item" style="color:var(--ink)">' +
-          LAND_ICONS[k] +
-          '<span class="quiz-icon-label">' + lt.name.split(' ')[0] + '</span>' +
-        '</div>';
-      }).join('');
-      html = '<div class="quiz-intro quiz-fade">' +
-        '<div class="quiz-eyebrow">Ghost Town Ranch</div>' +
-        '<h1 class="quiz-headline">Find Your<br>Land Type</h1>' +
-        '<div class="quiz-divider"></div>' +
-        '<p class="quiz-intro-body">The American West is not one thing. Neither are you.</p>' +
-        '<p class="quiz-intro-sub">Six questions. Five territories. One collection built for the land you belong to.</p>' +
-        '<div class="quiz-icons">' + icons + '</div>' +
-        '<button class="quiz-begin-btn" onclick="quizStart()">Find Your Land Type</button>' +
-      '</div>';
-    } else if (quizState.phase === 'quiz') {
-      var q = QUIZ_QUESTIONS[quizState.qIndex];
-      var pct = (quizState.qIndex / QUIZ_QUESTIONS.length) * 100;
-      var opts = q.options.map(function(opt, i) {
-        var selected = quizState.answers[q.id] === opt.id;
-        return '<button class="quiz-option' + (selected ? ' selected' : '') + '" data-qid="' + q.id + '" data-oid="' + opt.id + '" onclick="quizAnswer(this.dataset.qid, this.dataset.oid)">' +
-          '<span class="quiz-opt-letter">' + String.fromCharCode(65+i) + '</span>' +
-          '<span>' + opt.text + '</span>' +
-        '</button>';
-      }).join('');
-      html = '<div class="quiz-question quiz-fade">' +
-        '<div class="quiz-progress"><div class="quiz-progress-fill" style="width:' + pct + '%"></div></div>' +
-        '<div class="quiz-qnum">0' + (quizState.qIndex+1) + ' / 0' + QUIZ_QUESTIONS.length + '</div>' +
-        '<h2 class="quiz-prompt">' + q.prompt + '</h2>' +
-        '<div class="quiz-options">' + opts + '</div>' +
-      '</div>';
-    } else if (quizState.phase === 'result') {
-      var land = LAND_TYPES[quizState.result];
-      var scents = land.scents.map(function(s) {
-        return '<span class="quiz-scent-tag" style="color:' + land.color + ';border-color:' + land.color + '">' + s + '</span>';
-      }).join('');
-      function makeProductCard(p) {
-        return '<div>' +
-          '<div class="quiz-product-img"><img src="' + p.img + '" alt="' + p.name + '" loading="lazy"></div>' +
-          '<div class="quiz-product-name">' + p.name + '</div>' +
-          '<div class="quiz-product-sub">' + p.sub + '</div>' +
-          '<div class="quiz-product-price">' + p.price + '</div>' +
-        '</div>';
-      }
-      var fragProducts = land.products.filter(function(p){return p.cat==='Fragrance';}).map(makeProductCard).join('');
-      var skinProducts = land.products.filter(function(p){return p.cat==='Body + Skin';}).map(makeProductCard).join('');
-      var merchProducts = land.products.filter(function(p){return p.cat==='Merch';}).map(makeProductCard).join('');
-      html = '<div class="quiz-result quiz-fade">' +
-        '<div class="quiz-result-eyebrow" style="color:' + land.color + '">Your Land Type</div>' +
-        '<h1 class="quiz-land-name">' + land.name + '</h1>' +
-        '<p class="quiz-tagline" style="color:' + land.color + '">' + land.tagline + '</p>' +
-        '<div class="quiz-result-divider" style="background:linear-gradient(to right,' + land.color + ',transparent)"></div>' +
-        '<p class="quiz-result-desc">' + land.desc + '</p>' +
-        '<p class="quiz-result-character" style="color:' + land.color + '">' + land.character + '</p>' +
-        '<p class="quiz-result-landscape">' + land.landscape + '</p>' +
-        '<div class="quiz-border-section">' +
-          '<div class="quiz-section-label">Your Scents</div>' +
-          '<div class="quiz-scents">' + scents + '</div>' +
-        '</div>' +
-        '<div class="quiz-border-section">' +
-          '<div class="quiz-section-label">Made for Your Territory</div>' +
-          '<div class="quiz-products-cats">' +
-            '<div class="quiz-cat-group">' +
-              '<div class="quiz-cat-label">Fragrance + Home</div>' +
-              '<div class="quiz-products">' + fragProducts + '</div>' +
-            '</div>' +
-            '<div class="quiz-cat-group">' +
-              '<div class="quiz-cat-label">Body + Skin</div>' +
-              '<div class="quiz-products">' + skinProducts + '</div>' +
-            '</div>' +
-            '<div class="quiz-cat-group">' +
-              '<div class="quiz-cat-label">Merch</div>' +
-              '<div class="quiz-products quiz-products--single">' + merchProducts + '</div>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
-        '<div class="quiz-actions">' +
-          '<button class="quiz-cta" onclick="quizGoCollection()">Shop the Collection</button>' +
-          '<button class="quiz-retake" onclick="quizRetake()">Take the Quiz Again</button>' +
-        '</div>' +
-      '</div>';
-    }
-    wrap.innerHTML = html;
-    wrap.scrollTop = 0;
-  }
-
-  function quizStart() {
-    quizState.phase = 'quiz';
-    quizState.qIndex = 0;
-    quizState.answers = {};
-    quizRender();
-  }
-
-  function quizAnswer(qid, optId) {
-    quizState.answers[qid] = optId;
-    quizRender(); // show selected state
-    setTimeout(function() {
-      if (quizState.qIndex < QUIZ_QUESTIONS.length - 1) {
-        quizState.qIndex++;
-        quizRender();
-      } else {
-        quizState.result = quizGetResult(quizState.answers);
-        quizState.phase = 'result';
-        quizRender();
-      }
-    }, 350);
-  }
-
-  function quizGoCollection() { showPage("catalog"); }
-
-  function quizRetake() {
-    quizState = { phase: 'intro', qIndex: 0, answers: {}, result: null };
-    quizRender();
-  }
 
   /* ── Hamburger nav ── */
   /* ── SHOP DROPDOWN ── */
@@ -4297,7 +3703,7 @@ function openPDP(imgDiv) {
 
     var swBtns = document.querySelectorAll('.sw-btn');
     for (var j = 0; j < swBtns.length; j++) swBtns[j].classList.remove('active');
-    var map = { brand: 0, catalog: 1, wholesale: 2, quiz: 3 };
+    var map = { brand: 0, catalog: 1, wholesale: 2 };
     if (map[page] !== undefined && swBtns[map[page]]) {
       swBtns[map[page]].classList.add('active');
     }
@@ -4306,7 +3712,6 @@ function openPDP(imgDiv) {
     if (nav) nav.className = page === 'brand' ? 'light' : 'dark';
 
     
-    if (page === 'quiz') quizRender();
 
     window.scrollTo(0, 0);
   }
@@ -4522,15 +3927,6 @@ function openPDP(imgDiv) {
     </div>
   </div>
 </div>
-
-
-
-<!-- ══ LAND QUIZ PAGE ══ -->
-<div id="page-quiz" class="page">
-  <div class="quiz-grain"></div>
-  <div class="quiz-wrap" id="quiz-wrap">
-    <!-- content rendered by JS -->
-  </div>
 </div>
 
 <!-- ══ CART DRAWER ══ -->
