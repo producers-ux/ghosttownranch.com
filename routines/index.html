@@ -130,6 +130,7 @@
       letter-spacing: 0.2em; text-transform: uppercase;
       text-decoration: none; color: #F4EFE6;
     }
+    .nav-right { display: flex; align-items: center; gap: 32px; }
     .nav-links { display: flex; gap: 40px; list-style: none; }
     .nav-links a {
       font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
@@ -138,6 +139,56 @@
     }
     .nav-links a:hover, .nav-links a.active { opacity: 1; }
     .nav-links a.active { border-bottom: 1px solid rgba(244,239,230,0.5); padding-bottom: 2px; }
+
+    /* ── SHOP DROPDOWN ── */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-toggle {
+      font-family: var(--sans);
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: #F4EFE6; opacity: 0.7; font-weight: 300;
+      background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; gap: 6px;
+      transition: opacity 0.2s; padding: 0;
+    }
+    .nav-dropdown-toggle:hover,
+    .nav-dropdown.open .nav-dropdown-toggle { opacity: 1; }
+    .nav-dropdown-toggle svg { transition: transform 0.2s; flex-shrink: 0; }
+    .nav-dropdown.open .nav-dropdown-toggle svg { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute; top: calc(100% + 16px); left: 50%;
+      transform: translateX(-50%);
+      background: rgba(22, 18, 14, 0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(244,239,230,0.08);
+      min-width: 180px; padding: 6px 0; z-index: 200;
+    }
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a {
+      display: block;
+      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: #F4EFE6; opacity: 0.65; font-weight: 300;
+      text-decoration: none; padding: 12px 20px;
+      transition: opacity 0.15s, background 0.15s;
+      white-space: nowrap;
+    }
+    .nav-dropdown-menu a:hover { opacity: 1; background: rgba(244,239,230,0.05); }
+    .nav-dropdown-menu a + a { border-top: 1px solid rgba(244,239,230,0.06); }
+
+    /* ── HAMBURGER ── */
+    .nav-hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; background: none; border: none; cursor: pointer;
+      padding: 6px; min-width: 44px; min-height: 44px; align-items: center;
+    }
+    .nav-hamburger span {
+      display: block; width: 20px; height: 1.5px;
+      background: #F4EFE6; transition: all 0.25s ease; transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
     /* ── PAGE HERO ── */
     .page-hero {
@@ -399,9 +450,46 @@
 
     /* ── MOBILE ── */
     @media (max-width: 900px) {
-      nav { padding: 20px 24px; }
-      .nav-links { display: none; }
-      .page-hero { grid-template-columns: 1fr; padding: 120px 24px 60px; }
+      nav { padding: 0 20px; height: 60px; }
+      .nav-hamburger { display: flex; }
+      .nav-right { gap: 8px; }
+      .nav-links {
+        display: none;
+        position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(26,21,18,0.97);
+        flex-direction: column; justify-content: center; align-items: center;
+        gap: 0; z-index: 99; padding: 80px 32px 40px; list-style: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; border-bottom: 1px solid rgba(244,239,230,0.1); }
+      .nav-links li:first-child { border-top: 1px solid rgba(244,239,230,0.1); }
+      .nav-links a {
+        font-size: 13px !important; letter-spacing: 0.25em;
+        padding: 22px 0; display: flex; align-items: center;
+        min-height: 44px; width: 100%;
+      }
+      /* mobile dropdown inline */
+      .nav-dropdown { width: 100%; }
+      .nav-dropdown-toggle {
+        font-size: 13px !important; letter-spacing: 0.25em !important;
+        padding: 22px 0 !important; display: flex !important;
+        justify-content: space-between !important; align-items: center !important;
+        min-height: 44px !important; width: 100% !important;
+        color: #F4EFE6 !important; opacity: 0.7 !important;
+      }
+      .nav-dropdown.open .nav-dropdown-toggle { opacity: 1 !important; }
+      .nav-dropdown-menu {
+        position: static; transform: none;
+        background: rgba(255,255,255,0.03);
+        border: none; border-top: 1px solid rgba(244,239,230,0.06);
+        min-width: auto; padding: 0;
+      }
+      .nav-dropdown-menu a {
+        padding: 14px 0 14px 20px !important;
+        font-size: 11px !important; opacity: 0.6 !important;
+      }
+      .nav-dropdown-menu a:hover { opacity: 0.9 !important; }
+      .page-hero { grid-template-columns: 1fr; padding: 100px 24px 60px; }
       .routine-nav { padding: 0 24px; overflow-x: auto; }
       .routine-section { padding: 64px 24px; }
       .routine-header { flex-direction: column; gap: 20px; }
@@ -466,13 +554,29 @@
   <!-- NAV -->
   <nav>
     <a class="nav-logo" href="https://ghosttownranch.com">Ghost Town Ranch</a>
-    <ul class="nav-links">
-      <li><a href="https://ghosttownranch.com/">Home</a></li>
-      <li><a href="https://ghosttownranch.com/#catalog">Shop</a></li>
-      <li><a href="#" class="active">Routines</a></li>
-      <li><a href="https://ghosttownranch.com/ritual/">Ritual</a></li>
-      <li><a href="https://ghosttownranch.com/#wholesale">Wholesale</a></li>
-    </ul>
+    <div class="nav-right">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="https://ghosttownranch.com/">Home</a></li>
+        <li class="nav-dropdown" id="shop-dropdown">
+          <button class="nav-dropdown-toggle" onclick="toggleShopDropdown(event)" aria-expanded="false" aria-haspopup="true">
+            Shop
+            <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 2.5L4 5.5L7 2.5" stroke="#F4EFE6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="https://ghosttownranch.com/#catalog?filter=fragrance" role="menuitem">Fragrance + Home</a>
+            <a href="https://ghosttownranch.com/#catalog?filter=wash" role="menuitem">Wash House</a>
+            <a href="https://ghosttownranch.com/#catalog?filter=skin" role="menuitem">Body + Skin</a>
+            <a href="https://ghosttownranch.com/" role="menuitem">Shop All</a>
+          </div>
+        </li>
+        <li><a href="#" class="active">Routines</a></li>
+        <li><a href="https://ghosttownranch.com/ritual/">Ritual</a></li>
+        <li><a href="https://ghosttownranch.com/#wholesale">Wholesale</a></li>
+      </ul>
+      <button class="nav-hamburger" id="nav-hamburger" onclick="toggleNav()" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
 
   <!-- PAGE HERO IMAGE -->
@@ -810,6 +914,57 @@
     }, { threshold: 0.4 });
 
     sections.forEach(s => sectionObserver.observe(s));
+
+  /* ── SHOP DROPDOWN ── */
+  function toggleShopDropdown(e) {
+    e.stopPropagation();
+    var dd = document.getElementById('shop-dropdown');
+    var isOpen = dd.classList.contains('open');
+    if (isOpen) {
+      closeShopDropdown();
+    } else {
+      dd.classList.add('open');
+      dd.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'true');
+      setTimeout(function() {
+        document.addEventListener('click', function outsideClick(ev) {
+          if (!ev.target.closest('#shop-dropdown')) {
+            closeShopDropdown();
+            document.removeEventListener('click', outsideClick);
+          }
+        });
+      }, 50);
+    }
+  }
+  function closeShopDropdown() {
+    var dd = document.getElementById('shop-dropdown');
+    if (!dd) return;
+    dd.classList.remove('open');
+    var t = dd.querySelector('.nav-dropdown-toggle');
+    if (t) t.setAttribute('aria-expanded', 'false');
+  }
+
+  /* ── HAMBURGER ── */
+  function toggleNav() {
+    var links = document.getElementById('nav-links');
+    var btn = document.getElementById('nav-hamburger');
+    if (!links || !btn) return;
+    var isOpen = links.classList.contains('open');
+    links.classList.toggle('open');
+    btn.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+    if (isOpen) closeShopDropdown();
+  }
+  document.querySelectorAll('#nav-links a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      var links = document.getElementById('nav-links');
+      var btn = document.getElementById('nav-hamburger');
+      if (links) links.classList.remove('open');
+      if (btn) { btn.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+      document.body.style.overflow = '';
+      closeShopDropdown();
+    });
+  });
   </script>
 
 </body>
