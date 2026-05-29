@@ -143,7 +143,7 @@
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; justify-content: space-between; align-items: center;
-    padding: 24px 48px;
+    padding: 14px 48px;
     background: rgba(28, 24, 20, 0.72);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -212,6 +212,9 @@
   .nav-dropdown-menu a + a { border-top: 1px solid rgba(244,239,230,0.06); }
 
   /* ── HAMBURGER NAV (mobile) ── */
+  @media (min-width: 701px) {
+    .nav-hamburger { display: none !important; }
+  }
   .nav-hamburger {
     display: none;
     flex-direction: column;
@@ -246,7 +249,7 @@
       flex-wrap: nowrap;
       align-items: center;
     }
-    .nav-hamburger { display: flex; }
+    .nav-hamburger { display: flex !important; }
     .nav-right { gap: 8px; align-items: center; }
     .nav-links {
       display: none;
@@ -1986,7 +1989,7 @@
 <!-- ══ NAV ══ -->
 <nav id="nav" class="light">
   <a class="nav-logo" href="https://ghosttownranch.com/">
-    <img src="../ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="Ghost Town Ranch">
+    <img src="../ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="Ghost Town Ranch" style="height:28px;width:auto;display:block;">
   </a>
   <div class="nav-right">
     <ul class="nav-links" id="nav-links" role="navigation" aria-label="Main navigation">
@@ -2017,7 +2020,7 @@
       </svg>
       <span class="cart-badge" id="cart-count" style="display:none">0</span>
     </button>
-    <button class="nav-hamburger" id="nav-hamburger" onclick="toggleNav()" aria-label="Toggle navigation" aria-expanded="false">
+    <button class="nav-hamburger" id="nav-hamburger" onclick="toggleNav()" aria-label="Toggle navigation" aria-expanded="false" style="display:none">
       <span></span><span></span><span></span>
     </button>
   </div>
