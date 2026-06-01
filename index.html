@@ -563,7 +563,7 @@
     margin-bottom: 40px;
   }
   .ritual-line {
-    display: block;
+    display: inline;
     font-family: var(--serif);
     font-size: clamp(20px, 2.4vw, 30px);
     font-weight: 300;
@@ -571,8 +571,8 @@
     color: var(--parchment);
     letter-spacing: 0.02em;
   }
-  .ritual-line + .ritual-line {
-    margin-top: 4px;
+  .ritual-line + .ritual-line::before {
+    content: ' ';
   }
   .ritual-rule {
     width: 28px; height: 1px;
@@ -2152,14 +2152,28 @@
     </div>
     <div class="ritual-copy">
       <div class="ritual-eyebrow">Ritual</div>
-      <span class="ritual-line">Palo santo first. Then the mist.</span>
-      <span class="ritual-line">Then the candle — when the smoke clears</span>
-      <span class="ritual-line">and the room is ready.</span>
-      <span class="ritual-line">The matchbook stays out.</span>
+      <span class="ritual-line">Ranch Water first — on the skin, on the pillow, in the room.</span>
+      <span class="ritual-line">The Wander when you travel. The Slow for the long evening,</span>
+      <span class="ritual-line">The Monument when the room earns it.</span>
+      <span class="ritual-line">The Still for the washroom and the bathhouse.</span>
+      <span class="ritual-line">The Field Kit for a small, considered gift.</span>
+      <span class="ritual-line">Six scents from the open West — Hang Dried, Rough Hewn, Dusk, Graze, Ember, Flax.</span>
+      <span class="ritual-line">Every candle poured in the color of its scent.</span>
+
       <div class="ritual-rule"></div>
       <div class="ritual-products">
-        <a class="ritual-product-link" onclick="showPage('catalog'); filterProducts('fragrance', document.querySelectorAll('.filter-btn')[1]);">Ranch Water Body + Linen Fragrance</a>
-        <span class="ritual-product-sep">+</span>
+        <a class="ritual-product-link" onclick="showPage('catalog'); filterProducts('fragrance', document.querySelectorAll('.filter-btn')[1]);">Ranch Water</a>
+        <span class="ritual-product-sep">·</span>
+        <a class="ritual-product-link" onclick="showPage('catalog'); filterProducts('fragrance', document.querySelectorAll('.filter-btn')[1]);">The Slow</a>
+        <span class="ritual-product-sep">·</span>
+        <a class="ritual-product-link" onclick="showPage('catalog'); filterProducts('fragrance', document.querySelectorAll('.filter-btn')[1]);">The Monument</a>
+        <span class="ritual-product-sep">·</span>
+        <a class="ritual-product-link" onclick="showPage('catalog'); filterProducts('fragrance', document.querySelectorAll('.filter-btn')[1]);">The Still</a>
+        <span class="ritual-product-sep">·</span>
+        <a class="ritual-product-link" onclick="showPage('catalog'); filterProducts('fragrance', document.querySelectorAll('.filter-btn')[1]);">The Wander</a>
+        <span class="ritual-product-sep">·</span>
+        <a class="ritual-product-link" onclick="showPage('catalog'); filterProducts('fragrance', document.querySelectorAll('.filter-btn')[1]);">The Votive</a>
+        <span class="ritual-product-sep">·</span>
         <a class="ritual-product-link" onclick="showPage('catalog'); filterProducts('fragrance', document.querySelectorAll('.filter-btn')[1]);">The Field Kit</a>
       </div>
     </div>
