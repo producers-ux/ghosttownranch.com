@@ -560,17 +560,17 @@
     letter-spacing: 0.38em;
     text-transform: uppercase;
     color: var(--ochre);
-    opacity: 0.75;
+    opacity: 1;
     margin-bottom: 40px;
   }
   .ritual-line {
     display: inline;
     font-family: var(--serif);
-    font-size: clamp(15px, 1.5vw, 19px);
-    font-weight: 300;
-    line-height: 1.7;
+    font-size: clamp(20px, 2vw, 28px);
+    font-weight: 400;
+    line-height: 1.6;
     color: var(--parchment);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
   }
   .ritual-line + .ritual-line::before {
     content: ' ';
@@ -601,10 +601,43 @@
     transition: opacity 0.2s;
   }
   .ritual-product-link:hover { opacity: 1; }
-  .ritual-product-sep {
-    font-size: 9px;
-    color: var(--ochre);
-    opacity: 0.5;
+  .ritual-scents {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 32px;
+    margin-top: 32px;
+  }
+  .ritual-scent {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .ritual-scent-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 1px solid rgba(244,239,230,0.15);
+  }
+  .ritual-scent-name {
+    font-family: 'Jost', system-ui, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--parchment);
+    font-weight: 300;
+    white-space: nowrap;
+  }
+  .ritual-scent-note {
+    font-family: var(--serif);
+    font-size: 12px;
+    color: var(--parchment);
+    opacity: 0.4;
+    font-style: italic;
+    margin-left: 4px;
+  }
+  @media (max-width: 700px) {
+    .ritual-scents { grid-template-columns: 1fr; gap: 12px; }
   }
   @media (max-width: 700px) {
     .ritual-copy { padding: 72px 24px; }
@@ -2123,7 +2156,7 @@
     </div>
   </section>
 
-  <section class="product-section" aria-label="Wash House Collection">
+  <section class="product-section reverse" aria-label="Wash House Collection">
     <div class="product-content">
       <div class="product-eyebrow">The Collection</div>
       <h2 class="product-title">Wash House</h2>
@@ -2152,13 +2185,16 @@
     </div>
     <div class="ritual-copy">
       <div class="ritual-eyebrow">Ritual</div>
-      <span class="ritual-line">Ranch Water first — on the skin, on the pillow, in the room.</span>
-      <span class="ritual-line">The Wander when you travel. The Slow for the long evening,</span>
-      <span class="ritual-line">The Monument when the room earns it.</span>
-      <span class="ritual-line">The Still for the washroom and the bathhouse.</span>
-      <span class="ritual-line">The Field Kit for a small, considered gift.</span>
-      <span class="ritual-line">Six scents from the open West — Hang Dried, Rough Hewn, Dusk, Graze, Ember, Flax.</span>
-      <span class="ritual-line">Every candle poured in the color of its scent.</span>
+      <span class="ritual-line">Six scents from the wide open. Light and space.</span>
+      <span class="ritual-line">Ranch Water body and linen spray. Candles in every size. A diffuser for the long burn.</span>
+      <div class="ritual-scents">
+        <div class="ritual-scent"><span class="ritual-scent-dot" style="background:#c4955a"></span><span class="ritual-scent-name">Dusk</span><span class="ritual-scent-note">Palo Santo</span></div>
+        <div class="ritual-scent"><span class="ritual-scent-dot" style="background:#2d2926"></span><span class="ritual-scent-name">Ember</span><span class="ritual-scent-note">Charcoal &amp; Amber</span></div>
+        <div class="ritual-scent"><span class="ritual-scent-dot" style="background:#e8c87a"></span><span class="ritual-scent-name">Flax</span><span class="ritual-scent-note">Cotton &amp; Citrus</span></div>
+        <div class="ritual-scent"><span class="ritual-scent-dot" style="background:#7c8c6a"></span><span class="ritual-scent-name">Graze</span><span class="ritual-scent-note">Sweetgrass &amp; Sage</span></div>
+        <div class="ritual-scent"><span class="ritual-scent-dot" style="background:#6b4c3b"></span><span class="ritual-scent-name">Rough Hewn</span><span class="ritual-scent-note">Cade &amp; Cedarwood</span></div>
+        <div class="ritual-scent"><span class="ritual-scent-dot" style="background:#b8b5c8"></span><span class="ritual-scent-name">Hang Dried</span><span class="ritual-scent-note">White Sage &amp; Lavender</span></div>
+      </div>
 
       <div class="ritual-rule"></div>
       <div class="ritual-products">
