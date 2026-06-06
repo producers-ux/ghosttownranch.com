@@ -2272,7 +2272,6 @@
     <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
     <button class="filter-btn" onclick="filterProducts('fragrance', this)">Fragrance + Home</button>
     <button class="filter-btn" onclick="filterProducts('skin', this)">Body + Skin</button>
-    <button class="filter-btn" onclick="filterProducts('wash', this)">Wash House</button>
     <button class="filter-btn" onclick="filterProducts('tools', this)">Tools + Accessories</button>
     <button class="filter-btn" onclick="filterProducts('bundles', this)">Bundles</button>
     <button class="filter-btn" onclick="filterProducts('merch', this)">Merch</button>
@@ -3743,7 +3742,7 @@ function openPDP(imgDiv) {
     var fbs = document.querySelectorAll('.filter-btn'); for (var fi=0;fi<fbs.length;fi++) fbs[fi].classList.remove('active');
     btn.classList.add('active');
 
-    var cards = document.querySelectorAll('.product-card'); for (var ci=0;ci<cards.length;ci++) { cards[ci].style.display = (category === 'all' || cards[ci].dataset.category === category) ? 'flex' : 'none'; }
+    var cards = document.querySelectorAll('.product-card'); for (var ci=0;ci<cards.length;ci++) { var cat = cards[ci].dataset.category; cards[ci].style.display = (category === 'all' || cat === category || (category === 'skin' && cat === 'wash')) ? 'flex' : 'none'; }
 
     // Show scent guide only for all or fragrance filters
     const guide = document.getElementById('scent-guide') || document.querySelector('.scent-guide');
