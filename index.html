@@ -2037,7 +2037,6 @@
         </button>
         <div class="nav-dropdown-menu" role="menu">
           <a href="#" onclick="event.preventDefault(); closeShopDropdown(); showPage('catalog'); filterProducts('fragrance', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Fragrance + Home'));" role="menuitem">Fragrance + Home</a>
-          <a href="#" onclick="event.preventDefault(); closeShopDropdown(); showPage('catalog'); filterProducts('wash', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Wash House'));" role="menuitem">Wash House</a>
           <a href="#" onclick="event.preventDefault(); closeShopDropdown(); showPage('catalog'); filterProducts('skin', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Body + Skin'));" role="menuitem">Body + Skin</a>
           <a href="#" onclick="event.preventDefault(); closeShopDropdown(); showPage('catalog'); filterProducts('all', document.querySelector('.filter-btn'));" role="menuitem">Shop All</a>
         </div>
@@ -2153,27 +2152,6 @@
       <div class="product-rule"></div>
       <p class="product-desc">Skin. Hair. Body. COSMOS-certified by ECOCERT — third-party verified, not self-declared. The highest natural standard. Made for everyone, for every day.</p>
       <a class="explore-btn" onclick="showPage('catalog'); filterProducts('skin', document.querySelectorAll('.filter-btn')[2]);">Explore Body + Skin</a>
-    </div>
-  </section>
-
-  <section class="product-section reverse" aria-label="Wash House Collection">
-    <div class="product-content">
-      <div class="product-eyebrow">The Collection</div>
-      <h2 class="product-title">Wash House</h2>
-      <div class="product-rule"></div>
-      <p class="product-desc">Hand, hair, and body. Everything that happens at the sink and in the shower — hand wash, hand cream, the two-bottle set, scalp oil, finishing mist. One place. All of it.</p>
-      <a class="explore-btn" onclick="showPage('catalog'); filterProducts('wash', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Wash House'));">Explore Wash House</a>
-    </div>
-    <div class="product-image" onclick="showPage('catalog'); filterProducts('wash', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Wash House'));" style="cursor:pointer;" role="button" aria-label="Shop Wash House collection">
-      <div class="product-image-inner">
-        <img
-          src="https://or-cre.com/cdn/shop/files/thewashhouseall.png?v=1778860061&width=3840"
-          alt="Ghost Town Ranch Wash House — matte black glass bottles, hand wash, hair and body wash"
-          loading="lazy"
-          decoding="async"
-          style="object-position: center center;"
-        >
-      </div>
     </div>
   </section>
 
