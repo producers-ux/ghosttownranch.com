@@ -2184,7 +2184,7 @@
           fetchpriority="high"
           decoding="async"
           width="1600" height="900"
-          style="object-position: center 30%;"
+          style="object-position: center 60%;"
         >
       </picture>
     </div>
@@ -2210,12 +2210,12 @@
             type="image/webp"
           >
           <img
-            src="fragrancegtr.png"
-            alt="Ghost Town Ranch fragrance and home collection — Ember candle, Desert Glow facial oil, Hang Dried body linen fragrance and hand wash with desert botanicals"
+            src="https://ghosttownranch.com/theritual.png"
+            alt="Ghost Town Ranch fragrance and home collection — candles, body fragrance, reed diffuser"
             loading="lazy"
             decoding="async"
             width="1400" height="1759"
-            style="object-position: center 45%;"
+            style="object-position: center 40%;"
           >
         </picture>
       </div>
@@ -2233,14 +2233,20 @@
     <div class="product-image" onclick="showPage('catalog'); filterProducts('skin', document.querySelectorAll('.filter-btn')[2]);" style="cursor:pointer;" role="button" aria-label="Shop Body and Skin collection">
       <div class="product-image-inner">
         <picture>
-          <img
-            src="https://or-cre.com/cdn/shop/files/desertglowimage.png?v=1776856287&width=1400"
-            alt="Ghost Town Ranch body and skin — COSMOS-certified skincare, Desert Glow facial oil, desert botanicals"
-            loading="lazy"
-            decoding="async"
-            width="1400" height="1400"
-            style="object-position: center 20%;"
-          >
+          <picture>
+            <source
+              srcset="rosemary-scalp-oil-mobile.webp 750w, rosemary-scalp-oil.webp 1400w"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              type="image/webp"
+            >
+            <img
+              src="rosemary-scalp-oil.png"
+              alt="Ghost Town Ranch body and skin — COSMOS-certified skincare with desert botanicals"
+              loading="lazy"
+              decoding="async"
+              width="1400" height="1737"
+            >
+          </picture>
         </picture>
       </div>
     </div>
