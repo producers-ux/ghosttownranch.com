@@ -919,6 +919,23 @@
   }
   #page-catalog .btn-cta:hover { background: var(--ink); }
 
+  /* ── Full product page link — on every card ── */
+  .card-fullpage-link {
+    display: block;
+    font-family: 'Jost', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--army);
+    text-decoration: none;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(124,130,96,0.25);
+    transition: color 0.2s;
+  }
+  .card-fullpage-link:hover { color: var(--ink); }
+
   /* ── Variant selector ── */
   #page-catalog .variant-selector {
     margin-top: 1rem;
@@ -3429,27 +3446,6 @@ function openPDP(imgDiv) {
       profileEl.style.display = 'none';
     }
 
-    // ── VIEW FULL PAGE LINK ──
-    // Find the handle from the article's variant-selector or btn data-handle
-    var fullPageHandle = '';
-    if (article) {
-      var vsEl = article.querySelector('[data-handle]');
-      if (vsEl) fullPageHandle = vsEl.dataset.handle;
-    }
-    var existingLink = document.getElementById('pdp-fullpage-link');
-    if (existingLink) existingLink.remove();
-    if (fullPageHandle) {
-      var fullLink = document.createElement('a');
-      fullLink.id = 'pdp-fullpage-link';
-      fullLink.href = '/products/?handle=' + fullPageHandle;
-      fullLink.textContent = 'View full product page →';
-      fullLink.style.cssText = 'display:block;font-family:"Jost",sans-serif;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(212,201,181,0.6);text-decoration:none;margin-top:18px;padding-top:16px;border-top:1px solid rgba(124,130,96,0.2);transition:color 0.2s;';
-      fullLink.addEventListener('mouseenter', function(){ this.style.color='rgba(212,201,181,1)'; });
-      fullLink.addEventListener('mouseleave', function(){ this.style.color='rgba(212,201,181,0.6)'; });
-      var pdpFooter = document.querySelector('.pdp-footer');
-      if (pdpFooter) pdpFooter.appendChild(fullLink);
-    }
-
     document.getElementById('pdp-drawer').classList.add('open');
     document.getElementById('pdp-overlay').classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -3866,6 +3862,27 @@ function openPDP(imgDiv) {
 
     var creamSelector = document.querySelector('[data-handle="worn-soft-hand-cream-citrus-pink-peppercorn"]');
     buildScentCallout(creamSelector, GTR_CREAM_SCENTS);
+
+    // ── INJECT "View full product page" LINK ON EVERY PRODUCT CARD ──
+    document.querySelectorAll('.product-card, article[class*="product"]').forEach(function(card) {
+      var handleEl = card.querySelector('[data-handle]');
+      if (!handleEl) return;
+      var handle = handleEl.dataset.handle;
+      if (!handle) return;
+      // Don't add if already present
+      if (card.querySelector('.card-fullpage-link')) return;
+      var link = document.createElement('a');
+      link.className = 'card-fullpage-link';
+      link.href = '/products/?handle=' + handle;
+      link.textContent = 'View full product page →';
+      // Append after the shopify-buy-target or at end of card
+      var buyTarget = card.querySelector('.shopify-buy-target');
+      if (buyTarget) {
+        buyTarget.insertAdjacentElement('afterend', link);
+      } else {
+        card.appendChild(link);
+      }
+    });
   });
 
   /*
