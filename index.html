@@ -403,6 +403,90 @@
   }
   .product-rule { width: 32px; height: 1px; background: var(--ochre); margin: 32px 0; }
 
+  /* ── FEATURED TILES (catalog page) ── */
+  .featured-tiles {
+    padding: 56px 48px 0;
+    border-bottom: 1px solid rgba(124,130,96,0.2);
+    margin-bottom: 0;
+  }
+  .featured-tiles-label {
+    font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+    opacity: 0.35; margin-bottom: 32px;
+    font-family: 'Jost', system-ui, sans-serif;
+  }
+  .featured-tiles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-bottom: 56px;
+  }
+  .featured-tile {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--mist);
+    overflow: hidden;
+    position: relative;
+  }
+  .featured-tile:hover .featured-tile-img { transform: scale(1.03); }
+  .featured-tile-img-wrap {
+    overflow: hidden;
+    aspect-ratio: 3/4;
+  }
+  .featured-tile-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+  .featured-tile-info {
+    padding: 18px 20px 22px;
+    background: var(--cream);
+  }
+  .featured-tile-cat {
+    font-family: 'Jost', system-ui, sans-serif;
+    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--army); opacity: 0.7; margin-bottom: 6px;
+  }
+  .featured-tile-name {
+    font-family: var(--serif);
+    font-size: 18px; font-weight: 400; line-height: 1.2;
+    color: var(--ink); margin-bottom: 6px;
+  }
+  .featured-tile-price {
+    font-family: 'Jost', system-ui, sans-serif;
+    font-size: 13px; color: var(--army); opacity: 0.8;
+  }
+  .featured-tile-cta {
+    display: block;
+    font-family: 'Jost', system-ui, sans-serif;
+    font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--army); margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(124,130,96,0.2);
+  }
+  .featured-all-link {
+    display: inline-block;
+    font-family: 'Jost', system-ui, sans-serif;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--army); text-decoration: none;
+    border-bottom: 1px solid var(--army); padding-bottom: 2px;
+    margin-bottom: 48px;
+    opacity: 0.7; transition: opacity 0.2s;
+  }
+  .featured-all-link:hover { opacity: 1; }
+  .catalog-divider {
+    font-family: 'Jost', system-ui, sans-serif;
+    font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+    opacity: 0.3; padding: 32px 48px 0;
+  }
+  @media (max-width: 768px) {
+    .featured-tiles { padding: 40px 20px 0; }
+    .featured-tiles-grid { grid-template-columns: 1fr; gap: 2px; }
+    .featured-all-link { margin-bottom: 32px; }
+    .catalog-divider { padding: 24px 20px 0; }
+  }
+
   /* ── PRESS STRIP ── */
   .press-strip {
     padding: 80px 48px;
@@ -2086,20 +2170,21 @@
       <picture>
         <source
           media="(max-width: 768px)"
-          srcset="herogtr-mobile.webp"
+          srcset="fragrancegtr-mobile.webp"
           type="image/webp"
         >
         <source
-          srcset="herogtr-cinematic.webp"
+          srcset="fragrancegtr.webp"
           type="image/webp"
         >
         <img
-          src="herogtr.png"
-          alt="Ghost Town Ranch — amber glass bottle cradled in hang-dried desert botanicals, high desert California"
+          src="fragrancegtr.png"
+          alt="Ghost Town Ranch — Frontier Modernism skincare, fragrance and home goods from the California desert"
           loading="eager"
           fetchpriority="high"
           decoding="async"
-          width="1600" height="685"
+          width="1600" height="900"
+          style="object-position: center 30%;"
         >
       </picture>
     </div>
@@ -2148,17 +2233,13 @@
     <div class="product-image" onclick="showPage('catalog'); filterProducts('skin', document.querySelectorAll('.filter-btn')[2]);" style="cursor:pointer;" role="button" aria-label="Shop Body and Skin collection">
       <div class="product-image-inner">
         <picture>
-          <source
-            srcset="rosemary-scalp-oil-mobile.webp 750w, rosemary-scalp-oil.webp 1400w"
-            sizes="(max-width: 768px) 100vw, 50vw"
-            type="image/webp"
-          >
           <img
-            src="rosemary-scalp-oil.png"
-            alt="Ghost Town Ranch body and skin collection — Rosemary Mint Revive Hair and Scalp Oil with desert botanicals"
+            src="https://or-cre.com/cdn/shop/files/desertglowimage.png?v=1776856287&width=1400"
+            alt="Ghost Town Ranch body and skin — COSMOS-certified skincare, Desert Glow facial oil, desert botanicals"
             loading="lazy"
             decoding="async"
-            width="1400" height="1737"
+            width="1400" height="1400"
+            style="object-position: center 20%;"
           >
         </picture>
       </div>
@@ -2294,6 +2375,60 @@
     <button class="filter-btn" onclick="filterProducts('merch', this)">Merch</button>
   </div>
 
+
+  <!-- FEATURED TILES -->
+  <div class="featured-tiles">
+    <div class="featured-tiles-label">Start Here</div>
+    <div class="featured-tiles-grid">
+
+      <a class="featured-tile" href="/products/?handle=the-field-kit">
+        <div class="featured-tile-img-wrap">
+          <img class="featured-tile-img"
+            src="fieldkit.png"
+            alt="The Field Kit — Ghost Town Ranch votive, palo santo, matchbook" loading="lazy" />
+        </div>
+        <div class="featured-tile-info">
+          <div class="featured-tile-cat">Fragrance + Home</div>
+          <div class="featured-tile-name">The Field Kit</div>
+          <div class="featured-tile-price">$34</div>
+          <span class="featured-tile-cta">Shop The Field Kit →</span>
+        </div>
+      </a>
+
+      <a class="featured-tile" href="/products/?handle=ranch-water-body-room-fragrance">
+        <div class="featured-tile-img-wrap">
+          <img class="featured-tile-img"
+            src="https://or-cre.com/cdn/shop/files/Graze__bodylinen.png?v=1777820218&width=800"
+            alt="Ranch Water Body + Linen Fragrance — Ghost Town Ranch" loading="lazy"
+            style="object-position: center 20%;" />
+        </div>
+        <div class="featured-tile-info">
+          <div class="featured-tile-cat">Body + Linen</div>
+          <div class="featured-tile-name">Ranch Water<br>Body + Linen Fragrance</div>
+          <div class="featured-tile-price">$88 · Six scents</div>
+          <span class="featured-tile-cta">Shop Ranch Water →</span>
+        </div>
+      </a>
+
+      <a class="featured-tile" href="/products/?handle=the-votive-single">
+        <div class="featured-tile-img-wrap">
+          <img class="featured-tile-img"
+            src="https://or-cre.com/cdn/shop/files/thevotive.png?v=1779410827&width=800"
+            alt="The Votive Colored Wax Candle — Ghost Town Ranch" loading="lazy" />
+        </div>
+        <div class="featured-tile-info">
+          <div class="featured-tile-cat">Candle</div>
+          <div class="featured-tile-name">The Votive<br>Colored Wax Candle</div>
+          <div class="featured-tile-price">$26 · Choose scent + wax</div>
+          <span class="featured-tile-cta">Shop The Votive →</span>
+        </div>
+      </a>
+
+    </div>
+    <a class="featured-all-link" href="#" onclick="event.preventDefault(); document.getElementById('catalog-grid').scrollIntoView({behavior:'smooth'});">Browse the full collection ↓</a>
+  </div>
+
+  <div class="catalog-divider">Full Collection</div>
 
   <!-- CATALOG GRID -->
   <main class="catalog-grid" id="catalog-grid">
