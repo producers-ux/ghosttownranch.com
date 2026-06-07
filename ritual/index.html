@@ -441,6 +441,23 @@
       font-weight: 300;
     }
     .btn-cta:hover { background: transparent; color: var(--warm-black); }
+
+  /* ── Full product page link ── */
+  .card-fullpage-link {
+    display: block;
+    font-family: 'Jost', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #7c8260;
+    text-decoration: none;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(124,130,96,0.25);
+    transition: color 0.2s;
+  }
+  .card-fullpage-link:hover { color: #1A1512; }
     .btn-cta.light {
       background: transparent;
       color: var(--parchment);
@@ -1022,7 +1039,53 @@
     clientAddToCart('51849820766504', 'The Wander All Six Scents', '', 240);
   }
 
-  document.addEventListener('DOMContentLoaded', function(){ renderCartDrawer(); updateCartBadge(); });
+  document.addEventListener('DOMContentLoaded', function(){
+    renderCartDrawer();
+    updateCartBadge();
+
+    // ── INJECT "View full product page" ON EACH RITUAL PRODUCT CARD ──
+    // Map from onclick handler text to Shopify handle
+    var RITUAL_HANDLES = {
+      'ranch-water-body-room-fragrance':      'ranch-water-body-room-fragrance',
+      'the-votive-single':                    'the-votive-single',
+      'soy-wax-candle-wild-flower':           'soy-wax-candle-wild-flower',
+      'the-slow-candle':                      'the-slow-candle',
+      'the-monument-candle':                  'the-monument-candle',
+      'the-still-amber-glass-reed-diffuser':  'the-still-amber-glass-reed-diffuser',
+      'the-field-kit':                        'the-field-kit',
+    };
+
+    document.querySelectorAll('article.ritual-product').forEach(function(card) {
+      if (card.querySelector('.card-fullpage-link')) return;
+
+      // Detect handle from btn onclick attribute
+      var btn = card.querySelector('button.btn-cta');
+      if (!btn) return;
+      var onclick = btn.getAttribute('onclick') || '';
+      var handle = null;
+
+      // addVariantToCart(e, this, 'handle') pattern
+      var m = onclick.match(/'([^']+)'\s*\)/);
+      if (m) handle = m[1];
+
+      // addVotiveToCart — votive single
+      if (!handle && onclick.indexOf('addVotiveToCart') > -1) handle = 'the-votive-single';
+
+      // addWanderSixToCart
+      if (!handle && onclick.indexOf('addWanderSixToCart') > -1) handle = 'the-wander-all-six-scents';
+
+      // addFieldKitToCart
+      if (!handle && onclick.indexOf('addFieldKitToCart') > -1) handle = 'the-field-kit';
+
+      if (!handle) return;
+
+      var link = document.createElement('a');
+      link.className = 'card-fullpage-link';
+      link.href = '/products/?handle=' + handle;
+      link.textContent = 'View full product page →';
+      card.appendChild(link);
+    });
+  });
 
   // ── Hamburger nav ──
   /* ── SHOP DROPDOWN ── */
