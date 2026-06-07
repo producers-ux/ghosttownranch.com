@@ -442,6 +442,58 @@
     }
     .btn-cta:hover { background: transparent; color: var(--warm-black); }
 
+  /* ── SCENT FILTER ── */
+  .scent-card {
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .scent-card.active {
+    outline: 2px solid var(--ochre);
+    outline-offset: 4px;
+  }
+  .scent-card:hover {
+    opacity: 0.85;
+  }
+  .scent-filter-label {
+    font-family: 'Jost', system-ui, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    opacity: 0;
+    margin-top: 16px;
+    text-align: center;
+    transition: opacity 0.3s;
+  }
+  .scent-filter-label.visible { opacity: 1; }
+  .ritual-product {
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  .ritual-product.filtered-out {
+    opacity: 0.15;
+    pointer-events: none;
+  }
+  .scent-filter-clear {
+    display: none;
+    font-family: 'Jost', system-ui, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    background: none;
+    border: 1px solid var(--ochre);
+    padding: 8px 20px;
+    cursor: pointer;
+    margin: 24px auto 0;
+    transition: all 0.2s;
+  }
+  .scent-filter-clear.visible { display: block; }
+  .scent-filter-clear:hover { background: var(--ochre); color: var(--warm-black); }
+  .scent-section-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   /* ── Full product page link ── */
   .card-fullpage-link {
     display: block;
@@ -671,42 +723,46 @@
   <section class="scent-section">
     <p class="scent-section-intro">Choose your scent. Ranch Water body and linen spray, candles, and The Still diffuser. Each one runs across every form — candles hand-poured in the color of their scent.</p>
     <div class="scent-grid">
-      <div class="scent-card">
+      <div class="scent-card" data-scent="rough-hewn" role="button" tabindex="0" style="cursor:pointer;">
         <div class="scent-swatch" style="background:#6b4c3b;"></div>
         <h3 class="scent-name">Rough Hewn</h3>
         <span class="scent-note">Raw wood · Dry earth</span>
         <p class="scent-desc">The smell of something being made.</p>
       </div>
-      <div class="scent-card">
+      <div class="scent-card" data-scent="hang-dried" role="button" tabindex="0" style="cursor:pointer;">
         <div class="scent-swatch" style="background:#b8b5c8;"></div>
         <h3 class="scent-name">Hang Dried</h3>
         <span class="scent-note">White sage · Lavender</span>
         <p class="scent-desc">White sage, lavender, clean air.</p>
       </div>
-      <div class="scent-card">
+      <div class="scent-card" data-scent="ember" role="button" tabindex="0" style="cursor:pointer;">
         <div class="scent-swatch" style="background:#2a2a2a;"></div>
         <h3 class="scent-name">Ember</h3>
         <span class="scent-note">Smoke · Cedar</span>
         <p class="scent-desc">The last hour of a good night.</p>
       </div>
-      <div class="scent-card">
+      <div class="scent-card" data-scent="graze" role="button" tabindex="0" style="cursor:pointer;">
         <div class="scent-swatch" style="background:#7c8260;"></div>
         <h3 class="scent-name">Graze</h3>
         <span class="scent-note">Sage · Dry grass</span>
         <p class="scent-desc">High desert morning.</p>
       </div>
-      <div class="scent-card">
+      <div class="scent-card" data-scent="flax" role="button" tabindex="0" style="cursor:pointer;">
         <div class="scent-swatch" style="background:#c9a84c;"></div>
         <h3 class="scent-name">Flax</h3>
-        <span class="scent-note">Warm stone · Prairie grass</span>
-        <p class="scent-desc">Warm stone, prairie grasses.</p>
+        <span class="scent-note">Cotton blossom · Citron</span>
+        <p class="scent-desc">Warm stone. Prairie grass.</p>
       </div>
-      <div class="scent-card">
+      <div class="scent-card" data-scent="dusk" role="button" tabindex="0" style="cursor:pointer;">
         <div class="scent-swatch" style="background:#9B7A3F;"></div>
         <h3 class="scent-name">Dusk</h3>
         <span class="scent-note">Palo santo · Amber</span>
         <p class="scent-desc">Dry earth, warm amber.</p>
       </div>
+    </div>
+    <div class="scent-section-footer">
+      <div class="scent-filter-label" id="scent-filter-label"></div>
+      <button class="scent-filter-clear" id="scent-filter-clear" onclick="clearScentFilter()">Show all products</button>
     </div>
   </section>
 
@@ -716,7 +772,7 @@
       <div class="featured-label">The Starting Point</div>
       <h2 class="featured-title">The Field<br><em>Kit.</em></h2>
       <p class="featured-desc">One GTR votive in your chosen scent. One palo santo stick. One GTR matchbook. Held together with a wide flat matte black elastic. A good gift. A better ritual.</p>
-      <span class="featured-price">$44</span>
+      <span class="featured-price">$34</span>
       <select class="variant-select light" id="fieldkit-scent-selector" style="max-width:280px;margin-bottom:12px;">
         <option value="51849834627368">Rough Hewn</option>
         <option value="51849834660136">Hang Dried</option>
@@ -746,7 +802,7 @@
   <div class="product-grid">
 
     <!-- Ranch Water -->
-    <article class="ritual-product">
+    <article class="ritual-product" data-scents="rough-hewn hang-dried ember graze flax dusk">
       <div class="product-img-wrap">
         <img src="https://or-cre.com/cdn/shop/files/Graze__bodylinen.png?v=1777820218&width=1200" alt="Ranch Water Body + Linen Fragrance">
       </div>
@@ -769,7 +825,7 @@
     </article>
 
     <!-- The Votive -->
-    <article class="ritual-product">
+    <article class="ritual-product" data-scents="rough-hewn hang-dried ember graze flax dusk">
       <div class="product-img-wrap">
         <img src="https://or-cre.com/cdn/shop/files/thevotive.png?v=1779410827&width=1920" alt="The Votive Colored Wax Candle">
       </div>
@@ -792,7 +848,7 @@
     </article>
 
     <!-- The Wander -->
-    <article class="ritual-product">
+    <article class="ritual-product" data-scents="rough-hewn hang-dried ember graze flax dusk">
       <div class="product-img-wrap">
         <img src="https://or-cre.com/cdn/shop/files/thewandermain_802949e9-d5a7-487e-8ba2-a92b113061f7.png?v=1779743213&width=1920" alt="The Wander Hand-Poured Travel Candle">
       </div>
@@ -815,7 +871,7 @@
     </article>
 
     <!-- The Slow -->
-    <article class="ritual-product">
+    <article class="ritual-product" data-scents="rough-hewn hang-dried ember graze flax dusk">
       <div class="product-img-wrap">
         <img src="https://or-cre.com/cdn/shop/files/theslow-ember_ff2e04e9-aff6-465c-82c2-13d03c2aabbe.png?v=1779742644&width=1920" alt="The Slow Hand-Poured 11oz Candle">
       </div>
@@ -838,7 +894,7 @@
     </article>
 
     <!-- The Monument -->
-    <article class="ritual-product">
+    <article class="ritual-product" data-scents="rough-hewn hang-dried ember graze flax dusk">
       <div class="product-img-wrap">
         <img src="https://or-cre.com/cdn/shop/files/monument.png?v=1778095987&width=3840" alt="The Monument 4-Wick Candle">
       </div>
@@ -861,7 +917,7 @@
     </article>
 
     <!-- The Wander All Six Scents -->
-    <article class="ritual-product">
+    <article class="ritual-product" data-scents="rough-hewn hang-dried ember graze flax dusk">
       <div class="product-img-wrap">
         <img src="../thewandermain.png" alt="The Wander All Six Scents — Ghost Town Ranch Travel Candles" style="width:100%;height:100%;object-fit:cover;">
       </div>
@@ -876,7 +932,7 @@
     </article>
 
     <!-- The Still -->
-    <article class="ritual-product">
+    <article class="ritual-product" data-scents="rough-hewn hang-dried ember graze flax dusk">
       <div class="product-img-wrap">
         <img src="https://or-cre.com/cdn/shop/files/TheStill_allitems.png?v=1776726357&width=1200" alt="The Still Amber Glass Reed Diffuser">
       </div>
@@ -1032,6 +1088,16 @@
     clientAddToCart(variantId, 'The Votive', scent, 26);
   }
 
+  function clearScentFilter() {
+    activeScentFilter = null;
+    document.querySelectorAll('.scent-card').forEach(function(c) { c.classList.remove('active'); });
+    document.querySelectorAll('article.ritual-product').forEach(function(p) { p.classList.remove('filtered-out'); });
+    var label = document.getElementById('scent-filter-label');
+    if (label) { label.textContent = ''; label.classList.remove('visible'); }
+    var clearBtn = document.getElementById('scent-filter-clear');
+    if (clearBtn) clearBtn.classList.remove('visible');
+  }
+
   function addWanderSixToCart(e, btn) {
     e.preventDefault();
     btn.textContent = 'Added ✓';
@@ -1042,6 +1108,42 @@
   document.addEventListener('DOMContentLoaded', function(){
     renderCartDrawer();
     updateCartBadge();
+
+  // ── SCENT FILTER ──
+  var activeScentFilter = null;
+
+  document.querySelectorAll('.scent-card[data-scent]').forEach(function(card) {
+    card.addEventListener('click', function() {
+      var scent = card.dataset.scent;
+      if (activeScentFilter === scent) { clearScentFilter(); return; }
+      activeScentFilter = scent;
+
+      document.querySelectorAll('.scent-card').forEach(function(c) {
+        c.classList.toggle('active', c.dataset.scent === scent);
+      });
+
+      document.querySelectorAll('article.ritual-product').forEach(function(product) {
+        var scents = (product.dataset.scents || '').split(' ');
+        product.classList.toggle('filtered-out', !scents.includes(scent));
+        var sel = product.querySelector('select.variant-select');
+        if (sel) {
+          Array.from(sel.options).forEach(function(opt, i) {
+            if (opt.text.trim().toLowerCase().replace(/\s+/g, '-') === scent) sel.selectedIndex = i;
+          });
+          sel.dispatchEvent(new Event('change'));
+        }
+      });
+
+      var scentNames = {'rough-hewn':'Rough Hewn','hang-dried':'Hang Dried','ember':'Ember','graze':'Graze','flax':'Flax','dusk':'Dusk'};
+      var label = document.getElementById('scent-filter-label');
+      if (label) { label.textContent = 'Showing: ' + scentNames[scent]; label.classList.add('visible'); }
+      var clearBtn = document.getElementById('scent-filter-clear');
+      if (clearBtn) clearBtn.classList.add('visible');
+    });
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+    });
+  });
 
     // ── INJECT "View full product page" ON EACH RITUAL PRODUCT CARD ──
     // Map from onclick handler text to Shopify handle
