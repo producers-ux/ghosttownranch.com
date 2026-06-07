@@ -1193,8 +1193,23 @@ function renderProduct(product) {
   );
   const hasVariants = variants.length > 1 && variants[0].title !== 'Default Title';
 
+  // Candles with colored wax get a different label
+  // Exact Shopify handles for colored-wax candles
+  const WAX_CANDLE_HANDLES = ['the-votive-single', 'the-wander', 'the-slow', 'the-wander-all-six-scents'];
+  const isWaxCandle = WAX_CANDLE_HANDLES.includes(product.handle);
+  const selectorLabelEl = document.querySelector('.selector-label');
+
   if (hasVariants) {
     variantWrap.style.display = 'block';
+
+    // Set label text based on product type — must happen before querying the span
+    if (isWaxCandle) {
+      selectorLabelEl.innerHTML = 'Scent + Wax Color — <span id="selected-variant-label"></span>';
+    } else {
+      selectorLabelEl.innerHTML = 'Scent — <span id="selected-variant-label"></span>';
+    }
+
+    // Query after innerHTML rewrite so reference is live
     const selectedLabel = document.getElementById('selected-variant-label');
 
     function selectVariant(v) {
