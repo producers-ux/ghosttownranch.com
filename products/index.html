@@ -1392,8 +1392,10 @@ async function renderRelated(product) {
 async function init() {
   await initCart();
 
-  const path = window.location.pathname; // e.g. /products/the-votive
-  const handle = path.replace(/^\/products\//, '').replace(/\/$/, '');
+  // Handle comes via ?handle= (set by 404.html redirect) or direct path
+  const params = new URLSearchParams(window.location.search);
+  const handle = params.get('handle') ||
+                 window.location.pathname.replace(/^\/products\//, '').replace(/\/$/, '');
 
   if (!handle) {
     // No handle — redirect to homepage
