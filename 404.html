@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Ghost Town Ranch</title>
+  <script>
+    const path = window.location.pathname;
+    if (path.startsWith('/products/')) {
+      const handle = path.replace('/products/', '').replace(/\/$/, '');
+      if (handle) {
+        window.location.replace('/products/?handle=' + handle);
+      } else {
+        window.location.replace('/');
+      }
+    } else {
+      // Everything else goes home
+      window.location.replace('/');
+    }
+  </script>
+</head>
+<body></body>
+</html>
