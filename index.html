@@ -3429,6 +3429,27 @@ function openPDP(imgDiv) {
       profileEl.style.display = 'none';
     }
 
+    // ── VIEW FULL PAGE LINK ──
+    // Find the handle from the article's variant-selector or btn data-handle
+    var fullPageHandle = '';
+    if (article) {
+      var vsEl = article.querySelector('[data-handle]');
+      if (vsEl) fullPageHandle = vsEl.dataset.handle;
+    }
+    var existingLink = document.getElementById('pdp-fullpage-link');
+    if (existingLink) existingLink.remove();
+    if (fullPageHandle) {
+      var fullLink = document.createElement('a');
+      fullLink.id = 'pdp-fullpage-link';
+      fullLink.href = '/products/?handle=' + fullPageHandle;
+      fullLink.textContent = 'View full product page →';
+      fullLink.style.cssText = 'display:block;font-family:"Jost",sans-serif;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(212,201,181,0.6);text-decoration:none;margin-top:18px;padding-top:16px;border-top:1px solid rgba(124,130,96,0.2);transition:color 0.2s;';
+      fullLink.addEventListener('mouseenter', function(){ this.style.color='rgba(212,201,181,1)'; });
+      fullLink.addEventListener('mouseleave', function(){ this.style.color='rgba(212,201,181,0.6)'; });
+      var pdpFooter = document.querySelector('.pdp-footer');
+      if (pdpFooter) pdpFooter.appendChild(fullLink);
+    }
+
     document.getElementById('pdp-drawer').classList.add('open');
     document.getElementById('pdp-overlay').classList.add('open');
     document.body.style.overflow = 'hidden';
