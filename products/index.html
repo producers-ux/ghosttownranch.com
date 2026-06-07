@@ -46,67 +46,79 @@
     }
 
     /* ── FONTS ── */
-    @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Jost:wght@300;400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap');
 
-    /* ── NAV ── mirrors existing site nav exactly */
+    /* ── NAV ── matches main site exactly */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       height: var(--nav-h);
-      background: var(--ink);
-      border-bottom: 1px solid rgba(196,180,154,0.15);
+      background: rgba(28, 24, 20, 0.72);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 28px;
+      padding: 14px 48px;
       z-index: 100;
+      transition: background 0.3s ease;
     }
 
     .nav-logo {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #F4EFE6;
       display: flex;
       align-items: center;
       gap: 10px;
-      text-decoration: none;
     }
 
     .nav-logo img {
-      width: 28px;
       height: 28px;
-      opacity: 0.9;
+      width: auto;
+      display: block;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 40px;
       list-style: none;
     }
 
     .nav-links a {
-      color: var(--dust);
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
+      font-family: 'Jost', system-ui, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      transition: color 0.2s;
+      text-decoration: none;
+      color: #F4EFE6;
+      opacity: 0.7;
+      font-weight: 300;
+      transition: opacity 0.2s;
     }
 
-    .nav-links a:hover { color: var(--parchment); }
+    .nav-links a:hover { opacity: 1; }
 
     .nav-cart {
       background: none;
       border: none;
-      color: var(--dust);
-      font-family: var(--ff-body);
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
+      font-family: 'Jost', system-ui, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
+      color: #F4EFE6;
+      opacity: 0.7;
+      font-weight: 300;
       cursor: pointer;
-      transition: color 0.2s;
+      transition: opacity 0.2s;
+      padding: 0;
     }
-    .nav-cart:hover { color: var(--parchment); }
+    .nav-cart:hover { opacity: 1; }
 
     /* ── MAIN LAYOUT ── */
     main {
@@ -767,10 +779,10 @@
     <img src="https://ghosttownranch.com/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="Ghost Town Ranch" />
   </a>
   <ul class="nav-links">
-    <li><a href="/#catalog?filter=fragrance">Fragrance + Home</a></li>
-    <li><a href="/#catalog?filter=skin">Body + Skin</a></li>
-    <li><a href="/ritual/">Ritual</a></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="/#catalog">Shop</a></li>
     <li><a href="/routines/">Routines</a></li>
+    <li><a href="/ritual/">Ritual</a></li>
     <li><a href="/#wholesale">Wholesale</a></li>
   </ul>
   <button class="nav-cart" id="cart-btn">Cart <span id="cart-count"></span></button>
