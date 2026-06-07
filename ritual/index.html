@@ -384,48 +384,171 @@
     .featured-strip:hover .featured-img-wrap img { transform: scale(1.03); }
 
     /* ── SCENT GUIDE ── */
+    /* ── SCENT SECTION ── */
     .scent-section {
-      padding: 96px 48px;
       border-top: 1px solid var(--dust);
       border-bottom: 1px solid var(--dust);
     }
     .scent-section-intro {
       font-family: var(--serif);
-      font-size: clamp(22px, 2.2vw, 32px);
+      font-size: clamp(18px, 2vw, 26px);
       font-weight: 400;
       line-height: 1.4;
       opacity: 0.85;
-      margin-bottom: 0;
+      padding: 56px 48px 40px;
     }
+    /* Bold color-block grid */
     .scent-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
-      gap: 0;
-      margin-top: 56px;
+      gap: 2px;
     }
     .scent-card {
-      padding: 32px 24px 32px 0;
-      border-right: 1px solid var(--dust);
+      position: relative;
+      height: 160px;
+      cursor: pointer;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 18px 20px;
+      border: none;
+      background: none;
+      transition: filter 0.25s;
     }
-    .scent-card:last-child { border-right: none; }
-    .scent-swatch {
-      width: 32px; height: 32px;
-      border-radius: 50%;
-      margin-bottom: 20px;
+    .scent-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0);
+      transition: background 0.2s;
+    }
+    .scent-card:hover::after { background: rgba(0,0,0,0.1); }
+    .scent-card.inactive { filter: saturate(0.25) brightness(0.65); }
+    .scent-card-num {
+      font-family: 'Jost', system-ui, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 6px;
+      position: relative;
+      z-index: 1;
     }
     .scent-name {
       font-family: var(--serif);
-      font-size: 22px; font-weight: 400;
-      line-height: 1.2; margin-bottom: 10px;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1.1;
+      color: #fff;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.25);
+      position: relative;
+      z-index: 1;
+      margin: 0;
     }
     .scent-note {
-      font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--ochre); margin-bottom: 12px; display: block; opacity: 1;
+      font-family: 'Jost', system-ui, sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-top: 5px;
+      display: block;
+      position: relative;
+      z-index: 1;
     }
-    .scent-desc {
+    .scent-active-dot {
+      position: absolute;
+      top: 14px; right: 14px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0;
+      z-index: 2;
+      transition: opacity 0.2s;
+    }
+    .scent-card.active .scent-active-dot { opacity: 1; }
+    /* Reveal panel */
+    .scent-reveal {
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      min-height: 300px;
+      margin-top: 2px;
+    }
+    .scent-reveal.open { display: grid; }
+    .scent-reveal-left {
+      padding: 52px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .scent-reveal-eyebrow {
+      font-family: 'Jost', system-ui, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(244,239,230,0.4);
+      margin-bottom: 20px;
+    }
+    .scent-reveal-name {
       font-family: var(--serif);
-      font-size: 16px; line-height: 1.65;
-      opacity: 1; color: var(--warm-black);
+      font-size: clamp(48px, 6vw, 72px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 0.95;
+      color: #F4EFE6;
+      margin-bottom: 24px;
+    }
+    .scent-reveal-note {
+      font-family: 'Jost', system-ui, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(244,239,230,0.45);
+      padding-top: 20px;
+      border-top: 1px solid rgba(244,239,230,0.15);
+      margin-bottom: 24px;
+    }
+    .scent-reveal-desc {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.5;
+      color: rgba(244,239,230,0.85);
+      max-width: 340px;
+    }
+    .scent-reveal-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 52px;
+      border-left: 1px solid rgba(244,239,230,0.1);
+      gap: 28px;
+    }
+    .scent-reveal-bull {
+      width: 52px;
+      height: 52px;
+      opacity: 0.25;
+    }
+    .scent-reveal-tagline {
+      font-family: 'Jost', system-ui, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(244,239,230,0.35);
+      text-align: center;
+      line-height: 1.8;
+    }
+    @media (max-width: 768px) {
+      .scent-grid { grid-template-columns: repeat(3, 1fr); }
+      .scent-card { height: 130px; }
+      .scent-reveal { grid-template-columns: 1fr; }
+      .scent-reveal-right { display: none; }
+      .scent-reveal-left { padding: 36px 28px; }
+      .scent-section-intro { padding: 40px 24px 28px; }
     }
 
     /* ── ADD TO CART BUTTON ── */
@@ -443,56 +566,8 @@
     .btn-cta:hover { background: transparent; color: var(--warm-black); }
 
   /* ── SCENT FILTER ── */
-  .scent-card {
-    transition: opacity 0.2s, transform 0.2s;
-  }
-  .scent-card.active {
-    outline: 2px solid var(--ochre);
-    outline-offset: 4px;
-  }
-  .scent-card:hover {
-    opacity: 0.85;
-  }
-  .scent-filter-label {
-    font-family: 'Jost', system-ui, sans-serif;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--ochre);
-    opacity: 0;
-    margin-top: 16px;
-    text-align: center;
-    transition: opacity 0.3s;
-  }
-  .scent-filter-label.visible { opacity: 1; }
-  .ritual-product {
-    transition: opacity 0.3s, transform 0.3s;
-  }
-  .ritual-product.filtered-out {
-    opacity: 0.15;
-    pointer-events: none;
-  }
-  .scent-filter-clear {
-    display: none;
-    font-family: 'Jost', system-ui, sans-serif;
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ochre);
-    background: none;
-    border: 1px solid var(--ochre);
-    padding: 8px 20px;
-    cursor: pointer;
-    margin: 24px auto 0;
-    transition: all 0.2s;
-  }
-  .scent-filter-clear.visible { display: block; }
-  .scent-filter-clear:hover { background: var(--ochre); color: var(--warm-black); }
-  .scent-section-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  .ritual-product { transition: opacity 0.3s; }
+  .ritual-product.filtered-out { opacity: 0.15; pointer-events: none; }
 
   /* ── Full product page link ── */
   .card-fullpage-link {
@@ -721,49 +796,47 @@
 
   <!-- SCENT GUIDE -->
   <section class="scent-section">
-    <p class="scent-section-intro">Choose your scent. Ranch Water body and linen spray, candles, and The Still diffuser. Each one runs across every form — candles hand-poured in the color of their scent.</p>
-    <div class="scent-grid">
-      <div class="scent-card" data-scent="rough-hewn" role="button" tabindex="0" style="cursor:pointer;">
-        <div class="scent-swatch" style="background:#6b4c3b;"></div>
+    <p class="scent-section-intro">Six scents from the wide open. Choose one — every product below syncs to your selection.</p>
+    <div class="scent-grid" id="scent-grid">
+      <div class="scent-card" data-scent="rough-hewn" data-color="#5C3D2B" data-num="01" data-desc="The smell of something being made. Raw wood, dry earth, a day of real work." style="background:#5C3D2B;" role="button" tabindex="0">
+        <span class="scent-active-dot"></span>
+        <span class="scent-card-num">No. 01</span>
         <h3 class="scent-name">Rough Hewn</h3>
-        <span class="scent-note">Raw wood · Dry earth</span>
-        <p class="scent-desc">The smell of something being made.</p>
+        <span class="scent-note">Cade · Cedarwood</span>
       </div>
-      <div class="scent-card" data-scent="hang-dried" role="button" tabindex="0" style="cursor:pointer;">
-        <div class="scent-swatch" style="background:#b8b5c8;"></div>
+      <div class="scent-card" data-scent="hang-dried" data-color="#7BA7BC" data-num="02" data-desc="White sage, lavender, clean air. The room after the window has been open all morning." style="background:#7BA7BC;" role="button" tabindex="0">
+        <span class="scent-active-dot"></span>
+        <span class="scent-card-num">No. 02</span>
         <h3 class="scent-name">Hang Dried</h3>
-        <span class="scent-note">White sage · Lavender</span>
-        <p class="scent-desc">White sage, lavender, clean air.</p>
+        <span class="scent-note">White Sage · Lavender</span>
       </div>
-      <div class="scent-card" data-scent="ember" role="button" tabindex="0" style="cursor:pointer;">
-        <div class="scent-swatch" style="background:#2a2a2a;"></div>
+      <div class="scent-card" data-scent="ember" data-color="#2A2420" data-num="03" data-desc="The last hour of a good night. Deep smoke, warm amber, the canyon after rain." style="background:#2A2420;" role="button" tabindex="0">
+        <span class="scent-active-dot"></span>
+        <span class="scent-card-num">No. 03</span>
         <h3 class="scent-name">Ember</h3>
-        <span class="scent-note">Smoke · Cedar</span>
-        <p class="scent-desc">The last hour of a good night.</p>
+        <span class="scent-note">Charcoal · Amber</span>
       </div>
-      <div class="scent-card" data-scent="graze" role="button" tabindex="0" style="cursor:pointer;">
-        <div class="scent-swatch" style="background:#7c8260;"></div>
+      <div class="scent-card" data-scent="graze" data-color="#5C6B4A" data-num="04" data-desc="High desert morning. River-clean and sharp. The good scrub after a long ride." style="background:#5C6B4A;" role="button" tabindex="0">
+        <span class="scent-active-dot"></span>
+        <span class="scent-card-num">No. 04</span>
         <h3 class="scent-name">Graze</h3>
-        <span class="scent-note">Sage · Dry grass</span>
-        <p class="scent-desc">High desert morning.</p>
+        <span class="scent-note">Sweetgrass · Sage</span>
       </div>
-      <div class="scent-card" data-scent="flax" role="button" tabindex="0" style="cursor:pointer;">
-        <div class="scent-swatch" style="background:#c9a84c;"></div>
+      <div class="scent-card" data-scent="flax" data-color="#8C7A3A" data-num="05" data-desc="Warm stone, prairie grass. Lemon, cotton blossom, blonde woods." style="background:#8C7A3A;" role="button" tabindex="0">
+        <span class="scent-active-dot"></span>
+        <span class="scent-card-num">No. 05</span>
         <h3 class="scent-name">Flax</h3>
-        <span class="scent-note">Cotton blossom · Citron</span>
-        <p class="scent-desc">Warm stone. Prairie grass.</p>
+        <span class="scent-note">Cotton Blossom · Citron</span>
       </div>
-      <div class="scent-card" data-scent="dusk" role="button" tabindex="0" style="cursor:pointer;">
-        <div class="scent-swatch" style="background:#9B7A3F;"></div>
+      <div class="scent-card" data-scent="dusk" data-color="#7A5535" data-num="06" data-desc="Dry earth, warm amber, ancient and mineral. The light going low over the high desert." style="background:#7A5535;" role="button" tabindex="0">
+        <span class="scent-active-dot"></span>
+        <span class="scent-card-num">No. 06</span>
         <h3 class="scent-name">Dusk</h3>
-        <span class="scent-note">Palo santo · Amber</span>
-        <p class="scent-desc">Dry earth, warm amber.</p>
+        <span class="scent-note">Palo Santo · Amber</span>
       </div>
     </div>
-    <div class="scent-section-footer">
-      <div class="scent-filter-label" id="scent-filter-label"></div>
-      <button class="scent-filter-clear" id="scent-filter-clear" onclick="clearScentFilter()">Show all products</button>
-    </div>
+    <!-- Reveal panel — populated by JS -->
+    <div class="scent-reveal" id="scent-reveal"></div>
   </section>
 
   <!-- FIELD KIT FEATURED -->
@@ -1090,12 +1163,14 @@
 
   function clearScentFilter() {
     activeScentFilter = null;
-    document.querySelectorAll('.scent-card').forEach(function(c) { c.classList.remove('active'); });
-    document.querySelectorAll('article.ritual-product').forEach(function(p) { p.classList.remove('filtered-out'); });
-    var label = document.getElementById('scent-filter-label');
-    if (label) { label.textContent = ''; label.classList.remove('visible'); }
-    var clearBtn = document.getElementById('scent-filter-clear');
-    if (clearBtn) clearBtn.classList.remove('visible');
+    document.querySelectorAll('.scent-card').forEach(function(c) {
+      c.classList.remove('active', 'inactive');
+    });
+    document.querySelectorAll('article.ritual-product').forEach(function(p) {
+      p.classList.remove('filtered-out');
+    });
+    var reveal = document.getElementById('scent-reveal');
+    if (reveal) { reveal.classList.remove('open'); reveal.innerHTML = ''; }
   }
 
   function addWanderSixToCart(e, btn) {
@@ -1109,37 +1184,62 @@
     renderCartDrawer();
     updateCartBadge();
 
-  // ── SCENT FILTER ──
+  // ── SCENT SELECTOR ──
   var activeScentFilter = null;
+  var BULL_SVG = '<img src="../ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" class="scent-reveal-bull" alt="Ghost Town Ranch" />';
 
   document.querySelectorAll('.scent-card[data-scent]').forEach(function(card) {
     card.addEventListener('click', function() {
       var scent = card.dataset.scent;
-      if (activeScentFilter === scent) { clearScentFilter(); return; }
+      var color = card.dataset.color;
+      var num = card.dataset.num;
+      var desc = card.dataset.desc;
+      var name = card.querySelector('.scent-name').textContent;
+      var note = card.querySelector('.scent-note').textContent;
+
+      if (activeScentFilter === scent) {
+        clearScentFilter();
+        return;
+      }
       activeScentFilter = scent;
 
+      // Update card states
       document.querySelectorAll('.scent-card').forEach(function(c) {
         c.classList.toggle('active', c.dataset.scent === scent);
+        c.classList.toggle('inactive', c.dataset.scent !== scent);
       });
 
+      // Render reveal panel
+      var reveal = document.getElementById('scent-reveal');
+      reveal.style.background = color;
+      reveal.innerHTML =
+        '<div class="scent-reveal-left">' +
+          '<div class="scent-reveal-eyebrow">Ghost Town Ranch &middot; Scent No. ' + num + '</div>' +
+          '<div class="scent-reveal-name">' + name + '</div>' +
+          '<div class="scent-reveal-note">' + note + '</div>' +
+          '<div class="scent-reveal-desc">' + desc + '</div>' +
+        '</div>' +
+        '<div class="scent-reveal-right">' +
+          BULL_SVG +
+          '<div class="scent-reveal-tagline">Frontier Modernism<br>Palm Springs, CA</div>' +
+        '</div>';
+      reveal.classList.add('open');
+      reveal.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+      // Sync variant selectors to this scent
       document.querySelectorAll('article.ritual-product').forEach(function(product) {
-        var scents = (product.dataset.scents || '').split(' ');
-        product.classList.toggle('filtered-out', !scents.includes(scent));
+        product.classList.remove('filtered-out');
         var sel = product.querySelector('select.variant-select');
         if (sel) {
           Array.from(sel.options).forEach(function(opt, i) {
-            if (opt.text.trim().toLowerCase().replace(/\s+/g, '-') === scent) sel.selectedIndex = i;
+            var optSlug = opt.text.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+            if (optSlug === scent) sel.selectedIndex = i;
           });
           sel.dispatchEvent(new Event('change'));
         }
       });
-
-      var scentNames = {'rough-hewn':'Rough Hewn','hang-dried':'Hang Dried','ember':'Ember','graze':'Graze','flax':'Flax','dusk':'Dusk'};
-      var label = document.getElementById('scent-filter-label');
-      if (label) { label.textContent = 'Showing: ' + scentNames[scent]; label.classList.add('visible'); }
-      var clearBtn = document.getElementById('scent-filter-clear');
-      if (clearBtn) clearBtn.classList.add('visible');
     });
+
     card.addEventListener('keydown', function(e) {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
     });
