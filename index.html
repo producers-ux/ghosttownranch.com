@@ -1189,12 +1189,47 @@
     color: var(--army);
     margin-bottom: 0.5rem;
   }
+  #page-catalog .scent-card {
+    cursor: pointer;
+  }
+  #page-catalog .scent-card:hover .scent-name {
+    opacity: 0.7;
+  }
+  #page-catalog .scent-toggle {
+    margin-top: auto;
+    padding-top: 0.75rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--army);
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: opacity 0.2s;
+    user-select: none;
+  }
+  #page-catalog .scent-card:hover .scent-toggle { opacity: 0.9; }
+  #page-catalog .scent-toggle-icon {
+    font-size: 1rem;
+    line-height: 1;
+    font-style: normal;
+    transition: transform 0.25s ease;
+  }
+  #page-catalog .scent-card.open .scent-toggle-icon {
+    transform: rotate(45deg);
+  }
   #page-catalog .scent-desc {
     font-family: var(--serif);
     font-size: 0.95rem;
     line-height: 1.75;
     color: var(--ink);
     opacity: 0.65;
+    display: none;
+    padding-top: 0.5rem;
+  }
+  #page-catalog .scent-card.open .scent-desc {
+    display: block;
   }
 
   @media (max-width: 900px) {
@@ -3093,7 +3128,7 @@
       </div>
     </div>
     <div class="scent-guide-grid">
-      <div class="scent-card">
+      <div class="scent-card" onclick="this.classList.toggle('open')">
         <div class="scent-card-top">
           <div class="scent-swatch" style="background:#b8b5c8;"></div>
           <div class="scent-num">01</div>
@@ -3101,8 +3136,9 @@
         <div class="scent-name">Hang Dried</div>
         <div class="scent-note">White Sage &amp; Lavender</div>
         <div class="scent-desc">White sage, lavender, rosemary, a little cedar underneath. Clean without trying to smell like clean. <em style="color:var(--army);font-style:normal;font-size:0.85em;">Votive: chalk white wax.</em></div>
+        <div class="scent-toggle"><span class="scent-toggle-icon">+</span> Scent notes</div>
       </div>
-      <div class="scent-card">
+      <div class="scent-card" onclick="this.classList.toggle('open')">
         <div class="scent-card-top">
           <div class="scent-swatch" style="background:#6b4c3b;"></div>
           <div class="scent-num">02</div>
@@ -3110,8 +3146,9 @@
         <div class="scent-name">Rough Hewn</div>
         <div class="scent-note">Cade &amp; Cedarwood</div>
         <div class="scent-desc">Sweet smoke and cedarwood. Sandalwood underneath, leather at the edges. Slow burn. <em style="color:var(--army);font-style:normal;font-size:0.85em;">Votive: raw linen wax.</em></div>
+        <div class="scent-toggle"><span class="scent-toggle-icon">+</span> Scent notes</div>
       </div>
-      <div class="scent-card">
+      <div class="scent-card" onclick="this.classList.toggle('open')">
         <div class="scent-card-top">
           <div class="scent-swatch" style="background:#c4955a;"></div>
           <div class="scent-num">03</div>
@@ -3119,8 +3156,9 @@
         <div class="scent-name">Dusk</div>
         <div class="scent-note">Palo Santo</div>
         <div class="scent-desc">Palo santo and dry earth. Ancient and mineral. The canyon wall after a long afternoon of sun. <em style="color:var(--army);font-style:normal;font-size:0.85em;">Votive: warm amber wax.</em></div>
+        <div class="scent-toggle"><span class="scent-toggle-icon">+</span> Scent notes</div>
       </div>
-      <div class="scent-card">
+      <div class="scent-card" onclick="this.classList.toggle('open')">
         <div class="scent-card-top">
           <div class="scent-swatch" style="background:#2d2926;"></div>
           <div class="scent-num">04</div>
@@ -3128,8 +3166,9 @@
         <div class="scent-name">Ember</div>
         <div class="scent-note">Charcoal &amp; Amber</div>
         <div class="scent-desc">Dark and smoky with a deep resin finish. The canyon after rain. <em style="color:var(--army);font-style:normal;font-size:0.85em;">Votive: dark charcoal wax.</em></div>
+        <div class="scent-toggle"><span class="scent-toggle-icon">+</span> Scent notes</div>
       </div>
-      <div class="scent-card">
+      <div class="scent-card" onclick="this.classList.toggle('open')">
         <div class="scent-card-top">
           <div class="scent-swatch" style="background:#7c8c6a;"></div>
           <div class="scent-num">05</div>
@@ -3137,8 +3176,9 @@
         <div class="scent-name">Graze</div>
         <div class="scent-note">Sweetgrass &amp; Sage</div>
         <div class="scent-desc">Sweetgrass and sage. River-clean and sharp. The good scrub after a day of actual work. <em style="color:var(--army);font-style:normal;font-size:0.85em;">Votive: sage green wax.</em></div>
+        <div class="scent-toggle"><span class="scent-toggle-icon">+</span> Scent notes</div>
       </div>
-      <div class="scent-card">
+      <div class="scent-card" onclick="this.classList.toggle('open')">
         <div class="scent-card-top">
           <div class="scent-swatch" style="background:#e8c87a;"></div>
           <div class="scent-num">06</div>
@@ -3146,6 +3186,7 @@
         <div class="scent-name">Flax</div>
         <div class="scent-note">Cotton &amp; Citrus</div>
         <div class="scent-desc">Lemon, cotton blossom, blonde woods. Before there was bleach, there was the sun. <em style="color:var(--army);font-style:normal;font-size:0.85em;">Votive: straw gold wax.</em></div>
+        <div class="scent-toggle"><span class="scent-toggle-icon">+</span> Scent notes</div>
       </div>
     </div>
   </section>
