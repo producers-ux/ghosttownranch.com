@@ -1056,6 +1056,60 @@
     opacity: 0.35; cursor: not-allowed; pointer-events: none;
   }
 
+  /* ── Pill variant selectors ── */
+  #page-catalog .variant-pills-wrap {
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  #page-catalog .variant-pills-label {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--army);
+    opacity: 0.7;
+    margin-bottom: 0.45rem;
+    display: block;
+  }
+  #page-catalog .variant-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 0.35rem;
+  }
+  #page-catalog .vpill {
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.65rem;
+    border: 1px solid rgba(124,130,96,0.35);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s, color 0.15s;
+    white-space: nowrap;
+    line-height: 1.4;
+    border-radius: 0;
+  }
+  #page-catalog .vpill:hover {
+    border-color: var(--army);
+    color: var(--army);
+  }
+  #page-catalog .vpill.active {
+    background: var(--army);
+    border-color: var(--army);
+    color: var(--cream);
+  }
+  #page-catalog .vpill.unavailable {
+    opacity: 0.3;
+    cursor: not-allowed;
+    text-decoration: line-through;
+  }
+  /* Hide the raw <select> when pills are active */
+  #page-catalog .variant-selector.pills-active .variant-select {
+    display: none;
+  }
+
 
   /* Wide featured card */
   #page-catalog .product-card.wide {
@@ -2941,7 +2995,7 @@
       <h2 class="product-name">Soft Proof<br>Peptide Foundation</h2>
       <p class="product-desc">Buildable coverage with a velvety semi-matte finish. Peptides and natural pigments even tone, minimize pores, and support hydration through the wear. Feels like nothing. Looks like skin. Ten shades.</p>
       <div class="product-footer">
-        <span class="product-price">$60</span>
+        <span class="product-price">$45</span>
         <span class="product-size">Choose shade</span>
       </div>
       <div class="shopify-buy-target" id="shopify-btn-soft-proof">
@@ -4107,6 +4161,220 @@ function openPDP(imgDiv) {
       if (typeof updateCartCount === 'function') updateCartCount();
     }).catch(function() { btn.textContent = orig; btn.disabled = false; });
   }
+
+  /* ══════════════════════════════════════════════════
+     PILL VARIANT SELECTOR UPGRADE
+     Converts all .variant-selector <select> elements
+     into pill buttons while keeping the hidden <select>
+     in sync for cart/image-swap functions.
+  ══════════════════════════════════════════════════ */
+  document.addEventListener('DOMContentLoaded', function() {
+
+    // Products where options encode "Color / Size" — needs two-axis pills
+    var TWO_AXIS_HANDLES = [
+      'gtr-unisex-tee-in-black-or-bone',
+      'gtr-unisex-hoodie-in-black-french-navy-white-copy',
+      'gtr-garment-dyed-long-sleeve-tee',
+      'sustainable-sink-tray'
+    ];
+
+    // Label overrides per handle (what to call each axis)
+    var AXIS_LABELS = {
+      'gtr-unisex-tee-in-black-or-bone':               ['Color', 'Size'],
+      'gtr-unisex-hoodie-in-black-french-navy-white-copy': ['Color', 'Size'],
+      'gtr-garment-dyed-long-sleeve-tee':              ['Size', null],
+      'sustainable-sink-tray':                          ['Size', null]
+    };
+
+    // Single-axis label overrides
+    var SINGLE_LABELS = {
+      'desert-veil-tone-correction-barrier-protection': 'Shade',
+      'soft-proof-peptide-foundation':                  'Shade',
+      'ranch-water-body-room-fragrance':                'Scent',
+      'the-slow-candle':                                'Scent',
+      'the-monument-candle':                            'Scent',
+      'the-still-amber-glass-reed-diffuser':            'Scent',
+      'soy-wax-candle-wild-flower':                     'Scent',
+      'the-votive-candle':                              'Scent',
+      'the-field-kit':                                  'Scent',
+      'sunbroke-the-wash-cold-pressed-grapefruit':      'Scent',
+      'worn-soft-hand-cream-citrus-pink-peppercorn':    'Scent'
+    };
+
+    function syncSelectToOption(select, value, fireChange) {
+      for (var i = 0; i < select.options.length; i++) {
+        if (select.options[i].value === value) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
+      if (fireChange) {
+        var evt = new Event('change', { bubbles: true });
+        select.dispatchEvent(evt);
+      }
+    }
+
+    function buildSingleAxisPills(selectorEl, select, labelText) {
+      var wrap = document.createElement('div');
+      wrap.className = 'variant-pills-wrap';
+
+      if (labelText) {
+        var lbl = document.createElement('span');
+        lbl.className = 'variant-pills-label';
+        lbl.textContent = labelText;
+        wrap.appendChild(lbl);
+      }
+
+      var row = document.createElement('div');
+      row.className = 'variant-pills';
+      wrap.appendChild(row);
+
+      var options = Array.from(select.options);
+      var pills = [];
+
+      options.forEach(function(opt, idx) {
+        var pill = document.createElement('button');
+        pill.type = 'button';
+        pill.className = 'vpill' + (idx === select.selectedIndex ? ' active' : '');
+        pill.textContent = opt.text;
+        pill.dataset.value = opt.value;
+
+        pill.addEventListener('click', function() {
+          pills.forEach(function(p) { p.classList.remove('active'); });
+          pill.classList.add('active');
+          syncSelectToOption(select, opt.value, true);
+        });
+
+        pills.push(pill);
+        row.appendChild(pill);
+      });
+
+      selectorEl.insertBefore(wrap, select);
+      selectorEl.classList.add('pills-active');
+    }
+
+    function buildTwoAxisPills(selectorEl, select, handle) {
+      var axisLabels = AXIS_LABELS[handle] || ['Option 1', 'Option 2'];
+      var options = Array.from(select.options);
+
+      // Detect if options use " / " separator
+      var hasSeparator = options.some(function(o) { return o.text.indexOf(' / ') > -1; });
+
+      if (!hasSeparator) {
+        // Single axis only (e.g. Long Sleeve Tee — one color, sizes only)
+        buildSingleAxisPills(selectorEl, select, axisLabels[0]);
+        return;
+      }
+
+      // Parse unique values per axis
+      var axis1Vals = [], axis2Vals = [];
+      options.forEach(function(o) {
+        var parts = o.text.split(' / ');
+        var a1 = parts[0].trim(), a2 = parts[1].trim();
+        if (axis1Vals.indexOf(a1) === -1) axis1Vals.push(a1);
+        if (axis2Vals.indexOf(a2) === -1) axis2Vals.push(a2);
+      });
+
+      // Track current selections
+      var firstOption = options[select.selectedIndex] || options[0];
+      var firstParts = firstOption.text.split(' / ');
+      var currentA1 = firstParts[0].trim();
+      var currentA2 = firstParts[1] ? firstParts[1].trim() : axis2Vals[0];
+
+      var wrap = document.createElement('div');
+      wrap.className = 'variant-pills-wrap';
+
+      function makeRow(label, vals, currentVal, onSelect) {
+        if (label) {
+          var lbl = document.createElement('span');
+          lbl.className = 'variant-pills-label';
+          lbl.textContent = label;
+          wrap.appendChild(lbl);
+        }
+        var row = document.createElement('div');
+        row.className = 'variant-pills';
+        var pills = [];
+        vals.forEach(function(val) {
+          var pill = document.createElement('button');
+          pill.type = 'button';
+          pill.className = 'vpill' + (val === currentVal ? ' active' : '');
+          pill.textContent = val;
+          pill.dataset.axisVal = val;
+          pill.addEventListener('click', function() {
+            pills.forEach(function(p) { p.classList.remove('active'); });
+            pill.classList.add('active');
+            onSelect(val);
+          });
+          pills.push(pill);
+          row.appendChild(pill);
+        });
+        wrap.appendChild(row);
+        return pills;
+      }
+
+      function updateSelect() {
+        var target = currentA1 + ' / ' + currentA2;
+        var found = false;
+        for (var i = 0; i < options.length; i++) {
+          if (options[i].text.trim() === target) {
+            select.selectedIndex = i;
+            var evt = new Event('change', { bubbles: true });
+            select.dispatchEvent(evt);
+            found = true;
+            break;
+          }
+        }
+        // If exact combo unavailable, find closest with same axis1
+        if (!found) {
+          for (var j = 0; j < options.length; j++) {
+            var p = options[j].text.split(' / ');
+            if (p[0].trim() === currentA1) {
+              select.selectedIndex = j;
+              currentA2 = p[1].trim();
+              // Update axis2 pill highlights
+              row2Pills.forEach(function(pill) {
+                pill.classList.toggle('active', pill.dataset.axisVal === currentA2);
+              });
+              var evt2 = new Event('change', { bubbles: true });
+              select.dispatchEvent(evt2);
+              break;
+            }
+          }
+        }
+      }
+
+      var row1Pills = makeRow(axisLabels[0], axis1Vals, currentA1, function(val) {
+        currentA1 = val;
+        updateSelect();
+      });
+      var row2Pills = makeRow(axisLabels[1], axis2Vals, currentA2, function(val) {
+        currentA2 = val;
+        updateSelect();
+      });
+
+      selectorEl.insertBefore(wrap, select);
+      selectorEl.classList.add('pills-active');
+    }
+
+    // Run on every .variant-selector in the catalog
+    var catalogGrid = document.getElementById('catalog-grid');
+    if (!catalogGrid) return;
+
+    catalogGrid.querySelectorAll('.variant-selector').forEach(function(selectorEl) {
+      var select = selectorEl.querySelector('.variant-select');
+      if (!select || select.options.length < 2) return;
+
+      var handle = selectorEl.dataset.handle || '';
+
+      if (TWO_AXIS_HANDLES.indexOf(handle) > -1) {
+        buildTwoAxisPills(selectorEl, select, handle);
+      } else {
+        var label = SINGLE_LABELS[handle] || null;
+        buildSingleAxisPills(selectorEl, select, label);
+      }
+    });
+
+  });
 
 </script>
 
