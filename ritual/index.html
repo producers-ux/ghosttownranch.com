@@ -57,6 +57,23 @@
       --sans: 'Jost', system-ui, sans-serif;
     }
 
+    /* ── View full product page link ── */
+    .ritual-fullpage-link {
+      display: block;
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--army);
+      text-decoration: none;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(124,130,96,0.25);
+      transition: color 0.2s;
+    }
+    .ritual-fullpage-link:hover { color: var(--ink); }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -831,6 +848,7 @@
       <p class="featured-desc">One GTR votive in your chosen scent. One palo santo stick. One GTR matchbook. Held together with a wide flat matte black elastic. A good gift. A better ritual.</p>
       <span class="featured-price" style="opacity:0.45;">$34</span>
       <a class="btn-cta light btn-coming-soon" style="max-width:280px; opacity:0.45; pointer-events:none; cursor:default;">Coming Soon</a>
+      <a class="ritual-fullpage-link" style="max-width:280px;" href="/products/?handle=the-field-kit">View full product page →</a>
     </div>
     <div class="featured-img-wrap">
       <img src="../fieldkit.png"
@@ -871,6 +889,7 @@
         <option value="51849817227560">Dusk</option>
       </select>
       <button class="btn-cta" onclick="addVariantToCart(event, this, 'ranch-water-body-room-fragrance')">Add to Cart</button>
+      <a class="ritual-fullpage-link" href="/products/?handle=ranch-water-body-room-fragrance">View full product page →</a>
     </article>
 
     <!-- The Votive -->
@@ -894,6 +913,7 @@
         <option value="51851827446056">Dusk</option>
       </select>
       <button class="btn-cta" onclick="addVotiveToCart(event, this)">Add to Cart</button>
+      <a class="ritual-fullpage-link" href="/products/?handle=the-votive-candle">View full product page →</a>
     </article>
 
     <!-- The Wander -->
@@ -917,6 +937,7 @@
         <option value="51744957727016">Dusk</option>
       </select>
       <button class="btn-cta" onclick="addVariantToCart(event, this, 'soy-wax-candle-wild-flower')">Add to Cart</button>
+      <a class="ritual-fullpage-link" href="/products/?handle=soy-wax-candle-wild-flower">View full product page →</a>
     </article>
 
     <!-- The Slow -->
@@ -940,6 +961,7 @@
         <option value="51730076631336">Dusk</option>
       </select>
       <button class="btn-cta" onclick="addVariantToCart(event, this, 'the-slow-candle')">Add to Cart</button>
+      <a class="ritual-fullpage-link" href="/products/?handle=the-slow-candle">View full product page →</a>
     </article>
 
     <!-- The Monument -->
@@ -963,6 +985,7 @@
         <option value="51730077057320">Dusk</option>
       </select>
       <button class="btn-cta" onclick="addVariantToCart(event, this, 'the-monument-candle')">Add to Cart</button>
+      <a class="ritual-fullpage-link" href="/products/?handle=the-monument-candle">View full product page →</a>
     </article>
 
     <!-- The Wander All Six Scents -->
@@ -1001,6 +1024,7 @@
         <option value="51730076860712">Dusk</option>
       </select>
       <button class="btn-cta" onclick="addVariantToCart(event, this, 'the-still-amber-glass-reed-diffuser')">Add to Cart</button>
+      <a class="ritual-fullpage-link" href="/products/?handle=the-still-amber-glass-reed-diffuser">View full product page →</a>
     </article>
 
   </div>
