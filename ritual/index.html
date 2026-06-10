@@ -1111,9 +1111,9 @@
             '</div>' +
             '<div class="cart-item-right">' +
               '<div class="cart-item-qty-ctrl">' +
-                '<button onclick="cartChangeQty('' + line.id + '',' + (line.quantity - 1) + ')" class="qty-btn">&#8722;</button>' +
+                '<button onclick="cartChangeQty(\'' + line.id + '\',' + (line.quantity - 1) + ')" class="qty-btn">&#8722;</button>' +
                 '<span style="font-family:var(--serif);font-size:14px;min-width:16px;text-align:center;color:#1A1512;">' + line.quantity + '</span>' +
-                '<button onclick="cartChangeQty('' + line.id + '',' + (line.quantity + 1) + ')" class="qty-btn">+</button>' +
+                '<button onclick="cartChangeQty(\'' + line.id + '\',' + (line.quantity + 1) + ')" class="qty-btn">+</button>' +
               '</div>' +
               '<span class="cart-item-price">$' + linePrice.toFixed(2) + '</span>' +
             '</div>' +
@@ -1205,6 +1205,8 @@
     clientAddToCart(variantId, 'The Votive', scent, 26);
   }
 
+  var activeScentFilter = null;
+
   function clearScentFilter() {
     activeScentFilter = null;
     document.querySelectorAll('.scent-card').forEach(function(c) {
@@ -1227,8 +1229,7 @@
   document.addEventListener('DOMContentLoaded', function(){
     initCart();
 
-  // ── SCENT SELECTOR ──
-  var activeScentFilter = null;
+  // ── SCENT SELECTOR ── (activeScentFilter declared at top level, shared with clearScentFilter)
   var BULL_SVG = '<img src="../ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" class="scent-reveal-bull" alt="Ghost Town Ranch" />';
 
   document.querySelectorAll('.scent-card[data-scent]').forEach(function(card) {
