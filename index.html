@@ -3915,6 +3915,16 @@ function openPDP(imgDiv) {
     if (guide) {
       guide.style.display = (category === 'all' || category === 'fragrance') ? 'block' : 'none';
     }
+
+    // Show Start Here + Full Collection divider only on the unfiltered view
+    const featured = document.querySelector('.featured-tiles');
+    if (featured) {
+      featured.style.display = (category === 'all') ? '' : 'none';
+    }
+    const divider = document.querySelector('.catalog-divider');
+    if (divider) {
+      divider.style.display = (category === 'all') ? '' : 'none';
+    }
   }
 
   /* ══ SCENT PICKER ══ */
