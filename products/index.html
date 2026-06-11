@@ -1207,7 +1207,7 @@ function renderProduct(product) {
 
   // Candles with colored wax get a different label
   // Exact Shopify handles for colored-wax candles
-  const WAX_CANDLE_HANDLES = ['the-votive-single', 'the-wander', 'the-slow', 'the-wander-all-six-scents'];
+  const WAX_CANDLE_HANDLES = ['the-votive-candle', 'soy-wax-candle-wild-flower', 'the-slow-candle', 'the-wander-all-six-scents'];
   const isWaxCandle = WAX_CANDLE_HANDLES.includes(product.handle);
   const selectorLabelEl = document.querySelector('.selector-label');
 
@@ -1367,7 +1367,7 @@ function buildSpecs(product, variants) {
   // Shipping
   specs.push({
     title: 'Shipping & Returns',
-    body: `<p>Ships within 3–5 business days. Standard ground shipping.</p>
+    body: `<p>Ships within 10 business days from the USA. Standard ground shipping.</p>
            <p>For wholesale inquiries: <a href="mailto:wholesale@ghosttownranch.com" style="color:var(--dust)">wholesale@ghosttownranch.com</a></p>
            <p>Questions: <a href="mailto:howdy@ghosttownranch.com" style="color:var(--dust)">howdy@ghosttownranch.com</a></p>`
   });
