@@ -1105,10 +1105,13 @@
     cursor: not-allowed;
     text-decoration: line-through;
   }
-  /* Hide the raw <select> when pills are active */
+  /* Hide the raw <select> when pills are active — catalog cards only */
   #page-catalog .variant-selector.pills-active .variant-select {
     display: none;
   }
+  /* In the drawer, hide pills and always show the <select> */
+  #pdp-buy-area .variant-pills-wrap { display: none !important; }
+  #pdp-buy-area .variant-selector.pills-active .variant-select { display: block !important; }
 
 
   /* Wide featured card */
@@ -2472,7 +2475,7 @@
         </div>
       </a>
 
-      <a class="featured-tile" href="/products/?handle=the-votive-candle">
+      <a class="featured-tile" href="/products/?handle=the-votive-single">
         <div class="featured-tile-img-wrap">
           <img class="featured-tile-img"
             src="https://or-cre.com/cdn/shop/files/thevotive.png?v=1779410827&width=800"
