@@ -1120,9 +1120,25 @@ async function fetchProduct(handle) {
   return data?.data?.product || null;
 }
 
-async function fetchRelated(productType, excludeHandle) {
+// Utility tags that should never display as a category
+const UTILITY_TAGS = ['cosmos', 'ecocert', 'fragrance-only', 'coming-soon', 'bestseller', 'best-seller', 'new', 'featured', 'sale'];
+
+// Category tag = first Shopify tag that isn't a utility tag
+function getCategoryTag(product) {
+  return (product.tags || []).find(t => !UTILITY_TAGS.includes(t.toLowerCase().trim())) || null;
+}
+
+// Display category: Product Type first, then category tag, then brand default
+function getCategory(product) {
+  if (product.productType) return product.productType;
+  const tag = getCategoryTag(product);
+  if (tag) return tag.replace(/\b\w/g, c => c.toUpperCase());
+  return 'The Ranch';
+}
+
+async function fetchRelated(queryStr, excludeHandle) {
   const data = await storefrontFetch(`{
-    products(first: 4, query: "product_type:${productType}") {
+    products(first: 6, query: "${queryStr}") {
       edges { node {
         title handle
         priceRange { minVariantPrice { amount } }
@@ -1134,6 +1150,22 @@ async function fetchRelated(productType, excludeHandle) {
     .map(e => e.node)
     .filter(p => p.handle !== excludeHandle)
     .slice(0, 4);
+}
+
+// Backfill: bestsellers from the full catalog
+async function fetchFill(excludeHandles) {
+  const data = await storefrontFetch(`{
+    products(first: 8, sortKey: BEST_SELLING) {
+      edges { node {
+        title handle
+        priceRange { minVariantPrice { amount } }
+        images(first: 1) { edges { node { url altText } } }
+      }}
+    }
+  }`);
+  return (data?.data?.products?.edges || [])
+    .map(e => e.node)
+    .filter(p => !excludeHandles.includes(p.handle));
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -1154,16 +1186,16 @@ function renderProduct(product) {
   document.getElementById('canonical').href = pageUrl;
 
   // Breadcrumb
-  document.getElementById('bc-category').textContent = product.productType || 'Shop';
+  document.getElementById('bc-category').textContent = getCategory(product);
   document.getElementById('bc-title').textContent = product.title;
 
-  // Tag / type
-  document.getElementById('product-tag').textContent = product.productType || '';
+  // Category eyebrow — always renders (Product Type, else category tag, else The Ranch)
+  document.getElementById('product-tag').textContent = getCategory(product);
 
   // Title — split on first space for italic styling if subtitle exists
   const titleParts = product.title.split('  ');
   document.getElementById('product-title').textContent = product.title;
-  document.getElementById('product-subtitle').textContent = product.productType || '';
+  document.getElementById('product-subtitle').textContent = '';
 
   // Price
   const price = parseFloat(product.priceRange.minVariantPrice.amount);
@@ -1282,12 +1314,17 @@ function renderProduct(product) {
     });
   });
 
-  // Description
+  // Description — ingredient lists split out into the accordion
   const descEl = document.getElementById('product-description');
+  let ingredientsHtml = '';
   if (product.descriptionHtml) {
-    descEl.innerHTML = product.descriptionHtml;
+    const split = splitIngredients(product.descriptionHtml);
+    descEl.innerHTML = split.descHtml;
+    ingredientsHtml = split.ingredientsHtml;
   } else if (product.description) {
-    descEl.textContent = product.description;
+    const parts = product.description.split(/(?=(?:full\s+)?ingredients?\s*:)/i);
+    descEl.textContent = parts[0].trim();
+    if (parts.length > 1) ingredientsHtml = `<p>${parts.slice(1).join(' ').trim()}</p>`;
   }
 
   // Cert badges — show relevant subset based on tags
@@ -1304,7 +1341,7 @@ function renderProduct(product) {
   certRow.innerHTML = certs.map(c => `<span class="cert-badge">${c}</span>`).join('');
 
   // Specs accordion — built from product type
-  buildSpecs(product, variants);
+  buildSpecs(product, variants, ingredientsHtml);
 
   // Show page
   document.getElementById('loading').style.display = 'none';
@@ -1317,7 +1354,29 @@ function renderProduct(product) {
   });
 }
 
-function buildSpecs(product, variants) {
+// Pull the ingredient list out of the Shopify description HTML.
+// Catches a block starting with "Ingredients" / "INCI" (and everything after it),
+// or any long comma-heavy paragraph that reads like an INCI list.
+function splitIngredients(html) {
+  const tmp = document.createElement('div');
+  tmp.innerHTML = html;
+  const nodes = Array.from(tmp.children);
+  const moved = [];
+  let capture = false;
+  nodes.forEach(el => {
+    const txt = (el.textContent || '').trim();
+    const isHeader = /^(full\s+)?ingredients?\b|^INCI\b/i.test(txt);
+    const isList = txt.length > 150 && (txt.match(/,/g) || []).length >= 8;
+    if (isHeader) capture = true;
+    if (capture || isList) {
+      moved.push(el.outerHTML);
+      el.remove();
+    }
+  });
+  return { descHtml: tmp.innerHTML.trim(), ingredientsHtml: moved.join('') };
+}
+
+function buildSpecs(product, variants, ingredientsHtml) {
   const wrap = document.getElementById('specs-wrap');
   const type = (product.productType || '').toLowerCase();
 
@@ -1364,6 +1423,14 @@ function buildSpecs(product, variants) {
     });
   }
 
+  // Ingredients — full list, tucked into its own expandable row
+  if (ingredientsHtml) {
+    specs.push({
+      title: 'Ingredients',
+      body: ingredientsHtml
+    });
+  }
+
   // Shipping
   specs.push({
     title: 'Shipping & Returns',
@@ -1390,8 +1457,23 @@ function buildSpecs(product, variants) {
 }
 
 async function renderRelated(product) {
-  if (!product.productType) return;
-  const related = await fetchRelated(product.productType, product.handle);
+  let related = [];
+
+  // Match by Product Type first, then by category tag
+  if (product.productType) {
+    related = await fetchRelated(`product_type:\\"${product.productType}\\"`, product.handle);
+  } else {
+    const tag = getCategoryTag(product);
+    if (tag) related = await fetchRelated(`tag:\\"${tag}\\"`, product.handle);
+  }
+
+  // Backfill with bestsellers so the row is always full
+  if (related.length < 4) {
+    const exclude = [product.handle, ...related.map(p => p.handle)];
+    const fill = await fetchFill(exclude);
+    related = [...related, ...fill].slice(0, 4);
+  }
+
   if (!related.length) return;
 
   const section = document.getElementById('related-section');
@@ -1435,6 +1517,23 @@ async function init() {
   if (!product) {
     document.getElementById('loading').style.display = 'none';
     document.getElementById('error').style.display = 'flex';
+    // Still show More from the Ranch — a wrong turn shouldn't be a dead end
+    try {
+      const fill = (await fetchFill([])).slice(0, 4);
+      if (fill.length) {
+        const grid = document.getElementById('related-grid');
+        grid.innerHTML = fill.map(p => `
+          <a class="related-card" href="/products/${p.handle}">
+            <img src="${p.images.edges[0]?.node?.url || ''}" alt="${p.title}" loading="lazy" />
+            <div class="related-card-info">
+              <div class="related-card-name">${p.title}</div>
+              <div class="related-card-price">$${parseFloat(p.priceRange.minVariantPrice.amount).toFixed(0)}</div>
+            </div>
+          </a>
+        `).join('');
+        document.getElementById('related-section').style.display = 'block';
+      }
+    } catch (e) { /* non-critical */ }
     return;
   }
 
