@@ -492,6 +492,70 @@
     padding: 80px 48px;
     border-top: 1px solid var(--dust); border-bottom: 1px solid var(--dust);
   }
+  /* ── MORE FROM THE RANCH ── */
+  .ranch-more {
+    padding: 90px 6vw;
+    background: var(--warm-black);
+  }
+  .ranch-more .section-label {
+    color: var(--parchment);
+    opacity: 0.45;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .ranch-more-headline {
+    font-family: var(--serif);
+    font-size: clamp(26px, 3.4vw, 42px);
+    font-weight: 400;
+    color: var(--parchment);
+    text-align: center;
+    margin: 0 0 50px;
+  }
+  .ranch-more-headline em { font-style: italic; color: var(--dust); }
+  .ranch-more-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .ranch-more-card {
+    text-decoration: none;
+    display: block;
+  }
+  .ranch-more-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 16px;
+    transition: opacity 0.25s;
+  }
+  .ranch-more-card:hover img { opacity: 0.85; }
+  .ranch-more-card-cat {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    margin-bottom: 6px;
+  }
+  .ranch-more-card-name {
+    font-family: var(--serif);
+    font-size: 17px;
+    color: var(--parchment);
+    margin-bottom: 4px;
+  }
+  .ranch-more-card-price {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--dust);
+    opacity: 0.8;
+  }
+  @media (max-width: 900px) {
+    .ranch-more-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .ranch-more { padding: 64px 6vw; }
+  }
+
   .section-label {
     font-size: 9px; letter-spacing: 0.3em;
     text-transform: uppercase; opacity: 0.35; margin-bottom: 30px;
@@ -2379,6 +2443,38 @@
         <span class="routine-row-num">03</span>
         <span class="routine-row-name">Evening <em>Repair</em></span>
         <span class="routine-row-callout">featuring the toning exfoliant</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── MORE FROM THE RANCH ── -->
+  <section class="ranch-more" aria-label="More from the Ranch">
+    <div class="section-label">Ghost Town Ranch</div>
+    <h2 class="ranch-more-headline">More <em>from the Ranch</em></h2>
+    <div class="ranch-more-grid">
+      <a class="ranch-more-card" href="/products/?handle=the-field-kit">
+        <img src="https://or-cre.com/cdn/shop/files/fieldkitkraft.png?v=1780937359&amp;width=800" alt="The Field Kit — Ghost Town Ranch votive, palo santo, matchbook" loading="lazy">
+        <div class="ranch-more-card-cat">Fragrance + Home</div>
+        <div class="ranch-more-card-name">The Field Kit</div>
+        <div class="ranch-more-card-price">$34</div>
+      </a>
+      <a class="ranch-more-card" href="/products/?handle=ranch-water-body-room-fragrance">
+        <img src="https://or-cre.com/cdn/shop/files/Graze__bodylinen.png?v=1777820218&amp;width=800" alt="Ranch Water Body + Linen Fragrance — Ghost Town Ranch" loading="lazy">
+        <div class="ranch-more-card-cat">Body + Linen</div>
+        <div class="ranch-more-card-name">Ranch Water</div>
+        <div class="ranch-more-card-price">$88 · Six scents</div>
+      </a>
+      <a class="ranch-more-card" href="/products/?handle=the-votive-candle">
+        <img src="https://or-cre.com/cdn/shop/files/thevotive.png?v=1779410827&amp;width=800" alt="The Votive Colored Wax Candle — Ghost Town Ranch" loading="lazy">
+        <div class="ranch-more-card-cat">Fragrance + Home</div>
+        <div class="ranch-more-card-name">The Votive</div>
+        <div class="ranch-more-card-price">$26 · Choose scent</div>
+      </a>
+      <a class="ranch-more-card" href="/products/?handle=rosemary-mint-revive-hair-scalp-oil">
+        <img src="https://or-cre.com/cdn/shop/files/rosemaryminthairoilimage.png?v=1776860532&amp;width=800" alt="Rosemary Mint Revive Hair + Scalp Oil — Ghost Town Ranch" loading="lazy">
+        <div class="ranch-more-card-cat">Wash House</div>
+        <div class="ranch-more-card-name">Rosemary Mint Revive</div>
+        <div class="ranch-more-card-price">$48</div>
       </a>
     </div>
   </section>
