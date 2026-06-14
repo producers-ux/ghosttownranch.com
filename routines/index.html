@@ -567,34 +567,7 @@
 <body>
 
   <!-- NAV -->
-  <nav>
-    <a class="nav-logo" href="https://ghosttownranch.com">
-      <img src="/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="Ghost Town Ranch" style="height:28px;width:auto;display:block;">
-    </a>
-    <div class="nav-right">
-      <ul class="nav-links" id="nav-links">
-        <li><a href="https://ghosttownranch.com/">Home</a></li>
-        <li class="nav-dropdown" id="shop-dropdown">
-          <button class="nav-dropdown-toggle" onclick="toggleShopDropdown(event)" aria-expanded="false" aria-haspopup="true">
-            Shop
-            <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 2.5L4 5.5L7 2.5" stroke="#F4EFE6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="nav-dropdown-menu" role="menu">
-            <a href="https://ghosttownranch.com/#catalog?filter=fragrance" role="menuitem">Fragrance + Home</a>
-            <a href="https://ghosttownranch.com/#catalog?filter=skin" role="menuitem">Body + Skin</a>
-            <a href="https://ghosttownranch.com/" role="menuitem">Shop All</a>
-          </div>
-        </li>
-        <li><a href="#" class="active">Routines</a></li>
-        <li><a href="https://ghosttownranch.com/ritual/">Ritual</a></li>
-        <li><a href="https://ghosttownranch.com/collections/deep-well/">Deep Well</a></li>
-        <li><a href="https://ghosttownranch.com/#wholesale">Wholesale</a></li>
-      </ul>
-      <button class="nav-hamburger" id="nav-hamburger" onclick="toggleNav()" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+  <!-- top nav injected by /nav.js -->
 
   <!-- PAGE HERO IMAGE -->
   <section class="page-hero-img">
@@ -1000,5 +973,6 @@
   });
   </script>
 
+  <script defer src="/nav.js"></script>
 </body>
 </html>
