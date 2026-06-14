@@ -337,11 +337,8 @@
   <h2 class="waitlist__title">The well opens this fall.</h2>
   <p class="waitlist__sub">Skin from within, drawn from the same land. Join the list and you will be first to know.</p>
 
-  <!-- TODO (Kate): create a Formspree form at formspree.io, then paste its endpoint into the action below. -->
-  <form class="waitlist-form" id="waitlist-form" action="https://formspree.io/f/REPLACE_FORM_ID" method="POST">
-    <input type="email" name="email" required placeholder="Email address" aria-label="Email address">
-    <input type="hidden" name="_subject" value="Deep Well Waitlist Signup">
-    <input type="hidden" name="source" value="deep-well-page">
+  <form class="waitlist-form" id="waitlist-form">
+    <input type="email" name="email" id="waitlist-email" required placeholder="Email address" aria-label="Email address">
     <button type="submit">Join the List</button>
   </form>
   <p class="waitlist__status" id="waitlist-status"></p>
@@ -359,28 +356,60 @@
 </footer>
 
 <script>
-  // Waitlist async submit with inline confirmation
+  // Deep Well waitlist → Klaviyo client subscription
   (function () {
+    var KLAVIYO_COMPANY_ID = 'UTbZ3B';
+    var KLAVIYO_LIST_ID = 'R4zcXV';
+
     var form = document.getElementById('waitlist-form');
     var status = document.getElementById('waitlist-status');
+    var emailInput = document.getElementById('waitlist-email');
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var data = new FormData(form);
-      fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
-        .then(function (res) {
-          if (res.ok) {
-            form.style.display = 'none';
-            status.textContent = 'You are on the list. We will write when the well opens.';
-            status.style.display = 'block';
-          } else {
-            status.textContent = 'Something went wrong. Please try again.';
-            status.style.display = 'block';
+      var email = emailInput.value.trim();
+      if (!email) return;
+
+      var payload = {
+        data: {
+          type: 'subscription',
+          attributes: {
+            custom_source: 'Deep Well Waitlist',
+            profile: {
+              data: {
+                type: 'profile',
+                attributes: {
+                  email: email,
+                  subscriptions: { email: { marketing: { consent: 'SUBSCRIBED' } } }
+                }
+              }
+            }
+          },
+          relationships: {
+            list: { data: { type: 'list', id: KLAVIYO_LIST_ID } }
           }
-        })
-        .catch(function () {
+        }
+      };
+
+      fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + KLAVIYO_COMPANY_ID, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'revision': '2025-10-15' },
+        body: JSON.stringify(payload)
+      })
+      .then(function (res) {
+        if (res.ok) { // 202 Accepted
+          form.style.display = 'none';
+          status.textContent = 'You are on the list. We will write when the well opens.';
+          status.style.display = 'block';
+        } else {
           status.textContent = 'Something went wrong. Please try again.';
           status.style.display = 'block';
-        });
+        }
+      })
+      .catch(function () {
+        status.textContent = 'Something went wrong. Please try again.';
+        status.style.display = 'block';
+      });
     });
   })();
 </script>
