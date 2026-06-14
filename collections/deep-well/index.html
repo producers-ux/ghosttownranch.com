@@ -75,13 +75,20 @@
 
   /* ── HERO (the descent) ── */
   .hero {
+    position: relative;
     min-height: 88vh; display: flex; flex-direction: column; justify-content: center;
     padding: 160px 48px 100px;
     background:
-      radial-gradient(120% 90% at 50% 0%, rgba(155,122,63,0.28) 0%, rgba(26,21,18,0) 55%),
-      linear-gradient(180deg, #211b16 0%, #1A1512 45%, #15110d 100%);
+      linear-gradient(180deg, rgba(26,21,18,0.48) 0%, rgba(26,21,18,0.38) 45%, rgba(21,17,13,0.86) 100%),
+      url('../../deepwellhero.jpg');
+    background-size: cover;
+    background-position: center 35%;
+    background-repeat: no-repeat;
     color: var(--parchment);
     text-align: center;
+  }
+  .hero__label, .hero__title, .hero__tagline, .hero__sub, .hero__scroll {
+    text-shadow: 0 1px 28px rgba(0,0,0,0.55);
   }
   .hero__label {
     font-family: var(--label); font-size: 11px; font-weight: 400;
