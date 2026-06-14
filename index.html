@@ -4008,5 +4008,27 @@
   </div>
 </div>
 
+  <script>
+  /* Open the right view when arriving from the shared nav on other pages */
+  (function(){
+    function applyHash(){
+      var h = location.hash;
+      if(!h) return;
+      if(h.indexOf('#shop')===0){
+        if(typeof showPage==='function') showPage('catalog');
+        var label = h==='#shop-fragrance' ? 'Fragrance + Home' : (h==='#shop-skin' ? 'Body + Skin' : null);
+        var cat = h==='#shop-fragrance' ? 'fragrance' : (h==='#shop-skin' ? 'skin' : 'all');
+        var btn = label
+          ? Array.from(document.querySelectorAll('.filter-btn')).find(function(b){return b.textContent.trim()===label;})
+          : document.querySelector('.filter-btn');
+        if(typeof filterProducts==='function' && btn) filterProducts(cat, btn);
+      } else if(h==='#wholesale'){
+        if(typeof showPage==='function') showPage('wholesale');
+      }
+    }
+    window.addEventListener('DOMContentLoaded', applyHash);
+    window.addEventListener('hashchange', applyHash);
+  })();
+  </script>
 </body>
 </html>
