@@ -428,6 +428,45 @@
     .share-confirm.visible { opacity: 1; }
 
     /* product description */
+    .pair-callout {
+      display: block;
+      text-decoration: none;
+      border: 1px solid rgba(196,180,154,0.3);
+      padding: 16px 18px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .pair-callout:hover {
+      border-color: var(--dust);
+      background: rgba(196,180,154,0.06);
+    }
+    .pair-callout__eyebrow {
+      display: block;
+      font-family: var(--ff-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ember);
+      margin-bottom: 6px;
+    }
+    .pair-callout__text {
+      display: block;
+      font-family: var(--ff-body);
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--dust);
+      margin-bottom: 6px;
+    }
+    .pair-callout__link {
+      display: inline-block;
+      font-family: var(--ff-body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--parchment);
+    }
+
     .product-description {
       font-size: 15px;
       line-height: 1.75;
@@ -847,6 +886,13 @@
           Available at Shoppe Object Nourish · August 2026 · Javits Center
         </div>
 
+        <!-- Lip + Eye cross-sell -->
+        <a class="pair-callout" id="pair-callout" href="#" style="display:none">
+          <span class="pair-callout__eyebrow">Lip + Eye</span>
+          <span class="pair-callout__text" id="pair-callout-text"></span>
+          <span class="pair-callout__link" id="pair-callout-link"></span>
+        </a>
+
         <!-- Share -->
         <div class="share-row">
           <button class="share-btn" id="share-btn">Copy Link</button>
@@ -941,6 +987,23 @@ const CERTS = [
 
 // Products that are Coming Soon — disable ATC
 const COMING_SOON_HANDLES = ['still-air-natural-deodorant', 'the-wash-house', 'long-range-endurance-skincare-collection', 'the-field-kit'];
+
+// Lip + Eye cross-sell — show on each product, point to its partner ($17 off both at checkout)
+const PAIR_PROMO = {
+  'long-shot-peptide-mascara':   { partner: 'drawn-line-matte-lip-color', name: 'Drawn Line Lip' },
+  'drawn-line-matte-lip-color':  { partner: 'long-shot-peptide-mascara',  name: 'Long Shot Mascara' },
+};
+function setupPairCallout(handle) {
+  const el = document.getElementById('pair-callout');
+  if (!el) return;
+  const promo = PAIR_PROMO[handle];
+  if (!promo) { el.style.display = 'none'; return; }
+  el.href = '/products/?handle=' + promo.partner;
+  document.getElementById('pair-callout-text').textContent =
+    'Wear it with ' + promo.name + '. Buy both, save $17 at checkout.';
+  document.getElementById('pair-callout-link').textContent = 'Shop ' + promo.name + ' \u2192';
+  el.style.display = 'block';
+}
 
 // ═══════════════════════════════════════════════════════════════
 //  CART STATE
@@ -1174,6 +1237,7 @@ async function fetchFill(excludeHandles) {
 function renderProduct(product) {
   const handle = product.handle;
   const isComingSoon = COMING_SOON_HANDLES.includes(handle);
+  setupPairCallout(handle);
 
   // Meta
   document.title = `${product.title} — Ghost Town Ranch`;
