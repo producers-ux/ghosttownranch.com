@@ -1239,7 +1239,7 @@ function renderProduct(product) {
 
   // Candles with colored wax get a different label
   // Exact Shopify handles for colored-wax candles
-  const WAX_CANDLE_HANDLES = ['the-votive-single', 'soy-wax-candle-wild-flower', 'the-slow-candle', 'the-wander-all-six-scents'];
+  const WAX_CANDLE_HANDLES = ['the-votive-single', 'soy-wax-candle-wild-flower', 'the-slow-candle', 'the-votive-candle-set-of-6'];
   const isWaxCandle = WAX_CANDLE_HANDLES.includes(product.handle);
   const selectorLabelEl = document.querySelector('.selector-label');
 
@@ -1498,6 +1498,183 @@ async function renderRelated(product) {
 //    ghosttownranch.com/products/the-votive
 //    ghosttownranch.com/products/ranch-water-body-linen-fragrance
 // ═══════════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════════════
+//  THE RITUAL — BUNDLE (Ranch Water + The Slow, one scent)
+// ═══════════════════════════════════════════════════════════════
+// Not a single Shopify product. One scent selection adds two line
+// items — Ranch Water + The Slow in the matching scent — to the cart.
+// Variant IDs are anchored by scent and do not change.
+const RITUAL = {
+  title: 'The Ritual',
+  subtitle: 'One scent. The whole day in it.',
+  category: 'Fragrance + Home',
+  priceBundle: 128,   // Ranch Water $88 + The Slow $54 = $142, ~10% off
+  priceRegular: 142,
+  pairs: [
+    { scent: 'Rough Hewn', ranchWater: '51730077090088', theSlow: '51730076467496' },
+    { scent: 'Hang Dried', ranchWater: '51730077122856', theSlow: '51730076500264' },
+    { scent: 'Ember',      ranchWater: '51730077155624', theSlow: '51730076533032' },
+    { scent: 'Graze',      ranchWater: '51730077188392', theSlow: '51730076565800' },
+    { scent: 'Flax',       ranchWater: '51730077221160', theSlow: '51730076598568' },
+    { scent: 'Dusk',       ranchWater: '51730077253928', theSlow: '51730076631336' },
+  ],
+  desc: `
+    <p>One scent, carried from the shower to the pillow. Ranch Water for the day. The Slow for the evening.</p>
+    <p><strong>After the shower.</strong> Ranch Water on skin. The day starts the way the land smells.</p>
+    <p><strong>Through the day.</strong> A mist into the room, over the linens. It carries.</p>
+    <p><strong>Evening.</strong> Strike the match. The scent goes from spritz to slow burn.</p>
+    <p><strong>Before bed.</strong> Ranch Water on the pillow, then dark.</p>
+    <p>The pair, $14 off. $142 separately.</p>
+  `,
+};
+
+async function addBundleToCart(variantA, variantB) {
+  if (!cart.id || cartLoading) return;
+  cartLoading = true;
+  const btn = document.getElementById('atc-btn');
+  btn.classList.add('loading');
+  btn.textContent = 'Adding…';
+
+  const res = await storefrontFetch(`mutation {
+    cartLinesAdd(cartId: "${cart.id}", lines: [
+      { merchandiseId: "${variantA}", quantity: 1 },
+      { merchandiseId: "${variantB}", quantity: 1 }
+    ]) {
+      cart {
+        id checkoutUrl
+        lines(first: 50) {
+          edges { node {
+            id quantity
+            merchandise { ... on ProductVariant {
+              id title price { amount }
+              image { url altText }
+              product { title }
+            }}
+          }}
+        }
+      }
+    }
+  }`);
+
+  const c = res?.data?.cartLinesAdd?.cart;
+  if (c) {
+    cart.id = c.id;
+    cart.checkoutUrl = c.checkoutUrl;
+    cart.lines = c.lines.edges.map(e => e.node);
+    renderCart();
+    openCart();
+  }
+
+  btn.classList.remove('loading');
+  btn.textContent = 'Add the Ritual to Cart';
+  cartLoading = false;
+}
+
+async function renderRitualBundle() {
+  let current = RITUAL.pairs[0];
+
+  // Meta
+  document.title = `${RITUAL.title} — Ghost Town Ranch`;
+  const pageUrl = 'https://ghosttownranch.com/products/the-ritual';
+  document.getElementById('og-title').content = `${RITUAL.title} — Ghost Town Ranch`;
+  document.getElementById('og-description').content = RITUAL.subtitle;
+  document.getElementById('og-url').content = pageUrl;
+  document.getElementById('canonical').href = pageUrl;
+
+  // Breadcrumb, eyebrow, title, subtitle, price
+  document.getElementById('bc-category').textContent = RITUAL.category;
+  document.getElementById('bc-title').textContent = RITUAL.title;
+  document.getElementById('product-tag').textContent = RITUAL.category;
+  document.getElementById('product-title').textContent = RITUAL.title;
+  document.getElementById('product-subtitle').textContent = RITUAL.subtitle;
+  document.getElementById('product-price').textContent = `$${RITUAL.priceBundle}`;
+
+  // Images — pulled live from the two component variants (no handle needed)
+  try {
+    const imgRes = await storefrontFetch(`{
+      nodes(ids: ["${current.ranchWater}", "${current.theSlow}"]) {
+        ... on ProductVariant {
+          image { url altText }
+          product { title featuredImage { url altText } }
+        }
+      }
+    }`);
+    const nodes = (imgRes?.data?.nodes || []).filter(Boolean);
+    const imgs = nodes.map(n => n.image?.url || n.product?.featuredImage?.url).filter(Boolean);
+    const mainImg = document.getElementById('main-image');
+    if (imgs[0]) {
+      mainImg.src = imgs[0];
+      mainImg.alt = RITUAL.title;
+      document.getElementById('og-image').content = imgs[0];
+    }
+    if (imgs.length > 1) {
+      const thumbsWrap = document.getElementById('thumbs');
+      thumbsWrap.innerHTML = imgs.map((u, i) =>
+        `<img class="thumb${i === 0 ? ' active' : ''}" src="${u}" data-src="${u}" alt="" />`).join('');
+      thumbsWrap.querySelectorAll('.thumb').forEach(t => t.addEventListener('click', () => {
+        mainImg.src = t.dataset.src;
+        thumbsWrap.querySelectorAll('.thumb').forEach(x => x.classList.remove('active'));
+        t.classList.add('active');
+      }));
+    }
+  } catch (e) { /* images non-critical */ }
+
+  // Scent picker — same markup/classes as the standard PDP so swatches + styling match
+  const variantWrap = document.getElementById('variant-wrap');
+  const variantGrid = document.getElementById('variant-grid');
+  variantWrap.style.display = 'block';
+  document.querySelector('.selector-label').innerHTML = 'Scent — <span id="selected-variant-label"></span>';
+  const selectedLabel = document.getElementById('selected-variant-label');
+  selectedLabel.textContent = current.scent;
+
+  variantGrid.innerHTML = RITUAL.pairs.map((p, i) => {
+    const color = WAX_COLORS[p.scent];
+    const swatch = color ? `<span class="scent-swatch" style="background:${color}"></span>` : '';
+    return `<button class="variant-btn${i === 0 ? ' selected' : ''}" data-index="${i}">${swatch}${p.scent}</button>`;
+  }).join('');
+
+  variantGrid.querySelectorAll('.variant-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      variantGrid.querySelectorAll('.variant-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      current = RITUAL.pairs[parseInt(btn.dataset.index, 10)];
+      selectedLabel.textContent = current.scent;
+    });
+  });
+
+  // ATC — adds both line items in one mutation
+  const atcBtn = document.getElementById('atc-btn');
+  atcBtn.textContent = 'Add the Ritual to Cart';
+  atcBtn.addEventListener('click', () => addBundleToCart(current.ranchWater, current.theSlow));
+
+  // Share
+  document.getElementById('share-btn').addEventListener('click', () => {
+    navigator.clipboard.writeText(pageUrl).then(() => {
+      const c = document.getElementById('share-confirm');
+      c.classList.add('visible');
+      setTimeout(() => c.classList.remove('visible'), 2200);
+    });
+  });
+
+  // Description + certs
+  document.getElementById('product-description').innerHTML = RITUAL.desc;
+  document.getElementById('cert-row').innerHTML = [
+    'Small-Batch · Made in USA',
+    'Vegan · Cruelty-Free',
+    'No Dyes · No Parabens · No Phthalates',
+  ].map(c => `<span class="cert-badge">${c}</span>`).join('');
+
+  // Show page (same transition as renderProduct)
+  document.getElementById('loading').style.display = 'none';
+  const page = document.getElementById('product-page');
+  page.style.display = 'block';
+  page.style.opacity = 0;
+  requestAnimationFrame(() => {
+    page.style.transition = 'opacity 0.4s';
+    page.style.opacity = 1;
+  });
+}
+
 async function init() {
   await initCart();
 
@@ -1509,6 +1686,12 @@ async function init() {
   if (!handle) {
     // No handle — redirect to homepage
     window.location.href = '/';
+    return;
+  }
+
+  // The Ritual — a two-product bundle (Ranch Water + The Slow), not a single Shopify product
+  if (handle === 'the-ritual') {
+    await renderRitualBundle();
     return;
   }
 
