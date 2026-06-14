@@ -1537,8 +1537,8 @@ async function addBundleToCart(variantA, variantB) {
 
   const res = await storefrontFetch(`mutation {
     cartLinesAdd(cartId: "${cart.id}", lines: [
-      { merchandiseId: "${variantA}", quantity: 1 },
-      { merchandiseId: "${variantB}", quantity: 1 }
+      { merchandiseId: "gid://shopify/ProductVariant/${variantA}", quantity: 1 },
+      { merchandiseId: "gid://shopify/ProductVariant/${variantB}", quantity: 1 }
     ]) {
       cart {
         id checkoutUrl
@@ -1592,7 +1592,7 @@ async function renderRitualBundle() {
   // Images — pulled live from the two component variants (no handle needed)
   try {
     const imgRes = await storefrontFetch(`{
-      nodes(ids: ["${current.ranchWater}", "${current.theSlow}"]) {
+      nodes(ids: ["gid://shopify/ProductVariant/${current.ranchWater}", "gid://shopify/ProductVariant/${current.theSlow}"]) {
         ... on ProductVariant {
           image { url altText }
           product { title featuredImage { url altText } }
