@@ -1225,7 +1225,7 @@
 
 
   /* ── SCENT GUIDE ── */
-  #page-catalog .scent-guide {
+  #page-catalog .scent-guide, #page-brand .scent-guide {
     border-top: var(--rule);
     border-bottom: var(--rule);
     padding: 4rem 2.5rem;
@@ -1233,20 +1233,20 @@
   }
 
   /* Scent card swatch + number */
-  #page-catalog .scent-card-top {
+  #page-catalog .scent-card-top, #page-brand .scent-card-top {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-bottom: 1rem;
   }
-  #page-catalog .scent-swatch {
+  #page-catalog .scent-swatch, #page-brand .scent-swatch {
     width: 36px;
     height: 36px;
     border-radius: 50%;
     flex-shrink: 0;
     box-shadow: inset 0 0 0 1px rgba(30,28,24,0.1);
   }
-  #page-catalog .scent-num {
+  #page-catalog .scent-num, #page-brand .scent-num {
     font-family: var(--serif);
     font-size: 0.62rem;
     letter-spacing: 0.25em;
@@ -1254,31 +1254,31 @@
     opacity: 0.6;
   }
 
-  #page-catalog .scent-guide-header {
+  #page-catalog .scent-guide-header, #page-brand .scent-guide-header {
     display: flex;
     align-items: baseline;
     gap: 2rem;
     margin-bottom: 2.5rem;
   }
-  #page-catalog .scent-guide-label {
+  #page-catalog .scent-guide-label, #page-brand .scent-guide-label {
     font-size: 0.72rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--army);
   }
-  #page-catalog .scent-guide-sub {
+  #page-catalog .scent-guide-sub, #page-brand .scent-guide-sub {
     font-family: var(--serif);
     font-style: italic;
     font-size: 1rem;
     color: rgba(244,239,230,0.35);
     letter-spacing: 0.04em;
   }
-  #page-catalog .scent-guide-grid {
+  #page-catalog .scent-guide-grid, #page-brand .scent-guide-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0;
   }
-  #page-catalog .scent-card {
+  #page-catalog .scent-card, #page-brand .scent-card {
     padding: 2rem 2.5rem 2rem 0;
     border-right: var(--rule);
     border-bottom: var(--rule);
@@ -1286,37 +1286,37 @@
     flex-direction: column;
     gap: 0.5rem;
   }
-  #page-catalog .scent-card:nth-child(3n) {
+  #page-catalog .scent-card, #page-brand .scent-card:nth-child(3n) {
     border-right: none;
     padding-right: 0;
   }
-  #page-catalog .scent-card:nth-child(4),
-  #page-catalog .scent-card:nth-child(5),
-  #page-catalog .scent-card:nth-child(6) {
+  #page-catalog .scent-card, #page-brand .scent-card:nth-child(4),
+  #page-catalog .scent-card, #page-brand .scent-card:nth-child(5),
+  #page-catalog .scent-card, #page-brand .scent-card:nth-child(6) {
     border-bottom: none;
     padding-top: 2rem;
   }
-  #page-catalog .scent-name {
+  #page-catalog .scent-name, #page-brand .scent-name {
     font-family: var(--serif);
     font-size: 1.5rem;
     font-weight: 400;
     color: var(--ink);
     letter-spacing: 0.02em;
   }
-  #page-catalog .scent-note {
+  #page-catalog .scent-note, #page-brand .scent-note {
     font-size: 0.72rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--army);
     margin-bottom: 0.5rem;
   }
-  #page-catalog .scent-card {
+  #page-catalog .scent-card, #page-brand .scent-card {
     cursor: pointer;
   }
-  #page-catalog .scent-card:hover .scent-name {
+  #page-catalog .scent-card, #page-brand .scent-card:hover .scent-name {
     opacity: 0.7;
   }
-  #page-catalog .scent-toggle {
+  #page-catalog .scent-toggle, #page-brand .scent-toggle {
     margin-top: auto;
     padding-top: 0.75rem;
     font-size: 0.65rem;
@@ -1330,17 +1330,17 @@
     transition: opacity 0.2s;
     user-select: none;
   }
-  #page-catalog .scent-card:hover .scent-toggle { opacity: 0.9; }
-  #page-catalog .scent-toggle-icon {
+  #page-catalog .scent-card, #page-brand .scent-card:hover .scent-toggle { opacity: 0.9; }
+  #page-catalog .scent-toggle-icon, #page-brand .scent-toggle-icon {
     font-size: 1rem;
     line-height: 1;
     font-style: normal;
     transition: transform 0.25s ease;
   }
-  #page-catalog .scent-card.open .scent-toggle-icon {
+  #page-catalog .scent-card, #page-brand .scent-card.open .scent-toggle-icon {
     transform: rotate(45deg);
   }
-  #page-catalog .scent-desc {
+  #page-catalog .scent-desc, #page-brand .scent-desc {
     font-family: var(--serif);
     font-size: 0.95rem;
     line-height: 1.75;
@@ -1349,38 +1349,38 @@
     display: none;
     padding-top: 0.5rem;
   }
-  #page-catalog .scent-card.open .scent-desc {
+  #page-catalog .scent-card, #page-brand .scent-card.open .scent-desc {
     display: block;
   }
 
   @media (max-width: 900px) {
-    #page-catalog .scent-guide-grid { grid-template-columns: repeat(2, 1fr); }
-    #page-catalog .scent-card:nth-child(3n) { border-right: var(--rule); padding-right: 2rem; }
-    #page-catalog .scent-card:nth-child(2n) { border-right: none; padding-right: 0; }
-    #page-catalog .scent-card:nth-child(4),
-    #page-catalog .scent-card:nth-child(5),
-    #page-catalog .scent-card:nth-child(6) { border-bottom: var(--rule); }
-    #page-catalog .scent-card:nth-child(5),
-    #page-catalog .scent-card:nth-child(6) { border-bottom: none; }
+    #page-catalog .scent-guide-grid, #page-brand .scent-guide-grid { grid-template-columns: repeat(2, 1fr); }
+    #page-catalog .scent-card, #page-brand .scent-card:nth-child(3n) { border-right: var(--rule); padding-right: 2rem; }
+    #page-catalog .scent-card, #page-brand .scent-card:nth-child(2n) { border-right: none; padding-right: 0; }
+    #page-catalog .scent-card, #page-brand .scent-card:nth-child(4),
+    #page-catalog .scent-card, #page-brand .scent-card:nth-child(5),
+    #page-catalog .scent-card, #page-brand .scent-card:nth-child(6) { border-bottom: var(--rule); }
+    #page-catalog .scent-card, #page-brand .scent-card:nth-child(5),
+    #page-catalog .scent-card, #page-brand .scent-card:nth-child(6) { border-bottom: none; }
   }
   @media (max-width: 580px) {
-    #page-catalog .scent-guide { padding: 3rem 1.25rem; }
+    #page-catalog .scent-guide, #page-brand .scent-guide { padding: 3rem 1.25rem; }
   
   /* Scent card swatch + number */
-  #page-catalog .scent-card-top {
+  #page-catalog .scent-card-top, #page-brand .scent-card-top {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-bottom: 1rem;
   }
-  #page-catalog .scent-swatch {
+  #page-catalog .scent-swatch, #page-brand .scent-swatch {
     width: 36px;
     height: 36px;
     border-radius: 50%;
     flex-shrink: 0;
     box-shadow: inset 0 0 0 1px rgba(30,28,24,0.1);
   }
-  #page-catalog .scent-num {
+  #page-catalog .scent-num, #page-brand .scent-num {
     font-family: var(--serif);
     font-size: 0.62rem;
     letter-spacing: 0.25em;
@@ -1388,12 +1388,11 @@
     opacity: 0.6;
   }
 
-  #page-catalog .scent-guide-header { flex-direction: column; gap: 0.5rem; }
-    #page-catalog .scent-guide-grid { grid-template-columns: 1fr; }
-    #page-catalog .scent-card { border-right: none !important; border-bottom: var(--rule) !important; padding-right: 0 !important; }
-    #page-catalog .scent-card:last-child { border-bottom: none !important; }
+  #page-catalog .scent-guide-header, #page-brand .scent-guide-header { flex-direction: column; gap: 0.5rem; }
+    #page-catalog .scent-guide-grid, #page-brand .scent-guide-grid { grid-template-columns: 1fr; }
+    #page-catalog .scent-card, #page-brand .scent-card { border-right: none !important; border-bottom: var(--rule) !important; padding-right: 0 !important; }
+    #page-catalog .scent-card, #page-brand .scent-card:last-child { border-bottom: none !important; }
   }
-
   /* Catalog footer (overrides base footer padding/border) */
   #page-catalog footer {
     padding: 2rem 2.5rem;
@@ -2347,6 +2346,26 @@
     <p class="brand-statement-desc" style="margin-top:28px;font-size:clamp(18px,2vw,24px);opacity:0.82;">Most brands stop at the surface. We go deeper. Soft Proof works the skin. Deep Well works the source. What you put on and what you take in, drawn from the same land.</p>
   </section>
 
+  <!-- ── FRAGRANCE + HOME (incl. Ritual scent guide) ── -->
+  <section class="ritual-strip" aria-label="Ritual">
+    <div class="ritual-strip-bg">
+      <!-- IMAGE: amber pump bottle against hang-dried botanicals and rope — use Screenshot_2026-05-25_134108 or production crop of same shoot -->
+      <img src="https://ghosttownranch.com/theritual.png" alt="Ghost Town Ranch ritual — desert botanicals, candle, fragrance" loading="lazy" decoding="async">
+    </div>
+    <div class="ritual-copy">
+      <div class="ritual-eyebrow">Ritual</div>
+      <span class="ritual-line">Six scents from the wide open. Candles, mist, diffuser — each one hand-poured or blended in small batches. Choose your scent below.</span>
+      <div class="ritual-scents">
+        <a class="ritual-scent" href="#scent-guide-home" style="text-decoration:none;"><span class="ritual-scent-dot" style="background:#c4955a"></span><span class="ritual-scent-name">Dusk</span><span class="ritual-scent-note">Palo Santo</span></a>
+        <a class="ritual-scent" href="#scent-guide-home" style="text-decoration:none;"><span class="ritual-scent-dot" style="background:#2d2926"></span><span class="ritual-scent-name">Ember</span><span class="ritual-scent-note">Charcoal &amp; Amber</span></a>
+        <a class="ritual-scent" href="#scent-guide-home" style="text-decoration:none;"><span class="ritual-scent-dot" style="background:#e8c87a"></span><span class="ritual-scent-name">Flax</span><span class="ritual-scent-note">Cotton &amp; Citrus</span></a>
+        <a class="ritual-scent" href="#scent-guide-home" style="text-decoration:none;"><span class="ritual-scent-dot" style="background:#7c8c6a"></span><span class="ritual-scent-name">Graze</span><span class="ritual-scent-note">Sweetgrass &amp; Sage</span></a>
+        <a class="ritual-scent" href="#scent-guide-home" style="text-decoration:none;"><span class="ritual-scent-dot" style="background:#6b4c3b"></span><span class="ritual-scent-name">Rough Hewn</span><span class="ritual-scent-note">Cade &amp; Cedarwood</span></a>
+        <a class="ritual-scent" href="#scent-guide-home" style="text-decoration:none;"><span class="ritual-scent-dot" style="background:#b8b5c8"></span><span class="ritual-scent-name">Hang Dried</span><span class="ritual-scent-note">White Sage &amp; Lavender</span></a>
+      </div>
+    </div>
+  </section>
+
   <section class="product-section" aria-label="Fragrance and Home Collection">
     <div class="product-image" onclick="showPage('catalog'); filterProducts('fragrance', document.querySelectorAll('.filter-btn')[1]);" style="cursor:pointer;" role="button" aria-label="Shop Fragrance and Home collection">
       <div class="product-image-inner">
@@ -2368,6 +2387,78 @@
       <div class="product-rule"></div>
       <p class="product-desc">Scent as landscape. Mist, flame, and air. Six open range expressions across body spray, candle, diffuser, and linen mist — all from the wide open.</p>
       <a class="explore-btn" onclick="showPage('catalog'); filterProducts('fragrance', document.querySelectorAll('.filter-btn')[1]);">Explore Fragrance + Home</a>
+    </div>
+  </section>
+
+  <!-- SCENT GUIDE -->
+  <section class="scent-guide" id="scent-guide-home">
+    <div class="scent-guide-header">
+      <div>
+        <div class="scent-guide-label">Six Open Range Expressions — One Color for Each</div>
+        <div class="scent-guide-sub">One fragrance system. Six scents. Every candle — The Votive, The Wander, and The Slow — is poured in the color of its scent. The wax tells you what's inside before you light it. The Monument stands apart: natural wax, the same six scents, a different register.</div>
+      </div>
+    </div>
+    <div class="scent-guide-grid">
+      <div class="scent-card" onclick="this.classList.toggle('open')">
+        <div class="scent-card-top">
+          <div class="scent-swatch" style="background:#b8b5c8;"></div>
+          <div class="scent-num">01</div>
+        </div>
+        <div class="scent-name">Hang Dried</div>
+        <div class="scent-note">White Sage &amp; Lavender</div>
+        <div class="scent-desc">White sage, lavender, rosemary, a little cedar underneath. Clean without trying to smell like clean. <em style="color:var(--army);font-style:normal;font-size:0.85em;">Votive: chalk white wax.</em></div>
+        <div class="scent-toggle"><span class="scent-toggle-icon">+</span> Scent notes</div>
+      </div>
+      <div class="scent-card" onclick="this.classList.toggle('open')">
+        <div class="scent-card-top">
+          <div class="scent-swatch" style="background:#6b4c3b;"></div>
+          <div class="scent-num">02</div>
+        </div>
+        <div class="scent-name">Rough Hewn</div>
+        <div class="scent-note">Cade &amp; Cedarwood</div>
+        <div class="scent-desc">Sweet smoke and cedarwood. Sandalwood underneath, leather at the edges. Slow burn. <em style="color:var(--army);font-style:normal;font-size:0.85em;">Votive: raw linen wax.</em></div>
+        <div class="scent-toggle"><span class="scent-toggle-icon">+</span> Scent notes</div>
+      </div>
+      <div class="scent-card" onclick="this.classList.toggle('open')">
+        <div class="scent-card-top">
+          <div class="scent-swatch" style="background:#c4955a;"></div>
+          <div class="scent-num">03</div>
+        </div>
+        <div class="scent-name">Dusk</div>
+        <div class="scent-note">Palo Santo</div>
+        <div class="scent-desc">Palo santo and dry earth. Ancient and mineral. The canyon wall after a long afternoon of sun. <em style="color:var(--army);font-style:normal;font-size:0.85em;">Votive: warm amber wax.</em></div>
+        <div class="scent-toggle"><span class="scent-toggle-icon">+</span> Scent notes</div>
+      </div>
+      <div class="scent-card" onclick="this.classList.toggle('open')">
+        <div class="scent-card-top">
+          <div class="scent-swatch" style="background:#2d2926;"></div>
+          <div class="scent-num">04</div>
+        </div>
+        <div class="scent-name">Ember</div>
+        <div class="scent-note">Charcoal &amp; Amber</div>
+        <div class="scent-desc">Dark and smoky with a deep resin finish. The canyon after rain. <em style="color:var(--army);font-style:normal;font-size:0.85em;">Votive: dark charcoal wax.</em></div>
+        <div class="scent-toggle"><span class="scent-toggle-icon">+</span> Scent notes</div>
+      </div>
+      <div class="scent-card" onclick="this.classList.toggle('open')">
+        <div class="scent-card-top">
+          <div class="scent-swatch" style="background:#7c8c6a;"></div>
+          <div class="scent-num">05</div>
+        </div>
+        <div class="scent-name">Graze</div>
+        <div class="scent-note">Sweetgrass &amp; Sage</div>
+        <div class="scent-desc">Sweetgrass and sage. River-clean and sharp. The good scrub after a day of actual work. <em style="color:var(--army);font-style:normal;font-size:0.85em;">Votive: sage green wax.</em></div>
+        <div class="scent-toggle"><span class="scent-toggle-icon">+</span> Scent notes</div>
+      </div>
+      <div class="scent-card" onclick="this.classList.toggle('open')">
+        <div class="scent-card-top">
+          <div class="scent-swatch" style="background:#e8c87a;"></div>
+          <div class="scent-num">06</div>
+        </div>
+        <div class="scent-name">Flax</div>
+        <div class="scent-note">Cotton &amp; Citrus</div>
+        <div class="scent-desc">Lemon, cotton blossom, blonde woods. Before there was bleach, there was the sun. <em style="color:var(--army);font-style:normal;font-size:0.85em;">Votive: straw gold wax.</em></div>
+        <div class="scent-toggle"><span class="scent-toggle-icon">+</span> Scent notes</div>
+      </div>
     </div>
   </section>
 
@@ -2424,28 +2515,6 @@
       <div class="product-rule"></div>
       <p class="product-desc">Beauty from within. The line that closes the loop. Soft Proof works the skin, Deep Well works the source, drawn from the same land. Shipping fall 2026. Join the list.</p>
       <a class="explore-btn" href="/collections/deep-well/">Enter Deep Well →</a>
-    </div>
-  </section>
-
-  <!-- ── RITUAL ── -->
-  <section class="ritual-strip" aria-label="Ritual">
-    <div class="ritual-strip-bg">
-      <!-- IMAGE: amber pump bottle against hang-dried botanicals and rope — use Screenshot_2026-05-25_134108 or production crop of same shoot -->
-      <img src="https://ghosttownranch.com/theritual.png" alt="Ghost Town Ranch ritual — desert botanicals, candle, fragrance" loading="lazy" decoding="async">
-    </div>
-    <div class="ritual-copy">
-      <div class="ritual-eyebrow">Ritual</div>
-      <span class="ritual-line">Six scents from the wide open. Candles, mist, diffuser — each one hand-poured or blended in small batches. Choose your scent below.</span>
-      <div class="ritual-scents">
-        <a class="ritual-scent" href="/ritual/" style="text-decoration:none;"><span class="ritual-scent-dot" style="background:#c4955a"></span><span class="ritual-scent-name">Dusk</span><span class="ritual-scent-note">Palo Santo</span></a>
-        <a class="ritual-scent" href="/ritual/" style="text-decoration:none;"><span class="ritual-scent-dot" style="background:#2d2926"></span><span class="ritual-scent-name">Ember</span><span class="ritual-scent-note">Charcoal &amp; Amber</span></a>
-        <a class="ritual-scent" href="/ritual/" style="text-decoration:none;"><span class="ritual-scent-dot" style="background:#e8c87a"></span><span class="ritual-scent-name">Flax</span><span class="ritual-scent-note">Cotton &amp; Citrus</span></a>
-        <a class="ritual-scent" href="/ritual/" style="text-decoration:none;"><span class="ritual-scent-dot" style="background:#7c8c6a"></span><span class="ritual-scent-name">Graze</span><span class="ritual-scent-note">Sweetgrass &amp; Sage</span></a>
-        <a class="ritual-scent" href="/ritual/" style="text-decoration:none;"><span class="ritual-scent-dot" style="background:#6b4c3b"></span><span class="ritual-scent-name">Rough Hewn</span><span class="ritual-scent-note">Cade &amp; Cedarwood</span></a>
-        <a class="ritual-scent" href="/ritual/" style="text-decoration:none;"><span class="ritual-scent-dot" style="background:#b8b5c8"></span><span class="ritual-scent-name">Hang Dried</span><span class="ritual-scent-note">White Sage &amp; Lavender</span></a>
-      </div>
-
-
     </div>
   </section>
 
