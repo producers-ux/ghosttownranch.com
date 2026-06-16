@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ghost Town Ranch — Frontier Modernism Skincare, Fragrance &amp; Home Goods</title>
-<meta name="description" content="Ghost Town Ranch — clean, small-batch skincare, body care, and wellness rituals from the high desert. From the wide open, for every day.">
-<meta name="keywords" content="desert skincare, frontier modernism, COSMOS certified skincare, American West fragrance, small batch skincare, body linen fragrance, California desert brand, Twentynine Palms, Palm Springs skincare, high desert skincare">
+<title>Ghost Town Ranch — Frontier Modernism Skincare, Home &amp; Wellness</title>
+<meta name="description" content="Ghost Town Ranch — small-batch skincare, home, and wellness for a new American West. Born of the high desert. COSMOS-certified skincare, no parabens or synthetic dyes.">
+<meta name="keywords" content="Palm Springs skincare, frontier modernism, COSMOS certified skincare, high desert skincare, small batch skincare, desert home goods, desert wellness, clean beauty Palm Springs, American West skincare, Twentynine Palms">
 <link rel="canonical" href="https://ghosttownranch.com/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ghosttownranch.com/">
-<meta property="og:title" content="Ghost Town Ranch — Frontier Modernism Skincare &amp; Fragrance">
-<meta property="og:description" content="Ghost Town Ranch — clean, small-batch skincare, body care, and wellness rituals from the high desert. From the wide open, for every day.">
+<meta property="og:title" content="Ghost Town Ranch — Frontier Modernism Skincare, Home &amp; Wellness">
+<meta property="og:description" content="Small-batch skincare, home, and wellness for a new American West. Born of the high desert. COSMOS-certified skincare.">
 <meta property="og:image" content="https://ghosttownranch.com/herogtr.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -21,8 +21,8 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ghost Town Ranch — Frontier Modernism Skincare &amp; Fragrance">
-<meta name="twitter:description" content="Clean, small-batch skincare, body care, and wellness rituals from the high desert. From the wide open, for every day.">
+<meta name="twitter:title" content="Ghost Town Ranch — Frontier Modernism Skincare, Home &amp; Wellness">
+<meta name="twitter:description" content="Small-batch skincare, home, and wellness for a new American West. Born of the high desert. COSMOS-certified skincare.">
 <meta name="twitter:image" content="https://ghosttownranch.com/herogtr.png">
 
 <!-- Structured Data: Brand -->
@@ -34,7 +34,7 @@
       "@type": "Brand",
       "name": "Ghost Town Ranch",
       "alternateName": "GTR",
-      "description": "Ghost Town Ranch is a small-batch COSMOS-certified skincare, fragrance, and home goods brand rooted in the high desert of California. Founded in Twentynine Palms near Joshua Tree, the brand is built around Frontier Modernism — a design and formulation philosophy that draws from the open landscape, western heritage, and mid-century modernism of the American West. All skincare is third-party certified by ECOCERT under the COSMOS Natural or COSMOS Organic standard. No parabens, phthalates, or synthetic dyes.",
+      "description": "Ghost Town Ranch is a small-batch, COSMOS-certified skincare, home, and wellness brand born in the high desert of California. Founded in Twentynine Palms near Joshua Tree and now at home in Palm Springs, the brand is built around Frontier Modernism — the grit and self-reliance of the pioneer West drawn in the clean lines of desert modernism, made for a new American West. All skincare is third-party certified by ECOCERT under the COSMOS Natural or COSMOS Organic standard. No parabens, phthalates, or synthetic dyes.",
       "url": "https://ghosttownranch.com",
       "logo": "https://ghosttownranch.com/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png",
       "sameAs": ["https://instagram.com/ghosttownranch"],
@@ -44,6 +44,16 @@
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Twentynine Palms",
+          "addressRegion": "CA",
+          "addressCountry": "US"
+        }
+      },
+      "location": {
+        "@type": "Place",
+        "name": "Palm Springs, California",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Palm Springs",
           "addressRegion": "CA",
           "addressCountry": "US"
         }
@@ -362,6 +372,12 @@
     line-height: 1.5; letter-spacing: 0.01em;
     color: var(--warm-black); opacity: 0.9;
   }
+  .brand-statement-frontier {
+    margin-top: 26px; max-width: 600px;
+    font-size: 15px; line-height: 1.7; letter-spacing: 0.01em;
+    color: var(--warm-black); opacity: 0.74;
+  }
+  .brand-statement-frontier strong { font-weight: 600; opacity: 1; }
 
   /* ── PRODUCT SECTIONS (Brand page) ── */
   .product-section {
@@ -624,6 +640,16 @@
   }
   .w-hero-text p { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; opacity: 0.55; }
   .w-body { padding: 100px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+  .w-story { padding: 90px 48px; max-width: 860px; border-top: 1px solid var(--dust); }
+  .w-story-label {
+    font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+    opacity: 0.35; margin-bottom: 22px;
+  }
+  .w-story p {
+    font-family: var(--serif); font-size: clamp(20px, 2.1vw, 26px);
+    font-weight: 400; line-height: 1.6; letter-spacing: 0.01em;
+    color: var(--warm-black); opacity: 0.9;
+  }
   .w-block h3 {
     font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
     opacity: 0.35; margin-bottom: 22px;
@@ -1309,6 +1335,7 @@
 
     .w-hero { padding: 40px 24px; }
     .w-body { padding: 60px 24px; grid-template-columns: 1fr; gap: 40px; }
+    .w-story { padding: 56px 24px; }
     .w-stockists { padding: 48px 24px; grid-template-columns: 1fr 1fr; gap: 24px; }
     .w-cta { padding: 60px 24px; }
     hr.divider { margin: 0 24px; }
@@ -2213,6 +2240,7 @@
 
   <section class="brand-statement">
     <p class="brand-statement-desc">From the wide open. For every day.</p>
+    <p class="brand-statement-frontier"><strong>Frontier Modernism</strong> — the grit and self-reliance of the pioneer West, drawn in the clean lines of desert modernism. Built for the open country, at home in the modern one.</p>
   </section>
 
   <!-- ── FRAGRANCE + HOME ── -->
@@ -2397,7 +2425,7 @@
     <div class="catalog-meta">
       <p>Ghost Town Ranch · Palm Springs, CA</p>
       <p>Small-batch · COSMOS-certified · Frontier Modernism</p>
-      <p class="tagline">Clean rituals for skin, home, and wellness.<br>Rooted in the wide, open, light-filled spaces of the American West.</p>
+      <p class="tagline">Daily routines and rituals for skin and home —<br>born of the high desert, for a new American West.</p>
     </div>
   </header>
 
@@ -3113,10 +3141,15 @@
     </div>
   </section>
 
+  <section class="w-story">
+    <div class="w-story-label">Frontier Modernism</div>
+    <p>Palm Springs gave the world Desert Modernism — heat and light turned into clean lines and glass. Ghost Town Ranch began in the high desert near Joshua Tree, where the West is still raw and self-reliant, and is now at home in Palm Springs. Frontier Modernism is where those two worlds meet: pioneer grit and modern clarity, honest materials and a refined hand. It's how we formulate, how we design, and how we think about a life lived between the wide open and the world it opens onto.</p>
+  </section>
+
   <div class="w-body">
     <div class="w-block">
       <h3>For Trade Partners</h3>
-      <p>Ghost Town Ranch brings Frontier Modernism to retail — small-batch skincare, fragrance, and home goods made for boutique hotels, design-forward retail, and specialty stores. Accepted into Shoppe Object Nourish 2026.</p>
+      <p>Ghost Town Ranch brings Frontier Modernism to retail — small-batch skincare, home, and wellness made for boutique hotels, design-forward retail, and specialty stores. Accepted into Shoppe Object Nourish 2026.</p>
     </div>
     <div class="w-block">
       <h3>The Collection</h3>
