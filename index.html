@@ -2171,7 +2171,21 @@
 
   /* ══ PRODUCT DRAWER ══ */
   
+
+  /* ══ EMAIL SIGNUP ══ */
+  .gtr-signup-band { background: var(--ink); color: var(--cream); padding: 4rem 2rem; text-align: center; }
+  .gtr-signup-eyebrow { font-family: var(--sans); font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--army); margin: 0 0 1rem; }
+  .gtr-signup-band h3 { font-family: var(--serif); font-weight: 400; font-size: 1.7rem; line-height: 1.15; margin: 0 0 0.6rem; color: var(--cream); }
+  .gtr-signup-band .gtr-sub { font-family: var(--sans); font-size: 13px; line-height: 1.5; opacity: 0.7; max-width: 440px; margin: 0 auto 1.8rem; }
+  .gtr-signup { display: flex; align-items: center; max-width: 420px; margin: 0 auto; border-bottom: 1px solid rgba(242,237,228,0.4); }
+  .gtr-signup input[type=email] { flex: 1; background: transparent; border: none; color: var(--cream); font-family: var(--sans); font-size: 14px; letter-spacing: 0.02em; padding: 0.7rem 0.2rem; outline: none; }
+  .gtr-signup input[type=email]::placeholder { color: rgba(242,237,228,0.45); }
+  .gtr-signup button { background: transparent; border: none; color: var(--cream); font-family: var(--sans); font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; cursor: pointer; padding: 0.7rem 0.4rem; transition: color 0.2s ease; }
+  .gtr-signup button:hover { color: var(--army); }
+  .gtr-signup-msg { font-family: var(--sans); font-size: 13px; letter-spacing: 0.02em; color: var(--army); max-width: 420px; margin: 0 auto; }
 </style>
+  <!-- ══ KLAVIYO ONSITE ══ -->
+  <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=UTbZ3B"></script>
 </head>
 <body>
 
@@ -2395,6 +2409,18 @@
     </div>
   </section>
 
+
+  <!-- ══ EMAIL SIGNUP ══ -->
+  <section class="gtr-signup-band" aria-label="Newsletter signup">
+    <p class="gtr-signup-eyebrow">From the High Desert</p>
+    <h3>Join the list</h3>
+    <p class="gtr-sub">First word on new scents, small batches, and the showroom. Free shipping on your first order.</p>
+    <form class="gtr-signup" novalidate>
+      <input type="email" class="gtr-signup-email" placeholder="Email" aria-label="Email address" required>
+      <button type="submit">Join &rarr;</button>
+    </form>
+    <p class="gtr-signup-msg" hidden>You're on the list. Check your inbox.</p>
+  </section>
 
   <footer itemscope itemtype="https://schema.org/Organization">
     <div class="footer-left">
@@ -3040,6 +3066,18 @@
   </section>
 
   <!-- FOOTER -->
+  <!-- ══ EMAIL SIGNUP ══ -->
+  <section class="gtr-signup-band" aria-label="Newsletter signup">
+    <p class="gtr-signup-eyebrow">From the High Desert</p>
+    <h3>Join the list</h3>
+    <p class="gtr-sub">First word on new scents, small batches, and the showroom. Free shipping on your first order.</p>
+    <form class="gtr-signup" novalidate>
+      <input type="email" class="gtr-signup-email" placeholder="Email" aria-label="Email address" required>
+      <button type="submit">Join &rarr;</button>
+    </form>
+    <p class="gtr-signup-msg" hidden>You're on the list. Check your inbox.</p>
+  </section>
+
   <footer itemscope itemtype="https://schema.org/Organization">
     <div class="footer-left">
       <img src="/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="Ghost Town Ranch bull icon — Frontier Modernism">
@@ -3141,6 +3179,18 @@
     <h2>For wholesale pricing, minimum order quantities, and line sheets</h2>
     <a href="mailto:wholesale@ghosttownranch.com">wholesale@ghosttownranch.com</a>
   </div>
+
+  <!-- ══ EMAIL SIGNUP ══ -->
+  <section class="gtr-signup-band" aria-label="Newsletter signup">
+    <p class="gtr-signup-eyebrow">From the High Desert</p>
+    <h3>Join the list</h3>
+    <p class="gtr-sub">First word on new scents, small batches, and the showroom. Free shipping on your first order.</p>
+    <form class="gtr-signup" novalidate>
+      <input type="email" class="gtr-signup-email" placeholder="Email" aria-label="Email address" required>
+      <button type="submit">Join &rarr;</button>
+    </form>
+    <p class="gtr-signup-msg" hidden>You're on the list. Check your inbox.</p>
+  </section>
 
   <footer itemscope itemtype="https://schema.org/Organization">
     <div class="footer-left">
@@ -3850,6 +3900,33 @@
     window.addEventListener('DOMContentLoaded', applyHash);
     window.addEventListener('hashchange', applyHash);
   })();
+  </script>
+  <!-- ══ KLAVIYO SIGNUP HANDLER ══ -->
+  <script>
+  document.querySelectorAll('.gtr-signup').forEach(function(form){
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      var band = form.closest('.gtr-signup-band');
+      var email = (form.querySelector('.gtr-signup-email').value || '').trim();
+      if(!email) return;
+      try{
+        await fetch('https://a.klaviyo.com/client/subscriptions/?company_id=UTbZ3B', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'revision': '2024-10-15' },
+          body: JSON.stringify({
+            data: {
+              type: 'subscription',
+              attributes: { profile: { data: { type: 'profile', attributes: { email: email } } } },
+              relationships: { list: { data: { type: 'list', id: 'UbvnRU' } } }
+            }
+          })
+        });
+        form.hidden = true;
+        var msg = band && band.querySelector('.gtr-signup-msg');
+        if(msg) msg.hidden = false;
+      }catch(err){ console.error('Klaviyo signup error', err); }
+    });
+  });
   </script>
 </body>
 </html>
