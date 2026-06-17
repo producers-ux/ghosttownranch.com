@@ -1444,6 +1444,9 @@ function splitIngredients(html) {
 function buildSpecs(product, variants, ingredientsHtml) {
   const wrap = document.getElementById('specs-wrap');
   const type = (product.productType || '').toLowerCase();
+  const title = (product.title || '').toLowerCase();
+  const isFragranceSpray = title.includes('ranch water') || (type.includes('fragrance') && !type.includes('skin') && !type.includes('hair'));
+  const isHomeFragrance = type.includes('candle') || type.includes('diffuser') || isFragranceSpray;
 
   const specs = [];
 
@@ -1462,20 +1465,27 @@ function buildSpecs(product, variants, ingredientsHtml) {
 
   // Details
   const detailLines = [];
+  if (isHomeFragrance) {
+    detailLines.push('Skin-safe fragrances, hand-blended in the USA');
+    detailLines.push('Made from the finest fragrances and ingredients');
+  }
   if (type.includes('candle')) {
     detailLines.push('Cotton wick — no lead');
     detailLines.push('Colored wax — each scent poured in its own color');
     detailLines.push('Hand-poured in small batches');
-    detailLines.push('Made in the USA');
   }
   if (type.includes('diffuser')) {
     detailLines.push('Amber glass vessel — refillable');
     detailLines.push('Flip reeds every 7–10 days');
     detailLines.push('Lasts 3–4 months');
   }
-  if (type.includes('skin') || type.includes('body')) {
+  if (isFragranceSpray) {
+    detailLines.push('Made with care for the body — can also be used on linens or as an air freshener');
+    detailLines.push('Made from perfumer\'s alcohol, fragrance oil, and distilled water');
+    detailLines.push('Free of dyes, parabens, and phthalates');
+  }
+  if (!isHomeFragrance && (type.includes('skin') || type.includes('body'))) {
     detailLines.push('COSMOS Certified by ECOCERT — third-party verified');
-    detailLines.push('Manufactured by Selfnamed');
     detailLines.push('Vegan · Cruelty-Free');
     detailLines.push('Free of parabens, phthalates, and synthetic dyes');
   }
