@@ -834,6 +834,35 @@
     border-bottom: var(--rule);
     display: flex; gap: 2rem; align-items: center;
   }
+  #page-catalog .catalog-search-wrap {
+    position: relative;
+    padding: 1.75rem 2.5rem 0.25rem;
+    display: flex; align-items: center;
+  }
+  #page-catalog .catalog-search-icon {
+    position: absolute; left: 2.5rem; width: 18px; height: 18px;
+    color: var(--army); pointer-events: none;
+  }
+  #page-catalog .catalog-search {
+    width: 100%; max-width: 460px;
+    font-family: var(--serif); font-size: 0.95rem; color: var(--ink);
+    background: none; border: none; border-bottom: 1px solid rgba(124,130,96,0.35);
+    padding: 0.5rem 0.5rem 0.5rem 1.9rem;
+    outline: none; transition: border-color 0.2s;
+    -webkit-appearance: none; appearance: none;
+  }
+  #page-catalog .catalog-search::placeholder { color: var(--army); opacity: 0.7; }
+  #page-catalog .catalog-search:focus { border-bottom-color: var(--ink); }
+  #page-catalog .catalog-noresults {
+    padding: 3rem 2.5rem; text-align: center;
+    font-family: var(--serif); font-size: 0.95rem; color: var(--army);
+  }
+  @media (max-width: 768px) {
+    #page-catalog .catalog-search-wrap { padding: 1.25rem 1.25rem 0.25rem; }
+    #page-catalog .catalog-search-icon { left: 1.25rem; }
+    #page-catalog .catalog-search { max-width: none; font-size: 16px; }
+    #page-catalog .catalog-noresults { padding: 2.5rem 1.25rem; }
+  }
   #page-catalog .filter-label {
     font-size: 0.65rem; letter-spacing: 0.18em;
     text-transform: uppercase; color: var(--army);
@@ -2207,6 +2236,7 @@
         <div class="nav-dropdown-menu" role="menu">
           <a href="#" onclick="event.preventDefault(); closeShopDropdown(); showPage('catalog'); filterProducts('fragrance', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Fragrance + Home'));" role="menuitem">Fragrance + Home</a>
           <a href="#" onclick="event.preventDefault(); closeShopDropdown(); showPage('catalog'); filterProducts('skin', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Body + Skin'));" role="menuitem">Body + Skin</a>
+          <a href="#" onclick="event.preventDefault(); closeShopDropdown(); showPage('catalog'); filterProducts('makeup', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Makeup'));" role="menuitem">Makeup</a>
           <a href="/collections/deep-well/" role="menuitem">Deep Well · Coming Soon</a>
           <a href="#" onclick="event.preventDefault(); closeShopDropdown(); showPage('catalog'); filterProducts('all', document.querySelector('.filter-btn'));" role="menuitem">Shop All</a>
         </div>
@@ -2455,12 +2485,20 @@
     </div>
   </header>
 
+  <!-- SEARCH -->
+  <div class="catalog-search-wrap">
+    <svg class="catalog-search-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="6.5" stroke="currentColor" stroke-width="1.4"/><line x1="13.8" y1="13.8" x2="18" y2="18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    <input type="search" id="catalog-search" class="catalog-search" placeholder="Search products — mascara, serum, candle…" aria-label="Search products" autocomplete="off" oninput="searchProducts(this.value)">
+  </div>
+
   <!-- FILTER BAR -->
   <div class="filter-bar">
     <span class="filter-label">Shop</span>
     <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
     <button class="filter-btn" onclick="filterProducts('fragrance', this)">Fragrance + Home</button>
     <button class="filter-btn" onclick="filterProducts('skin', this)">Body + Skin</button>
+    <button class="filter-btn" onclick="filterProducts('makeup', this)">Makeup</button>
+    <button class="filter-btn" onclick="filterProducts('hair', this)">Hair</button>
     <button class="filter-btn" onclick="filterProducts('tools', this)">Tools + Accessories</button>
     <button class="filter-btn" onclick="filterProducts('bundles', this)">Bundles</button>
     <button class="filter-btn" onclick="filterProducts('merch', this)">Merch</button>
@@ -2522,6 +2560,8 @@
   <div class="catalog-divider">Full Collection</div>
 
   <!-- CATALOG GRID -->
+  <div id="catalog-noresults" class="catalog-noresults" style="display:none;">No products match your search. Try a different word, or browse the categories above.</div>
+
   <main class="catalog-grid" id="catalog-grid">
 
     <!-- ── FEATURED WIDE: Ranch Water Body + Linen Fragrance ── -->
@@ -2826,7 +2866,7 @@
       </div>
     </article>
 
-    <article class="product-card" data-category="wash">
+    <article class="product-card" data-category="hair">
       <div class="product-image" onclick="location.href='/products/?handle=outlaws-reserve-2-in-1-hair-skin-rinse'" style="cursor:pointer"><img src="https://or-cre.com/cdn/shop/files/outlawsreserv.png?v=1776859755&width=1200" alt="Outlaw's Reserve 2-in-1 Hair + Body Wash"></div>
       <p class="product-category">Wash House</p>
       <h2 class="product-name">Outlaw's Reserve<br>2-in-1 Hair + Body Wash</h2>
@@ -2855,7 +2895,7 @@
 
 
 
-    <article class="product-card" data-category="wash">
+    <article class="product-card" data-category="hair">
       <div class="product-image" onclick="location.href='/products/?handle=rosemary-hair-scalp-strengthening-oil'" style="cursor:pointer"><img src="https://or-cre.com/cdn/shop/files/rosemaryminthairoilimage.png?v=1776860532&width=1200" alt="Rosemary Mint Revive Hair + Scalp Oil"></div>
       <p class="product-category">Wash House</p>
       <h2 class="product-name">Rosemary Mint Revive<br>Hair + Scalp Oil</h2>
@@ -2870,7 +2910,7 @@
     </article>
 
 
-    <article class="product-card" data-category="wash">
+    <article class="product-card" data-category="hair">
       <div class="product-image" onclick="location.href='/products/?handle=keratin-shine-leave-in-hair-mist'" style="cursor:pointer"><img src="https://or-cre.com/cdn/shop/files/trailsendimage.png?v=1776861314&width=1200" alt="Trail's End Keratin Hair Mist"></div>
       <p class="product-category">Wash House</p>
       <h2 class="product-name">Trail's End<br>Keratin Hair Mist</h2>
@@ -2912,7 +2952,7 @@
       </div>
     </article>
 
-    <article class="product-card" data-category="skin">
+    <article class="product-card" data-category="makeup">
       <div class="product-image" onclick="location.href='/products/?handle=desert-veil-tone-correction-barrier-protection'" style="cursor:pointer"><img src="https://or-cre.com/cdn/shop/files/desertveilsingle.png?v=1777556947&width=3840" alt="Desert Veil CC Stick"></div>
       <p class="product-category">Body + Skin</p>
       <h2 class="product-name">Desert Veil<br>CC Stick</h2>
@@ -2926,7 +2966,7 @@
       </div>
     </article>
 
-    <article class="product-card" data-category="skin">
+    <article class="product-card" data-category="makeup">
       <div class="product-image" onclick="location.href='/products/?handle=soft-proof-peptide-foundation'" style="cursor:pointer"><img src="https://or-cre.com/cdn/shop/files/softproof.png?v=1778068045&width=1200" alt="Soft Proof Peptide Foundation"></div>
       <p class="product-category">Body + Skin</p>
       <h2 class="product-name">Soft Proof<br>Peptide Foundation</h2>
@@ -2940,7 +2980,7 @@
       </div>
     </article>
 
-    <article class="product-card" data-category="skin">
+    <article class="product-card" data-category="makeup">
       <div class="product-image" onclick="location.href='/products/?handle=drawn-line-matte-lip-color'" style="cursor:pointer"><img src="https://or-cre.com/cdn/shop/files/liptint.png?v=1778076184&width=1200" alt="Drawn Line Matte Lip Color"></div>
       <p class="product-category">Body + Skin</p>
       <h2 class="product-name">Drawn Line<br>Matte Lip Color</h2>
@@ -2954,7 +2994,7 @@
       </div>
     </article>
 
-    <article class="product-card" data-category="skin">
+    <article class="product-card" data-category="makeup">
       <div class="product-image" onclick="location.href='/products/?handle=long-shot-peptide-mascara'" style="cursor:pointer"><img src="https://or-cre.com/cdn/shop/files/lonshot.png?v=1779314446&width=3840" alt="Long Shot Peptide Mascara"></div>
       <p class="product-category">Body + Skin</p>
       <h2 class="product-name">Long Shot<br>Peptide Mascara</h2>
@@ -3487,7 +3527,17 @@
     var fbs = document.querySelectorAll('.filter-btn'); for (var fi=0;fi<fbs.length;fi++) fbs[fi].classList.remove('active');
     btn.classList.add('active');
 
-    var cards = document.querySelectorAll('.product-card'); for (var ci=0;ci<cards.length;ci++) { var cat = cards[ci].dataset.category; cards[ci].style.display = (category === 'all' || cat === category || (category === 'skin' && cat === 'wash')) ? 'flex' : 'none'; }
+    var sb = document.getElementById('catalog-search'); if (sb) sb.value = '';
+    var noRes = document.getElementById('catalog-noresults'); if (noRes) noRes.style.display = 'none';
+    var cards = document.querySelectorAll('.product-card');
+    for (var ci=0;ci<cards.length;ci++) {
+      var cat = cards[ci].dataset.category;
+      var show;
+      if (category === 'all') show = true;
+      else if (category === 'skin') show = (cat === 'skin' || cat === 'wash' || cat === 'body' || cat === 'makeup' || cat === 'hair');
+      else show = (cat === category);
+      cards[ci].style.display = show ? 'flex' : 'none';
+    }
 
     // Show scent guide only for all or fragrance filters
     const guide = document.getElementById('scent-guide') || document.querySelector('.scent-guide');
@@ -3504,6 +3554,44 @@
     if (divider) {
       divider.style.display = (category === 'all') ? '' : 'none';
     }
+  }
+
+  function searchProducts(q) {
+    q = (q || '').trim().toLowerCase();
+    var fbs = document.querySelectorAll('.filter-btn');
+    var cards = document.querySelectorAll('.product-card');
+    var guide = document.getElementById('scent-guide') || document.querySelector('.scent-guide');
+    var featured = document.querySelector('.featured-tiles');
+    var divider = document.querySelector('.catalog-divider');
+    var noRes = document.getElementById('catalog-noresults');
+
+    if (!q) { // empty search restores the unfiltered All view
+      for (var i=0;i<fbs.length;i++) fbs[i].classList.remove('active');
+      if (fbs[0]) fbs[0].classList.add('active');
+      for (var c=0;c<cards.length;c++) cards[c].style.display = 'flex';
+      if (guide) guide.style.display = 'block';
+      if (featured) featured.style.display = '';
+      if (divider) divider.style.display = '';
+      if (noRes) noRes.style.display = 'none';
+      return;
+    }
+
+    for (var i=0;i<fbs.length;i++) fbs[i].classList.remove('active');
+    if (guide) guide.style.display = 'none';
+    if (featured) featured.style.display = 'none';
+    if (divider) divider.style.display = 'none';
+
+    var matches = 0;
+    for (var c=0;c<cards.length;c++) {
+      var nameEl = cards[c].querySelector('.product-name');
+      var name = nameEl ? nameEl.textContent : '';
+      var cat = cards[c].dataset.category || '';
+      var hay = (name + ' ' + cat).toLowerCase();
+      var hit = hay.indexOf(q) !== -1;
+      cards[c].style.display = hit ? 'flex' : 'none';
+      if (hit) matches++;
+    }
+    if (noRes) noRes.style.display = matches === 0 ? 'block' : 'none';
   }
 
   /* ══ SCENT PICKER ══ */
