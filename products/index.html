@@ -217,6 +217,10 @@
         grid-template-columns: 1fr;
         gap: 36px;
       }
+      .product-image-wrap {
+        position: static;
+        top: auto;
+      }
     }
 
     /* ── IMAGE COLUMN ── */
@@ -1396,7 +1400,7 @@ function renderProduct(product) {
   const certRow = document.getElementById('cert-row');
   const tags = product.tags || [];
   const certs = [];
-  if (tags.includes('cosmos') || tags.includes('ecocert') || product.productType?.toLowerCase().includes('skin')) {
+  if (isCosmosCertified(product)) {
     certs.push('COSMOS Certified · ECOCERT');
   }
   certs.push('Small-Batch · Made in USA');
@@ -1439,6 +1443,23 @@ function splitIngredients(html) {
     }
   });
   return { descHtml: tmp.innerHTML.trim(), ingredientsHtml: moved.join('') };
+}
+
+// Whether a product carries the third-party COSMOS/ECOCERT certification.
+// Driven by Shopify tags first (durable), with an explicit fallback list of
+// the currently-certified SKUs. Deliberately excludes "COSMOS-compliant"-only
+// items (e.g. The Wash, Hand Cream) and non-cosmetics (e.g. Root Revival).
+function isCosmosCertified(product) {
+  const tags = (product.tags || []).map(t => String(t).toLowerCase());
+  if (tags.includes('cosmos') || tags.includes('ecocert')) return true;
+  const norm = s => (s || '').toLowerCase().replace(/[’'`´]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+  const t = norm(product.title);
+  const CERTIFIED = [
+    'all told', 'the grade', 'the hold', 'desert day cream', 'dusk til dawn',
+    'desert glow', 'frontier fade', 'mojave reset', 'outlaws wipeout', 'rose cut',
+    'golden hour', 'outlaws reserve', 'rosemary mint revive', 'trails end'
+  ];
+  return CERTIFIED.some(name => t.includes(name));
 }
 
 function buildSpecs(product, variants, ingredientsHtml) {
@@ -1484,8 +1505,10 @@ function buildSpecs(product, variants, ingredientsHtml) {
     detailLines.push('Made from perfumer\'s alcohol, fragrance oil, and distilled water');
     detailLines.push('Free of dyes, parabens, and phthalates');
   }
-  if (!isHomeFragrance && (type.includes('skin') || type.includes('body'))) {
+  if (isCosmosCertified(product)) {
     detailLines.push('COSMOS Certified by ECOCERT — third-party verified');
+  }
+  if (!isHomeFragrance && (isCosmosCertified(product) || type.includes('skin') || type.includes('body') || type.includes('hair') || type.includes('eye') || type.includes('face'))) {
     detailLines.push('Vegan · Cruelty-Free');
     detailLines.push('Free of parabens, phthalates, and synthetic dyes');
   }
