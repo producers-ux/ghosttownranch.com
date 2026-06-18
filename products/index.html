@@ -217,16 +217,19 @@
         grid-template-columns: 1fr;
         gap: 36px;
       }
-      .product-image-wrap {
-        position: static;
-        top: auto;
-      }
     }
 
     /* ── IMAGE COLUMN ── */
     .product-image-wrap {
       position: sticky;
       top: calc(var(--nav-h) + 24px);
+    }
+
+    @media (max-width: 768px) {
+      .product-image-wrap {
+        position: static !important;
+        top: auto !important;
+      }
     }
 
     .product-image-main {
