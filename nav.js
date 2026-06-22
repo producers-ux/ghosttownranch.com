@@ -26,6 +26,10 @@
           '<li><a href="/collections/deep-well/"' + active('/deep-well') + '>Deep Well</a></li>',
           '<li><a href="/wholesale/"' + active('/wholesale') + '>Wholesale</a></li>',
         '</ul>',
+        '<input id="gtr-nav-search" type="search" placeholder="Search the range" aria-label="Search products" style="display:none;width:190px;background:rgba(244,239,230,0.08);border:1px solid rgba(244,239,230,0.35);color:#F4EFE6;font-size:12px;letter-spacing:0.06em;padding:8px 12px;outline:none;">',
+        '<button id="gtr-nav-search-btn" aria-label="Search" style="background:none;border:none;cursor:pointer;display:flex;align-items:center;padding:0;margin:0;">',
+          '<svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#F4EFE6" stroke-width="1.5" stroke-linecap="round" style="display:block;"><circle cx="9" cy="9" r="6.5"/><line x1="13.8" y1="13.8" x2="18" y2="18"/></svg>',
+        '</button>',
         '<a href="/shop/" class="cart-nav-btn-open" aria-label="Shop All" style="display:flex;align-items:center;opacity:0.8;text-decoration:none;">',
           '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F4EFE6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:block;"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>',
         '</a>',
@@ -34,6 +38,29 @@
     ].join('');
 
     document.body.insertBefore(nav, document.body.firstChild);
+
+    // Placeholder color for the search input.
+    var st = document.createElement('style');
+    st.textContent = '#gtr-nav-search::placeholder{color:rgba(244,239,230,0.5);} @media(max-width:900px){#gtr-nav-search{width:140px;}}';
+    document.head.appendChild(st);
+
+    // Search: opens the input, routes to the Shop All search surface.
+    var sBtn = nav.querySelector('#gtr-nav-search-btn');
+    var sInp = nav.querySelector('#gtr-nav-search');
+    if (sBtn && sInp) {
+      sBtn.addEventListener('click', function () {
+        var hidden = sInp.style.display === 'none' || !sInp.style.display;
+        sInp.style.display = hidden ? 'block' : 'none';
+        if (hidden) sInp.focus();
+      });
+      sInp.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && sInp.value.trim()) {
+          location.href = '/shop/?q=' + encodeURIComponent(sInp.value.trim());
+        } else if (e.key === 'Escape') {
+          sInp.style.display = 'none';
+        }
+      });
+    }
 
     var ham = nav.querySelector('#nav-hamburger');
     var links = nav.querySelector('#nav-links');
