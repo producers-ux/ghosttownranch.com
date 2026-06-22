@@ -2299,8 +2299,8 @@
       <div class="product-image-inner">
         <picture>
           <img
-            src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/longrange.png"
-            alt="Ghost Town Ranch Routine, Long Range skincare, COSMOS-certified, clean studio shot"
+            src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/morningedit_1.png"
+            alt="Ghost Town Ranch Routine, the Morning Skin Routine bundle, clean studio shot"
             loading="eager"
             decoding="async"
             width="1400" height="1400"
@@ -2324,8 +2324,8 @@
       <div class="product-image-inner">
         <picture>
           <img
-            src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/votiveset6_1.png"
-            alt="Ghost Town Ranch Ritual, the six-scent votive set, clean studio shot"
+            src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thebasinset.png"
+            alt="Ghost Town Ranch Ritual, The Basin hand wash and body cream set, clean studio shot"
             loading="lazy"
             decoding="async"
             width="1400" height="1400"
@@ -2338,7 +2338,7 @@
       <div class="product-eyebrow">Shop · Ritual</div>
       <h2 class="product-title">Ritual</h2>
       <div class="product-rule"></div>
-      <p class="product-desc">Scent as landscape. Six scents from the wide open across candles, mist, and diffuser, each one hand-poured or blended in small batches.</p>
+      <p class="product-desc">It starts at the sink. The Basin sets our hand wash, the first formula we made and our best seller, beside a matching body cream in your choice of scent. The same six scents carry through the day in candles, mist, and the diffuser.</p>
       <a class="explore-btn" onclick="showPage('catalog'); filterProducts('ritual', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Ritual'));">Shop Ritual &rarr;</a>
     </div>
   </section>
@@ -3455,8 +3455,8 @@
       // Hair is held off the consumer shelf until the Wash House refill story ships.
       if (cat === 'hair') { cards[ci].style.display = 'none'; continue; }
       if (category === 'all') show = true;
-      else if (category === 'routine') show = (cat === 'skin' || cat === 'wash' || cat === 'body' || cat === 'makeup' || cat === 'tools' || cat === 'bundles');
-      else if (category === 'ritual') show = (cat === 'fragrance');
+      else if (category === 'routine') show = (cat === 'skin' || cat === 'makeup' || cat === 'bundles');
+      else if (category === 'ritual') show = (cat === 'fragrance' || cat === 'wash' || cat === 'body' || cat === 'tools');
       else if (category === 'goods') show = (cat === 'merch');
       else show = (cat === category);
       cards[ci].style.display = show ? 'flex' : 'none';
