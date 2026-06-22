@@ -2235,25 +2235,10 @@
   </a>
   <div class="nav-right">
     <ul class="nav-links" id="nav-links" role="navigation" aria-label="Main navigation">
-      <li><a href="https://ghosttownranch.com/">Home</a></li>
-      <li class="nav-dropdown" id="shop-dropdown">
-        <button class="nav-dropdown-toggle" onclick="toggleShopDropdown(event)" aria-expanded="false" aria-haspopup="true">
-          Shop
-          <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 2.5L4 5.5L7 2.5" stroke="#F4EFE6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <div class="nav-dropdown-menu" role="menu">
-          <a href="#" onclick="event.preventDefault(); closeShopDropdown(); showPage('catalog'); filterProducts('fragrance', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Fragrance + Home'));" role="menuitem">Fragrance + Home</a>
-          <a href="#" onclick="event.preventDefault(); closeShopDropdown(); showPage('catalog'); filterProducts('skin', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Body + Skin'));" role="menuitem">Body + Skin</a>
-          <a href="#" onclick="event.preventDefault(); closeShopDropdown(); showPage('catalog'); filterProducts('makeup', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Makeup'));" role="menuitem">Makeup</a>
-          <a href="/collections/deep-well/" role="menuitem">Deep Well · Coming Soon</a>
-          <a href="#" onclick="event.preventDefault(); closeShopDropdown(); showPage('catalog'); filterProducts('all', document.querySelector('.filter-btn'));" role="menuitem">Shop All</a>
-        </div>
-      </li>
-      <li><a href="https://ghosttownranch.com/routines/">Routines</a></li>
-      <li><a href="https://ghosttownranch.com/ritual/">Ritual</a></li>
-        <li><a href="/collections/deep-well/">Deep Well</a></li>
+      <li><a href="#" onclick="event.preventDefault(); showPage('brand');">Home</a></li>
+      <li><a href="#" onclick="event.preventDefault(); showPage('catalog'); filterProducts('routine', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Routine'));">Routine</a></li>
+      <li><a href="#" onclick="event.preventDefault(); showPage('catalog'); filterProducts('ritual', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Ritual'));">Ritual</a></li>
+      <li><a href="/collections/deep-well/">Deep Well</a></li>
       <li><a href="#" onclick="event.preventDefault(); showPage('wholesale');">Wholesale</a></li>
     </ul>
     <button class="nav-search-btn" onclick="toggleNavSearch()" aria-label="Search products">
@@ -2307,68 +2292,65 @@
     <p class="brand-statement-frontier"><strong>Frontier Modernism</strong> is where two worlds meet: pioneer grit and modern clarity, honest materials and a refined hand. It's how we formulate, how we design, and how we think about a life lived between the wide open and the world it opens onto.</p>
   </section>
 
-  <!-- ── FRAGRANCE + HOME ── -->
-  <section class="product-section" aria-label="Fragrance and Home Collection">
-    <div class="product-image" onclick="showPage('catalog'); filterProducts('fragrance', document.querySelectorAll('.filter-btn')[1]);" style="cursor:pointer;" role="button" aria-label="Shop Fragrance and Home collection">
+  <!-- ── ROUTINE (lead) ── -->
+  <section class="product-section" aria-label="Routine">
+    <div class="product-image" onclick="showPage('catalog'); filterProducts('routine', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Routine'));" style="cursor:pointer;" role="button" aria-label="Shop Routine">
       <div class="product-image-inner">
         <picture>
           <img
-            src="homeandfragrance.png"
-            alt="Ghost Town Ranch fragrance and home — Field Kit, The Slow, Ranch Water, Hang Dried, votives with desert botanicals"
-            loading="lazy"
-            decoding="async"
-            width="1400" height="1759"
-            style="object-position: center 40%;"
-          >
-        </picture>
-      </div>
-    </div>
-    <div class="product-content">
-      <div class="product-eyebrow">The Collection</div>
-      <h2 class="product-title">Fragrance + Home</h2>
-      <div class="product-rule"></div>
-      <p class="product-desc">Scent as landscape. Six scents from the wide open. Candles, mist, diffuser — each one hand-poured or blended in small batches.</p>
-      <a class="explore-btn" href="/ritual/">See the scent guide →</a>
-    </div>
-  </section>
-
-  <section class="product-section reverse" aria-label="Body and Skin Collection">
-    <div class="product-image" onclick="showPage('catalog'); filterProducts('skin', document.querySelectorAll('.filter-btn')[2]);" style="cursor:pointer;" role="button" aria-label="Shop Body and Skin collection">
-      <div class="product-image-inner">
-        <picture>
-          <source
-            srcset="rosemary-scalp-oil-mobile.webp 750w, rosemary-scalp-oil.webp 1400w"
-            sizes="(max-width: 768px) 100vw, 50vw"
-            type="image/webp"
-          >
-          <img
-            src="rosemary-scalp-oil.webp"
-            alt="Ghost Town Ranch body and skin — COSMOS-certified skincare with desert botanicals"
+            src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/longrange.png"
+            alt="Ghost Town Ranch Routine, Long Range skincare, COSMOS-certified, clean studio shot"
             loading="eager"
             decoding="async"
-            width="1400" height="1737"
-            style="object-position: center 60%;"
+            width="1400" height="1400"
+            style="object-position: center center;"
           >
         </picture>
       </div>
     </div>
     <div class="product-content">
-      <div class="product-eyebrow">The Collection</div>
-      <h2 class="product-title">Body + Skin</h2>
+      <div class="product-eyebrow">Shop · Routine</div>
+      <h2 class="product-title">Routine</h2>
       <div class="product-rule"></div>
-      <p class="product-desc">Skin. Hair. Body. COSMOS-certified by ECOCERT — third-party verified, not self-declared. The highest natural standard. Made for everyone, for every day.</p>
-      <a class="explore-btn" onclick="showPage('catalog'); filterProducts('skin', document.querySelectorAll('.filter-btn')[2]);">Explore Body + Skin</a>
+      <p class="product-desc">The daily regimen. Cleanse, treat, protect. Morning Skin, Evening Repair, and the Long Range system, plus the Face. COSMOS-certified by ECOCERT and made for the wide open.</p>
+      <a class="explore-btn" onclick="showPage('catalog'); filterProducts('routine', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Routine'));">Shop Routine &rarr;</a>
     </div>
   </section>
 
-  <section class="product-section" aria-label="Deep Well Collection">
+  <!-- ── RITUAL ── -->
+  <section class="product-section reverse" aria-label="Ritual">
+    <div class="product-image" onclick="showPage('catalog'); filterProducts('ritual', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Ritual'));" style="cursor:pointer;" role="button" aria-label="Shop Ritual">
+      <div class="product-image-inner">
+        <picture>
+          <img
+            src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/votiveset6_1.png"
+            alt="Ghost Town Ranch Ritual, the six-scent votive set, clean studio shot"
+            loading="lazy"
+            decoding="async"
+            width="1400" height="1400"
+            style="object-position: center center;"
+          >
+        </picture>
+      </div>
+    </div>
+    <div class="product-content">
+      <div class="product-eyebrow">Shop · Ritual</div>
+      <h2 class="product-title">Ritual</h2>
+      <div class="product-rule"></div>
+      <p class="product-desc">Scent as landscape. Six scents from the wide open across candles, mist, and diffuser, each one hand-poured or blended in small batches.</p>
+      <a class="explore-btn" onclick="showPage('catalog'); filterProducts('ritual', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Ritual'));">Shop Ritual &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ── DEEP WELL (waitlist) ── -->
+  <section class="product-section" aria-label="Deep Well">
     <div class="product-image">
-      <a href="/collections/deep-well/" aria-label="Enter Deep Well" style="display:block;height:100%;">
+      <a href="/collections/deep-well/" aria-label="Join the Deep Well list" style="display:block;height:100%;">
         <div class="product-image-inner">
           <picture>
             <img
               src="deepwell-section.jpg"
-              alt="Deep Well — Ghost Town Ranch beauty from within, a morning tonic ritual in a desert courtyard"
+              alt="Deep Well, Ghost Town Ranch beauty from within, a morning tonic ritual in a desert courtyard"
               loading="lazy"
               decoding="async"
               width="1400" height="1750"
@@ -2379,11 +2361,11 @@
       </a>
     </div>
     <div class="product-content">
-      <div class="product-eyebrow">New · Forthcoming</div>
+      <div class="product-eyebrow">Coming Fall 2026</div>
       <h2 class="product-title">Deep Well</h2>
       <div class="product-rule"></div>
-      <p class="product-desc">Beauty from within. The line that closes the loop. Soft Proof works the skin, Deep Well works the source, drawn from the same land. Shipping fall 2026. Join the list.</p>
-      <a class="explore-btn" href="/collections/deep-well/">Enter Deep Well →</a>
+      <p class="product-desc">Beauty from within. The line that closes the loop. Soft Proof works the skin, Deep Well works the source, drawn from the same land. Join the list for first word.</p>
+      <a class="explore-btn" href="/collections/deep-well/">Join the list &rarr;</a>
     </div>
   </section>
 
@@ -2392,7 +2374,7 @@
     <div class="routines-teaser-left">
       <div class="routines-teaser-eyebrow">Ghost Town Ranch · Routines</div>
       <h2 class="routines-teaser-headline">Three routines.<br><em>All day covered.</em></h2>
-      <p class="routines-teaser-body">Morning skin. The face. Evening repair. Every formula is COSMOS-certified and made for the wide open — desert climate, long days, and skin that has to hold.</p>
+      <p class="routines-teaser-body">Morning skin. The face. Evening repair. Every formula is COSMOS-certified and made for the wide open. Desert climate, long days, and skin that has to hold.</p>
       <a href="/routines/" class="routines-teaser-link">View All Routines</a>
     </div>
     <div class="routines-teaser-right">
@@ -2432,11 +2414,11 @@
         <div class="ranch-more-card-name">The Votive</div>
         <div class="ranch-more-card-price">$26 · Choose scent</div>
       </a>
-      <a class="ranch-more-card" href="/products/?handle=rosemary-hair-scalp-strengthening-oil">
-        <img src="https://or-cre.com/cdn/shop/files/rosemaryminthairoilimage.png?v=1776860532&amp;width=800" alt="Rosemary Mint Revive Hair + Scalp Oil — Ghost Town Ranch" loading="lazy">
-        <div class="ranch-more-card-cat">Wash House</div>
-        <div class="ranch-more-card-name">Rosemary Mint Revive</div>
-        <div class="ranch-more-card-price">$48</div>
+      <a class="ranch-more-card" href="/products/?handle=the-slow-candle">
+        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/theslow1.png" alt="The Slow Hand-Poured Colored Wax Candle, Ghost Town Ranch" loading="lazy">
+        <div class="ranch-more-card-cat">Ritual · Candle</div>
+        <div class="ranch-more-card-name">The Slow</div>
+        <div class="ranch-more-card-price">11 oz · Choose scent</div>
       </a>
     </div>
   </section>
@@ -2502,13 +2484,10 @@
   <div class="filter-bar">
     <span class="filter-label">Shop</span>
     <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
-    <button class="filter-btn" onclick="filterProducts('fragrance', this)">Fragrance + Home</button>
-    <button class="filter-btn" onclick="filterProducts('skin', this)">Body + Skin</button>
-    <button class="filter-btn" onclick="filterProducts('makeup', this)">Makeup</button>
-    <button class="filter-btn" onclick="filterProducts('hair', this)">Hair</button>
-    <button class="filter-btn" onclick="filterProducts('tools', this)">Tools + Accessories</button>
+    <button class="filter-btn" onclick="filterProducts('routine', this)">Routine</button>
+    <button class="filter-btn" onclick="filterProducts('ritual', this)">Ritual</button>
     <button class="filter-btn" onclick="filterProducts('bundles', this)">Bundles</button>
-    <button class="filter-btn" onclick="filterProducts('merch', this)">Merch</button>
+    <button class="filter-btn" onclick="filterProducts('goods', this)">Goods</button>
   </div>
 
 
@@ -3472,8 +3451,12 @@
     for (var ci=0;ci<cards.length;ci++) {
       var cat = cards[ci].dataset.category;
       var show;
+      // Hair is held off the consumer shelf until the Wash House refill story ships.
+      if (cat === 'hair') { cards[ci].style.display = 'none'; continue; }
       if (category === 'all') show = true;
-      else if (category === 'skin') show = (cat === 'skin' || cat === 'wash' || cat === 'body' || cat === 'makeup' || cat === 'hair');
+      else if (category === 'routine') show = (cat === 'skin' || cat === 'wash' || cat === 'body' || cat === 'makeup' || cat === 'tools' || cat === 'bundles');
+      else if (category === 'ritual') show = (cat === 'fragrance');
+      else if (category === 'goods') show = (cat === 'merch');
       else show = (cat === category);
       cards[ci].style.display = show ? 'flex' : 'none';
     }
@@ -3481,7 +3464,7 @@
     // Show scent guide only for all or fragrance filters
     const guide = document.getElementById('scent-guide') || document.querySelector('.scent-guide');
     if (guide) {
-      guide.style.display = (category === 'all' || category === 'fragrance') ? 'block' : 'none';
+      guide.style.display = (category === 'all' || category === 'ritual') ? 'block' : 'none';
     }
 
     // Show Start Here + Full Collection divider only on the unfiltered view
