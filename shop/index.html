@@ -1,1 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop All &mdash; Ghost Town Ranch | The Full Range</title>
+  <meta name="description" content="The full Ghost Town Ranch range. Wash House, Routines, Ritual, and goods. Clean formulas made for the wild light of the American West.">
+  <link rel="canonical" href="https://ghosttownranch.com/shop/">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ghosttownranch.com/shop/">
+  <meta property="og:title" content="Shop All — Ghost Town Ranch">
+  <meta property="og:description" content="The full Ghost Town Ranch range. Wash House, Routines, Ritual, and goods.">
+  <meta property="og:image" content="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thebasinset.png">
 
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <style>
+    @font-face { font-family:'PPEiko'; src:url('/PPEiko-Medium.woff2') format('woff2'); font-weight:400; font-display:swap; }
+    @font-face { font-family:'PPEiko'; src:url('/PPEiko-Thin.woff2') format('woff2'); font-weight:300; font-display:swap; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{ --parchment:#F4EFE6; --ink:#1e1c18; --sand:#d9d0bf; --army:#7c8260; --serif:'PPEiko',Georgia,serif; --sans:'Jost',system-ui,sans-serif; }
+    html{scroll-behavior:smooth;}
+    body{ background:var(--parchment); color:var(--ink); font-family:var(--sans); font-weight:300; -webkit-font-smoothing:antialiased; }
+
+    /* page header */
+    .shop-hero{ padding:160px 48px 40px; text-align:center; }
+    .shop-eyebrow{ font-family:var(--serif); font-size:12px; letter-spacing:0.28em; text-transform:uppercase; color:var(--army); }
+    .shop-title{ font-family:var(--serif); font-weight:400; font-size:clamp(40px,7vw,84px); line-height:1; margin:18px 0 16px; }
+    .shop-intro{ max-width:540px; margin:0 auto; font-size:15px; line-height:1.7; color:#4a463f; }
+
+    /* sticky chips */
+    .chips{ position:sticky; top:0; z-index:40; display:flex; gap:28px; justify-content:center; flex-wrap:wrap;
+      padding:18px 24px; background:rgba(244,239,230,0.86); backdrop-filter:blur(8px); border-bottom:1px solid rgba(124,130,96,0.18); }
+    .chips a{ font-family:var(--serif); font-size:13px; letter-spacing:0.16em; text-transform:uppercase; text-decoration:none; color:var(--ink); opacity:0.7; transition:opacity .2s; }
+    .chips a:hover{ opacity:1; }
+
+    /* sections */
+    .shop-sec{ padding:64px 48px 24px; max-width:1500px; margin:0 auto; }
+    .sec-head{ margin-bottom:36px; }
+    .sec-title{ font-family:var(--serif); font-weight:400; font-size:clamp(26px,3vw,40px); }
+    .sec-note{ font-size:13.5px; color:#6a655c; margin-top:8px; max-width:520px; line-height:1.6; }
+
+    .pgrid{ display:grid; grid-template-columns:repeat(4,1fr); gap:48px 36px; }
+    .pcard{ text-decoration:none; color:inherit; display:flex; flex-direction:column; }
+    .pcard-img{ position:relative; aspect-ratio:1/1; background:#fff; border:1px solid rgba(124,130,96,0.14); overflow:hidden; }
+    .pcard-img img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+    .pcard:hover .pcard-img img{ transform:scale(1.04); }
+    .pcard-name{ font-family:var(--serif); font-size:17px; margin-top:16px; }
+    .pcard-sub{ font-size:12.5px; letter-spacing:0.04em; color:#6a655c; margin-top:3px; text-transform:uppercase; }
+    .pcard-price{ font-size:13.5px; margin-top:10px; color:var(--ink); }
+    .best-badge,.soon-badge{ position:absolute; top:12px; left:12px; font-family:var(--sans); font-size:10px; letter-spacing:0.14em;
+      text-transform:uppercase; background:var(--ink); color:var(--parchment); padding:5px 9px; }
+    .soon-badge{ background:var(--army); }
+    .soon .pcard-img{ opacity:0.82; }
+    .soon-text{ color:var(--army); }
+
+    footer{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+      padding:60px 48px; margin-top:48px; border-top:1px solid rgba(124,130,96,0.18); font-size:13px; }
+    footer a{ color:var(--ink); text-decoration:none; border-bottom:1px solid rgba(30,28,24,0.3); padding-bottom:2px; }
+    .footer-left{ font-family:var(--serif); letter-spacing:0.04em; }
+
+    @media (max-width:980px){ .pgrid{ grid-template-columns:repeat(3,1fr); gap:40px 24px; } }
+    @media (max-width:640px){
+      .shop-hero{ padding:120px 24px 32px; }
+      .chips{ gap:18px; }
+      .shop-sec{ padding:48px 24px 16px; }
+      .pgrid{ grid-template-columns:repeat(2,1fr); gap:32px 16px; }
+      footer{ padding:40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- top nav injected by /nav.js -->
+
+  <section class="shop-hero">
+    <div class="shop-eyebrow">Ghost Town Ranch</div>
+    <h1 class="shop-title">Shop All</h1>
+    <p class="shop-intro">The full range, from the wash house to the ritual shelf. Clean formulas, COSMOS-certified skincare, and small-batch scent, all made for the wild, original light of the American West.</p>
+  </section>
+
+  <nav class="chips" aria-label="Shop categories">
+      <a href="#wash-house">Wash House</a>
+      <a href="#routines">Routines</a>
+      <a href="#ritual">Ritual</a>
+      <a href="#goods">Goods</a>
+  </nav>
+
+  <section class="shop-sec" id="wash-house">
+      <div class="sec-head">
+        <h2 class="sec-title">Wash House</h2>
+        <p class="sec-note">Hair joins the Wash House on the refill system, in the works. Join the list for first word.</p>
+      </div>
+      <div class="pgrid">
+        <a class="pcard" href="https://ghosttownranch.com/products/the-basin-hand-wash-body-cream-set-of-two-choose-your-scent"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thebasinset.png" alt="The Basin Hand Wash + Body Cream" loading="lazy"><span class="best-badge">Bestseller</span></div><div class="pcard-name">The Basin</div><div class="pcard-sub">Hand Wash + Body Cream</div><div class="pcard-price">$84</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/sunbroke-the-wash-cold-pressed-grapefruit"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TheWash1.png" alt="The Wash Hydrating Hand Wash" loading="lazy"></div><div class="pcard-name">The Wash</div><div class="pcard-sub">Hydrating Hand Wash</div><div class="pcard-price">$44</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/all-over-body-cream"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/allover_01.png" alt="All Over Body Cream" loading="lazy"></div><div class="pcard-name">All Over</div><div class="pcard-sub">Body Cream</div><div class="pcard-price">$55</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/omega-6-9-glowing-skin-body-oil"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/goldenhour1.png" alt="Golden Hour Body Oil" loading="lazy"></div><div class="pcard-name">Golden Hour</div><div class="pcard-sub">Body Oil</div><div class="pcard-price">$62</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/still-air-natural-roll-on-deodorant"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/stillair1.png" alt="Still Air Roll-On Deodorant" loading="lazy"></div><div class="pcard-name">Still Air</div><div class="pcard-sub">Roll-On Deodorant</div><div class="pcard-price">$32</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/sustainable-sink-tray"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/sinktray_1.png" alt="Sink Tray Sustainable" loading="lazy"></div><div class="pcard-name">Sink Tray</div><div class="pcard-sub">Sustainable</div><div class="pcard-price">$24</div></a>
+        <div class="pcard soon"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thewashhouseall.png" alt="The Wash House Hair + Body Set" loading="lazy"><span class="soon-badge">Coming Soon</span></div><div class="pcard-name">The Wash House</div><div class="pcard-sub">Hair + Body Set</div><div class="pcard-price soon-text">Join the list</div></div>
+        <div class="pcard soon"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/drycreek_1.png" alt="Dry Creek Dry Shampoo Mist" loading="lazy"><span class="soon-badge">Coming Soon</span></div><div class="pcard-name">Dry Creek</div><div class="pcard-sub">Dry Shampoo Mist</div><div class="pcard-price soon-text">Join the list</div></div>
+        <div class="pcard soon"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawsreserve1.png" alt="Outlaw's Reserve 2-in-1 Hair + Body Wash" loading="lazy"><span class="soon-badge">Coming Soon</span></div><div class="pcard-name">Outlaw's Reserve</div><div class="pcard-sub">2-in-1 Hair + Body Wash</div><div class="pcard-price soon-text">Join the list</div></div>
+        <div class="pcard soon"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/rosemaryminthairoil1.png" alt="Rosemary Mint Revive Hair + Scalp Oil" loading="lazy"><span class="soon-badge">Coming Soon</span></div><div class="pcard-name">Rosemary Mint Revive</div><div class="pcard-sub">Hair + Scalp Oil</div><div class="pcard-price soon-text">Join the list</div></div>
+        <div class="pcard soon"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/keratin1.png" alt="Trail's End Keratin Hair Mist" loading="lazy"><span class="soon-badge">Coming Soon</span></div><div class="pcard-name">Trail's End</div><div class="pcard-sub">Keratin Hair Mist</div><div class="pcard-price soon-text">Join the list</div></div>
+      </div>
+    </section>
+
+  <section class="shop-sec" id="routines">
+      <div class="sec-head">
+        <h2 class="sec-title">Routines</h2>
+        
+      </div>
+      <div class="pgrid">
+        <a class="pcard" href="https://ghosttownranch.com/products/rose-cut-daily-facial-wash"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Rosecut1.png" alt="Rose Cut Daily Facial Wash" loading="lazy"></div><div class="pcard-name">Rose Cut</div><div class="pcard-sub">Daily Facial Wash</div><div class="pcard-price">$62</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/peptide-anti-aging-serum"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Thegrade1.png" alt="The Grade Peptide Serum" loading="lazy"><span class="best-badge">Bestseller</span></div><div class="pcard-name">The Grade</div><div class="pcard-sub">Peptide Serum</div><div class="pcard-price">$72</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/desert-glow-hydrating-facial-oil"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertglow1.png" alt="Desert Glow Hydrating Facial Oil" loading="lazy"></div><div class="pcard-name">Desert Glow</div><div class="pcard-sub">Hydrating Facial Oil</div><div class="pcard-price">$67</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/all-told-eye-cream"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/alltold_1.png" alt="All Told 3-in-1 Eye Cream" loading="lazy"></div><div class="pcard-name">All Told</div><div class="pcard-sub">3-in-1 Eye Cream</div><div class="pcard-price">$62</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/the-hold-anti-age-day-cream"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TheHold_1.png" alt="The Hold Anti-Age Day Cream" loading="lazy"></div><div class="pcard-name">The Hold</div><div class="pcard-sub">Anti-Age Day Cream</div><div class="pcard-price">$74</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/moisturising-day-cream"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertdaycream1.png" alt="Desert Day Cream" loading="lazy"></div><div class="pcard-name">Desert Day</div><div class="pcard-sub">Cream</div><div class="pcard-price">$64</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/dusk-til-dawn-hydration-gel"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Dusktilldawn1.png" alt="Dusk Til Dawn Hydration Gel" loading="lazy"></div><div class="pcard-name">Dusk Til Dawn</div><div class="pcard-sub">Hydration Gel</div><div class="pcard-price">$60</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/glycolic-acid-exfoliating-toner"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/FrontierFade1.png" alt="Frontier Fade Toning Exfoliant" loading="lazy"></div><div class="pcard-name">Frontier Fade</div><div class="pcard-sub">Toning Exfoliant</div><div class="pcard-price">$55</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/microbiome-prebiotics-face-mist-1"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/mojavereset1.png" alt="Mojave Reset Cooling Face Mist" loading="lazy"></div><div class="pcard-name">Mojave Reset</div><div class="pcard-sub">Cooling Face Mist</div><div class="pcard-price">$44</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/soft-proof-peptide-foundation"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/SoftProof1.png" alt="Soft Proof Pigment Foundation" loading="lazy"></div><div class="pcard-name">Soft Proof</div><div class="pcard-sub">Pigment Foundation</div><div class="pcard-price">$45</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/desert-veil-tone-correction-barrier-protection"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertveil1.png" alt="Desert Veil CC Stick" loading="lazy"></div><div class="pcard-name">Desert Veil</div><div class="pcard-sub">CC Stick</div><div class="pcard-price">$55</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/long-shot-peptide-mascara"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Longshot1.png" alt="Long Shot Peptide Mascara" loading="lazy"></div><div class="pcard-name">Long Shot</div><div class="pcard-sub">Peptide Mascara</div><div class="pcard-price">$45</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/drawn-line-matte-lip-color"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DrawnLine1.png" alt="Drawn Line Matte Lip Tint" loading="lazy"></div><div class="pcard-name">Drawn Line</div><div class="pcard-sub">Matte Lip Tint</div><div class="pcard-price">$42</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/biphasic-make-up-remover-fragrance-free"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawswipeout1.png" alt="Outlaw's Wipeout Makeup Remover" loading="lazy"></div><div class="pcard-name">Outlaw's Wipeout</div><div class="pcard-sub">Makeup Remover</div><div class="pcard-price">$55</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/morning-skin-routine"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/morningedit_1.png" alt="Morning Skin Routine, 6 products" loading="lazy"></div><div class="pcard-name">Morning Skin</div><div class="pcard-sub">Routine, 6 products</div><div class="pcard-price">$353</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/evening-repair-bundle"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/eveningrepar.png" alt="Evening Repair Bundle" loading="lazy"></div><div class="pcard-name">Evening Repair</div><div class="pcard-sub">Bundle</div><div class="pcard-price">$274</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/the-face-full-shade-edit-bundle-14-shades"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/theface_fulledit_allshades1.png" alt="The Face Full Shade Edit" loading="lazy"></div><div class="pcard-name">The Face</div><div class="pcard-sub">Full Shade Edit</div><div class="pcard-price">$570</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/soft-proof-full-shade-set"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/softproofedit_11.png" alt="Soft Proof Full Shade Set" loading="lazy"></div><div class="pcard-name">Soft Proof</div><div class="pcard-sub">Full Shade Set</div><div class="pcard-price">$383</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/soft-proof-full-shade-set-10-shades-all-variants"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DesertVeiledit_1.png" alt="Desert Veil Full Shade Set" loading="lazy"></div><div class="pcard-name">Desert Veil</div><div class="pcard-sub">Full Shade Set</div><div class="pcard-price">$187</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/long-range-endurance-skincare-collection"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/longrange.png" alt="Long Range Endurance Collection" loading="lazy"></div><div class="pcard-name">Long Range</div><div class="pcard-sub">Endurance Collection</div><div class="pcard-price">$178</div></a>
+      </div>
+    </section>
+
+  <section class="shop-sec" id="ritual">
+      <div class="sec-head">
+        <h2 class="sec-title">Ritual</h2>
+        
+      </div>
+      <div class="pgrid">
+        <a class="pcard" href="https://ghosttownranch.com/products/the-monument-candle"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Themonument1_286ba5fd-33d4-46a3-a678-4a99682977ad.png" alt="The Monument 4-Wick Candle" loading="lazy"></div><div class="pcard-name">The Monument</div><div class="pcard-sub">4-Wick Candle</div><div class="pcard-price">$190</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/the-slow-candle"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/theslow1.png" alt="The Slow Colored Wax Candle" loading="lazy"></div><div class="pcard-name">The Slow</div><div class="pcard-sub">Colored Wax Candle</div><div class="pcard-price">$54</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/the-wander-hand-poured-travel-candle"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thewander1.png" alt="The Wander Travel Candle" loading="lazy"></div><div class="pcard-name">The Wander</div><div class="pcard-sub">Travel Candle</div><div class="pcard-price">$28</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/the-votive-candle-set-of-6"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/votiveset6_1.png" alt="The Votive Set of 6" loading="lazy"></div><div class="pcard-name">The Votive</div><div class="pcard-sub">Set of 6</div><div class="pcard-price">$148</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/the-votive-single"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thevotive1.png" alt="The Votive Single" loading="lazy"></div><div class="pcard-name">The Votive</div><div class="pcard-sub">Single</div><div class="pcard-price">$26</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/ranch-water-body-room-fragrance"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/ranchwater1.png" alt="Ranch Water Body + Room Fragrance" loading="lazy"></div><div class="pcard-name">Ranch Water</div><div class="pcard-sub">Body + Room Fragrance</div><div class="pcard-price">$88</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/the-still-amber-glass-reed-diffuser"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Thestill1.png" alt="The Still Reed Diffuser" loading="lazy"></div><div class="pcard-name">The Still</div><div class="pcard-sub">Reed Diffuser</div><div class="pcard-price">$72</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/the-field-kit"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/fieldkit_1.png" alt="The Field Kit Discovery" loading="lazy"></div><div class="pcard-name">The Field Kit</div><div class="pcard-sub">Discovery</div><div class="pcard-price">$34</div></a>
+      </div>
+    </section>
+
+  <section class="shop-sec" id="goods">
+      <div class="sec-head">
+        <h2 class="sec-title">Goods</h2>
+        
+      </div>
+      <div class="pgrid">
+        <a class="pcard" href="https://ghosttownranch.com/products/gtr-garment-dyed-long-sleeve-tee"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/GTRlongsleeveT.png" alt="Long-Sleeve Tee Garment-Dyed" loading="lazy"></div><div class="pcard-name">Long-Sleeve Tee</div><div class="pcard-sub">Garment-Dyed</div><div class="pcard-price">$64</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/gtr-unisex-hoodie-in-black-french-navy-white-copy"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/gtrblackhoodie.png" alt="Hoodie Unisex" loading="lazy"></div><div class="pcard-name">Hoodie</div><div class="pcard-sub">Unisex</div><div class="pcard-price">$74</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/gtr-unisex-sweatshirt-in-black-french-navy-white"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/sweatshirtnavy.png" alt="Sweatshirt Unisex" loading="lazy"></div><div class="pcard-name">Sweatshirt</div><div class="pcard-sub">Unisex</div><div class="pcard-price">$84</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/gtr-unisex-tee-in-black-or-bone"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/newgtrbonet.png" alt="Tee Unisex" loading="lazy"></div><div class="pcard-name">Tee</div><div class="pcard-sub">Unisex</div><div class="pcard-price">$53</div></a>
+      </div>
+    </section>
+
+  <footer>
+    <div class="footer-left">Ghost Town Ranch &nbsp;&middot;&nbsp; Frontier Modernism</div>
+    <div class="footer-right"><a href="/wholesale/">Wholesale &amp; Hospitality</a></div>
+  </footer>
+
+  <script defer src="/nav.js"></script>
+</body>
+</html>
