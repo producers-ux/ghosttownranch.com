@@ -2236,6 +2236,7 @@
   <div class="nav-right">
     <ul class="nav-links" id="nav-links" role="navigation" aria-label="Main navigation">
       <li><a href="#" onclick="event.preventDefault(); showPage('brand');">Home</a></li>
+      <li><a href="#" onclick="event.preventDefault(); showPage('catalog'); filterProducts('all', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'All'));">Shop All</a></li>
       <li><a href="#" onclick="event.preventDefault(); showPage('catalog'); filterProducts('routine', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Routine'));">Routine</a></li>
       <li><a href="#" onclick="event.preventDefault(); showPage('catalog'); filterProducts('ritual', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Ritual'));">Ritual</a></li>
       <li><a href="/collections/deep-well/">Deep Well</a></li>
