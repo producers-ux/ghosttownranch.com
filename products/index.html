@@ -6,7 +6,7 @@
   <title>Ghost Town Ranch</title>
 
   <!-- Dynamic meta — overwritten by JS once product loads -->
-  <meta name="description" content="Small-batch skincare, fragrance, and home goods rooted in the American West. COSMOS-compliant. Frontier Modernism." />
+  <meta name="description" content="Skincare, fragrance, and home goods rooted in the American West. COSMOS-compliant. Frontier Modernism." />
   <meta property="og:site_name" content="Ghost Town Ranch" />
   <meta property="og:type" content="product" />
   <meta id="og-title" property="og:title" content="Ghost Town Ranch" />
@@ -988,7 +988,7 @@ const WAX_COLORS = {
 // GTR cert badges — shown for all products
 const CERTS = [
   'COSMOS Certified · ECOCERT',
-  'Small-Batch · Made in USA',
+  'Made in USA',
   'Vegan · Cruelty-Free',
   'No Dyes · No Parabens · No Phthalates',
 ];
@@ -1406,7 +1406,7 @@ function renderProduct(product) {
   if (isCosmosCertified(product)) {
     certs.push('COSMOS Certified · ECOCERT');
   }
-  certs.push('Small-Batch · Made in USA');
+  certs.push('Made in USA');
   if (!tags.includes('fragrance-only')) certs.push('Vegan · Cruelty-Free');
   certs.push('No Dyes · No Parabens · No Phthalates');
 
@@ -1496,7 +1496,7 @@ function buildSpecs(product, variants, ingredientsHtml) {
   if (type.includes('candle')) {
     detailLines.push('Cotton wick — no lead');
     detailLines.push('Colored wax — each scent poured in its own color');
-    detailLines.push('Hand-poured in small batches');
+    detailLines.push('Hand-poured');
   }
   if (type.includes('diffuser')) {
     detailLines.push('Amber glass vessel — refillable');
@@ -1515,7 +1515,7 @@ function buildSpecs(product, variants, ingredientsHtml) {
     detailLines.push('Vegan · Cruelty-Free');
     detailLines.push('Free of parabens, phthalates, and synthetic dyes');
   }
-  detailLines.push('Small-batch · Frontier Modernism · Palm Springs, CA');
+  detailLines.push('Frontier Modernism · Palm Springs, CA');
 
   if (detailLines.length) {
     specs.push({
@@ -1760,7 +1760,7 @@ async function renderRitualBundle() {
   // Description + certs
   document.getElementById('product-description').innerHTML = RITUAL.desc;
   document.getElementById('cert-row').innerHTML = [
-    'Small-Batch · Made in USA',
+    'Made in USA',
     'Vegan · Cruelty-Free',
     'No Dyes · No Parabens · No Phthalates',
   ].map(c => `<span class="cert-badge">${c}</span>`).join('');
