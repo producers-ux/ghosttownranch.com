@@ -1006,7 +1006,7 @@ function setupPairCallout(handle) {
   if (!el) return;
   const promo = PAIR_PROMO[handle];
   if (!promo) { el.style.display = 'none'; return; }
-  el.href = '/products/?handle=' + promo.partner;
+  el.href = 'https://ghosttownranch.com/products/' + promo.partner;
   document.getElementById('pair-callout-text').textContent =
     'Wear it with ' + promo.name + '. Buy both, save $17 at checkout.';
   document.getElementById('pair-callout-link').textContent = 'Shop ' + promo.name + ' \u2192';
