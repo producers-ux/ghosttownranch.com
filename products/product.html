@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ghost Town Ranch</title>
+
+  <!-- Dynamic meta — overwritten by JS once product loads -->
+  <meta name="description" content="Small-batch skincare, fragrance, and home goods rooted in the American West. COSMOS-compliant. Frontier Modernism." />
+  <meta property="og:site_name" content="Ghost Town Ranch" />
+  <meta property="og:type" content="product" />
+  <meta id="og-title" property="og:title" content="Ghost Town Ranch" />
+  <meta id="og-description" property="og:description" content="" />
+  <meta id="og-image" property="og:image" content="https://ghosttownranch.com/herogtr.png" />
+  <meta id="og-url" property="og:url" content="" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" id="canonical" href="" />
+
+  <style>
+    /* ── TOKENS ── matches existing GTR site */
+    :root {
+      --ink:       #1A1512;
+      --parchment: #F2EDE4;
+      --dust:      #C4B49A;
+      --ember:     #8B5E3C;
+      --ash:       #3A3530;
+      --white:     #FAFAF7;
+      --ff-display: 'IM Fell English', Georgia, serif;
+      --ff-body:    'Jost', 'Helvetica Neue', sans-serif;
+      --nav-h:     64px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--ink);
+      color: var(--parchment);
+      font-family: var(--ff-body);
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── FONTS ── */
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap');
+
+    /* ── NAV ── matches main site exactly */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: rgba(28, 24, 20, 0.72);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 48px;
+      z-index: 100;
+      transition: background 0.3s ease;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #F4EFE6;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Jost', system-ui, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #F4EFE6;
+      opacity: 0.7;
+      font-weight: 300;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover { opacity: 1; }
+
+    .nav-cart {
+      background: none;
+      border: none;
+      font-family: 'Jost', system-ui, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #F4EFE6;
+      opacity: 0.7;
+      font-weight: 300;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      padding: 0;
+    }
+    .nav-cart:hover { opacity: 1; }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      padding-top: var(--nav-h);
+      min-height: 100vh;
+    }
+
+    /* ── LOADING STATE ── */
+    .loading-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      gap: 20px;
+      color: var(--dust);
+    }
+
+    .loading-bull {
+      width: 48px;
+      height: 48px;
+      opacity: 0.4;
+      animation: breathe 2s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50%       { opacity: 0.6; transform: scale(1.05); }
+    }
+
+    /* ── ERROR STATE ── */
+    .error-state {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      gap: 16px;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .error-state h2 {
+      font-family: var(--ff-display);
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--parchment);
+    }
+
+    .error-state p { color: var(--dust); }
+
+    .error-state a {
+      color: var(--dust);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ── PRODUCT PAGE ── */
+    .product-page {
+      display: none;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 56px 28px 100px;
+    }
+
+    /* breadcrumb */
+    .breadcrumb {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dust);
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .breadcrumb a {
+      color: var(--dust);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: var(--parchment); }
+    .breadcrumb span { opacity: 0.4; }
+
+    /* two-column product grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
+
+    /* ── IMAGE COLUMN ── */
+    .product-image-wrap {
+      position: sticky;
+      top: calc(var(--nav-h) + 24px);
+    }
+
+    @media (max-width: 768px) {
+      .product-image-wrap {
+        position: static !important;
+        top: auto !important;
+      }
+    }
+
+    .product-image-main {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      background: var(--ash);
+      display: block;
+    }
+
+    .product-image-thumbs {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .thumb {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .thumb.active,
+    .thumb:hover {
+      border-color: var(--dust);
+    }
+
+    /* ── DETAIL COLUMN ── */
+    .product-tag {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ember);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .product-title {
+      font-family: var(--ff-display);
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--parchment);
+      margin-bottom: 6px;
+    }
+
+    .product-subtitle {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: clamp(15px, 2vw, 18px);
+      color: var(--dust);
+      margin-bottom: 24px;
+    }
+
+    .product-price {
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--parchment);
+      letter-spacing: 0.02em;
+      margin-bottom: 28px;
+    }
+
+    /* scent / variant selector */
+    .selector-label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dust);
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .selector-label span {
+      color: var(--parchment);
+      font-weight: 600;
+    }
+
+    .variant-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .variant-btn {
+      background: transparent;
+      border: 1px solid rgba(196,180,154,0.35);
+      color: var(--dust);
+      font-family: var(--ff-body);
+      font-size: 13px;
+      font-weight: 400;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.04em;
+    }
+
+    .variant-btn:hover {
+      border-color: var(--dust);
+      color: var(--parchment);
+    }
+
+    .variant-btn.selected {
+      background: var(--dust);
+      border-color: var(--dust);
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .variant-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    /* wax color dot — shows for candle products */
+    .scent-swatch {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    /* add to cart */
+    .atc-btn {
+      width: 100%;
+      background: var(--parchment);
+      color: var(--ink);
+      border: none;
+      font-family: var(--ff-body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 18px 24px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      margin-bottom: 16px;
+    }
+
+    .atc-btn:hover {
+      background: var(--white);
+    }
+
+    .atc-btn:disabled {
+      background: var(--ash);
+      color: var(--dust);
+      cursor: not-allowed;
+    }
+
+    .atc-btn.loading {
+      background: var(--ash);
+      color: var(--dust);
+      cursor: wait;
+    }
+
+    .coming-soon-note {
+      font-size: 12px;
+      color: var(--dust);
+      letter-spacing: 0.06em;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    /* share link */
+    .share-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .share-btn {
+      background: none;
+      border: 1px solid rgba(196,180,154,0.25);
+      color: var(--dust);
+      font-family: var(--ff-body);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .share-btn:hover {
+      border-color: var(--dust);
+      color: var(--parchment);
+    }
+
+    .share-confirm {
+      font-size: 12px;
+      color: var(--ember);
+      letter-spacing: 0.06em;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .share-confirm.visible { opacity: 1; }
+
+    /* product description */
+    .pair-callout {
+      display: block;
+      text-decoration: none;
+      border: 1px solid rgba(196,180,154,0.3);
+      padding: 16px 18px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .pair-callout:hover {
+      border-color: var(--dust);
+      background: rgba(196,180,154,0.06);
+    }
+    .pair-callout__eyebrow {
+      display: block;
+      font-family: var(--ff-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ember);
+      margin-bottom: 6px;
+    }
+    .pair-callout__text {
+      display: block;
+      font-family: var(--ff-body);
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--dust);
+      margin-bottom: 6px;
+    }
+    .pair-callout__link {
+      display: inline-block;
+      font-family: var(--ff-body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--parchment);
+    }
+
+    .product-description {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--dust);
+      margin-bottom: 32px;
+      border-top: 1px solid rgba(196,180,154,0.15);
+      padding-top: 28px;
+    }
+
+    .product-description p + p { margin-top: 12px; }
+
+    /* cert badges */
+    .cert-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(196,180,154,0.15);
+    }
+
+    .cert-badge {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dust);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cert-badge::before {
+      content: '✦';
+      color: var(--ember);
+      font-size: 9px;
+    }
+
+    /* specs accordion */
+    .spec-row {
+      border-top: 1px solid rgba(196,180,154,0.15);
+      overflow: hidden;
+    }
+
+    .spec-row:last-child {
+      border-bottom: 1px solid rgba(196,180,154,0.15);
+    }
+
+    .spec-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--parchment);
+      font-family: var(--ff-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-align: left;
+      padding: 16px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.2s;
+    }
+
+    .spec-trigger:hover { color: var(--dust); }
+
+    .spec-chevron {
+      font-size: 18px;
+      transition: transform 0.3s;
+      color: var(--dust);
+    }
+
+    .spec-row.open .spec-chevron { transform: rotate(45deg); }
+
+    .spec-body {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--dust);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s;
+      padding-bottom: 0;
+    }
+
+    .spec-row.open .spec-body {
+      max-height: 600px;
+      padding-bottom: 20px;
+    }
+
+    /* ── RELATED PRODUCTS ── */
+    .related-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 28px 80px;
+      border-top: 1px solid rgba(196,180,154,0.12);
+    }
+
+    .related-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dust);
+      margin: 48px 0 28px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 2px;
+    }
+
+    .related-card {
+      background: var(--ash);
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+
+    .related-card:hover { background: #2e2b27; }
+
+    .related-card img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    .related-card-info {
+      padding: 14px 16px;
+    }
+
+    .related-card-name {
+      font-size: 14px;
+      color: var(--parchment);
+      margin-bottom: 4px;
+    }
+
+    .related-card-price {
+      font-size: 13px;
+      color: var(--dust);
+    }
+
+    /* ── CART DRAWER ── (same as existing site) */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .cart-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0; right: 0;
+      width: min(400px, 100vw);
+      height: 100vh;
+      background: var(--ink);
+      border-left: 1px solid rgba(196,180,154,0.15);
+      z-index: 201;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+      padding: 28px;
+    }
+
+    .cart-drawer.open { transform: translateX(0); }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .cart-title {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dust);
+    }
+
+    .cart-close {
+      background: none;
+      border: none;
+      color: var(--dust);
+      font-size: 22px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0;
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .cart-empty {
+      color: var(--dust);
+      font-size: 14px;
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(196,180,154,0.1);
+    }
+
+    .cart-item img {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+    }
+
+    .cart-item-name {
+      font-size: 14px;
+      color: var(--parchment);
+      margin-bottom: 4px;
+    }
+
+    .cart-item-variant {
+      font-size: 12px;
+      color: var(--dust);
+      margin-bottom: 8px;
+    }
+
+    .cart-item-price {
+      font-size: 14px;
+      color: var(--dust);
+    }
+
+    .cart-footer {
+      padding-top: 20px;
+      border-top: 1px solid rgba(196,180,154,0.15);
+    }
+
+    .cart-subtotal {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: var(--parchment);
+      margin-bottom: 16px;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      background: var(--parchment);
+      color: var(--ink);
+      border: none;
+      font-family: var(--ff-body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .checkout-btn:hover { background: var(--white); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(196,180,154,0.1);
+      padding: 40px 28px;
+      text-align: center;
+    }
+
+    .footer-bull {
+      width: 32px;
+      height: 32px;
+      opacity: 0.3;
+      margin: 0 auto 16px;
+      display: block;
+    }
+
+    .footer-tagline {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dust);
+      opacity: 0.6;
+      margin-bottom: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: var(--dust);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .footer-links a:hover { opacity: 1; }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--parchment);
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 14px 24px;
+      z-index: 300;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-logo" href="/">
+    <img src="https://ghosttownranch.com/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="Ghost Town Ranch" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/wash-house/">Wash House</a></li>
+    <li><a href="/routines/">Routines</a></li>
+    <li><a href="/ritual/">Ritual</a></li>
+    <li><a href="/collections/deep-well/">Deep Well</a></li>
+    <li><a href="/#wholesale">Wholesale</a></li>
+  </ul>
+  <button class="nav-cart" id="cart-btn">Cart <span id="cart-count"></span></button>
+</nav>
+
+<!-- ── MAIN ── -->
+<main>
+
+  <!-- Loading -->
+  <div class="loading-state" id="loading">
+    <img class="loading-bull"
+      src="https://ghosttownranch.com/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png"
+      alt="" />
+    <span style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--dust)">Loading</span>
+  </div>
+
+  <!-- Error -->
+  <div class="error-state" id="error">
+    <h2>Product not found.</h2>
+    <p>The ranch is wide. Try heading back to the collection.</p>
+    <a href="/">← Back to Ghost Town Ranch</a>
+  </div>
+
+  <!-- Product page -->
+  <div class="product-page" id="product-page">
+
+    <div class="breadcrumb">
+      <a href="/">Ghost Town Ranch</a>
+      <span>/</span>
+      <span id="bc-category"></span>
+      <span>/</span>
+      <span id="bc-title"></span>
+    </div>
+
+    <div class="product-grid">
+
+      <!-- Images -->
+      <div class="product-image-wrap">
+        <img class="product-image-main" id="main-image" src="" alt="" />
+        <div class="product-image-thumbs" id="thumbs"></div>
+      </div>
+
+      <!-- Details -->
+      <div class="product-detail">
+
+        <div class="product-tag" id="product-tag"></div>
+        <h1 class="product-title" id="product-title"></h1>
+        <div class="product-subtitle" id="product-subtitle"></div>
+        <div class="product-price" id="product-price"></div>
+
+        <!-- Variant selector -->
+        <div id="variant-wrap">
+          <div class="selector-label">
+            Scent — <span id="selected-variant-label"></span>
+          </div>
+          <div class="variant-grid" id="variant-grid"></div>
+        </div>
+
+        <!-- ATC -->
+        <button class="atc-btn" id="atc-btn">Add to Cart</button>
+        <div class="coming-soon-note" id="coming-soon-note" style="display:none">
+          Available at Shoppe Object Nourish · August 2026 · Javits Center
+        </div>
+
+        <!-- Lip + Eye cross-sell -->
+        <a class="pair-callout" id="pair-callout" href="#" style="display:none">
+          <span class="pair-callout__eyebrow">Lip + Eye</span>
+          <span class="pair-callout__text" id="pair-callout-text"></span>
+          <span class="pair-callout__link" id="pair-callout-link"></span>
+        </a>
+
+        <!-- Share -->
+        <div class="share-row">
+          <button class="share-btn" id="share-btn">Copy Link</button>
+          <span class="share-confirm" id="share-confirm">Link copied</span>
+        </div>
+
+        <!-- Description -->
+        <div class="product-description" id="product-description"></div>
+
+        <!-- Cert badges -->
+        <div class="cert-row" id="cert-row"></div>
+
+        <!-- Specs accordion -->
+        <div id="specs-wrap"></div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Related -->
+<div class="related-section" id="related-section" style="display:none">
+  <div class="related-label">More from the Ranch</div>
+  <div class="related-grid" id="related-grid"></div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <img class="footer-bull"
+    src="https://ghosttownranch.com/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png"
+    alt="" />
+  <div class="footer-tagline">Frontier Modernism · Palm Springs, CA · Born in Twentynine Palms</div>
+  <ul class="footer-links">
+    <li><a href="https://instagram.com/ghosttownranch" target="_blank">@ghosttownranch</a></li>
+    <li><a href="mailto:howdy@ghosttownranch.com">howdy@ghosttownranch.com</a></li>
+    <li><a href="/routines/">Routines</a></li>
+    <li><a href="/ritual/">Ritual</a></li>
+    <li><a href="/#wholesale">Wholesale</a></li>
+    <li><a href="/">ghosttownranch.com</a></li>
+  </ul>
+</footer>
+
+<!-- Cart drawer -->
+<div class="cart-overlay" id="cart-overlay"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-header">
+    <span class="cart-title">Cart</span>
+    <button class="cart-close" id="cart-close">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items">
+    <div class="cart-empty">Your cart is empty.</div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <span id="cart-subtotal">—</span>
+    </div>
+    <button class="checkout-btn" id="checkout-btn">Checkout</button>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- ──────────────────────────────────────────────────────────────── -->
+<script>
+// ═══════════════════════════════════════════════════════════════
+//  CONFIG
+//  Replace STOREFRONT_TOKEN with your or-cre.com public
+//  Storefront API token (Settings → Apps → Storefront API)
+// ═══════════════════════════════════════════════════════════════
+const SHOP_DOMAIN   = 'or-cre.com';
+const STOREFRONT_TOKEN = 'c6efa00d9c5d9849c6c13d59cca6ab82';
+
+// Wax color map for GTR candle products
+const WAX_COLORS = {
+  'Hang Dried':  '#d4dce3',
+  'Rough Hewn':  '#c4b49a',
+  'Dusk':        '#c4956a',
+  'Ember':       '#3a3530',
+  'Graze':       '#7d8c6e',
+  'Flax':        '#d4c47a',
+};
+
+// GTR cert badges — shown for all products
+const CERTS = [
+  'COSMOS Certified · ECOCERT',
+  'Small-Batch · Made in USA',
+  'Vegan · Cruelty-Free',
+  'No Dyes · No Parabens · No Phthalates',
+];
+
+// Products that are Coming Soon — disable ATC
+const COMING_SOON_HANDLES = ['still-air-natural-deodorant', 'the-wash-house', 'long-range-endurance-skincare-collection', 'the-field-kit'];
+
+// Lip + Eye cross-sell — show on each product, point to its partner ($17 off both at checkout)
+const PAIR_PROMO = {
+  'long-shot-peptide-mascara':   { partner: 'drawn-line-matte-lip-color', name: 'Drawn Line Lip' },
+  'drawn-line-matte-lip-color':  { partner: 'long-shot-peptide-mascara',  name: 'Long Shot Mascara' },
+};
+function setupPairCallout(handle) {
+  const el = document.getElementById('pair-callout');
+  if (!el) return;
+  const promo = PAIR_PROMO[handle];
+  if (!promo) { el.style.display = 'none'; return; }
+  el.href = '/products/?handle=' + promo.partner;
+  document.getElementById('pair-callout-text').textContent =
+    'Wear it with ' + promo.name + '. Buy both, save $17 at checkout.';
+  document.getElementById('pair-callout-link').textContent = 'Shop ' + promo.name + ' \u2192';
+  el.style.display = 'block';
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  CART STATE
+// ═══════════════════════════════════════════════════════════════
+let cart = { id: null, lines: [], checkoutUrl: '' };
+let cartLoading = false;
+
+async function initCart() {
+  const stored = localStorage.getItem('gtr_cart_id');
+  if (stored) {
+    try {
+      const res = await storefrontFetch(`{
+        cart(id: "${stored}") {
+          id checkoutUrl
+          lines(first: 50) {
+            edges { node {
+              id quantity
+              merchandise { ... on ProductVariant {
+                id title price { amount }
+                image { url altText }
+                product { title }
+              }}
+            }}
+          }
+        }
+      }`);
+      if (res?.data?.cart) {
+        const c = res.data.cart;
+        cart.id = c.id;
+        cart.checkoutUrl = c.checkoutUrl;
+        cart.lines = c.lines.edges.map(e => e.node);
+        renderCart();
+        return;
+      }
+    } catch {}
+  }
+  // create new cart
+  const res = await storefrontFetch(`mutation {
+    cartCreate { cart { id checkoutUrl } }
+  }`);
+  cart.id = res?.data?.cartCreate?.cart?.id;
+  cart.checkoutUrl = res?.data?.cartCreate?.cart?.checkoutUrl;
+  localStorage.setItem('gtr_cart_id', cart.id);
+}
+
+async function addToCart(variantId, qty = 1) {
+  if (!cart.id || cartLoading) return;
+  cartLoading = true;
+  const btn = document.getElementById('atc-btn');
+  btn.classList.add('loading');
+  btn.textContent = 'Adding…';
+
+  const res = await storefrontFetch(`mutation {
+    cartLinesAdd(cartId: "${cart.id}", lines: [{
+      merchandiseId: "${variantId}",
+      quantity: ${qty}
+    }]) {
+      cart {
+        id checkoutUrl
+        lines(first: 50) {
+          edges { node {
+            id quantity
+            merchandise { ... on ProductVariant {
+              id title price { amount }
+              image { url altText }
+              product { title }
+            }}
+          }}
+        }
+      }
+    }
+  }`);
+
+  const c = res?.data?.cartLinesAdd?.cart;
+  if (c) {
+    cart.id = c.id;
+    cart.checkoutUrl = c.checkoutUrl;
+    cart.lines = c.lines.edges.map(e => e.node);
+    renderCart();
+    openCart();
+  }
+
+  btn.classList.remove('loading');
+  btn.textContent = 'Add to Cart';
+  cartLoading = false;
+}
+
+function renderCart() {
+  const itemsEl = document.getElementById('cart-items');
+  const subtotalEl = document.getElementById('cart-subtotal');
+  const countEl = document.getElementById('cart-count');
+
+  if (!cart.lines.length) {
+    itemsEl.innerHTML = '<div class="cart-empty">Your cart is empty.</div>';
+    subtotalEl.textContent = '—';
+    countEl.textContent = '';
+    return;
+  }
+
+  let total = 0;
+  let count = 0;
+  itemsEl.innerHTML = cart.lines.map(line => {
+    const v = line.merchandise;
+    const price = parseFloat(v.price.amount) * line.quantity;
+    total += price;
+    count += line.quantity;
+    return `<div class="cart-item">
+      <img src="${v.image?.url || ''}" alt="${v.image?.altText || ''}" />
+      <div>
+        <div class="cart-item-name">${v.product.title}</div>
+        <div class="cart-item-variant">${v.title !== 'Default Title' ? v.title : ''}</div>
+        <div class="cart-item-price">$${price.toFixed(2)}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  subtotalEl.textContent = '$' + total.toFixed(2);
+  countEl.textContent = count ? ` (${count})` : '';
+}
+
+function openCart() {
+  document.getElementById('cart-drawer').classList.add('open');
+  document.getElementById('cart-overlay').classList.add('open');
+}
+
+function closeCart() {
+  document.getElementById('cart-drawer').classList.remove('open');
+  document.getElementById('cart-overlay').classList.remove('open');
+}
+
+document.getElementById('cart-btn').addEventListener('click', openCart);
+document.getElementById('cart-close').addEventListener('click', closeCart);
+document.getElementById('cart-overlay').addEventListener('click', closeCart);
+document.getElementById('checkout-btn').addEventListener('click', () => {
+  if (cart.checkoutUrl) window.location.href = cart.checkoutUrl;
+});
+
+// ═══════════════════════════════════════════════════════════════
+//  STOREFRONT API
+// ═══════════════════════════════════════════════════════════════
+async function storefrontFetch(query) {
+  const res = await fetch(`https://${SHOP_DOMAIN}/api/2024-01/graphql.json`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Shopify-Storefront-Access-Token': STOREFRONT_TOKEN,
+    },
+    body: JSON.stringify({ query }),
+  });
+  return res.json();
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  PRODUCT FETCH
+// ═══════════════════════════════════════════════════════════════
+async function fetchProduct(handle) {
+  const data = await storefrontFetch(`{
+    product(handle: "${handle}") {
+      id title handle
+      description descriptionHtml
+      productType
+      tags
+      priceRange { minVariantPrice { amount currencyCode } }
+      images(first: 8) {
+        edges { node { url altText } }
+      }
+      variants(first: 30) {
+        edges { node {
+          id title availableForSale
+          price { amount }
+          selectedOptions { name value }
+          image { url altText }
+        }}
+      }
+    }
+  }`);
+  return data?.data?.product || null;
+}
+
+// Utility tags that should never display as a category
+const UTILITY_TAGS = ['cosmos', 'ecocert', 'fragrance-only', 'coming-soon', 'bestseller', 'best-seller', 'new', 'featured', 'sale'];
+
+// Category tag = first Shopify tag that isn't a utility tag
+function getCategoryTag(product) {
+  return (product.tags || []).find(t => !UTILITY_TAGS.includes(t.toLowerCase().trim())) || null;
+}
+
+// Display category: Product Type first, then category tag, then brand default
+function getCategory(product) {
+  if (product.productType) return product.productType;
+  const tag = getCategoryTag(product);
+  if (tag) return tag.replace(/\b\w/g, c => c.toUpperCase());
+  return 'The Ranch';
+}
+
+async function fetchRelated(queryStr, excludeHandle) {
+  const data = await storefrontFetch(`{
+    products(first: 6, query: "${queryStr}") {
+      edges { node {
+        title handle
+        priceRange { minVariantPrice { amount } }
+        images(first: 1) { edges { node { url altText } } }
+      }}
+    }
+  }`);
+  return (data?.data?.products?.edges || [])
+    .map(e => e.node)
+    .filter(p => p.handle !== excludeHandle)
+    .slice(0, 4);
+}
+
+// Backfill: bestsellers from the full catalog
+async function fetchFill(excludeHandles) {
+  const data = await storefrontFetch(`{
+    products(first: 8, sortKey: BEST_SELLING) {
+      edges { node {
+        title handle
+        priceRange { minVariantPrice { amount } }
+        images(first: 1) { edges { node { url altText } } }
+      }}
+    }
+  }`);
+  return (data?.data?.products?.edges || [])
+    .map(e => e.node)
+    .filter(p => !excludeHandles.includes(p.handle));
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  RENDER PRODUCT
+// ═══════════════════════════════════════════════════════════════
+function renderProduct(product) {
+  const handle = product.handle;
+  const isComingSoon = COMING_SOON_HANDLES.includes(handle);
+  setupPairCallout(handle);
+
+  // Meta
+  document.title = `${product.title} — Ghost Town Ranch`;
+  document.getElementById('og-title').content = `${product.title} — Ghost Town Ranch`;
+  document.getElementById('og-description').content = product.description?.slice(0, 160) || '';
+  const firstImg = product.images.edges[0]?.node?.url || '';
+  document.getElementById('og-image').content = firstImg;
+  const pageUrl = `https://ghosttownranch.com/products/${handle}`;
+  document.getElementById('og-url').content = pageUrl;
+  document.getElementById('canonical').href = pageUrl;
+
+  // Breadcrumb
+  document.getElementById('bc-category').textContent = getCategory(product);
+  document.getElementById('bc-title').textContent = product.title;
+
+  // Category eyebrow — always renders (Product Type, else category tag, else The Ranch)
+  document.getElementById('product-tag').textContent = getCategory(product);
+
+  // Title — split on first space for italic styling if subtitle exists
+  const titleParts = product.title.split('  ');
+  document.getElementById('product-title').textContent = product.title;
+  document.getElementById('product-subtitle').textContent = '';
+
+  // Price
+  const price = parseFloat(product.priceRange.minVariantPrice.amount);
+  document.getElementById('product-price').textContent = `$${price % 1 === 0 ? price.toFixed(0) : price.toFixed(2)}`;
+
+  // Images
+  const images = product.images.edges.map(e => e.node);
+  const mainImg = document.getElementById('main-image');
+  if (images[0]) {
+    mainImg.src = images[0].url;
+    mainImg.alt = images[0].altText || product.title;
+  }
+
+  const thumbsWrap = document.getElementById('thumbs');
+  if (images.length > 1) {
+    thumbsWrap.innerHTML = images.map((img, i) => `
+      <img class="thumb${i === 0 ? ' active' : ''}"
+        src="${img.url}" alt="${img.altText || ''}"
+        data-src="${img.url}" />
+    `).join('');
+    thumbsWrap.querySelectorAll('.thumb').forEach(t => {
+      t.addEventListener('click', () => {
+        mainImg.src = t.dataset.src;
+        thumbsWrap.querySelectorAll('.thumb').forEach(x => x.classList.remove('active'));
+        t.classList.add('active');
+      });
+    });
+  }
+
+  // Variants
+  const variants = product.variants.edges.map(e => e.node);
+  const variantWrap = document.getElementById('variant-wrap');
+  const variantGrid = document.getElementById('variant-grid');
+  let selectedVariant = variants.find(v => v.availableForSale) || variants[0];
+
+  // Determine if this is a scent-based product
+  const scentOptions = variants.some(v =>
+    v.selectedOptions.some(o => o.name.toLowerCase() === 'scent' || o.name.toLowerCase() === 'fragrance')
+  );
+  const hasVariants = variants.length > 1 && variants[0].title !== 'Default Title';
+
+  // Candles with colored wax get a different label
+  // Exact Shopify handles for colored-wax candles
+  const WAX_CANDLE_HANDLES = ['the-votive-single', 'soy-wax-candle-wild-flower', 'the-slow-candle', 'the-votive-candle-set-of-6'];
+  const isWaxCandle = WAX_CANDLE_HANDLES.includes(product.handle);
+  const selectorLabelEl = document.querySelector('.selector-label');
+
+  if (hasVariants) {
+    variantWrap.style.display = 'block';
+
+    // Set label text based on product type — must happen before querying the span
+    if (isWaxCandle) {
+      selectorLabelEl.innerHTML = 'Scent + Wax Color — <span id="selected-variant-label"></span>';
+    } else {
+      selectorLabelEl.innerHTML = 'Scent — <span id="selected-variant-label"></span>';
+    }
+
+    // Query after innerHTML rewrite so reference is live
+    const selectedLabel = document.getElementById('selected-variant-label');
+
+    function selectVariant(v) {
+      selectedVariant = v;
+      selectedLabel.textContent = v.title;
+      // update image if variant has its own
+      if (v.image?.url) {
+        mainImg.src = v.image.url;
+      }
+      // update price display
+      document.getElementById('product-price').textContent =
+        '$' + parseFloat(v.price.amount).toFixed(0);
+    }
+
+    variantGrid.innerHTML = variants.map(v => {
+      const color = WAX_COLORS[v.title];
+      const swatch = color ? `<span class="scent-swatch" style="background:${color}"></span>` : '';
+      return `<button class="variant-btn${v.id === selectedVariant.id ? ' selected' : ''}"
+        data-variant-id="${v.id}"
+        ${!v.availableForSale ? 'disabled' : ''}
+      >${swatch}${v.title}</button>`;
+    }).join('');
+
+    selectedLabel.textContent = selectedVariant.title;
+
+    variantGrid.querySelectorAll('.variant-btn:not(:disabled)').forEach(btn => {
+      btn.addEventListener('click', () => {
+        variantGrid.querySelectorAll('.variant-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        const v = variants.find(x => x.id === btn.dataset.variantId);
+        if (v) selectVariant(v);
+      });
+    });
+  } else {
+    variantWrap.style.display = 'none';
+  }
+
+  // ATC
+  const atcBtn = document.getElementById('atc-btn');
+  const comingSoonNote = document.getElementById('coming-soon-note');
+
+  if (isComingSoon) {
+    atcBtn.disabled = true;
+    atcBtn.textContent = 'Coming Soon';
+    comingSoonNote.style.display = 'block';
+  } else {
+    atcBtn.addEventListener('click', () => {
+      if (selectedVariant?.id) addToCart(selectedVariant.id);
+    });
+  }
+
+  // Share button
+  document.getElementById('share-btn').addEventListener('click', () => {
+    navigator.clipboard.writeText(pageUrl).then(() => {
+      const confirm = document.getElementById('share-confirm');
+      confirm.classList.add('visible');
+      setTimeout(() => confirm.classList.remove('visible'), 2200);
+    });
+  });
+
+  // Description — ingredient lists split out into the accordion
+  const descEl = document.getElementById('product-description');
+  let ingredientsHtml = '';
+  if (product.descriptionHtml) {
+    const split = splitIngredients(product.descriptionHtml);
+    descEl.innerHTML = split.descHtml;
+    ingredientsHtml = split.ingredientsHtml;
+  } else if (product.description) {
+    const parts = product.description.split(/(?=(?:full\s+)?ingredients?\s*:)/i);
+    descEl.textContent = parts[0].trim();
+    if (parts.length > 1) ingredientsHtml = `<p>${parts.slice(1).join(' ').trim()}</p>`;
+  }
+
+  // Cert badges — show relevant subset based on tags
+  const certRow = document.getElementById('cert-row');
+  const tags = product.tags || [];
+  const certs = [];
+  if (isCosmosCertified(product)) {
+    certs.push('COSMOS Certified · ECOCERT');
+  }
+  certs.push('Small-Batch · Made in USA');
+  if (!tags.includes('fragrance-only')) certs.push('Vegan · Cruelty-Free');
+  certs.push('No Dyes · No Parabens · No Phthalates');
+
+  certRow.innerHTML = certs.map(c => `<span class="cert-badge">${c}</span>`).join('');
+
+  // Specs accordion — built from product type
+  buildSpecs(product, variants, ingredientsHtml);
+
+  // Show page
+  document.getElementById('loading').style.display = 'none';
+  const page = document.getElementById('product-page');
+  page.style.display = 'block';
+  page.style.opacity = 0;
+  requestAnimationFrame(() => {
+    page.style.transition = 'opacity 0.4s';
+    page.style.opacity = 1;
+  });
+}
+
+// Pull the ingredient list out of the Shopify description HTML.
+// Catches a block starting with "Ingredients" / "INCI" (and everything after it),
+// or any long comma-heavy paragraph that reads like an INCI list.
+function splitIngredients(html) {
+  const tmp = document.createElement('div');
+  tmp.innerHTML = html;
+  const nodes = Array.from(tmp.children);
+  const moved = [];
+  let capture = false;
+  nodes.forEach(el => {
+    const txt = (el.textContent || '').trim();
+    const isHeader = /^(full\s+)?ingredients?\b|^INCI\b/i.test(txt);
+    const isList = txt.length > 150 && (txt.match(/,/g) || []).length >= 8;
+    if (isHeader) capture = true;
+    if (capture || isList) {
+      moved.push(el.outerHTML);
+      el.remove();
+    }
+  });
+  return { descHtml: tmp.innerHTML.trim(), ingredientsHtml: moved.join('') };
+}
+
+// Whether a product carries the third-party COSMOS/ECOCERT certification.
+// Driven by Shopify tags first (durable), with an explicit fallback list of
+// the currently-certified SKUs. Deliberately excludes "COSMOS-compliant"-only
+// items (e.g. The Wash, Hand Cream) and non-cosmetics (e.g. Root Revival).
+function isCosmosCertified(product) {
+  const tags = (product.tags || []).map(t => String(t).toLowerCase());
+  if (tags.includes('cosmos') || tags.includes('ecocert')) return true;
+  const norm = s => (s || '').toLowerCase().replace(/[’'`´]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+  const t = norm(product.title);
+  const CERTIFIED = [
+    'all told', 'the grade', 'the hold', 'desert day cream', 'dusk til dawn',
+    'desert glow', 'frontier fade', 'mojave reset', 'outlaws wipeout', 'rose cut',
+    'golden hour', 'outlaws reserve', 'rosemary mint revive', 'trails end'
+  ];
+  return CERTIFIED.some(name => t.includes(name));
+}
+
+function buildSpecs(product, variants, ingredientsHtml) {
+  const wrap = document.getElementById('specs-wrap');
+  const type = (product.productType || '').toLowerCase();
+  const title = (product.title || '').toLowerCase();
+  const isFragranceSpray = title.includes('ranch water') || (type.includes('fragrance') && !type.includes('skin') && !type.includes('hair'));
+  const isHomeFragrance = type.includes('candle') || type.includes('diffuser') || isFragranceSpray;
+
+  const specs = [];
+
+  // Scent descriptions — for fragrance products
+  if (type.includes('candle') || type.includes('fragrance') || type.includes('diffuser') || type.includes('mist')) {
+    specs.push({
+      title: 'The Six Scents',
+      body: `<p>Hang Dried — White Sage &amp; Lavender. White sage, lavender, rosemary, cedar underneath. Clean without trying.</p>
+             <p>Rough Hewn — Cade &amp; Cedarwood. Sweet smoke, sandalwood underneath, leather at the edges.</p>
+             <p>Dusk — Palo Santo. Dry earth, warm amber. Ancient and mineral.</p>
+             <p>Ember — Charcoal &amp; Amber. Dark and smoky with deep resin. The canyon after rain.</p>
+             <p>Graze — Sweetgrass &amp; Sage. River-clean and sharp. The good scrub after a day of work.</p>
+             <p>Flax — Cotton &amp; Citrus. Lemon, cotton blossom, blonde woods.</p>`
+    });
+  }
+
+  // Details
+  const detailLines = [];
+  if (isHomeFragrance) {
+    detailLines.push('Skin-safe fragrances, hand-blended in the USA');
+    detailLines.push('Made from the finest fragrances and ingredients');
+  }
+  if (type.includes('candle')) {
+    detailLines.push('Cotton wick — no lead');
+    detailLines.push('Colored wax — each scent poured in its own color');
+    detailLines.push('Hand-poured in small batches');
+  }
+  if (type.includes('diffuser')) {
+    detailLines.push('Amber glass vessel — refillable');
+    detailLines.push('Flip reeds every 7–10 days');
+    detailLines.push('Lasts 3–4 months');
+  }
+  if (isFragranceSpray) {
+    detailLines.push('Made with care for the body — can also be used on linens or as an air freshener');
+    detailLines.push('Made from perfumer\'s alcohol, fragrance oil, and distilled water');
+    detailLines.push('Free of dyes, parabens, and phthalates');
+  }
+  if (isCosmosCertified(product)) {
+    detailLines.push('COSMOS Certified by ECOCERT — third-party verified');
+  }
+  if (!isHomeFragrance && (isCosmosCertified(product) || type.includes('skin') || type.includes('body') || type.includes('hair') || type.includes('eye') || type.includes('face'))) {
+    detailLines.push('Vegan · Cruelty-Free');
+    detailLines.push('Free of parabens, phthalates, and synthetic dyes');
+  }
+  detailLines.push('Small-batch · Frontier Modernism · Palm Springs, CA');
+
+  if (detailLines.length) {
+    specs.push({
+      title: 'Details',
+      body: detailLines.map(l => `<p>${l}</p>`).join('')
+    });
+  }
+
+  // Ingredients — full list, tucked into its own expandable row
+  if (ingredientsHtml) {
+    specs.push({
+      title: 'Ingredients',
+      body: ingredientsHtml
+    });
+  }
+
+  // Shipping
+  specs.push({
+    title: 'Shipping & Returns',
+    body: `<p>Ships within 10 business days from the USA. Standard ground shipping.</p>
+           <p>For wholesale inquiries: <a href="mailto:wholesale@ghosttownranch.com" style="color:var(--dust)">wholesale@ghosttownranch.com</a></p>
+           <p>Questions: <a href="mailto:howdy@ghosttownranch.com" style="color:var(--dust)">howdy@ghosttownranch.com</a></p>`
+  });
+
+  wrap.innerHTML = specs.map(s => `
+    <div class="spec-row">
+      <button class="spec-trigger" aria-expanded="false">
+        ${s.title}
+        <span class="spec-chevron">+</span>
+      </button>
+      <div class="spec-body">${s.body}</div>
+    </div>
+  `).join('');
+
+  wrap.querySelectorAll('.spec-row').forEach(row => {
+    row.querySelector('.spec-trigger').addEventListener('click', () => {
+      row.classList.toggle('open');
+    });
+  });
+}
+
+async function renderRelated(product) {
+  let related = [];
+
+  // Match by Product Type first, then by category tag
+  if (product.productType) {
+    related = await fetchRelated(`product_type:\\"${product.productType}\\"`, product.handle);
+  } else {
+    const tag = getCategoryTag(product);
+    if (tag) related = await fetchRelated(`tag:\\"${tag}\\"`, product.handle);
+  }
+
+  // Backfill with bestsellers so the row is always full
+  if (related.length < 4) {
+    const exclude = [product.handle, ...related.map(p => p.handle)];
+    const fill = await fetchFill(exclude);
+    related = [...related, ...fill].slice(0, 4);
+  }
+
+  if (!related.length) return;
+
+  const section = document.getElementById('related-section');
+  const grid = document.getElementById('related-grid');
+
+  grid.innerHTML = related.map(p => `
+    <a class="related-card" href="/products/${p.handle}">
+      <img src="${p.images.edges[0]?.node?.url || ''}" alt="${p.title}" loading="lazy" />
+      <div class="related-card-info">
+        <div class="related-card-name">${p.title}</div>
+        <div class="related-card-price">$${parseFloat(p.priceRange.minVariantPrice.amount).toFixed(0)}</div>
+      </div>
+    </a>
+  `).join('');
+
+  section.style.display = 'block';
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  ROUTER — reads handle from URL path
+//  Works for:
+//    ghosttownranch.com/products/the-votive
+//    ghosttownranch.com/products/ranch-water-body-linen-fragrance
+// ═══════════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════════════
+//  THE RITUAL — BUNDLE (Ranch Water + The Slow, one scent)
+// ═══════════════════════════════════════════════════════════════
+// Not a single Shopify product. One scent selection adds two line
+// items — Ranch Water + The Slow in the matching scent — to the cart.
+// Variant IDs are anchored by scent and do not change.
+const RITUAL = {
+  title: 'The Ritual',
+  subtitle: 'One scent. The whole day in it.',
+  category: 'Fragrance + Home',
+  priceBundle: 128,   // Ranch Water $88 + The Slow $54 = $142, ~10% off
+  priceRegular: 142,
+  pairs: [
+    { scent: 'Rough Hewn', ranchWater: '51730077090088', theSlow: '51730076467496' },
+    { scent: 'Hang Dried', ranchWater: '51730077122856', theSlow: '51730076500264' },
+    { scent: 'Ember',      ranchWater: '51730077155624', theSlow: '51730076533032' },
+    { scent: 'Graze',      ranchWater: '51730077188392', theSlow: '51730076565800' },
+    { scent: 'Flax',       ranchWater: '51730077221160', theSlow: '51730076598568' },
+    { scent: 'Dusk',       ranchWater: '51730077253928', theSlow: '51730076631336' },
+  ],
+  desc: `
+    <p>One scent, carried from the shower to the pillow. Ranch Water for the day. The Slow for the evening.</p>
+    <p><strong>After the shower.</strong> Ranch Water on skin. The day starts the way the land smells.</p>
+    <p><strong>Through the day.</strong> A mist into the room, over the linens. It carries.</p>
+    <p><strong>Evening.</strong> Strike the match. The scent goes from spritz to slow burn.</p>
+    <p><strong>Before bed.</strong> Ranch Water on the pillow, then dark.</p>
+    <p>The pair, $14 off. $142 separately.</p>
+  `,
+};
+
+async function addBundleToCart(variantA, variantB) {
+  if (!cart.id || cartLoading) return;
+  cartLoading = true;
+  const btn = document.getElementById('atc-btn');
+  btn.classList.add('loading');
+  btn.textContent = 'Adding…';
+
+  const res = await storefrontFetch(`mutation {
+    cartLinesAdd(cartId: "${cart.id}", lines: [
+      { merchandiseId: "gid://shopify/ProductVariant/${variantA}", quantity: 1 },
+      { merchandiseId: "gid://shopify/ProductVariant/${variantB}", quantity: 1 }
+    ]) {
+      cart {
+        id checkoutUrl
+        lines(first: 50) {
+          edges { node {
+            id quantity
+            merchandise { ... on ProductVariant {
+              id title price { amount }
+              image { url altText }
+              product { title }
+            }}
+          }}
+        }
+      }
+    }
+  }`);
+
+  const c = res?.data?.cartLinesAdd?.cart;
+  if (c) {
+    cart.id = c.id;
+    cart.checkoutUrl = c.checkoutUrl;
+    cart.lines = c.lines.edges.map(e => e.node);
+    renderCart();
+    openCart();
+  }
+
+  btn.classList.remove('loading');
+  btn.textContent = 'Add the Ritual to Cart';
+  cartLoading = false;
+}
+
+async function renderRitualBundle() {
+  let current = RITUAL.pairs[0];
+
+  // Meta
+  document.title = `${RITUAL.title} — Ghost Town Ranch`;
+  const pageUrl = 'https://ghosttownranch.com/products/the-ritual';
+  document.getElementById('og-title').content = `${RITUAL.title} — Ghost Town Ranch`;
+  document.getElementById('og-description').content = RITUAL.subtitle;
+  document.getElementById('og-url').content = pageUrl;
+  document.getElementById('canonical').href = pageUrl;
+
+  // Breadcrumb, eyebrow, title, subtitle, price
+  document.getElementById('bc-category').textContent = RITUAL.category;
+  document.getElementById('bc-title').textContent = RITUAL.title;
+  document.getElementById('product-tag').textContent = RITUAL.category;
+  document.getElementById('product-title').textContent = RITUAL.title;
+  document.getElementById('product-subtitle').textContent = RITUAL.subtitle;
+  document.getElementById('product-price').textContent = `$${RITUAL.priceBundle}`;
+
+  // Images — pulled live from the two component variants (no handle needed)
+  try {
+    const imgRes = await storefrontFetch(`{
+      nodes(ids: ["gid://shopify/ProductVariant/${current.ranchWater}", "gid://shopify/ProductVariant/${current.theSlow}"]) {
+        ... on ProductVariant {
+          image { url altText }
+          product { title featuredImage { url altText } }
+        }
+      }
+    }`);
+    const nodes = (imgRes?.data?.nodes || []).filter(Boolean);
+    const imgs = nodes.map(n => n.image?.url || n.product?.featuredImage?.url).filter(Boolean);
+    const mainImg = document.getElementById('main-image');
+    if (imgs[0]) {
+      mainImg.src = imgs[0];
+      mainImg.alt = RITUAL.title;
+      document.getElementById('og-image').content = imgs[0];
+    }
+    if (imgs.length > 1) {
+      const thumbsWrap = document.getElementById('thumbs');
+      thumbsWrap.innerHTML = imgs.map((u, i) =>
+        `<img class="thumb${i === 0 ? ' active' : ''}" src="${u}" data-src="${u}" alt="" />`).join('');
+      thumbsWrap.querySelectorAll('.thumb').forEach(t => t.addEventListener('click', () => {
+        mainImg.src = t.dataset.src;
+        thumbsWrap.querySelectorAll('.thumb').forEach(x => x.classList.remove('active'));
+        t.classList.add('active');
+      }));
+    }
+  } catch (e) { /* images non-critical */ }
+
+  // Scent picker — same markup/classes as the standard PDP so swatches + styling match
+  const variantWrap = document.getElementById('variant-wrap');
+  const variantGrid = document.getElementById('variant-grid');
+  variantWrap.style.display = 'block';
+  document.querySelector('.selector-label').innerHTML = 'Scent — <span id="selected-variant-label"></span>';
+  const selectedLabel = document.getElementById('selected-variant-label');
+  selectedLabel.textContent = current.scent;
+
+  variantGrid.innerHTML = RITUAL.pairs.map((p, i) => {
+    const color = WAX_COLORS[p.scent];
+    const swatch = color ? `<span class="scent-swatch" style="background:${color}"></span>` : '';
+    return `<button class="variant-btn${i === 0 ? ' selected' : ''}" data-index="${i}">${swatch}${p.scent}</button>`;
+  }).join('');
+
+  variantGrid.querySelectorAll('.variant-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      variantGrid.querySelectorAll('.variant-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      current = RITUAL.pairs[parseInt(btn.dataset.index, 10)];
+      selectedLabel.textContent = current.scent;
+    });
+  });
+
+  // ATC — adds both line items in one mutation
+  const atcBtn = document.getElementById('atc-btn');
+  atcBtn.textContent = 'Add the Ritual to Cart';
+  atcBtn.addEventListener('click', () => addBundleToCart(current.ranchWater, current.theSlow));
+
+  // Share
+  document.getElementById('share-btn').addEventListener('click', () => {
+    navigator.clipboard.writeText(pageUrl).then(() => {
+      const c = document.getElementById('share-confirm');
+      c.classList.add('visible');
+      setTimeout(() => c.classList.remove('visible'), 2200);
+    });
+  });
+
+  // Description + certs
+  document.getElementById('product-description').innerHTML = RITUAL.desc;
+  document.getElementById('cert-row').innerHTML = [
+    'Small-Batch · Made in USA',
+    'Vegan · Cruelty-Free',
+    'No Dyes · No Parabens · No Phthalates',
+  ].map(c => `<span class="cert-badge">${c}</span>`).join('');
+
+  // Show page (same transition as renderProduct)
+  document.getElementById('loading').style.display = 'none';
+  const page = document.getElementById('product-page');
+  page.style.display = 'block';
+  page.style.opacity = 0;
+  requestAnimationFrame(() => {
+    page.style.transition = 'opacity 0.4s';
+    page.style.opacity = 1;
+  });
+}
+
+async function init() {
+  await initCart();
+
+  // Handle comes via ?handle= (set by 404.html redirect) or direct path
+  const params = new URLSearchParams(window.location.search);
+  const handle = params.get('handle') ||
+                 window.location.pathname.replace(/^\/products\//, '').replace(/\/$/, '');
+
+  if (!handle) {
+    // No handle — redirect to homepage
+    window.location.href = '/';
+    return;
+  }
+
+  // The Ritual — a two-product bundle (Ranch Water + The Slow), not a single Shopify product
+  if (handle === 'the-ritual') {
+    await renderRitualBundle();
+    return;
+  }
+
+  const product = await fetchProduct(handle);
+
+  if (!product) {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('error').style.display = 'flex';
+    // Still show More from the Ranch — a wrong turn shouldn't be a dead end
+    try {
+      const fill = (await fetchFill([])).slice(0, 4);
+      if (fill.length) {
+        const grid = document.getElementById('related-grid');
+        grid.innerHTML = fill.map(p => `
+          <a class="related-card" href="/products/${p.handle}">
+            <img src="${p.images.edges[0]?.node?.url || ''}" alt="${p.title}" loading="lazy" />
+            <div class="related-card-info">
+              <div class="related-card-name">${p.title}</div>
+              <div class="related-card-price">$${parseFloat(p.priceRange.minVariantPrice.amount).toFixed(0)}</div>
+            </div>
+          </a>
+        `).join('');
+        document.getElementById('related-section').style.display = 'block';
+      }
+    } catch (e) { /* non-critical */ }
+    return;
+  }
+
+  renderProduct(product);
+  renderRelated(product); // non-blocking
+}
+
+init();
+</script>
+
+</body>
+</html>
