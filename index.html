@@ -2236,9 +2236,9 @@
   <div class="nav-right">
     <ul class="nav-links" id="nav-links" role="navigation" aria-label="Main navigation">
       <li><a href="#" onclick="event.preventDefault(); showPage('brand');">Home</a></li>
-      <li><a href="#" onclick="event.preventDefault(); showPage('catalog'); filterProducts('all', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'All'));">Shop All</a></li>
-      <li><a href="#" onclick="event.preventDefault(); showPage('catalog'); filterProducts('routine', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Routine'));">Routine</a></li>
-      <li><a href="#" onclick="event.preventDefault(); showPage('catalog'); filterProducts('ritual', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Ritual'));">Ritual</a></li>
+      <li><a href="/wash-house/">Wash House</a></li>
+      <li><a href="/routines/">Routines</a></li>
+      <li><a href="/ritual/">Ritual</a></li>
       <li><a href="/collections/deep-well/">Deep Well</a></li>
       <li><a href="#" onclick="event.preventDefault(); showPage('wholesale');">Wholesale</a></li>
     </ul>
@@ -2290,17 +2290,17 @@
 
   <section class="brand-statement">
     <p class="brand-statement-desc">From the wide open. For every day.</p>
-    <p class="brand-statement-frontier"><strong>Frontier Modernism</strong> is where two worlds meet: pioneer grit and modern clarity, honest materials and a refined hand. It's how we formulate, how we design, and how we think about a life lived between the wide open and the world it opens onto.</p>
+    <p style="margin-top:20px;"><a href="/shop/" style="font-family:var(--serif);font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ochre);text-decoration:none;border-bottom:1px solid var(--ochre);padding-bottom:3px;">Shop the full range &rarr;</a></p>
   </section>
 
-  <!-- ── RITUAL (lead) ── -->
-  <section class="product-section" aria-label="Ritual">
-    <div class="product-image" onclick="showPage('catalog'); filterProducts('ritual', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Ritual'));" style="cursor:pointer;" role="button" aria-label="Shop Ritual">
+  <!-- ── WASH HOUSE (lead) ── -->
+  <section class="product-section" aria-label="Wash House">
+    <div class="product-image" onclick="location.href='/wash-house/'" style="cursor:pointer;" role="button" aria-label="The Wash House">
       <div class="product-image-inner">
         <picture>
           <img
             src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thebasinset.png"
-            alt="Ghost Town Ranch Ritual, The Basin hand wash and body cream set, clean studio shot"
+            alt="Ghost Town Ranch Wash House, The Basin hand wash and body cream set, clean studio shot"
             loading="eager"
             decoding="async"
             width="1400" height="1400"
@@ -2310,22 +2310,22 @@
       </div>
     </div>
     <div class="product-content">
-      <div class="product-eyebrow">Shop · Ritual</div>
-      <h2 class="product-title">Ritual</h2>
+      <div class="product-eyebrow">The Wash House</div>
+      <h2 class="product-title">Wash House</h2>
       <div class="product-rule"></div>
-      <p class="product-desc">It starts at the sink. The Basin sets our hand wash, the first formula we made and our best seller, beside a matching body cream in your choice of scent. The same six scents carry through the day in candles, mist, and the diffuser.</p>
-      <a class="explore-btn" onclick="showPage('catalog'); filterProducts('ritual', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Ritual'));">Shop Ritual &rarr;</a>
+      <p class="product-desc">It begins at the sink. The Basin is where we started, a hand wash in three scents and a body cream in one, the first formulas we made and still the most reached for. The Wash House is the rest, hand and body wash, hair, the everyday care. Each one is made to protect the skin rather than strip it, the way the desert asks. Made for the wild, original light of the American West.</p>
+      <a class="explore-btn" href="/wash-house/">Enter the Wash House &rarr;</a>
     </div>
   </section>
 
-  <!-- ── ROUTINE ── -->
-  <section class="product-section reverse" aria-label="Routine">
-    <div class="product-image" onclick="showPage('catalog'); filterProducts('routine', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Routine'));" style="cursor:pointer;" role="button" aria-label="Shop Routine">
+  <!-- ── RITUAL ── -->
+  <section class="product-section reverse" aria-label="Ritual">
+    <div class="product-image" onclick="location.href='/ritual/'" style="cursor:pointer;" role="button" aria-label="Ritual">
       <div class="product-image-inner">
         <picture>
           <img
-            src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/morningedit_1.png"
-            alt="Ghost Town Ranch Routine, the Morning Skin Routine bundle, clean studio shot"
+            src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/votiveset6_1.png"
+            alt="Ghost Town Ranch Ritual, the six-scent votive set, clean studio shot"
             loading="lazy"
             decoding="async"
             width="1400" height="1400"
@@ -2335,11 +2335,11 @@
       </div>
     </div>
     <div class="product-content">
-      <div class="product-eyebrow">Shop · Routine</div>
-      <h2 class="product-title">Routine</h2>
+      <div class="product-eyebrow">The Six Scents</div>
+      <h2 class="product-title">Ritual</h2>
       <div class="product-rule"></div>
-      <p class="product-desc">The daily regimen. Cleanse, treat, protect. Morning Skin, Evening Repair, and the Long Range system, plus the Face. COSMOS-certified by ECOCERT and made for the wide open.</p>
-      <a class="explore-btn" onclick="showPage('catalog'); filterProducts('routine', Array.from(document.querySelectorAll('.filter-btn')).find(b => b.textContent.trim() === 'Routine'));">Shop Routine &rarr;</a>
+      <p class="product-desc">Scent as landscape. Six scents from the wide open, carried through the house in candle, mist, and diffuser, each one hand-poured or blended in small batches. Rough Hewn, Hang Dried, Ember, Graze, Flax, and Dusk.</p>
+      <a class="explore-btn" href="/ritual/">See the scent guide &rarr;</a>
     </div>
   </section>
 
@@ -2348,7 +2348,7 @@
     <div class="routines-teaser-left">
       <div class="routines-teaser-eyebrow">Ghost Town Ranch · Routines</div>
       <h2 class="routines-teaser-headline">Three routines.<br><em>All day covered.</em></h2>
-      <p class="routines-teaser-body">Morning skin. The face. Evening repair. Every formula is COSMOS-certified and made for the wide open. Desert climate, long days, and skin that has to hold.</p>
+      <p class="routines-teaser-body">Morning skin. The face. Evening repair. Every formula is COSMOS-certified and made for the wide open, and even the color is made to care for skin. Desert climate, long days, and skin that has to hold.</p>
       <a href="/routines/" class="routines-teaser-link">View All Routines</a>
     </div>
     <div class="routines-teaser-right">
@@ -3290,7 +3290,7 @@
   document.addEventListener('DOMContentLoaded', function() {
     renderCartDrawer();
     updateCartBadge();
-    // Handle deep links from external pages e.g. /#wholesale or /#catalog?filter=skin
+    // Handle deep links from external pages e.g. /#wholesale or /#catalog?filter=routine
     var hashFull = window.location.hash.replace('#', '');
     var hashParts = hashFull.split('?');
     var hash = hashParts[0];
@@ -3306,7 +3306,7 @@
       showPage(hash);
       if (filterParam && hash === 'catalog') {
         var filterBtns = document.querySelectorAll('.filter-btn');
-        var filterMap = { all: 0, fragrance: 1, skin: 2, wash: 3, tools: 4, bundles: 5, merch: 6 };
+        var filterMap = { all: 0, routine: 1, ritual: 2, bundles: 3, goods: 4 };
         var idx = filterMap[filterParam];
         if (idx !== undefined && filterBtns[idx]) {
           filterProducts(filterParam, filterBtns[idx]);
