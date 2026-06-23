@@ -536,6 +536,18 @@
   <style>
     .steps-grid.count-3 { grid-template-columns: repeat(3, 1fr); }
     @media (max-width: 768px){ .steps-grid.count-3 { grid-template-columns: repeat(3, 1fr); gap: 32px 0; } }
+
+    /* field guide motif */
+    .field-guide{ background:var(--cream,#efe9dd); padding:96px 48px; border-top:1px solid rgba(124,130,96,0.18); }
+    .fg-inner{ max-width:840px; margin:0 auto; text-align:center; }
+    .fg-label{ font-family:var(--serif,Georgia,serif); font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--army,#7c8260); margin-bottom:14px; }
+    .fg-title{ font-family:var(--serif,Georgia,serif); font-weight:400; font-size:clamp(24px,3.2vw,38px); color:var(--ink,#1e1c18); margin:0 0 30px; line-height:1.1; }
+    .fg-title em{ font-style:italic; }
+    .fg-frame{ display:block; border:1px solid rgba(30,28,24,0.16); background:var(--parchment,#f4efe6); padding:22px; cursor:zoom-in; transition:border-color .25s; }
+    .fg-frame:hover{ border-color:rgba(30,28,24,0.42); }
+    .fg-frame img{ width:100%; max-width:760px; height:auto; display:block; margin:0 auto; }
+    .fg-caption{ font-family:var(--sans,system-ui,sans-serif); font-size:13.5px; line-height:1.7; color:#5a564c; max-width:560px; margin:24px auto 0; }
+    @media (max-width:600px){ .field-guide{ padding:60px 22px; } .fg-frame{ padding:12px; } }
   </style>
 </head>
 <body>
@@ -610,6 +622,18 @@
   </section>
 
   <!-- BODY -->
+  <!-- FIELD GUIDE: The Wash -->
+  <section class="field-guide">
+    <div class="fg-inner">
+      <div class="fg-label">The Field Guide</div>
+      <h2 class="fg-title">The <em>Wash</em></h2>
+      <a href="/thewash_fieldguide_01.png" target="_blank" rel="noopener" class="fg-frame">
+        <img src="/thewash_fieldguide_01.png" alt="The Wash field guide: ingredients and scent" loading="lazy">
+      </a>
+      <p class="fg-caption">What's inside, and how it reads on the skin. Cold-pressed grapefruit, aloe, and the desert botanicals behind the scent.</p>
+    </div>
+  </section>
+
   <section class="routine-section" id="body">
     <div class="routine-header fade-up">
       <div>
