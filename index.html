@@ -2222,6 +2222,19 @@
   .gtr-signup button { background: transparent; border: none; color: var(--cream); font-family: var(--sans); font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; cursor: pointer; padding: 0.7rem 0.4rem; transition: color 0.2s ease; }
   .gtr-signup button:hover { color: var(--army); }
   .gtr-signup-msg { font-family: var(--sans); font-size: 13px; letter-spacing: 0.02em; color: var(--army); max-width: 420px; margin: 0 auto; }
+  /* field guide entry band (dark, home) */
+  .fg-entry-band-dark { background: var(--warm-black); border-top: 1px solid rgba(212,201,181,0.16); }
+  .fg-entry-dark { display:flex; align-items:center; gap:30px; max-width:980px; margin:0 auto; padding:56px 6vw; text-decoration:none; }
+  .fg-entry-dark .fg-entry-mark { flex:0 0 auto; line-height:0; }
+  .fg-entry-dark img.fg-entry-mark { height:74px; width:auto; display:block; }
+  .fg-entry-dark .fg-entry-text { flex:1 1 auto; }
+  .fg-entry-dark .fg-entry-label { display:block; font-family:var(--serif); font-size:11px; letter-spacing:0.26em; text-transform:uppercase; color:var(--ochre); margin-bottom:7px; }
+  .fg-entry-dark .fg-entry-line { display:block; font-family:var(--serif); font-size:20px; line-height:1.4; color:var(--parchment); }
+  .fg-entry-dark .fg-entry-arrow { font-family:var(--serif); font-size:24px; color:var(--ochre); flex:0 0 auto; transition:transform .2s; }
+  .fg-entry-dark:hover .fg-entry-arrow { transform:translateX(5px); }
+  @media (max-width:600px){ .fg-entry-dark { padding:42px 6vw; gap:18px; } .fg-entry-dark img.fg-entry-mark { height:56px; } .fg-entry-dark .fg-entry-line { font-size:16px; } }
+
+
 </style>
   <!-- ══ KLAVIYO ONSITE ══ -->
   <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=UTbZ3B"></script>
@@ -2292,6 +2305,7 @@
     <p class="brand-statement-desc">From the wide open. For every day.</p>
     <p style="margin-top:20px;"><a href="/shop/" style="font-family:var(--serif);font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ochre);text-decoration:none;border-bottom:1px solid var(--ochre);padding-bottom:3px;">Shop the full range &rarr;</a></p>
   </section>
+
 
   <!-- ── WASH HOUSE (lead) ── -->
   <section class="product-section" aria-label="Wash House">
@@ -2400,6 +2414,18 @@
       </a>
     </div>
   </section>
+
+  <!-- FIELD GUIDE ENTRY -->
+  <aside class="fg-entry-band-dark">
+    <a class="fg-entry-dark" href="/field-guide/">
+      <img class="fg-entry-mark" src="/ghost_town_ranch_bull_icon_filled_in_white.png" alt="" aria-hidden="true">
+      <span class="fg-entry-text">
+        <span class="fg-entry-label">The Field Guide</span>
+        <span class="fg-entry-line">What's inside, and where it comes from. The plants behind the scents, drawn.</span>
+      </span>
+      <span class="fg-entry-arrow" aria-hidden="true">&rarr;</span>
+    </a>
+  </aside>
 
   <section class="press-strip">
     <div class="section-label">As Seen In</div>
