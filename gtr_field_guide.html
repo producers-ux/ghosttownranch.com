@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Field Guide — Ghost Town Ranch · Frontier Modernism</title>
+<meta name="description" content="The Field Guide. Where Ghost Town Ranch came from, what Frontier Modernism means, and where it's going. From the wide open, for every day.">
+<link rel="canonical" href="https://ghosttownranch.com/field-guide/">
+<meta property="og:title" content="The Field Guide — Ghost Town Ranch">
+<meta property="og:description" content="Origin, philosophy, and the world of Frontier Modernism.">
+<meta property="og:image" content="https://ghosttownranch.com/herogtr.png">
+<meta name="theme-color" content="#1A1512">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: 'PPEiko';
+    src: url('PPEiko-Medium.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'PPEiko';
+    src: url('PPEiko-Thin.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment: #F4EFE6;
+    --warm-black: #1A1512;
+    --ochre: #9B7A3F;
+    --dust: #D4C9B5;
+    --serif: 'PPEiko', 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', system-ui, sans-serif;
+    --army: #7c8260;
+    --cream: #f2ede4;
+    --ink: #1e1c18;
+    --mist: #e8e2d6;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--parchment);
+    color: var(--warm-black);
+    font-family: var(--serif);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 48px;
+    background: rgba(26,21,18,0.82);
+    backdrop-filter: blur(8px);
+  }
+  .nav-logo {
+    font-family: var(--serif); font-size: 13px; font-weight: 400;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    text-decoration: none; color: #F4EFE6;
+  }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a {
+    font-family: var(--sans); font-size: 10px; letter-spacing: 0.22em;
+    text-transform: uppercase; text-decoration: none; color: #F4EFE6;
+    opacity: 0.65; font-weight: 300; transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; }
+  @media (max-width: 700px) {
+    nav { padding: 0 20px; height: 60px; }
+    .nav-links { display: none; }
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    padding-top: 80px;
+    border-bottom: 1px solid rgba(26,21,18,0.15);
+  }
+  .page-header-bar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 16px 48px;
+    border-bottom: 1px solid rgba(26,21,18,0.1);
+  }
+  .header-meta {
+    font-family: var(--sans);
+    font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--warm-black); opacity: 0.4; font-weight: 300;
+  }
+  .header-title {
+    padding: 56px 48px 48px;
+  }
+  .header-eyebrow {
+    font-family: var(--sans);
+    font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--ochre); opacity: 0.8; font-weight: 300;
+    margin-bottom: 18px; display: block;
+  }
+  .header-headline {
+    font-family: var(--serif);
+    font-size: clamp(44px, 6vw, 80px);
+    font-weight: 300; line-height: 0.95;
+    letter-spacing: 0.04em; text-transform: uppercase;
+  }
+  .header-headline em {
+    display: block; font-style: italic;
+    text-transform: none; letter-spacing: 0.06em;
+    color: var(--ochre);
+  }
+  @media (max-width: 768px) {
+    .page-header-bar { padding: 14px 24px; }
+    .header-title { padding: 40px 24px 36px; }
+  }
+
+  /* ── HERO IMAGE ── */
+  .fg-hero {
+    height: 70vh; min-height: 400px;
+    position: relative; overflow: hidden;
+  }
+  .fg-hero img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: 60% center;
+    display: block;
+    filter: sepia(0.1);
+  }
+  .fg-hero::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, rgba(26,21,18,0.4) 100%);
+  }
+
+  /* ── ENTRY STRUCTURE ── */
+  .entry {
+    border-bottom: 1px solid var(--dust);
+  }
+  .entry-header {
+    display: flex; align-items: baseline;
+    gap: 32px;
+    padding: 48px 48px 0;
+  }
+  .entry-number {
+    font-family: var(--sans);
+    font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--ochre); opacity: 0.7; font-weight: 300;
+    flex-shrink: 0;
+  }
+  .entry-rule {
+    flex: 1; height: 1px; background: var(--dust);
+  }
+  .entry-tag {
+    font-family: var(--sans);
+    font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--army); opacity: 0.5; font-weight: 300;
+    flex-shrink: 0;
+  }
+
+  /* ── TEXT ENTRY ── */
+  .entry-body {
+    padding: 40px 48px 64px;
+    max-width: 860px;
+  }
+  .entry-title {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 54px);
+    font-weight: 300; line-height: 1.05;
+    letter-spacing: 0.02em;
+    margin-bottom: 32px;
+  }
+  .entry-title em { font-style: italic; color: var(--ochre); }
+  .entry-text p {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.6vw, 20px);
+    line-height: 1.8; letter-spacing: 0.01em;
+    color: var(--ink); opacity: 0.8;
+    margin-bottom: 24px;
+    max-width: 720px;
+  }
+  .entry-text p:last-child { margin-bottom: 0; }
+  .entry-text strong {
+    font-weight: 400; color: var(--warm-black); opacity: 1;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    padding: 64px 48px;
+    border-top: 1px solid var(--dust);
+    border-bottom: 1px solid var(--dust);
+    background: var(--cream);
+  }
+  .pull-quote-text {
+    font-family: var(--serif);
+    font-size: clamp(24px, 3vw, 42px);
+    font-weight: 300; line-height: 1.3;
+    letter-spacing: 0.01em;
+    max-width: 900px;
+  }
+  .pull-quote-text em { font-style: italic; color: var(--ochre); }
+
+  /* ── IMAGE + TEXT SPLIT ── */
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 540px;
+    border-bottom: 1px solid var(--dust);
+  }
+  .split.reverse { direction: rtl; }
+  .split.reverse > * { direction: ltr; }
+  .split-image {
+    position: relative; overflow: hidden;
+  }
+  .split-image img {
+    width: 100%; height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    background: var(--cream);
+    padding: 40px;
+  }
+  .split-text {
+    padding: 64px 56px;
+    display: flex; flex-direction: column; justify-content: center;
+    background: var(--parchment);
+  }
+  .split-eyebrow {
+    font-family: var(--sans);
+    font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--army); opacity: 0.6; font-weight: 300;
+    margin-bottom: 18px; display: block;
+  }
+  .split-title {
+    font-family: var(--serif);
+    font-size: clamp(26px, 2.8vw, 40px);
+    font-weight: 300; line-height: 1.1;
+    letter-spacing: 0.02em; margin-bottom: 24px;
+  }
+  .split-title em { font-style: italic; color: var(--ochre); }
+  .split-body p {
+    font-family: var(--serif);
+    font-size: clamp(15px, 1.4vw, 17px);
+    line-height: 1.8; letter-spacing: 0.01em;
+    color: var(--ink); opacity: 0.75;
+    margin-bottom: 18px;
+  }
+  .split-body p:last-child { margin-bottom: 0; }
+  @media (max-width: 900px) {
+    .split { grid-template-columns: 1fr; direction: ltr; }
+    .split.reverse { direction: ltr; }
+    .split-image { min-height: 300px; }
+    .split-image img { max-height: 300px; }
+    .split-text { padding: 40px 24px; }
+  }
+
+  /* ── SCENT ENTRIES ── */
+  .scents-entry {
+    padding: 64px 48px;
+    background: var(--warm-black);
+    border-bottom: 1px solid rgba(212,201,181,0.1);
+  }
+  .scents-entry-header {
+    display: flex; align-items: baseline; gap: 32px;
+    margin-bottom: 48px;
+  }
+  .scents-entry-number {
+    font-family: var(--sans);
+    font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--ochre); opacity: 0.7; font-weight: 300;
+    flex-shrink: 0;
+  }
+  .scents-entry-rule { flex: 1; height: 1px; background: rgba(212,201,181,0.15); }
+  .scents-entry-tag {
+    font-family: var(--sans);
+    font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(212,201,181,0.35); font-weight: 300;
+    flex-shrink: 0;
+  }
+  .scents-entry-title {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 300; line-height: 1.1;
+    color: var(--parchment); letter-spacing: 0.02em;
+    margin-bottom: 16px; max-width: 700px;
+  }
+  .scents-entry-title em { font-style: italic; color: var(--dust); }
+  .scents-entry-intro {
+    font-family: var(--serif);
+    font-size: clamp(15px, 1.5vw, 18px);
+    line-height: 1.75; color: rgba(244,239,230,0.6);
+    max-width: 620px; margin-bottom: 52px;
+  }
+  .scents-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(212,201,181,0.1);
+  }
+  .scent-card {
+    background: var(--warm-black);
+    padding: 32px 32px 36px;
+  }
+  .scent-card-num {
+    font-family: var(--sans);
+    font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--ochre); opacity: 0.6; font-weight: 300;
+    margin-bottom: 10px; display: block;
+  }
+  .scent-card-swatch {
+    width: 10px; height: 10px; border-radius: 50%;
+    margin-bottom: 14px; display: block;
+  }
+  .scent-card-name {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2vw, 26px);
+    font-weight: 300; color: var(--parchment);
+    letter-spacing: 0.04em; margin-bottom: 10px;
+  }
+  .scent-card-notes {
+    font-family: var(--sans);
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(244,239,230,0.4); font-weight: 300;
+    margin-bottom: 16px; display: block;
+  }
+  .scent-card-desc {
+    font-family: var(--serif);
+    font-size: 14px; line-height: 1.7;
+    color: rgba(244,239,230,0.55);
+  }
+  @media (max-width: 768px) {
+    .scents-entry { padding: 48px 24px; }
+    .scents-grid { grid-template-columns: 1fr; }
+    .scent-card { padding: 24px 0; border-bottom: 1px solid rgba(212,201,181,0.1); background: transparent; }
+  }
+
+  /* ── VISION ENTRY ── */
+  .vision-entry {
+    padding: 96px 48px;
+    max-width: 1000px;
+  }
+  .vision-entry .entry-title { margin-bottom: 40px; }
+  .vision-entry .entry-text p {
+    font-size: clamp(17px, 1.8vw, 22px);
+    opacity: 0.82;
+  }
+  .vision-places {
+    margin-top: 48px;
+    display: flex; gap: 0;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--dust);
+    border-left: 1px solid var(--dust);
+  }
+  .vision-place {
+    padding: 20px 28px;
+    border-right: 1px solid var(--dust);
+    border-bottom: 1px solid var(--dust);
+    flex: 0 0 auto;
+  }
+  .vision-place-name {
+    font-family: var(--serif);
+    font-size: 18px; font-weight: 300;
+    letter-spacing: 0.04em; color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .vision-place-note {
+    font-family: var(--sans);
+    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--army); opacity: 0.55; font-weight: 300;
+  }
+  @media (max-width: 768px) {
+    .vision-entry { padding: 64px 24px; }
+    .vision-place { padding: 16px 20px; }
+  }
+
+  /* ── CLOSING BAND ── */
+  .closing-band {
+    background: var(--warm-black);
+    padding: 80px 48px;
+    display: flex; align-items: center;
+    justify-content: space-between; gap: 40px;
+    flex-wrap: wrap;
+  }
+  .closing-line {
+    font-family: var(--serif);
+    font-size: clamp(22px, 2.8vw, 38px);
+    font-weight: 300; line-height: 1.2;
+    color: var(--parchment);
+  }
+  .closing-line em { font-style: italic; color: var(--dust); }
+  .closing-links {
+    display: flex; flex-direction: column; gap: 10px; flex-shrink: 0;
+  }
+  .closing-link {
+    font-family: var(--sans);
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ochre); text-decoration: none; font-weight: 300;
+    border-bottom: 1px solid rgba(155,122,63,0.35);
+    padding-bottom: 3px; transition: opacity 0.2s;
+    display: inline-block;
+  }
+  .closing-link:hover { opacity: 0.65; }
+  @media (max-width: 768px) {
+    .closing-band { padding: 56px 24px; flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 44px 48px;
+    display: flex; justify-content: space-between; align-items: flex-end;
+    border-top: 1px solid var(--dust);
+  }
+  .footer-left {
+    font-family: var(--serif); font-size: 13px;
+    letter-spacing: 0.06em; opacity: 0.35;
+  }
+  .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; }
+  .footer-right a {
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--warm-black); text-decoration: none;
+    opacity: 0.35; font-weight: 300; transition: opacity 0.2s;
+  }
+  .footer-right a:hover { opacity: 0.8; }
+  @media (max-width: 768px) {
+    footer { flex-direction: column; gap: 20px; align-items: flex-start; padding: 36px 24px; }
+    .footer-right { align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Ghost Town Ranch</a>
+  <ul class="nav-links">
+    <li><a href="/ritual/">Ritual</a></li>
+    <li><a href="/routines/">Routines</a></li>
+    <li><a href="/wash-house/">Wash House</a></li>
+    <li><a href="/shop/">Shop</a></li>
+    <li><a href="/wholesale/">Wholesale</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-bar">
+    <span class="header-meta">Ghost Town Ranch · Field Guide · Frontier Modernism</span>
+    <span class="header-meta">From the wide open</span>
+  </div>
+  <div class="header-title">
+    <span class="header-eyebrow">The Field Guide</span>
+    <h1 class="header-headline">
+      Wide light.<br>
+      <em>Open spaces.</em>
+    </h1>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="fg-hero">
+  <img src="https://ghosttownranch.com/herogtr.png" alt="Ghost Town Ranch — the wide open">
+</div>
+
+<!-- ══ ENTRY 01: ORIGIN ══ -->
+<article class="entry">
+  <div class="entry-header">
+    <span class="entry-number">No. 01</span>
+    <div class="entry-rule"></div>
+    <span class="entry-tag">Origin</span>
+  </div>
+  <div class="entry-body">
+    <h2 class="entry-title">
+      Where it<br><em>started.</em>
+    </h2>
+    <div class="entry-text">
+      <p>Ghost Town Ranch began in the high desert near Twentynine Palms, California — a stretch of the Mojave where the West is still unfinished and the light comes in flat and honest from the east. It is the kind of place that asks something of you. It does not accommodate. It clarifies.</p>
+      <p>The property sits on five parcels at the edge of Joshua Tree National Park, where the terrain shifts from creosote flats to granite formations in the space of a mile. The nearest town has a population of sixteen thousand and a marine base at its eastern edge. There are no lifestyle brands out here. There is dirt, sky, and the particular silence of a place that has never been convinced it needs to be anything other than what it is.</p>
+      <p>That is where the brand was born. Not in a studio. Not at a trade show. On the ground, in the heat, trying to understand what honest personal care actually looks like in a place that has no patience for pretense.</p>
+      <p>We have since moved our base to Palm Springs, where Desert Modernism gave the world a different answer to the same desert — heat and light resolved into clean lines, glass walls, and the conviction that beauty belongs in dry places. Ghost Town Ranch lives between those two worlds. The ranch and the city. The raw and the refined. <strong>The wide open and the life it opens onto.</strong></p>
+    </div>
+  </div>
+</article>
+
+<!-- PULL QUOTE 01 -->
+<div class="pull-quote">
+  <p class="pull-quote-text">
+    The desert does not ask you to be comfortable.<br>
+    <em>It asks you to be honest.</em>
+  </p>
+</div>
+
+<!-- ══ ENTRY 02: FRONTIER MODERNISM ══ -->
+<article class="entry">
+  <div class="entry-header">
+    <span class="entry-number">No. 02</span>
+    <div class="entry-rule"></div>
+    <span class="entry-tag">Philosophy</span>
+  </div>
+  <div class="entry-body">
+    <h2 class="entry-title">
+      Frontier<br><em>Modernism.</em>
+    </h2>
+    <div class="entry-text">
+      <p>Frontier Modernism is not a style. It is a disposition. It is what happens when the self-reliance of the pioneer West meets the discipline and restraint of desert modernism — when you believe that objects should earn their place, that materials should be honest, and that the most refined thing you can do is remove everything that does not belong.</p>
+      <p>The pioneer West was not romantic. It was practical. You built what you needed and left the rest alone. You chose materials that held, tools that worked, and you did not confuse decoration with quality. The frontier had no patience for filler — not in a structure, not in a formula, not in a life.</p>
+      <p>Desert modernism said the same thing in a different language. Richard Neutra, Albert Frey, the Case Study houses — these were arguments for clarity. For the idea that a building, like a life, should have nothing in it that does not serve. Glass where there was once wall. Sky where there was once ceiling. The desert, invited in.</p>
+      <p>Ghost Town Ranch is where those two arguments converge. We formulate the way a good architect builds: with intention, without filler, in service of the person who will live inside what we make. Every product is that argument made physical. <strong>Pioneer grit. Modern clarity.</strong></p>
+    </div>
+  </div>
+</article>
+
+<!-- ══ ENTRY 03: THE WIDE OPEN ══ -->
+<article class="entry" style="background: var(--cream);">
+  <div class="entry-header" style="padding-top: 48px;">
+    <span class="entry-number">No. 03</span>
+    <div class="entry-rule"></div>
+    <span class="entry-tag">Landscape</span>
+  </div>
+  <div class="entry-body">
+    <h2 class="entry-title">
+      The wide<br><em>open.</em>
+    </h2>
+    <div class="entry-text">
+      <p>The desert is a design brief. Wide light, dry air, heat that asks something of every surface it touches. Skin that has to hold without help. Materials that cannot lie about what they are. Scale that makes human concerns feel both smaller and more precise.</p>
+      <p>We think about this landscape the way a good formulator thinks about an ingredient list: what is essential, what is excess, and what happens when you remove everything that does not belong? The desert answers that question in real time. Anything that cannot sustain itself in this light falls away.</p>
+      <p>This is not a brand built on nostalgia for the frontier. It is a brand built on what the frontier still teaches, which is that clarity is a form of respect — for the person using the product, for the environment it comes from, and for the standard it is held to. The wide open is not an aesthetic. It is an argument about what matters.</p>
+      <p>From the wide open, for every day.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ══ ENTRY 04: THE STANDARD — split with illustration ══ -->
+<div class="split">
+  <div class="split-image">
+    <img src="/thewash_fieldguide_01.png" alt="The Wash — Ghost Town Ranch Pocket Guide No. 01">
+  </div>
+  <div class="split-text">
+    <div class="entry-header" style="padding: 0 0 32px 0;">
+      <span class="entry-number">No. 04</span>
+      <div class="entry-rule"></div>
+      <span class="entry-tag">Standard</span>
+    </div>
+    <span class="split-eyebrow">The Standard</span>
+    <h2 class="split-title">
+      Not self-declared.<br>
+      <em>Third-party verified.</em>
+    </h2>
+    <div class="split-body">
+      <p>Every GTR skincare and body formula is certified under the COSMOS standard, audited by ECOCERT. This is not a marketing claim. It is a third-party verification that every ingredient, every process, and every finished product meets one of the highest natural formulation standards in the world.</p>
+      <p>COSMOS certification means no parabens, no phthalates, no synthetic dyes. It means that when we say an ingredient comes from organic farming, someone other than us has confirmed it. It means skin-safe fragrance throughout — not because it is easier, but because it is right.</p>
+      <p>The standard does not change by category. The hand wash holds it. The face serum holds it. The candle wax holds it. We did not build a certified skincare line and a separate uncertified home line. The conviction runs through everything we make.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ENTRY 05: SIX SCENTS ══ -->
+<section class="scents-entry">
+  <div class="scents-entry-header">
+    <span class="scents-entry-number">No. 05</span>
+    <div class="scents-entry-rule"></div>
+    <span class="scents-entry-tag">Landscape as scent</span>
+  </div>
+  <h2 class="scents-entry-title">
+    The land has a scent.<br>
+    <em>Six ways to carry it.</em>
+  </h2>
+  <p class="scents-entry-intro">Each GTR scent is a specific place, a specific hour, a specific condition of light and air and ground. Not invented. Documented. The fragrance library is a field record of the wide open.</p>
+  <div class="scents-grid">
+    <div class="scent-card">
+      <span class="scent-card-num">No. 01</span>
+      <span class="scent-card-swatch" style="background:#c4b89a;"></span>
+      <h3 class="scent-card-name">Rough Hewn</h3>
+      <span class="scent-card-notes">Cade · Cedarwood · Vetiver</span>
+      <p class="scent-card-desc">The smell of something being made. Raw wood, dry earth, a day of real work. The workshop at the end of the afternoon.</p>
+    </div>
+    <div class="scent-card">
+      <span class="scent-card-num">No. 02</span>
+      <span class="scent-card-swatch" style="background:#d4cbb5;"></span>
+      <h3 class="scent-card-name">Hang Dried</h3>
+      <span class="scent-card-notes">White Sage · Lavender · Clean air</span>
+      <p class="scent-card-desc">The room after the window has been open all morning. White sage, lavender, linen drying in the sun. Cool and unencumbered.</p>
+    </div>
+    <div class="scent-card">
+      <span class="scent-card-num">No. 03</span>
+      <span class="scent-card-swatch" style="background:#2A2420;"></span>
+      <h3 class="scent-card-name">Ember</h3>
+      <span class="scent-card-notes">Charcoal · Amber · Canyon earth</span>
+      <p class="scent-card-desc">The last hour of a good night. Deep smoke, warm amber, the canyon after rain. Everything settling.</p>
+    </div>
+    <div class="scent-card">
+      <span class="scent-card-num">No. 04</span>
+      <span class="scent-card-swatch" style="background:#5C6B4A;"></span>
+      <h3 class="scent-card-name">Graze</h3>
+      <span class="scent-card-notes">Sweetgrass · Sage · River-clean</span>
+      <p class="scent-card-desc">High desert morning. River-clean and sharp. The good scrub after a long ride through open country.</p>
+    </div>
+    <div class="scent-card">
+      <span class="scent-card-num">No. 05</span>
+      <span class="scent-card-swatch" style="background:#8C7A3A;"></span>
+      <h3 class="scent-card-name">Flax</h3>
+      <span class="scent-card-notes">Cotton Blossom · Citron · Blonde woods</span>
+      <p class="scent-card-desc">Warm stone, prairie grass. Lemon, cotton blossom, blonde woods in the late afternoon. The field before the light goes.</p>
+    </div>
+    <div class="scent-card">
+      <span class="scent-card-num">No. 06</span>
+      <span class="scent-card-swatch" style="background:#7A5535;"></span>
+      <h3 class="scent-card-name">Dusk</h3>
+      <span class="scent-card-notes">Palo Santo · Amber · Mineral earth</span>
+      <p class="scent-card-desc">Dry earth, warm amber, ancient and mineral. The light going low over the high desert. The day ending on its own terms.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE 02 -->
+<div class="pull-quote">
+  <p class="pull-quote-text">
+    <em>Scent as landscape.</em><br>
+    Not invented. Documented.
+  </p>
+</div>
+
+<!-- ══ ENTRY 06: WHERE WE'RE GOING ══ -->
+<article class="entry vision-entry">
+  <div class="entry-header" style="padding: 0 0 40px 0;">
+    <span class="entry-number">No. 06</span>
+    <div class="entry-rule"></div>
+    <span class="entry-tag">Vision</span>
+  </div>
+  <h2 class="entry-title">
+    Where<br><em>Frontier Modernism lives.</em>
+  </h2>
+  <div class="entry-text">
+    <p>Frontier Modernism is not a desert category. It is an American West category — and the American West is anywhere the wide open meets a considered life. It is the ski lodge in the pines above Sun Valley where the design is spare and the light is clean. The spa at the edge of a ranch in Utah where the materials are honest and the ritual is the point. The farmhouse in the Hudson Valley where the weekend feels like it was earned.</p>
+    <p>These are the places Ghost Town Ranch is building toward. Not as a brand that chases markets, but as a world that already belongs in those rooms — because the conviction is the same everywhere the wide open has shaped how people think about what they put on their skin, what they burn in a room, and what they choose to leave on the counter.</p>
+    <p>The skincare came first, because that is where the standard is hardest to hold and most visible when you do. The scent came next, because a place without a scent is not yet a world. What comes after is the full expression: objects, amenities, and experiences that carry the same material logic into every context where a considered life is being built.</p>
+    <p><strong>From the wide open. For every day. For everywhere the wide open reaches.</strong></p>
+  </div>
+  <div class="vision-places">
+    <div class="vision-place">
+      <div class="vision-place-name">Sun Valley</div>
+      <div class="vision-place-note">Idaho</div>
+    </div>
+    <div class="vision-place">
+      <div class="vision-place-name">Park City</div>
+      <div class="vision-place-note">Utah</div>
+    </div>
+    <div class="vision-place">
+      <div class="vision-place-name">Aspen</div>
+      <div class="vision-place-note">Colorado</div>
+    </div>
+    <div class="vision-place">
+      <div class="vision-place-name">Sundance</div>
+      <div class="vision-place-note">Utah</div>
+    </div>
+    <div class="vision-place">
+      <div class="vision-place-name">Hudson Valley</div>
+      <div class="vision-place-note">New York</div>
+    </div>
+    <div class="vision-place">
+      <div class="vision-place-name">Joshua Tree</div>
+      <div class="vision-place-note">California · Origin</div>
+    </div>
+  </div>
+</article>
+
+<!-- CLOSING BAND -->
+<div class="closing-band">
+  <p class="closing-line">
+    Ghost Town Ranch.<br>
+    <em>From the wide open, for every day.</em>
+  </p>
+  <div class="closing-links">
+    <a href="/shop/" class="closing-link">Shop the full line →</a>
+    <a href="/wholesale/" class="closing-link">Wholesale inquiry →</a>
+    <a href="/ritual/" class="closing-link">The six scents →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">© 2025 Ghost Town Ranch · Frontier Modernism</div>
+  <div class="footer-right">
+    <a href="https://instagram.com/ghosttownranch" target="_blank" rel="noopener">Instagram</a>
+    <a href="/wholesale/">Wholesale</a>
+    <a href="mailto:howdy@ghosttownranch.com">howdy@ghosttownranch.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
