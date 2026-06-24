@@ -126,8 +126,8 @@
   }
   .hero-aside-line {
     font-family: var(--sans);
-    font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
-    color: rgba(244,239,230,0.5); font-weight: 300;
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: rgba(244,239,230,0.7); font-weight: 300;
     display: block; margin-bottom: 6px;
   }
   .hero-cta {
@@ -172,8 +172,9 @@
   }
   .statement-right em { font-style: italic; color: var(--ochre); }
   @media (max-width: 768px) {
-    .statement { flex-direction: column; gap: 20px; padding: 56px 24px; }
-    .statement-right { font-size: clamp(24px, 6vw, 34px); }
+    .statement { flex-direction: column; gap: 16px; padding: 48px 24px; }
+    .statement-right { font-size: clamp(22px, 6vw, 32px); }
+    .statement-left { display: none; }
   }
 
   /* ══ 3. THREE PILLARS — full-bleed triptych ══ */
@@ -208,8 +209,8 @@
   }
   .pillar-time {
     font-family: var(--sans);
-    font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
-    color: rgba(244,239,230,0.45); margin-bottom: 12px;
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: rgba(244,239,230,0.65); margin-bottom: 12px;
     font-weight: 300; display: block;
   }
   .pillar-name {
@@ -221,9 +222,9 @@
   }
   .pillar-link {
     font-family: var(--sans);
-    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
-    color: rgba(244,239,230,0.45); font-weight: 300;
-    border-bottom: 1px solid rgba(244,239,230,0.2);
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(244,239,230,0.65); font-weight: 300;
+    border-bottom: 1px solid rgba(244,239,230,0.3);
     padding-bottom: 2px;
     display: inline-block;
     transition: color 0.2s, border-color 0.2s;
@@ -283,11 +284,13 @@
   }
   .scent-note {
     font-family: var(--sans);
-    font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: rgba(244,239,230,0.28); font-weight: 300;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(244,239,230,0.5); font-weight: 300;
   }
   @media (max-width: 768px) {
-    .scents { grid-template-columns: 1fr; gap: 48px; padding: 64px 24px; }
+    .scents { grid-template-columns: 1fr; gap: 36px; padding: 56px 24px; }
+    .scent-name { font-size: clamp(16px, 4vw, 20px); }
+    .scent-row { padding: 13px 0; }
   }
 
   /* ══ 5. SELECTED OBJECTS — 3 only ══ */
@@ -451,8 +454,8 @@
   }
   .fg-body {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 580px;
+    grid-template-columns: 5fr 7fr;
+    min-height: 480px;
   }
   .fg-drawing-col {
     border-right: 1px solid rgba(26,21,18,0.12);
@@ -464,7 +467,8 @@
     object-fit: contain;
     object-position: center center;
     display: block;
-    padding: 32px;
+    padding: 24px;
+    max-height: 420px;
   }
   .fg-drawing-caption {
     padding: 16px 32px;
@@ -519,13 +523,13 @@
   }
   .fg-spec-label {
     font-family: var(--sans);
-    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--army); opacity: 0.6; font-weight: 300;
-    flex: 0 0 100px;
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--army); opacity: 0.8; font-weight: 300;
+    flex: 0 0 110px;
   }
   .fg-spec-val {
     font-family: var(--serif);
-    font-size: 15px; color: var(--ink); opacity: 0.8;
+    font-size: 16px; color: var(--ink); opacity: 0.85;
     letter-spacing: 0.02em;
   }
   .fg-enter-link {
@@ -542,10 +546,17 @@
   @media (max-width: 900px) {
     .fg-header { padding: 12px 24px; }
     .fg-body { grid-template-columns: 1fr; }
-    .fg-drawing-col { min-height: 320px; border-right: none; border-bottom: 1px solid rgba(26,21,18,0.12); }
-    .fg-drawing { max-height: 320px; }
-    .fg-text-col { padding: 40px 24px; }
-    .fg-dispatch-body { max-width: 100%; }
+    .fg-drawing-col { min-height: 260px; border-right: none; border-bottom: 1px solid rgba(26,21,18,0.12); }
+    .fg-drawing { max-height: 260px; padding: 16px; }
+    .fg-text-col { padding: 32px 24px; }
+    .fg-dispatch-headline { font-size: clamp(22px, 6vw, 32px); }
+    .fg-dispatch-body { max-width: 100%; font-size: 15px; }
+    .fg-spec-label { flex: 0 0 90px; }
+  }
+  @media (max-width: 480px) {
+    .fg-text-col { padding: 28px 20px; }
+    .fg-spec-row { flex-direction: column; gap: 4px; padding: 10px 0; }
+    .fg-spec-label { flex: none; }
   }
 
 </style>
@@ -732,25 +743,25 @@
     <div class="fg-text-col">
       <div class="fg-dispatch-label">Dispatch</div>
       <h2 class="fg-dispatch-headline">
-        Rugged meets refined.
+        Every formula.<br>One question.
       </h2>
-      <p class="fg-dispatch-body">Every formula in the Wash House begins at the same question: what does the skin actually need after a long day of work, sun, and dry air? Not stripping. Not fragrance that irritates. Not filler that fills. The Wash is aloe juice base — not water — with jojoba, shea, hyaluronic acid, and skin-safe fragrance that clears in the rinse. Hands come out clean and still themselves.</p>
+      <p class="fg-dispatch-body">Every GTR formula begins at the same question: what does skin actually need? Not filler. Not fragrance that irritates. Not claims that can't be verified. Every product — from the hand wash to the facial serum to the candle — is COSMOS/ECOCERT certified, built with thoughtful actives, and made with skin-safe fragrance. The standard doesn't change by category. Neither does the answer.</p>
       <div class="fg-specs">
         <div class="fg-spec-row">
-          <span class="fg-spec-label">Category</span>
-          <span class="fg-spec-val">Wash House</span>
-        </div>
-        <div class="fg-spec-row">
           <span class="fg-spec-label">Certification</span>
-          <span class="fg-spec-val">COSMOS · ECOCERT</span>
-        </div>
-        <div class="fg-spec-row">
-          <span class="fg-spec-label">Key actives</span>
-          <span class="fg-spec-val">Aloe juice · Jojoba · Hyaluronic acid · Shea</span>
+          <span class="fg-spec-val">COSMOS Natural · COSMOS Organic · ECOCERT</span>
         </div>
         <div class="fg-spec-row">
           <span class="fg-spec-label">Fragrance</span>
-          <span class="fg-spec-val">Skin-safe · Three scents</span>
+          <span class="fg-spec-val">Skin-safe throughout · No synthetic dyes</span>
+        </div>
+        <div class="fg-spec-row">
+          <span class="fg-spec-label">Actives</span>
+          <span class="fg-spec-val">Urea · Peptides · Hyaluronic acid · Aloe juice</span>
+        </div>
+        <div class="fg-spec-row">
+          <span class="fg-spec-label">Standard</span>
+          <span class="fg-spec-val">No parabens · No phthalates · No filler</span>
         </div>
       </div>
       <a href="/field-guide/" class="fg-enter-link">Enter the Field Guide &nbsp;&rarr;</a>
