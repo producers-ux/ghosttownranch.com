@@ -457,13 +457,14 @@
   .fg-drawing-col {
     border-right: 1px solid rgba(26,21,18,0.12);
     display: flex; flex-direction: column;
-    background: var(--mist);
+    background: var(--cream);
   }
   .fg-drawing {
     width: 100%; flex: 1;
-    object-fit: cover; object-position: center 20%;
+    object-fit: contain;
+    object-position: center center;
     display: block;
-    filter: sepia(0.15) contrast(1.02);
+    padding: 32px;
   }
   .fg-drawing-caption {
     padding: 16px 32px;
@@ -718,14 +719,14 @@
   <div class="fg-body">
     <div class="fg-drawing-col">
       <img
-        src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TheWash1.png"
-        alt="The Wash — Field Guide illustration"
+        src="/thewash_fieldguide_01.png"
+        alt="The Wash — Pocket Guide illustration, Frontier Modernism No. 01"
         class="fg-drawing"
         loading="lazy"
       >
       <div class="fg-drawing-caption">
-        <span class="fg-caption-label">Object</span>
-        <span class="fg-caption-name">The Wash · Hydrating Hand Wash</span>
+        <span class="fg-caption-label">Pocket Guide No. 01</span>
+        <span class="fg-caption-name">The Wash · Wash House · Frontier Modernism</span>
       </div>
     </div>
     <div class="fg-text-col">
