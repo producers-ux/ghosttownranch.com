@@ -302,8 +302,8 @@
   }
   .objects-label {
     font-family: var(--sans);
-    font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
-    opacity: 0.3; font-weight: 300;
+    font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase;
+    opacity: 0.5; font-weight: 300;
   }
   .objects-all {
     font-family: var(--sans);
@@ -331,17 +331,17 @@
   .obj:hover .obj-img img { transform: scale(1.04); }
   .obj-cat {
     font-family: var(--sans);
-    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--army); opacity: 0.55; margin-bottom: 5px; font-weight: 300;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--army); opacity: 0.75; margin-bottom: 7px; font-weight: 300;
   }
   .obj-name {
     font-family: var(--serif);
-    font-size: clamp(18px, 1.8vw, 22px); font-weight: 300;
-    color: var(--ink); margin-bottom: 5px; letter-spacing: 0.02em;
+    font-size: clamp(22px, 2.2vw, 28px); font-weight: 300;
+    color: var(--ink); margin-bottom: 8px; letter-spacing: 0.02em;
   }
   .obj-price {
     font-family: var(--sans);
-    font-size: 12px; color: var(--army); opacity: 0.6; font-weight: 300;
+    font-size: 14px; color: var(--army); opacity: 0.8; font-weight: 300;
   }
   @media (max-width: 768px) {
     .objects { padding: 64px 24px; }
@@ -368,8 +368,8 @@
   .cert-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--army); opacity: 0.4; flex-shrink: 0; }
   .cert-text {
     font-family: var(--sans);
-    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--warm-black); opacity: 0.35; font-weight: 300;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--warm-black); opacity: 0.6; font-weight: 300;
   }
   @media (max-width: 768px) {
     .cert-strip { flex-wrap: wrap; gap: 16px; padding: 28px 24px; }
@@ -384,7 +384,7 @@
   }
   .signup-headline {
     font-family: var(--serif);
-    font-size: clamp(20px, 2vw, 28px);
+    font-size: clamp(22px, 2.2vw, 32px);
     font-weight: 300; letter-spacing: 0.02em;
   }
   .signup-form {
@@ -417,21 +417,136 @@
     display: flex; justify-content: space-between; align-items: flex-end;
   }
   .footer-left {
-    font-family: var(--serif); font-size: 12px;
-    letter-spacing: 0.06em; opacity: 0.28;
+    font-family: var(--serif); font-size: 14px;
+    letter-spacing: 0.06em; opacity: 0.55;
   }
   .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; }
   .footer-right a {
-    font-family: var(--sans); font-size: 9px;
+    font-family: var(--sans); font-size: 11px;
     letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--warm-black); text-decoration: none;
-    opacity: 0.28; font-weight: 300; transition: opacity 0.2s;
+    opacity: 0.6; font-weight: 300; transition: opacity 0.2s;
   }
   .footer-right a:hover { opacity: 0.8; }
   @media (max-width: 768px) {
     footer { flex-direction: column; gap: 20px; align-items: flex-start; padding: 36px 24px; }
     .footer-right { align-items: flex-start; }
   }
+
+  /* ══ FIELD GUIDE SECTION ══ */
+  .field-guide-section {
+    border-top: 1px solid var(--warm-black);
+    border-bottom: 1px solid var(--dust);
+    background: var(--cream);
+  }
+  .fg-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 48px;
+    border-bottom: 1px solid rgba(26,21,18,0.15);
+  }
+  .fg-issue {
+    font-family: var(--sans);
+    font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--warm-black); opacity: 0.4; font-weight: 300;
+  }
+  .fg-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 580px;
+  }
+  .fg-drawing-col {
+    border-right: 1px solid rgba(26,21,18,0.12);
+    display: flex; flex-direction: column;
+    background: var(--mist);
+  }
+  .fg-drawing {
+    width: 100%; flex: 1;
+    object-fit: cover; object-position: center 20%;
+    display: block;
+    filter: sepia(0.15) contrast(1.02);
+  }
+  .fg-drawing-caption {
+    padding: 16px 32px;
+    border-top: 1px solid rgba(26,21,18,0.1);
+    display: flex; align-items: baseline; gap: 16px;
+  }
+  .fg-caption-label {
+    font-family: var(--sans);
+    font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--army); opacity: 0.6; font-weight: 300;
+    flex-shrink: 0;
+  }
+  .fg-caption-name {
+    font-family: var(--serif);
+    font-size: 14px; color: var(--ink); opacity: 0.65;
+    letter-spacing: 0.04em;
+  }
+  .fg-text-col {
+    padding: 56px 56px 52px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .fg-dispatch-label {
+    font-family: var(--sans);
+    font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--ochre); opacity: 0.8;
+    margin-bottom: 18px; font-weight: 300;
+  }
+  .fg-dispatch-headline {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 300; line-height: 1.1;
+    letter-spacing: 0.02em;
+    color: var(--warm-black);
+    margin-bottom: 22px;
+  }
+  .fg-dispatch-body {
+    font-family: var(--serif);
+    font-size: clamp(15px, 1.4vw, 17px);
+    line-height: 1.8; letter-spacing: 0.01em;
+    color: var(--ink); opacity: 0.72;
+    margin-bottom: 32px;
+    max-width: 520px;
+  }
+  .fg-specs {
+    border-top: 1px solid rgba(26,21,18,0.1);
+    margin-bottom: 32px;
+  }
+  .fg-spec-row {
+    display: flex; gap: 24px; align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(26,21,18,0.07);
+  }
+  .fg-spec-label {
+    font-family: var(--sans);
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--army); opacity: 0.6; font-weight: 300;
+    flex: 0 0 100px;
+  }
+  .fg-spec-val {
+    font-family: var(--serif);
+    font-size: 15px; color: var(--ink); opacity: 0.8;
+    letter-spacing: 0.02em;
+  }
+  .fg-enter-link {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--ochre); text-decoration: none; font-weight: 300;
+    border-bottom: 1px solid rgba(155,122,63,0.4);
+    padding-bottom: 3px;
+    transition: opacity 0.2s;
+    align-self: flex-start;
+  }
+  .fg-enter-link:hover { opacity: 0.65; }
+  @media (max-width: 900px) {
+    .fg-header { padding: 12px 24px; }
+    .fg-body { grid-template-columns: 1fr; }
+    .fg-drawing-col { min-height: 320px; border-right: none; border-bottom: 1px solid rgba(26,21,18,0.12); }
+    .fg-drawing { max-height: 320px; }
+    .fg-text-col { padding: 40px 24px; }
+    .fg-dispatch-body { max-width: 100%; }
+  }
+
 </style>
 </head>
 <body>
@@ -586,6 +701,59 @@
       <h3 class="obj-name">Golden Hour</h3>
       <p class="obj-price">$62 · Body oil</p>
     </a>
+  </div>
+</section>
+
+
+<!-- ══ FIELD GUIDE — full editorial section ══ -->
+<section class="field-guide-section">
+  <div class="fg-header">
+    <div class="fg-header-left">
+      <span class="fg-issue">Pocket Guide &nbsp;·&nbsp; Frontier Modernism &nbsp;·&nbsp; No. 01</span>
+    </div>
+    <div class="fg-header-right">
+      <span class="fg-issue">The Field Guide</span>
+    </div>
+  </div>
+  <div class="fg-body">
+    <div class="fg-drawing-col">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TheWash1.png"
+        alt="The Wash — Field Guide illustration"
+        class="fg-drawing"
+        loading="lazy"
+      >
+      <div class="fg-drawing-caption">
+        <span class="fg-caption-label">Object</span>
+        <span class="fg-caption-name">The Wash · Hydrating Hand Wash</span>
+      </div>
+    </div>
+    <div class="fg-text-col">
+      <div class="fg-dispatch-label">Dispatch</div>
+      <h2 class="fg-dispatch-headline">
+        Rugged meets refined.
+      </h2>
+      <p class="fg-dispatch-body">Every formula in the Wash House begins at the same question: what does the skin actually need after a long day of work, sun, and dry air? Not stripping. Not fragrance that irritates. Not filler that fills. The Wash is aloe juice base — not water — with jojoba, shea, hyaluronic acid, and skin-safe fragrance that clears in the rinse. Hands come out clean and still themselves.</p>
+      <div class="fg-specs">
+        <div class="fg-spec-row">
+          <span class="fg-spec-label">Category</span>
+          <span class="fg-spec-val">Wash House</span>
+        </div>
+        <div class="fg-spec-row">
+          <span class="fg-spec-label">Certification</span>
+          <span class="fg-spec-val">COSMOS · ECOCERT</span>
+        </div>
+        <div class="fg-spec-row">
+          <span class="fg-spec-label">Key actives</span>
+          <span class="fg-spec-val">Aloe juice · Jojoba · Hyaluronic acid · Shea</span>
+        </div>
+        <div class="fg-spec-row">
+          <span class="fg-spec-label">Fragrance</span>
+          <span class="fg-spec-val">Skin-safe · Three scents</span>
+        </div>
+      </div>
+      <a href="/field-guide/" class="fg-enter-link">Enter the Field Guide &nbsp;&rarr;</a>
+    </div>
   </div>
 </section>
 
