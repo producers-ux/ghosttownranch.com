@@ -806,7 +806,9 @@
     display: flex; gap: 2px;
     background: rgba(26,21,18,0.88); backdrop-filter: blur(10px);
     padding: 5px; border-radius: 2px; z-index: 200;
+    transition: transform .32s ease, opacity .32s ease;
   }
+  .switcher.tucked { transform: translateX(-50%) translateY(180%); opacity: 0; pointer-events: none; }
   .sw-btn {
     font-family: var(--sans); font-size: 9px; letter-spacing: 0.22em;
     text-transform: uppercase; color: rgba(244,239,230,0.45);
@@ -2248,7 +2250,7 @@
   </a>
   <div class="nav-right">
     <ul class="nav-links" id="nav-links" role="navigation" aria-label="Main navigation">
-      <li><a href="#" onclick="event.preventDefault(); showPage('brand');">Home</a></li>
+      <li><a href="/">Home</a></li>
       <li><a href="/wash-house/">Wash House</a></li>
       <li><a href="/routines/">Routines</a></li>
       <li><a href="/ritual/">Ritual</a></li>
@@ -3186,9 +3188,9 @@
 
 <!-- ══ BOTTOM SWITCHER (3-way) ══ -->
 <div class="switcher">
-  <button class="sw-btn active"  onclick="showPage('brand')">The Brand</button>
-  <button class="sw-btn"         onclick="showPage('catalog')">The Collection</button>
-  <button class="sw-btn"         onclick="showPage('wholesale')">Wholesale</button>
+  <button class="sw-btn active"  onclick="location.href='/'">The Brand</button>
+  <button class="sw-btn"         onclick="location.href='/shop/'">The Collection</button>
+  <button class="sw-btn"         onclick="location.href='/wholesale/'">Wholesale</button>
 </div>
 
 
@@ -3969,6 +3971,23 @@
       }catch(err){ console.error('Klaviyo signup error', err); }
     });
   });
+  </script>
+  <script>
+  /* Tuck the bottom switcher out of the way while scrolling down; reveal on scroll up. */
+  (function(){
+    var sw = document.querySelector('.switcher');
+    if (!sw) return;
+    var last = window.pageYOffset, ticking = false;
+    function update(){
+      var y = window.pageYOffset;
+      if (y > last && y > 220) { sw.classList.add('tucked'); }
+      else { sw.classList.remove('tucked'); }
+      last = y; ticking = false;
+    }
+    window.addEventListener('scroll', function(){
+      if (!ticking){ window.requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+  })();
   </script>
 </body>
 </html>
