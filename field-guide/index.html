@@ -171,9 +171,9 @@
   .entry-title em { font-style: italic; color: var(--ochre); }
   .entry-text p {
     font-family: var(--serif);
-    font-size: clamp(16px, 1.6vw, 20px);
+    font-size: clamp(18px, 1.8vw, 22px);
     line-height: 1.8; letter-spacing: 0.01em;
-    color: var(--ink); opacity: 0.8;
+    color: var(--ink); opacity: 0.85;
     margin-bottom: 24px;
     max-width: 720px;
   }
@@ -238,9 +238,9 @@
   .split-title em { font-style: italic; color: var(--ochre); }
   .split-body p {
     font-family: var(--serif);
-    font-size: clamp(15px, 1.4vw, 17px);
+    font-size: clamp(17px, 1.6vw, 20px);
     line-height: 1.8; letter-spacing: 0.01em;
-    color: var(--ink); opacity: 0.75;
+    color: var(--ink); opacity: 0.8;
     margin-bottom: 18px;
   }
   .split-body p:last-child { margin-bottom: 0; }
@@ -285,8 +285,8 @@
   .scents-entry-title em { font-style: italic; color: var(--dust); }
   .scents-entry-intro {
     font-family: var(--serif);
-    font-size: clamp(15px, 1.5vw, 18px);
-    line-height: 1.75; color: rgba(244,239,230,0.6);
+    font-size: clamp(17px, 1.6vw, 20px);
+    line-height: 1.75; color: rgba(244,239,230,0.7);
     max-width: 620px; margin-bottom: 52px;
   }
   .scents-grid {
@@ -323,8 +323,8 @@
   }
   .scent-card-desc {
     font-family: var(--serif);
-    font-size: 14px; line-height: 1.7;
-    color: rgba(244,239,230,0.55);
+    font-size: 16px; line-height: 1.7;
+    color: rgba(244,239,230,0.65);
   }
   @media (max-width: 768px) {
     .scents-entry { padding: 48px 24px; }
@@ -333,42 +333,16 @@
   }
 
   /* ── VISION ENTRY ── */
-  .vision-entry {
-    padding: 96px 48px;
-    max-width: 1000px;
-  }
-  .vision-entry .entry-title { margin-bottom: 40px; }
-  .vision-entry .entry-text p {
-    font-size: clamp(17px, 1.8vw, 22px);
-    opacity: 0.82;
-  }
-  .vision-places {
-    margin-top: 48px;
-    display: flex; gap: 0;
-    flex-wrap: wrap;
-    border-top: 1px solid var(--dust);
-    border-left: 1px solid var(--dust);
-  }
-  .vision-place {
-    padding: 20px 28px;
-    border-right: 1px solid var(--dust);
-    border-bottom: 1px solid var(--dust);
-    flex: 0 0 auto;
-  }
-  .vision-place-name {
-    font-family: var(--serif);
-    font-size: 18px; font-weight: 300;
-    letter-spacing: 0.04em; color: var(--ink);
-    margin-bottom: 4px;
-  }
-  .vision-place-note {
-    font-family: var(--sans);
-    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--army); opacity: 0.55; font-weight: 300;
-  }
+
+
+
+
+
+
+
   @media (max-width: 768px) {
-    .vision-entry { padding: 64px 24px; }
-    .vision-place { padding: 16px 20px; }
+  
+  
   }
 
   /* ── CLOSING BAND ── */
@@ -424,6 +398,8 @@
     footer { flex-direction: column; gap: 20px; align-items: flex-start; padding: 36px 24px; }
     .footer-right { align-items: flex-start; }
   }
+
+  
 </style>
 </head>
 <body>
@@ -457,7 +433,7 @@
 
 <!-- HERO IMAGE -->
 <div class="fg-hero">
-  <img src="https://ghosttownranch.com/herogtr.png" alt="Ghost Town Ranch — the wide open">
+  <img src="/widelight.jpg" alt="Ghost Town Ranch — wide light and open spaces, the American West">
 </div>
 
 <!-- ══ ENTRY 01: ORIGIN + PHILOSOPHY ══ -->
@@ -498,18 +474,35 @@
       Frontier<br><em>Modernism.</em>
     </h2>
     <div class="entry-text">
-      <p>Frontier Modernism is not a style. It is a disposition. It is what happens when the self-reliance of the pioneer West meets the discipline and restraint of desert modernism — when you believe that objects should earn their place, that materials should be honest, and that the most refined thing you can do is remove everything that does not belong.</p>
-      <p>The pioneer West was not romantic. It was practical. You built what you needed and left the rest alone. You chose materials that held, tools that worked, and you did not confuse decoration with quality. The frontier had no patience for filler — not in a structure, not in a formula, not in a life.</p>
-      <p>Desert modernism said the same thing in a different language. Richard Neutra, Albert Frey, the Case Study houses — these were arguments for clarity. For the idea that a building, like a life, should have nothing in it that does not serve. Glass where there was once wall. Sky where there was once ceiling. The desert, invited in.</p>
-      <p>Ghost Town Ranch is where those two arguments converge. We formulate the way a good architect builds: with intention, without filler, in service of the person who will live inside what we make. Every product is that argument made physical. <strong>Pioneer grit. Modern clarity.</strong></p>
+      <p>Frontier Modernism is not a style. It is a disposition — what happens when the self-reliance of the pioneer West meets the discipline of desert modernism. Objects that earn their place. Materials that are honest. Nothing that does not belong.</p>
+      <p>We formulate the way a good architect builds: with intention, without filler, in service of the person who will live inside what we make. <strong>Pioneer grit. Modern clarity.</strong></p>
     </div>
   </div>
 </article>
 
-<!-- ══ ENTRY 03: THE WIDE OPEN ══ -->
+<!-- ══ ENTRY 03: WHERE FRONTIER MODERNISM LIVES ══ -->
+<article class="entry">
+  <div class="entry-header">
+    <span class="entry-number">No. 03</span>
+    <div class="entry-rule"></div>
+    <span class="entry-tag">Vision</span>
+  </div>
+  <div class="entry-body">
+    <h2 class="entry-title">
+      Where Frontier<br><em>Modernism lives.</em>
+    </h2>
+    <div class="entry-text">
+      <p>Frontier Modernism is not a desert category. It is an American West category — and the American West is anywhere the wide open meets a considered life. The ski lodge above Sun Valley. The spa at the edge of a Utah ranch. The farmhouse in the Hudson Valley where the weekend feels like it was earned.</p>
+      <p>The wide open is a disposition, not a zip code. <strong>If that is your town, Ghost Town Ranch is already there.</strong></p>
+      <p style="margin-top: 8px;"><a href="https://livekindred.com/home/clj2wi8vs05y8m03alib23sl2" target="_blank" rel="noopener" style="font-family: var(--sans); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ochre); text-decoration: none; border-bottom: 1px solid rgba(155,122,63,0.4); padding-bottom: 2px; font-weight: 300;">Find your kindred →</a></p>
+    </div>
+  </div>
+</article>
+
+<!-- ══ ENTRY 04: THE WIDE OPEN ══ -->
 <article class="entry" style="background: var(--cream);">
   <div class="entry-header" style="padding-top: 48px;">
-    <span class="entry-number">No. 03</span>
+    <span class="entry-number">No. 04</span>
     <div class="entry-rule"></div>
     <span class="entry-tag">Landscape</span>
   </div>
@@ -518,10 +511,8 @@
       The wide<br><em>open.</em>
     </h2>
     <div class="entry-text">
-      <p>The desert is a design brief. Wide light, dry air, heat that asks something of every surface it touches. Skin that has to hold without help. Materials that cannot lie about what they are. Scale that makes human concerns feel both smaller and more precise.</p>
-      <p>We think about this landscape the way a good formulator thinks about an ingredient list: what is essential, what is excess, and what happens when you remove everything that does not belong? The desert answers that question in real time. Anything that cannot sustain itself in this light falls away.</p>
-      <p>This is not a brand built on nostalgia for the frontier. It is a brand built on what the frontier still teaches, which is that clarity is a form of respect — for the person using the product, for the environment it comes from, and for the standard it is held to. The wide open is not an aesthetic. It is an argument about what matters.</p>
-      <p>From the wide open, for every day.</p>
+      <p>The desert is a design brief. Wide light, dry air, heat that asks something of every surface it touches. Anything that cannot sustain itself in this light falls away.</p>
+      <p>The wide open is not an aesthetic. It is an argument about what matters. From the wide open, for every day.</p>
     </div>
   </div>
 </article>
@@ -533,7 +524,7 @@
   </div>
   <div class="split-text">
     <div class="entry-header" style="padding: 0 0 32px 0;">
-      <span class="entry-number">No. 04</span>
+      <span class="entry-number">No. 05</span>
       <div class="entry-rule"></div>
       <span class="entry-tag">Standard</span>
     </div>
@@ -543,9 +534,8 @@
       <em>Third-party verified.</em>
     </h2>
     <div class="split-body">
-      <p>Every GTR skincare and body formula is certified under the COSMOS standard, audited by ECOCERT. This is not a marketing claim. It is a third-party verification that every ingredient, every process, and every finished product meets one of the highest natural formulation standards in the world.</p>
-      <p>COSMOS certification means no parabens, no phthalates, no synthetic dyes. It means that when we say an ingredient comes from organic farming, someone other than us has confirmed it. It means skin-safe fragrance throughout — not because it is easier, but because it is right.</p>
-      <p>The standard does not change by category. The hand wash holds it. The face serum holds it. The candle wax holds it. We did not build a certified skincare line and a separate uncertified home line. The conviction runs through everything we make.</p>
+      <p>Every GTR formula is certified under the COSMOS standard, audited by ECOCERT. Not a marketing claim — a third-party verification. No parabens, no phthalates, no synthetic dyes. Skin-safe fragrance throughout.</p>
+      <p>The standard does not change by category. The conviction runs through everything we make.</p>
     </div>
   </div>
 </div>
@@ -553,7 +543,7 @@
 <!-- ══ ENTRY 05: SIX SCENTS ══ -->
 <section class="scents-entry">
   <div class="scents-entry-header">
-    <span class="scents-entry-number">No. 05</span>
+    <span class="scents-entry-number">No. 06</span>
     <div class="scents-entry-rule"></div>
     <span class="scents-entry-tag">Landscape as scent</span>
   </div>
@@ -561,7 +551,7 @@
     The land has a scent.<br>
     <em>Six ways to carry it.</em>
   </h2>
-  <p class="scents-entry-intro">Each GTR scent is a specific place, a specific hour, a specific condition of light and air and ground. Not invented. Documented. The fragrance library is a field record of the wide open.</p>
+  <p class="scents-entry-intro">Each scent is a specific place, a specific hour. Not invented. Documented.</p>
   <div class="scents-grid">
     <div class="scent-card">
       <span class="scent-card-num">No. 01</span>
@@ -616,49 +606,7 @@
   </p>
 </div>
 
-<!-- ══ ENTRY 06: WHERE WE'RE GOING ══ -->
-<article class="entry vision-entry">
-  <div class="entry-header" style="padding: 0 0 40px 0;">
-    <span class="entry-number">No. 06</span>
-    <div class="entry-rule"></div>
-    <span class="entry-tag">Vision</span>
-  </div>
-  <h2 class="entry-title">
-    Where<br><em>Frontier Modernism lives.</em>
-  </h2>
-  <div class="entry-text">
-    <p>Frontier Modernism is not a desert category. It is an American West category — and the American West is anywhere the wide open meets a considered life. It is the ski lodge in the pines above Sun Valley where the design is spare and the light is clean. The spa at the edge of a ranch in Utah where the materials are honest and the ritual is the point. The farmhouse in the Hudson Valley where the weekend feels like it was earned.</p>
-    <p>These are the places Ghost Town Ranch is building toward. Not as a brand that chases markets, but as a world that already belongs in those rooms — because the conviction is the same everywhere the wide open has shaped how people think about what they put on their skin, what they burn in a room, and what they choose to leave on the counter.</p>
-    <p>The skincare came first, because that is where the standard is hardest to hold and most visible when you do. The scent came next, because a place without a scent is not yet a world. What comes after is the full expression: objects, amenities, and experiences that carry the same material logic into every context where a considered life is being built.</p>
-    <p><strong>From the wide open. For every day. For everywhere the wide open reaches.</strong></p>
-  </div>
-  <div class="vision-places">
-    <div class="vision-place">
-      <div class="vision-place-name">Sun Valley</div>
-      <div class="vision-place-note">Idaho</div>
-    </div>
-    <div class="vision-place">
-      <div class="vision-place-name">Park City</div>
-      <div class="vision-place-note">Utah</div>
-    </div>
-    <div class="vision-place">
-      <div class="vision-place-name">Aspen</div>
-      <div class="vision-place-note">Colorado</div>
-    </div>
-    <div class="vision-place">
-      <div class="vision-place-name">Sundance</div>
-      <div class="vision-place-note">Utah</div>
-    </div>
-    <div class="vision-place">
-      <div class="vision-place-name">Hudson Valley</div>
-      <div class="vision-place-note">New York</div>
-    </div>
-    <div class="vision-place">
-      <div class="vision-place-name">Joshua Tree</div>
-      <div class="vision-place-note">California · Origin</div>
-    </div>
-  </div>
-</article>
+
 
 <!-- CLOSING BAND -->
 <div class="closing-band">
