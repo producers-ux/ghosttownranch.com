@@ -186,6 +186,9 @@
         '</div>';
       }).join('');
     }
+
+    // Notify shared nav controls (gtr-controls.js) so the cart badge stays live.
+    try { window.dispatchEvent(new CustomEvent('gtr:cart-updated', { detail: { count: count } })); } catch (e) {}
   }
 
   // ── ADD TO CART ────────────────────────────────────────────────────────────
