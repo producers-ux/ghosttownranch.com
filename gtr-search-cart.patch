@@ -73,10 +73,58 @@ index 6d83b39..ac162ee 100644
  </body>
  </html>
 diff --git a/field-guide/index.html b/field-guide/index.html
-index af4a670..c7ad0bb 100644
+index af4a670..2db3391 100644
 --- a/field-guide/index.html
 +++ b/field-guide/index.html
-@@ -847,5 +847,7 @@
+@@ -179,24 +179,28 @@
+ 
+   /* ── TEXT ENTRY ── */
+   .entry-body {
+-    padding: 40px 48px 64px;
+-    max-width: 860px;
++    padding: 36px 48px 56px;
++    max-width: none;
++    display: grid;
++    grid-template-columns: minmax(260px, 0.8fr) 1.2fr;
++    gap: 32px 64px;
++    align-items: start;
+   }
+   .entry-title {
+     font-family: var(--serif);
+-    font-size: clamp(38px, 4.5vw, 62px);
++    font-size: clamp(32px, 3.4vw, 52px);
+     font-weight: 300; line-height: 1.05;
+     letter-spacing: 0.02em;
+-    margin-bottom: 32px;
++    margin-bottom: 0;
+   }
+   .entry-title em { font-style: italic; color: var(--ochre); }
+   .entry-text p {
+     font-family: var(--serif);
+-    font-size: clamp(19px, 2.2vw, 24px);
+-    line-height: 1.9; letter-spacing: 0.01em;
++    font-size: clamp(18px, 1.6vw, 22px);
++    line-height: 1.85; letter-spacing: 0.01em;
+     color: var(--ink); opacity: 0.88;
+-    margin-bottom: 24px;
+-    max-width: 720px;
++    margin-bottom: 22px;
++    max-width: 640px;
+   }
+   .entry-text p:last-child { margin-bottom: 0; }
+   .entry-text strong {
+@@ -432,8 +436,8 @@
+     .header-eyebrow { font-size: 13px; }
+     .header-meta { font-size: 11px; }
+ 
+-    .entry-body { padding: 32px 24px 48px; }
+-    .entry-title { font-size: clamp(32px, 8vw, 48px); margin-bottom: 24px; }
++    .entry-body { padding: 32px 24px 44px; grid-template-columns: 1fr; gap: 16px; }
++    .entry-title { font-size: clamp(32px, 8vw, 48px); margin-bottom: 4px; }
+     .entry-text p { font-size: 18px; line-height: 1.85; max-width: 100%; }
+     .entry-number { font-size: 12px; }
+     .entry-tag { font-size: 12px; }
+@@ -847,5 +851,7 @@
    });
  })();
  </script>
@@ -86,10 +134,10 @@ index af4a670..c7ad0bb 100644
  </html>
 diff --git a/gtr-controls.js b/gtr-controls.js
 new file mode 100644
-index 0000000..6007e06
+index 0000000..fba4e80
 --- /dev/null
 +++ b/gtr-controls.js
-@@ -0,0 +1,314 @@
+@@ -0,0 +1,357 @@
 +/* ──────────────────────────────────────────────────────────────────────────
 +   GTR Controls — shared nav search + cart, drop-in for every page.
 +   Self-styled (prefix: gtrc-) so it never depends on a page's own nav CSS.
@@ -107,45 +155,63 @@ index 0000000..6007e06
 +  window.__gtrControls = true;
 +
 +  // ── SEARCH INDEX ──────────────────────────────────────────────────────────
-+  // Curated so results link to real URLs. Sections first, then key products.
++  // Sections + the full product catalog. Product entries are generated from the
++  // Shopify export; regenerate this PRODUCTS block when the catalog changes.
 +  var INDEX = [
-+    // Sections
-+    { t: 'Ritual',           c: 'Scent + Home',   u: '/ritual/',                 k: 'candle votive diffuser fragrance scent home reed' },
-+    { t: 'Routines',         c: 'Skin',           u: '/routines/',               k: 'serum cream eye routine morning evening skincare face' },
-+    { t: 'Wash House',       c: 'At the sink',    u: '/wash-house/',             k: 'hand wash soap body cream sink' },
-+    { t: 'Find Your Range',  c: 'Skin Regimen',   u: '/range/',                  k: 'range archetype regimen collection scout claim landed' },
-+    { t: 'Field Guide',      c: 'Origin',         u: '/field-guide/',            k: 'origin philosophy frontier modernism story about' },
-+    { t: 'Shop the Ranch',   c: 'All Objects',    u: '/shop/',                   k: 'shop all products store browse' },
-+    { t: 'Wholesale',        c: 'Trade',          u: '/wholesale/',              k: 'wholesale trade stockist retailer line sheet' },
-+    { t: 'Deep Well',        c: 'Ingestible',     u: '/collections/deep-well/',  k: 'deep well ingestible beauty supplement the well first light last light' },
++    // Sections / pages
++    { t: 'Ritual',          c: 'Scent + Home',  u: '/ritual/',                k: 'candle votive diffuser fragrance scent home reed' },
++    { t: 'Routines',        c: 'Skin',          u: '/routines/',              k: 'serum cream eye routine morning evening skincare face' },
++    { t: 'Wash House',      c: 'At the sink',   u: '/wash-house/',            k: 'hand wash soap body cream sink' },
++    { t: 'Find Your Range', c: 'Skin Regimen',  u: '/range/',                 k: 'range archetype regimen collection scout claim landed' },
++    { t: 'Field Guide',     c: 'Origin',        u: '/field-guide/',           k: 'origin philosophy frontier modernism story about' },
++    { t: 'Shop the Ranch',  c: 'All Objects',   u: '/shop/',                  k: 'shop all products store browse' },
++    { t: 'Wholesale',       c: 'Trade',         u: '/wholesale/',             k: 'wholesale trade stockist retailer line sheet hospitality' },
++    { t: 'Deep Well',       c: 'Ingestible',    u: '/collections/deep-well/', k: 'deep well ingestible beauty supplement the well first light last light' },
 +
-+    // Wash House
-+    { t: 'The Wash',         c: 'Hydrating Hand Wash', u: '/products/sunbroke-the-wash-cold-pressed-grapefruit', k: 'hand wash soap grapefruit hydrating sink' },
-+    { t: 'The Basin',        c: 'Hand Wash + Body Cream Set', u: '/products/the-basin-hand-wash-body-cream-set-of-two-choose-your-scent', k: 'basin set bundle hand wash body cream' },
-+    { t: 'All Over',         c: 'Body Cream',     u: '/products/all-over-body-cream',     k: 'body cream lotion moisturizer all over' },
-+    { t: 'The Wash House Set', c: 'Hair + Body',  u: '/products/the-wash-house-hair-body-set', k: 'hair body set wash house bundle' },
-+    { t: 'Sink Tray',        c: 'Sustainable',    u: '/products/sustainable-sink-tray',   k: 'sink tray dish sustainable accessory' },
-+
-+    // Ritual / Home
-+    { t: 'The Votive',       c: 'Fragrance + Home', u: '/products/the-votive-single',     k: 'votive candle small fragrance home wax' },
-+    { t: 'The Votive — Set of 6', c: 'Candle Set', u: '/products/the-votive-six',         k: 'votive set six candles gift' },
-+    { t: 'The Monument',     c: 'Candle',         u: '/products/the-monument-candle',     k: 'monument candle large fragrance home wax' },
-+    { t: 'The Wander',       c: 'Travel Candle',  u: '/products/the-wander-hand-poured-travel-candle', k: 'wander travel candle tin small' },
-+    { t: 'The Still',        c: 'Reed Diffuser',  u: '/products/the-still-amber-glass-reed-diffuser', k: 'still reed diffuser amber glass home fragrance' },
-+    { t: 'Ranch Water',      c: 'Body + Linen Mist', u: '/products/ranch-water-body-linen-fragrance', k: 'ranch water body linen mist spray fragrance' },
-+
-+    // Skin / Body
-+    { t: 'Golden Hour',      c: 'Body Oil',       u: '/products/omega-6-9-glowing-skin-body-oil', k: 'golden hour body oil glow omega skin' },
-+    { t: 'Desert Glow',      c: 'Facial Oil',     u: '/products/desert-glow-hydrating-facial-oil', k: 'desert glow facial oil hydrating face' },
-+    { t: 'Dusk til Dawn',    c: 'Hydration Gel',  u: '/products/dusk-til-dawn-hydration-gel',     k: 'dusk dawn hydration gel moisturizer overnight' },
-+    { t: 'Peptide Serum',    c: 'Anti-Aging',     u: '/products/peptide-anti-aging-serum',        k: 'peptide serum anti aging face routine' },
-+    { t: 'Rose Cut',        c: 'Daily Facial Wash', u: '/products/rose-cut-daily-facial-wash',    k: 'rose cut facial wash cleanser face daily' },
-+    { t: 'Rosemary Scalp Oil', c: 'Hair + Scalp', u: '/products/rosemary-hair-scalp-strengthening-oil', k: 'rosemary scalp hair oil strengthening' },
-+
-+    // The Field Kit + apparel
-+    { t: 'The Field Kit',    c: 'Discovery Set',  u: '/products/the-field-kit',           k: 'field kit discovery set sampler travel' },
-+    { t: 'GTR Tee',          c: 'Garment-Dyed',   u: '/products/gtr-unisex-tee',          k: 'tee shirt apparel unisex cotton' },
-+    { t: 'GTR Hoodie',       c: 'Apparel',        u: '/products/gtr-unisex-hoodie',       k: 'hoodie sweatshirt apparel unisex' }
++    // ── PRODUCTS (generated) ──
++    { t: "All Over Body Cream", c: "Ghost Town Ranch  ·  $55", u: "/products/all-over-body-cream", k: "All Over Body Cream 5% Urea, Amber (Packaging color), Body lotion (Type), body-care, Dehydrated skin (Concern), Dermatologically tested (Claims), Dry (Skin type), Hyaluronic Acid (Active ingredients), Intensive Hydration, Nourishing and Non-Greasy Texture, Panthenol (Active ingredients), shoppe-object, Sodium PCA (Active ingredients), Urea (Active ingredients) all over body cream" },
++    { t: "All Told", c: "3-in-1 Eye Cream  ·  $62", u: "/products/all-told-eye-cream", k: "All Told, 3-in-1 Eye Cream Eye Cream All skin types (Skin type), Aloe Juice (Active ingredients), Anti-age (Concern), Black (Packaging color), Calms the skin around eyes, Eye cream (Type), face-care, Hyaluronic Acid (Active ingredients), Lightweight texture, shoppe-object, Under-eye fatigue (Concern) all told eye cream" },
++    { t: "Desert Day Cream", c: "Moisturizer  ·  $64", u: "/products/moisturising-day-cream", k: "Desert Day Cream Moisturizer All skin types (Skin type), Aloe Juice (Active ingredients), Betaine (Active ingredients), Black (Packaging color), Dehydrated skin (Concern), face-care, Gluten Free (Claims), Hyaluronic acid, Hyaluronic Acid (Active ingredients), Luxurious texture, Moisture boost, Moisturiser (Type), Natural Certified (Claims), Nut Free (Claims), shoppe-object, Vegan (Claims) moisturising day cream" },
++    { t: "Desert Glow Hydrating Facial Oil", c: "Facial Oil  ·  $67", u: "/products/desert-glow-hydrating-facial-oil", k: "Desert Glow Hydrating Facial Oil Facial Oil avocado, facial oil, hydration, jojoba, shoppe-object desert glow hydrating facial oil" },
++    { t: "Desert Veil Full Shade Set Shade set · 4 shades", c: "Makeup  ·  $187", u: "/products/soft-proof-full-shade-set-10-shades-all-variants", k: "Desert Veil Full Shade Set Shade set · 4 shades Makeup bundle, Make-up buildup (Concern), makeup, sun care, The Face Routine soft proof full shade set 10 shades all variants" },
++    { t: "DESERT VEIL: Available in Light", c: "Medium, Tan, and Deep  ·  $55", u: "/products/desert-veil-tone-correction-barrier-protection", k: "DESERT VEIL: Available in Light, Medium, Tan, and Deep Face Care All skin types (Skin type), Ceramides (Active ingredients), Cocoa Butter (Active ingredients), Damaged skin barrier (Concern), Dark spots (Concern), Evens skin tone, face-care, Gluten Free (Claims), Nut Free (Claims), shoppe-object, Stick (Type), supports skin barrier, Vegan (Claims), White (Packaging color) desert veil tone correction barrier protection" },
++    { t: "Drawn Line", c: "Matte Lip Tint  ·  $42", u: "/products/drawn-line-matte-lip-color", k: "Drawn Line, Matte Lip Tint Makeup All skin types (Skin type), Cream lipstick, Dehydrated skin (Concern), face-care, makeup, satin finish, Shea Butter (Active ingredients), shoppe-object, velvety, White (Packaging color) drawn line matte lip color" },
++    { t: "Dry Creek", c: "Dry Shampoo Hair Mist  ·  $39", u: "/products/quick-refresh-dry-shampoo-spray", k: "Dry Creek, Dry Shampoo Hair Mist Shampoo adds volume to the hair, hair-care, Nourishes hair and scalp, shoppe-object quick refresh dry shampoo spray" },
++    { t: "Dusk Til Dawn Hydration Gel", c: "Night Gel  ·  $60", u: "/products/dusk-til-dawn-hydration-gel", k: "Dusk Til Dawn Hydration Gel Night Gel hyaluronic acid, hydration gel, overnight, shoppe-object dusk til dawn hydration gel" },
++    { t: "Evening Repair Bundle", c: "Ghost Town Ranch  ·  $274", u: "/products/evening-repair-bundle", k: "Evening Repair Bundle Anti-age (Concern), bundle, face-care, shoppe-object evening repair bundle" },
++    { t: "Frontier Fade Toning Exfoliant", c: "Toner  ·  $55", u: "/products/glycolic-acid-exfoliating-toner", k: "Frontier Fade Toning Exfoliant Toner All skin types (Skin type), Betaine (Active ingredients), Dark spots (Concern), Exfoliates, Exfoliator (Type), face-care, Glycolic Acid (Active ingredients), promotes the appearance of a more even skin tone, removes build-up, shoppe-object, Sodium PCA (Active ingredients), Toner (Type), Transparent (Packaging color) glycolic acid exfoliating toner" },
++    { t: "Golden Hour Body Oil", c: "Body Care  ·  $62", u: "/products/omega-6-9-glowing-skin-body-oil", k: "Golden Hour Body Oil Body Care Adds Healthy Glow, All skin types (Skin type), Argan Oil (Active ingredients), Black (Packaging color), Body Oil (Type), body-care, Dehydrated skin (Concern), Gluten Free (Claims), Hydrating, Organic Certified (Claims), Rejuvenating, shoppe-object, Vegan (Claims), Vitamin E (Active ingredients) omega 6 9 glowing skin body oil" },
++    { t: "GTR Garment-dyed long-sleeve Tee", c: "Ghost Town Ranch  ·  $64", u: "/products/gtr-garment-dyed-long-sleeve-tee", k: "GTR Garment-dyed long-sleeve Tee gtr garment dyed long sleeve tee" },
++    { t: "GTR Unisex Hoodie in Black/French Navy/Carbon Grey", c: "Sweatshirt  ·  $74", u: "/products/gtr-unisex-hoodie-in-black-french-navy-white-copy", k: "GTR Unisex Hoodie in Black/French Navy/Carbon Grey Sweatshirt gtr unisex hoodie in black french navy white copy" },
++    { t: "GTR Unisex Sweatshirt in Black/French Navy/White", c: "Sweatshirt  ·  $84", u: "/products/gtr-unisex-sweatshirt-in-black-french-navy-white", k: "GTR Unisex Sweatshirt in Black/French Navy/White Sweatshirt gtr unisex sweatshirt in black french navy white" },
++    { t: "GTR Unisex Tee in Black or Bone", c: "Tee Shirt  ·  $53", u: "/products/gtr-unisex-tee-in-black-or-bone", k: "GTR Unisex Tee in Black or Bone Tee Shirt gtr unisex tee in black or bone" },
++    { t: "Long Range Endurance Skincare Collection", c: "Anti-Age  ·  $178", u: "/products/long-range-endurance-skincare-collection", k: "Long Range Endurance Skincare Collection Anti-Age Anti-age (Concern), collection-box, Deep hydration, Dehydrated skin (Concern), instant boost of moisture, lightweight texture, Mature (Skin type), shoppe-object long range endurance skincare collection" },
++    { t: "LONG SHOT Peptide Mascara in Blackened Earth", c: "Ghost Town Ranch  ·  $45", u: "/products/long-shot-peptide-mascara", k: "LONG SHOT Peptide Mascara in Blackened Earth All skin types (Skin type), Gives volume and length, Gluten Free (Claims), Lack of volume (Concern), makeup, Nut Free (Claims), Peptide-infused, Peptides (Active ingredients), shoppe-object, Vegan (Claims), White (Packaging color) long shot peptide mascara" },
++    { t: "Mojave Reset Cooling Face Mist", c: "Face Care  ·  $44", u: "/products/microbiome-prebiotics-face-mist-1", k: "Mojave Reset Cooling Face Mist Face Care All skin types (Skin type), Calming effect, Damaged skin barrier (Concern), Dehydrated skin (Concern), Face mist (Type), face-care, Hyaluronic Acid (Active ingredients), Hydrates and refreshes the skin, Prebiotics (Active ingredients), Protects the skin barrier, shoppe-object, Transparent (Packaging color), White (Packaging color) microbiome prebiotics face mist 1" },
++    { t: "Morning Skin Routine", c: "Bundle · 6 products  ·  $353", u: "/products/morning-skin-routine", k: "Morning Skin Routine, Bundle · 6 products Skincare bundle, Calms the skin around eyes, routine, skincare morning skin routine" },
++    { t: "Outlaw's Reserve 2-in-1 Hair + Body Wash", c: "Shampoo  ·  $55", u: "/products/outlaws-reserve-2-in-1-hair-skin-rinse", k: "Outlaw's Reserve 2-in-1 Hair + Body Wash Shampoo adds volume to the hair, All skin types (Skin type), Amber (Packaging color), Betaine (Active ingredients), Body wash (Type), body-care, Cleansing (Concern), Dehydrated skin (Concern), Lack of volume (Concern), Shampoo (Type), shoppe-object, Suitable for skin and hair, Wheat Protein (Active ingredients) outlaws reserve 2 in 1 hair skin rinse" },
++    { t: "Outlaw's Wipeout Makeup Remover", c: "Makeup Remover  ·  $55", u: "/products/biphasic-make-up-remover-fragrance-free", k: "Outlaw's Wipeout Makeup Remover Makeup Remover All skin types (Skin type), Aloe Juice (Active ingredients), Cleanser (Type), Cleansing (Concern), face-care, Gentle to skin, Hyaluronic Acid (Active ingredients), Make-up buildup (Concern), removes make-up and impurities, shoppe-object, Transparent (Packaging color) biphasic make up remover fragrance free" },
++    { t: "Ranch Water", c: "Body + Room Fragrance  ·  $88", u: "/products/ranch-water-body-room-fragrance", k: "Ranch Water, Body + Room Fragrance Body & Home Fragrance body mist, fragrance, phthalate-free, room spray, shoppe-object ranch water body room fragrance" },
++    { t: "ROSE CUT Daily Facial Wash", c: "Cleanser  ·  $62", u: "/products/rose-cut-daily-facial-wash", k: "ROSE CUT Daily Facial Wash Cleanser Aloe Juice (Active ingredients), Betaine (Active ingredients), Cleanser (Type), Cleansing (Concern), face-care, Gently cleanses refreshes, Gluten Free (Claims), Make-up buildup (Concern), Normal (Skin type), Nut Free (Claims), Oily (Skin type), revitalises reveals natural radiance, shoppe-object, Sodium PCA (Active ingredients), Transparent (Packaging color), Vegan (Claims) rose cut daily facial wash" },
++    { t: "Rosemary Mint Revive Hair + Scalp Oil", c: "Hair Care  ·  $48", u: "/products/rosemary-hair-scalp-strengthening-oil", k: "Rosemary Mint Revive Hair + Scalp Oil Hair Care All skin types (Skin type), Dehydrated skin (Concern), Dry ends (Concern), Gives shine and healthy glow, hair-care, Lack of volume (Concern), Nourishes hair and scalp, Rosemary Oil (Active ingredients), shoppe-object, Transparent (Packaging color), White (Packaging color) rosemary hair scalp strengthening oil" },
++    { t: "Soft Proof Full Shade Set · 10 shades", c: "Ghost Town Ranch  ·  $383", u: "/products/soft-proof-full-shade-set", k: "Soft Proof Full Shade Set · 10 shades bundle, Make-up buildup (Concern), makeup, sun care, The Face Routine soft proof full shade set" },
++    { t: "SOFT PROOF Pigment Foundation with Peptides", c: "10 Shades  ·  $45", u: "/products/soft-proof-peptide-foundation", k: "SOFT PROOF Pigment Foundation with Peptides, 10 Shades Makeup All skin types (Skin type), Dark spots (Concern), Delicate, for even complexion, makeup, Peptides (Active ingredients), Sensitive skin (Concern), shoppe-object, velvety feel, White (Packaging color) soft proof peptide foundation" },
++    { t: "Still Air Natural Roll-On Deodorant", c: "Ghost Town Ranch  ·  $32", u: "/products/still-air-natural-roll-on-deodorant", k: "Still Air Natural Roll-On Deodorant body care, deodorant, shoppe-object still air natural roll on deodorant" },
++    { t: "Sustainable Sink Tray", c: "Tools & Accessories  ·  $24", u: "/products/sustainable-sink-tray", k: "Sustainable Sink Tray Tools & Accessories bathroom, handcrafted, plant-based, shoppe-object, sink tray, sustainable sustainable sink tray" },
++    { t: "The Basin", c: "Body Care  ·  $84", u: "/products/the-basin-hand-wash-body-cream-set-of-two-choose-your-scent", k: "The Basin | Hand Wash + Body Cream + Set of two · Choose your scent Body Care All skin types (Skin type), body cream, hand wash, liquid soap, shoppe-object the basin hand wash body cream set of two choose your scent" },
++    { t: "The Face — Full Shade Edit", c: "Bundle · 14 products  ·  $570", u: "/products/the-face-full-shade-edit-bundle-14-shades", k: "The Face — Full Shade Edit, Bundle · 14 products bundle, Make-up buildup (Concern), makeup, sun care, The Face Routine the face full shade edit bundle 14 shades" },
++    { t: "The Field Kit", c: "Ghost Town Ranch  ·  $34", u: "/products/the-field-kit", k: "The Field Kit the field kit" },
++    { t: "The Grade Peptide Serum", c: "Anti-Age  ·  $72", u: "/products/peptide-anti-aging-serum", k: "The Grade Peptide Serum Anti-Age Aloe Juice (Active ingredients), Anti-age (Concern), Dehydrated skin (Concern), Dry (Skin type), face-care, Hyaluronic Acid (Active ingredients), Normal (Skin type), Peptides (Active ingredients), Reduces fine lines, Serum (Type), shoppe-object, Smooths, Sodium PCA (Active ingredients), Transparent (Packaging color), White (Packaging color) peptide anti aging serum" },
++    { t: "The Hold", c: "Anti-age day cream  ·  $74", u: "/products/the-hold-anti-age-day-cream", k: "The Hold, Anti-age day cream Anti-Age Aloe Juice (Active ingredients), Anti-age (Concern), Betaine (Active ingredients), face-care, Hyaluronic acid, Hyaluronic Acid (Active ingredients), Luxurious texture, Mature (Skin type), Moisture boost, Moisturiser (Type), Shea Butter (Active ingredients), shoppe-object, White (Packaging color) the hold anti age day cream" },
++    { t: "The Monument", c: "Candle  ·  $190", u: "/products/the-monument-candle", k: "The Monument, Hand-Poured Mega 4-Wick Coconut-Soy Candle, 55oz Candle candle, coconut soy, hand-poured, large, shoppe-object the monument candle" },
++    { t: "The Slow", c: "Hand-Poured Colored Wax Candle, 11oz  ·  $54", u: "/products/the-slow-candle", k: "The Slow, Hand-Poured Colored Wax Candle, 11oz Candle candle, coconut soy, hand-poured, shoppe-object the slow candle" },
++    { t: "The Still", c: "Amber Glass Reed Diffuser  ·  $72", u: "/products/the-still-amber-glass-reed-diffuser", k: "The Still, Amber Glass Reed Diffuser Home Fragrance diffuser, home fragrance, reed diffuser, shoppe-object the still amber glass reed diffuser" },
++    { t: "The Votive – Single", c: "Ghost Town Ranch  ·  $26", u: "/products/the-votive-single", k: "The Votive – Single candle, hand-poured, scent, shoppe-object, single, votive the votive single" },
++    { t: "The Votive", c: "Set of 6  ·  $148", u: "/products/the-votive-candle-set-of-6", k: "The Votive, Set of 6 body-care, Cotton wick, Gentle aroma, Gluten Free (Claims), Natural soy wax, Nut Free (Claims), shoppe-object, Transparent (Packaging color), Vegan (Claims), White (Packaging color) the votive candle set of 6" },
++    { t: "The Wander", c: "Hand-Poured Travel Candle  ·  $28", u: "/products/the-wander-hand-poured-travel-candle", k: "The Wander, Hand-Poured Travel Candle Candle body-care, Cotton wick, Gentle aroma, Gluten Free (Claims), Natural soy wax, Nut Free (Claims), shoppe-object, Transparent (Packaging color), Vegan (Claims), White (Packaging color) the wander hand poured travel candle" },
++    { t: "THE WASH HOUSE", c: "Ghost Town Ranch  ·  $72", u: "/products/the-wash-house-hair-body-set", k: "THE WASH HOUSE the wash house hair body set" },
++    { t: "The Wash", c: "Hydrating Hand Wash  ·  $44", u: "/products/sunbroke-the-wash-cold-pressed-grapefruit", k: "The Wash, Hydrating Hand Wash HAND SOAP body wash, grapefruit, shoppe-object, vegan, wash sunbroke the wash cold pressed grapefruit" },
++    { t: "Trail's End Keratin Hair Mist", c: "Hair Care  ·  $53", u: "/products/keratin-shine-leave-in-hair-mist", k: "Trail's End Keratin Hair Mist Hair Care Adds shine, All skin types (Skin type), Hair softening, hair-care, Keratin (Active ingredients), Lack of glow (Concern), Lack of volume (Concern), shoppe-object, Transparent (Packaging color) keratin shine leave in hair mist" }
 +  ];
 +
 +  // ── HELPERS ───────────────────────────────────────────────────────────────
@@ -260,21 +326,28 @@ index 0000000..6007e06
 +  var selIdx  = -1;
 +  var current = [];
 +
++  // Precompute a lowercased search blob (name + category + keywords) per item.
++  INDEX.forEach(function (i) {
++    i._b = (i.t + ' ' + i.c + ' ' + (i.k || '')).toLowerCase();
++    i._n = i.t.toLowerCase();
++  });
++
++  // Rank: full-phrase name match > name word-start > name contains >
++  // category contains > matched only via keywords/tags.
 +  function score(item, q) {
-+    var name = item.t.toLowerCase(), cat = item.c.toLowerCase(), k = (item.k || '');
-+    if (name === q) return 100;
-+    if (name.indexOf(q) === 0) return 80;
-+    if (name.indexOf(q) > -1) return 60;
-+    if (cat.indexOf(q) > -1) return 40;
-+    if (k.indexOf(q) > -1) return 20;
-+    return 0;
++    if (item._n === q) return 100;
++    if (item._n.indexOf(q) === 0) return 85;
++    if ((' ' + item._n).indexOf(' ' + q) > -1) return 75;
++    if (item._n.indexOf(q) > -1) return 60;
++    if (item.c.toLowerCase().indexOf(q) > -1) return 40;
++    return 20;
 +  }
 +
 +  function renderResults(list) {
 +    selIdx = -1;
 +    current = list;
 +    if (!list.length) {
-+      results.innerHTML = '<div class="gtrc-empty">Nothing matched. Try a scent, a product, or a section.</div>';
++      results.innerHTML = '<div class="gtrc-empty">Nothing matched. Try a product, scent, or category — like “lip,” “candle,” or “serum.”</div>';
 +      return;
 +    }
 +    results.innerHTML = list.map(function (i) {
@@ -287,14 +360,22 @@ index 0000000..6007e06
 +  function doSearch() {
 +    var q = input.value.trim().toLowerCase();
 +    if (!q) {
-+      hint.textContent = 'Start typing — products, scents, and pages';
-+      renderResults(INDEX.slice(0, 6));   // suggest top sections/products
++      hint.textContent = 'Start typing — any product, scent, or category';
++      renderResults(INDEX.slice(0, 8));   // section shortcuts as suggestions
 +      return;
 +    }
++    // Every whitespace-separated token must appear somewhere in the blob,
++    // so "matte lip" and "lip tint" both work as well as single terms.
++    var tokens = q.split(/\s+/);
 +    var matched = INDEX
++      .filter(function (i) {
++        return tokens.every(function (tok) { return i._b.indexOf(tok) > -1; });
++      })
 +      .map(function (i) { return { i: i, s: score(i, q) }; })
-+      .filter(function (r) { return r.s > 0; })
-+      .sort(function (a, b) { return b.s - a.s; })
++      .sort(function (a, b) {
++        if (b.s !== a.s) return b.s - a.s;
++        return a.i.t.length - b.i.t.length;   // shorter, tighter names first
++      })
 +      .map(function (r) { return r.i; });
 +    hint.textContent = matched.length + ' result' + (matched.length === 1 ? '' : 's');
 +    renderResults(matched);
@@ -332,10 +413,11 @@ index 0000000..6007e06
 +
 +  // ── NAV TOOLS (search + cart) ─────────────────────────────────────────────
 +  function resolveMount() {
-+    var mount = document.querySelector('.nav-right') ||
-+                document.querySelector('nav') ||
-+                document.querySelector('.archetype-nav, #nav, header');
-+    return mount || null;
++    return document.querySelector('.nav-hamburger') ||
++           document.querySelector('.nav-right') ||
++           document.querySelector('nav') ||
++           document.querySelector('.archetype-nav, #nav, header') ||
++           null;
 +  }
 +
 +  function buildTools() {
@@ -365,17 +447,26 @@ index 0000000..6007e06
 +      tools.appendChild(cartBtn);
 +    }
 +
-+    var mount = resolveMount();
++    // Place tools just before the hamburger (handles hamburgers nested in a
++    // wrapper div), else inside .nav-right, else at the end of the nav.
++    var ham = document.querySelector('.nav-hamburger');
++    var mount, before = null;
++    if (ham && ham.parentElement) { mount = ham.parentElement; before = ham; }
++    else {
++      mount = document.querySelector('.nav-right') ||
++              document.querySelector('nav') ||
++              document.querySelector('.archetype-nav, #nav, header');
++    }
 +    if (!mount) return;
 +
-+    // Match the nav's text color so icons read correctly on dark or light navs.
++    // Match the surrounding nav's text color so icons read on dark or light navs.
 +    try {
-+      var c = getComputedStyle(mount).color;
++      var navForColor = (mount.closest && mount.closest('nav')) || document.querySelector('nav') || mount;
++      var c = getComputedStyle(navForColor).color;
 +      if (c) tools.style.color = c;
 +    } catch (e) {}
 +
-+    var ham = mount.querySelector('.nav-hamburger');
-+    if (ham) mount.insertBefore(tools, ham);
++    if (before) mount.insertBefore(tools, before);
 +    else mount.appendChild(tools);
 +
 +    updateBadge();
