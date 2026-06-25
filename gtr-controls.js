@@ -240,10 +240,11 @@
 
   // ── NAV TOOLS (search + cart) ─────────────────────────────────────────────
   function resolveMount() {
-    var mount = document.querySelector('.nav-right') ||
-                document.querySelector('nav') ||
-                document.querySelector('.archetype-nav, #nav, header');
-    return mount || null;
+    return document.querySelector('.nav-hamburger') ||
+           document.querySelector('.nav-right') ||
+           document.querySelector('nav') ||
+           document.querySelector('.archetype-nav, #nav, header') ||
+           null;
   }
 
   function buildTools() {
@@ -273,17 +274,26 @@
       tools.appendChild(cartBtn);
     }
 
-    var mount = resolveMount();
+    // Place tools just before the hamburger (handles hamburgers nested in a
+    // wrapper div), else inside .nav-right, else at the end of the nav.
+    var ham = document.querySelector('.nav-hamburger');
+    var mount, before = null;
+    if (ham && ham.parentElement) { mount = ham.parentElement; before = ham; }
+    else {
+      mount = document.querySelector('.nav-right') ||
+              document.querySelector('nav') ||
+              document.querySelector('.archetype-nav, #nav, header');
+    }
     if (!mount) return;
 
-    // Match the nav's text color so icons read correctly on dark or light navs.
+    // Match the surrounding nav's text color so icons read on dark or light navs.
     try {
-      var c = getComputedStyle(mount).color;
+      var navForColor = (mount.closest && mount.closest('nav')) || document.querySelector('nav') || mount;
+      var c = getComputedStyle(navForColor).color;
       if (c) tools.style.color = c;
     } catch (e) {}
 
-    var ham = mount.querySelector('.nav-hamburger');
-    if (ham) mount.insertBefore(tools, ham);
+    if (before) mount.insertBefore(tools, before);
     else mount.appendChild(tools);
 
     updateBadge();
