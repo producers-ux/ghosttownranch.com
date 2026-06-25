@@ -1,1329 +1,1834 @@
 <!DOCTYPE html>
-<html lang="en"><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ritual — Ghost Town Ranch | Fragrance + Home</title>
-  <meta name="description" content="Six scents from the wide open. Ranch Water body and linen spray. Candles poured in the color of their scent. The Still — amber glass, reeds, continuous quiet scent. Dusk, Ember, Flax, Graze, Rough Hewn, Hang Dried.">
-  <link rel="canonical" href="https://ghosttownranch.com/ritual/">
-  <meta name="robots" content="index, follow">
+  <title>Ghost Town Ranch</title>
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ghosttownranch.com/ritual/">
-  <meta property="og:title" content="Ritual — Ghost Town Ranch">
-  <meta property="og:description" content="Six scents from the wide open. Ranch Water body and linen spray, candles in every size, a diffuser for the long burn. Dusk, Ember, Flax, Graze, Rough Hewn, Hang Dried.">
-  <meta property="og:image" content="https://ghosttownranch.com/theritual.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:site_name" content="Ghost Town Ranch">
-  <meta property="og:locale" content="en_US">
+  <!-- Dynamic meta — overwritten by JS once product loads -->
+  <meta name="description" content="Skincare, fragrance, and home goods rooted in the American West. COSMOS-compliant. Frontier Modernism." />
+  <meta property="og:site_name" content="Ghost Town Ranch" />
+  <meta property="og:type" content="product" />
+  <meta id="og-title" property="og:title" content="Ghost Town Ranch" />
+  <meta id="og-description" property="og:description" content="" />
+  <meta id="og-image" property="og:image" content="https://ghosttownranch.com/herogtr.png" />
+  <meta id="og-url" property="og:url" content="" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" id="canonical" href="" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ritual — Ghost Town Ranch">
-  <meta name="twitter:description" content="Six scents from the wide open. Ranch Water body and linen spray. Candles poured in the color of their scent. The Still — amber glass, reeds, continuous quiet scent.">
-  <meta name="twitter:image" content="https://ghosttownranch.com/theritual.png">
-
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
   <style>
-    @font-face {
-      font-family: 'PPEiko';
-      src: url('../PPEiko-Medium.woff2') format('woff2');
-      font-weight: 400;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'PPEiko';
-      src: url('../PPEiko-Thin.woff2') format('woff2');
-      font-weight: 300;
-      font-display: swap;
+    /* ── TOKENS ── matches existing GTR site */
+    :root {
+      --ink:       #1A1512;
+      --parchment: #F2EDE4;
+      --dust:      #C4B49A;
+      --ember:     #8B5E3C;
+      --ash:       #3A3530;
+      --white:     #FAFAF7;
+      --ff-display: 'IM Fell English', Georgia, serif;
+      --ff-body:    'Jost', 'Helvetica Neue', sans-serif;
+      --nav-h:     64px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --parchment: #F4EFE6;
-      --warm-black: #1A1512;
-      --ochre: #9B7A3F;
-      --dust: #D4C9B5;
-      --army: #7c8260;
-      --cream: #f2ede4;
-      --sand: #d9d0bf;
-      --ink: #1e1c18;
-      --mist: #e8e2d6;
-      --serif: 'PPEiko', 'Cormorant Garamond', Georgia, serif;
-      --sans: 'Jost', system-ui, sans-serif;
-    }
-
-    /* ── View full product page link ── */
-    .ritual-fullpage-link {
-      display: block;
-      font-family: var(--sans);
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--army);
-      text-decoration: none;
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px solid rgba(124,130,96,0.25);
-      transition: color 0.2s;
-    }
-    .ritual-fullpage-link:hover { color: var(--ink); }
-
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--parchment);
-      color: var(--warm-black);
-      font-family: var(--sans);
-      font-weight: 300;
-      letter-spacing: 0.03em;
+      background: var(--ink);
+      color: var(--parchment);
+      font-family: var(--ff-body);
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 100vh;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── NAV ── */
+    /* ── FONTS ── */
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap');
+
+    /* ── NAV ── matches main site exactly */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 24px 48px;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
       background: rgba(28, 24, 20, 0.72);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 48px;
+      z-index: 100;
+      transition: background 0.3s ease;
     }
+
     .nav-logo {
-      display: flex; align-items: center; gap: 10px;
-      text-decoration: none;
-    }
-    .nav-logo img { height: 32px; width: auto; }
-    .nav-right { display: flex; align-items: center; gap: 32px; }
-    .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
-    .nav-links li { display: flex; align-items: center; }
-    .nav-links a {
-      font-family: var(--sans);
-      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-      text-decoration: none; color: #F4EFE6; opacity: 0.7;
-      font-weight: 300;
-      transition: opacity 0.2s;
-    }
-    .nav-links a:hover { opacity: 1; }
-    .nav-links a.active { opacity: 1; border-bottom: 1px solid rgba(244,239,230,0.5); padding-bottom: 2px; }
-
-    /* ── SHOP DROPDOWN ── */
-    .nav-dropdown { position: relative; display: flex; align-items: center; }
-    .nav-dropdown-toggle {
-      font-family: var(--sans);
-      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-      color: #F4EFE6; opacity: 0.7; font-weight: 300;
-      background: none; border: none; cursor: pointer;
-      display: flex; align-items: center; gap: 6px;
-      transition: opacity 0.2s; padding: 0; margin: 0; line-height: 1; vertical-align: middle;
-    }
-    .nav-dropdown-toggle:hover,
-    .nav-dropdown.open .nav-dropdown-toggle { opacity: 1; }
-    .nav-dropdown-toggle svg { transition: transform 0.2s; flex-shrink: 0; }
-    .nav-dropdown.open .nav-dropdown-toggle svg { transform: rotate(180deg); }
-    .nav-dropdown-menu {
-      display: none;
-      position: absolute; top: calc(100% + 16px); left: 50%;
-      transform: translateX(-50%);
-      background: rgba(22, 18, 14, 0.97);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(244,239,230,0.08);
-      min-width: 180px; padding: 6px 0; z-index: 200;
-    }
-    .nav-dropdown.open .nav-dropdown-menu { display: block; }
-    .nav-dropdown-menu a {
-      display: block;
-      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
-      color: #F4EFE6; opacity: 0.65; font-weight: 300;
-      text-decoration: none; padding: 12px 20px;
-      transition: opacity 0.15s, background 0.15s; white-space: nowrap;
-    }
-    .nav-dropdown-menu a:hover { opacity: 1; background: rgba(244,239,230,0.05); }
-    .nav-dropdown-menu a + a { border-top: 1px solid rgba(244,239,230,0.06); }
-
-    /* ── HAMBURGER NAV (mobile) ── */
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 6px;
-      min-width: 44px;
-      min-height: 44px;
-      align-items: center;
-    }
-    .nav-hamburger span {
-      display: block;
-      width: 20px;
-      height: 1.5px;
-      background: #F4EFE6;
-      transition: all 0.25s ease;
-      transform-origin: center;
-    }
-    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-    /* ── HERO ── */
-    .page-hero-img {
-      position: relative; width: 100%; height: 85vh; min-height: 560px;
-      overflow: hidden;
-    }
-    .page-hero-img img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: center 30%;
-      display: block;
-    }
-    .page-hero-img::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(to bottom,
-        rgba(26,21,18,0.35) 0%,
-        rgba(26,21,18,0.1) 40%,
-        rgba(26,21,18,0.65) 100%);
-    }
-    .page-hero-overlay {
-      position: absolute; inset: 0; z-index: 2;
-      display: flex; flex-direction: column;
-      justify-content: flex-end;
-      padding: 64px 48px;
-    }
-    .hero-eyebrow {
-      font-size: 10px; letter-spacing: 0.38em; text-transform: uppercase;
-      color: rgba(244,239,230,0.9); margin-bottom: 16px;
-    }
-    .hero-headline {
-      font-family: var(--serif);
-      font-size: clamp(52px, 7vw, 96px);
-      font-weight: 300; line-height: 1.0;
-      color: var(--parchment); margin-bottom: 20px;
-    }
-    .hero-headline em { font-style: italic; }
-    .hero-body {
-      font-family: var(--serif);
-      font-size: clamp(18px, 1.8vw, 24px);
-      font-weight: 400; line-height: 1.75;
-      color: rgba(244,239,230,0.9);
-      max-width: 480px;
-    }
-
-    /* ── RITUAL COPY STRIP ── */
-    .ritual-copy-strip {
-      padding: 80px 48px;
-      border-bottom: 1px solid var(--dust);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-    .ritual-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-    .ritual-step {
-      display: flex;
-      align-items: baseline;
-      gap: 24px;
-      padding: 24px 0;
-      border-bottom: 1px solid var(--dust);
-    }
-    .ritual-step:first-child { border-top: 1px solid var(--dust); }
-    .ritual-step-num {
-      font-size: 9px; letter-spacing: 0.3em;
-      color: var(--ochre); flex-shrink: 0; width: 28px;
-    }
-    .ritual-step-text {
-      font-family: var(--serif);
-      font-size: clamp(18px, 1.8vw, 26px);
-      font-weight: 300; color: var(--warm-black);
-      line-height: 1.4;
-    }
-    .ritual-aside {
-      max-width: 380px;
-    }
-    .ritual-aside-label {
-      font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase;
-      color: var(--ochre); margin-bottom: 20px; opacity: 1;
-    }
-    .ritual-aside-body {
-      font-family: var(--serif);
-      font-size: clamp(20px, 2vw, 28px);
-      font-weight: 400; line-height: 1.6;
-      color: var(--warm-black); opacity: 0.85;
-    }
-
-    /* ── SECTION HEADER ── */
-    .section-header {
-      padding: 80px 48px 40px;
-      border-bottom: 1px solid var(--dust);
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-    .section-label {
-      font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase;
-      opacity: 0.7;
-    }
-    .section-title {
-      font-family: var(--serif);
-      font-size: clamp(40px, 5vw, 72px);
-      font-weight: 300; line-height: 1.05;
-    }
-    .section-title em { font-style: italic; }
-    .section-count {
-      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-      opacity: 0.6;
-    }
-
-    /* ── PRODUCT GRID ── */
-    .product-grid {
-      padding: 0 48px 96px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-    }
-    .ritual-product {
-      padding: 48px 32px 48px 0;
-      border-right: 1px solid var(--dust);
-      display: flex;
-      flex-direction: column;
-    }
-    .ritual-product:last-child { border-right: none; }
-    .ritual-product:nth-child(4n) { border-right: none; }
-    .ritual-product:nth-child(n+5) { border-top: 1px solid var(--dust); }
-
-    .product-img-wrap {
-      position: relative;
-      width: 100%;
-      padding-bottom: 120%;
-      overflow: hidden;
-      background: var(--mist);
-      margin-bottom: 24px;
-    }
-    .product-img-wrap img {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: contain;
-      object-position: center bottom;
-      padding: 10% 14% 6%;
-      transition: transform 0.6s ease;
-    }
-    .ritual-product:hover .product-img-wrap img { transform: scale(1.04); }
-
-    .product-cat {
-      font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--ochre); margin-bottom: 12px; opacity: 1;
-    }
-    .product-name {
-      font-family: var(--serif);
-      font-size: clamp(22px, 2vw, 30px);
-      font-weight: 400; line-height: 1.2;
-      margin-bottom: 16px;
-    }
-    .product-desc {
-      font-family: var(--serif);
-      font-size: 17px; line-height: 1.75;
-      opacity: 1; margin-bottom: 24px;
-      color: var(--warm-black);
-      flex: 1;
-    }
-    .product-footer-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 16px;
-    }
-    .product-price {
-      font-family: var(--serif);
-      font-size: 22px; font-weight: 400;
-    }
-    .product-size {
-      font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
-      opacity: 0.8;
-    }
-
-    /* ── FEATURED: FIELD KIT ── */
-    .featured-strip {
-      background: var(--ink);
-      padding: 96px 48px;
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 80px;
-      align-items: center;
-      border-top: 1px solid rgba(212,201,181,0.1);
-    }
-    .featured-label {
-      font-size: 10px; letter-spacing: 0.38em; text-transform: uppercase;
-      color: var(--ochre); margin-bottom: 24px; opacity: 1;
-    }
-    .featured-title {
-      font-family: var(--serif);
-      font-size: clamp(40px, 5vw, 68px);
-      font-weight: 300; line-height: 1.05;
-      color: var(--parchment); margin-bottom: 24px;
-    }
-    .featured-title em { font-style: italic; }
-    .featured-desc {
-      font-family: var(--serif);
-      font-size: 18px; line-height: 1.75;
-      color: var(--dust); opacity: 0.9;
-      margin-bottom: 36px;
-      max-width: 400px;
-    }
-    .featured-price {
-      font-family: var(--serif);
-      font-size: 24px; color: var(--parchment);
-      margin-bottom: 28px; display: block;
-    }
-    .featured-img-wrap {
-      position: relative;
-      width: 100%;
-      padding-bottom: 100%;
-      overflow: hidden;
-      background: rgba(255,255,255,0.04);
-    }
-    .featured-img-wrap img {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: contain;
-      padding: 10%;
-      transition: transform 0.6s ease;
-    }
-    .featured-strip:hover .featured-img-wrap img { transform: scale(1.03); }
-
-    /* ── SCENT GUIDE ── */
-    /* ── SCENT SECTION ── */
-    .scent-section {
-      border-top: 1px solid var(--dust);
-      border-bottom: 1px solid var(--dust);
-    }
-    .scent-section-intro {
-      font-family: var(--serif);
-      font-size: clamp(18px, 2vw, 26px);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 13px;
       font-weight: 400;
-      line-height: 1.4;
-      opacity: 0.85;
-      padding: 56px 48px 40px;
-    }
-    /* Bold color-block grid */
-    .scent-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 2px;
-    }
-    .scent-card {
-      position: relative;
-      height: 160px;
-      cursor: pointer;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-end;
-      padding: 18px 20px;
-      border: none;
-      background: none;
-      transition: filter 0.25s;
-    }
-    .scent-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0);
-      transition: background 0.2s;
-    }
-    .scent-card:hover::after { background: rgba(0,0,0,0.1); }
-    .scent-card.inactive { filter: saturate(0.25) brightness(0.65); }
-    .scent-card-num {
-      font-family: 'Jost', system-ui, sans-serif;
-      font-size: 10px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-      margin-bottom: 6px;
-      position: relative;
-      z-index: 1;
-    }
-    .scent-name {
-      font-family: var(--serif);
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 1.1;
-      color: #fff;
-      text-shadow: 0 1px 8px rgba(0,0,0,0.25);
-      position: relative;
-      z-index: 1;
-      margin: 0;
-    }
-    .scent-note {
-      font-family: 'Jost', system-ui, sans-serif;
-      font-size: 9px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-      margin-top: 5px;
-      display: block;
-      position: relative;
-      z-index: 1;
-    }
-    .scent-active-dot {
-      position: absolute;
-      top: 14px; right: 14px;
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: #fff;
-      opacity: 0;
-      z-index: 2;
-      transition: opacity 0.2s;
-    }
-    .scent-card.active .scent-active-dot { opacity: 1; }
-    /* Reveal panel */
-    .scent-reveal {
-      display: none;
-      grid-template-columns: 1fr 1fr;
-      min-height: 300px;
-      margin-top: 2px;
-    }
-    .scent-reveal.open { display: grid; }
-    .scent-reveal-left {
-      padding: 52px 56px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .scent-reveal-eyebrow {
-      font-family: 'Jost', system-ui, sans-serif;
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: rgba(244,239,230,0.4);
-      margin-bottom: 20px;
-    }
-    .scent-reveal-name {
-      font-family: var(--serif);
-      font-size: clamp(48px, 6vw, 72px);
-      font-weight: 400;
-      font-style: italic;
-      line-height: 0.95;
+      text-decoration: none;
       color: #F4EFE6;
-      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .scent-reveal-note {
+
+    .nav-logo img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
       font-family: 'Jost', system-ui, sans-serif;
       font-size: 11px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(244,239,230,0.45);
-      padding-top: 20px;
-      border-top: 1px solid rgba(244,239,230,0.15);
-      margin-bottom: 24px;
+      text-decoration: none;
+      color: #F4EFE6;
+      opacity: 0.7;
+      font-weight: 300;
+      transition: opacity 0.2s;
     }
-    .scent-reveal-desc {
-      font-family: var(--serif);
-      font-size: 22px;
-      font-weight: 400;
-      font-style: italic;
-      line-height: 1.5;
-      color: rgba(244,239,230,0.85);
-      max-width: 340px;
+
+    .nav-links a:hover { opacity: 1; }
+
+    .nav-cart {
+      background: none;
+      border: none;
+      font-family: 'Jost', system-ui, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #F4EFE6;
+      opacity: 0.7;
+      font-weight: 300;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      padding: 0;
     }
-    .scent-reveal-right {
+    .nav-cart:hover { opacity: 1; }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      padding-top: var(--nav-h);
+      min-height: 100vh;
+    }
+
+    /* ── LOADING STATE ── */
+    .loading-state {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 52px;
-      border-left: 1px solid rgba(244,239,230,0.1);
-      gap: 28px;
+      min-height: 60vh;
+      gap: 20px;
+      color: var(--dust);
     }
-    .scent-reveal-bull {
-      width: 52px;
-      height: 52px;
-      opacity: 0.25;
+
+    .loading-bull {
+      width: 48px;
+      height: 48px;
+      opacity: 0.4;
+      animation: breathe 2s ease-in-out infinite;
     }
-    .scent-reveal-tagline {
-      font-family: 'Jost', system-ui, sans-serif;
-      font-size: 10px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: rgba(244,239,230,0.35);
+
+    @keyframes breathe {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50%       { opacity: 0.6; transform: scale(1.05); }
+    }
+
+    /* ── ERROR STATE ── */
+    .error-state {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      gap: 16px;
       text-align: center;
-      line-height: 1.8;
+      padding: 40px;
     }
+
+    .error-state h2 {
+      font-family: var(--ff-display);
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--parchment);
+    }
+
+    .error-state p { color: var(--dust); }
+
+    .error-state a {
+      color: var(--dust);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ── PRODUCT PAGE ── */
+    .product-page {
+      display: none;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 56px 28px 100px;
+    }
+
+    /* breadcrumb */
+    .breadcrumb {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dust);
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .breadcrumb a {
+      color: var(--dust);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: var(--parchment); }
+    .breadcrumb span { opacity: 0.4; }
+
+    /* two-column product grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
     @media (max-width: 768px) {
-      .scent-grid { grid-template-columns: repeat(3, 1fr); }
-      .scent-card { height: 130px; }
-      .scent-reveal { grid-template-columns: 1fr; }
-      .scent-reveal-right { display: none; }
-      .scent-reveal-left { padding: 36px 28px; }
-      .scent-section-intro { padding: 40px 24px 28px; }
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
     }
 
-    /* ── ADD TO CART BUTTON ── */
-    .btn-cta {
-      display: block; width: 100%;
-      padding: 14px 0;
-      background: var(--warm-black);
+    /* ── IMAGE COLUMN ── */
+    .product-image-wrap {
+      position: sticky;
+      top: calc(var(--nav-h) + 24px);
+    }
+
+    @media (max-width: 768px) {
+      .product-image-wrap {
+        position: static !important;
+        top: auto !important;
+      }
+    }
+
+    .product-image-main {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      background: var(--ash);
+      display: block;
+    }
+
+    .product-image-thumbs {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .thumb {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .thumb.active,
+    .thumb:hover {
+      border-color: var(--dust);
+    }
+
+    /* ── DETAIL COLUMN ── */
+    .product-tag {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ember);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .product-title {
+      font-family: var(--ff-display);
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 400;
+      line-height: 1.15;
       color: var(--parchment);
-      border: 1px solid var(--warm-black);
-      font-family: var(--sans);
-      font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
-      cursor: pointer; transition: all 0.2s;
-      font-weight: 300;
+      margin-bottom: 6px;
     }
-    .btn-cta:hover { background: transparent; color: var(--warm-black); }
 
-  /* ── SCENT FILTER ── */
-  .ritual-product { transition: opacity 0.3s; }
-  .ritual-product.filtered-out { opacity: 0.15; pointer-events: none; }
+    .product-subtitle {
+      font-family: var(--ff-display);
+      font-style: italic;
+      font-size: clamp(15px, 2vw, 18px);
+      color: var(--dust);
+      margin-bottom: 24px;
+    }
 
+    .product-price {
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--parchment);
+      letter-spacing: 0.02em;
+      margin-bottom: 28px;
+    }
 
-    .btn-cta.light {
+    /* scent / variant selector */
+    .selector-label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dust);
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .selector-label span {
+      color: var(--parchment);
+      font-weight: 600;
+    }
+
+    .variant-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .variant-btn {
       background: transparent;
+      border: 1px solid rgba(196,180,154,0.35);
+      color: var(--dust);
+      font-family: var(--ff-body);
+      font-size: 13px;
+      font-weight: 400;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.04em;
+    }
+
+    .variant-btn:hover {
+      border-color: var(--dust);
       color: var(--parchment);
-      border-color: rgba(244,239,230,0.4);
     }
-    .btn-cta.light:hover { background: var(--parchment); color: var(--warm-black); }
 
-    select.variant-select {
-      width: 100%; padding: 10px 12px;
+    .variant-btn.selected {
+      background: var(--dust);
+      border-color: var(--dust);
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .variant-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    /* wax color dot — shows for candle products */
+    .scent-swatch {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    /* add to cart */
+    .atc-btn {
+      width: 100%;
       background: var(--parchment);
-      border: 1px solid var(--dust);
-      font-family: var(--sans); font-size: 11px;
-      letter-spacing: 0.12em; color: var(--warm-black);
-      margin-bottom: 10px; cursor: pointer;
-      appearance: none;
-      -webkit-appearance: none;
-      color-scheme: light;
-      background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%231A1512' stroke-opacity='0.4' stroke-width='1.2'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 12px center;
-    }
-    select.variant-select.light {
-      background: #2a2420;
-      color: #F4EFE6;
-      border-color: rgba(244,239,230,0.3);
-      color-scheme: dark;
-      background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23F4EFE6' stroke-opacity='0.6' stroke-width='1.2'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 12px center;
-    }
-    select.variant-select.light option {
-      background: #1e1a17;
-      color: #F4EFE6;
+      color: var(--ink);
+      border: none;
+      font-family: var(--ff-body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 18px 24px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      margin-bottom: 16px;
     }
 
+    .atc-btn:hover {
+      background: var(--white);
+    }
 
-    /* ── CART DRAWER ── */
-    #cart-overlay{display:none;position:fixed;inset:0;background:rgba(26,21,18,0.5);z-index:300;backdrop-filter:blur(2px)}
-    #cart-overlay.open{display:block}
-    #cart-drawer{position:fixed;top:0;right:0;bottom:0;width:400px;max-width:100vw;background:#F4EFE6;z-index:400;display:flex;flex-direction:column;transform:translateX(100%);transition:transform 0.3s ease;box-shadow:-4px 0 32px rgba(26,21,18,0.15)}
-    #cart-drawer.open{transform:translateX(0)}
-    .cart-header{display:flex;justify-content:space-between;align-items:center;padding:28px 32px 24px;border-bottom:1px solid #D4C9B5}
-    .cart-title{font-family:var(--serif);font-size:13px;letter-spacing:0.25em;text-transform:uppercase;color:#1A1512}
-    .cart-close{background:none;border:none;cursor:pointer;font-size:16px;color:#1A1512;opacity:0.5;transition:opacity 0.2s;padding:4px}
-    .cart-close:hover{opacity:1}
-    .cart-items-list{flex:1;overflow-y:auto;padding:24px 32px;display:flex;flex-direction:column;gap:20px}
-    .cart-empty{font-family:var(--serif);font-size:15px;opacity:0.4;text-align:center;margin-top:40px;color:#1A1512}
-    .cart-item{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding-bottom:20px;border-bottom:1px solid #D4C9B5}
-    .cart-item:last-child{border-bottom:none;padding-bottom:0}
-    .cart-item-info{flex:1}
-    .cart-item-title{display:block;font-family:var(--serif);font-size:15px;color:#1A1512;margin-bottom:4px}
-    .cart-item-variant{display:block;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;opacity:0.45;color:#1A1512}
-    .cart-item-right{text-align:right;flex-shrink:0}
-    .cart-item-price{display:block;font-family:var(--serif);font-size:15px;color:#1A1512}
-    .cart-item-qty-ctrl{display:flex;align-items:center;gap:8px;margin-bottom:4px}
-    .qty-btn{background:none;border:1px solid #D4C9B5;width:22px;height:22px;cursor:pointer;font-size:14px;color:#1A1512;opacity:0.6;transition:opacity 0.15s;display:flex;align-items:center;justify-content:center}
-    .qty-btn:hover{opacity:1}
-    .cart-footer-block{padding:20px 32px 32px;border-top:1px solid #D4C9B5}
-    .cart-subtotal-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
-    .cart-subtotal-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;opacity:0.5;color:#1A1512}
-    .cart-subtotal-amount{font-family:var(--serif);font-size:18px;color:#1A1512}
-    .cart-note{font-size:10px;letter-spacing:0.1em;opacity:0.35;margin-bottom:16px;color:#1A1512}
-    .cart-checkout-link{display:block;width:100%;padding:16px;background:#1A1512;color:#F4EFE6;font-family:var(--sans);font-size:11px;letter-spacing:0.25em;text-transform:uppercase;border:none;cursor:pointer;text-align:center;text-decoration:none;transition:background 0.2s}
-    .cart-checkout-link:hover{background:#7c8260}
-    .cart-nav-btn-open{background:none;border:none;cursor:pointer;position:relative;display:flex;align-items:center;transition:opacity 0.2s;padding:0;opacity:0.8}
-    .cart-nav-btn-open:hover{opacity:1}
-    .cart-badge{position:absolute;top:-6px;right:-8px;background:#9B7A3F;color:#fff;font-size:9px;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+    .atc-btn:disabled {
+      background: var(--ash);
+      color: var(--dust);
+      cursor: not-allowed;
+    }
+
+    .atc-btn.loading {
+      background: var(--ash);
+      color: var(--dust);
+      cursor: wait;
+    }
+
+    .coming-soon-note {
+      font-size: 12px;
+      color: var(--dust);
+      letter-spacing: 0.06em;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    /* share link */
+    .share-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .share-btn {
+      background: none;
+      border: 1px solid rgba(196,180,154,0.25);
+      color: var(--dust);
+      font-family: var(--ff-body);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .share-btn:hover {
+      border-color: var(--dust);
+      color: var(--parchment);
+    }
+
+    .share-confirm {
+      font-size: 12px;
+      color: var(--ember);
+      letter-spacing: 0.06em;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .share-confirm.visible { opacity: 1; }
+
+    /* product description */
+    .pair-callout {
+      display: block;
+      text-decoration: none;
+      border: 1px solid rgba(196,180,154,0.3);
+      padding: 16px 18px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .pair-callout:hover {
+      border-color: var(--dust);
+      background: rgba(196,180,154,0.06);
+    }
+    .pair-callout__eyebrow {
+      display: block;
+      font-family: var(--ff-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ember);
+      margin-bottom: 6px;
+    }
+    .pair-callout__text {
+      display: block;
+      font-family: var(--ff-body);
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--dust);
+      margin-bottom: 6px;
+    }
+    .pair-callout__link {
+      display: inline-block;
+      font-family: var(--ff-body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--parchment);
+    }
+
+    .product-description {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--dust);
+      margin-bottom: 32px;
+      border-top: 1px solid rgba(196,180,154,0.15);
+      padding-top: 28px;
+    }
+
+    .product-description p + p { margin-top: 12px; }
+
+    /* cert badges */
+    .cert-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(196,180,154,0.15);
+    }
+
+    .cert-badge {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dust);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cert-badge::before {
+      content: '✦';
+      color: var(--ember);
+      font-size: 9px;
+    }
+
+    /* specs accordion */
+    .spec-row {
+      border-top: 1px solid rgba(196,180,154,0.15);
+      overflow: hidden;
+    }
+
+    .spec-row:last-child {
+      border-bottom: 1px solid rgba(196,180,154,0.15);
+    }
+
+    .spec-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--parchment);
+      font-family: var(--ff-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-align: left;
+      padding: 16px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.2s;
+    }
+
+    .spec-trigger:hover { color: var(--dust); }
+
+    .spec-chevron {
+      font-size: 18px;
+      transition: transform 0.3s;
+      color: var(--dust);
+    }
+
+    .spec-row.open .spec-chevron { transform: rotate(45deg); }
+
+    .spec-body {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--dust);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s;
+      padding-bottom: 0;
+    }
+
+    .spec-row.open .spec-body {
+      max-height: 600px;
+      padding-bottom: 20px;
+    }
+
+    /* ── RELATED PRODUCTS ── */
+    .related-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 28px 80px;
+      border-top: 1px solid rgba(196,180,154,0.12);
+    }
+
+    .related-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dust);
+      margin: 48px 0 28px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 2px;
+    }
+
+    .related-card {
+      background: var(--ash);
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+
+    .related-card:hover { background: #2e2b27; }
+
+    .related-card img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    .related-card-info {
+      padding: 14px 16px;
+    }
+
+    .related-card-name {
+      font-size: 14px;
+      color: var(--parchment);
+      margin-bottom: 4px;
+    }
+
+    .related-card-price {
+      font-size: 13px;
+      color: var(--dust);
+    }
+
+    /* ── CART DRAWER ── (same as existing site) */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .cart-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0; right: 0;
+      width: min(400px, 100vw);
+      height: 100vh;
+      background: var(--ink);
+      border-left: 1px solid rgba(196,180,154,0.15);
+      z-index: 201;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+      padding: 28px;
+    }
+
+    .cart-drawer.open { transform: translateX(0); }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .cart-title {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dust);
+    }
+
+    .cart-close {
+      background: none;
+      border: none;
+      color: var(--dust);
+      font-size: 22px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0;
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .cart-empty {
+      color: var(--dust);
+      font-size: 14px;
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(196,180,154,0.1);
+    }
+
+    .cart-item img {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+    }
+
+    .cart-item-name {
+      font-size: 14px;
+      color: var(--parchment);
+      margin-bottom: 4px;
+    }
+
+    .cart-item-variant {
+      font-size: 12px;
+      color: var(--dust);
+      margin-bottom: 8px;
+    }
+
+    .cart-item-price {
+      font-size: 14px;
+      color: var(--dust);
+    }
+
+    .cart-footer {
+      padding-top: 20px;
+      border-top: 1px solid rgba(196,180,154,0.15);
+    }
+
+    .cart-subtotal {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: var(--parchment);
+      margin-bottom: 16px;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      background: var(--parchment);
+      color: var(--ink);
+      border: none;
+      font-family: var(--ff-body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .checkout-btn:hover { background: var(--white); }
 
     /* ── FOOTER ── */
     footer {
-      padding: 56px 48px;
-      border-top: 1px solid var(--dust);
-      display: flex; justify-content: space-between; align-items: center;
+      background: var(--ink);
+      border-top: 1px solid rgba(196,180,154,0.1);
+      padding: 40px 28px;
+      text-align: center;
     }
-    .footer-left {
-      font-family: var(--serif); font-size: 13px;
-      letter-spacing: 0.08em; opacity: 0.7;
-      display: flex; align-items: center; gap: 10px;
+
+    .footer-bull {
+      width: 32px;
+      height: 32px;
+      opacity: 0.3;
+      margin: 0 auto 16px;
+      display: block;
     }
-    .footer-left img { height: 22px; width: auto; opacity: 0.5; }
-    .footer-right {
-      display: flex; flex-direction: column; align-items: flex-end; gap: 6px;
+
+    .footer-tagline {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dust);
+      opacity: 0.6;
+      margin-bottom: 12px;
     }
-    .footer-right a {
-      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--warm-black); text-decoration: none; opacity: 0.65;
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: var(--dust);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      opacity: 0.7;
       transition: opacity 0.2s;
     }
-    .footer-right a:hover { opacity: 0.9; }
 
-    /* ── ANIMATIONS ── */
-    .fade-up {
-      opacity: 0; transform: translateY(20px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+    .footer-links a:hover { opacity: 1; }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--parchment);
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 14px 24px;
+      z-index: 300;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+      white-space: nowrap;
     }
-    .fade-up.visible { opacity: 1; transform: none; }
 
-    /* ── MOBILE ── */
-    @media (max-width: 900px) {
-      nav { padding: 20px 24px; }
-      .nav-hamburger { display: flex; }
-      .nav-right { gap: 12px; }
-      .cart-nav-btn { z-index: 101; }
-      .nav-links {
-        display: none;
-        position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-        background: rgba(26,21,18,0.97);
-        flex-direction: column; justify-content: center; align-items: center;
-        gap: 0; z-index: 99; padding: 80px 32px 40px; list-style: none;
-      }
-      .nav-links.open { display: flex; }
-      .nav-links li { width: 100%; border-bottom: 1px solid rgba(244,239,230,0.1); }
-      .nav-links li:first-child { border-top: 1px solid rgba(244,239,230,0.1); }
-      .nav-links a {
-        font-size: 13px !important; letter-spacing: 0.25em;
-        padding: 22px 0; display: flex; align-items: center;
-        min-height: 44px; width: 100%;
-      }
-      /* mobile dropdown inline */
-      .nav-dropdown { width: 100%; }
-      .nav-dropdown-toggle {
-        font-size: 13px !important; letter-spacing: 0.25em !important;
-        padding: 22px 0 !important; display: flex !important;
-        justify-content: space-between !important; align-items: center !important;
-        min-height: 44px !important; width: 100% !important;
-        color: #F4EFE6 !important; opacity: 0.7 !important;
-      }
-      .nav-dropdown.open .nav-dropdown-toggle { opacity: 1 !important; }
-      .nav-dropdown-menu {
-        position: static; transform: none;
-        background: rgba(255,255,255,0.03);
-        border: none; border-top: 1px solid rgba(244,239,230,0.06);
-        min-width: auto; padding: 0;
-      }
-      .nav-dropdown-menu a {
-        padding: 14px 0 14px 20px !important;
-        font-size: 11px !important; opacity: 0.6 !important;
-      }
-      .nav-dropdown-menu a:hover { opacity: 0.9 !important; }
-      .page-hero-img { height: 70vh; min-height: 400px; }
-      .page-hero-overlay { padding: 40px 24px; }
-      .ritual-copy-strip { grid-template-columns: 1fr; gap: 48px; padding: 56px 24px; }
-      .section-header { padding: 56px 24px 32px; flex-direction: column; gap: 12px; }
-      .product-grid { grid-template-columns: repeat(2, 1fr); padding: 0 24px 64px; }
-      .ritual-product { border-right: none; padding-right: 0; border-bottom: 1px solid var(--dust); }
-      .ritual-product:nth-child(odd) { border-right: 1px solid var(--dust); padding-right: 16px; }
-      .ritual-product:nth-child(n+5) { border-top: none; }
-      .featured-strip { grid-template-columns: 1fr; gap: 40px; padding: 64px 24px; }
-      .featured-img-wrap { max-width: 360px; margin: 0 auto; }
-      .scent-section { padding: 64px 24px; }
-      .scent-grid { grid-template-columns: repeat(3, 1fr); gap: 24px 0; }
-      .scent-card { border-right: none; border-bottom: 1px solid var(--dust); padding-bottom: 24px; }
-      .scent-card:nth-child(odd) { border-right: 1px solid var(--dust); }
-      footer { flex-direction: column; gap: 12px; align-items: flex-start; padding: 40px 24px; }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a class="nav-logo" href="https://ghosttownranch.com/">
-      <img src="../ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="Ghost Town Ranch">
-    </a>
-    <div class="nav-right">
-      <ul class="nav-links" id="nav-links">
-        <li><a href="https://ghosttownranch.com/">Home</a></li>
-        <li><a href="https://ghosttownranch.com/wash-house/">Wash House</a></li>
-        <li><a href="https://ghosttownranch.com/routines/">Routines</a></li>
-        <li><a href="https://ghosttownranch.com/ritual/" class="active">Ritual</a></li>
-        <li><a href="https://ghosttownranch.com/collections/deep-well/">Deep Well</a></li>
-        <li><a href="https://ghosttownranch.com/wholesale/">Wholesale</a></li>
-      </ul>
-      <button class="cart-nav-btn-open" onclick="openCart()" aria-label="Open cart">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F4EFE6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:block;">
-          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-          <line x1="3" y1="6" x2="21" y2="6"/>
-          <path d="M16 10a4 4 0 0 1-8 0"/>
-        </svg>
-        <span class="cart-badge" id="cart-count" style="display:none">0</span>
-      </button>
-      <button class="nav-hamburger" id="nav-hamburger" onclick="toggleNav()" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-logo" href="/">
+    <img src="https://ghosttownranch.com/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="Ghost Town Ranch" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/wash-house/">Wash House</a></li>
+    <li><a href="/routines/">Routines</a></li>
+    <li><a href="/ritual/">Ritual</a></li>
+    <li><a href="/collections/deep-well/">Deep Well</a></li>
+    <li><a href="/field-guide/">Field Guide</a></li>
+    <li><a href="/wholesale/">Wholesale</a></li>
+  </ul>
+  <button class="nav-cart" id="cart-btn">Cart <span id="cart-count"></span></button>
+</nav>
 
-  <!-- HERO -->
-  <section class="page-hero-img">
-    <img src="../theritual.png"
-      alt="Ghost Town Ranch Hang Dried Body + Linen Fragrance in hang-dried botanicals and rope, warm desert light"
-      loading="eager">
-    <div class="page-hero-overlay">
-      <div class="hero-eyebrow fade-up">Ghost Town Ranch</div>
-      <h1 class="hero-headline fade-up">The <em>Ritual.</em></h1>
-      <p class="hero-body fade-up">Six scents from the wide open. Light and space. Ranch Water body and linen spray. Candles poured in the color of their scent. The Still — amber glass, reeds, continuous quiet scent.</p>
-    </div>
-  </section>
+<!-- ── MAIN ── -->
+<main>
 
-  <!-- SCENT GUIDE -->
-  <section class="scent-section">
-    <p class="scent-section-intro">Six scents from the wide open. Explore the range.</p>
-    <div class="scent-grid" id="scent-grid">
-      <div class="scent-card" data-scent="rough-hewn" data-color="#5C3D2B" data-num="01" data-desc="The smell of something being made. Raw wood, dry earth, a day of real work." style="background:#5C3D2B;" role="button" tabindex="0">
-        <span class="scent-active-dot"></span>
-        <span class="scent-card-num">No. 01</span>
-        <h3 class="scent-name">Rough Hewn</h3>
-        <span class="scent-note">Cade · Cedarwood</span>
-      </div>
-      <div class="scent-card" data-scent="hang-dried" data-color="#7BA7BC" data-num="02" data-desc="White sage, lavender, clean air. The room after the window has been open all morning." style="background:#7BA7BC;" role="button" tabindex="0">
-        <span class="scent-active-dot"></span>
-        <span class="scent-card-num">No. 02</span>
-        <h3 class="scent-name">Hang Dried</h3>
-        <span class="scent-note">White Sage · Lavender</span>
-      </div>
-      <div class="scent-card" data-scent="ember" data-color="#2A2420" data-num="03" data-desc="The last hour of a good night. Deep smoke, warm amber, the canyon after rain." style="background:#2A2420;" role="button" tabindex="0">
-        <span class="scent-active-dot"></span>
-        <span class="scent-card-num">No. 03</span>
-        <h3 class="scent-name">Ember</h3>
-        <span class="scent-note">Charcoal · Amber</span>
-      </div>
-      <div class="scent-card" data-scent="graze" data-color="#5C6B4A" data-num="04" data-desc="High desert morning. River-clean and sharp. The good scrub after a long ride." style="background:#5C6B4A;" role="button" tabindex="0">
-        <span class="scent-active-dot"></span>
-        <span class="scent-card-num">No. 04</span>
-        <h3 class="scent-name">Graze</h3>
-        <span class="scent-note">Sweetgrass · Sage</span>
-      </div>
-      <div class="scent-card" data-scent="flax" data-color="#8C7A3A" data-num="05" data-desc="Warm stone, prairie grass. Lemon, cotton blossom, blonde woods." style="background:#8C7A3A;" role="button" tabindex="0">
-        <span class="scent-active-dot"></span>
-        <span class="scent-card-num">No. 05</span>
-        <h3 class="scent-name">Flax</h3>
-        <span class="scent-note">Cotton Blossom · Citron</span>
-      </div>
-      <div class="scent-card" data-scent="dusk" data-color="#7A5535" data-num="06" data-desc="Dry earth, warm amber, ancient and mineral. The light going low over the high desert." style="background:#7A5535;" role="button" tabindex="0">
-        <span class="scent-active-dot"></span>
-        <span class="scent-card-num">No. 06</span>
-        <h3 class="scent-name">Dusk</h3>
-        <span class="scent-note">Palo Santo · Amber</span>
-      </div>
-    </div>
-    <!-- Reveal panel — populated by JS -->
-    <div class="scent-reveal" id="scent-reveal"></div>
-  </section>
-
-  <!-- FIELD KIT FEATURED -->
-  <section class="featured-strip">
-    <div>
-      <div class="featured-label">The Starting Point</div>
-      <h2 class="featured-title">The Field<br><em>Kit.</em></h2>
-      <p class="featured-desc">One GTR votive in your chosen scent. One palo santo stick. One GTR matchbook. Held together with a wide flat matte black elastic. A good gift. A better ritual.</p>
-      <span class="featured-price" style="opacity:0.45;">$34</span>
-      <a class="btn-cta light btn-coming-soon" style="max-width:280px; opacity:0.45; pointer-events:none; cursor:default;">Coming Soon</a>
-      <a class="ritual-fullpage-link" style="max-width:280px;" href="https://ghosttownranch.com/products/the-field-kit">View full product page →</a>
-    </div>
-    <div class="featured-img-wrap">
-      <img src="../fieldkit.png"
-        alt="The Field Kit — Ghost Town Ranch · Votive, Palo Santo, Matchbook"
-        style="width:100%;height:100%;object-fit:cover;border-radius:2px;">
-    </div>
-  </section>
-
-  <!-- ALL FRAGRANCE + HOME -->
-  <div class="section-header">
-    <div>
-      <div class="section-label">Fragrance + Home</div>
-      <h2 class="section-title">All of it.</h2>
-    </div>
-    <span class="section-count">Eight products</span>
+  <!-- Loading -->
+  <div class="loading-state" id="loading">
+    <img class="loading-bull"
+      src="https://ghosttownranch.com/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png"
+      alt="" />
+    <span style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--dust)">Loading</span>
   </div>
 
-  <div class="product-grid">
-
-    <!-- Ranch Water -->
-    <article class="ritual-product" data-scents="rough-hewn hang-dried ember graze flax dusk">
-      <div class="product-img-wrap" onclick="location.href='https://ghosttownranch.com/products/ranch-water-body-room-fragrance'" style="cursor:pointer">
-        <img src="https://or-cre.com/cdn/shop/files/Graze__bodylinen.png?v=1777820218&width=1200" alt="Ranch Water Body + Linen Fragrance">
-      </div>
-      <div class="product-cat">Body + Linen</div>
-      <h2 class="product-name">Ranch Water<br>Body + Linen Fragrance</h2>
-      <p class="product-desc">One formula. Every surface. Mist on linens, into a room, or directly on skin. No dyes, parabens, or phthalates. Skin-safe fragrance oils. Six open range scents. 100ml / 3.4 fl oz.</p>
-      <div class="product-footer-row">
-        <span class="product-price">$88</span>
-        <span class="product-size">100ml · Six scents</span>
-      </div>
-      <a class="btn-cta btn-view-product" href="https://ghosttownranch.com/products/ranch-water-body-room-fragrance">View Full Product →</a>
-    </article>
-
-    <!-- The Votive -->
-    <article class="ritual-product" data-scents="rough-hewn hang-dried ember graze flax dusk">
-      <div class="product-img-wrap" onclick="location.href='https://ghosttownranch.com/products/the-votive-single'" style="cursor:pointer">
-        <img src="https://or-cre.com/cdn/shop/files/thevotive.png?v=1779410827&width=1920" alt="The Votive Colored Wax Candle">
-      </div>
-      <div class="product-cat">Candle</div>
-      <h2 class="product-name">The Votive<br>Colored Wax Candle</h2>
-      <p class="product-desc">Hand-poured. Each votive is made in the color of its scent. 3oz glass vessel. Burns up to 24 hours. Arrives in a matte black display box. Made in the USA.</p>
-      <div class="product-footer-row">
-        <span class="product-price">$26</span>
-        <span class="product-size">3oz · Colored wax</span>
-      </div>
-      <a class="btn-cta btn-view-product" href="https://ghosttownranch.com/products/the-votive-single">View Full Product →</a>
-    </article>
-
-    <!-- The Wander -->
-    <article class="ritual-product" data-scents="rough-hewn hang-dried ember graze flax dusk">
-      <div class="product-img-wrap" onclick="location.href='https://ghosttownranch.com/products/soy-wax-candle-wild-flower'" style="cursor:pointer">
-        <img src="https://or-cre.com/cdn/shop/files/thewandermain_802949e9-d5a7-487e-8ba2-a92b113061f7.png?v=1779743213&width=1920" alt="The Wander Hand-Poured Travel Candle">
-      </div>
-      <div class="product-cat">Candle · Travel</div>
-      <h2 class="product-name">The Wander<br>Hand-Poured Travel Candle</h2>
-      <p class="product-desc">Each Wander is poured in the color of its scent. Travel-ready vessel. Burns approximately 30 hours. Cotton wick, no lead. All six GTR open range scents.</p>
-      <div class="product-footer-row">
-        <span class="product-price">$40</span>
-        <span class="product-size">Travel · Colored wax</span>
-      </div>
-      <a class="btn-cta btn-view-product" href="https://ghosttownranch.com/products/soy-wax-candle-wild-flower">View Full Product →</a>
-    </article>
-
-    <!-- The Slow -->
-    <article class="ritual-product" data-scents="rough-hewn hang-dried ember graze flax dusk">
-      <div class="product-img-wrap" onclick="location.href='https://ghosttownranch.com/products/the-slow-candle'" style="cursor:pointer">
-        <img src="https://or-cre.com/cdn/shop/files/theslow-ember_ff2e04e9-aff6-465c-82c2-13d03c2aabbe.png?v=1779742644&width=1920" alt="The Slow Hand-Poured 11oz Candle">
-      </div>
-      <div class="product-cat">Candle · Large</div>
-      <h2 class="product-name">The Slow<br>Hand-Poured 11oz Candle</h2>
-      <p class="product-desc">Each Slow is poured in the color of its scent. 11oz vessel. Burns approximately 65 hours. Cotton wick. Six GTR open range scents, each in its own color.</p>
-      <div class="product-footer-row">
-        <span class="product-price">$54</span>
-        <span class="product-size">11oz · Colored wax</span>
-      </div>
-      <a class="btn-cta btn-view-product" href="https://ghosttownranch.com/products/the-slow-candle">View Full Product →</a>
-    </article>
-
-    <!-- The Monument -->
-    <article class="ritual-product" data-scents="rough-hewn hang-dried ember graze flax dusk">
-      <div class="product-img-wrap" onclick="location.href='https://ghosttownranch.com/products/the-monument-candle'" style="cursor:pointer">
-        <img src="https://or-cre.com/cdn/shop/files/monument.png?v=1778095987&width=3840" alt="The Monument 4-Wick Candle">
-      </div>
-      <div class="product-cat">Candle · Statement</div>
-      <h2 class="product-name">The Monument<br>4-Wick, 55oz</h2>
-      <p class="product-desc">Four-wick, 55oz tumbler. 120-hour burn time. Hand-poured. Natural wax. Made for great rooms and open plans. Six GTR open range scents.</p>
-      <div class="product-footer-row">
-        <span class="product-price">$190</span>
-        <span class="product-size">55oz · 4-wick · Natural wax</span>
-      </div>
-      <a class="btn-cta btn-view-product" href="https://ghosttownranch.com/products/the-monument-candle">View Full Product →</a>
-    </article>
-
-    <!-- The Wander All Six Scents -->
-    <article class="ritual-product" data-scents="rough-hewn hang-dried ember graze flax dusk">
-      <div class="product-img-wrap">
-        <img src="../votiveallsix.png" alt="The Votive All Six Scents — Ghost Town Ranch Colored Wax Candles" style="width:100%;height:100%;object-fit:cover;">
-      </div>
-      <div class="product-cat">Candle · Set of Six</div>
-      <h2 class="product-name">The Votive<br>All 6 Scents</h2>
-      <p class="product-desc">All six GTR scents. All six colors. One complete set of travel-ready Wander candles, each hand-poured in the color of its scent. Burns approximately 30 hours per candle. No duplicates. Made in the USA.</p>
-      <div class="product-footer-row">
-        <span class="product-price">$148</span>
-        <span class="product-size">Set of 6 · Colored wax · All scents · Coming Soon</span>
-      </div>
-      <a class="btn-cta btn-coming-soon">Coming Soon</a>
-    </article>
-
-    <!-- The Still -->
-    <article class="ritual-product" data-scents="rough-hewn hang-dried ember graze flax dusk">
-      <div class="product-img-wrap" onclick="location.href='https://ghosttownranch.com/products/the-still-amber-glass-reed-diffuser'" style="cursor:pointer">
-        <img src="https://or-cre.com/cdn/shop/files/TheStill_allitems.png?v=1776726357&width=1200" alt="The Still Amber Glass Reed Diffuser">
-      </div>
-      <div class="product-cat">Reed Diffuser</div>
-      <h2 class="product-name">The Still<br>Amber Glass Reed Diffuser</h2>
-      <p class="product-desc">Amber glass bottle, natural reeds, continuous quiet scent. Flip reeds every 7–10 days. Lasts 3–4 months. Vessel is refillable. Six open range scents.</p>
-      <div class="product-footer-row">
-        <span class="product-price">$72</span>
-        <span class="product-size">Reed diffuser · Refillable</span>
-      </div>
-      <a class="btn-cta btn-view-product" href="https://ghosttownranch.com/products/the-still-amber-glass-reed-diffuser">View Full Product →</a>
-    </article>
-
+  <!-- Error -->
+  <div class="error-state" id="error">
+    <h2>Product not found.</h2>
+    <p>The ranch is wide. Try heading back to the collection.</p>
+    <a href="/">← Back to Ghost Town Ranch</a>
   </div>
 
-  <!-- FOOTER -->
-  <footer itemscope itemtype="https://schema.org/Organization">
-    <div class="footer-left">
-      <img src="../ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="Ghost Town Ranch bull icon — Frontier Modernism">
-      <address style="font-style:normal;" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-        Frontier Modernism ·
-        <span itemprop="addressLocality">Palm Springs</span>,
-        <span itemprop="addressRegion">CA</span> ·
-        High Desert · Born in Twentynine Palms
-      </address>
+  <!-- Product page -->
+  <div class="product-page" id="product-page">
+
+    <div class="breadcrumb">
+      <a href="/">Ghost Town Ranch</a>
+      <span>/</span>
+      <span id="bc-category"></span>
+      <span>/</span>
+      <span id="bc-title"></span>
     </div>
-    <div class="footer-right">
-      <a href="https://instagram.com/ghosttownranch" target="_blank" rel="noopener noreferrer" itemprop="sameAs">@ghosttownranch</a>
-      <a href="mailto:howdy@ghosttownranch.com" itemprop="email">howdy@ghosttownranch.com</a>
-      <a href="https://ghosttownranch.com/shop/">Shop All</a>
-      <a href="https://ghosttownranch.com/routines/">Routines</a>
-      <a href="https://ghosttownranch.com" itemprop="url">ghosttownranch.com</a>
-      <span style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;opacity:0.4;">© Ghost Town Ranch · Pulp Media Lab, Inc.</span>
+
+    <div class="product-grid">
+
+      <!-- Images -->
+      <div class="product-image-wrap">
+        <img class="product-image-main" id="main-image" src="" alt="" />
+        <div class="product-image-thumbs" id="thumbs"></div>
+      </div>
+
+      <!-- Details -->
+      <div class="product-detail">
+
+        <div class="product-tag" id="product-tag"></div>
+        <h1 class="product-title" id="product-title"></h1>
+        <div class="product-subtitle" id="product-subtitle"></div>
+        <div class="product-price" id="product-price"></div>
+
+        <!-- Variant selector -->
+        <div id="variant-wrap">
+          <div class="selector-label">
+            Scent — <span id="selected-variant-label"></span>
+          </div>
+          <div class="variant-grid" id="variant-grid"></div>
+        </div>
+
+        <!-- ATC -->
+        <button class="atc-btn" id="atc-btn">Add to Cart</button>
+        <div class="coming-soon-note" id="coming-soon-note" style="display:none">
+          Available at Shoppe Object Nourish · August 2026 · Javits Center
+        </div>
+
+        <!-- Lip + Eye cross-sell -->
+        <a class="pair-callout" id="pair-callout" href="#" style="display:none">
+          <span class="pair-callout__eyebrow">Lip + Eye</span>
+          <span class="pair-callout__text" id="pair-callout-text"></span>
+          <span class="pair-callout__link" id="pair-callout-link"></span>
+        </a>
+
+        <!-- Share -->
+        <div class="share-row">
+          <button class="share-btn" id="share-btn">Copy Link</button>
+          <span class="share-confirm" id="share-confirm">Link copied</span>
+        </div>
+
+        <!-- Description -->
+        <div class="product-description" id="product-description"></div>
+
+        <!-- Cert badges -->
+        <div class="cert-row" id="cert-row"></div>
+
+        <!-- Specs accordion -->
+        <div id="specs-wrap"></div>
+
+      </div>
     </div>
-  </footer>
+  </div>
+</main>
 
-<script>
-  // ── FADE UP ANIMATIONS ──
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+<!-- Related -->
+<div class="related-section" id="related-section" style="display:none">
+  <div class="related-label">More from the Ranch</div>
+  <div class="related-grid" id="related-grid"></div>
+</div>
 
-  // ── SHOPIFY STOREFRONT API CART (shared with main site via gtr_cart_id) ──
-  var SHOP_DOMAIN   = 'or-cre.com';
-  var STOREFRONT_TOKEN = 'c6efa00d9c5d9849c6c13d59cca6ab82';
-  var gtrCartId = null;
-  var gtrCartLines = [];
-  var gtrCheckoutUrl = '';
-  var gtrCartLoading = false;
+<!-- Footer -->
+<footer>
+  <img class="footer-bull"
+    src="https://ghosttownranch.com/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png"
+    alt="" />
+  <div class="footer-tagline">Frontier Modernism · Palm Springs, CA · Born in Twentynine Palms</div>
+  <ul class="footer-links">
+    <li><a href="https://instagram.com/ghosttownranch" target="_blank">@ghosttownranch</a></li>
+    <li><a href="mailto:howdy@ghosttownranch.com">howdy@ghosttownranch.com</a></li>
+    <li><a href="/routines/">Routines</a></li>
+    <li><a href="/ritual/">Ritual</a></li>
+    <li><a href="/field-guide/">Field Guide</a></li>
+    <li><a href="/wholesale/">Wholesale</a></li>
+    <li><a href="/">ghosttownranch.com</a></li>
+  </ul>
+</footer>
 
-  function storefrontFetch(query) {
-    return fetch('https://' + SHOP_DOMAIN + '/api/2024-01/graphql.json', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Shopify-Storefront-Access-Token': STOREFRONT_TOKEN
-      },
-      body: JSON.stringify({ query: query })
-    }).then(function(r){ return r.json(); });
-  }
-
-  function initCart() {
-    var stored = localStorage.getItem('gtr_cart_id');
-    if (stored) {
-      storefrontFetch('{ cart(id: "' + stored + '") { id checkoutUrl lines(first:50){ edges{ node{ id quantity merchandise{ ... on ProductVariant{ id title price{ amount } image{ url altText } product{ title } } } } } } } }')
-        .then(function(data) {
-          if (data && data.data && data.data.cart) {
-            var c = data.data.cart;
-            gtrCartId = c.id;
-            gtrCheckoutUrl = c.checkoutUrl;
-            gtrCartLines = c.lines.edges.map(function(e){ return e.node; });
-            renderCartDrawer();
-          } else {
-            createCart();
-          }
-        }).catch(function(){ createCart(); });
-    } else {
-      createCart();
-    }
-  }
-
-  function createCart() {
-    storefrontFetch('mutation { cartCreate { cart { id checkoutUrl } } }')
-      .then(function(data) {
-        if (data && data.data && data.data.cartCreate) {
-          gtrCartId = data.data.cartCreate.cart.id;
-          gtrCheckoutUrl = data.data.cartCreate.cart.checkoutUrl;
-          localStorage.setItem('gtr_cart_id', gtrCartId);
-          renderCartDrawer();
-        }
-      });
-  }
-
-  function updateCartBadge() {
-    var total = gtrCartLines.reduce(function(s, line){ return s + line.quantity; }, 0);
-    var badge = document.getElementById('cart-count');
-    if (badge) { badge.textContent = total > 0 ? total : ''; badge.style.display = total > 0 ? 'flex' : 'none'; }
-  }
-
-  function renderCartDrawer() {
-    updateCartBadge();
-    var items = document.getElementById('cart-items-list');
-    if (!items) return;
-    var subtotal = 0;
-    gtrCartLines.forEach(function(line){
-      subtotal += parseFloat(line.merchandise.price.amount) * line.quantity;
-    });
-    items.innerHTML = gtrCartLines.length === 0
-      ? '<p class="cart-empty">Your cart is empty.</p>'
-      : gtrCartLines.map(function(line, idx){
-          var v = line.merchandise;
-          var linePrice = parseFloat(v.price.amount) * line.quantity;
-          return '<div class="cart-item">' +
-            '<div class="cart-item-info">' +
-              '<span class="cart-item-title">' + v.product.title + '</span>' +
-              (v.title !== 'Default Title' ? '<span class="cart-item-variant">' + v.title + '</span>' : '') +
-            '</div>' +
-            '<div class="cart-item-right">' +
-              '<div class="cart-item-qty-ctrl">' +
-                '<button onclick="cartChangeQty(\'' + line.id + '\',' + (line.quantity - 1) + ')" class="qty-btn">&#8722;</button>' +
-                '<span style="font-family:var(--serif);font-size:14px;min-width:16px;text-align:center;color:#1A1512;">' + line.quantity + '</span>' +
-                '<button onclick="cartChangeQty(\'' + line.id + '\',' + (line.quantity + 1) + ')" class="qty-btn">+</button>' +
-              '</div>' +
-              '<span class="cart-item-price">$' + linePrice.toFixed(2) + '</span>' +
-            '</div>' +
-          '</div>';
-        }).join('');
-    var sub = document.getElementById('cart-subtotal');
-    if (sub) sub.textContent = '$' + subtotal.toFixed(2);
-    var ck = document.getElementById('cart-checkout-btn');
-    if (ck) ck.href = gtrCheckoutUrl || '#';
-  }
-
-  function cartChangeQty(lineId, newQty) {
-    if (!gtrCartId) return;
-    var mutation = newQty <= 0
-      ? 'mutation { cartLinesRemove(cartId: "' + gtrCartId + '", lineIds: ["' + lineId + '"]) { cart { id checkoutUrl lines(first:50){ edges{ node{ id quantity merchandise{ ... on ProductVariant{ id title price{ amount } product{ title } } } } } } } } }'
-      : 'mutation { cartLinesUpdate(cartId: "' + gtrCartId + '", lines: [{ id: "' + lineId + '", quantity: ' + newQty + ' }]) { cart { id checkoutUrl lines(first:50){ edges{ node{ id quantity merchandise{ ... on ProductVariant{ id title price{ amount } product{ title } } } } } } } } }';
-    storefrontFetch(mutation).then(function(data) {
-      var c = (data.data.cartLinesRemove || data.data.cartLinesUpdate).cart;
-      gtrCartId = c.id;
-      gtrCheckoutUrl = c.checkoutUrl;
-      gtrCartLines = c.lines.edges.map(function(e){ return e.node; });
-      renderCartDrawer();
-    });
-  }
-
-  function clientAddToCart(variantId, title, variant, price) {
-    if (!gtrCartId || gtrCartLoading) return;
-    gtrCartLoading = true;
-    // Ensure GID format for Storefront API
-    var gid = (variantId + '').indexOf('gid://') === 0
-      ? variantId
-      : 'gid://shopify/ProductVariant/' + variantId;
-    storefrontFetch('mutation { cartLinesAdd(cartId: "' + gtrCartId + '", lines: [{ merchandiseId: "' + gid + '", quantity: 1 }]) { cart { id checkoutUrl lines(first:50){ edges{ node{ id quantity merchandise{ ... on ProductVariant{ id title price{ amount } image{ url altText } product{ title } } } } } } } } }')
-      .then(function(data) {
-        if (data && data.data && data.data.cartLinesAdd) {
-          var c = data.data.cartLinesAdd.cart;
-          gtrCartId = c.id;
-          gtrCheckoutUrl = c.checkoutUrl;
-          gtrCartLines = c.lines.edges.map(function(e){ return e.node; });
-          renderCartDrawer();
-          openCart();
-        }
-        gtrCartLoading = false;
-      }).catch(function(){ gtrCartLoading = false; });
-  }
-
-  function openCart() {
-    document.getElementById('cart-drawer').classList.add('open');
-    document.getElementById('cart-overlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeCart() {
-    document.getElementById('cart-drawer').classList.remove('open');
-    document.getElementById('cart-overlay').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  function addFieldKitToCart(e, btn) {
-    e.preventDefault();
-    var scentSel = document.getElementById('fieldkit-scent-selector');
-    var variantId = scentSel ? scentSel.value : '51849834627368';
-    var scent = scentSel ? scentSel.options[scentSel.selectedIndex].text.trim() : '';
-    btn.textContent = 'Added ✓';
-    setTimeout(function(){ btn.textContent = 'Add to Cart'; btn.disabled = false; }, 1400);
-    clientAddToCart(variantId, 'The Field Kit', scent, 44);
-  }
-
-  function addVariantToCart(e, btn, handle) {
-    e.preventDefault();
-    var card = btn.closest('.ritual-product') || btn.closest('div');
-    var sel = card ? card.querySelector('select.variant-select') : null;
-    if (!sel) return;
-    var variantId = sel.value;
-    var variantTitle = sel.options[sel.selectedIndex].text.trim();
-    var titleEl = card.querySelector('h3, .product-name, strong');
-    var title = titleEl ? titleEl.textContent.trim() : handle;
-    btn.textContent = 'Added ✓';
-    setTimeout(function(){ btn.textContent = 'Add to Cart'; btn.disabled = false; }, 1400);
-    clientAddToCart(variantId, title, variantTitle, 0);
-  }
-
-  function addVotiveToCart(e, btn) {
-    e.preventDefault();
-    var sel = document.getElementById('ritual-votive-selector');
-    var variantId = sel ? sel.value : '51851827609896';
-    var scent = sel ? sel.options[sel.selectedIndex].text.trim() : '';
-    btn.textContent = 'Added ✓';
-    setTimeout(function(){ btn.textContent = 'Add to Cart'; btn.disabled = false; }, 1400);
-    clientAddToCart(variantId, 'The Votive', scent, 26);
-  }
-
-  var activeScentFilter = null;
-
-  function clearScentFilter() {
-    activeScentFilter = null;
-    document.querySelectorAll('.scent-card').forEach(function(c) {
-      c.classList.remove('active', 'inactive');
-    });
-    document.querySelectorAll('article.ritual-product').forEach(function(p) {
-      p.classList.remove('filtered-out');
-    });
-    var reveal = document.getElementById('scent-reveal');
-    if (reveal) { reveal.classList.remove('open'); reveal.innerHTML = ''; }
-  }
-
-  function addWanderSixToCart(e, btn) {
-    e.preventDefault();
-    btn.textContent = 'Added ✓';
-    setTimeout(function(){ btn.textContent = 'Add to Cart'; btn.disabled = false; }, 1400);
-    clientAddToCart('51960932303144', 'The Wander All Six Scents', '', 240);
-  }
-
-  document.addEventListener('DOMContentLoaded', function(){
-    initCart();
-
-  // ── SCENT SELECTOR ── (activeScentFilter declared at top level, shared with clearScentFilter)
-  var BULL_SVG = '<img src="../ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" class="scent-reveal-bull" alt="Ghost Town Ranch" />';
-
-  document.querySelectorAll('.scent-card[data-scent]').forEach(function(card) {
-    card.addEventListener('click', function() {
-      var scent = card.dataset.scent;
-      var color = card.dataset.color;
-      var num = card.dataset.num;
-      var desc = card.dataset.desc;
-      var name = card.querySelector('.scent-name').textContent;
-      var note = card.querySelector('.scent-note').textContent;
-
-      if (activeScentFilter === scent) {
-        clearScentFilter();
-        return;
-      }
-      activeScentFilter = scent;
-
-      // Update card states
-      document.querySelectorAll('.scent-card').forEach(function(c) {
-        c.classList.toggle('active', c.dataset.scent === scent);
-        c.classList.toggle('inactive', c.dataset.scent !== scent);
-      });
-
-      // Render reveal panel
-      var reveal = document.getElementById('scent-reveal');
-      reveal.style.background = color;
-      reveal.innerHTML =
-        '<div class="scent-reveal-left">' +
-          '<div class="scent-reveal-eyebrow">Ghost Town Ranch &middot; Scent No. ' + num + '</div>' +
-          '<div class="scent-reveal-name">' + name + '</div>' +
-          '<div class="scent-reveal-note">' + note + '</div>' +
-          '<div class="scent-reveal-desc">' + desc + '</div>' +
-        '</div>' +
-        '<div class="scent-reveal-right">' +
-          BULL_SVG +
-          '<div class="scent-reveal-tagline">Frontier Modernism<br>Palm Springs, CA</div>' +
-        '</div>';
-      reveal.classList.add('open');
-      reveal.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
-      // Sync variant selectors to this scent
-      document.querySelectorAll('article.ritual-product').forEach(function(product) {
-        product.classList.remove('filtered-out');
-        var sel = product.querySelector('select.variant-select');
-        if (sel) {
-          Array.from(sel.options).forEach(function(opt, i) {
-            var optSlug = opt.text.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-            if (optSlug === scent) sel.selectedIndex = i;
-          });
-          sel.dispatchEvent(new Event('change'));
-        }
-      });
-    });
-
-    card.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
-    });
-  });
-
-
-  });
-
-  // ── Hamburger nav ──
-  /* ── SHOP DROPDOWN ── */
-  function toggleShopDropdown(e) {
-    e.stopPropagation();
-    var dd = document.getElementById('shop-dropdown');
-    var isOpen = dd.classList.contains('open');
-    if (isOpen) {
-      closeShopDropdown();
-    } else {
-      dd.classList.add('open');
-      dd.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'true');
-      setTimeout(function() {
-        document.addEventListener('click', function outsideClick(ev) {
-          if (!ev.target.closest('#shop-dropdown')) {
-            closeShopDropdown();
-            document.removeEventListener('click', outsideClick);
-          }
-        });
-      }, 50);
-    }
-  }
-  function closeShopDropdown() {
-    var dd = document.getElementById('shop-dropdown');
-    if (!dd) return;
-    dd.classList.remove('open');
-    var t = dd.querySelector('.nav-dropdown-toggle');
-    if (t) t.setAttribute('aria-expanded', 'false');
-  }
-
-  function toggleNav() {
-    var links = document.getElementById('nav-links');
-    var btn = document.getElementById('nav-hamburger');
-    if (!links || !btn) return;
-    var isOpen = links.classList.contains('open');
-    links.classList.toggle('open');
-    btn.classList.toggle('open');
-    btn.setAttribute('aria-expanded', !isOpen);
-    document.body.style.overflow = isOpen ? '' : 'hidden';
-    if (isOpen) closeShopDropdown();
-  }
-  // Close menu when a link is clicked
-  document.querySelectorAll('#nav-links a').forEach(function(a) {
-    a.addEventListener('click', function() {
-      var links = document.getElementById('nav-links');
-      var btn = document.getElementById('nav-hamburger');
-      if (links) links.classList.remove('open');
-      if (btn) { btn.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
-      document.body.style.overflow = '';
-      closeShopDropdown();
-    });
-  });
-</script>
-
-
-<div id="cart-overlay" onclick="closeCart()"></div>
-<div id="cart-drawer">
+<!-- Cart drawer -->
+<div class="cart-overlay" id="cart-overlay"></div>
+<div class="cart-drawer" id="cart-drawer">
   <div class="cart-header">
     <span class="cart-title">Cart</span>
-    <button class="cart-close" onclick="closeCart()">&#x2715;</button>
+    <button class="cart-close" id="cart-close">✕</button>
   </div>
-  <div id="cart-items-list" class="cart-items-list">
-    <p class="cart-empty">Your cart is empty.</p>
+  <div class="cart-items" id="cart-items">
+    <div class="cart-empty">Your cart is empty.</div>
   </div>
-  <div class="cart-footer-block">
-    <div class="cart-subtotal-row">
-      <span class="cart-subtotal-label">Subtotal</span>
-      <span id="cart-subtotal" class="cart-subtotal-amount">&#8212;</span>
+  <div class="cart-footer">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <span id="cart-subtotal">—</span>
     </div>
-    <p class="cart-note">Shipping calculated at checkout</p>
-    <a id="cart-checkout-btn" href="#" target="_blank" class="cart-checkout-link">Checkout</a>
+    <button class="checkout-btn" id="checkout-btn">Checkout</button>
   </div>
 </div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- ──────────────────────────────────────────────────────────────── -->
+<script>
+// ═══════════════════════════════════════════════════════════════
+//  CONFIG
+//  Replace STOREFRONT_TOKEN with your or-cre.com public
+//  Storefront API token (Settings → Apps → Storefront API)
+// ═══════════════════════════════════════════════════════════════
+const SHOP_DOMAIN   = 'or-cre.com';
+const STOREFRONT_TOKEN = 'c6efa00d9c5d9849c6c13d59cca6ab82';
+
+// Wax color map for GTR candle products
+const WAX_COLORS = {
+  'Hang Dried':  '#d4dce3',
+  'Rough Hewn':  '#c4b49a',
+  'Dusk':        '#c4956a',
+  'Ember':       '#3a3530',
+  'Graze':       '#7d8c6e',
+  'Flax':        '#d4c47a',
+};
+
+// GTR cert badges — shown for all products
+const CERTS = [
+  'COSMOS Certified · ECOCERT',
+  'Made in USA',
+  'Vegan · Cruelty-Free',
+  'No Dyes · No Parabens · No Phthalates',
+];
+
+// Products that are Coming Soon — disable ATC
+const COMING_SOON_HANDLES = ['still-air-natural-deodorant', 'the-wash-house', 'long-range-endurance-skincare-collection', 'the-field-kit'];
+
+// Lip + Eye cross-sell — show on each product, point to its partner ($17 off both at checkout)
+const PAIR_PROMO = {
+  'long-shot-peptide-mascara':   { partner: 'drawn-line-matte-lip-color', name: 'Drawn Line Lip' },
+  'drawn-line-matte-lip-color':  { partner: 'long-shot-peptide-mascara',  name: 'Long Shot Mascara' },
+};
+function setupPairCallout(handle) {
+  const el = document.getElementById('pair-callout');
+  if (!el) return;
+  const promo = PAIR_PROMO[handle];
+  if (!promo) { el.style.display = 'none'; return; }
+  el.href = 'https://ghosttownranch.com/products/' + promo.partner;
+  document.getElementById('pair-callout-text').textContent =
+    'Wear it with ' + promo.name + '. Buy both, save $17 at checkout.';
+  document.getElementById('pair-callout-link').textContent = 'Shop ' + promo.name + ' \u2192';
+  el.style.display = 'block';
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  CART STATE
+// ═══════════════════════════════════════════════════════════════
+let cart = { id: null, lines: [], checkoutUrl: '' };
+let cartLoading = false;
+
+async function initCart() {
+  const stored = localStorage.getItem('gtr_cart_id');
+  if (stored) {
+    try {
+      const res = await storefrontFetch(`{
+        cart(id: "${stored}") {
+          id checkoutUrl
+          lines(first: 50) {
+            edges { node {
+              id quantity
+              merchandise { ... on ProductVariant {
+                id title price { amount }
+                image { url altText }
+                product { title }
+              }}
+            }}
+          }
+        }
+      }`);
+      if (res?.data?.cart) {
+        const c = res.data.cart;
+        cart.id = c.id;
+        cart.checkoutUrl = c.checkoutUrl;
+        cart.lines = c.lines.edges.map(e => e.node);
+        renderCart();
+        return;
+      }
+    } catch {}
+  }
+  // create new cart
+  const res = await storefrontFetch(`mutation {
+    cartCreate { cart { id checkoutUrl } }
+  }`);
+  cart.id = res?.data?.cartCreate?.cart?.id;
+  cart.checkoutUrl = res?.data?.cartCreate?.cart?.checkoutUrl;
+  localStorage.setItem('gtr_cart_id', cart.id);
+}
+
+async function addToCart(variantId, qty = 1) {
+  if (!cart.id || cartLoading) return;
+  cartLoading = true;
+  const btn = document.getElementById('atc-btn');
+  btn.classList.add('loading');
+  btn.textContent = 'Adding…';
+
+  const res = await storefrontFetch(`mutation {
+    cartLinesAdd(cartId: "${cart.id}", lines: [{
+      merchandiseId: "${variantId}",
+      quantity: ${qty}
+    }]) {
+      cart {
+        id checkoutUrl
+        lines(first: 50) {
+          edges { node {
+            id quantity
+            merchandise { ... on ProductVariant {
+              id title price { amount }
+              image { url altText }
+              product { title }
+            }}
+          }}
+        }
+      }
+    }
+  }`);
+
+  const c = res?.data?.cartLinesAdd?.cart;
+  if (c) {
+    cart.id = c.id;
+    cart.checkoutUrl = c.checkoutUrl;
+    cart.lines = c.lines.edges.map(e => e.node);
+    renderCart();
+    openCart();
+  }
+
+  btn.classList.remove('loading');
+  btn.textContent = 'Add to Cart';
+  cartLoading = false;
+}
+
+function renderCart() {
+  const itemsEl = document.getElementById('cart-items');
+  const subtotalEl = document.getElementById('cart-subtotal');
+  const countEl = document.getElementById('cart-count');
+
+  if (!cart.lines.length) {
+    itemsEl.innerHTML = '<div class="cart-empty">Your cart is empty.</div>';
+    subtotalEl.textContent = '—';
+    countEl.textContent = '';
+    return;
+  }
+
+  let total = 0;
+  let count = 0;
+  itemsEl.innerHTML = cart.lines.map(line => {
+    const v = line.merchandise;
+    const price = parseFloat(v.price.amount) * line.quantity;
+    total += price;
+    count += line.quantity;
+    return `<div class="cart-item">
+      <img src="${v.image?.url || ''}" alt="${v.image?.altText || ''}" />
+      <div>
+        <div class="cart-item-name">${v.product.title}</div>
+        <div class="cart-item-variant">${v.title !== 'Default Title' ? v.title : ''}</div>
+        <div class="cart-item-price">$${price.toFixed(2)}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  subtotalEl.textContent = '$' + total.toFixed(2);
+  countEl.textContent = count ? ` (${count})` : '';
+}
+
+function openCart() {
+  document.getElementById('cart-drawer').classList.add('open');
+  document.getElementById('cart-overlay').classList.add('open');
+}
+
+function closeCart() {
+  document.getElementById('cart-drawer').classList.remove('open');
+  document.getElementById('cart-overlay').classList.remove('open');
+}
+
+document.getElementById('cart-btn').addEventListener('click', openCart);
+document.getElementById('cart-close').addEventListener('click', closeCart);
+document.getElementById('cart-overlay').addEventListener('click', closeCart);
+document.getElementById('checkout-btn').addEventListener('click', () => {
+  if (cart.checkoutUrl) window.location.href = cart.checkoutUrl;
+});
+
+// ═══════════════════════════════════════════════════════════════
+//  STOREFRONT API
+// ═══════════════════════════════════════════════════════════════
+async function storefrontFetch(query) {
+  const res = await fetch(`https://${SHOP_DOMAIN}/api/2024-01/graphql.json`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Shopify-Storefront-Access-Token': STOREFRONT_TOKEN,
+    },
+    body: JSON.stringify({ query }),
+  });
+  return res.json();
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  PRODUCT FETCH
+// ═══════════════════════════════════════════════════════════════
+async function fetchProduct(handle) {
+  const data = await storefrontFetch(`{
+    product(handle: "${handle}") {
+      id title handle
+      description descriptionHtml
+      productType
+      tags
+      priceRange { minVariantPrice { amount currencyCode } }
+      images(first: 8) {
+        edges { node { url altText } }
+      }
+      variants(first: 30) {
+        edges { node {
+          id title availableForSale
+          price { amount }
+          selectedOptions { name value }
+          image { url altText }
+        }}
+      }
+    }
+  }`);
+  return data?.data?.product || null;
+}
+
+// Utility tags that should never display as a category
+const UTILITY_TAGS = ['cosmos', 'ecocert', 'fragrance-only', 'coming-soon', 'bestseller', 'best-seller', 'new', 'featured', 'sale'];
+
+// Category tag = first Shopify tag that isn't a utility tag
+function getCategoryTag(product) {
+  return (product.tags || []).find(t => !UTILITY_TAGS.includes(t.toLowerCase().trim())) || null;
+}
+
+// Display category: Product Type first, then category tag, then brand default
+function getCategory(product) {
+  if (product.productType) return product.productType;
+  const tag = getCategoryTag(product);
+  if (tag) return tag.replace(/\b\w/g, c => c.toUpperCase());
+  return 'The Ranch';
+}
+
+async function fetchRelated(queryStr, excludeHandle) {
+  const data = await storefrontFetch(`{
+    products(first: 6, query: "${queryStr}") {
+      edges { node {
+        title handle
+        priceRange { minVariantPrice { amount } }
+        images(first: 1) { edges { node { url altText } } }
+      }}
+    }
+  }`);
+  return (data?.data?.products?.edges || [])
+    .map(e => e.node)
+    .filter(p => p.handle !== excludeHandle)
+    .slice(0, 4);
+}
+
+// Backfill: bestsellers from the full catalog
+async function fetchFill(excludeHandles) {
+  const data = await storefrontFetch(`{
+    products(first: 8, sortKey: BEST_SELLING) {
+      edges { node {
+        title handle
+        priceRange { minVariantPrice { amount } }
+        images(first: 1) { edges { node { url altText } } }
+      }}
+    }
+  }`);
+  return (data?.data?.products?.edges || [])
+    .map(e => e.node)
+    .filter(p => !excludeHandles.includes(p.handle));
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  RENDER PRODUCT
+// ═══════════════════════════════════════════════════════════════
+function renderProduct(product) {
+  const handle = product.handle;
+  const isComingSoon = COMING_SOON_HANDLES.includes(handle);
+  setupPairCallout(handle);
+
+  // Meta
+  document.title = `${product.title} — Ghost Town Ranch`;
+  document.getElementById('og-title').content = `${product.title} — Ghost Town Ranch`;
+  document.getElementById('og-description').content = product.description?.slice(0, 160) || '';
+  const firstImg = product.images.edges[0]?.node?.url || '';
+  document.getElementById('og-image').content = firstImg;
+  const pageUrl = `https://ghosttownranch.com/products/${handle}`;
+  document.getElementById('og-url').content = pageUrl;
+  document.getElementById('canonical').href = pageUrl;
+
+  // Breadcrumb
+  document.getElementById('bc-category').textContent = getCategory(product);
+  document.getElementById('bc-title').textContent = product.title;
+
+  // Category eyebrow — always renders (Product Type, else category tag, else The Ranch)
+  document.getElementById('product-tag').textContent = getCategory(product);
+
+  // Title — split on first space for italic styling if subtitle exists
+  const titleParts = product.title.split('  ');
+  document.getElementById('product-title').textContent = product.title;
+  document.getElementById('product-subtitle').textContent = '';
+
+  // Price
+  const price = parseFloat(product.priceRange.minVariantPrice.amount);
+  document.getElementById('product-price').textContent = `$${price % 1 === 0 ? price.toFixed(0) : price.toFixed(2)}`;
+
+  // Images
+  const images = product.images.edges.map(e => e.node);
+  const mainImg = document.getElementById('main-image');
+  if (images[0]) {
+    mainImg.src = images[0].url;
+    mainImg.alt = images[0].altText || product.title;
+  }
+
+  const thumbsWrap = document.getElementById('thumbs');
+  if (images.length > 1) {
+    thumbsWrap.innerHTML = images.map((img, i) => `
+      <img class="thumb${i === 0 ? ' active' : ''}"
+        src="${img.url}" alt="${img.altText || ''}"
+        data-src="${img.url}" />
+    `).join('');
+    thumbsWrap.querySelectorAll('.thumb').forEach(t => {
+      t.addEventListener('click', () => {
+        mainImg.src = t.dataset.src;
+        thumbsWrap.querySelectorAll('.thumb').forEach(x => x.classList.remove('active'));
+        t.classList.add('active');
+      });
+    });
+  }
+
+  // Variants
+  const variants = product.variants.edges.map(e => e.node);
+  const variantWrap = document.getElementById('variant-wrap');
+  const variantGrid = document.getElementById('variant-grid');
+  let selectedVariant = variants.find(v => v.availableForSale) || variants[0];
+
+  // Determine if this is a scent-based product
+  const scentOptions = variants.some(v =>
+    v.selectedOptions.some(o => o.name.toLowerCase() === 'scent' || o.name.toLowerCase() === 'fragrance')
+  );
+  const hasVariants = variants.length > 1 && variants[0].title !== 'Default Title';
+
+  // Candles with colored wax get a different label
+  // Exact Shopify handles for colored-wax candles
+  const WAX_CANDLE_HANDLES = ['the-votive-single', 'soy-wax-candle-wild-flower', 'the-slow-candle', 'the-votive-candle-set-of-6'];
+  const isWaxCandle = WAX_CANDLE_HANDLES.includes(product.handle);
+  const selectorLabelEl = document.querySelector('.selector-label');
+
+  if (hasVariants) {
+    variantWrap.style.display = 'block';
+
+    // Set label text based on product type — must happen before querying the span
+    if (isWaxCandle) {
+      selectorLabelEl.innerHTML = 'Scent + Wax Color — <span id="selected-variant-label"></span>';
+    } else {
+      selectorLabelEl.innerHTML = 'Scent — <span id="selected-variant-label"></span>';
+    }
+
+    // Query after innerHTML rewrite so reference is live
+    const selectedLabel = document.getElementById('selected-variant-label');
+
+    function selectVariant(v) {
+      selectedVariant = v;
+      selectedLabel.textContent = v.title;
+      // update image if variant has its own
+      if (v.image?.url) {
+        mainImg.src = v.image.url;
+      }
+      // update price display
+      document.getElementById('product-price').textContent =
+        '$' + parseFloat(v.price.amount).toFixed(0);
+    }
+
+    variantGrid.innerHTML = variants.map(v => {
+      const color = WAX_COLORS[v.title];
+      const swatch = color ? `<span class="scent-swatch" style="background:${color}"></span>` : '';
+      return `<button class="variant-btn${v.id === selectedVariant.id ? ' selected' : ''}"
+        data-variant-id="${v.id}"
+        ${!v.availableForSale ? 'disabled' : ''}
+      >${swatch}${v.title}</button>`;
+    }).join('');
+
+    selectedLabel.textContent = selectedVariant.title;
+
+    variantGrid.querySelectorAll('.variant-btn:not(:disabled)').forEach(btn => {
+      btn.addEventListener('click', () => {
+        variantGrid.querySelectorAll('.variant-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        const v = variants.find(x => x.id === btn.dataset.variantId);
+        if (v) selectVariant(v);
+      });
+    });
+  } else {
+    variantWrap.style.display = 'none';
+  }
+
+  // ATC
+  const atcBtn = document.getElementById('atc-btn');
+  const comingSoonNote = document.getElementById('coming-soon-note');
+
+  if (isComingSoon) {
+    atcBtn.disabled = true;
+    atcBtn.textContent = 'Coming Soon';
+    comingSoonNote.style.display = 'block';
+  } else {
+    atcBtn.addEventListener('click', () => {
+      if (selectedVariant?.id) addToCart(selectedVariant.id);
+    });
+  }
+
+  // Share button
+  document.getElementById('share-btn').addEventListener('click', () => {
+    navigator.clipboard.writeText(pageUrl).then(() => {
+      const confirm = document.getElementById('share-confirm');
+      confirm.classList.add('visible');
+      setTimeout(() => confirm.classList.remove('visible'), 2200);
+    });
+  });
+
+  // Description — ingredient lists split out into the accordion
+  const descEl = document.getElementById('product-description');
+  let ingredientsHtml = '';
+  if (product.descriptionHtml) {
+    const split = splitIngredients(product.descriptionHtml);
+    descEl.innerHTML = split.descHtml;
+    ingredientsHtml = split.ingredientsHtml;
+  } else if (product.description) {
+    const parts = product.description.split(/(?=(?:full\s+)?ingredients?\s*:)/i);
+    descEl.textContent = parts[0].trim();
+    if (parts.length > 1) ingredientsHtml = `<p>${parts.slice(1).join(' ').trim()}</p>`;
+  }
+
+  // Cert badges — show relevant subset based on tags
+  const certRow = document.getElementById('cert-row');
+  const tags = product.tags || [];
+  const certs = [];
+  if (isCosmosCertified(product)) {
+    certs.push('COSMOS Certified · ECOCERT');
+  }
+  certs.push('Made in USA');
+  if (!tags.includes('fragrance-only')) certs.push('Vegan · Cruelty-Free');
+  certs.push('No Dyes · No Parabens · No Phthalates');
+
+  certRow.innerHTML = certs.map(c => `<span class="cert-badge">${c}</span>`).join('');
+
+  // Specs accordion — built from product type
+  buildSpecs(product, variants, ingredientsHtml);
+
+  // Show page
+  document.getElementById('loading').style.display = 'none';
+  const page = document.getElementById('product-page');
+  page.style.display = 'block';
+  page.style.opacity = 0;
+  requestAnimationFrame(() => {
+    page.style.transition = 'opacity 0.4s';
+    page.style.opacity = 1;
+  });
+}
+
+// Pull the ingredient list out of the Shopify description HTML.
+// Catches a block starting with "Ingredients" / "INCI" (and everything after it),
+// or any long comma-heavy paragraph that reads like an INCI list.
+function splitIngredients(html) {
+  const tmp = document.createElement('div');
+  tmp.innerHTML = html;
+  const nodes = Array.from(tmp.children);
+  const moved = [];
+  let capture = false;
+  nodes.forEach(el => {
+    const txt = (el.textContent || '').trim();
+    const isHeader = /^(full\s+)?ingredients?\b|^INCI\b/i.test(txt);
+    const isList = txt.length > 150 && (txt.match(/,/g) || []).length >= 8;
+    if (isHeader) capture = true;
+    if (capture || isList) {
+      moved.push(el.outerHTML);
+      el.remove();
+    }
+  });
+  return { descHtml: tmp.innerHTML.trim(), ingredientsHtml: moved.join('') };
+}
+
+// Whether a product carries the third-party COSMOS/ECOCERT certification.
+// Driven by Shopify tags first (durable), with an explicit fallback list of
+// the currently-certified SKUs. Deliberately excludes "COSMOS-compliant"-only
+// items (e.g. The Wash, Hand Cream) and non-cosmetics (e.g. Root Revival).
+function isCosmosCertified(product) {
+  const tags = (product.tags || []).map(t => String(t).toLowerCase());
+  if (tags.includes('cosmos') || tags.includes('ecocert')) return true;
+  const norm = s => (s || '').toLowerCase().replace(/[’'`´]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+  const t = norm(product.title);
+  const CERTIFIED = [
+    'all told', 'the grade', 'the hold', 'desert day cream', 'dusk til dawn',
+    'desert glow', 'frontier fade', 'mojave reset', 'outlaws wipeout', 'rose cut',
+    'golden hour', 'outlaws reserve', 'rosemary mint revive', 'trails end'
+  ];
+  return CERTIFIED.some(name => t.includes(name));
+}
+
+function buildSpecs(product, variants, ingredientsHtml) {
+  const wrap = document.getElementById('specs-wrap');
+  const type = (product.productType || '').toLowerCase();
+  const title = (product.title || '').toLowerCase();
+  const isFragranceSpray = title.includes('ranch water') || (type.includes('fragrance') && !type.includes('skin') && !type.includes('hair'));
+  const isHomeFragrance = type.includes('candle') || type.includes('diffuser') || isFragranceSpray;
+
+  const specs = [];
+
+  // Scent descriptions — for fragrance products
+  if (type.includes('candle') || type.includes('fragrance') || type.includes('diffuser') || type.includes('mist')) {
+    specs.push({
+      title: 'The Six Scents',
+      body: `<p>Hang Dried — White Sage &amp; Lavender. White sage, lavender, rosemary, cedar underneath. Clean without trying.</p>
+             <p>Rough Hewn — Cade &amp; Cedarwood. Sweet smoke, sandalwood underneath, leather at the edges.</p>
+             <p>Dusk — Palo Santo. Dry earth, warm amber. Ancient and mineral.</p>
+             <p>Ember — Charcoal &amp; Amber. Dark and smoky with deep resin. The canyon after rain.</p>
+             <p>Graze — Sweetgrass &amp; Sage. River-clean and sharp. The good scrub after a day of work.</p>
+             <p>Flax — Cotton &amp; Citrus. Lemon, cotton blossom, blonde woods.</p>`
+    });
+  }
+
+  // Details
+  const detailLines = [];
+  if (isHomeFragrance) {
+    detailLines.push('Skin-safe fragrances, hand-blended in the USA');
+    detailLines.push('Made from the finest fragrances and ingredients');
+  }
+  if (type.includes('candle')) {
+    detailLines.push('Cotton wick — no lead');
+    detailLines.push('Colored wax — each scent poured in its own color');
+    detailLines.push('Hand-poured');
+  }
+  if (type.includes('diffuser')) {
+    detailLines.push('Amber glass vessel — refillable');
+    detailLines.push('Flip reeds every 7–10 days');
+    detailLines.push('Lasts 3–4 months');
+  }
+  if (isFragranceSpray) {
+    detailLines.push('Made with care for the body — can also be used on linens or as an air freshener');
+    detailLines.push('Made from perfumer\'s alcohol, fragrance oil, and distilled water');
+    detailLines.push('Free of dyes, parabens, and phthalates');
+  }
+  if (isCosmosCertified(product)) {
+    detailLines.push('COSMOS Certified by ECOCERT — third-party verified');
+  }
+  if (!isHomeFragrance && (isCosmosCertified(product) || type.includes('skin') || type.includes('body') || type.includes('hair') || type.includes('eye') || type.includes('face'))) {
+    detailLines.push('Vegan · Cruelty-Free');
+    detailLines.push('Free of parabens, phthalates, and synthetic dyes');
+  }
+  detailLines.push('Frontier Modernism · Palm Springs, CA');
+
+  if (detailLines.length) {
+    specs.push({
+      title: 'Details',
+      body: detailLines.map(l => `<p>${l}</p>`).join('')
+    });
+  }
+
+  // Ingredients — full list, tucked into its own expandable row
+  if (ingredientsHtml) {
+    specs.push({
+      title: 'Ingredients',
+      body: ingredientsHtml
+    });
+  }
+
+  // Shipping
+  specs.push({
+    title: 'Shipping & Returns',
+    body: `<p>Ships within 10 business days from the USA. Standard ground shipping.</p>
+           <p>For wholesale inquiries: <a href="mailto:wholesale@ghosttownranch.com" style="color:var(--dust)">wholesale@ghosttownranch.com</a></p>
+           <p>Questions: <a href="mailto:howdy@ghosttownranch.com" style="color:var(--dust)">howdy@ghosttownranch.com</a></p>`
+  });
+
+  wrap.innerHTML = specs.map(s => `
+    <div class="spec-row">
+      <button class="spec-trigger" aria-expanded="false">
+        ${s.title}
+        <span class="spec-chevron">+</span>
+      </button>
+      <div class="spec-body">${s.body}</div>
+    </div>
+  `).join('');
+
+  wrap.querySelectorAll('.spec-row').forEach(row => {
+    row.querySelector('.spec-trigger').addEventListener('click', () => {
+      row.classList.toggle('open');
+    });
+  });
+}
+
+async function renderRelated(product) {
+  let related = [];
+
+  // Match by Product Type first, then by category tag
+  if (product.productType) {
+    related = await fetchRelated(`product_type:\\"${product.productType}\\"`, product.handle);
+  } else {
+    const tag = getCategoryTag(product);
+    if (tag) related = await fetchRelated(`tag:\\"${tag}\\"`, product.handle);
+  }
+
+  // Backfill with bestsellers so the row is always full
+  if (related.length < 4) {
+    const exclude = [product.handle, ...related.map(p => p.handle)];
+    const fill = await fetchFill(exclude);
+    related = [...related, ...fill].slice(0, 4);
+  }
+
+  if (!related.length) return;
+
+  const section = document.getElementById('related-section');
+  const grid = document.getElementById('related-grid');
+
+  grid.innerHTML = related.map(p => `
+    <a class="related-card" href="/products/${p.handle}">
+      <img src="${p.images.edges[0]?.node?.url || ''}" alt="${p.title}" loading="lazy" />
+      <div class="related-card-info">
+        <div class="related-card-name">${p.title}</div>
+        <div class="related-card-price">$${parseFloat(p.priceRange.minVariantPrice.amount).toFixed(0)}</div>
+      </div>
+    </a>
+  `).join('');
+
+  section.style.display = 'block';
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  ROUTER — reads handle from URL path
+//  Works for:
+//    ghosttownranch.com/products/the-votive
+//    ghosttownranch.com/products/ranch-water-body-linen-fragrance
+// ═══════════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════════════
+//  THE RITUAL — BUNDLE (Ranch Water + The Slow, one scent)
+// ═══════════════════════════════════════════════════════════════
+// Not a single Shopify product. One scent selection adds two line
+// items — Ranch Water + The Slow in the matching scent — to the cart.
+// Variant IDs are anchored by scent and do not change.
+const RITUAL = {
+  title: 'The Ritual',
+  subtitle: 'One scent. The whole day in it.',
+  category: 'Fragrance + Home',
+  priceBundle: 128,   // Ranch Water $88 + The Slow $54 = $142, ~10% off
+  priceRegular: 142,
+  pairs: [
+    { scent: 'Rough Hewn', ranchWater: '51730077090088', theSlow: '51730076467496' },
+    { scent: 'Hang Dried', ranchWater: '51730077122856', theSlow: '51730076500264' },
+    { scent: 'Ember',      ranchWater: '51730077155624', theSlow: '51730076533032' },
+    { scent: 'Graze',      ranchWater: '51730077188392', theSlow: '51730076565800' },
+    { scent: 'Flax',       ranchWater: '51730077221160', theSlow: '51730076598568' },
+    { scent: 'Dusk',       ranchWater: '51730077253928', theSlow: '51730076631336' },
+  ],
+  desc: `
+    <p>One scent, carried from the shower to the pillow. Ranch Water for the day. The Slow for the evening.</p>
+    <p><strong>After the shower.</strong> Ranch Water on skin. The day starts the way the land smells.</p>
+    <p><strong>Through the day.</strong> A mist into the room, over the linens. It carries.</p>
+    <p><strong>Evening.</strong> Strike the match. The scent goes from spritz to slow burn.</p>
+    <p><strong>Before bed.</strong> Ranch Water on the pillow, then dark.</p>
+    <p>The pair, $14 off. $142 separately.</p>
+  `,
+};
+
+async function addBundleToCart(variantA, variantB) {
+  if (!cart.id || cartLoading) return;
+  cartLoading = true;
+  const btn = document.getElementById('atc-btn');
+  btn.classList.add('loading');
+  btn.textContent = 'Adding…';
+
+  const res = await storefrontFetch(`mutation {
+    cartLinesAdd(cartId: "${cart.id}", lines: [
+      { merchandiseId: "gid://shopify/ProductVariant/${variantA}", quantity: 1 },
+      { merchandiseId: "gid://shopify/ProductVariant/${variantB}", quantity: 1 }
+    ]) {
+      cart {
+        id checkoutUrl
+        lines(first: 50) {
+          edges { node {
+            id quantity
+            merchandise { ... on ProductVariant {
+              id title price { amount }
+              image { url altText }
+              product { title }
+            }}
+          }}
+        }
+      }
+    }
+  }`);
+
+  const c = res?.data?.cartLinesAdd?.cart;
+  if (c) {
+    cart.id = c.id;
+    cart.checkoutUrl = c.checkoutUrl;
+    cart.lines = c.lines.edges.map(e => e.node);
+    renderCart();
+    openCart();
+  }
+
+  btn.classList.remove('loading');
+  btn.textContent = 'Add the Ritual to Cart';
+  cartLoading = false;
+}
+
+async function renderRitualBundle() {
+  let current = RITUAL.pairs[0];
+
+  // Meta
+  document.title = `${RITUAL.title} — Ghost Town Ranch`;
+  const pageUrl = 'https://ghosttownranch.com/products/the-ritual';
+  document.getElementById('og-title').content = `${RITUAL.title} — Ghost Town Ranch`;
+  document.getElementById('og-description').content = RITUAL.subtitle;
+  document.getElementById('og-url').content = pageUrl;
+  document.getElementById('canonical').href = pageUrl;
+
+  // Breadcrumb, eyebrow, title, subtitle, price
+  document.getElementById('bc-category').textContent = RITUAL.category;
+  document.getElementById('bc-title').textContent = RITUAL.title;
+  document.getElementById('product-tag').textContent = RITUAL.category;
+  document.getElementById('product-title').textContent = RITUAL.title;
+  document.getElementById('product-subtitle').textContent = RITUAL.subtitle;
+  document.getElementById('product-price').textContent = `$${RITUAL.priceBundle}`;
+
+  // Images — pulled live from the two component variants (no handle needed)
+  try {
+    const imgRes = await storefrontFetch(`{
+      nodes(ids: ["gid://shopify/ProductVariant/${current.ranchWater}", "gid://shopify/ProductVariant/${current.theSlow}"]) {
+        ... on ProductVariant {
+          image { url altText }
+          product { title featuredImage { url altText } }
+        }
+      }
+    }`);
+    const nodes = (imgRes?.data?.nodes || []).filter(Boolean);
+    const imgs = nodes.map(n => n.image?.url || n.product?.featuredImage?.url).filter(Boolean);
+    const mainImg = document.getElementById('main-image');
+    if (imgs[0]) {
+      mainImg.src = imgs[0];
+      mainImg.alt = RITUAL.title;
+      document.getElementById('og-image').content = imgs[0];
+    }
+    if (imgs.length > 1) {
+      const thumbsWrap = document.getElementById('thumbs');
+      thumbsWrap.innerHTML = imgs.map((u, i) =>
+        `<img class="thumb${i === 0 ? ' active' : ''}" src="${u}" data-src="${u}" alt="" />`).join('');
+      thumbsWrap.querySelectorAll('.thumb').forEach(t => t.addEventListener('click', () => {
+        mainImg.src = t.dataset.src;
+        thumbsWrap.querySelectorAll('.thumb').forEach(x => x.classList.remove('active'));
+        t.classList.add('active');
+      }));
+    }
+  } catch (e) { /* images non-critical */ }
+
+  // Scent picker — same markup/classes as the standard PDP so swatches + styling match
+  const variantWrap = document.getElementById('variant-wrap');
+  const variantGrid = document.getElementById('variant-grid');
+  variantWrap.style.display = 'block';
+  document.querySelector('.selector-label').innerHTML = 'Scent — <span id="selected-variant-label"></span>';
+  const selectedLabel = document.getElementById('selected-variant-label');
+  selectedLabel.textContent = current.scent;
+
+  variantGrid.innerHTML = RITUAL.pairs.map((p, i) => {
+    const color = WAX_COLORS[p.scent];
+    const swatch = color ? `<span class="scent-swatch" style="background:${color}"></span>` : '';
+    return `<button class="variant-btn${i === 0 ? ' selected' : ''}" data-index="${i}">${swatch}${p.scent}</button>`;
+  }).join('');
+
+  variantGrid.querySelectorAll('.variant-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      variantGrid.querySelectorAll('.variant-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      current = RITUAL.pairs[parseInt(btn.dataset.index, 10)];
+      selectedLabel.textContent = current.scent;
+    });
+  });
+
+  // ATC — adds both line items in one mutation
+  const atcBtn = document.getElementById('atc-btn');
+  atcBtn.textContent = 'Add the Ritual to Cart';
+  atcBtn.addEventListener('click', () => addBundleToCart(current.ranchWater, current.theSlow));
+
+  // Share
+  document.getElementById('share-btn').addEventListener('click', () => {
+    navigator.clipboard.writeText(pageUrl).then(() => {
+      const c = document.getElementById('share-confirm');
+      c.classList.add('visible');
+      setTimeout(() => c.classList.remove('visible'), 2200);
+    });
+  });
+
+  // Description + certs
+  document.getElementById('product-description').innerHTML = RITUAL.desc;
+  document.getElementById('cert-row').innerHTML = [
+    'Made in USA',
+    'Vegan · Cruelty-Free',
+    'No Dyes · No Parabens · No Phthalates',
+  ].map(c => `<span class="cert-badge">${c}</span>`).join('');
+
+  // Show page (same transition as renderProduct)
+  document.getElementById('loading').style.display = 'none';
+  const page = document.getElementById('product-page');
+  page.style.display = 'block';
+  page.style.opacity = 0;
+  requestAnimationFrame(() => {
+    page.style.transition = 'opacity 0.4s';
+    page.style.opacity = 1;
+  });
+}
+
+async function init() {
+  await initCart();
+
+  // Handle comes via ?handle= (set by 404.html redirect) or direct path
+  const params = new URLSearchParams(window.location.search);
+  const handle = params.get('handle') ||
+                 window.location.pathname.replace(/^\/products\//, '').replace(/\/$/, '');
+
+  if (!handle) {
+    // No handle — redirect to homepage
+    window.location.href = '/';
+    return;
+  }
+
+  // The Ritual — a two-product bundle (Ranch Water + The Slow), not a single Shopify product
+  if (handle === 'the-ritual') {
+    await renderRitualBundle();
+    return;
+  }
+
+  const product = await fetchProduct(handle);
+
+  if (!product) {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('error').style.display = 'flex';
+    // Still show More from the Ranch — a wrong turn shouldn't be a dead end
+    try {
+      const fill = (await fetchFill([])).slice(0, 4);
+      if (fill.length) {
+        const grid = document.getElementById('related-grid');
+        grid.innerHTML = fill.map(p => `
+          <a class="related-card" href="/products/${p.handle}">
+            <img src="${p.images.edges[0]?.node?.url || ''}" alt="${p.title}" loading="lazy" />
+            <div class="related-card-info">
+              <div class="related-card-name">${p.title}</div>
+              <div class="related-card-price">$${parseFloat(p.priceRange.minVariantPrice.amount).toFixed(0)}</div>
+            </div>
+          </a>
+        `).join('');
+        document.getElementById('related-section').style.display = 'block';
+      }
+    } catch (e) { /* non-critical */ }
+    return;
+  }
+
+  renderProduct(product);
+  renderRelated(product); // non-blocking
+}
+
+init();
+</script>
 
 </body>
 </html>
