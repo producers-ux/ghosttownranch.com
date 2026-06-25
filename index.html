@@ -67,6 +67,7 @@
     text-decoration: none; color: #F4EFE6;
     z-index: 101; position: relative;
   }
+  .nav-right { display: flex; align-items: center; gap: 40px; }
   .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
   .nav-links a {
     font-family: var(--sans); font-size: 12px; letter-spacing: 0.2em;
@@ -92,6 +93,7 @@
 
   @media (max-width: 900px) {
     nav { padding: 0 20px; height: 64px; }
+    .nav-right { gap: 8px; }
     .nav-hamburger { display: flex; }
     .nav-links {
       display: none;
@@ -488,20 +490,21 @@
   }
   .fg-body {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 480px;
+    grid-template-columns: 0.85fr 1fr;
+    align-items: stretch;
   }
   .fg-drawing-col {
     border-right: 1px solid rgba(26,21,18,0.12);
-    display: flex; flex-direction: column;
+    display: flex; align-items: center; justify-content: center;
     background: var(--cream);
+    padding: 40px;
   }
   .fg-drawing {
-    width: 100%; flex: 1;
+    width: auto; max-width: 100%;
+    max-height: 320px;
     object-fit: contain;
     object-position: center center;
     display: block;
-    padding: 24px;
   }
   .fg-drawing-caption {
     padding: 16px 32px;
@@ -579,8 +582,8 @@
   @media (max-width: 900px) {
     .fg-header { padding: 12px 24px; }
     .fg-body { grid-template-columns: 1fr; }
-    .fg-drawing-col { min-height: 260px; border-right: none; border-bottom: 1px solid rgba(26,21,18,0.12); }
-    .fg-drawing { max-height: 260px; padding: 16px; }
+    .fg-drawing-col { border-right: none; border-bottom: 1px solid rgba(26,21,18,0.12); padding: 28px; }
+    .fg-drawing { max-height: 240px; }
     .fg-text-col { padding: 32px 24px; }
     .fg-dispatch-headline { font-size: clamp(22px, 6vw, 32px); }
     .fg-dispatch-body { max-width: 100%; font-size: 15px; }
@@ -599,14 +602,19 @@
 <!-- NAV -->
 <nav id="main-nav">
   <a href="/" class="nav-logo">Ghost Town Ranch</a>
-  <ul class="nav-links">
-    <li><a href="https://ghosttownranch.com/ritual/">Ritual</a></li>
-    <li><a href="https://ghosttownranch.com/routines/">Routines</a></li>
-    <li><a href="https://ghosttownranch.com/wash-house/">Wash House</a></li>
-    <li><a href="#objects">Shop</a></li>
-    <li><a href="https://ghosttownranch.com/field-guide/">Field Guide</a></li>
-    <li><a href="https://ghosttownranch.com/wholesale/">Wholesale</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links" id="home-nav-links">
+      <li><a href="https://ghosttownranch.com/ritual/">Ritual</a></li>
+      <li><a href="https://ghosttownranch.com/routines/">Routines</a></li>
+      <li><a href="https://ghosttownranch.com/wash-house/">Wash House</a></li>
+      <li><a href="#objects">Shop</a></li>
+      <li><a href="https://ghosttownranch.com/field-guide/">Field Guide</a></li>
+      <li><a href="https://ghosttownranch.com/wholesale/">Wholesale</a></li>
+    </ul>
+    <button class="nav-hamburger" id="home-nav-btn" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
 <!-- ══ HERO ══ -->
@@ -838,5 +846,7 @@
     });
   });
 </script>
+<script src="/cart.js"></script>
+<script src="/gtr-controls.js" defer></script>
 </body>
 </html>
