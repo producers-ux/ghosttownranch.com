@@ -314,11 +314,11 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1px;
-    background: rgba(212,201,181,0.1);
+    background: rgba(212,201,181,0.08);
   }
   .scent-card {
-    background: var(--warm-black);
-    padding: 32px 32px 36px;
+    background: #2A2520;
+    padding: 28px 28px 32px;
   }
   .scent-card-num {
     font-family: var(--sans);
@@ -327,15 +327,15 @@
     margin-bottom: 10px; display: block;
   }
   .scent-card-swatch {
-    width: 20px; height: 20px; border-radius: 50%;
-    margin-bottom: 18px; display: block;
-    box-shadow: 0 0 0 1.5px rgba(244,239,230,0.25);
+    width: 32px; height: 32px; border-radius: 50%;
+    margin-bottom: 20px; display: block;
+    box-shadow: 0 0 0 2px rgba(244,239,230,0.2);
   }
   .scent-card-name {
     font-family: var(--serif);
-    font-size: clamp(24px, 2.4vw, 30px);
+    font-size: clamp(22px, 2.2vw, 28px);
     font-weight: 300; color: var(--parchment);
-    letter-spacing: 0.04em; margin-bottom: 10px;
+    letter-spacing: 0.04em; margin-bottom: 8px;
   }
   .scent-card-notes {
     font-family: var(--sans);
@@ -550,6 +550,29 @@
     .pocket-strip { padding: 48px 24px; }
     .pocket-strip-grid { grid-template-columns: 1fr; gap: 16px; }
   }
+
+  /* ── GLOBAL LINK COLOR RESET ── */
+  a { color: inherit; text-decoration: none; }
+  .scents-entry a,
+  .scents-entry a:link,
+  .scents-entry a:visited,
+  .scents-entry a:hover {
+    color: #C8A96E !important;
+    text-decoration: none !important;
+  }
+  .entry-text a,
+  .entry-text a:link,
+  .entry-text a:visited {
+    color: var(--ochre);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(155,122,63,0.4);
+  }
+  .closing-band a,
+  .closing-band a:link,
+  .closing-band a:visited {
+    color: #C8A96E !important;
+    text-decoration: none !important;
+  }
 </style>
 </head>
 <body>
@@ -664,7 +687,7 @@
       <img src="/thewash_fieldguide_01.png" alt="The Wash — Ghost Town Ranch Pocket Guide No. 01" loading="lazy">
       <div class="pocket-card-footer">
         <span class="pocket-card-name">The Wash</span>
-        <a href="https://ghosttownranch.com/products/sunbroke-the-wash-cold-pressed-grapefruit" class="pocket-card-link">Shop →</a>
+        <a href="https://or-cre.com/products/sunbroke-the-wash-cold-pressed-grapefruit" class="pocket-card-link">Shop →</a>
       </div>
     </div>
     <div class="pocket-card">
@@ -675,7 +698,7 @@
       <img src="/outlawsreserve_fieldguide_02.png" alt="Outlaw's Reserve — Ghost Town Ranch Pocket Guide No. 02" loading="lazy">
       <div class="pocket-card-footer">
         <span class="pocket-card-name">Outlaw's Reserve</span>
-        <a href="https://ghosttownranch.com/products/outlaws-reserve-2-in-1-hair-skin-rinse" class="pocket-card-link">Shop →</a>
+        <a href="https://or-cre.com/products/outlaws-reserve-2-in-1-hair-skin-rinse" class="pocket-card-link">Shop →</a>
       </div>
     </div>
     <div class="pocket-card">
@@ -686,7 +709,7 @@
       <img src="/DrawnLine_pocketguide.png" onerror="this.src='/drawnline_pocketguide.png'" alt="Drawn Line Matte Lip Tint — Ghost Town Ranch Pocket Guide" loading="lazy">
       <div class="pocket-card-footer">
         <span class="pocket-card-name">Drawn Line</span>
-        <a href="https://ghosttownranch.com/products/drawn-line-matte-lip-tint" class="pocket-card-link">Shop →</a>
+        <a href="https://or-cre.com/products/drawn-line-matte-lip-tint" class="pocket-card-link">Shop →</a>
       </div>
     </div>
   </div>
@@ -723,11 +746,11 @@
     <em>Six ways to carry it.</em>
   </h2>
   <p class="scents-entry-intro">Each scent is a specific place, a specific hour. Not invented. Documented.</p>
-  <a href="https://ghosttownranch.com/ritual/" class="scents-link" style="display:inline-block;margin-bottom:40px;font-family:var(--sans);font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ochre);text-decoration:none;border-bottom:1px solid rgba(155,122,63,0.5);padding-bottom:3px;font-weight:300;">Full scent guide →</a>
+  <a href="https://ghosttownranch.com/ritual/" class="scents-link" style="display:inline-block;margin-bottom:40px;font-family:var(--sans);font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:#C8A96E;text-decoration:none;border-bottom:1px solid rgba(200,169,110,0.5);padding-bottom:3px;font-weight:300;">Full scent guide →</a>
   <div class="scents-grid">
     <div class="scent-card">
       <span class="scent-card-num">No. 01</span>
-      <span class="scent-card-swatch" style="background:#c4b89a;"></span>
+      <span class="scent-card-swatch" style="background:#6B3A2A;"></span>
       <h3 class="scent-card-name">Rough Hewn</h3>
       <span class="scent-card-notes">Cade · Cedarwood</span>
       <p class="scent-card-desc">The smell of something being made. Raw wood, dry earth, a day of real work. The workshop at the end of the afternoon.</p>
@@ -735,7 +758,7 @@
     </div>
     <div class="scent-card">
       <span class="scent-card-num">No. 02</span>
-      <span class="scent-card-swatch" style="background:#d4cbb5;"></span>
+      <span class="scent-card-swatch" style="background:#7AADBE;"></span>
       <h3 class="scent-card-name">Hang Dried</h3>
       <span class="scent-card-notes">White Sage · Lavender</span>
       <p class="scent-card-desc">The room after the window has been open all morning. White sage, lavender, linen drying in the sun. Cool and unencumbered.</p>
@@ -743,7 +766,7 @@
     </div>
     <div class="scent-card">
       <span class="scent-card-num">No. 03</span>
-      <span class="scent-card-swatch" style="background:#2A2420;"></span>
+      <span class="scent-card-swatch" style="background:#1A1512;"></span>
       <h3 class="scent-card-name">Ember</h3>
       <span class="scent-card-notes">Charcoal · Amber</span>
       <p class="scent-card-desc">The last hour of a good night. Deep smoke, warm amber, the canyon after rain. Everything settling.</p>
@@ -751,7 +774,7 @@
     </div>
     <div class="scent-card">
       <span class="scent-card-num">No. 04</span>
-      <span class="scent-card-swatch" style="background:#5C6B4A;"></span>
+      <span class="scent-card-swatch" style="background:#4A6741;"></span>
       <h3 class="scent-card-name">Graze</h3>
       <span class="scent-card-notes">Sweetgrass · Sage</span>
       <p class="scent-card-desc">High desert morning. River-clean and sharp. The good scrub after a long ride through open country.</p>
@@ -759,7 +782,7 @@
     </div>
     <div class="scent-card">
       <span class="scent-card-num">No. 05</span>
-      <span class="scent-card-swatch" style="background:#8C7A3A;"></span>
+      <span class="scent-card-swatch" style="background:#8A8A3A;"></span>
       <h3 class="scent-card-name">Flax</h3>
       <span class="scent-card-notes">Cotton Blossom · Citron</span>
       <p class="scent-card-desc">Warm stone, prairie grass. Lemon, cotton blossom, blonde woods in the late afternoon. The field before the light goes.</p>
@@ -767,7 +790,7 @@
     </div>
     <div class="scent-card">
       <span class="scent-card-num">No. 06</span>
-      <span class="scent-card-swatch" style="background:#7A5535;"></span>
+      <span class="scent-card-swatch" style="background:#8A6030;"></span>
       <h3 class="scent-card-name">Dusk</h3>
       <span class="scent-card-notes">Palo Santo · Amber</span>
       <p class="scent-card-desc">Dry earth, warm amber, ancient and mineral. The light going low over the high desert. The day ending on its own terms.</p>
