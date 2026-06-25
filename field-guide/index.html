@@ -519,8 +519,14 @@
   }
   .pocket-card img {
     width: 100%; display: block;
+    height: 480px;
     object-fit: contain;
+    object-position: center;
     background: var(--parchment);
+    padding: 12px;
+  }
+  @media (max-width: 768px) {
+    .pocket-card img { height: 320px; }
   }
   .pocket-card-footer {
     padding: 14px 16px;
@@ -677,7 +683,7 @@
         <span class="pocket-card-meta">Pocket Guide · No. 01</span>
         <span class="pocket-card-meta">Color · The Face</span>
       </div>
-      <img src="/DrawnLine_pocketguide.png" alt="Drawn Line Matte Lip Tint — Ghost Town Ranch Pocket Guide" loading="lazy">
+      <img src="/DrawnLine_pocketguide.png" onerror="this.src='/drawnline_pocketguide.png'" alt="Drawn Line Matte Lip Tint — Ghost Town Ranch Pocket Guide" loading="lazy">
       <div class="pocket-card-footer">
         <span class="pocket-card-name">Drawn Line</span>
         <a href="https://ghosttownranch.com/products/drawn-line-matte-lip-tint" class="pocket-card-link">Shop →</a>
