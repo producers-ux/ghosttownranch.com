@@ -60,22 +60,56 @@
     background: rgba(26,21,18,0.0);
     transition: background 0.4s ease;
   }
-  nav.scrolled { background: rgba(26,21,18,0.82); backdrop-filter: blur(8px); }
+  nav.scrolled { background: rgba(26,21,18,0.92); backdrop-filter: blur(8px); }
   .nav-logo {
     font-family: var(--serif); font-size: 13px; font-weight: 400;
     letter-spacing: 0.22em; text-transform: uppercase;
     text-decoration: none; color: #F4EFE6;
+    z-index: 101; position: relative;
   }
   .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
   .nav-links a {
-    font-family: var(--sans); font-size: 10px; letter-spacing: 0.22em;
+    font-family: var(--sans); font-size: 12px; letter-spacing: 0.2em;
     text-transform: uppercase; text-decoration: none; color: #F4EFE6;
-    opacity: 0.65; font-weight: 300; transition: opacity 0.2s;
+    opacity: 0.75; font-weight: 300; transition: opacity 0.2s;
   }
   .nav-links a:hover { opacity: 1; }
-  @media (max-width: 700px) {
-    nav { padding: 0 20px; height: 60px; }
-    .nav-links { display: none; }
+
+  /* hamburger */
+  .nav-hamburger {
+    display: none; flex-direction: column; justify-content: center;
+    gap: 5px; background: none; border: none; cursor: pointer;
+    padding: 6px; min-width: 44px; min-height: 44px; align-items: center;
+    z-index: 101; position: relative;
+  }
+  .nav-hamburger span {
+    display: block; width: 22px; height: 1.5px;
+    background: #F4EFE6; transition: all .25s ease; transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; height: 64px; }
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(26,21,18,0.98);
+      flex-direction: column; justify-content: center; align-items: center;
+      gap: 0; z-index: 100; padding: 80px 32px 40px;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links li { width: 100%; border-bottom: 1px solid rgba(244,239,230,0.12); }
+    .nav-links li:first-child { border-top: 1px solid rgba(244,239,230,0.12); }
+    .nav-links a {
+      font-size: 15px; letter-spacing: 0.28em;
+      padding: 24px 0; display: block;
+      width: 100%; min-height: 44px;
+      opacity: 0.9; color: #F4EFE6;
+    }
+    .nav-links a:hover { opacity: 1; }
   }
 
   /* ══ 1. HERO — full viewport, almost no text ══ */
@@ -566,12 +600,12 @@
 <nav id="main-nav">
   <a href="/" class="nav-logo">Ghost Town Ranch</a>
   <ul class="nav-links">
-    <li><a href="/ritual/">Ritual</a></li>
-    <li><a href="/routines/">Routines</a></li>
-    <li><a href="/wash-house/">Wash House</a></li>
+    <li><a href="https://ghosttownranch.com/ritual/">Ritual</a></li>
+    <li><a href="https://ghosttownranch.com/routines/">Routines</a></li>
+    <li><a href="https://ghosttownranch.com/wash-house/">Wash House</a></li>
     <li><a href="#objects">Shop</a></li>
-    <li><a href="/field-guide/">Field Guide</a></li>
-    <li><a href="/wholesale/">Wholesale</a></li>
+    <li><a href="https://ghosttownranch.com/field-guide/">Field Guide</a></li>
+    <li><a href="https://ghosttownranch.com/wholesale/">Wholesale</a></li>
   </ul>
 </nav>
 
@@ -609,7 +643,7 @@
 
 <!-- ══ PILLARS ══ -->
 <section id="ritual" class="pillars">
-  <a class="pillar" href="/ritual/">
+  <a class="pillar" href="https://ghosttownranch.com/ritual/">
     <div class="pillar-bg">
       <img src="/theritual.png" alt="The Ritual" loading="lazy" decoding="async">
     </div>
@@ -619,7 +653,7 @@
       <span class="pillar-link">The Ritual →</span>
     </div>
   </a>
-  <a class="pillar" href="/routines/">
+  <a class="pillar" href="https://ghosttownranch.com/routines/">
     <div class="pillar-bg">
       <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/morningedit_1.png" alt="Routines" loading="lazy" decoding="async">
     </div>
@@ -629,7 +663,7 @@
       <span class="pillar-link">The Routines →</span>
     </div>
   </a>
-  <a class="pillar" href="/wash-house/">
+  <a class="pillar" href="https://ghosttownranch.com/wash-house/">
     <div class="pillar-bg">
       <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TheWash1.png" alt="Wash House" loading="lazy" decoding="async">
     </div>
@@ -652,32 +686,32 @@
     <div class="scent-row">
       <div class="scent-swatch" style="background:#c4b89a;"></div>
       <span class="scent-name">Rough Hewn</span>
-      <span class="scent-note">Cedar · Vetiver · Sage</span>
+      <span class="scent-note">Cade · Cedarwood</span>
     </div>
     <div class="scent-row">
       <div class="scent-swatch" style="background:#d4cbb5;"></div>
       <span class="scent-name">Hang Dried</span>
-      <span class="scent-note">Linen · Cotton</span>
+      <span class="scent-note">White Sage · Lavender</span>
     </div>
     <div class="scent-row">
       <div class="scent-swatch" style="background:#8b6a4a;"></div>
       <span class="scent-name">Ember</span>
-      <span class="scent-note">Smoke · Amber</span>
+      <span class="scent-note">Charcoal · Amber</span>
     </div>
     <div class="scent-row">
       <div class="scent-swatch" style="background:#7a8c5a;"></div>
       <span class="scent-name">Graze</span>
-      <span class="scent-note">Grass · Earth</span>
+      <span class="scent-note">Sweetgrass · Sage</span>
     </div>
     <div class="scent-row">
       <div class="scent-swatch" style="background:#c8c4a0;"></div>
       <span class="scent-name">Flax</span>
-      <span class="scent-note">Warm · Mineral</span>
+      <span class="scent-note">Cotton Blossom · Citron</span>
     </div>
     <div class="scent-row">
       <div class="scent-swatch" style="background:#5a6070;"></div>
       <span class="scent-name">Dusk</span>
-      <span class="scent-note">Violet · Evening</span>
+      <span class="scent-note">Palo Santo · Amber</span>
     </div>
   </div>
 </section>
@@ -685,8 +719,8 @@
 <!-- ══ SELECTED OBJECTS ══ -->
 <section id="objects" class="objects">
   <div class="objects-header">
-    <span class="objects-label">Selected objects</span>
-    <a href="/shop/" class="objects-all">Full catalog →</a>
+    <span class="objects-label">From the Ranch</span>
+    <a href="https://ghosttownranch.com/shop/" class="objects-all">Shop the Ranch →</a>
   </div>
   <div class="objects-grid">
     <a class="obj" href="https://ghosttownranch.com/products/the-votive-single">
@@ -764,7 +798,7 @@
           <span class="fg-spec-val">No parabens · No phthalates · No filler</span>
         </div>
       </div>
-      <a href="/field-guide/" class="fg-enter-link">Enter the Field Guide &nbsp;&rarr;</a>
+      <a href="https://ghosttownranch.com/field-guide/" class="fg-enter-link">Enter the Field Guide &nbsp;&rarr;</a>
     </div>
   </div>
 </section>
@@ -792,7 +826,7 @@
   <div class="footer-left">© 2025 Ghost Town Ranch</div>
   <div class="footer-right">
     <a href="https://instagram.com/ghosttownranch" target="_blank" rel="noopener">Instagram</a>
-    <a href="/wholesale/">Wholesale</a>
+    <a href="https://ghosttownranch.com/wholesale/">Wholesale</a>
     <a href="mailto:howdy@ghosttownranch.com">howdy@ghosttownranch.com</a>
   </div>
 </footer>
@@ -804,6 +838,27 @@
     if (window.pageYOffset > 80) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
   }, { passive: true });
+
+  // Hamburger
+  document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.getElementById('home-nav-btn');
+    var list = document.getElementById('home-nav-links');
+    if (!btn || !list) return;
+    btn.addEventListener('click', function() {
+      var open = list.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    list.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        list.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+  });
 </script>
 </body>
 </html>
