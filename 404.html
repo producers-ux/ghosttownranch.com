@@ -4,18 +4,32 @@
   <meta charset="UTF-8" />
   <title>Ghost Town Ranch</title>
   <script>
-    const path = window.location.pathname;
-    if (path.startsWith('/products/')) {
-      const handle = path.replace('/products/', '').replace(/\/$/, '');
-      if (handle) {
-        window.location.replace('/products/?handle=' + handle);
-      } else {
-        window.location.replace('/');
+    (function() {
+      var path = window.location.pathname;
+      var search = window.location.search;
+
+      var brandPages = ['/ritual/', '/routines/', '/wash-house/', '/field-guide/', '/wholesale/', '/shop/', '/land/', '/range/'];
+      for (var i = 0; i < brandPages.length; i++) {
+        if (path === brandPages[i] || path === brandPages[i].replace(/\/$/, '')) {
+          window.location.replace('/');
+          return;
+        }
       }
-    } else {
-      // Everything else goes home
+
+      if (path.startsWith('/products/')) {
+        var handle = path.replace('/products/', '').replace(/\/$/, '');
+        if (handle && handle !== 'index.html') {
+          var redirect = '/products/?handle=' + encodeURIComponent(handle);
+          if (search) redirect += '&' + search.replace(/^\?/, '');
+          window.location.replace(redirect);
+        } else {
+          window.location.replace('/shop/');
+        }
+        return;
+      }
+
       window.location.replace('/');
-    }
+    })();
   </script>
 </head>
 <body></body>
