@@ -69,9 +69,29 @@
     opacity: 0.65; font-weight: 300; transition: opacity 0.2s;
   }
   .nav-links a:hover { opacity: 1; }
-  @media (max-width: 700px) {
+  .nav-hamburger {
+    display: none; flex-direction: column; justify-content: center;
+    gap: 5px; background: none; border: none; cursor: pointer;
+    padding: 6px; min-width: 44px; min-height: 44px; align-items: center;
+  }
+  .nav-hamburger span { display: block; width: 20px; height: 1.5px; background: #F4EFE6; transition: all .25s ease; transform-origin: center; }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+  @media (max-width: 900px) {
     nav { padding: 0 20px; height: 60px; }
-    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      display: none; position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(26,21,18,0.97);
+      flex-direction: column; justify-content: center; align-items: center;
+      gap: 0; z-index: 99; padding: 80px 32px 40px;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links li { width: 100%; border-bottom: 1px solid rgba(244,239,230,0.1); }
+    .nav-links li:first-child { border-top: 1px solid rgba(244,239,230,0.1); }
+    .nav-links a { font-size: 13px; letter-spacing: 0.25em; padding: 22px 0; display: block; width: 100%; min-height: 44px; }
   }
 
   /* ── PAGE HEADER ── */
@@ -407,14 +427,16 @@
 <!-- NAV -->
 <nav>
   <a href="/" class="nav-logo">Ghost Town Ranch</a>
-  <ul class="nav-links">
+  <div style="display:flex;align-items:center;gap:16px;">
+  <ul class="nav-links" id="fg-nav-links">
     <li><a href="/ritual/">Ritual</a></li>
     <li><a href="/routines/">Routines</a></li>
     <li><a href="/wash-house/">Wash House</a></li>
-    <li><a href="/shop/">Shop</a></li>
-    <li><a href="/field-guide/">Field Guide</a></li>
+    <li><a href="/field-guide/" class="active">Field Guide</a></li>
     <li><a href="/wholesale/">Wholesale</a></li>
   </ul>
+  <button class="nav-hamburger" id="fg-nav-btn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
 </nav>
 
 <!-- PAGE HEADER -->
@@ -632,5 +654,26 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var btn=document.getElementById('fg-nav-btn');
+  var list=document.getElementById('fg-nav-links');
+  if(!btn||!list)return;
+  btn.addEventListener('click',function(){
+    var open=list.classList.toggle('open');
+    btn.classList.toggle('open',open);
+    btn.setAttribute('aria-expanded',open);
+    document.body.style.overflow=open?'hidden':'';
+  });
+  list.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      list.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
+      document.body.style.overflow='';
+    });
+  });
+})();
+</script>
 </body>
 </html>
