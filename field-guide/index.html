@@ -179,24 +179,28 @@
 
   /* ── TEXT ENTRY ── */
   .entry-body {
-    padding: 40px 48px 64px;
-    max-width: 860px;
+    padding: 36px 48px 56px;
+    max-width: none;
+    display: grid;
+    grid-template-columns: minmax(260px, 0.8fr) 1.2fr;
+    gap: 32px 64px;
+    align-items: start;
   }
   .entry-title {
     font-family: var(--serif);
-    font-size: clamp(38px, 4.5vw, 62px);
+    font-size: clamp(32px, 3.4vw, 52px);
     font-weight: 300; line-height: 1.05;
     letter-spacing: 0.02em;
-    margin-bottom: 32px;
+    margin-bottom: 0;
   }
   .entry-title em { font-style: italic; color: var(--ochre); }
   .entry-text p {
     font-family: var(--serif);
-    font-size: clamp(19px, 2.2vw, 24px);
-    line-height: 1.9; letter-spacing: 0.01em;
+    font-size: clamp(18px, 1.6vw, 22px);
+    line-height: 1.85; letter-spacing: 0.01em;
     color: var(--ink); opacity: 0.88;
-    margin-bottom: 24px;
-    max-width: 720px;
+    margin-bottom: 22px;
+    max-width: 640px;
   }
   .entry-text p:last-child { margin-bottom: 0; }
   .entry-text strong {
@@ -432,8 +436,8 @@
     .header-eyebrow { font-size: 13px; }
     .header-meta { font-size: 11px; }
 
-    .entry-body { padding: 32px 24px 48px; }
-    .entry-title { font-size: clamp(32px, 8vw, 48px); margin-bottom: 24px; }
+    .entry-body { padding: 32px 24px 44px; grid-template-columns: 1fr; gap: 16px; }
+    .entry-title { font-size: clamp(32px, 8vw, 48px); margin-bottom: 4px; }
     .entry-text p { font-size: 18px; line-height: 1.85; max-width: 100%; }
     .entry-number { font-size: 12px; }
     .entry-tag { font-size: 12px; }
@@ -847,5 +851,7 @@
   });
 })();
 </script>
+<script src="/cart.js"></script>
+<script src="/gtr-controls.js" defer></script>
 </body>
 </html>
