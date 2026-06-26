@@ -111,7 +111,7 @@
     color: var(--warm-black); opacity: 0.6; font-weight: 300;
   }
   .header-title {
-    padding: 56px 48px 48px;
+    padding: 32px 48px 28px;
   }
   .header-eyebrow {
     font-family: var(--sans);
@@ -132,12 +132,12 @@
   }
   @media (max-width: 768px) {
     .page-header-bar { padding: 14px 24px; }
-    .header-title { padding: 40px 24px 36px; }
+    .header-title { padding: 24px 24px 20px; }
   }
 
   /* ── HERO IMAGE ── */
   .fg-hero {
-    height: 70vh; min-height: 400px;
+    height: 52vh; min-height: 320px;
     position: relative; overflow: hidden;
   }
   .fg-hero img {
@@ -555,7 +555,57 @@
     .pocket-strip-grid { grid-template-columns: 1fr; gap: 16px; }
   }
 
-  /* ── GLOBAL LINK COLOR RESET ── */
+  /* ── INLINE TRIO (No. 02–04) ── */
+  .inline-trio {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-bottom: 1px solid var(--dust);
+  }
+  .trio-item {
+    padding: 40px 40px 48px;
+    border-right: 1px solid var(--dust);
+  }
+  .trio-item:last-child { border-right: none; }
+  .trio-num {
+    font-family: var(--sans);
+    font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--ochre); opacity: 0.85; font-weight: 400;
+    display: block; margin-bottom: 4px;
+  }
+  .trio-tag {
+    font-family: var(--sans);
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--army); opacity: 0.65; font-weight: 300;
+    display: block; margin-bottom: 20px;
+  }
+  .trio-title {
+    font-family: var(--serif);
+    font-size: clamp(24px, 2.2vw, 34px);
+    font-weight: 300; line-height: 1.1;
+    letter-spacing: 0.02em; margin-bottom: 16px;
+  }
+  .trio-title em { font-style: italic; color: var(--ochre); }
+  .trio-body {
+    font-family: var(--serif);
+    font-size: clamp(16px, 1.4vw, 18px);
+    line-height: 1.8; letter-spacing: 0.01em;
+    color: var(--ink); opacity: 0.82;
+    margin-bottom: 14px;
+  }
+  .trio-link {
+    font-family: var(--sans);
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ochre); text-decoration: none;
+    border-bottom: 1px solid rgba(155,122,63,0.4);
+    padding-bottom: 2px; font-weight: 300; display: inline-block;
+  }
+  @media (max-width: 900px) {
+    .inline-trio { grid-template-columns: 1fr; }
+    .trio-item { border-right: none; border-bottom: 1px solid var(--dust); padding: 32px 24px; }
+    .trio-item:last-child { border-bottom: none; }
+  }
+
+
   a { color: inherit; text-decoration: none; }
   .scents-entry a,
   .scents-entry a:link,
@@ -642,42 +692,28 @@
   </p>
 </div>
 
-<!-- ══ ENTRY 02: FRONTIER MODERNISM ══ -->
-<article class="entry">
-  <div class="entry-header">
-    <span class="entry-number">No. 02</span>
-    <div class="entry-rule"></div>
-    <span class="entry-tag">Philosophy</span>
+<!-- ══ ENTRIES 02–04: CONDENSED INLINE ROW ══ -->
+<section class="inline-trio">
+  <div class="trio-item">
+    <span class="trio-num">No. 02</span>
+    <span class="trio-tag">Philosophy</span>
+    <h3 class="trio-title">Frontier <em>Modernism.</em></h3>
+    <p class="trio-body">Pioneer grit and modern clarity. The self-reliance of the frontier West meets the discipline of desert modernism. Made with intention, without filler, in service of the person who will live inside what we make.</p>
   </div>
-  <div class="entry-body">
-    <h2 class="entry-title">
-      Frontier<br><em>Modernism.</em>
-    </h2>
-    <div class="entry-text">
-      <p>Pioneer grit and modern clarity. The self-reliance of the frontier West meets the discipline of desert modernism. We formulate the way a good architect builds: with intention, without filler, in service of the person who will live inside what we make.</p>
-    </div>
+  <div class="trio-item">
+    <span class="trio-num">No. 03</span>
+    <span class="trio-tag">Vision</span>
+    <h3 class="trio-title">Where Frontier <em>Modernism lives.</em></h3>
+    <p class="trio-body">Frontier Modernism is not a desert category. It is an American West category — anywhere the wide open meets a considered life. The wide open is a disposition, not a zip code. <strong>If that is your town, Ghost Town Ranch is already there.</strong></p>
+    <a href="https://livekindred.com/home/clj2wi8vs05y8m03alib23sl2?invite_code=kat.bou1" target="_blank" rel="noopener" class="trio-link">Find your kindred →</a>
   </div>
-</article>
-
-<!-- ══ ENTRY 03: WHERE FRONTIER MODERNISM LIVES ══ -->
-<article class="entry">
-  <div class="entry-header">
-    <span class="entry-number">No. 03</span>
-    <div class="entry-rule"></div>
-    <span class="entry-tag">Vision</span>
+  <div class="trio-item">
+    <span class="trio-num">No. 04</span>
+    <span class="trio-tag">Landscape</span>
+    <h3 class="trio-title">The wide <em>open.</em></h3>
+    <p class="trio-body">The desert is a design brief. Wide light, dry air, heat that asks something of every surface it touches. Anything that cannot sustain itself in this light falls away. From the wide open, for every day.</p>
   </div>
-  <div class="entry-body">
-    <h2 class="entry-title">
-      Where Frontier<br><em>Modernism lives.</em>
-    </h2>
-    <div class="entry-text">
-      <p>Frontier Modernism is not a desert category. It is an American West category — and the American West is anywhere the wide open meets a considered life. The ski lodge above Sun Valley. The spa at the edge of a Utah ranch. The farmhouse in the Hudson Valley where the weekend feels like it was earned.</p>
-      <p>The wide open is a disposition, not a zip code. <strong>If that is your town, Ghost Town Ranch is already there.</strong></p>
-      <p style="margin-top: 8px;"><a href="https://livekindred.com/home/clj2wi8vs05y8m03alib23sl2?invite_code=kat.bou1" target="_blank" rel="noopener" style="font-family: var(--sans); font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ochre); text-decoration: none; border-bottom: 1px solid rgba(155,122,63,0.4); padding-bottom: 2px; font-weight: 300;">Find your kindred →</a></p>
-    </div>
-  </div>
-</article>
-
+</section>
 
 <!-- ══ POCKET GUIDE STRIP ══ -->
 <section class="pocket-strip">
@@ -719,25 +755,6 @@
   </div>
 </section>
 
-<!-- ══ ENTRY 04: THE WIDE OPEN ══ -->
-<article class="entry" style="background: var(--cream);">
-  <div class="entry-header" style="padding-top: 48px;">
-    <span class="entry-number">No. 04</span>
-    <div class="entry-rule"></div>
-    <span class="entry-tag">Landscape</span>
-  </div>
-  <div class="entry-body">
-    <h2 class="entry-title">
-      The wide<br><em>open.</em>
-    </h2>
-    <div class="entry-text">
-      <p>The desert is a design brief. Wide light, dry air, heat that asks something of every surface it touches. Anything that cannot sustain itself in this light falls away.</p>
-      <p>The wide open is not an aesthetic. It is an argument about what matters. From the wide open, for every day.</p>
-    </div>
-  </div>
-</article>
-
-<!-- ══ ENTRY 04: THE STANDARD — split with illustration ══ -->
 <!-- ══ ENTRY 06: SIX SCENTS ══ -->
 <section class="scents-entry">
   <div class="scents-entry-header">
