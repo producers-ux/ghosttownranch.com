@@ -134,10 +134,10 @@ index af4a670..2db3391 100644
  </html>
 diff --git a/gtr-controls.js b/gtr-controls.js
 new file mode 100644
-index 0000000..5101261
+index 0000000..fdb80f4
 --- /dev/null
 +++ b/gtr-controls.js
-@@ -0,0 +1,356 @@
+@@ -0,0 +1,358 @@
 +/* ──────────────────────────────────────────────────────────────────────────
 +   GTR Controls — shared nav search + cart, drop-in for every page.
 +   Self-styled (prefix: gtrc-) so it never depends on a page's own nav CSS.
@@ -458,10 +458,12 @@ index 0000000..5101261
 +    }
 +    if (!mount) return;
 +
-+    // Match the surrounding nav's text color so icons read on dark or light navs.
++    // Match the nav's link text color so icons read on dark or light navs
++    // (sample an actual link, not the nav element, whose default color may differ).
 +    try {
 +      var navForColor = (mount.closest && mount.closest('nav')) || document.querySelector('nav') || mount;
-+      var c = getComputedStyle(navForColor).color;
++      var sample = navForColor.querySelector('.nav-links a, .nav-link, a') || navForColor;
++      var c = getComputedStyle(sample).color;
 +      if (c) tools.style.color = c;
 +    } catch (e) {}
 +
@@ -507,10 +509,21 @@ index dcb7ab6..278319d 100644
  </body>
  </html>
 diff --git a/index.html b/index.html
-index 359dddf..f4ddbe5 100644
+index 359dddf..a024adc 100644
 --- a/index.html
 +++ b/index.html
-@@ -67,6 +67,7 @@
+@@ -57,7 +57,9 @@
+     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+     display: flex; justify-content: space-between; align-items: center;
+     padding: 18px 48px;
+-    background: rgba(26,21,18,0.0);
++    color: #F4EFE6;
++    /* Scrim keeps the light nav legible over light or dark heroes */
++    background: linear-gradient(180deg, rgba(26,21,18,0.72) 0%, rgba(26,21,18,0.34) 55%, rgba(26,21,18,0) 100%);
+     transition: background 0.4s ease;
+   }
+   nav.scrolled { background: rgba(26,21,18,0.92); backdrop-filter: blur(8px); }
+@@ -67,6 +69,7 @@
      text-decoration: none; color: #F4EFE6;
      z-index: 101; position: relative;
    }
@@ -518,7 +531,7 @@ index 359dddf..f4ddbe5 100644
    .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
    .nav-links a {
      font-family: var(--sans); font-size: 12px; letter-spacing: 0.2em;
-@@ -92,6 +93,7 @@
+@@ -92,6 +95,7 @@
  
    @media (max-width: 900px) {
      nav { padding: 0 20px; height: 64px; }
@@ -526,7 +539,7 @@ index 359dddf..f4ddbe5 100644
      .nav-hamburger { display: flex; }
      .nav-links {
        display: none;
-@@ -488,20 +490,21 @@
+@@ -488,20 +492,21 @@
    }
    .fg-body {
      display: grid;
@@ -553,7 +566,7 @@ index 359dddf..f4ddbe5 100644
    }
    .fg-drawing-caption {
      padding: 16px 32px;
-@@ -579,8 +582,8 @@
+@@ -579,8 +584,8 @@
    @media (max-width: 900px) {
      .fg-header { padding: 12px 24px; }
      .fg-body { grid-template-columns: 1fr; }
@@ -564,7 +577,7 @@ index 359dddf..f4ddbe5 100644
      .fg-text-col { padding: 32px 24px; }
      .fg-dispatch-headline { font-size: clamp(22px, 6vw, 32px); }
      .fg-dispatch-body { max-width: 100%; font-size: 15px; }
-@@ -599,14 +602,19 @@
+@@ -599,14 +604,19 @@
  <!-- NAV -->
  <nav id="main-nav">
    <a href="/" class="nav-logo">Ghost Town Ranch</a>
@@ -592,7 +605,7 @@ index 359dddf..f4ddbe5 100644
  </nav>
  
  <!-- ══ HERO ══ -->
-@@ -838,5 +846,7 @@
+@@ -838,5 +848,7 @@
      });
    });
  </script>

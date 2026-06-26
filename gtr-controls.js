@@ -318,10 +318,12 @@
     }
     if (!mount) return;
 
-    // Match the surrounding nav's text color so icons read on dark or light navs.
+    // Match the nav's link text color so icons read on dark or light navs
+    // (sample an actual link, not the nav element, whose default color may differ).
     try {
       var navForColor = (mount.closest && mount.closest('nav')) || document.querySelector('nav') || mount;
-      var c = getComputedStyle(navForColor).color;
+      var sample = navForColor.querySelector('.nav-links a, .nav-link, a') || navForColor;
+      var c = getComputedStyle(sample).color;
       if (c) tools.style.color = c;
     } catch (e) {}
 
