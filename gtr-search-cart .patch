@@ -509,7 +509,7 @@ index dcb7ab6..278319d 100644
  </body>
  </html>
 diff --git a/index.html b/index.html
-index 359dddf..a024adc 100644
+index 359dddf..245e8db 100644
 --- a/index.html
 +++ b/index.html
 @@ -57,7 +57,9 @@
@@ -577,7 +577,7 @@ index 359dddf..a024adc 100644
      .fg-text-col { padding: 32px 24px; }
      .fg-dispatch-headline { font-size: clamp(22px, 6vw, 32px); }
      .fg-dispatch-body { max-width: 100%; font-size: 15px; }
-@@ -599,14 +604,19 @@
+@@ -599,14 +604,18 @@
  <!-- NAV -->
  <nav id="main-nav">
    <a href="/" class="nav-logo">Ghost Town Ranch</a>
@@ -594,7 +594,6 @@ index 359dddf..a024adc 100644
 +      <li><a href="https://ghosttownranch.com/ritual/">Ritual</a></li>
 +      <li><a href="https://ghosttownranch.com/routines/">Routines</a></li>
 +      <li><a href="https://ghosttownranch.com/wash-house/">Wash House</a></li>
-+      <li><a href="#objects">Shop</a></li>
 +      <li><a href="https://ghosttownranch.com/field-guide/">Field Guide</a></li>
 +      <li><a href="https://ghosttownranch.com/wholesale/">Wholesale</a></li>
 +    </ul>
@@ -605,7 +604,7 @@ index 359dddf..a024adc 100644
  </nav>
  
  <!-- ══ HERO ══ -->
-@@ -838,5 +848,7 @@
+@@ -838,5 +847,7 @@
      });
    });
  </script>
