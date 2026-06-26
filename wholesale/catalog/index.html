@@ -49,17 +49,17 @@
   --terra:   #7A3E22;
   --amber:   #C8902A;
   --gold:    #C8A96E;
-  --cream:   #F5EDD0;
-  --dust:    #E5DAC0;
+  --cream:   #F8F5EF;
+  --dust:    #E8E2D6;
   --army:    #7C8260;
-  --parch:   #F0E8D5;
+  --parch:   #F4F1EB;
   --serif:   'PPEiko', 'Cormorant Garamond', Georgia, serif;
   --sans:    'Jost', system-ui, sans-serif;
 }
 
 html { scroll-behavior: smooth; }
 body {
-  background: var(--cream);
+  background: #FAFAF7;
   color: var(--dark);
   font-family: var(--serif);
   font-size: 19px;
@@ -71,7 +71,7 @@ a { color: inherit; text-decoration: none; }
 /* ── COVER ── */
 .cover {
   width: 100%; height: 100vh; min-height: 680px;
-  background: var(--parch);
+  background: #F4F1EB;
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
@@ -81,7 +81,7 @@ a { color: inherit; text-decoration: none; }
   display: flex; flex-direction: column; justify-content: flex-end;
   padding: 56px 48px;
   position: relative; z-index: 2;
-  background: var(--parch);
+  background: #F4F1EB;
 }
 .cover-right {
   position: relative; overflow: hidden;
@@ -144,18 +144,22 @@ a { color: inherit; text-decoration: none; }
 .fg-spread {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  min-height: 88vh;
-  border-bottom: 1px solid var(--dust);
+  height: 82vh;
+  min-height: 480px;
+  max-height: 680px;
+  border-bottom: 1px solid #E0DBD0;
 }
 .fg-panel {
   position: relative; overflow: hidden;
-  border-right: 1px solid var(--dust);
+  border-right: 1px solid #E0DBD0;
+  min-height: 520px;
 }
 .fg-panel:last-child { border-right: none; }
 .fg-panel img {
   width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center;
+  object-fit: contain;
+  object-position: center top;
+  background: #F4F1EB;
   display: block;
   transition: transform 0.6s ease;
 }
@@ -184,7 +188,7 @@ a { color: inherit; text-decoration: none; }
   display: block; margin-top: 3px;
 }
 .fg-spread-intro {
-  background: var(--dust);
+  background: #EDEAE2;
   padding: 64px 48px;
   display: flex; flex-direction: column; justify-content: center;
   grid-column: span 3;
@@ -241,7 +245,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 13px; letter-spacing: 0.28em; text-transform: uppercase;
   color: var(--amber); font-weight: 400; flex-shrink: 0;
 }
-.section-rule { flex: 1; height: 1px; background: var(--dust); }
+.section-rule { flex: 1; height: 1px; background: #EDEAE2; }
 .section-tag {
   font-family: var(--sans);
   font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
@@ -275,7 +279,7 @@ a { color: inherit; text-decoration: none; }
 .hero-image-tall img {
   width: 100%; height: 100%;
   object-fit: contain; object-position: center;
-  background: var(--parch);
+  background: #F4F1EB;
   display: block;
 }
 
@@ -302,7 +306,7 @@ a { color: inherit; text-decoration: none; }
 
 .product-img {
   width: 100%; aspect-ratio: 1 / 1;
-  overflow: hidden; background: var(--parch);
+  overflow: hidden; background: #F4F1EB;
   flex-shrink: 0;
 }
 .product-img img {
@@ -372,7 +376,7 @@ a { color: inherit; text-decoration: none; }
 .split-image-text.reverse > * { direction: ltr; }
 .split-img {
   overflow: hidden; position: relative;
-  background: var(--parch);
+  background: #F4F1EB;
 }
 .split-img img {
   width: 100%; height: 100%;
@@ -382,9 +386,9 @@ a { color: inherit; text-decoration: none; }
 .split-text-block {
   padding: 56px 52px;
   display: flex; flex-direction: column; justify-content: center;
-  background: var(--parch);
+  background: #F4F1EB;
 }
-.split-text-block.light { background: var(--parch); }
+.split-text-block.light { background: #F4F1EB; }
 .split-eyebrow {
   font-family: var(--sans);
   font-size: 12px; letter-spacing: 0.26em; text-transform: uppercase;
@@ -440,7 +444,7 @@ a { color: inherit; text-decoration: none; }
 /* ── PULL QUOTE ── */
 .pull-quote {
   padding: 72px 48px;
-  background: var(--dust);
+  background: #EDEAE2;
   border-top: 1px solid rgba(124,130,96,0.25);
   border-bottom: 1px solid rgba(124,130,96,0.25);
 }
@@ -477,7 +481,7 @@ a { color: inherit; text-decoration: none; }
 .image-strip-cell img {
   width: 100%; height: 100%;
   object-fit: contain; object-position: center;
-  background: var(--parch);
+  background: #F4F1EB;
   display: block;
   transition: transform 0.5s ease;
 }
@@ -486,18 +490,18 @@ a { color: inherit; text-decoration: none; }
 
 /* ── SCENT GUIDE ── */
 .scent-section {
-  background: var(--parch); border-top: 1px solid var(--dust);
+  background: #F4F1EB; border-top: 1px solid #E0DBD0;
   padding: 64px 48px;
 }
 .scent-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  background: var(--dust);
+  background: #E0DBD0;
   margin-top: 40px;
 }
 .scent-card {
-  background: var(--parch);
+  background: #FAFAF7;
   padding: 28px 28px 32px;
 }
 .scent-num {
@@ -532,7 +536,7 @@ a { color: inherit; text-decoration: none; }
 /* ── TERMS SECTION ── */
 .terms-section {
   padding: 72px 48px;
-  background: var(--parch);
+  background: #F4F1EB;
   border-top: 1px solid var(--dust);
 }
 .terms-grid {
@@ -555,7 +559,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ── CLOSING ── */
 .closing {
-  background: var(--dust);
+  background: #EDEAE2;
   padding: 80px 48px;
   display: flex; align-items: center;
   justify-content: space-between; gap: 40px;
@@ -624,7 +628,7 @@ a { color: inherit; text-decoration: none; }
   .print-btn:hover { background: var(--terra); transform: translateY(-2px); }
   .print-instructions {
     position: fixed; bottom: 88px; right: 32px; z-index: 200;
-    background: var(--parch);
+    background: #F4F1EB;
     border: 1px solid var(--dust);
     padding: 22px 26px;
     max-width: 300px;
@@ -667,9 +671,9 @@ a { color: inherit; text-decoration: none; }
 
   /* ── PRINT: ensure no dark ink backgrounds ── */
   @media print {
-    .cover { background: var(--parch) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .scent-section, .pull-quote, .closing, .fg-spread-intro { background: var(--dust) !important; }
-    [style*="background:var(--army)"] { background: var(--dust) !important; }
+    .cover { background: #F4F1EB !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .scent-section, .pull-quote, .closing, .fg-spread-intro { background: #EDEAE2 !important; }
+    [style*="background:var(--army)"] { background: #EDEAE2 !important; }
     .fg-label-name, .fg-label-sub, .lifestyle-bleed-caption { color: var(--dark) !important; }
     .split-eyebrow[style], .split-h[style] { color: var(--dark) !important; }
     * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -700,9 +704,8 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
   <div class="cover-right">
-    <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/drycreek_washhouse_2000.png?v=1782407257"
-         alt="Ghost Town Ranch — Wide Light, Open Spaces"
-         onerror="this.src='https://cdn.shopify.com/s/files/1/0984/0174/7240/files/stillair_body_2000.png?v=1782408329'">
+    <img src="https://ghosttownranch.com/herogtr.png"
+         alt="Ghost Town Ranch — Wide Light, Open Spaces">
   </div>
 </section>
 
@@ -758,22 +761,91 @@ a { color: inherit; text-decoration: none; }
   </div>
 </section>
 
-<!-- ══ SECTION 01: CANDLES + HOME ══ -->
+<!-- ══ WIDE LIGHT FULL-BLEED ══ -->
+<div style="position:relative;width:100%;height:70vh;min-height:440px;overflow:hidden;border-top:1px solid #E0DBD0;">
+  <img src="https://ghosttownranch.com/widelight.jpg"
+       alt="Wide Light — Ghost Town Ranch, Frontier Modernism"
+       style="width:100%;height:100%;object-fit:cover;object-position:60% center;display:block;filter:sepia(0.06) contrast(1.03);">
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 35%,rgba(26,16,8,0.55) 100%);"></div>
+  <div style="position:absolute;bottom:0;left:0;right:0;padding:48px 52px;">
+    <p style="font-family:var(--sans);font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(245,241,235,0.7);font-weight:300;margin-bottom:14px;">Ghost Town Ranch · Frontier Modernism</p>
+    <h2 style="font-family:var(--serif);font-size:clamp(40px,6vw,80px);font-weight:200;line-height:0.95;letter-spacing:0.04em;text-transform:uppercase;color:#F8F5EF;">Wide light.<br><em style="font-style:italic;font-weight:300;color:#C8A96E;text-transform:none;letter-spacing:0.06em;">Open spaces.</em></h2>
+    <p style="font-family:var(--serif);font-size:clamp(17px,1.8vw,21px);font-weight:200;color:rgba(248,245,239,0.8);margin-top:18px;max-width:480px;line-height:1.7;">From the wide open, for every day.</p>
+  </div>
+</div>
+
+
+<!-- ══ SECTION 01: RITUAL — CANDLES + SCENT ══ -->
 <section>
   <div class="section-header">
     <span class="section-num">No. 01</span>
     <div class="section-rule"></div>
-    <span class="section-tag">Candles + Home Fragrance</span>
+    <span class="section-tag">Ritual · Candles + Scent</span>
   </div>
   <div class="section-title-block">
-    <h2 class="section-title">Scent as<br><em>landscape.</em></h2>
+    <h2 class="section-title">Ritual.<br><em>Scent as landscape.</em></h2>
   </div>
+
+<!-- ══ SCENT GUIDE — above products ══ -->
+<div style="background:#FAFAF7;border-top:1px solid #E0DBD0;border-bottom:1px solid #E0DBD0;padding:64px 48px;">
+  <div style="display:flex;align-items:baseline;gap:24px;margin-bottom:40px;">
+    <span style="font-family:var(--sans);font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--amber);font-weight:400;">Scent Guide</span>
+    <div style="flex:1;height:1px;background:#E0DBD0;"></div>
+    <span style="font-family:var(--sans);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--army);font-weight:300;">Six Landscapes</span>
+  </div>
+  <h3 style="font-family:var(--serif);font-size:clamp(32px,3.8vw,52px);font-weight:200;color:var(--terra);line-height:1.05;letter-spacing:0.01em;margin-bottom:48px;max-width:700px;">The land has a scent.<br><em style="font-style:italic;font-weight:300;color:var(--terra);">Six ways to carry it.</em></h3>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#E0DBD0;">
+    <div style="background:#FAFAF7;padding:32px 32px 36px;">
+      <span style="font-family:var(--sans);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);font-weight:400;display:block;margin-bottom:14px;">No. 01</span>
+      <span style="display:block;width:30px;height:30px;border-radius:50%;background:#6B3A2A;margin-bottom:18px;"></span>
+      <div style="font-family:var(--serif);font-size:clamp(22px,2.4vw,30px);font-weight:400;color:var(--dark);letter-spacing:0.01em;margin-bottom:8px;">Rough Hewn</div>
+      <span style="font-family:var(--sans);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--army);font-weight:300;display:block;margin-bottom:14px;">Cade · Cedarwood</span>
+      <p style="font-family:var(--serif);font-size:17px;line-height:1.75;color:rgba(26,16,8,0.7);">The smell of something being made. Raw wood, dry earth, a day of real work.</p>
+    </div>
+    <div style="background:#FAFAF7;padding:32px 32px 36px;">
+      <span style="font-family:var(--sans);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);font-weight:400;display:block;margin-bottom:14px;">No. 02</span>
+      <span style="display:block;width:30px;height:30px;border-radius:50%;background:#7AADBE;margin-bottom:18px;"></span>
+      <div style="font-family:var(--serif);font-size:clamp(22px,2.4vw,30px);font-weight:400;color:var(--dark);letter-spacing:0.01em;margin-bottom:8px;">Hang Dried</div>
+      <span style="font-family:var(--sans);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--army);font-weight:300;display:block;margin-bottom:14px;">White Sage · Lavender</span>
+      <p style="font-family:var(--serif);font-size:17px;line-height:1.75;color:rgba(26,16,8,0.7);">The room after the window has been open all morning. Cool and unencumbered.</p>
+    </div>
+    <div style="background:#FAFAF7;padding:32px 32px 36px;">
+      <span style="font-family:var(--sans);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);font-weight:400;display:block;margin-bottom:14px;">No. 03</span>
+      <span style="display:block;width:30px;height:30px;border-radius:50%;background:#1A1512;margin-bottom:18px;box-shadow:0 0 0 1.5px #E0DBD0;"></span>
+      <div style="font-family:var(--serif);font-size:clamp(22px,2.4vw,30px);font-weight:400;color:var(--dark);letter-spacing:0.01em;margin-bottom:8px;">Ember</div>
+      <span style="font-family:var(--sans);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--army);font-weight:300;display:block;margin-bottom:14px;">Charcoal · Amber</span>
+      <p style="font-family:var(--serif);font-size:17px;line-height:1.75;color:rgba(26,16,8,0.7);">The last hour of a good night. Deep smoke, warm amber, the canyon after rain.</p>
+    </div>
+    <div style="background:#FAFAF7;padding:32px 32px 36px;">
+      <span style="font-family:var(--sans);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);font-weight:400;display:block;margin-bottom:14px;">No. 04</span>
+      <span style="display:block;width:30px;height:30px;border-radius:50%;background:#4A6741;margin-bottom:18px;"></span>
+      <div style="font-family:var(--serif);font-size:clamp(22px,2.4vw,30px);font-weight:400;color:var(--dark);letter-spacing:0.01em;margin-bottom:8px;">Graze</div>
+      <span style="font-family:var(--sans);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--army);font-weight:300;display:block;margin-bottom:14px;">Sweetgrass · Sage</span>
+      <p style="font-family:var(--serif);font-size:17px;line-height:1.75;color:rgba(26,16,8,0.7);">High desert morning. River-clean and sharp. The good scrub after a long ride.</p>
+    </div>
+    <div style="background:#FAFAF7;padding:32px 32px 36px;">
+      <span style="font-family:var(--sans);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);font-weight:400;display:block;margin-bottom:14px;">No. 05</span>
+      <span style="display:block;width:30px;height:30px;border-radius:50%;background:#8A8A3A;margin-bottom:18px;"></span>
+      <div style="font-family:var(--serif);font-size:clamp(22px,2.4vw,30px);font-weight:400;color:var(--dark);letter-spacing:0.01em;margin-bottom:8px;">Flax</div>
+      <span style="font-family:var(--sans);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--army);font-weight:300;display:block;margin-bottom:14px;">Cotton Blossom · Citron</span>
+      <p style="font-family:var(--serif);font-size:17px;line-height:1.75;color:rgba(26,16,8,0.7);">Warm stone, prairie grass. Lemon, cotton blossom, blonde woods in late afternoon.</p>
+    </div>
+    <div style="background:#FAFAF7;padding:32px 32px 36px;">
+      <span style="font-family:var(--sans);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);font-weight:400;display:block;margin-bottom:14px;">No. 06</span>
+      <span style="display:block;width:30px;height:30px;border-radius:50%;background:#8A6030;margin-bottom:18px;"></span>
+      <div style="font-family:var(--serif);font-size:clamp(22px,2.4vw,30px);font-weight:400;color:var(--dark);letter-spacing:0.01em;margin-bottom:8px;">Dusk</div>
+      <span style="font-family:var(--sans);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--army);font-weight:300;display:block;margin-bottom:14px;">Palo Santo · Amber</span>
+      <p style="font-family:var(--serif);font-size:17px;line-height:1.75;color:rgba(26,16,8,0.7);">Dry earth, warm amber, ancient and mineral. The day ending on its own terms.</p>
+    </div>
+  </div>
+</div>
+
 
   <!-- Hero: Monument full bleed -->
   <div class="lifestyle-bleed">
     <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Themonument1_286ba5fd-33d4-46a3-a678-4a99682977ad.png?v=1781994789"
          alt="The Monument — Ghost Town Ranch 4-Wick Candle"
-         style="object-fit:contain; background: var(--parch);">
+         style="object-fit:contain; background: #F4F1EB;">
     <span class="lifestyle-bleed-caption">The Monument · 55oz · 4-Wick</span>
   </div>
 
@@ -941,78 +1013,23 @@ a { color: inherit; text-decoration: none; }
 
   </div><!-- /product-grid -->
 
-  <!-- Six Scents Guide -->
-  <div class="scent-section">
-    <div style="display:flex;align-items:baseline;gap:24px;margin-bottom:8px;">
-      <span style="font-family:var(--sans);font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--amber);font-weight:400;">Scent Guide</span>
-      <div style="flex:1;height:1px;background:rgba(229,218,192,0.12);"></div>
-      <span style="font-family:var(--sans);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--army);font-weight:300;">Six Landscapes</span>
-    </div>
-    <h3 style="font-family:var(--serif);font-size:clamp(28px,3.2vw,44px);font-weight:300;color:var(--dark);line-height:1.1;letter-spacing:0.02em;max-width:600px;">
-      The land has a scent.<br><em style="font-style:italic;color:var(--terra);">Six ways to carry it.</em>
-    </h3>
-    <div class="scent-grid">
-      <div class="scent-card">
-        <span class="scent-num">No. 01</span>
-        <span class="scent-swatch" style="background:#6B3A2A;"></span>
-        <div class="scent-name">Rough Hewn</div>
-        <span class="scent-notes">Cade · Cedarwood</span>
-        <p class="scent-desc">The smell of something being made. Raw wood, dry earth, a day of real work.</p>
-      </div>
-      <div class="scent-card">
-        <span class="scent-num">No. 02</span>
-        <span class="scent-swatch" style="background:#7AADBE;"></span>
-        <div class="scent-name">Hang Dried</div>
-        <span class="scent-notes">White Sage · Lavender</span>
-        <p class="scent-desc">The room after the window has been open all morning. Cool and unencumbered.</p>
-      </div>
-      <div class="scent-card">
-        <span class="scent-num">No. 03</span>
-        <span class="scent-swatch" style="background:#1A1512;"></span>
-        <div class="scent-name">Ember</div>
-        <span class="scent-notes">Charcoal · Amber</span>
-        <p class="scent-desc">The last hour of a good night. Deep smoke, warm amber, the canyon after rain.</p>
-      </div>
-      <div class="scent-card">
-        <span class="scent-num">No. 04</span>
-        <span class="scent-swatch" style="background:#4A6741;"></span>
-        <div class="scent-name">Graze</div>
-        <span class="scent-notes">Sweetgrass · Sage</span>
-        <p class="scent-desc">High desert morning. River-clean and sharp. The good scrub after a long ride.</p>
-      </div>
-      <div class="scent-card">
-        <span class="scent-num">No. 05</span>
-        <span class="scent-swatch" style="background:#8A8A3A;"></span>
-        <div class="scent-name">Flax</div>
-        <span class="scent-notes">Cotton Blossom · Citron</span>
-        <p class="scent-desc">Warm stone, prairie grass. Lemon, cotton blossom, blonde woods in late afternoon.</p>
-      </div>
-      <div class="scent-card">
-        <span class="scent-num">No. 06</span>
-        <span class="scent-swatch" style="background:#8A6030;"></span>
-        <div class="scent-name">Dusk</div>
-        <span class="scent-notes">Palo Santo · Amber</span>
-        <p class="scent-desc">Dry earth, warm amber, ancient and mineral. The day ending on its own terms.</p>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- ══ SECTION 02: SKIN ══ -->
+<!-- ══ SECTION 02: ROUTINES — SKIN ══ -->
 <section>
   <div class="section-header">
     <span class="section-num">No. 02</span>
     <div class="section-rule"></div>
-    <span class="section-tag">Skin</span>
+    <span class="section-tag">Routines · Skin</span>
   </div>
   <div class="section-title-block">
-    <h2 class="section-title">What the<br><em>wide light asks.</em></h2>
+    <h2 class="section-title">Routines.<br><em>What the wide light asks.</em></h2>
   </div>
 
   <!-- Lifestyle bleed: stillair body shot -->
   <div class="lifestyle-bleed">
     <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/stillair_body_2000.png?v=1782408329"
-         alt="Ghost Town Ranch Skin — Wide Light" style="object-fit:contain;background:var(--parch);">
+         alt="Ghost Town Ranch Skin — Wide Light" style="object-fit:contain;background:#F4F1EB;">
     <span class="lifestyle-bleed-caption">COSMOS/ECOCERT Certified · All Skin Types</span>
   </div>
 
@@ -1229,15 +1246,15 @@ a { color: inherit; text-decoration: none; }
   </div>
 </section>
 
-<!-- ══ SECTION 03: HAND + BODY ══ -->
+<!-- ══ SECTION 03: WASH HOUSE — HAND + BODY ══ -->
 <section>
   <div class="section-header">
     <span class="section-num">No. 03</span>
     <div class="section-rule"></div>
-    <span class="section-tag">Hand + Body</span>
+    <span class="section-tag">Wash House · Hand + Body</span>
   </div>
   <div class="section-title-block">
-    <h2 class="section-title">The wash<br><em>house ritual.</em></h2>
+    <h2 class="section-title">Wash House.<br><em>The daily ritual.</em></h2>
   </div>
 
   <!-- Split: golden hour lifestyle left / text right -->
@@ -1322,15 +1339,15 @@ a { color: inherit; text-decoration: none; }
   </div>
 </section>
 
-<!-- ══ SECTION 04: HAIR ══ -->
+<!-- ══ SECTION 04: WASH HOUSE — HAIR ══ -->
 <section>
   <div class="section-header">
     <span class="section-num">No. 04</span>
     <div class="section-rule"></div>
-    <span class="section-tag">Hair</span>
+    <span class="section-tag">Wash House · Hair</span>
   </div>
   <div class="section-title-block">
-    <h2 class="section-title">Wind-dried.<br><em>Trail-tested.</em></h2>
+    <h2 class="section-title">The hair<br><em>routine.</em></h2>
   </div>
 
   <!-- 4-up image strip -->
@@ -1418,12 +1435,12 @@ a { color: inherit; text-decoration: none; }
   </div>
 </section>
 
-<!-- ══ SECTION 05: THE FACE ══ -->
+<!-- ══ SECTION 05: THE FACE — COLOR ══ -->
 <section>
   <div class="section-header">
     <span class="section-num">No. 05</span>
     <div class="section-rule"></div>
-    <span class="section-tag">The Face — Color</span>
+    <span class="section-tag">The Face · Color</span>
   </div>
   <div class="section-title-block">
     <h2 class="section-title">Earned color.<br><em>Nothing performed.</em></h2>
@@ -1431,9 +1448,9 @@ a { color: inherit; text-decoration: none; }
 
   <!-- Split: face full edit dark / text -->
   <div class="split-image-text reverse">
-    <div class="split-img" style="background:var(--parch);">
+    <div class="split-img" style="background:#F4F1EB;">
       <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/theface_fulledit_allshades1.png?v=1781998733"
-           alt="The Face Full Edit" style="object-fit:contain;padding:24px;background:var(--parch);">
+           alt="The Face Full Edit" style="object-fit:contain;padding:24px;background:#F4F1EB;">
     </div>
     <div class="split-text-block" style="background:var(--army);">
       <span class="split-eyebrow" style="color:var(--gold);">No. 05 · Color</span>
@@ -1528,12 +1545,12 @@ a { color: inherit; text-decoration: none; }
   </div>
 </section>
 
-<!-- ══ SECTION 06: BUNDLES ══ -->
+<!-- ══ SECTION 06: WHOLESALE BUNDLES ══ -->
 <section>
   <div class="section-header">
     <span class="section-num">No. 06</span>
     <div class="section-rule"></div>
-    <span class="section-tag">Bundles</span>
+    <span class="section-tag">Wholesale Bundles</span>
   </div>
   <div class="section-title-block">
     <h2 class="section-title">The complete<br><em>edit.</em></h2>
