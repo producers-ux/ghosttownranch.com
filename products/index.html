@@ -833,8 +833,8 @@
       .nav-hamburger { display: flex; }
       .nav-links {
         display: none; position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: rgba(26,21,18,0.97);
+        top: 0; left: 0; right: 0; height: 100vh; height: 100dvh; overflow-y: auto;
+        background: #1a1512;
         flex-direction: column; justify-content: center; align-items: center;
         gap: 0; z-index: 99; padding: 80px 32px 40px;
       }
@@ -852,7 +852,7 @@
   <a class="nav-logo" href="/">
     <img src="https://ghosttownranch.com/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="Ghost Town Ranch" />
   </a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-links-list">
     <li><a href="/">Home</a></li>
     <li><a href="/wash-house/">Wash House</a></li>
     <li><a href="/routines/">Routines</a></li>
@@ -860,7 +860,10 @@
     <li><a href="/collections/deep-well/">Deep Well</a></li>
     <li><a href="/wholesale/">Wholesale</a></li>
   </ul>
-  <button class="nav-cart" id="cart-btn">Cart <span id="cart-count"></span></button>
+  <div class="nav-actions" style="display:flex;align-items:center;gap:12px;">
+    <button class="nav-cart" id="cart-btn">Cart <span id="cart-count"></span></button>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
 </nav>
 
 <!-- ── MAIN ── -->
