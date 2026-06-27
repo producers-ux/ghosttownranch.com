@@ -1,0 +1,104 @@
+diff --git a/field-guide/index.html b/field-guide/index.html
+index b50663a..e402c55 100644
+--- a/field-guide/index.html
++++ b/field-guide/index.html
+@@ -84,7 +84,7 @@
+     .nav-hamburger { display: flex; }
+     .nav-links {
+       display: none; position: fixed;
+-      top: 0; left: 0; right: 0; bottom: 0;
++      top: 0; left: 0; right: 0; height: 100vh; height: 100dvh; overflow-y: auto;
+       background: rgba(26,21,18,0.97);
+       flex-direction: column; justify-content: center; align-items: center;
+       gap: 0; z-index: 99; padding: 80px 32px 40px;
+diff --git a/index.html b/index.html
+index 245e8db..81415ec 100644
+--- a/index.html
++++ b/index.html
+@@ -99,7 +99,7 @@
+     .nav-hamburger { display: flex; }
+     .nav-links {
+       display: none;
+-      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
++      position: fixed; top: 0; left: 0; right: 0; height: 100vh; height: 100dvh; overflow-y: auto;
+       background: rgba(26,21,18,0.98);
+       flex-direction: column; justify-content: center; align-items: center;
+       gap: 0; z-index: 100; padding: 80px 32px 40px;
+diff --git a/products/index.html b/products/index.html
+index b3adfba..a845a61 100644
+--- a/products/index.html
++++ b/products/index.html
+@@ -833,7 +833,7 @@
+       .nav-hamburger { display: flex; }
+       .nav-links {
+         display: none; position: fixed;
+-        top: 0; left: 0; right: 0; bottom: 0;
++        top: 0; left: 0; right: 0; height: 100vh; height: 100dvh; overflow-y: auto;
+         background: rgba(26,21,18,0.97);
+         flex-direction: column; justify-content: center; align-items: center;
+         gap: 0; z-index: 99; padding: 80px 32px 40px;
+diff --git a/ritual/index.html b/ritual/index.html
+index be8fadf..24d4286 100644
+--- a/ritual/index.html
++++ b/ritual/index.html
+@@ -701,7 +701,7 @@
+       .cart-nav-btn { z-index: 101; }
+       .nav-links {
+         display: none;
+-        position: fixed; top: 0; left: 0; right: 0; bottom: 0;
++        position: fixed; top: 0; left: 0; right: 0; height: 100vh; height: 100dvh; overflow-y: auto;
+         background: rgba(26,21,18,0.97);
+         flex-direction: column; justify-content: center; align-items: center;
+         gap: 0; z-index: 99; padding: 80px 32px 40px; list-style: none;
+diff --git a/routines/index.html b/routines/index.html
+index b136ad5..8951144 100644
+--- a/routines/index.html
++++ b/routines/index.html
+@@ -470,7 +470,7 @@
+       .nav-right { gap: 8px; }
+       .nav-links {
+         display: none;
+-        position: fixed; top: 0; left: 0; right: 0; bottom: 0;
++        position: fixed; top: 0; left: 0; right: 0; height: 100vh; height: 100dvh; overflow-y: auto;
+         background: rgba(26,21,18,0.97);
+         flex-direction: column; justify-content: center; align-items: center;
+         gap: 0; z-index: 99; padding: 80px 32px 40px; list-style: none;
+diff --git a/shop/index.html b/shop/index.html
+index 43e561f..109f076 100644
+--- a/shop/index.html
++++ b/shop/index.html
+@@ -107,7 +107,7 @@
+       #gtr-shared-nav .nav-hamburger { display: flex; }
+       #gtr-shared-nav .nav-right { gap: 8px; }
+       #gtr-shared-nav .nav-links {
+-        display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
++        display: none; position: fixed; top: 0; left: 0; right: 0; height: 100vh; height: 100dvh; overflow-y: auto;
+         background: rgba(26,21,18,0.97);
+         flex-direction: column; justify-content: center; align-items: center;
+         gap: 0; z-index: 99; padding: 80px 32px 40px;
+diff --git a/wash-house/index.html b/wash-house/index.html
+index 02ad2d6..9b966bc 100644
+--- a/wash-house/index.html
++++ b/wash-house/index.html
+@@ -440,7 +440,7 @@
+       .nav-right { gap: 8px; }
+       .nav-links {
+         display: none;
+-        position: fixed; top: 0; left: 0; right: 0; bottom: 0;
++        position: fixed; top: 0; left: 0; right: 0; height: 100vh; height: 100dvh; overflow-y: auto;
+         background: rgba(26,21,18,0.97);
+         flex-direction: column; justify-content: center; align-items: center;
+         gap: 0; z-index: 99; padding: 80px 32px 40px; list-style: none;
+diff --git a/wholesale/index.html b/wholesale/index.html
+index f748845..bd7af7d 100644
+--- a/wholesale/index.html
++++ b/wholesale/index.html
+@@ -166,7 +166,7 @@
+       #gtr-shared-nav .nav-hamburger { display: flex; }
+       #gtr-shared-nav .nav-right { gap: 8px; }
+       #gtr-shared-nav .nav-links {
+-        display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
++        display: none; position: fixed; top: 0; left: 0; right: 0; height: 100vh; height: 100dvh; overflow-y: auto;
+         background: rgba(26,21,18,0.97);
+         flex-direction: column; justify-content: center; align-items: center;
+         gap: 0; z-index: 99; padding: 80px 32px 40px;
