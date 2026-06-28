@@ -914,7 +914,7 @@
         <!-- Variant selector -->
         <div id="variant-wrap">
           <div class="selector-label">
-            Scent — <span id="selected-variant-label"></span>
+            Scent · <span id="selected-variant-label"></span>
           </div>
           <div class="variant-grid" id="variant-grid"></div>
         </div>
@@ -1279,8 +1279,8 @@ function renderProduct(product) {
   setupPairCallout(handle);
 
   // Meta
-  document.title = `${product.title} — Ghost Town Ranch`;
-  document.getElementById('og-title').content = `${product.title} — Ghost Town Ranch`;
+  document.title = `${product.title} · Ghost Town Ranch`;
+  document.getElementById('og-title').content = `${product.title} · Ghost Town Ranch`;
   document.getElementById('og-description').content = product.description?.slice(0, 160) || '';
   const firstImg = product.images.edges[0]?.node?.url || '';
   document.getElementById('og-image').content = firstImg;
@@ -1351,9 +1351,9 @@ function renderProduct(product) {
 
     // Set label text based on product type — must happen before querying the span
     if (isWaxCandle) {
-      selectorLabelEl.innerHTML = 'Scent + Wax Color — <span id="selected-variant-label"></span>';
+      selectorLabelEl.innerHTML = 'Scent + Wax Color · <span id="selected-variant-label"></span>';
     } else {
-      selectorLabelEl.innerHTML = 'Scent — <span id="selected-variant-label"></span>';
+      selectorLabelEl.innerHTML = 'Scent · <span id="selected-variant-label"></span>';
     }
 
     // Query after innerHTML rewrite so reference is live
@@ -1509,12 +1509,12 @@ function buildSpecs(product, variants, ingredientsHtml) {
   if (type.includes('candle') || type.includes('fragrance') || type.includes('diffuser') || type.includes('mist')) {
     specs.push({
       title: 'The Six Scents',
-      body: `<p>Hang Dried — White Sage &amp; Lavender. White sage, lavender, rosemary, cedar underneath. Clean without trying.</p>
-             <p>Rough Hewn — Cade &amp; Cedarwood. Sweet smoke, sandalwood underneath, leather at the edges.</p>
-             <p>Dusk — Palo Santo. Dry earth, warm amber. Ancient and mineral.</p>
-             <p>Ember — Charcoal &amp; Amber. Dark and smoky with deep resin. The canyon after rain.</p>
-             <p>Graze — Sweetgrass &amp; Sage. River-clean and sharp. The good scrub after a day of work.</p>
-             <p>Flax — Cotton &amp; Citrus. Lemon, cotton blossom, blonde woods.</p>`
+      body: `<p>Hang Dried · White Sage &amp; Lavender. White sage, lavender, rosemary, cedar underneath. Clean without trying.</p>
+             <p>Rough Hewn · Cade &amp; Cedarwood. Sweet smoke, sandalwood underneath, leather at the edges.</p>
+             <p>Dusk · Palo Santo. Dry earth, warm amber. Ancient and mineral.</p>
+             <p>Ember · Charcoal &amp; Amber. Dark and smoky with deep resin. The canyon after rain.</p>
+             <p>Graze · Sweetgrass &amp; Sage. River-clean and sharp. The good scrub after a day of work.</p>
+             <p>Flax · Cotton &amp; Citrus. Lemon, cotton blossom, blonde woods.</p>`
     });
   }
 
@@ -1525,22 +1525,22 @@ function buildSpecs(product, variants, ingredientsHtml) {
     detailLines.push('Made from the finest fragrances and ingredients');
   }
   if (type.includes('candle')) {
-    detailLines.push('Cotton wick — no lead');
-    detailLines.push('Colored wax — each scent poured in its own color');
+    detailLines.push('Cotton wick, no lead');
+    detailLines.push('Colored wax, each scent poured in its own color');
     detailLines.push('Hand-poured');
   }
   if (type.includes('diffuser')) {
-    detailLines.push('Amber glass vessel — refillable');
+    detailLines.push('Amber glass vessel, refillable');
     detailLines.push('Flip reeds every 7–10 days');
     detailLines.push('Lasts 3–4 months');
   }
   if (isFragranceSpray) {
-    detailLines.push('Made with care for the body — can also be used on linens or as an air freshener');
+    detailLines.push('For skin, linen, and air. One scent on the body, the bed, and the room.');
     detailLines.push('Made from perfumer\'s alcohol, fragrance oil, and distilled water');
     detailLines.push('Free of dyes, parabens, and phthalates');
   }
   if (isCosmosCertified(product)) {
-    detailLines.push('COSMOS Certified by ECOCERT — third-party verified');
+    detailLines.push('COSMOS Certified by ECOCERT, third-party verified');
   }
   if (!isHomeFragrance && (isCosmosCertified(product) || type.includes('skin') || type.includes('body') || type.includes('hair') || type.includes('eye') || type.includes('face'))) {
     detailLines.push('Vegan · Cruelty-Free');
@@ -1706,9 +1706,9 @@ async function renderRitualBundle() {
   let current = RITUAL.pairs[0];
 
   // Meta
-  document.title = `${RITUAL.title} — Ghost Town Ranch`;
+  document.title = `${RITUAL.title} · Ghost Town Ranch`;
   const pageUrl = 'https://ghosttownranch.com/products/the-ritual';
-  document.getElementById('og-title').content = `${RITUAL.title} — Ghost Town Ranch`;
+  document.getElementById('og-title').content = `${RITUAL.title} · Ghost Town Ranch`;
   document.getElementById('og-description').content = RITUAL.subtitle;
   document.getElementById('og-url').content = pageUrl;
   document.getElementById('canonical').href = pageUrl;
@@ -1755,7 +1755,7 @@ async function renderRitualBundle() {
   const variantWrap = document.getElementById('variant-wrap');
   const variantGrid = document.getElementById('variant-grid');
   variantWrap.style.display = 'block';
-  document.querySelector('.selector-label').innerHTML = 'Scent — <span id="selected-variant-label"></span>';
+  document.querySelector('.selector-label').innerHTML = 'Scent · <span id="selected-variant-label"></span>';
   const selectedLabel = document.getElementById('selected-variant-label');
   selectedLabel.textContent = current.scent;
 
