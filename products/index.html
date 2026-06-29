@@ -1016,10 +1016,10 @@ const WAX_COLORS = {
   'Flax':        '#d4c47a',
 };
 
-// GTR cert badges — shown for all products
+// GTR cert badges — default reference set. Origin is set per product (see
+// originBadge): home fragrance is Made in USA, the skincare line is EU-formulated.
 const CERTS = [
   'COSMOS Certified · ECOCERT',
-  'Made in USA',
   'Vegan · Cruelty-Free',
   'No Dyes · No Parabens · No Phthalates',
 ];
@@ -1437,7 +1437,8 @@ function renderProduct(product) {
   if (isCosmosCertified(product)) {
     certs.push('COSMOS Certified · ECOCERT');
   }
-  certs.push('Made in USA');
+  const origin = originBadge(product);
+  if (origin) certs.push(origin);
   if (!tags.includes('fragrance-only')) certs.push('Vegan · Cruelty-Free');
   certs.push('No Dyes · No Parabens · No Phthalates');
 
@@ -1496,12 +1497,34 @@ function isCosmosCertified(product) {
   return CERTIFIED.some(name => t.includes(name));
 }
 
+// Home fragrance — candles, diffusers, Ranch Water mist. Hand-blended and
+// poured in the USA, so these carry a "Made in USA" claim.
+function isHomeFragrance(product) {
+  const type = (product.productType || '').toLowerCase();
+  const title = (product.title || '').toLowerCase();
+  const isFragranceSpray = title.includes('ranch water') ||
+    (type.includes('fragrance') && !type.includes('skin') && !type.includes('hair'));
+  return type.includes('candle') || type.includes('diffuser') || isFragranceSpray;
+}
+
+// Country-of-origin badge. Home fragrance is made in the USA. The skincare /
+// body / hair line is formulated in the EU (Selfnamed, ECOCERT) and legally
+// cannot carry a "Made in USA" claim. Anything else gets no origin badge.
+function originBadge(product) {
+  if (isHomeFragrance(product)) return 'Made in USA';
+  const type = (product.productType || '').toLowerCase();
+  const isCosmetic = isCosmosCertified(product) ||
+    ['skin', 'body', 'hair', 'face', 'eye', 'lip', 'makeup', 'cosmetic', 'deodorant', 'wash', 'mist']
+      .some(k => type.includes(k));
+  return isCosmetic ? 'Formulated in the EU' : null;
+}
+
 function buildSpecs(product, variants, ingredientsHtml) {
   const wrap = document.getElementById('specs-wrap');
   const type = (product.productType || '').toLowerCase();
   const title = (product.title || '').toLowerCase();
   const isFragranceSpray = title.includes('ranch water') || (type.includes('fragrance') && !type.includes('skin') && !type.includes('hair'));
-  const isHomeFragrance = type.includes('candle') || type.includes('diffuser') || isFragranceSpray;
+  const isHomeFrag = isHomeFragrance(product);
 
   const specs = [];
 
@@ -1520,7 +1543,7 @@ function buildSpecs(product, variants, ingredientsHtml) {
 
   // Details
   const detailLines = [];
-  if (isHomeFragrance) {
+  if (isHomeFrag) {
     detailLines.push('Skin-safe fragrances, hand-blended in the USA');
     detailLines.push('Made from the finest fragrances and ingredients');
   }
@@ -1542,7 +1565,7 @@ function buildSpecs(product, variants, ingredientsHtml) {
   if (isCosmosCertified(product)) {
     detailLines.push('COSMOS Certified by ECOCERT, third-party verified');
   }
-  if (!isHomeFragrance && (isCosmosCertified(product) || type.includes('skin') || type.includes('body') || type.includes('hair') || type.includes('eye') || type.includes('face'))) {
+  if (!isHomeFrag && (isCosmosCertified(product) || type.includes('skin') || type.includes('body') || type.includes('hair') || type.includes('eye') || type.includes('face'))) {
     detailLines.push('Vegan · Cruelty-Free');
     detailLines.push('Free of parabens, phthalates, and synthetic dyes');
   }
