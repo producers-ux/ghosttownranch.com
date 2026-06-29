@@ -1439,7 +1439,7 @@ function renderProduct(product) {
   }
   const origin = originBadge(product);
   if (origin) certs.push(origin);
-  if (!tags.includes('fragrance-only')) certs.push('Vegan · Cruelty-Free');
+  if (!tags.includes('fragrance-only')) certs.push(isVegan(product) ? 'Vegan · Cruelty-Free' : 'Cruelty-Free');
   certs.push('No Dyes · No Parabens · No Phthalates');
 
   certRow.innerHTML = certs.map(c => `<span class="cert-badge">${c}</span>`).join('');
@@ -1492,9 +1492,22 @@ function isCosmosCertified(product) {
   const CERTIFIED = [
     'all told', 'the grade', 'the hold', 'desert day cream', 'dusk til dawn',
     'desert glow', 'frontier fade', 'mojave reset', 'outlaws wipeout', 'rose cut',
-    'golden hour', 'outlaws reserve', 'rosemary mint revive', 'trails end'
+    'golden hour', 'outlaws reserve', 'rosemary mint revive', 'trails end',
+    'desert veil', 'soft proof', 'long shot'
   ];
+  // Drawn Line is deliberately excluded: 99% natural origin, no COSMOS certificate.
   return CERTIFIED.some(name => t.includes(name));
+}
+
+// Vegan badge. The line is vegan with one exception: Soft Proof Peptide
+// Foundation contains Cera Alba (beeswax), so it is cruelty-free but not vegan.
+// A "non-vegan" Shopify tag also forces this off.
+function isVegan(product) {
+  const tags = (product.tags || []).map(t => String(t).toLowerCase());
+  if (tags.includes('non-vegan') || tags.includes('not-vegan')) return false;
+  const t = (product.title || '').toLowerCase();
+  const NON_VEGAN = ['soft proof'];
+  return !NON_VEGAN.some(name => t.includes(name));
 }
 
 // Home fragrance — candles, diffusers, Ranch Water mist. Hand-blended and
@@ -1528,8 +1541,9 @@ function buildSpecs(product, variants, ingredientsHtml) {
 
   const specs = [];
 
-  // Scent descriptions — for fragrance products
-  if (type.includes('candle') || type.includes('fragrance') || type.includes('diffuser') || type.includes('mist')) {
+  // Scent descriptions — home fragrance only (candles, diffusers, Ranch Water).
+  // Skincare mists like Mojave Reset must not pick up the six-scent system.
+  if (isHomeFrag) {
     specs.push({
       title: 'The Six Scents',
       body: `<p>Hang Dried · White Sage &amp; Lavender. White sage, lavender, rosemary, cedar underneath. Clean without trying.</p>
@@ -1565,8 +1579,8 @@ function buildSpecs(product, variants, ingredientsHtml) {
   if (isCosmosCertified(product)) {
     detailLines.push('COSMOS Certified by ECOCERT, third-party verified');
   }
-  if (!isHomeFrag && (isCosmosCertified(product) || type.includes('skin') || type.includes('body') || type.includes('hair') || type.includes('eye') || type.includes('face'))) {
-    detailLines.push('Vegan · Cruelty-Free');
+  if (!isHomeFrag && (isCosmosCertified(product) || type.includes('skin') || type.includes('body') || type.includes('hair') || type.includes('eye') || type.includes('face') || type.includes('lip') || type.includes('makeup'))) {
+    detailLines.push(isVegan(product) ? 'Vegan · Cruelty-Free' : 'Cruelty-Free');
     detailLines.push('Free of parabens, phthalates, and synthetic dyes');
   }
   detailLines.push('Frontier Modernism · Palm Springs, CA');
