@@ -351,10 +351,51 @@ a { color: inherit; text-decoration: none; }
   border-top: 1px solid rgba(26,16,8,0.08);
   padding-top: 10px;
 }
+.product-footer.link-only { justify-content: flex-end; }
+
+/* ── COMPACT SHADE/SCENT CHARTS (high-count variant products) ── */
+.product-shade-grid {
+  margin-top: 12px; padding-top: 10px;
+  border-top: 1px solid rgba(26,16,8,0.08);
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 8px 6px;
+}
+.product-shade-chip {
+  display: flex; flex-direction: column; gap: 1px;
+}
+.product-shade-name {
+  font-family: var(--sans);
+  font-size: 9px; letter-spacing: 0.03em; text-transform: uppercase;
+  color: rgba(26,16,8,0.5); line-height: 1.3;
+}
+.product-shade-sku {
+  font-family: var(--sans);
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.01em;
+  color: rgba(26,16,8,0.85);
+}
+.product-sku-matrix {
+  margin-top: 12px; padding-top: 10px;
+  border-top: 1px solid rgba(26,16,8,0.08);
+  display: grid; grid-template-columns: auto 1fr 1fr;
+  gap: 5px 10px; align-items: center;
+}
+.product-sku-matrix .matrix-head {
+  font-family: var(--sans);
+  font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(26,16,8,0.45); font-weight: 600;
+}
+.product-sku-matrix .matrix-scent {
+  font-family: var(--serif);
+  font-size: 12.5px; color: rgba(26,16,8,0.85);
+}
+.product-sku-matrix .matrix-sku {
+  font-family: var(--sans);
+  font-size: 10px; color: rgba(26,16,8,0.65);
+}
 .product-sku {
   font-family: var(--sans);
-  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: rgba(26,16,8,0.4); font-weight: 300;
+  font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(26,16,8,0.62); font-weight: 500;
 }
 .product-link {
   font-family: var(--sans);
@@ -362,6 +403,65 @@ a { color: inherit; text-decoration: none; }
   color: var(--terra); font-weight: 300;
   border-bottom: 1px solid rgba(122,62,34,0.35);
   padding-bottom: 1px;
+}
+.product-variants {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(26,16,8,0.08);
+  display: flex; flex-direction: column; gap: 6px;
+}
+.product-variant-row {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+}
+.product-variant-name {
+  font-family: var(--serif);
+  font-size: 13.5px; color: rgba(26,16,8,0.82);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.product-variant-sku {
+  font-family: var(--sans);
+  font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+  color: rgba(26,16,8,0.55); font-weight: 500;
+  white-space: nowrap; flex-shrink: 0;
+}
+.product-shade-chart {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(26,16,8,0.08);
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 8px 14px;
+}
+.product-shade-cell {
+  display: flex; flex-direction: column; gap: 1px;
+}
+.product-shade-code {
+  font-family: var(--sans);
+  font-size: 11.5px; font-weight: 600;
+  color: rgba(26,16,8,0.82);
+}
+.product-shade-sku {
+  font-family: var(--sans);
+  font-size: 9.5px; letter-spacing: 0.05em; text-transform: uppercase;
+  color: rgba(26,16,8,0.48); font-weight: 500;
+}
+.product-variant-table {
+  width: 100%; border-collapse: collapse;
+  margin-top: 12px; padding-top: 10px;
+  border-top: 1px solid rgba(26,16,8,0.08);
+  font-family: var(--sans);
+}
+.product-variant-table th {
+  text-align: left; font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(26,16,8,0.45); font-weight: 600;
+  padding: 0 4px 5px 0;
+}
+.product-variant-table td {
+  font-size: 10.5px; color: rgba(26,16,8,0.8);
+  padding: 3px 4px 3px 0; border-top: 1px solid rgba(26,16,8,0.05);
+}
+.product-variant-table td.scent-name { font-weight: 500; }
+.product-variant-table td.sku-cell {
+  font-size: 9px; letter-spacing: 0.03em; color: rgba(26,16,8,0.5);
 }
 
 /* ── SPLIT LAYOUT ── */
@@ -667,6 +767,7 @@ a { color: inherit; text-decoration: none; }
   .product-card { page-break-inside: avoid; }
   .product-img img { max-height: 160px; }
   .image-strip, .lifestyle-bleed { page-break-inside: avoid; }
+  .product-sku { color: rgba(26,16,8,0.8) !important; font-size: 12px !important; }
 }
 
   /* ── PRINT: ensure no dark ink backgrounds ── */
@@ -877,8 +978,16 @@ a { color: inherit; text-decoration: none; }
         <div class="product-name">The Wander</div>
         <div class="product-sub">Hand-Poured Travel Candle</div>
         <p class="product-desc">Single-wick travel candle in six landscape scents. Coconut-soy, cotton wick.</p>
+        <div class="product-variants">
+          <div class="product-variant-row"><span class="product-variant-name">Hang Dried</span><span class="product-variant-sku">WANHANGD</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Rough Hewn</span><span class="product-variant-sku">WANRHEWN</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Dusk</span><span class="product-variant-sku">WANDUSK</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Ember</span><span class="product-variant-sku">WANEMBER</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Graze</span><span class="product-variant-sku">WDRGRAZE</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Flax</span><span class="product-variant-sku">WANFLAX</span></div>
+        </div>
         <div class="product-footer">
-          <span class="product-sku">SKU: WDRGRAZE</span>
+          <span class="product-sku">MIN. 4 UNITS</span>
           <a href="https://ghosttownranch.com/products/the-wander-hand-poured-travel-candle" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -893,8 +1002,16 @@ a { color: inherit; text-decoration: none; }
         <div class="product-name">The Votive – Single</div>
         <div class="product-sub">Hand-Poured Votive</div>
         <p class="product-desc">All six GTR scents. Coconut-soy, cotton wick. Choose your landscape.</p>
+        <div class="product-variants">
+          <div class="product-variant-row"><span class="product-variant-name">Hang Dried</span><span class="product-variant-sku">V1ACCHANGDRIED</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Rough Hewn</span><span class="product-variant-sku">V1ACCROUGHHEWN</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Dusk</span><span class="product-variant-sku">V1ACCDUSK</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Ember</span><span class="product-variant-sku">V1ACCEMBER</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Graze</span><span class="product-variant-sku">V1ACCGRAZE</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Flax</span><span class="product-variant-sku">V1ACCFLAX</span></div>
+        </div>
         <div class="product-footer">
-          <span class="product-sku">SKU: V1ACCDUSK</span>
+          <span class="product-sku">MIN. 4 UNITS</span>
           <a href="https://ghosttownranch.com/products/the-votive-single" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -925,8 +1042,16 @@ a { color: inherit; text-decoration: none; }
         <div class="product-name">The Slow</div>
         <div class="product-sub">Colored Wax Candle, 11oz</div>
         <p class="product-desc">Single-wick, 11oz. Rich colored wax, long burn. Available in all six scents.</p>
+        <div class="product-variants">
+          <div class="product-variant-row"><span class="product-variant-name">Hang Dried</span><span class="product-variant-sku">TS033026-HD</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Rough Hewn</span><span class="product-variant-sku">TS033026-RH</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Dusk</span><span class="product-variant-sku">TS033026-RR</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Ember</span><span class="product-variant-sku">TS033026-BD</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Graze</span><span class="product-variant-sku">TS033026-BW</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Flax</span><span class="product-variant-sku">TS033026-SB</span></div>
+        </div>
         <div class="product-footer">
-          <span class="product-sku">SKU: TS033026-RH</span>
+          <span class="product-sku">MIN. 4 UNITS</span>
           <a href="https://ghosttownranch.com/products/the-slow-candle" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -941,8 +1066,16 @@ a { color: inherit; text-decoration: none; }
         <div class="product-name">The Monument</div>
         <div class="product-sub">Mega 4-Wick, 55oz</div>
         <p class="product-desc">Statement piece. Four-wick, 55oz coconut-soy. For the room that earns it.</p>
+        <div class="product-variants">
+          <div class="product-variant-row"><span class="product-variant-name">Hang Dried</span><span class="product-variant-sku">TM033026-HD</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Rough Hewn</span><span class="product-variant-sku">TM033026-RH</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Dusk</span><span class="product-variant-sku">TM033026-RR</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Ember</span><span class="product-variant-sku">TM033026-BD</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Graze</span><span class="product-variant-sku">TM033026-BW</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Flax</span><span class="product-variant-sku">TM033026-SB</span></div>
+        </div>
         <div class="product-footer">
-          <span class="product-sku">SKU: TM033026-RH</span>
+          <span class="product-sku">MIN. 2 UNITS</span>
           <a href="https://ghosttownranch.com/products/the-monument-candle" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -957,8 +1090,21 @@ a { color: inherit; text-decoration: none; }
         <div class="product-name">The Still</div>
         <div class="product-sub">Amber Glass Reed Diffuser</div>
         <p class="product-desc">Amber glass, rattan reeds. Continuous scent for the home.</p>
+        <table class="product-variant-table">
+          <thead>
+            <tr><th>Scent</th><th>Brown Vessel</th><th>Black Vessel</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="scent-name">Hang Dried</td><td class="sku-cell">S2033026-HD</td><td class="sku-cell">S2033026BL-HD</td></tr>
+            <tr><td class="scent-name">Rough Hewn</td><td class="sku-cell">S2033026-RH</td><td class="sku-cell">S2033026BL-RH</td></tr>
+            <tr><td class="scent-name">Dusk</td><td class="sku-cell">S2033026-RR</td><td class="sku-cell">S2033026BL-RR</td></tr>
+            <tr><td class="scent-name">Ember</td><td class="sku-cell">S2033026-BD</td><td class="sku-cell">S2033026BL-BD</td></tr>
+            <tr><td class="scent-name">Graze</td><td class="sku-cell">S2033026-BW</td><td class="sku-cell">S2033026BL-BW</td></tr>
+            <tr><td class="scent-name">Flax</td><td class="sku-cell">S2033026-SB</td><td class="sku-cell">S2033026BL-SB</td></tr>
+          </tbody>
+        </table>
         <div class="product-footer">
-          <span class="product-sku">SKU: S2033026-RH</span>
+          <span class="product-sku">MIN. 4 UNITS</span>
           <a href="https://ghosttownranch.com/products/the-still-amber-glass-reed-diffuser" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -973,8 +1119,16 @@ a { color: inherit; text-decoration: none; }
         <div class="product-name">Ranch Water</div>
         <div class="product-sub">Body + Room Fragrance</div>
         <p class="product-desc">Phthalate-free. Works as body mist or room spray. Clean and direct.</p>
+        <div class="product-variants">
+          <div class="product-variant-row"><span class="product-variant-name">Hang Dried</span><span class="product-variant-sku">RW033026-HD</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Rough Hewn</span><span class="product-variant-sku">RW033026-RH</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Dusk</span><span class="product-variant-sku">RW033026-RR</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Ember</span><span class="product-variant-sku">RW033026-BD</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Graze</span><span class="product-variant-sku">RW033026-BW</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Flax</span><span class="product-variant-sku">RW033026-SB</span></div>
+        </div>
         <div class="product-footer">
-          <span class="product-sku">SKU: RW033026-RH</span>
+          <span class="product-sku">MIN. 4 UNITS</span>
           <a href="https://ghosttownranch.com/products/ranch-water-body-room-fragrance" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1005,8 +1159,11 @@ a { color: inherit; text-decoration: none; }
         <div class="product-name">Sustainable Sink Tray</div>
         <div class="product-sub">Plant-Based, Handcrafted</div>
         <p class="product-desc">Bathroom and vanity tray. Handcrafted from plant-based material.</p>
-        <div class="product-footer">
-          <span class="product-sku">SKU: ST0111</span>
+        <div class="product-variants">
+          <div class="product-variant-row"><span class="product-variant-name">Double</span><span class="product-variant-sku">ST0111</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Triple</span><span class="product-variant-sku">ST0112</span></div>
+        </div>
+        <div class="product-footer link-only">
           <a href="https://ghosttownranch.com/products/sustainable-sink-tray" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1062,7 +1219,7 @@ a { color: inherit; text-decoration: none; }
         <div class="product-sub">Daily Moisturiser</div>
         <p class="product-desc">Hyaluronic acid, aloe, betaine. Luxurious texture. COSMOS/ECOCERT certified.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 187979</span>
+          <span class="product-sku">SKU: 187979 · MIN. 3 UNITS</span>
           <a href="https://ghosttownranch.com/products/moisturising-day-cream" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1078,7 +1235,7 @@ a { color: inherit; text-decoration: none; }
         <div class="product-sub">Anti-Age Day Cream</div>
         <p class="product-desc">Hyaluronic acid, shea butter, peptides. For mature skin. Daily defense.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 187976</span>
+          <span class="product-sku">SKU: 187976 · MIN. 3 UNITS</span>
           <a href="https://ghosttownranch.com/products/the-hold-anti-age-day-cream" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1094,7 +1251,7 @@ a { color: inherit; text-decoration: none; }
         <div class="product-sub">Peptide Serum</div>
         <p class="product-desc">Peptides, hyaluronic acid, aloe. Smooths, reduces fine lines.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 187978</span>
+          <span class="product-sku">SKU: 187978 · MIN. 3 UNITS</span>
           <a href="https://ghosttownranch.com/products/peptide-anti-aging-serum" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1110,7 +1267,7 @@ a { color: inherit; text-decoration: none; }
         <div class="product-sub">Overnight Hydration Gel</div>
         <p class="product-desc">Hyaluronic acid. Overnight recovery. Wake to recovered skin.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 120767</span>
+          <span class="product-sku">SKU: 120767 · MIN. 3 UNITS</span>
           <a href="https://ghosttownranch.com/products/dusk-til-dawn-hydration-gel" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1126,7 +1283,7 @@ a { color: inherit; text-decoration: none; }
         <div class="product-sub">Hydrating Facial Oil</div>
         <p class="product-desc">Jojoba, avocado oil. Organic certified. Hydrates, protects, illuminates.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 132294</span>
+          <span class="product-sku">SKU: 132294 · MIN. 3 UNITS</span>
           <a href="https://ghosttownranch.com/products/desert-glow-hydrating-facial-oil" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1142,7 +1299,7 @@ a { color: inherit; text-decoration: none; }
         <div class="product-sub">Cooling Face Mist</div>
         <p class="product-desc">Prebiotics, hyaluronic acid. Refreshes and protects the skin barrier.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 187991</span>
+          <span class="product-sku">SKU: 187991 · MIN. 3 UNITS</span>
           <a href="https://ghosttownranch.com/products/microbiome-prebiotics-face-mist-1" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1158,7 +1315,7 @@ a { color: inherit; text-decoration: none; }
         <div class="product-sub">Toning Exfoliant</div>
         <p class="product-desc">Glycolic acid, betaine. Exfoliates, evens tone, removes buildup.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 187997</span>
+          <span class="product-sku">SKU: 187997 · MIN. 3 UNITS</span>
           <a href="https://ghosttownranch.com/products/glycolic-acid-exfoliating-toner" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1174,7 +1331,7 @@ a { color: inherit; text-decoration: none; }
         <div class="product-sub">Daily Facial Wash</div>
         <p class="product-desc">Aloe, betaine, sodium PCA. Gently cleanses. Reveals natural radiance.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 190011</span>
+          <span class="product-sku">SKU: 190011 · MIN. 3 UNITS</span>
           <a href="https://ghosttownranch.com/products/rose-cut-daily-facial-wash" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1190,7 +1347,7 @@ a { color: inherit; text-decoration: none; }
         <div class="product-sub">Biphasic Makeup Remover</div>
         <p class="product-desc">Fragrance-free. Hyaluronic acid, aloe. Gentle removal.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 187988</span>
+          <span class="product-sku">SKU: 187988 · MIN. 3 UNITS</span>
           <a href="https://ghosttownranch.com/products/biphasic-make-up-remover-fragrance-free" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1206,7 +1363,7 @@ a { color: inherit; text-decoration: none; }
         <div class="product-sub">3-in-1 Eye Cream</div>
         <p class="product-desc">Hyaluronic acid, aloe. Calms, brightens, reduces fatigue.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 187975</span>
+          <span class="product-sku">SKU: 187975 · MIN. 3 UNITS</span>
           <a href="https://ghosttownranch.com/products/all-told-eye-cream" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1222,7 +1379,7 @@ a { color: inherit; text-decoration: none; }
         <div class="product-sub">Skincare Collection</div>
         <p class="product-desc">Deep hydration collection. Instant moisture boost, lightweight layers.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 187742</span>
+          <span class="product-sku">SKU: 187742 · MIN. 3 UNITS</span>
           <a href="https://ghosttownranch.com/products/long-range-endurance-skincare-collection" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1238,7 +1395,7 @@ a { color: inherit; text-decoration: none; }
         <div class="product-sub">Natural Roll-On Deodorant</div>
         <p class="product-desc">Natural, clean. All-day protection without compromise.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: STILLAIR06</span>
+          <span class="product-sku">SKU: 213994 · MIN. 3 UNITS</span>
           <a href="https://ghosttownranch.com/products/still-air-natural-roll-on-deodorant" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1281,9 +1438,22 @@ a { color: inherit; text-decoration: none; }
         <span class="product-num">No. 03 · Hand</span>
         <div class="product-name">The Wash</div>
         <div class="product-sub">Hydrating Hand Wash</div>
-        <p class="product-desc">Cold-pressed grapefruit. Hydrating, vegan. Cleans without stripping.</p>
-        <div class="product-footer">
-          <span class="product-sku">SKU: 187984</span>
+        <p class="product-desc">Cold-pressed grapefruit, ginger + smoky cardamom, or peppermint + dark cedar. Hydrating, vegan. Cleans without stripping.</p>
+        <div class="product-variants">
+          <div class="product-variant-row">
+            <span class="product-variant-name">Cold-Pressed Grapefruit</span>
+            <span class="product-variant-sku">187984</span>
+          </div>
+          <div class="product-variant-row">
+            <span class="product-variant-name">Ginger + Smoky Cardamom</span>
+            <span class="product-variant-sku">187981</span>
+          </div>
+          <div class="product-variant-row">
+            <span class="product-variant-name">Peppermint + Dark Cedar</span>
+            <span class="product-variant-sku">187982</span>
+          </div>
+        </div>
+        <div class="product-footer link-only">
           <a href="https://ghosttownranch.com/products/sunbroke-the-wash-cold-pressed-grapefruit" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1314,8 +1484,21 @@ a { color: inherit; text-decoration: none; }
         <div class="product-name">The Basin</div>
         <div class="product-sub">Hand Wash + Body Cream Set</div>
         <p class="product-desc">Hand wash + body cream duo. Choose your scent. The full sink moment.</p>
-        <div class="product-footer">
-          <span class="product-sku">SKU: BASINGRAPEFRUIT</span>
+        <div class="product-variants">
+          <div class="product-variant-row">
+            <span class="product-variant-name">Cold-Pressed Grapefruit</span>
+            <span class="product-variant-sku">BASINGRAPEFRUIT</span>
+          </div>
+          <div class="product-variant-row">
+            <span class="product-variant-name">Ginger + Smoky Cardamom</span>
+            <span class="product-variant-sku">BASINGINGER</span>
+          </div>
+          <div class="product-variant-row">
+            <span class="product-variant-name">Peppermint + Dark Cedar</span>
+            <span class="product-variant-sku">BASINMINT</span>
+          </div>
+        </div>
+        <div class="product-footer link-only">
           <a href="https://ghosttownranch.com/products/the-basin-hand-wash-body-cream-set-of-two-choose-your-scent" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1330,8 +1513,14 @@ a { color: inherit; text-decoration: none; }
         <div class="product-name">The Wash House</div>
         <div class="product-sub">Hair + Body Set</div>
         <p class="product-desc">Complete wash ritual. Hair and body essentials in one set.</p>
-        <div class="product-footer">
-          <span class="product-sku">SKU: 051526WH-1</span>
+        <div class="product-variants">
+          <div class="product-variant-row"><span class="product-variant-name">300 ml</span><span class="product-variant-sku">051526WH-1</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">500 ml</span><span class="product-variant-sku">051526WH-2</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Outlaw's Reserve Refill, 1000ml</span><span class="product-variant-sku">051526WH-3</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Charcoal Conditioner Refill, 1000ml</span><span class="product-variant-sku">051526WH-4</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">500 ml + Wall Mount</span><span class="product-variant-sku">051526WH-5</span></div>
+        </div>
+        <div class="product-footer link-only">
           <a href="https://ghosttownranch.com/products/the-wash-house-hair-body-set" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1488,8 +1677,13 @@ a { color: inherit; text-decoration: none; }
         <div class="product-name">Desert Veil</div>
         <div class="product-sub">Tone Correction · 4 Shades</div>
         <p class="product-desc">Ceramides, cocoa butter. Light, Medium, Tan, Deep. Barrier-support stick.</p>
-        <div class="product-footer">
-          <span class="product-sku">SKU: 191115</span>
+        <div class="product-variants">
+          <div class="product-variant-row"><span class="product-variant-name">Light Beige</span><span class="product-variant-sku">191116</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Medium Beige</span><span class="product-variant-sku">191118</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Tan Brown</span><span class="product-variant-sku">191115</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Deep Beige</span><span class="product-variant-sku">191117</span></div>
+        </div>
+        <div class="product-footer link-only">
           <a href="https://ghosttownranch.com/products/desert-veil-tone-correction-barrier-protection" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1504,8 +1698,19 @@ a { color: inherit; text-decoration: none; }
         <div class="product-name">Soft Proof</div>
         <div class="product-sub">Pigment Foundation + Peptides · 10 Shades</div>
         <p class="product-desc">Peptide-infused. Velvety feel. Even complexion, all skin types.</p>
-        <div class="product-footer">
-          <span class="product-sku">SKU: 193101</span>
+        <div class="product-shade-chart">
+          <div class="product-shade-cell"><span class="product-shade-code">05 Fair Neutral</span><span class="product-shade-sku">193101</span></div>
+          <div class="product-shade-cell"><span class="product-shade-code">10 Light Warm</span><span class="product-shade-sku">193102</span></div>
+          <div class="product-shade-cell"><span class="product-shade-code">15 Light Cool</span><span class="product-shade-sku">193103</span></div>
+          <div class="product-shade-cell"><span class="product-shade-code">20 Medium Neutral</span><span class="product-shade-sku">193104</span></div>
+          <div class="product-shade-cell"><span class="product-shade-code">25 Medium Warm</span><span class="product-shade-sku">193105</span></div>
+          <div class="product-shade-cell"><span class="product-shade-code">30 Tan Neutral</span><span class="product-shade-sku">193106</span></div>
+          <div class="product-shade-cell"><span class="product-shade-code">35 Tan Warm</span><span class="product-shade-sku">193107</span></div>
+          <div class="product-shade-cell"><span class="product-shade-code">40 Deep Neutral</span><span class="product-shade-sku">193108</span></div>
+          <div class="product-shade-cell"><span class="product-shade-code">45 Deep Warm</span><span class="product-shade-sku">210015</span></div>
+          <div class="product-shade-cell"><span class="product-shade-code">50 Deep Cool</span><span class="product-shade-sku">193110</span></div>
+        </div>
+        <div class="product-footer link-only">
           <a href="https://ghosttownranch.com/products/soft-proof-peptide-foundation" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1568,8 +1773,13 @@ a { color: inherit; text-decoration: none; }
         <div class="product-name">Morning Skin Routine</div>
         <div class="product-sub">Bundle · 6 Products</div>
         <p class="product-desc">The complete morning skin ritual. Six products, one cohesive routine.</p>
-        <div class="product-footer">
-          <span class="product-sku">SKU: MORNINGTB</span>
+        <div class="product-variants">
+          <div class="product-variant-row"><span class="product-variant-name">Light Beige</span><span class="product-variant-sku">MORNINGLB</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Medium Beige</span><span class="product-variant-sku">MORNINGMB</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Tan Brown</span><span class="product-variant-sku">MORNINGTB</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Deep Beige</span><span class="product-variant-sku">MORNINGDB</span></div>
+        </div>
+        <div class="product-footer link-only">
           <a href="https://ghosttownranch.com/products/morning-skin-routine" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1648,8 +1858,19 @@ a { color: inherit; text-decoration: none; }
         <div class="product-name">The Face Bundle</div>
         <div class="product-sub">Foundation + Essentials</div>
         <p class="product-desc">Soft Proof foundation with key face essentials. Choose your shade.</p>
-        <div class="product-footer">
-          <span class="product-sku">SKU: FACEKIT05</span>
+        <div class="product-shade-chart">
+          <div class="product-shade-cell"><span class="product-shade-code">05 Fair Neutral</span><span class="product-shade-sku">FACEKIT05</span></div>
+          <div class="product-shade-cell"><span class="product-shade-code">10 Light Warm</span><span class="product-shade-sku">FACEKIT10</span></div>
+          <div class="product-shade-cell"><span class="product-shade-code">15 Light Cool</span><span class="product-shade-sku">FACEKIT15</span></div>
+          <div class="product-shade-cell"><span class="product-shade-code">20 Medium Neutral</span><span class="product-shade-sku">FACEKIT20</span></div>
+          <div class="product-shade-cell"><span class="product-shade-code">25 Medium Warm</span><span class="product-shade-sku">FACEKIT25</span></div>
+          <div class="product-shade-cell"><span class="product-shade-code">30 Tan Neutral</span><span class="product-shade-sku">FACEKIT30</span></div>
+          <div class="product-shade-cell"><span class="product-shade-code">35 Tan Warm</span><span class="product-shade-sku">FACEKIT35</span></div>
+          <div class="product-shade-cell"><span class="product-shade-code">40 Deep Neutral</span><span class="product-shade-sku">FACEKIT40</span></div>
+          <div class="product-shade-cell"><span class="product-shade-code">45 Deep Warm</span><span class="product-shade-sku">FACEKIT45</span></div>
+          <div class="product-shade-cell"><span class="product-shade-code">50 Deep Cool</span><span class="product-shade-sku">FACEKIT50</span></div>
+        </div>
+        <div class="product-footer link-only">
           <a href="https://ghosttownranch.com/products/the-face-bundle" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1686,7 +1907,7 @@ a { color: inherit; text-decoration: none; }
     </div>
     <div class="terms-item">
       <h4>Minimum Order</h4>
-      <p>Opening order minimum: $250 wholesale. Reorder minimum: $150 wholesale.</p>
+      <p>Opening order minimum: $350 wholesale. Reorder minimum: $150 wholesale.</p>
     </div>
     <div class="terms-item">
       <h4>Payment</h4>
