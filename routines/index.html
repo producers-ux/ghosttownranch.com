@@ -351,6 +351,39 @@
     }
     .routine-section.evening .step-price { color: var(--ochre); }
 
+    /* ── BUNDLE CTA ── */
+    .routine-bundle {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px; margin-top: 56px; padding: 28px 32px;
+      border: 1px solid rgba(155,122,63,0.35);
+      background: rgba(155,122,63,0.06);
+      text-decoration: none; color: inherit;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .routine-bundle:hover { background: rgba(155,122,63,0.12); border-color: rgba(155,122,63,0.55); }
+    .routine-bundle-text { display: flex; flex-direction: column; gap: 6px; }
+    .routine-bundle-label {
+      font-size: 10.5px; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--ochre);
+    }
+    .routine-bundle-name {
+      font-family: var(--serif); font-size: 22px; font-weight: 400;
+    }
+    .routine-bundle-arrow {
+      font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ochre); white-space: nowrap; flex-shrink: 0;
+    }
+    .routine-section.evening .routine-bundle {
+      border-color: rgba(212,201,181,0.3); background: rgba(244,239,230,0.04);
+    }
+    .routine-section.evening .routine-bundle:hover {
+      background: rgba(244,239,230,0.08); border-color: rgba(212,201,181,0.5);
+    }
+    .routine-section.evening .routine-bundle-name { color: var(--parchment); }
+    @media (max-width: 900px) {
+      .routine-bundle { flex-direction: column; align-items: flex-start; gap: 12px; padding: 24px; }
+    }
+
     /* ── LIFESTYLE IMAGE SLOT ── */
     .lifestyle-slot {
       width: 100%; margin-bottom: 64px;
@@ -706,6 +739,14 @@
 
     </div>
 
+    <a class="routine-bundle fade-up" href="https://ghosttownranch.com/products/?handle=morning-skin-routine">
+      <span class="routine-bundle-text">
+        <span class="routine-bundle-label">Shop the routine, together</span>
+        <span class="routine-bundle-name">Morning Skin Bundle</span>
+      </span>
+      <span class="routine-bundle-arrow">Shop the bundle →</span>
+    </a>
+
     <div class="routine-notes fade-up">
       <div class="routine-note">
         <span class="routine-note-label">Order</span>
@@ -797,6 +838,14 @@
       </a>
 
     </div>
+
+    <a class="routine-bundle fade-up" href="https://ghosttownranch.com/products/?handle=the-face-bundle">
+      <span class="routine-bundle-text">
+        <span class="routine-bundle-label">Shop the routine, together</span>
+        <span class="routine-bundle-name">The Face Bundle</span>
+      </span>
+      <span class="routine-bundle-arrow">Shop the bundle →</span>
+    </a>
 
     <div class="routine-notes fade-up">
       <div class="routine-note">
@@ -899,6 +948,14 @@
       </a>
 
     </div>
+
+    <a class="routine-bundle fade-up" href="https://ghosttownranch.com/products/?handle=evening-repair-bundle">
+      <span class="routine-bundle-text">
+        <span class="routine-bundle-label">Shop the routine, together</span>
+        <span class="routine-bundle-name">Evening Repair Bundle</span>
+      </span>
+      <span class="routine-bundle-arrow">Shop the bundle →</span>
+    </a>
 
     <div class="routine-notes fade-up">
       <div class="routine-note">
