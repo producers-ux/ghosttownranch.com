@@ -389,86 +389,49 @@
     .gtr-scent-reveal-left { padding: 36px 28px; }
   }
 
-  /* ══ TENET CLICK-TO-REVEAL GRID — same sizing/interaction as scent grid ══ */
-  .gtr-tenet-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2px;
-    margin-bottom: 2px;
-  }
-  .gtr-tenet-card {
-    position: relative;
-    cursor: pointer;
-    background: #2A2420;
-    border: none;
-    height: 160px;
-    padding: 18px 20px;
+  /* ══ THE TENETS — simple list ══ */
+  .tenet-list {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    transition: background 0.2s;
   }
-  .gtr-tenet-card:hover { background: #3A322B; }
-  .gtr-tenet-card.active { background: var(--ochre); box-shadow: inset 0 0 0 3px rgba(255,255,255,0.5); }
-  .gtr-tenet-card.active .gtr-tenet-num,
-  .gtr-tenet-card.active .gtr-tenet-name { color: #1A1512; }
-  .gtr-tenet-mark {
-    cursor: default;
-    background: var(--warm-black);
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+  .tenet-list-item {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(212,201,181,0.12);
   }
-  .gtr-tenet-mark:hover { background: var(--warm-black); }
-  .gtr-tenet-mark-icon {
-    width: 44px; height: 44px;
-    opacity: 0.9;
-  }
-  .gtr-tenet-mark-label {
+  .tenet-list-item:first-child { padding-top: 0; }
+  .tenet-list-num {
     font-family: var(--sans);
-    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: #F4EFE6; opacity: 0.8; text-align: center; line-height: 1.6;
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ochre); opacity: 0.85; font-weight: 500;
+    padding-top: 3px;
   }
-  .gtr-tenet-num {
+  .tenet-list-name {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.2vw, 26px); font-weight: 400; line-height: 1.25;
+    color: var(--parchment); margin: 0 0 8px;
+  }
+  .tenet-list-desc {
+    font-family: var(--serif);
+    font-size: 17px; line-height: 1.65;
+    color: rgba(244,239,230,0.75); margin: 0; max-width: 620px;
+  }
+  .tenet-list-mark {
+    display: flex; align-items: center; gap: 14px;
+    padding-top: 32px; margin-top: 8px;
+  }
+  .tenet-list-mark-icon { width: 32px; height: 32px; opacity: 0.6; }
+  .tenet-list-mark-label {
     font-family: var(--sans);
-    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: #FFE8D6; opacity: 1; font-weight: 600;
-    margin-bottom: 8px; display: block;
-  }
-  .gtr-tenet-name {
-    font-family: var(--serif);
-    font-size: clamp(18px, 2vw, 22px); font-weight: 500; line-height: 1.25;
-    color: #FFFFFF; opacity: 1; letter-spacing: 0.01em; margin: 0;
-  }
-  .gtr-tenet-reveal {
-    display: none;
-    padding: 52px 56px;
-    background: #4A3F3A;
-  }
-  .gtr-tenet-reveal.open { display: block; }
-  .gtr-tenet-reveal-eyebrow {
-    font-family: var(--sans);
-    font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
-    color: rgba(244,239,230,0.4); margin-bottom: 20px;
-  }
-  .gtr-tenet-reveal-name {
-    font-family: var(--serif);
-    font-size: clamp(30px, 3.6vw, 44px); font-weight: 300; font-style: italic;
-    line-height: 1.15; color: #F4EFE6; margin-bottom: 20px; max-width: 640px;
-  }
-  .gtr-tenet-reveal-desc {
-    font-family: var(--serif);
-    font-size: 20px; font-weight: 400; line-height: 1.6;
-    color: rgba(244,239,230,0.8); max-width: 560px;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(244,239,230,0.5);
   }
   @media (max-width: 768px) {
-    .gtr-tenet-grid { grid-template-columns: repeat(3, 1fr); }
-    .gtr-tenet-card { height: 130px; padding: 14px 16px; }
-    .gtr-tenet-name { font-size: 16px; }
-    .gtr-tenet-reveal { padding: 28px 22px; }
-    .gtr-tenet-reveal-name { font-size: clamp(26px, 8vw, 34px); margin-bottom: 14px; }
-    .gtr-tenet-reveal-desc { font-size: 17px; line-height: 1.6; }
-    .gtr-tenet-reveal-eyebrow { margin-bottom: 14px; }
+    .tenet-list-item { grid-template-columns: 56px 1fr; gap: 16px; padding: 22px 0; }
+    .tenet-list-name { font-size: 19px; }
+    .tenet-list-desc { font-size: 16px; }
   }
 
   .scents-entry-header {
@@ -926,42 +889,61 @@
     The Tenets.
   </h2>
   <p class="scents-entry-intro">Seven ways we hold the line between the frontier and the modern.</p>
-  <div class="gtr-tenet-grid" id="gtr-tenet-grid">
-    <div class="gtr-tenet-card" data-tenet="01" data-desc="Nothing is added that the land doesn't call for. Nothing removed that it still needs." tabindex="0" role="button">
-      <span class="gtr-tenet-num">No. 01</span>
-      <h3 class="gtr-tenet-name">The land sets the brief.</h3>
+  <div class="tenet-list">
+    <div class="tenet-list-item">
+      <span class="tenet-list-num">No. 01</span>
+      <div class="tenet-list-body">
+        <h3 class="tenet-list-name">The land sets the brief.</h3>
+        <p class="tenet-list-desc">Nothing is added that the land doesn't call for. Nothing removed that it still needs.</p>
+      </div>
     </div>
-    <div class="gtr-tenet-card" data-tenet="02" data-desc="No ornament. No pretense. No filler. If it doesn't earn its place, it doesn't stay." tabindex="0" role="button">
-      <span class="gtr-tenet-num">No. 02</span>
-      <h3 class="gtr-tenet-name">Discipline, not noise.</h3>
+    <div class="tenet-list-item">
+      <span class="tenet-list-num">No. 02</span>
+      <div class="tenet-list-body">
+        <h3 class="tenet-list-name">Discipline, not noise.</h3>
+        <p class="tenet-list-desc">No ornament. No pretense. No filler. If it doesn't earn its place, it doesn't stay.</p>
+      </div>
     </div>
-    <div class="gtr-tenet-card" data-tenet="03" data-desc="The frontier's rough edges aren't a flaw to smooth over. They're the record of how a place was made." tabindex="0" role="button">
-      <span class="gtr-tenet-num">No. 03</span>
-      <h3 class="gtr-tenet-name">Raw is intentional.</h3>
+    <div class="tenet-list-item">
+      <span class="tenet-list-num">No. 03</span>
+      <div class="tenet-list-body">
+        <h3 class="tenet-list-name">Raw is intentional.</h3>
+        <p class="tenet-list-desc">The frontier's rough edges aren't a flaw to smooth over. They're the record of how a place was made.</p>
+      </div>
     </div>
-    <div class="gtr-tenet-card" data-tenet="04" data-desc="Scent, color, form: all of it comes from what's already here. Frontier Modernism observes the land. It doesn't decorate it." tabindex="0" role="button">
-      <span class="gtr-tenet-num">No. 04</span>
-      <h3 class="gtr-tenet-name">Document, don't invent.</h3>
+    <div class="tenet-list-item">
+      <span class="tenet-list-num">No. 04</span>
+      <div class="tenet-list-body">
+        <h3 class="tenet-list-name">Document, don't invent.</h3>
+        <p class="tenet-list-desc">Scent, color, form: all of it comes from what's already here. Frontier Modernism observes the land. It doesn't decorate it.</p>
+      </div>
     </div>
-    <div class="gtr-tenet-card" data-tenet="05" data-desc="The high desert doesn't flatter. It reveals. Frontier Modernism works in that same honesty, indoors and out." tabindex="0" role="button">
-      <span class="gtr-tenet-num">No. 05</span>
-      <h3 class="gtr-tenet-name">Wide light, not staged light.</h3>
+    <div class="tenet-list-item">
+      <span class="tenet-list-num">No. 05</span>
+      <div class="tenet-list-body">
+        <h3 class="tenet-list-name">Wide light, not staged light.</h3>
+        <p class="tenet-list-desc">The high desert doesn't flatter. It reveals. Frontier Modernism works in that same honesty, indoors and out.</p>
+      </div>
     </div>
-    <div class="gtr-tenet-card" data-tenet="06" data-desc="It isn't a look to copy and move past. It's a test every material and every form has to pass." tabindex="0" role="button">
-      <span class="gtr-tenet-num">No. 06</span>
-      <h3 class="gtr-tenet-name">A standard, not a style.</h3>
+    <div class="tenet-list-item">
+      <span class="tenet-list-num">No. 06</span>
+      <div class="tenet-list-body">
+        <h3 class="tenet-list-name">A standard, not a style.</h3>
+        <p class="tenet-list-desc">It isn't a look to copy and move past. It's a test every material and every form has to pass.</p>
+      </div>
     </div>
-    <div class="gtr-tenet-card" data-tenet="07" data-desc="Still Air, a natural deodorant that can sit next to Ranch Water on the counter and hold its own. Design first, without giving up what it's actually for." tabindex="0" role="button">
-      <span class="gtr-tenet-num">No. 07</span>
-      <h3 class="gtr-tenet-name">Object, not afterthought.</h3>
-    </div>
-    <div class="gtr-tenet-card gtr-tenet-mark">
-      <img src="/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="Ghost Town Ranch" class="gtr-tenet-mark-icon">
-      <span class="gtr-tenet-mark-label">GTR<br>Frontier Modernism</span>
+    <div class="tenet-list-item">
+      <span class="tenet-list-num">No. 07</span>
+      <div class="tenet-list-body">
+        <h3 class="tenet-list-name">Object, not afterthought.</h3>
+        <p class="tenet-list-desc">Still Air, a natural deodorant that can sit next to Ranch Water on the counter and hold its own. Design first, without giving up what it's actually for.</p>
+      </div>
     </div>
   </div>
-  <!-- Reveal panel — populated by JS -->
-  <div class="gtr-tenet-reveal" id="gtr-tenet-reveal"></div>
+  <div class="tenet-list-mark">
+    <img src="/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="Ghost Town Ranch" class="tenet-list-mark-icon">
+    <span class="tenet-list-mark-label">GTR &middot; Frontier Modernism</span>
+  </div>
 </section>
 
 <!-- ══ POCKET GUIDE STRIP ══ -->
@@ -1171,46 +1153,6 @@
         '</div>';
       reveal.classList.add('open');
       reveal.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    });
-    card.addEventListener('keydown', function(e){
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
-    });
-  });
-})();
-</script>
-<script>
-(function(){
-  var activeTenet = null;
-  var reveal = document.getElementById('gtr-tenet-reveal');
-  var cards = document.querySelectorAll('.gtr-tenet-card[data-tenet]');
-  if (!reveal || !cards.length) return;
-
-  function clearTenet() {
-    activeTenet = null;
-    cards.forEach(function(c){ c.classList.remove('active'); });
-    reveal.classList.remove('open');
-    reveal.innerHTML = '';
-  }
-
-  cards.forEach(function(card){
-    card.addEventListener('click', function(){
-      var tenet = card.dataset.tenet;
-      var desc = card.dataset.desc;
-      var name = card.querySelector('.gtr-tenet-name').textContent;
-
-      if (activeTenet === tenet) { clearTenet(); return; }
-      activeTenet = tenet;
-
-      cards.forEach(function(c){
-        c.classList.toggle('active', c.dataset.tenet === tenet);
-      });
-
-      reveal.innerHTML =
-        '<div class="gtr-tenet-reveal-eyebrow">Frontier Modernism &middot; No. ' + tenet + '</div>' +
-        '<div class="gtr-tenet-reveal-name">' + name + '</div>' +
-        '<div class="gtr-tenet-reveal-desc">' + desc + '</div>';
-      reveal.classList.add('open');
-      reveal.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
     card.addEventListener('keydown', function(e){
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
