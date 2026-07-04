@@ -283,6 +283,183 @@
     background: var(--warm-black);
     border-bottom: 1px solid rgba(212,201,181,0.1);
   }
+  /* ══ INTERACTIVE SCENT SWATCH GRID (mirrors /ritual/) ══ */
+  .gtr-scent-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2px;
+    margin-bottom: 2px;
+  }
+  .gtr-scent-card {
+    position: relative;
+    height: 160px;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 18px 20px;
+    border: none;
+    background: none;
+    transition: filter 0.25s;
+  }
+  .gtr-scent-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0);
+    transition: background 0.2s;
+  }
+  .gtr-scent-card:hover::after { background: rgba(0,0,0,0.1); }
+  .gtr-scent-card.inactive { filter: saturate(0.25) brightness(0.65); }
+  .gtr-scent-card-num {
+    font-family: var(--sans);
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 6px; position: relative; z-index: 1;
+  }
+  .gtr-scent-name {
+    font-family: var(--serif);
+    font-size: 20px; font-weight: 400; line-height: 1.1;
+    color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,0.25);
+    position: relative; z-index: 1; margin: 0;
+  }
+  .gtr-scent-note {
+    font-family: var(--sans);
+    font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-top: 5px; display: block; position: relative; z-index: 1;
+  }
+  .gtr-scent-active-dot {
+    position: absolute; top: 14px; right: 14px;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #fff; opacity: 0; z-index: 2;
+    transition: opacity 0.2s;
+  }
+  .gtr-scent-card.active .gtr-scent-active-dot { opacity: 1; }
+  .gtr-scent-reveal {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    min-height: 300px;
+    background: #2A2420;
+  }
+  .gtr-scent-reveal.open { display: grid; }
+  .gtr-scent-reveal-left {
+    padding: 52px 56px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .gtr-scent-reveal-eyebrow {
+    font-family: var(--sans);
+    font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(244,239,230,0.4); margin-bottom: 20px;
+  }
+  .gtr-scent-reveal-name {
+    font-family: var(--serif);
+    font-size: clamp(48px, 6vw, 72px); font-weight: 400; font-style: italic;
+    line-height: 0.95; color: #F4EFE6; margin-bottom: 24px;
+  }
+  .gtr-scent-reveal-note {
+    font-family: var(--sans);
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(244,239,230,0.45);
+    padding-top: 20px; border-top: 1px solid rgba(244,239,230,0.15);
+    margin-bottom: 24px;
+  }
+  .gtr-scent-reveal-desc {
+    font-family: var(--serif);
+    font-size: 22px; font-weight: 400; font-style: italic; line-height: 1.5;
+    color: rgba(244,239,230,0.85); max-width: 340px;
+  }
+  .gtr-scent-reveal-right {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 52px; border-left: 1px solid rgba(244,239,230,0.1); gap: 28px;
+  }
+  .gtr-scent-reveal-bull { width: 52px; height: 52px; opacity: 0.25; }
+  .gtr-scent-reveal-tagline {
+    font-family: var(--sans);
+    font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: rgba(244,239,230,0.35); text-align: center; line-height: 1.8;
+  }
+  @media (max-width: 768px) {
+    .gtr-scent-grid { grid-template-columns: repeat(3, 1fr); }
+    .gtr-scent-card { height: 130px; }
+    .gtr-scent-reveal { grid-template-columns: 1fr; }
+    .gtr-scent-reveal-right { display: none; }
+    .gtr-scent-reveal-left { padding: 36px 28px; }
+  }
+
+  /* ══ TENET CLICK-TO-REVEAL GRID (same interaction as scent grid) ══ */
+  .gtr-tenet-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-bottom: 2px;
+  }
+  .gtr-tenet-card {
+    position: relative;
+    cursor: pointer;
+    background: #453A2E;
+    border: 1px solid rgba(244,239,230,0.08);
+    min-height: 140px;
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: background 0.2s;
+  }
+  .gtr-tenet-card:hover { background: #554636; }
+  .gtr-tenet-mark {
+    cursor: default;
+    background: var(--warm-black);
+    align-items: center;
+    justify-content: center;
+  }
+  .gtr-tenet-mark:hover { background: var(--warm-black); }
+  .gtr-tenet-mark-icon {
+    width: 40px; height: 40px;
+    opacity: 0.35;
+  }
+  .gtr-tenet-card.active { background: var(--ochre); }
+  .gtr-tenet-card.active .gtr-tenet-num,
+  .gtr-tenet-card.active .gtr-tenet-name { color: #1A1512; }
+  .gtr-tenet-num {
+    font-family: var(--sans);
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ochre); opacity: 1; font-weight: 500;
+    margin-bottom: 10px; display: block;
+  }
+  .gtr-tenet-name {
+    font-family: var(--serif);
+    font-size: clamp(18px, 1.8vw, 21px); font-weight: 400; line-height: 1.25;
+    color: var(--parchment); opacity: 1; letter-spacing: 0.01em; margin: 0;
+  }
+  .gtr-tenet-reveal {
+    display: none;
+    padding: 52px 56px;
+    background: #2A2420;
+  }
+  .gtr-tenet-reveal.open { display: block; }
+  .gtr-tenet-reveal-eyebrow {
+    font-family: var(--sans);
+    font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(244,239,230,0.4); margin-bottom: 20px;
+  }
+  .gtr-tenet-reveal-name {
+    font-family: var(--serif);
+    font-size: clamp(30px, 3.6vw, 44px); font-weight: 300; font-style: italic;
+    line-height: 1.15; color: #F4EFE6; margin-bottom: 20px; max-width: 640px;
+  }
+  .gtr-tenet-reveal-desc {
+    font-family: var(--serif);
+    font-size: 20px; font-weight: 400; line-height: 1.6;
+    color: rgba(244,239,230,0.8); max-width: 560px;
+  }
+  @media (max-width: 768px) {
+    .gtr-tenet-grid { grid-template-columns: repeat(2, 1fr); }
+    .gtr-tenet-reveal { padding: 36px 24px; }
+  }
+
   .scents-entry-header {
     display: flex; align-items: baseline; gap: 32px;
     margin-bottom: 48px;
@@ -529,6 +706,27 @@
     background: var(--parchment);
     padding: 12px;
   }
+  .pocket-card-media { position: relative; height: 480px; overflow: hidden; }
+  .pocket-card-media img {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: contain; object-position: center;
+    background: var(--parchment); padding: 12px;
+    transition: opacity 0.5s ease;
+  }
+  .pocket-card-media .img-refined { opacity: 1; }
+  .pocket-card-media .img-raw { opacity: 0; }
+  .pocket-card:hover .img-refined { opacity: 0; }
+  .pocket-card:hover .img-raw { opacity: 1; }
+  .pocket-card-hint {
+    position: absolute; bottom: 10px; right: 12px;
+    font-family: var(--sans); font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ink); opacity: 0.4; font-weight: 300;
+    pointer-events: none; z-index: 2;
+  }
+  @media (max-width: 768px) {
+    .pocket-card-media { height: 320px; }
+  }
   @media (max-width: 768px) {
     .pocket-card img { height: 320px; }
   }
@@ -681,7 +879,7 @@
     </h2>
     <div class="entry-text">
       <p>The ranch is real. A restored mid-century home on five parcels at the foothills of Joshua Tree National Park — where the West is still unfinished and the land holds its history plainly. The property is available to visitors and retreats through <a href="https://livekindred.com/home/clj2wi8vs05y8m03alib23sl2?invite_code=kat.bou1" target="_blank" rel="noopener" style="color:var(--ochre);text-decoration:none;border-bottom:1px solid rgba(155,122,63,0.4);">Kindred</a>. The wide open, on your own terms.</p>
-      <p>Down the hill, Palm Springs took that same landscape and refined it into clean lines and glass — Desert Modernism's answer to the same wide light. Ghost Town Ranch sits between the two: the frontier's rawness, the modernist's discipline. <strong>The wide open and the life it opens onto.</strong></p>
+      <p>Down the hill, Palm Springs took that same landscape and refined it into clean lines and glass — Modernism's answer to the same wide light. Frontier Modernism sits between the two: the frontier's rawness, the modernist's discipline. <strong>The wide open and the life it opens onto.</strong></p>
     </div>
   </div>
 </article>
@@ -706,16 +904,68 @@
   </div>
 </section>
 
+<!-- ══ THE TENETS ══ -->
+<section class="scents-entry">
+  <div class="scents-entry-header">
+    <span class="scents-entry-number">No. 03</span>
+    <div class="scents-entry-rule"></div>
+    <span class="scents-entry-tag">Frontier Modernism, defined</span>
+  </div>
+  <h2 class="scents-entry-title">
+    The Tenets.
+  </h2>
+  <p class="scents-entry-intro">Seven ways we hold the line between the frontier and the modern.</p>
+  <div class="gtr-tenet-grid" id="gtr-tenet-grid">
+    <div class="gtr-tenet-card" data-tenet="01" data-desc="Nothing is added that the land doesn't call for. Nothing removed that it still needs." tabindex="0" role="button">
+      <span class="gtr-tenet-num">No. 01</span>
+      <h3 class="gtr-tenet-name">The land sets the brief.</h3>
+    </div>
+    <div class="gtr-tenet-card" data-tenet="02" data-desc="No ornament. No pretense. No filler. If it doesn't earn its place, it doesn't stay." tabindex="0" role="button">
+      <span class="gtr-tenet-num">No. 02</span>
+      <h3 class="gtr-tenet-name">Discipline, not noise.</h3>
+    </div>
+    <div class="gtr-tenet-card" data-tenet="03" data-desc="The frontier's rough edges aren't a flaw to smooth over. They're the record of how a place was made." tabindex="0" role="button">
+      <span class="gtr-tenet-num">No. 03</span>
+      <h3 class="gtr-tenet-name">Raw is intentional.</h3>
+    </div>
+    <div class="gtr-tenet-card" data-tenet="04" data-desc="Scent, color, form: all of it comes from what's already here. Frontier Modernism observes the land. It doesn't decorate it." tabindex="0" role="button">
+      <span class="gtr-tenet-num">No. 04</span>
+      <h3 class="gtr-tenet-name">Document, don't invent.</h3>
+    </div>
+    <div class="gtr-tenet-card" data-tenet="05" data-desc="The high desert doesn't flatter. It reveals. Frontier Modernism works in that same honesty, indoors and out." tabindex="0" role="button">
+      <span class="gtr-tenet-num">No. 05</span>
+      <h3 class="gtr-tenet-name">Wide light, not staged light.</h3>
+    </div>
+    <div class="gtr-tenet-card" data-tenet="06" data-desc="It isn't a look to copy and move past. It's a test every material and every form has to pass." tabindex="0" role="button">
+      <span class="gtr-tenet-num">No. 06</span>
+      <h3 class="gtr-tenet-name">A standard, not a style.</h3>
+    </div>
+    <div class="gtr-tenet-card" data-tenet="07" data-desc="Still Air, a natural deodorant that can sit next to Ranch Water on the counter and hold its own. Design first, without giving up what it's actually for." tabindex="0" role="button">
+      <span class="gtr-tenet-num">No. 07</span>
+      <h3 class="gtr-tenet-name">Object, not afterthought.</h3>
+    </div>
+    <div class="gtr-tenet-card gtr-tenet-mark">
+      <img src="/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="Ghost Town Ranch" class="gtr-tenet-mark-icon">
+    </div>
+  </div>
+  <!-- Reveal panel — populated by JS -->
+  <div class="gtr-tenet-reveal" id="gtr-tenet-reveal"></div>
+</section>
+
 <!-- ══ POCKET GUIDE STRIP ══ -->
 <section class="pocket-strip">
-  <span class="pocket-strip-label">Pocket Guide · Frontier Modernism</span>
+  <span class="pocket-strip-label">Refined on the surface. Raw underneath. Hover to see both.</span>
   <div class="pocket-strip-grid">
     <div class="pocket-card">
       <div class="pocket-card-header">
-        <span class="pocket-card-meta">Pocket Guide · No. 01</span>
         <span class="pocket-card-meta">Wash House</span>
+        <span class="pocket-card-meta">Pocket Guide · No. 01</span>
       </div>
-      <img src="/thewash_fieldguide_01.png" alt="The Wash — Ghost Town Ranch Pocket Guide No. 01" loading="lazy">
+      <div class="pocket-card-media">
+        <img class="img-refined" src="/TheWash1.png" alt="The Wash — Ghost Town Ranch product photography" loading="lazy">
+        <img class="img-raw" src="/thewash_fieldguide_01.png" alt="The Wash — Ghost Town Ranch Pocket Guide No. 01" loading="lazy">
+        <span class="pocket-card-hint">Hover for the Pocket Guide →</span>
+      </div>
       <div class="pocket-card-footer">
         <span class="pocket-card-name">The Wash</span>
         <a href="https://ghosttownranch.com/products/sunbroke-the-wash-cold-pressed-grapefruit" class="pocket-card-link">Shop →</a>
@@ -723,10 +973,14 @@
     </div>
     <div class="pocket-card">
       <div class="pocket-card-header">
-        <span class="pocket-card-meta">Pocket Guide · No. 02</span>
         <span class="pocket-card-meta">Wash House</span>
+        <span class="pocket-card-meta">Pocket Guide · No. 02</span>
       </div>
-      <img src="/outlawsreserve_fieldguide_02.png" alt="Outlaw's Reserve — Ghost Town Ranch Pocket Guide No. 02" loading="lazy">
+      <div class="pocket-card-media">
+        <img class="img-refined" src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawsreserve1.png" alt="Outlaw's Reserve — Ghost Town Ranch product photography" loading="lazy">
+        <img class="img-raw" src="/outlawsreserve_fieldguide_02.png" alt="Outlaw's Reserve — Ghost Town Ranch Pocket Guide No. 02" loading="lazy">
+        <span class="pocket-card-hint">Hover for the Pocket Guide →</span>
+      </div>
       <div class="pocket-card-footer">
         <span class="pocket-card-name">Outlaw's Reserve</span>
         <a href="https://ghosttownranch.com/products/outlaws-reserve-2-in-1-hair-skin-rinse" class="pocket-card-link">Shop →</a>
@@ -734,10 +988,14 @@
     </div>
     <div class="pocket-card">
       <div class="pocket-card-header">
-        <span class="pocket-card-meta">Pocket Guide · No. 01</span>
         <span class="pocket-card-meta">Color · The Face</span>
+        <span class="pocket-card-meta">Pocket Guide · No. 01</span>
       </div>
-      <img src="/DrawnLine_pocketguide.png" onerror="this.src='/drawnline_pocketguide.png'" alt="Drawn Line Satin Lip Color — Ghost Town Ranch Pocket Guide" loading="lazy">
+      <div class="pocket-card-media">
+        <img class="img-refined" src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DrawnLine1.png" alt="Drawn Line Satin Lip Color — Ghost Town Ranch product photography" loading="lazy">
+        <img class="img-raw" src="/DrawnLine_pocketguide.png" onerror="this.src='/drawnline_pocketguide.png'" alt="Drawn Line Satin Lip Color — Ghost Town Ranch Pocket Guide" loading="lazy">
+        <span class="pocket-card-hint">Hover for the Pocket Guide →</span>
+      </div>
       <div class="pocket-card-footer">
         <span class="pocket-card-name">Drawn Line</span>
         <a href="https://ghosttownranch.com/products/drawn-line-matte-lip-color" class="pocket-card-link">Shop →</a>
@@ -759,50 +1017,46 @@
   </h2>
   <p class="scents-entry-intro">Each scent is a specific place, a specific hour. Not invented. Documented.</p>
   <a href="https://ghosttownranch.com/ritual/" class="scents-link" style="display:inline-block;margin-bottom:40px;font-family:var(--sans);font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:#C8A96E;text-decoration:none;border-bottom:1px solid rgba(200,169,110,0.5);padding-bottom:3px;font-weight:300;">Full scent guide →</a>
-  <div class="scents-grid">
-    <div class="scent-card">
-      <span class="scent-card-num">No. 01</span>
-      <span class="scent-card-swatch" style="background:#6B3A2A;"></span>
-      <h3 class="scent-card-name">Rough Hewn</h3>
-      <span class="scent-card-notes">Cade · Cedarwood</span>
-      <p class="scent-card-desc">The smell of something being made. Raw wood, dry earth, a day of real work. The workshop at the end of the afternoon.</p>
+  <div class="gtr-scent-grid" id="gtr-scent-grid">
+    <div class="gtr-scent-card" data-scent="rough-hewn" data-color="#5C3D2B" data-num="01" data-desc="The smell of something being made. Raw wood, dry earth, a day of real work." style="background:#5C3D2B;" role="button" tabindex="0">
+      <span class="gtr-scent-active-dot"></span>
+      <span class="gtr-scent-card-num">No. 01</span>
+      <h3 class="gtr-scent-name">Rough Hewn</h3>
+      <span class="gtr-scent-note">Cade · Cedarwood</span>
     </div>
-    <div class="scent-card">
-      <span class="scent-card-num">No. 02</span>
-      <span class="scent-card-swatch" style="background:#7AADBE;"></span>
-      <h3 class="scent-card-name">Hang Dried</h3>
-      <span class="scent-card-notes">White Sage · Lavender</span>
-      <p class="scent-card-desc">The room after the window has been open all morning. White sage, lavender, linen drying in the sun. Cool and unencumbered.</p>
+    <div class="gtr-scent-card" data-scent="hang-dried" data-color="#7BA7BC" data-num="02" data-desc="White sage, lavender, clean air. The room after the window has been open all morning." style="background:#7BA7BC;" role="button" tabindex="0">
+      <span class="gtr-scent-active-dot"></span>
+      <span class="gtr-scent-card-num">No. 02</span>
+      <h3 class="gtr-scent-name">Hang Dried</h3>
+      <span class="gtr-scent-note">White Sage · Lavender</span>
     </div>
-    <div class="scent-card">
-      <span class="scent-card-num">No. 03</span>
-      <span class="scent-card-swatch" style="background:#1A1512;"></span>
-      <h3 class="scent-card-name">Ember</h3>
-      <span class="scent-card-notes">Charcoal · Amber</span>
-      <p class="scent-card-desc">The last hour of a good night. Deep smoke, warm amber, the canyon after rain. Everything settling.</p>
+    <div class="gtr-scent-card" data-scent="ember" data-color="#2A2420" data-num="03" data-desc="The last hour of a good night. Deep smoke, warm amber, the canyon after rain." style="background:#2A2420;" role="button" tabindex="0">
+      <span class="gtr-scent-active-dot"></span>
+      <span class="gtr-scent-card-num">No. 03</span>
+      <h3 class="gtr-scent-name">Ember</h3>
+      <span class="gtr-scent-note">Charcoal · Amber</span>
     </div>
-    <div class="scent-card">
-      <span class="scent-card-num">No. 04</span>
-      <span class="scent-card-swatch" style="background:#4A6741;"></span>
-      <h3 class="scent-card-name">Graze</h3>
-      <span class="scent-card-notes">Sweetgrass · Sage</span>
-      <p class="scent-card-desc">High desert morning. River-clean and sharp. The good scrub after a long ride through open country.</p>
+    <div class="gtr-scent-card" data-scent="graze" data-color="#5C6B4A" data-num="04" data-desc="High desert morning. River-clean and sharp. The good scrub after a long ride." style="background:#5C6B4A;" role="button" tabindex="0">
+      <span class="gtr-scent-active-dot"></span>
+      <span class="gtr-scent-card-num">No. 04</span>
+      <h3 class="gtr-scent-name">Graze</h3>
+      <span class="gtr-scent-note">Sweetgrass · Sage</span>
     </div>
-    <div class="scent-card">
-      <span class="scent-card-num">No. 05</span>
-      <span class="scent-card-swatch" style="background:#8A8A3A;"></span>
-      <h3 class="scent-card-name">Flax</h3>
-      <span class="scent-card-notes">Cotton Blossom · Citron</span>
-      <p class="scent-card-desc">Warm stone, prairie grass. Lemon, cotton blossom, blonde woods in the late afternoon. The field before the light goes.</p>
+    <div class="gtr-scent-card" data-scent="flax" data-color="#8C7A3A" data-num="05" data-desc="Warm stone, prairie grass. Lemon, cotton blossom, blonde woods." style="background:#8C7A3A;" role="button" tabindex="0">
+      <span class="gtr-scent-active-dot"></span>
+      <span class="gtr-scent-card-num">No. 05</span>
+      <h3 class="gtr-scent-name">Flax</h3>
+      <span class="gtr-scent-note">Cotton Blossom · Citron</span>
     </div>
-    <div class="scent-card">
-      <span class="scent-card-num">No. 06</span>
-      <span class="scent-card-swatch" style="background:#8A6030;"></span>
-      <h3 class="scent-card-name">Dusk</h3>
-      <span class="scent-card-notes">Palo Santo · Amber</span>
-      <p class="scent-card-desc">Dry earth, warm amber, ancient and mineral. The light going low over the high desert. The day ending on its own terms.</p>
+    <div class="gtr-scent-card" data-scent="dusk" data-color="#7A5535" data-num="06" data-desc="Dry earth, warm amber, ancient and mineral. The light going low over the high desert." style="background:#7A5535;" role="button" tabindex="0">
+      <span class="gtr-scent-active-dot"></span>
+      <span class="gtr-scent-card-num">No. 06</span>
+      <h3 class="gtr-scent-name">Dusk</h3>
+      <span class="gtr-scent-note">Palo Santo · Amber</span>
     </div>
   </div>
+  <!-- Reveal panel — populated by JS -->
+  <div class="gtr-scent-reveal" id="gtr-scent-reveal"></div>
 </section>
 
 <!-- PULL QUOTE 02 -->
@@ -855,6 +1109,99 @@
       btn.classList.remove('open');
       btn.setAttribute('aria-expanded','false');
       document.body.style.overflow='';
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var BULL_SVG = '<img src="/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" class="gtr-scent-reveal-bull" alt="Ghost Town Ranch" />';
+  var activeScent = null;
+  var reveal = document.getElementById('gtr-scent-reveal');
+  var cards = document.querySelectorAll('.gtr-scent-card[data-scent]');
+  if (!reveal || !cards.length) return;
+
+  function clearScent() {
+    activeScent = null;
+    cards.forEach(function(c){ c.classList.remove('active','inactive'); });
+    reveal.classList.remove('open');
+    reveal.innerHTML = '';
+  }
+
+  cards.forEach(function(card){
+    card.addEventListener('click', function(){
+      var scent = card.dataset.scent;
+      var color = card.dataset.color;
+      var num = card.dataset.num;
+      var desc = card.dataset.desc;
+      var name = card.querySelector('.gtr-scent-name').textContent;
+      var note = card.querySelector('.gtr-scent-note').textContent;
+
+      if (activeScent === scent) { clearScent(); return; }
+      activeScent = scent;
+
+      cards.forEach(function(c){
+        c.classList.toggle('active', c.dataset.scent === scent);
+        c.classList.toggle('inactive', c.dataset.scent !== scent);
+      });
+
+      reveal.style.background = color;
+      reveal.innerHTML =
+        '<div class="gtr-scent-reveal-left">' +
+          '<div class="gtr-scent-reveal-eyebrow">Ghost Town Ranch &middot; Scent No. ' + num + '</div>' +
+          '<div class="gtr-scent-reveal-name">' + name + '</div>' +
+          '<div class="gtr-scent-reveal-note">' + note + '</div>' +
+          '<div class="gtr-scent-reveal-desc">' + desc + '</div>' +
+        '</div>' +
+        '<div class="gtr-scent-reveal-right">' +
+          BULL_SVG +
+          '<div class="gtr-scent-reveal-tagline">Frontier Modernism<br>Palm Springs, CA</div>' +
+        '</div>';
+      reveal.classList.add('open');
+      reveal.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+    card.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var activeTenet = null;
+  var reveal = document.getElementById('gtr-tenet-reveal');
+  var cards = document.querySelectorAll('.gtr-tenet-card[data-tenet]');
+  if (!reveal || !cards.length) return;
+
+  function clearTenet() {
+    activeTenet = null;
+    cards.forEach(function(c){ c.classList.remove('active'); });
+    reveal.classList.remove('open');
+    reveal.innerHTML = '';
+  }
+
+  cards.forEach(function(card){
+    card.addEventListener('click', function(){
+      var tenet = card.dataset.tenet;
+      var desc = card.dataset.desc;
+      var name = card.querySelector('.gtr-tenet-name').textContent;
+
+      if (activeTenet === tenet) { clearTenet(); return; }
+      activeTenet = tenet;
+
+      cards.forEach(function(c){
+        c.classList.toggle('active', c.dataset.tenet === tenet);
+      });
+
+      reveal.innerHTML =
+        '<div class="gtr-tenet-reveal-eyebrow">Frontier Modernism &middot; No. ' + tenet + '</div>' +
+        '<div class="gtr-tenet-reveal-name">' + name + '</div>' +
+        '<div class="gtr-tenet-reveal-desc">' + desc + '</div>';
+      reveal.classList.add('open');
+      reveal.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+    card.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
     });
   });
 })();
