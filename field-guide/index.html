@@ -399,45 +399,52 @@
   .gtr-tenet-card {
     position: relative;
     cursor: pointer;
-    background: #453A2E;
-    border: 1px solid rgba(244,239,230,0.08);
+    background-image: linear-gradient(rgba(20,14,10,0.45), rgba(20,14,10,0.65)), var(--tenet-bg);
+    background-size: cover;
+    background-position: var(--tenet-pos, center);
+    border: 1px solid rgba(0,0,0,0.15);
     min-height: 140px;
     padding: 20px 22px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    transition: background 0.2s;
+    transition: filter 0.2s;
   }
-  .gtr-tenet-card:hover { background: #554636; }
+  .gtr-tenet-card:hover { filter: brightness(1.12); }
+  .gtr-tenet-card.active { filter: brightness(1.18); box-shadow: inset 0 0 0 3px rgba(255,255,255,0.8); }
   .gtr-tenet-mark {
     cursor: default;
     background: var(--warm-black);
+    border: 1px solid rgba(244,239,230,0.14);
     align-items: center;
     justify-content: center;
+    gap: 10px;
   }
-  .gtr-tenet-mark:hover { background: var(--warm-black); }
+  .gtr-tenet-mark:hover { filter: none; }
   .gtr-tenet-mark-icon {
-    width: 40px; height: 40px;
-    opacity: 0.35;
+    width: 64px; height: 64px;
+    opacity: 0.9;
   }
-  .gtr-tenet-card.active { background: var(--ochre); }
-  .gtr-tenet-card.active .gtr-tenet-num,
-  .gtr-tenet-card.active .gtr-tenet-name { color: #1A1512; }
+  .gtr-tenet-mark-label {
+    font-family: var(--sans);
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #D9C4B8; opacity: 0.8; text-align: center; line-height: 1.7;
+  }
   .gtr-tenet-num {
     font-family: var(--sans);
     font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--ochre); opacity: 1; font-weight: 500;
+    color: #FFE8D6; opacity: 1; font-weight: 600;
     margin-bottom: 10px; display: block;
   }
   .gtr-tenet-name {
     font-family: var(--serif);
-    font-size: clamp(18px, 1.8vw, 21px); font-weight: 400; line-height: 1.25;
-    color: var(--parchment); opacity: 1; letter-spacing: 0.01em; margin: 0;
+    font-size: clamp(18px, 1.8vw, 21px); font-weight: 500; line-height: 1.25;
+    color: #FFFFFF; opacity: 1; letter-spacing: 0.01em; margin: 0;
   }
   .gtr-tenet-reveal {
     display: none;
     padding: 52px 56px;
-    background: #2A2420;
+    background: #4A3F3A;
   }
   .gtr-tenet-reveal.open { display: block; }
   .gtr-tenet-reveal-eyebrow {
@@ -916,36 +923,37 @@
   </h2>
   <p class="scents-entry-intro">Seven ways we hold the line between the frontier and the modern.</p>
   <div class="gtr-tenet-grid" id="gtr-tenet-grid">
-    <div class="gtr-tenet-card" data-tenet="01" data-desc="Nothing is added that the land doesn't call for. Nothing removed that it still needs." tabindex="0" role="button">
+    <div class="gtr-tenet-card" style="--tenet-bg:url('/widelight.jpg'); --tenet-pos:center 85%;" data-tenet="01" data-desc="Nothing is added that the land doesn't call for. Nothing removed that it still needs." tabindex="0" role="button">
       <span class="gtr-tenet-num">No. 01</span>
       <h3 class="gtr-tenet-name">The land sets the brief.</h3>
     </div>
-    <div class="gtr-tenet-card" data-tenet="02" data-desc="No ornament. No pretense. No filler. If it doesn't earn its place, it doesn't stay." tabindex="0" role="button">
+    <div class="gtr-tenet-card" style="--tenet-bg:url('/widelight.jpg'); --tenet-pos:20% 10%;" data-tenet="02" data-desc="No ornament. No pretense. No filler. If it doesn't earn its place, it doesn't stay." tabindex="0" role="button">
       <span class="gtr-tenet-num">No. 02</span>
       <h3 class="gtr-tenet-name">Discipline, not noise.</h3>
     </div>
-    <div class="gtr-tenet-card" data-tenet="03" data-desc="The frontier's rough edges aren't a flaw to smooth over. They're the record of how a place was made." tabindex="0" role="button">
+    <div class="gtr-tenet-card" style="--tenet-bg:url('/widelight.jpg'); --tenet-pos:5% 55%;" data-tenet="03" data-desc="The frontier's rough edges aren't a flaw to smooth over. They're the record of how a place was made." tabindex="0" role="button">
       <span class="gtr-tenet-num">No. 03</span>
       <h3 class="gtr-tenet-name">Raw is intentional.</h3>
     </div>
-    <div class="gtr-tenet-card" data-tenet="04" data-desc="Scent, color, form: all of it comes from what's already here. Frontier Modernism observes the land. It doesn't decorate it." tabindex="0" role="button">
+    <div class="gtr-tenet-card" style="--tenet-bg:url('/widelight.jpg'); --tenet-pos:80% 50%;" data-tenet="04" data-desc="Scent, color, form: all of it comes from what's already here. Frontier Modernism observes the land. It doesn't decorate it." tabindex="0" role="button">
       <span class="gtr-tenet-num">No. 04</span>
       <h3 class="gtr-tenet-name">Document, don't invent.</h3>
     </div>
-    <div class="gtr-tenet-card" data-tenet="05" data-desc="The high desert doesn't flatter. It reveals. Frontier Modernism works in that same honesty, indoors and out." tabindex="0" role="button">
+    <div class="gtr-tenet-card" style="--tenet-bg:url('/widelight.jpg'); --tenet-pos:55% 5%;" data-tenet="05" data-desc="The high desert doesn't flatter. It reveals. Frontier Modernism works in that same honesty, indoors and out." tabindex="0" role="button">
       <span class="gtr-tenet-num">No. 05</span>
       <h3 class="gtr-tenet-name">Wide light, not staged light.</h3>
     </div>
-    <div class="gtr-tenet-card" data-tenet="06" data-desc="It isn't a look to copy and move past. It's a test every material and every form has to pass." tabindex="0" role="button">
+    <div class="gtr-tenet-card" style="--tenet-bg:url('/widelight.jpg'); --tenet-pos:65% 75%;" data-tenet="06" data-desc="It isn't a look to copy and move past. It's a test every material and every form has to pass." tabindex="0" role="button">
       <span class="gtr-tenet-num">No. 06</span>
       <h3 class="gtr-tenet-name">A standard, not a style.</h3>
     </div>
-    <div class="gtr-tenet-card" data-tenet="07" data-desc="Still Air, a natural deodorant that can sit next to Ranch Water on the counter and hold its own. Design first, without giving up what it's actually for." tabindex="0" role="button">
+    <div class="gtr-tenet-card" style="--tenet-bg:url('/widelight.jpg'); --tenet-pos:35% 40%;" data-tenet="07" data-desc="Still Air, a natural deodorant that can sit next to Ranch Water on the counter and hold its own. Design first, without giving up what it's actually for." tabindex="0" role="button">
       <span class="gtr-tenet-num">No. 07</span>
       <h3 class="gtr-tenet-name">Object, not afterthought.</h3>
     </div>
     <div class="gtr-tenet-card gtr-tenet-mark">
       <img src="/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="Ghost Town Ranch" class="gtr-tenet-mark-icon">
+      <span class="gtr-tenet-mark-label">GTR<br>Frontier Modernism</span>
     </div>
   </div>
   <!-- Reveal panel — populated by JS -->
