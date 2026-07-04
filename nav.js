@@ -4,7 +4,7 @@
     { href: '/ritual/',      label: 'Ritual' },
     { href: '/routines/',    label: 'Routines' },
     { href: '/wash-house/',  label: 'Wash House' },
-    { href: '/field-guide/', label: 'Field Guide' },
+    { href: '/field-guide/', label: 'Wide Light' },
     { href: '/wholesale/',   label: 'Wholesale' },
   ];
 

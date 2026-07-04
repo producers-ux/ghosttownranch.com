@@ -22,7 +22,7 @@
     { t: 'Ritual',          c: 'Scent + Home',  u: '/ritual/',                k: 'candle votive diffuser fragrance scent home reed' },
     { t: 'Routines',        c: 'Skin',          u: '/routines/',              k: 'serum cream eye routine morning evening skincare face' },
     { t: 'Wash House',      c: 'At the sink',   u: '/wash-house/',            k: 'hand wash soap body cream sink' },
-    { t: 'Field Guide',     c: 'Origin',        u: '/field-guide/',           k: 'origin philosophy frontier modernism story about' },
+    { t: 'Wide Light',     c: 'Origin',        u: '/field-guide/',           k: 'origin philosophy frontier modernism story about wide light' },
     { t: 'Shop the Ranch',  c: 'All Objects',   u: '/shop/',                  k: 'shop all products store browse' },
     { t: 'Wholesale',       c: 'Trade',         u: '/wholesale/',             k: 'wholesale trade stockist retailer line sheet hospitality' },
     { t: 'Deep Well',       c: 'Ingestible',    u: '/collections/deep-well/', k: 'deep well ingestible beauty supplement the well first light last light' },
