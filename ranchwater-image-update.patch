@@ -1,0 +1,96 @@
+diff --git a/GTR_Catalog_2026.html b/GTR_Catalog_2026.html
+index 679a5ef..85dc2a6 100644
+--- a/GTR_Catalog_2026.html
++++ b/GTR_Catalog_2026.html
+@@ -789,7 +789,7 @@ a { color: inherit; text-decoration: none; }
+       <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/theslow1.png?v=1781994233" alt="The Slow">
+     </div>
+     <div class="image-strip-cell">
+-      <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/ranchwater1.png?v=1781996346" alt="Ranch Water">
++      <img src="https://or-cre.com/cdn/shop/files/RanchWater_Flax-bx.png?v=1783624841&width=1200" alt="Ranch Water">
+     </div>
+   </div>
+ 
+@@ -893,7 +893,7 @@ a { color: inherit; text-decoration: none; }
+ 
+     <div class="product-card">
+       <div class="product-img">
+-        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/ranchwater1.png?v=1781996346" alt="Ranch Water">
++        <img src="https://or-cre.com/cdn/shop/files/RanchWater_Flax-bx.png?v=1783624841&width=1200" alt="Ranch Water">
+       </div>
+       <div class="product-info">
+         <span class="product-num">No. 01 · Home</span>
+diff --git a/collections/the-claim/index.html b/collections/the-claim/index.html
+index f1466ce..a255d92 100644
+--- a/collections/the-claim/index.html
++++ b/collections/the-claim/index.html
+@@ -273,7 +273,7 @@ Hair + Scalp Oil" style="cursor:pointer">
+       </article>
+       <article class="product-card">
+         <div class="card-img pdp-trigger" onclick="openPDP(this)" data-product-name="Ranch Water" style="cursor:pointer">
+-          <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/RanchWater.png?v=1776856533&width=600" alt="Ranch Water" loading="lazy">
++          <img src="https://or-cre.com/cdn/shop/files/RanchWater_Flax-bx.png?v=1783624841&width=600" alt="Ranch Water" loading="lazy">
+           <span class="badge badge-primary">Primary</span>
+         </div>
+         <div class="card-body">
+diff --git a/collections/the-landed/index.html b/collections/the-landed/index.html
+index 4d070c2..04021bb 100644
+--- a/collections/the-landed/index.html
++++ b/collections/the-landed/index.html
+@@ -288,7 +288,7 @@ Hair + Scalp Oil" style="cursor:pointer">
+       </article>
+       <article class="product-card">
+         <div class="card-img pdp-trigger" onclick="openPDP(this)" data-product-name="Ranch Water" style="cursor:pointer">
+-          <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/RanchWater.png?v=1776856533&width=600" alt="Ranch Water" loading="lazy">
++          <img src="https://or-cre.com/cdn/shop/files/RanchWater_Flax-bx.png?v=1783624841&width=600" alt="Ranch Water" loading="lazy">
+           <span class="badge badge-primary">Primary</span>
+         </div>
+         <div class="card-body">
+diff --git a/collections/the-scout/index.html b/collections/the-scout/index.html
+index 6d83b39..48904f5 100644
+--- a/collections/the-scout/index.html
++++ b/collections/the-scout/index.html
+@@ -243,7 +243,7 @@ Keratin Hair Mist" style="cursor:pointer">
+       </article>
+       <article class="product-card">
+         <div class="card-img pdp-trigger" onclick="openPDP(this)" data-product-name="Ranch Water" style="cursor:pointer">
+-          <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/RanchWater.png?v=1776856533&width=600" alt="Ranch Water" loading="lazy">
++          <img src="https://or-cre.com/cdn/shop/files/RanchWater_Flax-bx.png?v=1783624841&width=600" alt="Ranch Water" loading="lazy">
+           <span class="badge badge-primary">Primary</span>
+         </div>
+         <div class="card-body">
+diff --git a/shop/index.html b/shop/index.html
+index 7f1a288..7b520dd 100644
+--- a/shop/index.html
++++ b/shop/index.html
+@@ -207,7 +207,7 @@
+         <a class="pcard" href="https://ghosttownranch.com/products/the-wander-hand-poured-travel-candle"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thewander1.png" alt="The Wander Travel Candle" loading="lazy"></div><div class="pcard-name">The Wander</div><div class="pcard-sub">Travel Candle</div><div class="pcard-price">$28</div></a>
+         <a class="pcard" href="https://ghosttownranch.com/products/the-votive-candle-set-of-6"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/votiveset6_1.png" alt="The Votive Set of 6" loading="lazy"></div><div class="pcard-name">The Votive</div><div class="pcard-sub">Set of 6</div><div class="pcard-price">$148</div></a>
+         <a class="pcard" href="https://ghosttownranch.com/products/the-votive-single"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/TheVotive_No3.png?v=1783367036&width=1200" alt="The Votive Single" loading="lazy"></div><div class="pcard-name">The Votive</div><div class="pcard-sub">Single</div><div class="pcard-price">$26</div></a>
+-        <a class="pcard" href="https://ghosttownranch.com/products/ranch-water-body-room-fragrance"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/ranchwater1.png" alt="Ranch Water Body + Room Fragrance" loading="lazy"></div><div class="pcard-name">Ranch Water</div><div class="pcard-sub">Body + Room Fragrance</div><div class="pcard-price">$88</div></a>
++        <a class="pcard" href="https://ghosttownranch.com/products/ranch-water-body-room-fragrance"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/RanchWater_Flax-bx.png?v=1783624841" alt="Ranch Water Body + Room Fragrance" loading="lazy"></div><div class="pcard-name">Ranch Water</div><div class="pcard-sub">Body + Room Fragrance</div><div class="pcard-price">$88</div></a>
+         <a class="pcard" href="https://ghosttownranch.com/products/the-still-amber-glass-reed-diffuser"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TheStill_blackall.png?v=1782506422" alt="The Still Reed Diffuser" loading="lazy"></div><div class="pcard-name">The Still</div><div class="pcard-sub">Reed Diffuser</div><div class="pcard-price">$72</div></a>
+         <a class="pcard" href="https://ghosttownranch.com/products/the-field-kit"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/fieldkit_1.png" alt="The Field Kit Discovery" loading="lazy"></div><div class="pcard-name">The Field Kit</div><div class="pcard-sub">Discovery</div><div class="pcard-price">$34</div></a>
+       </div>
+diff --git a/wholesale/catalog/index.html b/wholesale/catalog/index.html
+index c869943..49fd07d 100644
+--- a/wholesale/catalog/index.html
++++ b/wholesale/catalog/index.html
+@@ -963,7 +963,7 @@ a { color: inherit; text-decoration: none; }
+       <img src="https://or-cre.com/cdn/shop/files/TheSlow_03Ember.png?v=1783616192" alt="The Slow">
+     </div>
+     <div class="image-strip-cell">
+-      <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/ranchwater1.png?v=1781996346" alt="Ranch Water">
++      <img src="https://or-cre.com/cdn/shop/files/RanchWater_Flax-bx.png?v=1783624841&width=1200" alt="Ranch Water">
+     </div>
+   </div>
+ 
+@@ -1131,7 +1131,7 @@ a { color: inherit; text-decoration: none; }
+ 
+     <div class="product-card">
+       <div class="product-img">
+-        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/ranchwater1.png?v=1781996346" alt="Ranch Water">
++        <img src="https://or-cre.com/cdn/shop/files/RanchWater_Flax-bx.png?v=1783624841&width=1200" alt="Ranch Water">
+       </div>
+       <div class="product-info">
+         <span class="product-num">No. 01 · Home</span>
