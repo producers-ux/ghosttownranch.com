@@ -1858,9 +1858,10 @@ async function init() {
     return;
   }
 
-  // The Ritual — a two-product bundle (Ranch Water + The Slow), not a single Shopify product
+  // The Ritual — legacy hardcoded bundle handle, now redirects to the real
+  // Shopify product (The Ritual Bundle, 4 formats · 6 scents)
   if (handle === 'the-ritual') {
-    await renderRitualBundle();
+    window.location.replace('/products/the-ritual-bundle-4-formats-6-scents');
     return;
   }
 
