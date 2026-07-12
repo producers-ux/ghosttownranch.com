@@ -459,6 +459,14 @@
     padding: 8px 0 8px 18px; transition: opacity 0.2s;
   }
   .signup-btn:hover { opacity: 0.6; }
+  .signup-btn:disabled { opacity: 0.4; cursor: default; }
+  .signup-note {
+    font-family: var(--sans); font-size: 11px; letter-spacing: 0.08em;
+    color: var(--warm-black); opacity: 0; margin-top: 10px;
+    transition: opacity 0.2s;
+  }
+  .signup-note.visible { opacity: 0.7; }
+  .signup-note.error { color: #a3312a; opacity: 0.85; }
   @media (max-width: 768px) {
     .signup { flex-direction: column; align-items: flex-start; padding: 56px 24px; }
     .signup-form { min-width: 0; width: 100%; }
@@ -817,10 +825,12 @@
 <!-- ══ SIGNUP ══ -->
 <section class="signup">
   <h2 class="signup-headline">From the ranch. In your inbox.</h2>
-  <form class="signup-form">
-    <input type="email" class="signup-input" placeholder="Your email">
+  <form class="signup-form" action="https://formspree.io/f/xnjleeqp" method="POST" id="signup-form">
+    <input type="email" name="email" class="signup-input" placeholder="Your email" required>
+    <input type="hidden" name="_subject" value="New Ghost Town Ranch newsletter signup">
     <button type="submit" class="signup-btn">Join →</button>
   </form>
+  <p class="signup-note" id="signup-note" role="status" aria-live="polite"></p>
 </section>
 
 <!-- FOOTER -->
@@ -858,6 +868,42 @@
         btn.classList.remove('open');
         btn.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
+      });
+    });
+  });
+  // Newsletter signup — Formspree
+  document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('signup-form');
+    var note = document.getElementById('signup-note');
+    if (!form || !note) return;
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = form.querySelector('.signup-btn');
+      var data = new FormData(form);
+      btn.disabled = true;
+      note.textContent = '';
+      note.className = 'signup-note';
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        if (response.ok) {
+          note.textContent = "You're on the list. Welcome to the ranch.";
+          note.classList.add('visible');
+          form.reset();
+        } else {
+          return response.json().then(function(json) {
+            var msg = (json && json.errors && json.errors.length) ? json.errors.map(function(er){return er.message;}).join(', ') : 'Something went wrong. Please try again.';
+            note.textContent = msg;
+            note.classList.add('visible', 'error');
+          });
+        }
+      }).catch(function() {
+        note.textContent = 'Something went wrong. Please try again.';
+        note.classList.add('visible', 'error');
+      }).finally(function() {
+        btn.disabled = false;
       });
     });
   });
