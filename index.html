@@ -403,6 +403,16 @@
     .obj-img { aspect-ratio: 4/3; }
   }
 
+  /* ══ 5b. ASSURANCE BAR — risk reversal under the product grid ══ */
+  .assurance-bar {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    margin-top: 48px; padding-top: 36px;
+    border-top: 1px solid var(--dust);
+  }
+  @media (max-width: 768px) {
+    .assurance-bar { margin-top: 36px; padding-top: 28px; gap: 16px; }
+  }
+
   /* ══ 6. CERT STRIP — minimal ══ */
   .cert-strip {
     padding: 36px 48px;
@@ -808,6 +818,10 @@
       <h3 class="obj-name">Golden Hour</h3>
       <p class="obj-price">$62 · Body oil</p>
     </a>
+  </div>
+  <div class="assurance-bar">
+    <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">Hassle-free returns on damaged items</span></div>
+    <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">Secure checkout</span></div>
   </div>
 </section>
 
