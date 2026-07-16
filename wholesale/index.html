@@ -34,7 +34,7 @@
     /* hero */
     .w2-hero{
       position:relative;
-      min-height:480px;
+      min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -52,18 +52,6 @@
     .w2-eyebrow{ font-family:var(--serif); font-size:12px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(244,239,230,0.85); }
     .w2-title{ font-family:var(--serif); font-weight:400; font-size:clamp(32px,5.5vw,60px); line-height:1.02; margin:14px 0 14px; color:var(--parchment); }
     .w2-intro{ max-width:600px; margin:0 auto; font-size:15px; line-height:1.7; color:rgba(244,239,230,0.9); }
-
-    /* spa feature strip — its own tinted band, promoted to top of page (right under hero) */
-    .spa-feature{ background:rgba(124,130,96,0.08); border-top:1px solid rgba(124,130,96,0.22); border-bottom:1px solid rgba(124,130,96,0.22); padding:44px 48px 48px; }
-    .spa-feature-inner{ max-width:1100px; margin:0 auto; }
-    .spa-feature-head{ font-family:var(--serif); font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--army); margin-bottom:10px; text-align:center; }
-    .spa-feature-intro{ max-width:640px; margin:0 auto 30px; text-align:center; font-size:14.5px; line-height:1.7; color:#3a372f; }
-    .spa-cards{ display:flex; flex-wrap:wrap; gap:40px; justify-content:center; margin-bottom:8px; }
-    .spa-card{ flex:1 1 300px; max-width:380px; text-align:left; }
-    .spa-card h4{ font-family:var(--serif); font-weight:400; font-size:19px; margin-bottom:8px; color:var(--ink); }
-    .spa-card p{ font-size:13px; line-height:1.6; color:#5a564c; }
-    .spa-card a{ display:inline-block; margin-top:10px; font-family:var(--serif); font-size:12.5px; letter-spacing:0.12em;
-      text-transform:uppercase; color:var(--ink); text-decoration:none; border-bottom:1px solid var(--ochre); padding-bottom:3px; }
 
     /* story */
     .w2-story{ max-width:760px; margin:0 auto; padding:32px 48px 64px; text-align:center; }
@@ -162,7 +150,7 @@
     }
     @media (max-width:600px){
       .w2-hero{ padding:120px 24px 40px; min-height:auto; gap:40px; }
-      .w2-story,.partners-wrap,.proof,.press,.spa-feature{ padding-left:24px; padding-right:24px; }
+      .w2-story,.partners-wrap,.proof,.press{ padding-left:24px; padding-right:24px; }
       .pillar{ padding:44px 28px; }
       .inquiry{ padding:60px 24px; }
       .proof span::before{ display:none; }
@@ -228,19 +216,6 @@
     </div>
   </section>
 
-  <section class="spa-feature">
-    <div class="spa-feature-inner">
-      <div class="spa-feature-head">Hospitality &amp; Spa</div>
-      <p class="spa-feature-intro">GTR is already in service at spa properties, built to run as a program: treatment-room facials, amenity refills, and retail on the same shelf.</p>
-      <div class="spa-cards">
-        <div class="spa-card">
-          <h4>Miracle Manor Boutique Hotel &amp; Spa</h4>
-          <p>Desert Hot Springs, CA<br>Current spa partner &middot; GTR facials on the treatment menu</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="press" style="padding-top:8px;">
     <div class="lab">As Seen In</div>
     <div class="press-names">
@@ -263,6 +238,7 @@
       <div class="pillar-num">02</div>
       <h3>Hospitality</h3>
       <p>The Wash House runs on a refill system made for hotels, spas, and short-term rentals. The Basin hand wash and body care in amenity and refill formats, in your choice of our six scents. Less waste, a fuller shelf life, a guest experience that reads as care.</p>
+      <p style="margin-top:16px; font-size:13.5px; line-height:1.65; color:#5a564c;">GTR is already in service at spa properties, built to run as a program: treatment-room facials, amenity refills, and retail on the same shelf.<br><br><strong style="color:var(--ink); font-weight:400;">Miracle Manor Boutique Hotel &amp; Spa</strong><br>Desert Hot Springs, CA<br>Current spa partner &middot; GTR facials on the treatment menu</p>
       <a href="mailto:wholesale@ghosttownranch.com?subject=Hospitality%20Inquiry">Talk hospitality &rarr;</a>
     </div>
     <div class="pillar">
