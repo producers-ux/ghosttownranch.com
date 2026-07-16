@@ -32,10 +32,30 @@
     body{ background:var(--parchment); color:var(--ink); font-family:var(--sans); font-weight:300; -webkit-font-smoothing:antialiased; line-height:1.6; }
 
     /* hero */
-    .w2-hero{ padding:170px 48px 48px; text-align:center; max-width:820px; margin:0 auto; }
-    .w2-eyebrow{ font-family:var(--serif); font-size:12px; letter-spacing:0.28em; text-transform:uppercase; color:var(--army); }
-    .w2-title{ font-family:var(--serif); font-weight:400; font-size:clamp(38px,6.5vw,76px); line-height:1.02; margin:18px 0 18px; }
-    .w2-intro{ max-width:600px; margin:0 auto; font-size:15.5px; line-height:1.75; color:#4a463f; }
+    .w2-hero{
+      position:relative;
+      padding:150px 48px 60px;
+      text-align:center;
+      background:
+        linear-gradient(180deg, rgba(24,21,17,0.58), rgba(24,21,17,0.68)),
+        url('https://or-cre.com/cdn/shop/files/washhouse1.png?v=1782596595&width=1600') center 32% / cover no-repeat;
+    }
+    .w2-hero-inner{ max-width:820px; margin:0 auto; }
+    .w2-eyebrow{ font-family:var(--serif); font-size:12px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(244,239,230,0.85); }
+    .w2-title{ font-family:var(--serif); font-weight:400; font-size:clamp(32px,5.5vw,60px); line-height:1.02; margin:14px 0 14px; color:var(--parchment); }
+    .w2-intro{ max-width:600px; margin:0 auto; font-size:15px; line-height:1.7; color:rgba(244,239,230,0.9); }
+
+    /* spa feature strip — promoted to top of page */
+    .spa-feature{ background:rgba(124,130,96,0.08); border-top:1px solid rgba(124,130,96,0.22); border-bottom:1px solid rgba(124,130,96,0.22); padding:36px 48px 40px; }
+    .spa-feature-inner{ max-width:1100px; margin:0 auto; }
+    .spa-feature-head{ font-family:var(--serif); font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--army); margin-bottom:10px; text-align:center; }
+    .spa-feature-intro{ max-width:640px; margin:0 auto 30px; text-align:center; font-size:14.5px; line-height:1.7; color:#3a372f; }
+    .spa-cards{ display:flex; flex-wrap:wrap; gap:40px; justify-content:center; }
+    .spa-card{ flex:1 1 300px; max-width:380px; text-align:left; }
+    .spa-card h4{ font-family:var(--serif); font-weight:400; font-size:19px; margin-bottom:8px; }
+    .spa-card p{ font-size:13px; line-height:1.6; color:#5a564c; }
+    .spa-card a{ display:inline-block; margin-top:10px; font-family:var(--serif); font-size:12.5px; letter-spacing:0.12em;
+      text-transform:uppercase; color:var(--ink); text-decoration:none; border-bottom:1px solid var(--ochre); padding-bottom:3px; }
 
     /* story */
     .w2-story{ max-width:760px; margin:0 auto; padding:32px 48px 64px; text-align:center; }
@@ -133,8 +153,8 @@
       .partners{ gap:40px; }
     }
     @media (max-width:600px){
-      .w2-hero{ padding:130px 24px 36px; }
-      .w2-story,.partners-wrap,.proof,.press{ padding-left:24px; padding-right:24px; }
+      .w2-hero{ padding:120px 24px 40px; }
+      .w2-story,.partners-wrap,.proof,.press,.spa-feature{ padding-left:24px; padding-right:24px; }
       .pillar{ padding:44px 28px; }
       .inquiry{ padding:60px 24px; }
       .proof span::before{ display:none; }
@@ -193,14 +213,25 @@
   <!-- top nav injected by /nav.js -->
 
   <section class="w2-hero">
-    <div class="w2-eyebrow">For Trade &amp; Hospitality</div>
-    <h1 class="w2-title">Wholesale &amp; Hospitality</h1>
-    <p class="w2-intro">Elevated essentials for the modern pioneer. For the self-reliant and the design-led, the ones who keep the West close. Where pioneer grit meets a modern hand.</p>
+    <div class="w2-hero-inner">
+      <div class="w2-eyebrow">For Trade &amp; Hospitality</div>
+      <h1 class="w2-title">Wholesale &amp; Hospitality</h1>
+      <p class="w2-intro">Elevated essentials for the modern pioneer. For the self-reliant and the design-led, the ones who keep the West close. Where pioneer grit meets a modern hand.</p>
+    </div>
   </section>
 
-  <section class="w2-story">
-    <div class="lab">Equally at Home</div>
-    <p>On a marble sink in Paris. A stone farmhouse in the South of France. A cabin in the red rock of Utah, a shelf in the Seattle rain. The high desert travels well, at home wherever honest materials and a refined hand still mean something.</p>
+  <section class="spa-feature">
+    <div class="spa-feature-inner">
+      <div class="spa-feature-head">Hospitality &amp; Spa</div>
+      <p class="spa-feature-intro">GTR facials are now on the spa menu at Miracle Manor Boutique Hotel &amp; Spa in Desert Hot Springs, bringing our wellness offerings into a slow, hands-on setting.</p>
+      <div class="spa-cards">
+        <div class="spa-card">
+          <h4>Miracle Manor Boutique Hotel &amp; Spa</h4>
+          <p>Desert Hot Springs, CA<br>GTR facials, now on the menu</p>
+          <a href="https://www.miraclemanor.com/spa" target="_blank" rel="noopener noreferrer">Visit the spa &rarr;</a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="press" style="padding-top:8px;">
@@ -253,26 +284,6 @@
       <div class="partner">
         <h4>GTR Showroom</h4>
         <p>Palm Springs, CA<br>Coming soon</p>
-      </div>
-    </div>
-  </div>
-
-  <section class="w2-story" style="padding-top:8px; padding-bottom:8px;">
-    <div class="lab">Spa &amp; Wellness</div>
-    <p>GTR facials are now on the spa menu at Miracle Manor Boutique Hotel &amp; Spa in Desert Hot Springs. We are also building toward a spa partnership in Idyllwild, activating our wellness offerings with local practitioners who share the same slow, hands-on approach.</p>
-  </section>
-
-  <div class="partners-wrap">
-    <div class="partners-head">Spa Partners</div>
-    <div class="partners">
-      <div class="partner">
-        <h4>Miracle Manor Boutique Hotel &amp; Spa</h4>
-        <p>Desert Hot Springs, CA<br>GTR facials, now on the menu</p>
-        <a href="https://www.miraclemanor.com/spa" target="_blank" rel="noopener noreferrer" style="display:inline-block; margin-top:10px; font-family:var(--serif); font-size:12.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink); text-decoration:none; border-bottom:1px solid var(--ochre); padding-bottom:3px;">Visit the spa &rarr;</a>
-      </div>
-      <div class="partner">
-        <h4>Idyllwild</h4>
-        <p>In the works<br>A local spa activation, in progress</p>
       </div>
     </div>
   </div>
