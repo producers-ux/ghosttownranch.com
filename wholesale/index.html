@@ -37,22 +37,22 @@
       min-height:680px;
       display:flex;
       align-items:flex-end;
-      justify-content:flex-end;
+      justify-content:space-between;
+      gap:40px;
       padding:140px 56px 64px;
-      text-align:right;
       background-color:#181511;
       background-image:
-        linear-gradient(115deg, rgba(24,21,17,0) 38%, rgba(24,21,17,0.55) 62%, rgba(24,21,17,0.8) 100%),
-        linear-gradient(0deg, rgba(24,21,17,0.6) 0%, rgba(24,21,17,0.05) 42%),
+        linear-gradient(0deg, rgba(24,21,17,0.65) 0%, rgba(24,21,17,0.1) 40%),
         url('/hero-thewash.png');
-      background-repeat:no-repeat, no-repeat, no-repeat;
-      background-position:center, center, center 15%;
-      background-size:cover, cover, cover;
+      background-repeat:no-repeat, no-repeat;
+      background-position:center, center 15%;
+      background-size:cover, cover;
     }
-    .w2-hero-inner{ max-width:460px; margin:0; }
+    .w2-hero-left{ text-align:left; max-width:640px; }
+    .w2-hero-right{ text-align:right; max-width:400px; flex-shrink:0; }
     .w2-eyebrow{ font-family:var(--serif); font-size:12px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(244,239,230,0.85); }
-    .w2-title{ font-family:var(--serif); font-weight:400; font-size:clamp(30px,4.2vw,48px); line-height:1.05; margin:14px 0 14px; color:var(--parchment); }
-    .w2-intro{ font-size:14.5px; line-height:1.7; color:rgba(244,239,230,0.9); }
+    .w2-title{ font-family:var(--serif); font-weight:400; font-size:clamp(40px,6.5vw,76px); line-height:1.02; margin:14px 0 0; color:var(--parchment); }
+    .w2-intro{ font-size:15px; line-height:1.7; color:rgba(244,239,230,0.9); }
 
     /* story */
     .w2-story{ max-width:760px; margin:0 auto; padding:32px 48px 64px; text-align:center; }
@@ -150,8 +150,8 @@
       .partners{ gap:40px; }
     }
     @media (max-width:600px){
-      .w2-hero{ padding:120px 24px 40px; min-height:auto; justify-content:flex-start; text-align:left; }
-      .w2-hero-inner{ max-width:100%; }
+      .w2-hero{ padding:120px 24px 40px; min-height:auto; flex-direction:column; align-items:flex-start; gap:24px; }
+      .w2-hero-right{ text-align:left; max-width:100%; }
       .w2-story,.partners-wrap,.proof,.press{ padding-left:24px; padding-right:24px; }
       .pillar{ padding:44px 28px; }
       .inquiry{ padding:60px 24px; }
@@ -211,9 +211,11 @@
   <!-- top nav injected by /nav.js -->
 
   <section class="w2-hero">
-    <div class="w2-hero-inner">
-      <div class="w2-eyebrow">For Trade &amp; Hospitality</div>
-      <h1 class="w2-title">Wholesale &amp; Hospitality</h1>
+    <div class="w2-hero-left">
+      <div class="w2-eyebrow">Ghost Town Ranch</div>
+      <h1 class="w2-title">Wholesale + Hospitality</h1>
+    </div>
+    <div class="w2-hero-right">
       <p class="w2-intro">Elevated essentials for the modern pioneer. For the self-reliant and the design-led, the ones who keep the West close. Where pioneer grit meets a modern hand.</p>
     </div>
   </section>
