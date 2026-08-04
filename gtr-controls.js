@@ -64,7 +64,6 @@
     { t: "The Hold", c: "Anti-age day cream  ·  $74", u: "/products/the-hold-anti-age-day-cream", k: "the hold anti-age day cream aloe juice betaine face-care hyaluronic acid luxurious texture mature moisture boost moisturiser shea butter shoppe-object white anti age" },
     { t: "The Monument", c: "Candle  ·  $190", u: "/products/the-monument-candle", k: "the monument hand-poured mega 4-wick coconut-soy candle 55oz coconut soy large shoppe-object" },
     { t: "The Slow — Ltd. Edition", c: "No. 06 Dusk, White Matte Glass  ·  $58", u: "/products/the-slow-hand-poured-colored-wax-candle-ltd-001", k: "the slow ltd edition hand-poured colored wax candle 11oz coconut soy white matte glass palo santo amber dusk shoppe-object" },
-    { t: "The Still", c: "Amber Glass Reed Diffuser  ·  $72", u: "/products/the-still-amber-glass-reed-diffuser", k: "the still amber glass reed diffuser home fragrance shoppe-object" },
     { t: "The Votive – Single", c: "Ghost Town Ranch  ·  $26", u: "/products/the-votive-single", k: "the votive single candle hand-poured scent shoppe-object" },
     { t: "The Votive", c: "Set of 6  ·  $148", u: "/products/the-votive-candle-set-of-6", k: "the votive set of body-care cotton wick gentle aroma gluten free natural soy wax nut shoppe-object transparent vegan white candle" },
     { t: "THE WASH HOUSE", c: "Ghost Town Ranch  ·  $72", u: "/products/the-wash-house-hair-body-set", k: "the wash house hair body set" },
