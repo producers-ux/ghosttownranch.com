@@ -356,11 +356,25 @@ a { color: inherit; text-decoration: none; }
 }
 .product-footer {
   margin-top: 12px;
-  display: flex; justify-content: space-between; align-items: baseline;
+  display: flex; justify-content: space-between; align-items: center;
   border-top: 1px solid rgba(26,16,8,0.08);
   padding-top: 10px;
+  flex-wrap: wrap; gap: 8px;
 }
 .product-footer.link-only { justify-content: flex-end; }
+.product-footer-meta {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.product-min-badge {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase;
+  color: #2B1B0E;
+  background: var(--gold);
+  padding: 4px 9px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
 
 /* ── COMPACT SHADE/SCENT CHARTS (high-count variant products) ── */
 .product-shade-grid {
@@ -735,6 +749,22 @@ a { color: inherit; text-decoration: none; }
     transition: background 0.2s, transform 0.15s;
   }
   .print-btn:hover { background: var(--terra); transform: translateY(-2px); }
+  .order-btn {
+    position: fixed; bottom: 32px; right: 220px; z-index: 200;
+    background: var(--gold); color: var(--dark);
+    font-family: var(--sans); font-size: 12px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600; border: none; cursor: pointer; text-decoration: none;
+    padding: 14px 26px;
+    display: flex; align-items: center; gap: 10px;
+    box-shadow: 0 4px 24px rgba(26,16,8,0.22);
+    transition: background 0.2s, transform 0.15s;
+  }
+  .order-btn:hover { background: #dcbb80; transform: translateY(-2px); }
+  @media (max-width: 760px) {
+    .order-btn { right: 20px; bottom: 84px; padding: 12px 18px; }
+    .print-btn { bottom: 20px; right: 20px; }
+  }
   .print-instructions {
     position: fixed; bottom: 88px; right: 32px; z-index: 200;
     background: #F4F1EB;
@@ -768,7 +798,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ── PRINT STYLES ── */
 @media print {
-  .print-btn, .print-instructions { display: none !important; }
+  .print-btn, .order-btn, .print-instructions { display: none !important; }
   body { font-size: 13px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .cover { height: 100vh; page-break-after: always; }
   .fg-spread { page-break-after: always; }
@@ -990,7 +1020,9 @@ a { color: inherit; text-decoration: none; }
           <div class="product-variant-row"><span class="product-variant-name">Flax</span><span class="product-variant-sku">V1ACCFLAX</span></div>
         </div>
         <div class="product-footer">
-          <span class="product-sku">MIN. 4 UNITS</span>
+          <div class="product-footer-meta">
+            <span class="product-min-badge">MIN. 4 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/the-votive-single" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1006,7 +1038,10 @@ a { color: inherit; text-decoration: none; }
         <div class="product-sub">Full Scent Library</div>
         <p class="product-desc">All six landscape scents in one set. The complete GTR fragrance range.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: VOTIVESET6</span>
+          <div class="product-footer-meta">
+            <span class="product-sku">SKU: VOTIVESET6</span>
+          <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/the-votive-candle-set-of-6" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1025,7 +1060,9 @@ a { color: inherit; text-decoration: none; }
           <div class="product-variant-row"><span class="product-variant-name">Dusk (Ltd. 001)</span><span class="product-variant-sku">GTR-SLOW-DUSK-001</span></div>
         </div>
         <div class="product-footer">
-          <span class="product-sku">MIN. 4 UNITS</span>
+          <div class="product-footer-meta">
+            <span class="product-min-badge">MIN. 4 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/the-slow-hand-poured-colored-wax-candle-ltd-001" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1049,7 +1086,9 @@ a { color: inherit; text-decoration: none; }
           <div class="product-variant-row"><span class="product-variant-name">Flax</span><span class="product-variant-sku">TM033026-SB</span></div>
         </div>
         <div class="product-footer">
-          <span class="product-sku">MIN. 2 UNITS</span>
+          <div class="product-footer-meta">
+            <span class="product-min-badge">MIN. 2 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/the-monument-candle" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1068,7 +1107,9 @@ a { color: inherit; text-decoration: none; }
           <div class="product-variant-row"><span class="product-variant-name">Dusk (Ltd.)</span><span class="product-variant-sku">TM033026-WHLTDDUSK</span></div>
         </div>
         <div class="product-footer">
-          <span class="product-sku">MIN. 2 UNITS</span>
+          <div class="product-footer-meta">
+            <span class="product-min-badge">MIN. 2 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1092,40 +1133,10 @@ a { color: inherit; text-decoration: none; }
           <div class="product-variant-row"><span class="product-variant-name">Flax</span><span class="product-variant-sku">RW033026-SB</span></div>
         </div>
         <div class="product-footer">
-          <span class="product-sku">MIN. 4 UNITS</span>
+          <div class="product-footer-meta">
+            <span class="product-min-badge">MIN. 4 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/ranch-water-body-room-fragrance" class="product-link" target="_blank">Shop →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-img">
-        <img src="https://or-cre.com/cdn/shop/files/widerange1.png?v=1784402619&width=1200" alt="Wide Range Ranch Water Set">
-      </div>
-      <div class="product-info">
-        <span class="product-num">No. 01 · Home · Coming Soon</span>
-        <div class="product-name">Wide Range Ranch Water Set</div>
-        <div class="product-sub">All Six Scents · 30ml Each</div>
-        <p class="product-desc">All six Ranch Water scents in one set. Arrives in a matte black gift box. Pricing and MOQ confirmed at launch.</p>
-        <div class="product-footer">
-          <span class="product-sku">COMING SOON</span>
-          <a href="https://ghosttownranch.com/#signup" class="product-link" target="_blank">Join the list →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-img">
-        <img src="https://or-cre.com/cdn/shop/files/girldkit2.png?v=1784432918&width=1200" alt="The Field Kit">
-      </div>
-      <div class="product-info">
-        <span class="product-num">No. 01 · Home · Coming Soon</span>
-        <div class="product-name">The Field Kit</div>
-        <div class="product-sub">Votive · Palo Santo · Matchbook</div>
-        <p class="product-desc">Curated ritual starter. Votive, palo santo, matchbook, elastic band. Pricing and MOQ confirmed at launch.</p>
-        <div class="product-footer">
-          <span class="product-sku">COMING SOON</span>
-          <a href="https://ghosttownranch.com/#signup" class="product-link" target="_blank">Join the list →</a>
         </div>
       </div>
     </div>
@@ -1143,7 +1154,10 @@ a { color: inherit; text-decoration: none; }
           <div class="product-variant-row"><span class="product-variant-name">Double</span><span class="product-variant-sku">ST0111</span></div>
           <div class="product-variant-row"><span class="product-variant-name">Triple</span><span class="product-variant-sku">ST0112</span></div>
         </div>
-        <div class="product-footer link-only">
+        <div class="product-footer">
+          <div class="product-footer-meta">
+            <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/sustainable-sink-tray" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1153,10 +1167,255 @@ a { color: inherit; text-decoration: none; }
 
 </section>
 
-<!-- ══ SECTION 02: ROUTINES — SKIN ══ -->
+<!-- ══ SECTION 02: WASH HOUSE — HAND + BODY ══ -->
 <section>
   <div class="section-header">
     <span class="section-num">No. 02</span>
+    <div class="section-rule"></div>
+    <span class="section-tag">Wash House · Hand + Body</span>
+  </div>
+  <div class="section-title-block">
+    <h2 class="section-title">Wash House.<br><em>The daily ritual.</em></h2>
+  </div>
+
+  <!-- Split: golden hour lifestyle left / text right -->
+  <div class="split-image-text">
+    <div class="split-img">
+      <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/goldenhour_body_2000.png?v=1782410035" alt="Golden Hour Body Oil">
+    </div>
+    <div class="split-text-block light">
+      <span class="split-eyebrow dark">No. 02 · Hand + Body</span>
+      <h3 class="split-h dark">Golden Hour.<br><em>Body + Glow Oil.</em></h3>
+      <p class="split-body dark">Argan oil, vitamin E. Organic certified. Hydrates and illuminates from the inside out. The light at 5pm, bottled.</p>
+      <a href="https://ghosttownranch.com/products/omega-6-9-glowing-skin-body-oil" class="split-link dark" target="_blank">Shop Golden Hour →</a>
+    </div>
+  </div>
+
+  <div class="product-grid cols-2" style="border-top:1px solid var(--dust);">
+
+    <div class="product-card">
+      <div class="product-img">
+        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TheWash1.png?v=1781990058" alt="The Wash Hand Wash">
+      </div>
+      <div class="product-info">
+        <span class="product-num">No. 02 · Hand</span>
+        <div class="product-name">The Wash</div>
+        <div class="product-sub">Hydrating Hand Wash</div>
+        <p class="product-desc">Cold-pressed grapefruit, ginger + smoky cardamom, or peppermint + dark cedar. Hydrating, vegan. Cleans without stripping.</p>
+        <div class="product-variants">
+          <div class="product-variant-row">
+            <span class="product-variant-name">Cold-Pressed Grapefruit</span>
+            <span class="product-variant-sku">187984</span>
+          </div>
+          <div class="product-variant-row">
+            <span class="product-variant-name">Ginger + Smoky Cardamom</span>
+            <span class="product-variant-sku">187981</span>
+          </div>
+          <div class="product-variant-row">
+            <span class="product-variant-name">Peppermint + Dark Cedar</span>
+            <span class="product-variant-sku">187982</span>
+          </div>
+        </div>
+        <div class="product-footer">
+          <div class="product-footer-meta">
+            <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
+          <a href="https://ghosttownranch.com/products/sunbroke-the-wash-cold-pressed-grapefruit" class="product-link" target="_blank">Shop →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/allover_01.png?v=1781999297" alt="All Over Body Cream">
+      </div>
+      <div class="product-info">
+        <span class="product-num">No. 02 · Body</span>
+        <div class="product-name">All Over Body Cream</div>
+        <div class="product-sub">Body Cream</div>
+        <p class="product-desc">5% urea, hyaluronic acid, panthenol. Nourishing and non-greasy.</p>
+        <div class="product-footer">
+          <div class="product-footer-meta">
+            <span class="product-sku">SKU: 195933</span>
+          <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
+          <a href="https://ghosttownranch.com/products/all-over-body-cream" class="product-link" target="_blank">Shop →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <img src="https://or-cre.com/cdn/shop/files/TheBasin_1.png?v=1782571443&width=1920" alt="The Basin Set">
+      </div>
+      <div class="product-info">
+        <span class="product-num">No. 02 · Set</span>
+        <div class="product-name">The Basin</div>
+        <div class="product-sub">Hand Wash + Body Cream Set</div>
+        <p class="product-desc">Hand wash + body cream duo. Choose your scent. The full sink moment.</p>
+        <div class="product-variants">
+          <div class="product-variant-row">
+            <span class="product-variant-name">Cold-Pressed Grapefruit</span>
+            <span class="product-variant-sku">BASINGRAPEFRUIT</span>
+          </div>
+          <div class="product-variant-row">
+            <span class="product-variant-name">Ginger + Smoky Cardamom</span>
+            <span class="product-variant-sku">BASINGINGER</span>
+          </div>
+          <div class="product-variant-row">
+            <span class="product-variant-name">Peppermint + Dark Cedar</span>
+            <span class="product-variant-sku">BASINMINT</span>
+          </div>
+        </div>
+        <div class="product-footer">
+          <div class="product-footer-meta">
+            <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
+          <a href="https://ghosttownranch.com/products/the-basin-hand-wash-body-cream-set-of-two-choose-your-scent" class="product-link" target="_blank">Shop →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <img src="https://or-cre.com/cdn/shop/files/washhouse1.png?v=1782596595&width=1200" alt="The Wash House">
+      </div>
+      <div class="product-info">
+        <span class="product-num">No. 02 · Set</span>
+        <div class="product-name">The Wash House</div>
+        <div class="product-sub">Shampoo, Conditioner + Cream, Refill System</div>
+        <p class="product-desc">Rosemary Mint Shampoo, Rosemary Mint Conditioner, and Aloe Shea Cream. Matte black glass, refilled by the gallon, not the case.</p>
+        <div class="product-variants">
+          <div class="product-variant-row"><span class="product-variant-name">Wash House Duo Set — 2 Bottles + Pumps, 1 Gal Shampoo + 1 Gal Conditioner</span><span class="product-variant-sku">WASHHOUSE-SC</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Shampoo Refill Only — 1 Gal, No Bottle</span><span class="product-variant-sku">WASHHOUSE-RMS</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Conditioner Refill Only — 1 Gal, No Bottle</span><span class="product-variant-sku">WASHHOUSE-RMC</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Aloe Shea Cream Set — 1 Bottle + Pump, 1 Gal Cream</span><span class="product-variant-sku">WASHHOUSE-ASC</span></div>
+          <div class="product-variant-row"><span class="product-variant-name">Aloe Shea Cream Refill Only — 1 Gal, No Bottle</span><span class="product-variant-sku">WASHHOUSE-ASCR</span></div>
+        </div>
+        <div class="product-footer">
+          <div class="product-footer-meta">
+            <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
+          <a href="https://ghosttownranch.com/products/the-wash-house-hair-body-set" class="product-link" target="_blank">Shop →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ SECTION 03: WASH HOUSE — HAIR ══ -->
+<section>
+  <div class="section-header">
+    <span class="section-num">No. 03</span>
+    <div class="section-rule"></div>
+    <span class="section-tag">Wash House · Hair</span>
+  </div>
+  <div class="section-title-block">
+    <h2 class="section-title">The hair<br><em>routine.</em></h2>
+  </div>
+
+  <!-- 4-up image strip -->
+  <div class="image-strip" style="--strip-cols:4;">
+    <div class="image-strip-cell">
+      <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawsreserve1.png?v=1781992783" alt="Outlaw's Reserve">
+    </div>
+    <div class="image-strip-cell">
+      <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/rosemaryminthairoil1.png?v=1781992328" alt="Rosemary Mint">
+    </div>
+    <div class="image-strip-cell">
+      <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/keratin1.png?v=1781993406" alt="Trail's End Keratin">
+    </div>
+    <div class="image-strip-cell">
+      <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/drycreek_1.png?v=1781997477" alt="Dry Creek">
+    </div>
+  </div>
+
+  <div class="product-grid cols-2">
+
+    <div class="product-card">
+      <div class="product-img">
+        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawsreserve_fieldguide_02.png?v=1782054790" alt="Outlaw's Reserve">
+      </div>
+      <div class="product-info">
+        <span class="product-num">No. 03 · Hair + Body</span>
+        <div class="product-name">Outlaw's Reserve</div>
+        <div class="product-sub">2-in-1 Hair + Body Wash</div>
+        <p class="product-desc">Wheat protein, betaine. Volumizing. Works on hair and skin.</p>
+        <div class="product-footer">
+          <div class="product-footer-meta">
+            <span class="product-sku">SKU: 188007</span>
+          <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
+          <a href="https://ghosttownranch.com/products/outlaws-reserve-2-in-1-hair-skin-rinse" class="product-link" target="_blank">Shop →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/rosemaryminthairoil1.png?v=1781992328" alt="Rosemary Mint">
+      </div>
+      <div class="product-info">
+        <span class="product-num">No. 03 · Scalp</span>
+        <div class="product-name">Rosemary Mint Revive</div>
+        <div class="product-sub">Hair + Scalp Oil</div>
+        <p class="product-desc">Rosemary oil. Nourishes scalp, adds shine. Strengthens root to tip.</p>
+        <div class="product-footer">
+          <div class="product-footer-meta">
+            <span class="product-sku">SKU: 187999</span>
+          <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
+          <a href="https://ghosttownranch.com/products/rosemary-hair-scalp-strengthening-oil" class="product-link" target="_blank">Shop →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/keratin1.png?v=1781993406" alt="Trail's End Keratin Mist">
+      </div>
+      <div class="product-info">
+        <span class="product-num">No. 03 · Leave-In</span>
+        <div class="product-name">Trail's End</div>
+        <div class="product-sub">Keratin Hair Mist</div>
+        <p class="product-desc">Keratin, leave-in. Adds shine, softens, volumizes. Spray and go.</p>
+        <div class="product-footer">
+          <div class="product-footer-meta">
+            <span class="product-sku">SKU: 187985</span>
+          <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
+          <a href="https://ghosttownranch.com/products/keratin-shine-leave-in-hair-mist" class="product-link" target="_blank">Shop →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/drycreek_washhouse_2000.png?v=1782407257" alt="Dry Creek Dry Shampoo">
+      </div>
+      <div class="product-info">
+        <span class="product-num">No. 03 · Dry Shampoo</span>
+        <div class="product-name">Dry Creek</div>
+        <div class="product-sub">Dry Shampoo Hair Mist</div>
+        <p class="product-desc">Adds volume, absorbs oil. The quick refresh between the trailhead and town.</p>
+        <div class="product-footer">
+          <div class="product-footer-meta">
+            <span class="product-sku">SKU: DC061926</span>
+          <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
+          <a href="https://ghosttownranch.com/products/quick-refresh-dry-shampoo-spray" class="product-link" target="_blank">Shop →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ SECTION 04: ROUTINES — SKIN ══ -->
+<section>
+  <div class="section-header">
+    <span class="section-num">No. 04</span>
     <div class="section-rule"></div>
     <span class="section-tag">Routines · Skin</span>
   </div>
@@ -1194,12 +1453,15 @@ a { color: inherit; text-decoration: none; }
         <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertdaycream1.png?v=1781992402" alt="Desert Day Cream">
       </div>
       <div class="product-info">
-        <span class="product-num">No. 02 · Moisturiser</span>
+        <span class="product-num">No. 04 · Moisturiser</span>
         <div class="product-name">Desert Day Cream</div>
         <div class="product-sub">Daily Moisturiser</div>
         <p class="product-desc">Hyaluronic acid, aloe, betaine. Luxurious texture. COSMOS/ECOCERT certified.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 187979 · MIN. 3 UNITS</span>
+          <div class="product-footer-meta">
+            <span class="product-sku">SKU: 187979</span>
+          <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/moisturising-day-cream" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1210,12 +1472,15 @@ a { color: inherit; text-decoration: none; }
         <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TheHold_1.png?v=1781998467" alt="The Hold">
       </div>
       <div class="product-info">
-        <span class="product-num">No. 02 · Anti-Age</span>
+        <span class="product-num">No. 04 · Anti-Age</span>
         <div class="product-name">The Hold</div>
         <div class="product-sub">Anti-Age Day Cream</div>
         <p class="product-desc">Hyaluronic acid, shea butter, peptides. For mature skin. Daily defense.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 187976 · MIN. 3 UNITS</span>
+          <div class="product-footer-meta">
+            <span class="product-sku">SKU: 187976</span>
+          <span class="product-min-badge">MIN. 2 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/the-hold-anti-age-day-cream" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1226,12 +1491,15 @@ a { color: inherit; text-decoration: none; }
         <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Thegrade1.png?v=1781989289" alt="The Grade Serum">
       </div>
       <div class="product-info">
-        <span class="product-num">No. 02 · Serum</span>
+        <span class="product-num">No. 04 · Serum</span>
         <div class="product-name">The Grade</div>
         <div class="product-sub">Peptide Serum</div>
         <p class="product-desc">Peptides, hyaluronic acid, aloe. Smooths, reduces fine lines.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 187978 · MIN. 3 UNITS</span>
+          <div class="product-footer-meta">
+            <span class="product-sku">SKU: 187978</span>
+          <span class="product-min-badge">MIN. 2 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/peptide-anti-aging-serum" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1242,12 +1510,15 @@ a { color: inherit; text-decoration: none; }
         <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Dusktilldawn1.png?v=1781990513" alt="Dusk Til Dawn">
       </div>
       <div class="product-info">
-        <span class="product-num">No. 02 · Night</span>
+        <span class="product-num">No. 04 · Night</span>
         <div class="product-name">Dusk Til Dawn</div>
         <div class="product-sub">Overnight Hydration Gel</div>
         <p class="product-desc">Hyaluronic acid. Overnight recovery. Wake to recovered skin.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 120767 · MIN. 3 UNITS</span>
+          <div class="product-footer-meta">
+            <span class="product-sku">SKU: 120767</span>
+          <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/dusk-til-dawn-hydration-gel" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1258,12 +1529,15 @@ a { color: inherit; text-decoration: none; }
         <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertglow1.png?v=1781989409" alt="Desert Glow Facial Oil">
       </div>
       <div class="product-info">
-        <span class="product-num">No. 02 · Face Oil</span>
+        <span class="product-num">No. 04 · Face Oil</span>
         <div class="product-name">Desert Glow</div>
         <div class="product-sub">Hydrating Facial Oil</div>
         <p class="product-desc">Jojoba, avocado oil. Organic certified. Hydrates, protects, illuminates.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 132294 · MIN. 3 UNITS</span>
+          <div class="product-footer-meta">
+            <span class="product-sku">SKU: 132294</span>
+          <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/desert-glow-hydrating-facial-oil" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1274,12 +1548,15 @@ a { color: inherit; text-decoration: none; }
         <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/mojavereset1.png?v=1781992858" alt="Mojave Reset">
       </div>
       <div class="product-info">
-        <span class="product-num">No. 02 · Mist</span>
+        <span class="product-num">No. 04 · Mist</span>
         <div class="product-name">Mojave Reset</div>
         <div class="product-sub">Cooling Face Mist</div>
         <p class="product-desc">Prebiotics, hyaluronic acid. Refreshes and protects the skin barrier.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 187991 · MIN. 3 UNITS</span>
+          <div class="product-footer-meta">
+            <span class="product-sku">SKU: 187991</span>
+          <span class="product-min-badge">MIN. 4 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/microbiome-prebiotics-face-mist-1" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1290,12 +1567,15 @@ a { color: inherit; text-decoration: none; }
         <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/FrontierFade1.png?v=1781990405" alt="Frontier Fade">
       </div>
       <div class="product-info">
-        <span class="product-num">No. 02 · Toner</span>
+        <span class="product-num">No. 04 · Toner</span>
         <div class="product-name">Frontier Fade</div>
         <div class="product-sub">Toning Exfoliant</div>
         <p class="product-desc">Glycolic acid, betaine. Exfoliates, evens tone, removes buildup.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 187997 · MIN. 3 UNITS</span>
+          <div class="product-footer-meta">
+            <span class="product-sku">SKU: 187997</span>
+          <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/glycolic-acid-exfoliating-toner" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1306,12 +1586,15 @@ a { color: inherit; text-decoration: none; }
         <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Rosecut1.png?v=1781989358" alt="Rose Cut">
       </div>
       <div class="product-info">
-        <span class="product-num">No. 02 · Cleanser</span>
+        <span class="product-num">No. 04 · Cleanser</span>
         <div class="product-name">Rose Cut</div>
         <div class="product-sub">Daily Facial Wash</div>
         <p class="product-desc">Aloe, betaine, sodium PCA. Gently cleanses. Reveals natural radiance.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 190011 · MIN. 3 UNITS</span>
+          <div class="product-footer-meta">
+            <span class="product-sku">SKU: 190011</span>
+          <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/rose-cut-daily-facial-wash" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1322,12 +1605,15 @@ a { color: inherit; text-decoration: none; }
         <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawswipeout1.png?v=1781990191" alt="Outlaw's Wipeout">
       </div>
       <div class="product-info">
-        <span class="product-num">No. 02 · Cleanser</span>
+        <span class="product-num">No. 04 · Cleanser</span>
         <div class="product-name">Outlaw's Wipeout</div>
         <div class="product-sub">Biphasic Makeup Remover</div>
         <p class="product-desc">Fragrance-free. Hyaluronic acid, aloe. Gentle removal.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 187988 · MIN. 3 UNITS</span>
+          <div class="product-footer-meta">
+            <span class="product-sku">SKU: 187988</span>
+          <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/biphasic-make-up-remover-fragrance-free" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1338,12 +1624,15 @@ a { color: inherit; text-decoration: none; }
         <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/alltold_1.png?v=1782051565" alt="All Told Eye Cream">
       </div>
       <div class="product-info">
-        <span class="product-num">No. 02 · Eye</span>
+        <span class="product-num">No. 04 · Eye</span>
         <div class="product-name">All Told</div>
         <div class="product-sub">3-in-1 Eye Cream</div>
         <p class="product-desc">Hyaluronic acid, aloe. Calms, brightens, reduces fatigue.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 187975 · MIN. 3 UNITS</span>
+          <div class="product-footer-meta">
+            <span class="product-sku">SKU: 187975</span>
+          <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/all-told-eye-cream" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1354,234 +1643,16 @@ a { color: inherit; text-decoration: none; }
         <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/longrange.png?v=1781991986" alt="Long Range Endurance">
       </div>
       <div class="product-info">
-        <span class="product-num">No. 02 · Collection</span>
+        <span class="product-num">No. 04 · Collection</span>
         <div class="product-name">Long Range Endurance</div>
         <div class="product-sub">Skincare Collection</div>
         <p class="product-desc">Deep hydration collection. Instant moisture boost, lightweight layers.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 187742 · MIN. 3 UNITS</span>
+          <div class="product-footer-meta">
+            <span class="product-sku">SKU: 187742</span>
+          <span class="product-min-badge">MIN. 1 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/long-range-endurance-skincare-collection" class="product-link" target="_blank">Shop →</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══ SECTION 03: WASH HOUSE — HAND + BODY ══ -->
-<section>
-  <div class="section-header">
-    <span class="section-num">No. 03</span>
-    <div class="section-rule"></div>
-    <span class="section-tag">Wash House · Hand + Body</span>
-  </div>
-  <div class="section-title-block">
-    <h2 class="section-title">Wash House.<br><em>The daily ritual.</em></h2>
-  </div>
-
-  <!-- Split: golden hour lifestyle left / text right -->
-  <div class="split-image-text">
-    <div class="split-img">
-      <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/goldenhour_body_2000.png?v=1782410035" alt="Golden Hour Body Oil">
-    </div>
-    <div class="split-text-block light">
-      <span class="split-eyebrow dark">No. 03 · Hand + Body</span>
-      <h3 class="split-h dark">Golden Hour.<br><em>Body + Glow Oil.</em></h3>
-      <p class="split-body dark">Argan oil, vitamin E. Organic certified. Hydrates and illuminates from the inside out. The light at 5pm, bottled.</p>
-      <a href="https://ghosttownranch.com/products/omega-6-9-glowing-skin-body-oil" class="split-link dark" target="_blank">Shop Golden Hour →</a>
-    </div>
-  </div>
-
-  <div class="product-grid cols-2" style="border-top:1px solid var(--dust);">
-
-    <div class="product-card">
-      <div class="product-img">
-        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TheWash1.png?v=1781990058" alt="The Wash Hand Wash">
-      </div>
-      <div class="product-info">
-        <span class="product-num">No. 03 · Hand</span>
-        <div class="product-name">The Wash</div>
-        <div class="product-sub">Hydrating Hand Wash</div>
-        <p class="product-desc">Cold-pressed grapefruit, ginger + smoky cardamom, or peppermint + dark cedar. Hydrating, vegan. Cleans without stripping.</p>
-        <div class="product-variants">
-          <div class="product-variant-row">
-            <span class="product-variant-name">Cold-Pressed Grapefruit</span>
-            <span class="product-variant-sku">187984</span>
-          </div>
-          <div class="product-variant-row">
-            <span class="product-variant-name">Ginger + Smoky Cardamom</span>
-            <span class="product-variant-sku">187981</span>
-          </div>
-          <div class="product-variant-row">
-            <span class="product-variant-name">Peppermint + Dark Cedar</span>
-            <span class="product-variant-sku">187982</span>
-          </div>
-        </div>
-        <div class="product-footer link-only">
-          <a href="https://ghosttownranch.com/products/sunbroke-the-wash-cold-pressed-grapefruit" class="product-link" target="_blank">Shop →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-img">
-        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/allover_01.png?v=1781999297" alt="All Over Body Cream">
-      </div>
-      <div class="product-info">
-        <span class="product-num">No. 03 · Body</span>
-        <div class="product-name">All Over Body Cream</div>
-        <div class="product-sub">Body Cream</div>
-        <p class="product-desc">5% urea, hyaluronic acid, panthenol. Nourishing and non-greasy.</p>
-        <div class="product-footer">
-          <span class="product-sku">SKU: 195933</span>
-          <a href="https://ghosttownranch.com/products/all-over-body-cream" class="product-link" target="_blank">Shop →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-img">
-        <img src="https://or-cre.com/cdn/shop/files/TheBasin_1.png?v=1782571443&width=1920" alt="The Basin Set">
-      </div>
-      <div class="product-info">
-        <span class="product-num">No. 03 · Set</span>
-        <div class="product-name">The Basin</div>
-        <div class="product-sub">Hand Wash + Body Cream Set</div>
-        <p class="product-desc">Hand wash + body cream duo. Choose your scent. The full sink moment.</p>
-        <div class="product-variants">
-          <div class="product-variant-row">
-            <span class="product-variant-name">Cold-Pressed Grapefruit</span>
-            <span class="product-variant-sku">BASINGRAPEFRUIT</span>
-          </div>
-          <div class="product-variant-row">
-            <span class="product-variant-name">Ginger + Smoky Cardamom</span>
-            <span class="product-variant-sku">BASINGINGER</span>
-          </div>
-          <div class="product-variant-row">
-            <span class="product-variant-name">Peppermint + Dark Cedar</span>
-            <span class="product-variant-sku">BASINMINT</span>
-          </div>
-        </div>
-        <div class="product-footer link-only">
-          <a href="https://ghosttownranch.com/products/the-basin-hand-wash-body-cream-set-of-two-choose-your-scent" class="product-link" target="_blank">Shop →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-img">
-        <img src="https://or-cre.com/cdn/shop/files/washhouse1.png?v=1782596595&width=1200" alt="The Wash House">
-      </div>
-      <div class="product-info">
-        <span class="product-num">No. 03 · Set</span>
-        <div class="product-name">The Wash House</div>
-        <div class="product-sub">Shampoo, Conditioner + Cream, Refill System</div>
-        <p class="product-desc">Rosemary Mint Shampoo, Rosemary Mint Conditioner, and Aloe Shea Cream. Matte black glass, refilled by the gallon, not the case.</p>
-        <div class="product-variants">
-          <div class="product-variant-row"><span class="product-variant-name">Wash House Duo Set — 2 Bottles + Pumps, 1 Gal Shampoo + 1 Gal Conditioner</span><span class="product-variant-sku">WASHHOUSE-SC</span></div>
-          <div class="product-variant-row"><span class="product-variant-name">Shampoo Refill Only — 1 Gal, No Bottle</span><span class="product-variant-sku">WASHHOUSE-RMS</span></div>
-          <div class="product-variant-row"><span class="product-variant-name">Conditioner Refill Only — 1 Gal, No Bottle</span><span class="product-variant-sku">WASHHOUSE-RMC</span></div>
-          <div class="product-variant-row"><span class="product-variant-name">Aloe Shea Cream Set — 1 Bottle + Pump, 1 Gal Cream</span><span class="product-variant-sku">WASHHOUSE-ASC</span></div>
-          <div class="product-variant-row"><span class="product-variant-name">Aloe Shea Cream Refill Only — 1 Gal, No Bottle</span><span class="product-variant-sku">WASHHOUSE-ASCR</span></div>
-        </div>
-        <div class="product-footer link-only">
-          <a href="https://ghosttownranch.com/products/the-wash-house-hair-body-set" class="product-link" target="_blank">Shop →</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══ SECTION 04: WASH HOUSE — HAIR ══ -->
-<section>
-  <div class="section-header">
-    <span class="section-num">No. 04</span>
-    <div class="section-rule"></div>
-    <span class="section-tag">Wash House · Hair</span>
-  </div>
-  <div class="section-title-block">
-    <h2 class="section-title">The hair<br><em>routine.</em></h2>
-  </div>
-
-  <!-- 4-up image strip -->
-  <div class="image-strip" style="--strip-cols:4;">
-    <div class="image-strip-cell">
-      <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawsreserve1.png?v=1781992783" alt="Outlaw's Reserve">
-    </div>
-    <div class="image-strip-cell">
-      <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/rosemaryminthairoil1.png?v=1781992328" alt="Rosemary Mint">
-    </div>
-    <div class="image-strip-cell">
-      <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/keratin1.png?v=1781993406" alt="Trail's End Keratin">
-    </div>
-    <div class="image-strip-cell">
-      <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/drycreek_1.png?v=1781997477" alt="Dry Creek">
-    </div>
-  </div>
-
-  <div class="product-grid cols-2">
-
-    <div class="product-card">
-      <div class="product-img">
-        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawsreserve_fieldguide_02.png?v=1782054790" alt="Outlaw's Reserve">
-      </div>
-      <div class="product-info">
-        <span class="product-num">No. 04 · Hair + Body</span>
-        <div class="product-name">Outlaw's Reserve</div>
-        <div class="product-sub">2-in-1 Hair + Body Wash</div>
-        <p class="product-desc">Wheat protein, betaine. Volumizing. Works on hair and skin.</p>
-        <div class="product-footer">
-          <span class="product-sku">SKU: 188007</span>
-          <a href="https://ghosttownranch.com/products/outlaws-reserve-2-in-1-hair-skin-rinse" class="product-link" target="_blank">Shop →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-img">
-        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/rosemaryminthairoil1.png?v=1781992328" alt="Rosemary Mint">
-      </div>
-      <div class="product-info">
-        <span class="product-num">No. 04 · Scalp</span>
-        <div class="product-name">Rosemary Mint Revive</div>
-        <div class="product-sub">Hair + Scalp Oil</div>
-        <p class="product-desc">Rosemary oil. Nourishes scalp, adds shine. Strengthens root to tip.</p>
-        <div class="product-footer">
-          <span class="product-sku">SKU: 187999</span>
-          <a href="https://ghosttownranch.com/products/rosemary-hair-scalp-strengthening-oil" class="product-link" target="_blank">Shop →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-img">
-        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/keratin1.png?v=1781993406" alt="Trail's End Keratin Mist">
-      </div>
-      <div class="product-info">
-        <span class="product-num">No. 04 · Leave-In</span>
-        <div class="product-name">Trail's End</div>
-        <div class="product-sub">Keratin Hair Mist</div>
-        <p class="product-desc">Keratin, leave-in. Adds shine, softens, volumizes. Spray and go.</p>
-        <div class="product-footer">
-          <span class="product-sku">SKU: 187985</span>
-          <a href="https://ghosttownranch.com/products/keratin-shine-leave-in-hair-mist" class="product-link" target="_blank">Shop →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-img">
-        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/drycreek_washhouse_2000.png?v=1782407257" alt="Dry Creek Dry Shampoo">
-      </div>
-      <div class="product-info">
-        <span class="product-num">No. 04 · Dry Shampoo</span>
-        <div class="product-name">Dry Creek</div>
-        <div class="product-sub">Dry Shampoo Hair Mist</div>
-        <p class="product-desc">Adds volume, absorbs oil. The quick refresh between the trailhead and town.</p>
-        <div class="product-footer">
-          <span class="product-sku">SKU: DC061926</span>
-          <a href="https://ghosttownranch.com/products/quick-refresh-dry-shampoo-spray" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
     </div>
@@ -1641,7 +1712,10 @@ a { color: inherit; text-decoration: none; }
           <div class="product-variant-row"><span class="product-variant-name">Tan Brown</span><span class="product-variant-sku">191115</span></div>
           <div class="product-variant-row"><span class="product-variant-name">Deep Beige</span><span class="product-variant-sku">191117</span></div>
         </div>
-        <div class="product-footer link-only">
+        <div class="product-footer">
+          <div class="product-footer-meta">
+            <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/desert-veil-tone-correction-barrier-protection" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1657,7 +1731,10 @@ a { color: inherit; text-decoration: none; }
         <div class="product-sub">Peptide Mascara — Blackened Earth</div>
         <p class="product-desc">Peptide-infused. Volume and length. Vegan, gluten-free.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: 199855</span>
+          <div class="product-footer-meta">
+            <span class="product-sku">SKU: 199855</span>
+          <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/long-shot-peptide-mascara" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1694,7 +1771,10 @@ a { color: inherit; text-decoration: none; }
           <div class="product-variant-row"><span class="product-variant-name">Tan Brown</span><span class="product-variant-sku">MORNINGTB</span></div>
           <div class="product-variant-row"><span class="product-variant-name">Deep Beige</span><span class="product-variant-sku">MORNINGDB</span></div>
         </div>
-        <div class="product-footer link-only">
+        <div class="product-footer">
+          <div class="product-footer-meta">
+            <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/morning-skin-routine" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1710,7 +1790,10 @@ a { color: inherit; text-decoration: none; }
         <div class="product-sub">Night Recovery</div>
         <p class="product-desc">Anti-age, deep hydration, repair while you sleep.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: EVENINGREPAIRSET</span>
+          <div class="product-footer-meta">
+            <span class="product-sku">SKU: EVENINGREPAIRSET</span>
+          <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/evening-repair-bundle" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1726,7 +1809,10 @@ a { color: inherit; text-decoration: none; }
         <div class="product-sub">4 Shades</div>
         <p class="product-desc">All four Desert Veil shades. Light, Medium, Tan, Deep.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: DESERTVEILEDIT</span>
+          <div class="product-footer-meta">
+            <span class="product-sku">SKU: DESERTVEILEDIT</span>
+          <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/soft-proof-full-shade-set-10-shades-all-variants" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1742,7 +1828,10 @@ a { color: inherit; text-decoration: none; }
         <div class="product-sub">10 Shades</div>
         <p class="product-desc">All ten Soft Proof foundation shades. The complete complexion range.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: SOFTPROOFEDIT</span>
+          <div class="product-footer-meta">
+            <span class="product-sku">SKU: SOFTPROOFEDIT</span>
+          <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/soft-proof-full-shade-set" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1758,7 +1847,10 @@ a { color: inherit; text-decoration: none; }
         <div class="product-sub">Bundle · 14 Products</div>
         <p class="product-desc">Foundation + Veil in all shades. The complete face color edit.</p>
         <div class="product-footer">
-          <span class="product-sku">SKU: FACEEDIT</span>
+          <div class="product-footer-meta">
+            <span class="product-sku">SKU: FACEEDIT</span>
+          <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/the-face-full-shade-edit-bundle-14-shades" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1785,7 +1877,10 @@ a { color: inherit; text-decoration: none; }
           <div class="product-shade-cell"><span class="product-shade-code">45 Deep Warm</span><span class="product-shade-sku">FACEKIT45</span></div>
           <div class="product-shade-cell"><span class="product-shade-code">50 Deep Cool</span><span class="product-shade-sku">FACEKIT50</span></div>
         </div>
-        <div class="product-footer link-only">
+        <div class="product-footer">
+          <div class="product-footer-meta">
+            <span class="product-min-badge">MIN. 3 UNITS</span>
+          </div>
           <a href="https://ghosttownranch.com/products/the-face-bundle" class="product-link" target="_blank">Shop →</a>
         </div>
       </div>
@@ -1793,6 +1888,60 @@ a { color: inherit; text-decoration: none; }
 
   </div>
 </section>
+
+<!-- ══ SECTION 07: WHAT'S NEXT — COMING SOON ══ -->
+<section>
+  <div class="section-header">
+    <span class="section-num">No. 07</span>
+    <div class="section-rule"></div>
+    <span class="section-tag">What's Next</span>
+  </div>
+  <div class="section-title-block">
+    <h2 class="section-title">Coming<br><em>soon.</em></h2>
+  </div>
+
+  <div class="product-grid cols-2">
+
+    <div class="product-card">
+      <div class="product-img">
+        <img src="https://or-cre.com/cdn/shop/files/widerange1.png?v=1784402619&width=1200" alt="Wide Range Ranch Water Set">
+      </div>
+      <div class="product-info">
+        <span class="product-num">No. 07 · Home</span>
+        <div class="product-name">Wide Range Ranch Water Set</div>
+        <div class="product-sub">All Six Scents · 30ml Each</div>
+        <p class="product-desc">All six Ranch Water scents in one set. Arrives in a matte black gift box. Pricing and MOQ confirmed at launch.</p>
+        <div class="product-footer">
+          <div class="product-footer-meta">
+            <span class="product-min-badge">COMING SOON</span>
+          </div>
+          <a href="https://ghosttownranch.com/#signup" class="product-link" target="_blank">Join the list →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <img src="https://or-cre.com/cdn/shop/files/girldkit2.png?v=1784432918&width=1200" alt="The Field Kit">
+      </div>
+      <div class="product-info">
+        <span class="product-num">No. 07 · Home</span>
+        <div class="product-name">The Field Kit</div>
+        <div class="product-sub">Votive · Palo Santo · Matchbook</div>
+        <p class="product-desc">Curated ritual starter. Votive, palo santo, matchbook, elastic band. Pricing and MOQ confirmed at launch.</p>
+        <div class="product-footer">
+          <div class="product-footer-meta">
+            <span class="product-min-badge">COMING SOON</span>
+          </div>
+          <a href="https://ghosttownranch.com/#signup" class="product-link" target="_blank">Join the list →</a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
 
 <!-- ══ PULL QUOTE ══ -->
 <div class="pull-quote">
@@ -1818,11 +1967,11 @@ a { color: inherit; text-decoration: none; }
   <div class="terms-grid">
     <div class="terms-item">
       <h4>Pricing</h4>
-      <p>All retail pricing at ghosttownranch.com. Wholesale follows strict 50% keystone. Current pricing on request.</p>
+      <p>All retail pricing at ghosttownranch.com. Wholesale pricing is 50% of retail (keystone). Current pricing on request.</p>
     </div>
     <div class="terms-item">
       <h4>Minimum Order</h4>
-      <p>Opening order minimum: $350 wholesale. Reorder minimum: $150 wholesale.</p>
+      <p>Opening order minimum: $250 wholesale. Reorder minimum: $250 wholesale.</p>
     </div>
     <div class="terms-item">
       <h4>Payment</h4>
@@ -1871,6 +2020,15 @@ a { color: inherit; text-decoration: none; }
   <p style="margin-top:10px;font-size:14px;color:rgba(26,16,8,0.6);">Works best in Chrome or Edge. Letter or A4 size.</p>
   <span class="print-close" id="closeTip">✕ Close</span>
 </div>
+
+<a class="order-btn" href="/wholesale/order/">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="9" cy="21" r="1"></circle>
+    <circle cx="20" cy="21" r="1"></circle>
+    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+  </svg>
+  Order Now
+</a>
 
 <button class="print-btn" id="printBtn" onclick="window.print()">
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
