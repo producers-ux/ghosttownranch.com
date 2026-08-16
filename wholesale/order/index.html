@@ -76,7 +76,7 @@
   <div class="kicker">Wholesale Order Sheet</div>
   <h1>Ghost Town <em>Ranch.</em></h1>
   <p class="sub">Set quantities below and submit. Wholesale pricing is 50% of retail. Items start at their category minimum — adjust as needed.</p>
-  <div class="min-note">Order minimum: $250 opening · $250 reorder</div>
+  <div class="min-note">Order minimum: $250 opening · $150 reorder</div>
 
   <div id="items"></div>
 </div>
@@ -219,7 +219,7 @@ function updateTotals() {
   document.getElementById('totalUnits').textContent = units;
   document.getElementById('totalPrice').textContent = '$' + price.toFixed(2);
   const warn = document.getElementById('minWarn');
-  warn.textContent = price > 0 && price < 250 ? `$${(250-price).toFixed(2)} below $250 minimum` : '';
+  warn.textContent = price > 0 && price < 150 ? `$${(150-price).toFixed(2)} below $150 reorder minimum` : '';
 }
 
 function submitOrder() {
