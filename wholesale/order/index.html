@@ -53,6 +53,19 @@
   .footer-bar .min-warn{color:#e0a15b; font-size:0.85em;}
   .submit-btn{background:var(--gold); color:var(--ink); border:none; padding:12px 22px; font-family:Arial,sans-serif; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; font-size:0.82em; border-radius:3px; cursor:pointer;}
   .submit-btn:hover{background:#dcbb80;}
+  .modal-overlay{position:fixed; inset:0; background:rgba(26,16,8,0.6); z-index:100; display:none; align-items:center; justify-content:center; padding:20px;}
+  .modal-overlay.open{display:flex;}
+  .modal-box{background:var(--paper); max-width:520px; width:100%; max-height:82vh; overflow-y:auto; padding:28px; border-radius:4px; box-shadow:0 10px 40px rgba(0,0,0,0.3);}
+  .modal-box h3{margin:0 0 4px; font-weight:400; font-size:1.3em;}
+  .modal-box p.hint{font-family:Arial,sans-serif; font-size:0.85em; color:rgba(26,16,8,0.6); margin:0 0 14px;}
+  .modal-box textarea{width:100%; height:220px; font-family:'Courier New',monospace; font-size:0.8em; padding:12px; border:1px solid var(--dust); border-radius:3px; resize:vertical; background:#fff; color:var(--ink);}
+  .modal-actions{display:flex; gap:10px; margin-top:16px; flex-wrap:wrap;}
+  .modal-actions a, .modal-actions button{font-family:Arial,sans-serif; font-size:0.82em; text-transform:uppercase; letter-spacing:0.05em; padding:11px 18px; border-radius:3px; border:none; cursor:pointer; text-decoration:none; text-align:center; flex:1; min-width:140px;}
+  .modal-actions .email-link{background:var(--terra); color:#fff;}
+  .modal-actions .copy-btn{background:var(--gold); color:var(--ink);}
+  .modal-close{position:absolute; top:14px; right:18px; cursor:pointer; font-family:Arial,sans-serif; font-size:1.1em; color:rgba(26,16,8,0.5); background:none; border:none;}
+  .modal-box{position:relative;}
+  .copy-confirm{font-family:Arial,sans-serif; font-size:0.78em; color:var(--terra); margin-top:8px; display:none;}
   .footer{font-family:Arial,sans-serif; color:rgba(26,16,8,0.5); font-size:0.8em; text-align:center; margin:60px 0 20px;}
   .note-inline{font-family:Arial,sans-serif; font-size:0.72em; color:rgba(26,16,8,0.45); margin-top:1px;}
 </style>
@@ -78,6 +91,20 @@
 </div>
 
 <div class="footer">Ghost Town Ranch · Frontier Modernism · ghosttownranch.com · howdy@ghosttownranch.com</div>
+
+<div class="modal-overlay" id="orderModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3>Your order</h3>
+    <p class="hint">Click "Email This Order" to open it in your mail app, or copy the text below and paste it into an email yourself.</p>
+    <textarea id="orderText" readonly></textarea>
+    <div class="modal-actions">
+      <a class="email-link" id="emailLink" href="#">Email This Order</a>
+      <button class="copy-btn" onclick="copyOrder()">Copy Order Text</button>
+    </div>
+    <div class="copy-confirm" id="copyConfirm">Copied to clipboard.</div>
+  </div>
+</div>
 
 <script>
 const catalog = [
@@ -209,10 +236,32 @@ function submitOrder() {
   });
   const total = document.getElementById('totalPrice').textContent;
   if (lines.length === 0) { alert('Add at least one item before submitting.'); return; }
-  const body = encodeURIComponent(
-    `GTR Wholesale Order\n\n` + lines.join('\n') + `\n\nTotal: ${total}\n\nAccount name:\nShip-to address:\nContact:\n`
-  );
-  window.location.href = `mailto:howdy@ghosttownranch.com?subject=Wholesale%20Order&body=${body}`;
+
+  const bodyText = `GTR Wholesale Order\n\n` + lines.join('\n') + `\n\nTotal: ${total}\n\nAccount name:\nShip-to address:\nContact:\n`;
+  document.getElementById('orderText').value = bodyText;
+  document.getElementById('emailLink').href = `mailto:howdy@ghosttownranch.com?subject=Wholesale%20Order&body=${encodeURIComponent(bodyText)}`;
+  document.getElementById('copyConfirm').style.display = 'none';
+  document.getElementById('orderModal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('orderModal').classList.remove('open');
+}
+
+function copyOrder() {
+  const text = document.getElementById('orderText');
+  text.select();
+  text.setSelectionRange(0, 999999);
+  const done = () => {
+    const c = document.getElementById('copyConfirm');
+    c.style.display = 'block';
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text.value).then(done).catch(() => { document.execCommand('copy'); done(); });
+  } else {
+    document.execCommand('copy');
+    done();
+  }
 }
 
 updateTotals();
