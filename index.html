@@ -1,278 +1,989 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPT3TQ1C0B"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-BPT3TQ1C0B');
-  </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BPT3TQ1C0B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-BPT3TQ1C0B');
+</script>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shop All &mdash; Ghost Town Ranch | The Full Range</title>
-  <meta name="description" content="The full Ghost Town Ranch range. Wash House, Routines, Ritual, and goods. Clean formulas made for the wild light of the American West.">
-  <link rel="canonical" href="https://ghosttownranch.com/shop/">
-  <meta name="robots" content="index, follow">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ghosttownranch.com/shop/">
-  <meta property="og:title" content="Shop All — Ghost Town Ranch">
-  <meta property="og:description" content="The full Ghost Town Ranch range. Wash House, Routines, Ritual, and goods.">
-  <meta property="og:image" content="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thebasinset.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghost Town Ranch · Frontier Modernism</title>
+<meta name="description" content="Ghost Town Ranch. Ritual · Skincare · Home. COSMOS-certified, born in the high desert. Frontier Modernism from the American West.">
+<link rel="canonical" href="https://ghosttownranch.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ghosttownranch.com/">
+<meta property="og:title" content="Ghost Town Ranch · Frontier Modernism">
+<meta property="og:image" content="https://ghosttownranch.com/herogtr-v2.png">
+<meta name="theme-color" content="#1A1512">
+<meta name="robots" content="index, follow">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: 'PPEiko';
+    src: url('PPEiko-Medium.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'PPEiko';
+    src: url('PPEiko-Thin.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+  }
 
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
-  <style>
-    @font-face { font-family:'PPEiko'; src:url('/PPEiko-Medium.woff2') format('woff2'); font-weight:400; font-display:swap; }
-    @font-face { font-family:'PPEiko'; src:url('/PPEiko-Thin.woff2') format('woff2'); font-weight:300; font-display:swap; }
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    :root{ --parchment:#F4EFE6; --ink:#1e1c18; --sand:#d9d0bf; --army:#7c8260; --serif:'PPEiko',Georgia,serif; --sans:'Jost',system-ui,sans-serif; }
-    html{scroll-behavior:smooth;}
-    body{ background:var(--parchment); color:var(--ink); font-family:var(--sans); font-weight:300; -webkit-font-smoothing:antialiased; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* page header */
-    .shop-hero{ padding:160px 48px 40px; text-align:center; }
-    .shop-eyebrow{ font-family:var(--serif); font-size:12px; letter-spacing:0.28em; text-transform:uppercase; color:var(--army); }
-    .shop-title{ font-family:var(--serif); font-weight:400; font-size:clamp(40px,7vw,84px); line-height:1; margin:18px 0 16px; }
-    .shop-intro{ max-width:540px; margin:0 auto; font-size:15px; line-height:1.7; color:#4a463f; }
-    .shop-search{ display:flex; justify-content:center; padding:8px 48px 8px; }
-    .shop-search input{ width:100%; max-width:440px; background:#fff; border:1px solid rgba(124,130,96,0.3);
-      color:var(--ink); font-family:var(--sans); font-size:14px; letter-spacing:0.04em; padding:13px 18px; outline:none; }
-    .shop-search input::placeholder{ color:#9a958a; }
-    .shop-results-note{ text-align:center; font-size:13px; color:#6a655c; padding:6px 24px 0; min-height:18px; }
+  :root {
+    --parchment: #F4EFE6;
+    --warm-black: #1A1512;
+    --ochre: #9B7A3F;
+    --dust: #D4C9B5;
+    --serif: 'PPEiko', 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', system-ui, sans-serif;
+    --army: #7c8260;
+    --cream: #f2ede4;
+    --sand: #d9d0bf;
+    --ink: #1e1c18;
+    --mist: #e8e2d6;
+  }
 
-    /* sticky chips */
-    .chips{ position:sticky; top:74px; z-index:40; display:flex; gap:28px; justify-content:center; flex-wrap:wrap;
-      padding:18px 24px; background:rgba(244,239,230,0.86); backdrop-filter:blur(8px); border-bottom:1px solid rgba(124,130,96,0.18); }
-    .chips a{ font-family:var(--serif); font-size:13px; letter-spacing:0.16em; text-transform:uppercase; text-decoration:none; color:var(--ink); opacity:0.7; transition:opacity .2s; }
-    .chips a:hover{ opacity:1; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--parchment);
+    color: var(--warm-black);
+    font-family: var(--serif);
+    font-weight: 300;
+    letter-spacing: 0.03em;
+  }
 
-    /* sections */
-    .shop-sec{ padding:64px 48px 24px; max-width:1500px; margin:0 auto; }
-    .sec-head{ margin-bottom:36px; }
-    .sec-title{ font-family:var(--serif); font-weight:400; font-size:clamp(26px,3vw,40px); }
-    .sec-note{ font-size:13.5px; color:#6a655c; margin-top:8px; max-width:520px; line-height:1.6; }
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 48px;
+    color: #F4EFE6;
+    /* Scrim keeps the light nav legible over light or dark heroes */
+    background: linear-gradient(180deg, rgba(26,21,18,0.72) 0%, rgba(26,21,18,0.34) 55%, rgba(26,21,18,0) 100%);
+    transition: background 0.4s ease;
+  }
+  nav.scrolled { background: rgba(26,21,18,0.92); backdrop-filter: blur(8px); }
+  .nav-logo {
+    font-family: var(--serif); font-size: 13px; font-weight: 400;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    text-decoration: none; color: #F4EFE6;
+    z-index: 101; position: relative;
+  }
+  .nav-right { display: flex; align-items: center; gap: 40px; }
+  .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
+  .nav-links a {
+    font-family: var(--sans); font-size: 12px; letter-spacing: 0.2em;
+    text-transform: uppercase; text-decoration: none; color: #F4EFE6;
+    opacity: 0.75; font-weight: 300; transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; }
 
-    .pgrid{ display:grid; grid-template-columns:repeat(4,1fr); gap:48px 36px; }
-    .pcard{ text-decoration:none; color:inherit; display:flex; flex-direction:column; }
-    .pcard-img{ position:relative; aspect-ratio:1/1; background:#fff; border:1px solid rgba(124,130,96,0.14); overflow:hidden; }
-    .pcard-img img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
-    .pcard:hover .pcard-img img{ transform:scale(1.04); }
-    .pcard-name{ font-family:var(--serif); font-size:17px; margin-top:16px; }
-    .pcard-sub{ font-size:12.5px; letter-spacing:0.04em; color:#6a655c; margin-top:3px; text-transform:uppercase; }
-    .pcard-price{ font-size:13.5px; margin-top:10px; color:var(--ink); }
-    .pcard-desc{ font-size:12px; line-height:1.5; color:#6a655c; margin-top:8px; }
-    .best-badge,.soon-badge{ position:absolute; top:12px; left:12px; font-family:var(--sans); font-size:10px; letter-spacing:0.14em;
-      text-transform:uppercase; background:var(--ink); color:var(--parchment); padding:5px 9px; }
-    .soon-badge{ background:none; color:var(--army); padding:0; font-weight:500; text-shadow:none; }
-    .soon .pcard-img{ opacity:0.82; }
-    .soon-text{ color:var(--army); }
-    .inline-link{ color:var(--army); text-decoration:underline; text-decoration-color:rgba(124,130,96,0.5); text-underline-offset:2px; }
-    .inline-link:hover{ text-decoration-color:var(--army); }
+  /* hamburger */
+  .nav-hamburger {
+    display: none; flex-direction: column; justify-content: center;
+    gap: 5px; background: none; border: none; cursor: pointer;
+    padding: 6px; min-width: 44px; min-height: 44px; align-items: center;
+    z-index: 101; position: relative;
+  }
+  .nav-hamburger span {
+    display: block; width: 22px; height: 1.5px;
+    background: #F4EFE6; transition: all .25s ease; transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-    footer{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
-      padding:60px 48px; margin-top:48px; border-top:1px solid rgba(124,130,96,0.18); font-size:13px; }
-    footer a{ color:var(--ink); text-decoration:none; border-bottom:1px solid rgba(30,28,24,0.3); padding-bottom:2px; }
-    .footer-left{ font-family:var(--serif); letter-spacing:0.04em; }
-
-    @media (max-width:980px){ .pgrid{ grid-template-columns:repeat(3,1fr); gap:40px 24px; } }
-    @media (max-width:640px){
-      .shop-hero{ padding:120px 24px 32px; }
-      .chips{ gap:18px; }
-      .shop-sec{ padding:48px 24px 16px; }
-      .pgrid{ grid-template-columns:repeat(2,1fr); gap:32px 16px; }
-      footer{ padding:40px 24px; }
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; height: 64px; }
+    .nav-right { gap: 8px; }
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(26,21,18,0.98);
+      flex-direction: column; justify-content: center; align-items: center;
+      gap: 0; z-index: 100; padding: 80px 32px 40px;
     }
-  
-    /* ── TOP NAV (injected by /nav.js) ── */
-    #gtr-shared-nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 24px 48px;
-      background: rgba(28, 24, 20, 0.72);
-      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    .nav-links.open { display: flex; }
+    .nav-links li { width: 100%; border-bottom: 1px solid rgba(244,239,230,0.12); }
+    .nav-links li:first-child { border-top: 1px solid rgba(244,239,230,0.12); }
+    .nav-links a {
+      font-size: 15px; letter-spacing: 0.28em;
+      padding: 24px 0; display: block;
+      width: 100%; min-height: 44px;
+      opacity: 0.9; color: #F4EFE6;
     }
-    #gtr-shared-nav .nav-logo { display:flex; align-items:center; text-decoration:none; }
-    #gtr-shared-nav .nav-logo img { height: 28px; width:auto; display:block; }
-    #gtr-shared-nav .nav-right { display: flex; align-items: center; gap: 32px; }
-    #gtr-shared-nav .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; margin:0; padding:0; }
-    #gtr-shared-nav .nav-links li { display: flex; align-items: center; }
-    #gtr-shared-nav .nav-links a {
-      font-family: var(--serif);
-      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-      text-decoration: none; color: #F4EFE6; opacity: 0.7; transition: opacity 0.2s;
-    }
-    #gtr-shared-nav .nav-links a:hover, #gtr-shared-nav .nav-links a.active { opacity: 1; }
-    #gtr-shared-nav .nav-links a.active { border-bottom: 1px solid rgba(244,239,230,0.5); padding-bottom: 2px; }
-    #gtr-shared-nav .nav-hamburger {
-      display: none; flex-direction: column; justify-content: center;
-      gap: 5px; background: none; border: none; cursor: pointer;
-      padding: 6px; min-width: 44px; min-height: 44px; align-items: center;
-    }
-    #gtr-shared-nav .nav-hamburger span { display:block; width:20px; height:1.5px; background:#F4EFE6; transition:all .25s ease; transform-origin:center; }
-    #gtr-shared-nav .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    #gtr-shared-nav .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-    #gtr-shared-nav .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-    @media (max-width: 900px) {
-      #gtr-shared-nav { padding: 0 20px; height: 60px; }
-      #gtr-shared-nav .nav-hamburger { display: flex; }
-      #gtr-shared-nav .nav-right { gap: 8px; }
-      #gtr-shared-nav .nav-links {
-        display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-        background: rgba(26,21,18,0.97);
-        flex-direction: column; justify-content: center; align-items: center;
-        gap: 0; z-index: 99; padding: 80px 32px 40px;
-      }
-      #gtr-shared-nav .nav-links.open { display: flex; }
-      #gtr-shared-nav .nav-links li { width: 100%; border-bottom: 1px solid rgba(244,239,230,0.1); }
-      #gtr-shared-nav .nav-links li:first-child { border-top: 1px solid rgba(244,239,230,0.1); }
-      #gtr-shared-nav .nav-links a { font-size: 13px; letter-spacing: 0.25em; padding: 22px 0; width:100%; min-height:44px; }
-    }
-  </style>
+    .nav-links a:hover { opacity: 1; }
+  }
+
+  /* ══ 1. HERO — full viewport, almost no text ══ */
+  .hero {
+    height: 100vh; min-height: 640px;
+    position: relative; overflow: hidden;
+    display: flex; align-items: flex-end;
+    padding: 0 48px 64px;
+  }
+  .hero-bg { position: absolute; inset: 0; }
+  .hero-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: 60% center;
+    display: block;
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,0.88) 0%,
+      rgba(0,0,0,0.55) 30%,
+      rgba(0,0,0,0.15) 55%,
+      transparent 100%
+    );
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    width: 100%;
+    display: flex; justify-content: space-between; align-items: flex-end;
+  }
+  .hero-wordmark {
+    font-family: var(--serif);
+    font-size: clamp(52px, 8vw, 110px);
+    font-weight: 300; line-height: 0.92;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 4px 28px rgba(0,0,0,0.55), 0 1px 6px rgba(0,0,0,0.65);
+  }
+  .hero-wordmark em {
+    display: block;
+    font-style: italic;
+    font-weight: 300;
+    color: rgba(212,201,181,0.85);
+    letter-spacing: 0.08em;
+    text-shadow: 0 4px 28px rgba(0,0,0,0.55), 0 1px 6px rgba(0,0,0,0.65);
+  }
+  .hero-aside {
+    text-align: right;
+    padding-bottom: 6px;
+  }
+  .hero-aside-line {
+    font-family: var(--sans);
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: rgba(244,239,230,0.7); font-weight: 300;
+    display: block; margin-bottom: 6px;
+  }
+  .hero-cta {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: rgba(244,239,230,0.8);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(244,239,230,0.3);
+    padding-bottom: 3px;
+    font-weight: 300;
+    transition: color 0.2s, border-color 0.2s;
+    margin-top: 14px;
+    display: block;
+  }
+  .hero-cta:hover { color: #fff; border-color: rgba(244,239,230,0.7); }
+  @media (max-width: 768px) {
+    .hero { padding: 0 24px 48px; }
+    .hero-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .hero-wordmark { font-size: clamp(44px, 12vw, 68px); }
+    .hero-aside { text-align: left; }
+  }
+
+  /* ══ 2. FRONTIER MODERNISM STATEMENT — the category declaration ══ */
+  .statement {
+    padding: 80px 48px;
+    border-bottom: 1px solid var(--dust);
+    display: flex; align-items: baseline; gap: 80px;
+  }
+  .statement-left {
+    font-family: var(--sans);
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+    opacity: 0.55; font-weight: 300;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .statement-right {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.4vw, 48px);
+    font-weight: 300; line-height: 1.2;
+    letter-spacing: 0.01em;
+    max-width: 820px;
+  }
+  .statement-right em { font-style: italic; color: var(--ochre); }
+  @media (max-width: 768px) {
+    .statement { flex-direction: column; gap: 16px; padding: 48px 24px; }
+    .statement-right { font-size: clamp(22px, 6vw, 32px); }
+    .statement-left { display: none; }
+  }
+
+  /* ══ 3. THREE PILLARS — full-bleed triptych ══ */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .pillar {
+    position: relative; overflow: hidden;
+    min-height: 80vh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    text-decoration: none;
+    border-right: 1px solid rgba(244,239,230,0.06);
+  }
+  .pillar:last-child { border-right: none; }
+  .pillar-bg { position: absolute; inset: 0; }
+  .pillar-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center 25%;
+    display: block;
+    transition: transform 0.8s ease;
+  }
+  .pillar:hover .pillar-bg img { transform: scale(1.05); }
+  .pillar-bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+  }
+  .pillar-inner {
+    position: relative; z-index: 2;
+    padding: 36px 40px 44px;
+  }
+  .pillar-time {
+    font-family: var(--sans);
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: rgba(244,239,230,0.65); margin-bottom: 12px;
+    font-weight: 300; display: block;
+  }
+  .pillar-name {
+    font-family: var(--serif);
+    font-size: clamp(26px, 2.6vw, 36px);
+    font-weight: 300; color: #fff;
+    letter-spacing: 0.04em; line-height: 1.1;
+    margin-bottom: 18px;
+  }
+  .pillar-link {
+    font-family: var(--sans);
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(244,239,230,0.65); font-weight: 300;
+    border-bottom: 1px solid rgba(244,239,230,0.3);
+    padding-bottom: 2px;
+    display: inline-block;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .pillar:hover .pillar-link { color: rgba(244,239,230,0.9); border-color: rgba(244,239,230,0.5); }
+  @media (max-width: 900px) {
+    .pillars { grid-template-columns: 1fr; }
+    .pillar { min-height: 65vw; border-right: none; border-bottom: 1px solid rgba(0,0,0,0.1); }
+    .pillar:last-child { border-bottom: none; }
+  }
+
+  /* ══ 4. SCENT NAMES — typographic, dark ground ══ */
+  .scents {
+    background: var(--warm-black);
+    padding: 80px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .scents-copy {}
+  .scents-label {
+    font-family: var(--sans);
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ochre); opacity: 0.85; margin-bottom: 20px; font-weight: 300;
+  }
+  .scents-headline {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 300; line-height: 1.2;
+    color: var(--parchment); letter-spacing: 0.02em;
+    margin-bottom: 28px;
+  }
+  .scents-headline em { font-style: italic; color: var(--dust); }
+  .scents-link {
+    font-family: var(--sans);
+    font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ochre); text-decoration: none; font-weight: 300;
+    border-bottom: 1px solid rgba(155,122,63,0.5); padding-bottom: 3px;
+    transition: opacity 0.2s;
+  }
+  .scents-link:hover { opacity: 0.7; }
+  .scent-list { display: flex; flex-direction: column; }
+  .scent-row {
+    display: flex; align-items: center; gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(244,239,230,0.07);
+  }
+  .scent-row:first-child { border-top: 1px solid rgba(244,239,230,0.07); }
+  .scent-swatch {
+    width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0;
+  }
+  .scent-name {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2vw, 26px); font-weight: 300;
+    color: var(--parchment); flex: 1; letter-spacing: 0.03em;
+  }
+  .scent-note {
+    font-family: var(--sans);
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(244,239,230,0.5); font-weight: 300;
+  }
+  @media (max-width: 768px) {
+    .scents { grid-template-columns: 1fr; gap: 36px; padding: 56px 24px; }
+    .scent-name { font-size: clamp(16px, 4vw, 20px); }
+    .scent-row { padding: 13px 0; }
+  }
+
+  /* ══ 5. SELECTED OBJECTS — 3 only ══ */
+  .objects {
+    padding: 88px 48px;
+    border-top: 1px solid var(--dust);
+    border-bottom: 1px solid var(--dust);
+  }
+  .objects-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 52px;
+  }
+  .objects-label {
+    font-family: var(--sans);
+    font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase;
+    opacity: 0.5; font-weight: 300;
+  }
+  .objects-all {
+    font-family: var(--sans);
+    font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--army); text-decoration: none; font-weight: 300;
+    opacity: 0.75; border-bottom: 1px solid rgba(124,130,96,0.45); padding-bottom: 2px;
+    transition: opacity 0.2s;
+  }
+  .objects-all:hover { opacity: 1; }
+  .objects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .obj {
+    text-decoration: none; color: inherit; display: block;
+  }
+  .obj-img {
+    overflow: hidden; aspect-ratio: 3/4; background: var(--mist); margin-bottom: 18px;
+  }
+  .obj-img img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.6s ease;
+  }
+  .obj:hover .obj-img img { transform: scale(1.04); }
+  .obj-cat {
+    font-family: var(--sans);
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--army); opacity: 0.75; margin-bottom: 7px; font-weight: 300;
+  }
+  .obj-name {
+    font-family: var(--serif);
+    font-size: clamp(22px, 2.2vw, 28px); font-weight: 300;
+    color: var(--ink); margin-bottom: 8px; letter-spacing: 0.02em;
+  }
+  .obj-price {
+    font-family: var(--sans);
+    font-size: 14px; color: var(--army); opacity: 0.8; font-weight: 300;
+  }
+  @media (max-width: 768px) {
+    .objects { padding: 64px 24px; }
+    .objects-header { flex-direction: column; gap: 14px; }
+    .objects-grid { grid-template-columns: 1fr; gap: 20px; }
+    .obj-img { aspect-ratio: 4/3; }
+  }
+
+  /* ══ 5b. ASSURANCE BAR — risk reversal under the product grid ══ */
+  .assurance-bar {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    margin-top: 48px; padding-top: 36px;
+    border-top: 1px solid var(--dust);
+  }
+  @media (max-width: 768px) {
+    .assurance-bar { margin-top: 36px; padding-top: 28px; gap: 16px; }
+  }
+
+  /* ══ 6. CERT STRIP — minimal ══ */
+  .cert-strip {
+    padding: 36px 48px;
+    display: flex; align-items: center; gap: 0;
+    border-bottom: 1px solid var(--dust);
+    overflow: hidden;
+  }
+  .cert-item {
+    display: flex; align-items: center; gap: 12px;
+    padding-right: 48px;
+    border-right: 1px solid var(--dust);
+    margin-right: 48px;
+    white-space: nowrap;
+  }
+  .cert-item:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+  .cert-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--army); opacity: 0.4; flex-shrink: 0; }
+  .cert-text {
+    font-family: var(--sans);
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--warm-black); opacity: 0.6; font-weight: 300;
+  }
+  @media (max-width: 768px) {
+    .cert-strip { flex-wrap: wrap; gap: 16px; padding: 28px 24px; }
+    .cert-item { border-right: none; margin-right: 0; padding-right: 0; }
+  }
+
+  /* ══ 6b. AS SEEN IN — press strip ══ */
+  .press-strip {
+    padding: 44px 48px 52px;
+    text-align: center;
+    border-bottom: 1px solid var(--dust);
+  }
+  .press-strip-label {
+    font-family: var(--sans);
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--army); opacity: 0.85; margin-bottom: 22px;
+  }
+  .press-links {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 16px 40px;
+  }
+  .press-links a {
+    font-family: var(--serif);
+    font-size: clamp(16px, 2vw, 22px);
+    color: var(--warm-black);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .press-links a:hover { opacity: 1; }
+  @media (max-width: 768px) {
+    .press-strip { padding: 36px 24px 44px; }
+    .press-links { gap: 12px 28px; }
+  }
+
+  /* ══ 7. SIGNUP — prominent ══ */
+  .signup {
+    padding: 96px 48px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+    text-align: center;
+    background: var(--warm-black);
+    border-bottom: 1px solid var(--dust);
+  }
+  .signup-eyebrow {
+    font-family: var(--sans);
+    font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--ochre); opacity: 0.9;
+  }
+  .signup-headline {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4.2vw, 56px);
+    font-weight: 300; letter-spacing: 0.01em;
+    color: var(--parchment);
+    max-width: 640px;
+  }
+  .signup-subtext {
+    font-family: var(--sans);
+    font-size: 14px; letter-spacing: 0.02em; line-height: 1.6;
+    color: var(--parchment); opacity: 0.65;
+    max-width: 460px;
+    margin-top: -8px;
+  }
+  .signup-form {
+    display: flex; gap: 0;
+    border-bottom: 1px solid rgba(244,239,230,0.35);
+    min-width: 380px;
+    margin-top: 12px;
+  }
+  .signup-input {
+    flex: 1; background: none; border: none; outline: none;
+    font-family: var(--serif); font-size: 18px;
+    color: var(--parchment); padding: 12px 0;
+    text-align: center;
+  }
+  .signup-input::placeholder { color: rgba(244,239,230,0.4); }
+  .signup-btn {
+    background: none; border: none; cursor: pointer;
+    font-family: var(--sans); font-size: 10px;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--ochre); font-weight: 400;
+    padding: 12px 0 12px 22px; transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+  .signup-btn:hover { opacity: 0.6; }
+  .signup-btn:disabled { opacity: 0.4; cursor: default; }
+  .signup-note {
+    font-family: var(--sans); font-size: 11px; letter-spacing: 0.08em;
+    color: var(--parchment); opacity: 0; margin-top: 4px;
+    transition: opacity 0.2s;
+  }
+  .signup-note.visible { opacity: 0.7; }
+  .signup-note.error { color: #d98b7f; opacity: 0.9; }
+  @media (max-width: 768px) {
+    .signup { padding: 64px 24px; gap: 20px; }
+    .signup-form { min-width: 0; width: 100%; max-width: 380px; }
+  }
+
+  /* ══ FOOTER ══ */
+  footer {
+    padding: 44px 48px;
+    display: flex; justify-content: space-between; align-items: flex-end;
+  }
+  .footer-left {
+    font-family: var(--serif); font-size: 14px;
+    letter-spacing: 0.06em; opacity: 0.55;
+  }
+  .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; }
+  .footer-right a {
+    font-family: var(--sans); font-size: 11px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--warm-black); text-decoration: none;
+    opacity: 0.6; font-weight: 300; transition: opacity 0.2s;
+  }
+  .footer-right a:hover { opacity: 0.8; }
+  @media (max-width: 768px) {
+    footer { flex-direction: column; gap: 20px; align-items: flex-start; padding: 36px 24px; }
+    .footer-right { align-items: flex-start; }
+  }
+
+  /* ══ FIELD GUIDE SECTION ══ */
+  .field-guide-section {
+    border-top: 1px solid var(--warm-black);
+    border-bottom: 1px solid var(--dust);
+    background: var(--cream);
+  }
+  .fg-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 48px;
+    border-bottom: 1px solid rgba(26,21,18,0.15);
+  }
+  .fg-issue {
+    font-family: var(--sans);
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--warm-black); opacity: 0.6; font-weight: 300;
+  }
+  .fg-body {
+    display: grid;
+    grid-template-columns: 0.85fr 1fr;
+    align-items: stretch;
+  }
+  .fg-drawing-col {
+    border-right: 1px solid rgba(26,21,18,0.12);
+    display: flex; align-items: center; justify-content: center;
+    background: var(--cream);
+    padding: 40px;
+  }
+  .fg-drawing {
+    width: auto; max-width: 100%;
+    max-height: 320px;
+    object-fit: contain;
+    object-position: center center;
+    display: block;
+  }
+  .fg-drawing-caption {
+    padding: 16px 32px;
+    border-top: 1px solid rgba(26,21,18,0.1);
+    display: flex; align-items: baseline; gap: 16px;
+  }
+  .fg-caption-label {
+    font-family: var(--sans);
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--army); opacity: 0.75; font-weight: 300;
+    flex-shrink: 0;
+  }
+  .fg-caption-name {
+    font-family: var(--serif);
+    font-size: 16px; color: var(--ink); opacity: 0.75;
+    letter-spacing: 0.04em;
+  }
+  .fg-text-col {
+    padding: 56px 56px 52px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .fg-dispatch-label {
+    font-family: var(--sans);
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ochre); opacity: 0.9;
+    margin-bottom: 18px; font-weight: 300;
+  }
+  .fg-dispatch-headline {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 300; line-height: 1.1;
+    letter-spacing: 0.02em;
+    color: var(--warm-black);
+    margin-bottom: 22px;
+  }
+  .fg-dispatch-body {
+    font-family: var(--serif);
+    font-size: clamp(17px, 1.6vw, 20px);
+    line-height: 1.8; letter-spacing: 0.01em;
+    color: var(--ink); opacity: 0.82;
+    margin-bottom: 32px;
+    max-width: 520px;
+  }
+  .fg-specs {
+    border-top: 1px solid rgba(26,21,18,0.1);
+    margin-bottom: 32px;
+  }
+  .fg-spec-row {
+    display: flex; gap: 24px; align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(26,21,18,0.07);
+  }
+  .fg-spec-label {
+    font-family: var(--sans);
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--army); opacity: 0.8; font-weight: 300;
+    flex: 0 0 110px;
+  }
+  .fg-spec-val {
+    font-family: var(--serif);
+    font-size: 16px; color: var(--ink); opacity: 0.85;
+    letter-spacing: 0.02em;
+  }
+  .fg-enter-link {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ochre); text-decoration: none; font-weight: 300;
+    border-bottom: 1px solid rgba(155,122,63,0.5);
+    padding-bottom: 3px;
+    transition: opacity 0.2s;
+    align-self: flex-start;
+  }
+  .fg-enter-link:hover { opacity: 0.65; }
+  @media (max-width: 900px) {
+    .fg-header { padding: 12px 24px; }
+    .fg-body { grid-template-columns: 1fr; }
+    .fg-drawing-col { border-right: none; border-bottom: 1px solid rgba(26,21,18,0.12); padding: 28px; }
+    .fg-drawing { max-height: 240px; }
+    .fg-text-col { padding: 32px 24px; }
+    .fg-dispatch-headline { font-size: clamp(22px, 6vw, 32px); }
+    .fg-dispatch-body { max-width: 100%; font-size: 15px; }
+    .fg-spec-label { flex: 0 0 90px; }
+  }
+  @media (max-width: 480px) {
+    .fg-text-col { padding: 28px 20px; }
+    .fg-spec-row { flex-direction: column; gap: 4px; padding: 10px 0; }
+    .fg-spec-label { flex: none; }
+  }
+
+</style>
   <link rel="stylesheet" href="/nav.css">
 </head>
 <body>
 
-  <!-- top nav injected by /nav.js -->
-
-  <section class="shop-hero">
-    <div class="shop-eyebrow">Ghost Town Ranch</div>
-    <h1 class="shop-title">Shop All</h1>
-    <p class="shop-intro">Elevated essentials for the modern pioneer. At home anywhere, from the open road to a Paris apartment, a farmhouse in the South of France, a shelf in the Seattle rain. The wide light and open skies travel well.</p>
-  </section>
-
-  <div class="shop-search">
-    <input id="shop-q" type="search" placeholder="Search the range" aria-label="Search products" autocomplete="off">
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="/" class="nav-logo">Ghost Town Ranch</a>
+  <div class="nav-right">
+    <ul class="nav-links" id="home-nav-links">
+      <li><a href="https://ghosttownranch.com/shop/">Shop</a></li>
+      <li><a href="https://ghosttownranch.com/ritual/">Ritual</a></li>
+      <li><a href="https://ghosttownranch.com/routines/">Routines</a></li>
+      <li><a href="https://ghosttownranch.com/wash-house/">Wash House</a></li>
+      <li><a href="https://ghosttownranch.com/field-guide/">Wide Light</a></li>
+      <li><a href="https://ghosttownranch.com/wholesale/">Wholesale</a></li>
+    </ul>
+    <button class="nav-hamburger" id="home-nav-btn" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-  <div class="shop-results-note" id="shop-results-note"></div>
+</nav>
 
-  <nav class="chips" aria-label="Shop categories">
-      <a href="#ritual">Ritual</a>
-      <a href="#routines">Routines</a>
-      <a href="#wash-house">Wash House</a>
-      <a href="#goods">Goods</a>
-  </nav>
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-bg">
+    <img
+      src="https://ghosttownranch.com/herogtr-v2.png"
+      alt="Ghost Town Ranch"
+      loading="eager" decoding="async"
+      width="2400" height="1350"
+    >
+  </div>
+  <div class="hero-inner">
+    <h1 class="hero-wordmark">
+      Ghost Town<br>
+      <em>Ranch</em>
+    </h1>
+    <div class="hero-aside">
+      <span class="hero-aside-line">Frontier Modernism</span>
+      <span class="hero-aside-line">Ritual · Skincare · Home</span>
+      <span class="hero-aside-line">COSMOS Certified · Born in the high desert</span>
+      <a href="#ritual" class="hero-cta">The Ritual →</a>
+    </div>
+  </div>
+</section>
 
-  <section class="shop-sec" id="ritual">
-      <div class="sec-head">
-        <h2 class="sec-title">Ritual</h2>
-        
-      </div>
-      <div class="pgrid">
-        <a class="pcard" href="https://ghosttownranch.com/products/the-monument-candle"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/rn-image_picker_lib_temp_c2b24e45-2c54-4479-a49f-7eebb3126cc6.png?v=1785542520&width=3840" alt="The Monument 4-Wick Candle" loading="lazy"></div><div class="pcard-name">The Monument</div><div class="pcard-sub">4-Wick Candle</div><div class="pcard-price">$190</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/rn-image_picker_lib_temp_38e2ae10-4432-4d2d-9372-9dfe581fe23c.png?v=1785542296&width=1200" alt="The Monument Ltd. Edition — White, Dusk" loading="lazy"></div><div class="pcard-name">The Monument</div><div class="pcard-sub">Ltd. Edition · White, Dusk</div><div class="pcard-price">$204</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/the-slow-hand-poured-colored-wax-candle-ltd-001"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/TheSlow_LTD_001.png?v=1783601855&width=1200" alt="The Slow Ltd. Edition — No. 06 Dusk" loading="lazy"></div><div class="pcard-name">The Slow</div><div class="pcard-sub">Ltd. Edition · No. 06 Dusk</div><div class="pcard-price">$58</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/the-votive-candle-set-of-6"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/votivesixgiftbox.png?v=1783730702" alt="The Votive Set of 6" loading="lazy"></div><div class="pcard-name">The Votive</div><div class="pcard-sub">Set of 6</div><div class="pcard-price">$148</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/the-votive-single"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/TheVotive_No3.png?v=1783367036&width=1200" alt="The Votive Single" loading="lazy"></div><div class="pcard-name">The Votive</div><div class="pcard-sub">Single</div><div class="pcard-price">$26</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/ranch-water-body-room-fragrance"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/RanchWater_Flax-bx.png?v=1783624841" alt="Ranch Water Body + Room Fragrance" loading="lazy"><span class="best-badge">Bestseller</span></div><div class="pcard-name">Ranch Water</div><div class="pcard-sub">Body + Room Fragrance</div><div class="pcard-price">$88</div></a>
-        <a class="pcard soon" href="https://ghosttownranch.com/#signup"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/widerange1.png?v=1784402619&width=1200" alt="Wide Range Ranch Water Set" loading="lazy"><span class="soon-badge">Coming Soon</span></div><div class="pcard-name">Wide Range</div><div class="pcard-sub">Ranch Water Set</div><div class="pcard-price soon-text">Join the waitlist</div></a>
-        <a class="pcard soon" href="https://ghosttownranch.com/#signup"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/girldkit2.png?v=1784432918&width=1200" alt="The Field Kit Discovery" loading="lazy"><span class="soon-badge">Coming Soon</span></div><div class="pcard-name">The Field Kit</div><div class="pcard-sub">Discovery</div><div class="pcard-price soon-text">Join the waitlist</div></a>
-      </div>
-    </section>
+<!-- ══ STATEMENT ══ -->
+<section class="statement">
+  <span class="statement-left">Frontier Modernism</span>
+  <p class="statement-right">
+    The grit of the pioneer West.<br>
+    <em>The discipline of desert modernism.</em>
+  </p>
+</section>
 
-  <section class="shop-sec" id="routines">
-      <div class="sec-head">
-        <h2 class="sec-title">Routines</h2>
-        <p class="sec-note">Deep Well — beauty from within — joins the routine this fall. Skin support and adaptogen tonics, made from the same land. <a class="inline-link" href="https://ghosttownranch.com/#signup">Join the waitlist</a> for first word.</p>
-      </div>
-      <div class="pgrid">
-        <a class="pcard" href="https://ghosttownranch.com/products/rose-cut-daily-facial-wash"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Rosecut1.png" alt="Rose Cut Daily Facial Wash" loading="lazy"></div><div class="pcard-name">Rose Cut</div><div class="pcard-sub">Daily Facial Wash</div><div class="pcard-price">$62</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/peptide-anti-aging-serum"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Thegrade1.png" alt="The Grade Peptide Serum" loading="lazy"><span class="best-badge">Ranch Fave</span></div><div class="pcard-name">The Grade</div><div class="pcard-sub">Peptide Serum</div><div class="pcard-price">$72</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/desert-glow-hydrating-facial-oil"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertglow1.png" alt="Desert Glow Hydrating Facial Oil" loading="lazy"></div><div class="pcard-name">Desert Glow</div><div class="pcard-sub">Hydrating Facial Oil</div><div class="pcard-price">$68</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/all-told-eye-cream"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/alltold_1.png" alt="All Told 3-in-1 Eye Cream" loading="lazy"></div><div class="pcard-name">All Told</div><div class="pcard-sub">3-in-1 Eye Cream</div><div class="pcard-price">$62</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/anti-age-hydrogel-eye-patches-7-pcs"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/goldrush.png?v=1786994110&width=1200" alt="THE LOOKOUT COLLECTiON Aloe Hydrogel Eye Patches" loading="lazy"></div><div class="pcard-name">THE LOOKOUT COLLECTiON</div><div class="pcard-sub">Aloe Hydrogel Eye Patches, 7 pcs</div><div class="pcard-price">$36</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/the-kiss-lip-mask-7-pcs"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/TheKiss.png?v=1785169951&width=1200" alt="The Kiss Hyaluronic Hydrogel Lip Mask, 7 pcs" loading="lazy"></div><div class="pcard-name">The Kiss</div><div class="pcard-sub">Hydrogel Lip Mask, 7 pcs</div><div class="pcard-price">$42</div></a>
-        <a class="pcard soon" href="https://ghosttownranch.com/#signup"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/shotgunwedding.png?v=1785170867&width=1200" alt="Shotgun Wedding — Lips + Eyes Kit, mini zipper bag" loading="lazy"><span class="soon-badge">Coming Soon</span></div><div class="pcard-name">Shotgun Wedding</div><div class="pcard-sub">Lips + Eyes Kit</div><div class="pcard-price soon-text">Join the waitlist</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/the-hold-anti-age-day-cream"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TheHold_1.png" alt="The Hold Anti-Age Day Cream" loading="lazy"></div><div class="pcard-name">The Hold</div><div class="pcard-sub">Anti-Age Day Cream</div><div class="pcard-price">$74</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/moisturising-day-cream"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertdaycream1.png" alt="Desert Day Cream" loading="lazy"></div><div class="pcard-name">Desert Day</div><div class="pcard-sub">Cream</div><div class="pcard-price">$64</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/dusk-til-dawn-hydration-gel"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Dusktilldawn1.png" alt="Dusk Til Dawn Hydration Gel" loading="lazy"></div><div class="pcard-name">Dusk Til Dawn</div><div class="pcard-sub">Hydration Gel</div><div class="pcard-price">$60</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/glycolic-acid-exfoliating-toner"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/FrontierFade1.png" alt="Frontier Fade Toning Exfoliant" loading="lazy"></div><div class="pcard-name">Frontier Fade</div><div class="pcard-sub">Toning Exfoliant</div><div class="pcard-price">$55</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/microbiome-prebiotics-face-mist-1"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/mojavereset1.png" alt="Mojave Reset Cooling Face Mist" loading="lazy"></div><div class="pcard-name">Mojave Reset</div><div class="pcard-sub">Cooling Face Mist</div><div class="pcard-price">$44</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/soft-proof-peptide-foundation"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/SoftProof1.png" alt="Soft Proof Pigment Foundation" loading="lazy"></div><div class="pcard-name">Soft Proof</div><div class="pcard-sub">Pigment Foundation</div><div class="pcard-price">$45</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/desert-veil-tone-correction-barrier-protection"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertveil1.png" alt="Desert Veil CC Stick" loading="lazy"></div><div class="pcard-name">Desert Veil</div><div class="pcard-sub">CC Stick</div><div class="pcard-price">$55</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/long-shot-peptide-mascara"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Longshot1.png" alt="Long Shot Peptide Mascara" loading="lazy"></div><div class="pcard-name">Long Shot</div><div class="pcard-sub">Peptide Mascara</div><div class="pcard-price">$45</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/drawn-line-matte-lip-color"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DrawnLine1.png" alt="Drawn Line Satin Lip Color" loading="lazy"></div><div class="pcard-name">Drawn Line</div><div class="pcard-sub">Satin Lip Color</div><div class="pcard-price">$42</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/biphasic-make-up-remover-fragrance-free"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawswipeout1.png" alt="Outlaw's Wipeout Makeup Remover" loading="lazy"></div><div class="pcard-name">Outlaw's Wipeout</div><div class="pcard-sub">Makeup Remover</div><div class="pcard-price">$55</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/the-face-bundle"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/makeup_cu_01_76625f25-6ae8-4755-afc2-e7335b6c86e8.png" alt="The Face Bundle" loading="lazy"></div><div class="pcard-name">The Face Bundle</div><div class="pcard-sub">Makeup as Skincare</div><div class="pcard-price">$186</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/morning-skin-routine"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/morningedit_1.png" alt="Morning Skin Routine, 6 products" loading="lazy"></div><div class="pcard-name">Morning Skin</div><div class="pcard-sub">Routine, 6 products</div><div class="pcard-price">$353</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/evening-repair-bundle"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/eveningrepar.png" alt="Evening Repair Bundle" loading="lazy"></div><div class="pcard-name">Evening Repair</div><div class="pcard-sub">Bundle</div><div class="pcard-price">$274</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/wholesale/"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/theface_fulledit_allshades1.png" alt="The Face Full Shade Edit" loading="lazy"></div><div class="pcard-name">The Face</div><div class="pcard-sub">Full Shade Edit</div><div class="pcard-price">Wholesale Bundle</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/wholesale/"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/softproofedit_11.png" alt="Soft Proof Full Shade Set" loading="lazy"></div><div class="pcard-name">Soft Proof</div><div class="pcard-sub">Full Shade Set</div><div class="pcard-price">Wholesale Bundle</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/wholesale/"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DesertVeiledit_1.png" alt="Desert Veil Full Shade Set" loading="lazy"></div><div class="pcard-name">Desert Veil</div><div class="pcard-sub">Full Shade Set</div><div class="pcard-price">Wholesale Bundle</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/long-range-endurance-skincare-collection"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/longrange.png" alt="Long Range Endurance Collection" loading="lazy"></div><div class="pcard-name">Long Range</div><div class="pcard-sub">Endurance Collection</div><div class="pcard-price">$178</div></a>
-        <a class="pcard soon" href="https://ghosttownranch.com/#signup"><div class="pcard-img" style="background:linear-gradient(155deg,#F4EFE6 0%,#E4DAC6 100%);display:flex;align-items:center;justify-content:center;"><img src="https://ghosttownranch.com/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="The Well — Skin Support Powder" loading="lazy" style="width:32%;height:auto;object-fit:contain;opacity:0.5;"><span class="soon-badge">Coming Soon</span></div><div class="pcard-name">The Well</div><div class="pcard-sub">Skin Support Powder</div><div class="pcard-price soon-text">Join the waitlist</div></a>
-        <a class="pcard soon" href="https://ghosttownranch.com/#signup"><div class="pcard-img" style="background:linear-gradient(155deg,#F4EFE6 0%,#E4DAC6 100%);display:flex;align-items:center;justify-content:center;"><img src="https://ghosttownranch.com/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="First Light — Morning Adaptogen Tonic" loading="lazy" style="width:32%;height:auto;object-fit:contain;opacity:0.5;"><span class="soon-badge">Coming Soon</span></div><div class="pcard-name">First Light</div><div class="pcard-sub">Morning Adaptogen Tonic</div><div class="pcard-price soon-text">Join the waitlist</div></a>
-        <a class="pcard soon" href="https://ghosttownranch.com/#signup"><div class="pcard-img" style="background:linear-gradient(155deg,#F4EFE6 0%,#E4DAC6 100%);display:flex;align-items:center;justify-content:center;"><img src="https://ghosttownranch.com/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="Last Light — Evening Adaptogen Tonic" loading="lazy" style="width:32%;height:auto;object-fit:contain;opacity:0.5;"><span class="soon-badge">Coming Soon</span></div><div class="pcard-name">Last Light</div><div class="pcard-sub">Evening Adaptogen Tonic</div><div class="pcard-price soon-text">Join the waitlist</div></a>
-      </div>
-    </section>
+<!-- ══ PILLARS ══ -->
+<section id="ritual" class="pillars">
+  <a class="pillar" href="https://ghosttownranch.com/ritual/">
+    <div class="pillar-bg">
+      <img src="/theritual.png" alt="The Ritual" loading="lazy" decoding="async">
+    </div>
+    <div class="pillar-inner">
+      <span class="pillar-time">The Ritual</span>
+      <h2 class="pillar-name">Scent as<br>landscape.</h2>
+      <span class="pillar-link">The Ritual →</span>
+    </div>
+  </a>
+  <a class="pillar" href="https://ghosttownranch.com/routines/">
+    <div class="pillar-bg">
+      <img src="https://ghosttownranch.com/gtr-morning-routine-serum-application.png" alt="Routines" loading="lazy" decoding="async">
+    </div>
+    <div class="pillar-inner">
+      <span class="pillar-time">Morning + Evening</span>
+      <h2 class="pillar-name">The skin,<br>held.</h2>
+      <span class="pillar-link">The Routines →</span>
+    </div>
+  </a>
+  <a class="pillar" href="https://ghosttownranch.com/wash-house/">
+    <div class="pillar-bg">
+      <img src="https://or-cre.com/cdn/shop/files/TheBasin_1.png?v=1782571443&width=1920" alt="Wash House" loading="lazy" decoding="async">
+    </div>
+    <div class="pillar-inner">
+      <span class="pillar-time">At the sink</span>
+      <h2 class="pillar-name">It begins<br>here.</h2>
+      <span class="pillar-link">The Wash House →</span>
+    </div>
+  </a>
+</section>
 
-  <section class="shop-sec" id="wash-house">
-      <div class="sec-head">
-        <h2 class="sec-title">Wash House</h2>
-        <p class="sec-note">Hair joins the Wash House on the refill system, in the works. <a class="inline-link" href="https://ghosttownranch.com/#signup">Join the waitlist</a> for first word.</p>
-      </div>
-      <div class="pgrid">
-        <a class="pcard" href="https://ghosttownranch.com/products/the-basin-hand-wash-body-cream-set-of-two-choose-your-scent"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/TheBasin_1.png?v=1782571443&width=1920" alt="The Basin Hand Wash + Body Cream" loading="lazy"><span class="best-badge">Bestseller</span></div><div class="pcard-name">The Basin</div><div class="pcard-sub">Hand Wash + Body Cream</div><div class="pcard-price">$89</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/sunbroke-the-wash-cold-pressed-grapefruit"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TheWash1.png" alt="The Wash Hydrating Hand Wash" loading="lazy"></div><div class="pcard-name">The Wash</div><div class="pcard-sub">Hydrating Hand Wash</div><div class="pcard-price">$44</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/all-over-body-cream"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/allover_01.png" alt="All Over Body Cream" loading="lazy"></div><div class="pcard-name">All Over</div><div class="pcard-sub">Body Cream</div><div class="pcard-price">$55</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/silk-skin-hand-cream-spices-sandalwood"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/silkskin1.png?v=1784474452&width=1200" alt="Silk Skin Hand Cream, Citrus + Pink Pepper" loading="lazy"><span class="best-badge">A Ranch Favorite</span></div><div class="pcard-name">Silk Skin</div><div class="pcard-sub">Hand Cream, Citrus + Pink Pepper</div><div class="pcard-price">$46</div><p class="pcard-desc">Amber, citrus and pink pepper over sandalwood and vetiver. Jojoba oil and hyaluronic acid for deep, fast-absorbing hydration. Gluten-free, nut-free, vegan. Ecocert COSMOS Natural certified.</p></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/omega-6-9-glowing-skin-body-oil"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/goldenhour1.png" alt="Golden Hour Body Oil" loading="lazy"></div><div class="pcard-name">Golden Hour</div><div class="pcard-sub">Body Oil</div><div class="pcard-price">$68</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/still-air-natural-roll-on-deodorant1"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/StillAir_cap.png?v=1783413451&width=1200" alt="Still Air Natural Roll-On Deodorant" loading="lazy"></div><div class="pcard-name">Still Air</div><div class="pcard-sub">Natural Roll-On Deodorant</div><div class="pcard-price">$32</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/sustainable-sink-tray"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/sinktray_1.png" alt="Sink Tray Sustainable" loading="lazy"></div><div class="pcard-name">Sink Tray</div><div class="pcard-sub">Sustainable</div><div class="pcard-price">From $37</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/outlaws-reserve-2-in-1-hair-skin-rinse"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawsreserve1.png" alt="Outlaw's Reserve 2-in-1 Hair + Body Wash" loading="lazy"><span class="best-badge">Bestseller</span></div><div class="pcard-name">Outlaw's Reserve</div><div class="pcard-sub">2-in-1 Hair + Body Wash</div><div class="pcard-price">$55</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/quick-refresh-dry-shampoo-spray"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/drycreek_1.png" alt="Dry Creek Dry Shampoo Mist" loading="lazy"></div><div class="pcard-name">Dry Creek</div><div class="pcard-sub">Dry Shampoo Mist</div><div class="pcard-price">$39</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/rosemary-hair-scalp-strengthening-oil"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/rosemaryminthairoil1.png" alt="Rosemary Mint Revive Hair + Scalp Oil" loading="lazy"></div><div class="pcard-name">Rosemary Mint Revive</div><div class="pcard-sub">Hair + Scalp Oil</div><div class="pcard-price">$53</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/keratin-shine-leave-in-hair-mist"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/keratin1.png" alt="Trail's End Keratin Hair Shine" loading="lazy"></div><div class="pcard-name">Trail's End</div><div class="pcard-sub">Keratin Hair Shine</div><div class="pcard-price">$53</div></a>
-        <a class="pcard soon" href="https://ghosttownranch.com/#signup"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/QUICKDRAWKIT.png?v=1785171421&width=1200" alt="Quick Draw — Still Air, Dry Creek, Mojave Reset, black canvas bag" loading="lazy"><span class="soon-badge">Coming Soon</span></div><div class="pcard-name">Quick Draw</div><div class="pcard-sub">Refresh Kit</div><div class="pcard-price soon-text">Join the waitlist</div></a>
-      </div>
-    </section>
+<!-- ══ SCENTS ══ -->
+<section class="scents">
+  <div class="scents-copy">
+    <p class="scents-label">The Six Scents</p>
+    <h2 class="scents-headline">One landscape.<br><em>Six ways in.</em></h2>
+    <p class="scents-sub" style="margin-top:14px;font-size:1.05rem;letter-spacing:0.02em;color:var(--ink);opacity:0.78;">One scent. Skin, linen, air.</p>
+    <a href="https://ghosttownranch.com/ritual/" class="scents-link">Scent guide →</a>
+  </div>
+  <div class="scent-list">
+    <div class="scent-row">
+      <div class="scent-swatch" style="background:#c4b89a;"></div>
+      <span class="scent-name">Rough Hewn</span>
+      <span class="scent-note">Cade · Cedarwood</span>
+    </div>
+    <div class="scent-row">
+      <div class="scent-swatch" style="background:#d4cbb5;"></div>
+      <span class="scent-name">Hang Dried</span>
+      <span class="scent-note">White Sage · Lavender</span>
+    </div>
+    <div class="scent-row">
+      <div class="scent-swatch" style="background:#8b6a4a;"></div>
+      <span class="scent-name">Ember</span>
+      <span class="scent-note">Charcoal · Amber</span>
+    </div>
+    <div class="scent-row">
+      <div class="scent-swatch" style="background:#7a8c5a;"></div>
+      <span class="scent-name">Graze</span>
+      <span class="scent-note">Sweetgrass · Sage</span>
+    </div>
+    <div class="scent-row">
+      <div class="scent-swatch" style="background:#c8c4a0;"></div>
+      <span class="scent-name">Flax</span>
+      <span class="scent-note">Cotton Blossom · Citron</span>
+    </div>
+    <div class="scent-row">
+      <div class="scent-swatch" style="background:#5a6070;"></div>
+      <span class="scent-name">Dusk</span>
+      <span class="scent-note">Palo Santo · Amber</span>
+    </div>
+  </div>
+</section>
 
-  <section class="shop-sec" id="goods">
-      <div class="sec-head">
-        <h2 class="sec-title">Goods</h2>
-        
+<!-- ══ SELECTED OBJECTS ══ -->
+<section id="objects" class="objects">
+  <div class="objects-header">
+    <span class="objects-label">From the Ranch</span>
+    <a href="https://ghosttownranch.com/shop/" class="objects-all">Shop the Ranch →</a>
+  </div>
+  <div class="objects-grid">
+    <a class="obj" href="https://ghosttownranch.com/products/the-votive-single">
+      <div class="obj-img">
+        <img src="https://or-cre.com/cdn/shop/files/TheVotive_No3.png?v=1783367036&width=800" alt="The Votive" loading="lazy">
       </div>
-      <div class="pgrid">
-        <a class="pcard" href="https://ghosttownranch.com/products/gtr-garment-dyed-long-sleeve-tee"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/GTRlongsleeveT.png" alt="Long-Sleeve Tee Garment-Dyed" loading="lazy"></div><div class="pcard-name">Long-Sleeve Tee</div><div class="pcard-sub">Garment-Dyed</div><div class="pcard-price">$64</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/gtr-unisex-hoodie-in-black-french-navy-white-copy"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/gtrblackhoodie.png" alt="Hoodie Unisex" loading="lazy"></div><div class="pcard-name">Hoodie</div><div class="pcard-sub">Unisex</div><div class="pcard-price">$74</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/gtr-unisex-sweatshirt-in-black-french-navy-white"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/sweatshirtnavy.png" alt="Sweatshirt Unisex" loading="lazy"></div><div class="pcard-name">Sweatshirt</div><div class="pcard-sub">Unisex</div><div class="pcard-price">$84</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/gtr-unisex-tee-in-black-or-bone"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/newgtrbonet.png" alt="Tee Unisex" loading="lazy"></div><div class="pcard-name">Tee</div><div class="pcard-sub">Unisex</div><div class="pcard-price">$53</div></a>
+      <p class="obj-cat">Fragrance + Home</p>
+      <h3 class="obj-name">The Votive</h3>
+      <p class="obj-price">$26 · Choose scent</p>
+    </a>
+    <a class="obj" href="https://ghosttownranch.com/products/sunbroke-the-wash-cold-pressed-grapefruit">
+      <div class="obj-img">
+        <img src="https://or-cre.com/cdn/shop/files/thewashimage_7509c88e-32dc-4309-8da5-635175c5ab86.png?v=1776859541&width=800" alt="The Wash" loading="lazy">
       </div>
-    </section>
+      <p class="obj-cat">Wash House</p>
+      <h3 class="obj-name">The Wash</h3>
+      <p class="obj-price">$44 · Three scents</p>
+    </a>
+    <a class="obj" href="https://ghosttownranch.com/products/ranch-water-body-room-fragrance">
+      <div class="obj-img">
+        <img src="https://or-cre.com/cdn/shop/files/RanchWater_Flax-bx.png?v=1783624841&width=800" alt="Ranch Water" loading="lazy">
+      </div>
+      <p class="obj-cat">The Ritual</p>
+      <h3 class="obj-name">Ranch Water</h3>
+      <p class="obj-price">$88 · Six scents</p>
+    </a>
+  </div>
+  <div class="assurance-bar">
+    <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">Hassle-free returns on damaged items</span></div>
+    <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">Secure checkout</span></div>
+  </div>
+</section>
 
-  <footer>
-    <div class="footer-left">Ghost Town Ranch &nbsp;&middot;&nbsp; Frontier Modernism</div>
-    <div class="footer-right"><a href="/wholesale/">Wholesale &amp; Hospitality</a></div>
-  </footer>
 
-  <script>
-    (function () {
-      var inp = document.getElementById('shop-q');
-      var note = document.getElementById('shop-results-note');
-      var chips = document.querySelector('.chips');
-      function run(q) {
-        q = (q || '').trim().toLowerCase();
-        var total = 0;
-        document.querySelectorAll('.shop-sec').forEach(function (sec) {
-          var any = false;
-          sec.querySelectorAll('.pcard').forEach(function (c) {
-            var show = !q || c.textContent.toLowerCase().indexOf(q) !== -1;
-            c.style.display = show ? '' : 'none';
-            if (show) { any = true; total++; }
+<!-- ══ FIELD GUIDE TEASER ══ -->
+<section class="field-guide-section">
+  <div class="fg-header">
+    <div class="fg-header-left">
+      <span class="fg-issue">Pocket Guide &nbsp;·&nbsp; Frontier Modernism &nbsp;·&nbsp; No. 01</span>
+    </div>
+    <div class="fg-header-right">
+      <span class="fg-issue">Wide Light</span>
+    </div>
+  </div>
+  <div class="fg-body">
+    <div class="fg-drawing-col">
+      <img
+        src="/thewash_fieldguide_01.png"
+        alt="The Wash · Pocket Guide illustration, Frontier Modernism No. 01"
+        class="fg-drawing"
+        loading="lazy"
+      >
+    </div>
+    <div class="fg-text-col">
+      <div class="fg-dispatch-label">Wide Light</div>
+      <h2 class="fg-dispatch-headline">
+        The ritual first.<br><em>Everything else follows.</em>
+      </h2>
+      <p class="fg-dispatch-body">The wide open has its own rhythm. Wide Light is where GTR thinks out loud — about scent, landscape, and what the ritual is actually for.</p>
+      <a href="https://ghosttownranch.com/field-guide/" class="fg-enter-link">Enter Wide Light &nbsp;&rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CERT STRIP ══ -->
+<div class="cert-strip">
+  <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">COSMOS Certified · ECOCERT</span></div>
+  <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">Skin-safe fragrance</span></div>
+  <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">Hand-poured · Colored wax</span></div>
+  <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">Thoughtful actives · No filler</span></div>
+  
+</div>
+
+<!-- ══ AS SEEN IN ══ -->
+<div class="press-strip">
+  <div class="press-strip-label">As Seen In</div>
+  <div class="press-links">
+    <a href="https://www.latimes.com/lifestyle/list/29-palms-near-joshua-tree-9-great-shops-new-businesses" target="_blank" rel="noopener noreferrer">Los Angeles Times</a>
+    <a href="#">Dwell</a>
+    <a href="https://voyagela.com/interview/life-values-legacy-our-chat-with-kate-pawlicki-bourne-of-palm-springs-joshua-tree-highlight/" target="_blank" rel="noopener noreferrer">VoyageLA</a>
+    <a href="https://boldjourney.com/meet-kate-pawlicki-bourne/" target="_blank" rel="noopener noreferrer">Bold Journey</a>
+  </div>
+</div>
+
+<!-- ══ SIGNUP ══ -->
+<section class="signup" id="signup">
+  <span class="signup-eyebrow">Join the Ranch</span>
+  <h2 class="signup-headline">From the ranch. In your inbox.</h2>
+  <p class="signup-subtext">First word on new releases, coming soon drops, and Ranch happenings — before anyone else.</p>
+  <form class="signup-form" action="https://formspree.io/f/xnjleeqp" method="POST" id="signup-form">
+    <input type="email" name="email" class="signup-input" placeholder="Your email" required>
+    <input type="hidden" name="_subject" value="New Ghost Town Ranch newsletter signup">
+    <button type="submit" class="signup-btn">Join →</button>
+  </form>
+  <p class="signup-note" id="signup-note" role="status" aria-live="polite"></p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">© 2025 Ghost Town Ranch</div>
+  <div class="footer-right">
+    <a href="https://instagram.com/ghosttownranch" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://ghosttownranch.com/wholesale/">Wholesale</a>
+    <a href="mailto:howdy@ghosttownranch.com">howdy@ghosttownranch.com</a>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll behavior
+  var nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 80) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }, { passive: true });
+
+  // Hamburger
+  document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.getElementById('home-nav-btn');
+    var list = document.getElementById('home-nav-links');
+    if (!btn || !list) return;
+    btn.addEventListener('click', function() {
+      var open = list.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    list.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        list.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+  });
+  // Newsletter signup — Formspree
+  document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('signup-form');
+    var note = document.getElementById('signup-note');
+    if (!form || !note) return;
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = form.querySelector('.signup-btn');
+      var data = new FormData(form);
+      btn.disabled = true;
+      note.textContent = '';
+      note.className = 'signup-note';
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        if (response.ok) {
+          note.textContent = "You're on the list. Welcome to the ranch.";
+          note.classList.add('visible');
+          form.reset();
+        } else {
+          return response.json().then(function(json) {
+            var msg = (json && json.errors && json.errors.length) ? json.errors.map(function(er){return er.message;}).join(', ') : 'Something went wrong. Please try again.';
+            note.textContent = msg;
+            note.classList.add('visible', 'error');
           });
-          sec.style.display = any ? '' : 'none';
-        });
-        if (chips) chips.style.display = q ? 'none' : '';
-        note.textContent = q ? (total + (total === 1 ? ' result' : ' results') + ' for \u201c' + q + '\u201d') : '';
-      }
-      var q0 = new URLSearchParams(location.search).get('q');
-      if (q0) { inp.value = q0; run(q0); }
-      inp.addEventListener('input', function () { run(inp.value); });
-    })();
-  </script>
-
-  <script defer src="/nav.js"></script>
+        }
+      }).catch(function() {
+        note.textContent = 'Something went wrong. Please try again.';
+        note.classList.add('visible', 'error');
+      }).finally(function() {
+        btn.disabled = false;
+      });
+    });
+  });
+</script>
 <script src="/cart.js"></script>
 <script src="/gtr-controls.js" defer></script>
 </body>
