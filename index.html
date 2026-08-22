@@ -248,6 +248,8 @@
     transition: transform 0.8s ease;
   }
   .pillar:hover .pillar-bg img { transform: scale(1.05); }
+  .pillar-bg img.ritual-reposition { object-position: center top; transform: scale(1.22) translateY(9%); }
+  .pillar:hover .pillar-bg img.ritual-reposition { transform: scale(1.28) translateY(9%); }
   .pillar-bg::after {
     content: '';
     position: absolute; inset: 0;
@@ -735,7 +737,7 @@
 <section id="ritual" class="pillars">
   <a class="pillar" href="https://ghosttownranch.com/ritual/">
     <div class="pillar-bg">
-      <img src="/theritual.png" alt="The Ritual" loading="lazy" decoding="async" style="object-position: center 5%;">
+      <img src="/theritual.png" alt="The Ritual" loading="lazy" decoding="async" class="ritual-reposition">
     </div>
     <div class="pillar-inner">
       <span class="pillar-time">The Ritual</span>
