@@ -108,20 +108,14 @@
 
 <script>
 const catalog = [
-  {section:"No. 01 · Ritual", items:[
-    {name:"The Votive – Single", meta:"Hand-Poured Votive · choose scent at checkout", sku:"V1ACC", retail:26, min:4, img:"https://or-cre.com/cdn/shop/files/TheVotive_No3.png?v=1783367036&width=1200"},
-    {name:"The Votive, Set of 6", meta:"Full Scent Library", sku:"VOTIVESET6", retail:148, min:3, img:"https://or-cre.com/cdn/shop/files/votivesixgiftbox.png?v=1783730702"},
-    {name:"The Slow — Ltd. Edition", meta:"Colored Wax Candle, 11oz · Dusk", sku:"GTR-SLOW-DUSK-001", retail:58, min:4, img:"https://or-cre.com/cdn/shop/files/TheSlow_LTD_001.png?v=1783601855"},
-    {name:"The Monument", meta:"Mega 4-Wick, 55oz · choose scent at checkout", sku:"TM033026", retail:190, min:2, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Themonument1_286ba5fd-33d4-46a3-a678-4a99682977ad.png?v=1781994789"},
-    {name:"The Monument — Ltd. Edition", meta:"Mega 4-Wick, 55oz · White, Dusk", sku:"TM033026-WHLTDDUSK", retail:204, min:2, img:"https://or-cre.com/cdn/shop/files/monumentltdeditiondusk.png?v=1783731982"},
-    {name:"Ranch Water", meta:"Body + Room Fragrance · choose scent at checkout", sku:"RW033026", retail:88, min:4, img:"https://or-cre.com/cdn/shop/files/RanchWater_Flax-bx.png?v=1783624841&width=1200"},
-    {name:"Sustainable Sink Tray", meta:"Double / Triple, priced from", sku:"ST0111", retail:37, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/sinktray_1.png?v=1781999392"}
-  ]},
   {section:"No. 02–03 · Wash House", items:[
-    {name:"Golden Hour", meta:"Body + Glow Oil", sku:"GH-BODYOIL", retail:68, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/goldenhour_body_2000.png?v=1782410035"},
+    {name:"Golden Hour", meta:"Body + Glow Oil", sku:"188005", retail:68, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/goldenhour_body_2000.png?v=1782410035"},
     {name:"The Wash", meta:"Hydrating Hand Wash · choose scent at checkout", sku:"187984", retail:44, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TheWash1.png?v=1781990058"},
+    {name:"Silk Skin", meta:"Hand Cream, Citrus + Pink Pepper", sku:"188001", retail:46, min:3, img:"https://or-cre.com/cdn/shop/files/silkskin1.png?v=1784474452&width=1200"},
     {name:"All Over Body Cream", meta:"Body Cream", sku:"195933", retail:55, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/allover_01.png?v=1781999297"},
     {name:"The Basin", meta:"Hand Wash + Body Cream Set", sku:"BASIN", retail:89, min:3, img:"https://or-cre.com/cdn/shop/files/TheBasin_1.png?v=1782571443&width=1920"},
+    {name:"The Wash House", meta:"Shampoo, Conditioner + Cream Refill System", sku:"—", retail:null, min:3, soon:true, img:"https://or-cre.com/cdn/shop/files/washhouse1.png?v=1782596595&width=1200"},
+    {name:"Still Air", meta:"Natural Roll-On Deodorant", sku:"213994", retail:32, min:3, img:"https://or-cre.com/cdn/shop/files/StillAir_cap.png?v=1783413451&width=1200"},
     {name:"Outlaw's Reserve", meta:"2-in-1 Hair + Body Wash", sku:"188007", retail:55, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawsreserve1.png?v=1781992783"},
     {name:"Rosemary Mint Revive", meta:"Hair + Scalp Oil", sku:"187999", retail:53, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/rosemaryminthairoil1.png?v=1781992328"},
     {name:"Trail's End", meta:"Keratin Hair Mist", sku:"187985", retail:53, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/keratin1.png?v=1781993406"},
@@ -138,16 +132,34 @@ const catalog = [
     {name:"Rose Cut", meta:"Daily Facial Wash", sku:"190011", retail:62, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Rosecut1.png?v=1781989358"},
     {name:"Outlaw's Wipeout", meta:"Biphasic Makeup Remover", sku:"187988", retail:55, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawswipeout1.png?v=1781990191"},
     {name:"All Told", meta:"3-in-1 Eye Cream", sku:"187975", retail:62, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/alltold_1.png?v=1782051565"},
+    {name:"The Lookout Collection", meta:"Hydrogel Eye Patches, 14 pcs · Gold Rush (Aloe)", sku:"223073", retail:36, min:3, img:"https://or-cre.com/cdn/shop/files/goldrush1.png?v=1787957061&width=1200"},
     {name:"Long Range Endurance", meta:"Skincare Collection", sku:"187742", retail:178, min:1, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/longrange.png?v=1781991986"}
   ]},
   {section:"No. 05 · The Face", items:[
-    {name:"Desert Veil", meta:"Tone Correction · 4 Shades", sku:"DESERTVEIL", retail:55, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertveil1.png?v=1781991094"},
+    {name:"Desert Veil", meta:"Tone Correction · 4 Shades · choose shade at checkout", sku:"DESERTVEIL", retail:55, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertveil1.png?v=1781991094"},
+    {name:"Soft Proof", meta:"Peptide Foundation · 10 Shades · choose shade at checkout", sku:"SOFTPROOF", retail:45, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/SoftProof1.png?v=1781987422"},
+    {name:"Drawn Line", meta:"Matte Lip Tint — 01 Nude", sku:"193189", retail:42, min:6, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DrawnLine1.png"},
     {name:"Long Shot", meta:"Peptide Mascara — Blackened Earth", sku:"199855", retail:45, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Longshot1.png?v=1781990962"}
   ]},
   {section:"No. 06 · Bundles", items:[
     {name:"Morning Skin Routine", meta:"Bundle · 6 Products", sku:"MORNING", retail:353, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/morningskinbundle.png?v=1781982465"},
     {name:"Evening Repair Bundle", meta:"Night Recovery", sku:"EVENINGREPAIRSET", retail:274, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/eveningrepar.png?v=1782087114"},
+    {name:"Desert Veil Full Shade Set", meta:"Bundle · 4 Shades", sku:"DESERTVEILEDIT", retail:187, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertveiledit4.png?v=1781987771"},
+    {name:"Soft Proof Full Shade Set", meta:"Bundle · 10 Shades", sku:"SOFTPROOFEDIT", retail:583, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/SOFTPROOFEDIT_1daa5303-29da-4984-8f21-f5f95d51d2b2.png?v=1781987422"},
+    {name:"The Face Full Shade Edit", meta:"Bundle · 14 Products", sku:"FACEEDIT", retail:686, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/theface_fulledit_allshades1.png?v=1781998733"},
     {name:"The Face Bundle", meta:"Foundation + Essentials", sku:"FACEKIT", retail:186, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/theface1.png?v=1782407455"}
+  ]},
+  {section:"No. 07 · What's Next", items:[
+    {name:"Wide Range Ranch Water Set", meta:"All Six Scents · 30ml Each", sku:"—", retail:null, min:1, soon:true, img:"https://or-cre.com/cdn/shop/files/widerange1.png?v=1784402619&width=1200"},
+    {name:"The Field Kit", meta:"Votive · Palo Santo · Matchbook", sku:"—", retail:null, min:1, soon:true, img:"https://or-cre.com/cdn/shop/files/girldkit2.png?v=1784432918&width=1200"}
+  ]},
+  {section:"No. 01 · Ritual", items:[
+    {name:"The Monument", meta:"Mega 4-Wick, 55oz · choose scent at checkout", sku:"TM033026", retail:190, min:2, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Themonument1_286ba5fd-33d4-46a3-a678-4a99682977ad.png?v=1781994789"},
+    {name:"The Monument — Ltd. Edition", meta:"Mega 4-Wick, 55oz · White, Dusk", sku:"TM033026-WHLTDDUSK", retail:204, min:2, img:"https://or-cre.com/cdn/shop/files/monumentltdeditiondusk.png?v=1783731982"},
+    {name:"Ranch Water", meta:"Body + Room Fragrance · choose scent at checkout", sku:"RW033026", retail:88, min:4, img:"https://or-cre.com/cdn/shop/files/RanchWater_Flax-bx.png?v=1783624841&width=1200"},
+    {name:"Sustainable Sink Tray", meta:"Double / Triple, priced from", sku:"ST0111", retail:37, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/sinktray_1.png?v=1781999392"},
+    {name:"The Votive, Set of 6", meta:"Full Scent Library", sku:"VOTIVESET6", retail:null, min:3, soon:true, img:"https://or-cre.com/cdn/shop/files/votivesixgiftbox.png?v=1783730702"},
+    {name:"The Slow — Ltd. Edition", meta:"Colored Wax Candle, 11oz · Dusk", sku:"GTR-SLOW-DUSK-001", retail:null, min:4, soon:true, img:"https://or-cre.com/cdn/shop/files/TheSlow_LTD_001.png?v=1783601855"}
   ]}
 ];
 
@@ -171,8 +183,8 @@ catalog.forEach((section, si) => {
       <img src="${item.img}" alt="${item.name}">
       <div class="row-info">
         <div class="row-name">${item.name}</div>
-        <div class="row-meta">${item.meta} · SKU ${item.sku} · Min. ${item.min}</div>
-        <div class="row-price">${wholesale ? `<b>$${wholesale.toFixed(2)}</b> ea. wholesale <span class="retail">$${item.retail.toFixed(2)} retail</span>` : `<i>Pricing on request</i>`}</div>
+        <div class="row-meta">${item.meta}${item.sku && item.sku !== '—' ? ` · SKU ${item.sku}` : ''} · Min. ${item.min}</div>
+        <div class="row-price">${wholesale ? `<b>$${wholesale.toFixed(2)}</b> ea. wholesale <span class="retail">$${item.retail.toFixed(2)} retail</span>` : (item.soon ? `<i>Coming soon — pricing and MOQ confirmed at launch</i>` : `<i>Pricing on request</i>`)}</div>
       </div>
       <div class="qty">
         <button onclick="changeQty('${id}', -1, ${item.min})" ${!wholesale ? 'disabled' : ''}>–</button>
