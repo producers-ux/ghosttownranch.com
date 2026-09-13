@@ -68,6 +68,24 @@
   .copy-confirm{font-family:Arial,sans-serif; font-size:0.78em; color:var(--terra); margin-top:8px; display:none;}
   .footer{font-family:Arial,sans-serif; color:rgba(26,16,8,0.5); font-size:0.8em; text-align:center; margin:60px 0 20px;}
   .note-inline{font-family:Arial,sans-serif; font-size:0.72em; color:rgba(26,16,8,0.45); margin-top:1px;}
+  .variant-select{margin-top:5px; font-size:0.85em; padding:4px 6px; border:1px solid var(--dust); border-radius:3px; background:#fff; max-width:100%;}
+
+  @media (max-width: 640px) {
+    .wrap{padding:32px 16px 30px;}
+    h1{font-size:1.7em;}
+    .sub{font-size:1em;}
+    .row{flex-wrap:wrap; position:relative; padding-left:60px; padding-right:0; gap:0;}
+    .row img{position:absolute; left:0; top:14px; width:46px; height:46px;}
+    .row-info{flex:1 1 100%; padding-right:4px;}
+    .variant-select{width:100%;}
+    .qty{order:3; margin-top:10px;}
+    .line-total{order:4; margin-top:10px; margin-left:auto; width:auto;}
+    .footer-bar{padding:12px 14px; gap:10px;}
+    .footer-bar .totals{gap:14px;}
+    .submit-btn{flex:1 1 100%; order:3; margin-top:6px;}
+    .footer-bar .min-warn{order:2; width:100%;}
+    .modal-box{padding:20px;}
+  }
 </style>
 </head>
 <body>
@@ -108,7 +126,7 @@
 
 <script>
 const catalog = [
-  {section:"No. 02–03 · Wash House", items:[
+  {section:"No. 01 · Wash House", items:[
     {name:"Golden Hour", meta:"Body + Glow Oil", sku:"188005", retail:68, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/goldenhour_body_2000.png?v=1782410035"},
     {name:"The Wash", meta:"Hydrating Hand Wash", sku:"187984", retail:44, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TheWash1.png?v=1781990058", variants:[
       {name:"Cold-Pressed Grapefruit", sku:"187984"},
@@ -117,7 +135,6 @@ const catalog = [
     ]},
     {name:"Silk Skin", meta:"Hand Cream, Citrus + Pink Pepper", sku:"188001", retail:46, min:3, img:"https://or-cre.com/cdn/shop/files/silkskin1.png?v=1784474452&width=1200"},
     {name:"All Over Body Cream", meta:"Body Cream", sku:"195933", retail:55, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/allover_01.png?v=1781999297"},
-    {name:"The Wash House", meta:"Shampoo, Conditioner + Cream Refill System", sku:"—", retail:null, min:3, soon:true, img:"https://or-cre.com/cdn/shop/files/washhouse1.png?v=1782596595&width=1200"},
     {name:"Still Air", meta:"Natural Roll-On Deodorant", sku:"213994", retail:32, min:3, img:"https://or-cre.com/cdn/shop/files/StillAir_cap.png?v=1783413451&width=1200"},
     {name:"Outlaw's Reserve", meta:"2-in-1 Hair + Body Wash", sku:"188007", retail:55, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawsreserve1.png?v=1781992783"},
     {name:"Rosemary Mint Revive", meta:"Hair + Scalp Oil", sku:"187999", retail:53, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/rosemaryminthairoil1.png?v=1781992328"},
@@ -128,7 +145,7 @@ const catalog = [
       {name:"Triple", sku:"ST0112"}
     ]}
   ]},
-  {section:"No. 04 · Routines", items:[
+  {section:"No. 02 · Routines", items:[
     {name:"Desert Day Cream", meta:"Daily Moisturiser", sku:"187979", retail:64, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertdaycream1.png?v=1781992402"},
     {name:"The Hold", meta:"Anti-Age Day Cream", sku:"187976", retail:74, min:2, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TheHold_1.png?v=1781998467"},
     {name:"The Grade", meta:"Peptide Serum", sku:"187978", retail:72, min:2, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Thegrade1.png?v=1781989289"},
@@ -142,7 +159,7 @@ const catalog = [
     {name:"Day Camp", meta:"The Daybreak Eye Patches + The Kiss Lip Mask, 7 pcs each", sku:"DAYCAMP", retail:150, min:12, img:"https://or-cre.com/cdn/shop/files/DayCamp.png?v=1789260120&width=3840"},
     {name:"Long Range Endurance", meta:"Skincare Collection", sku:"187742", retail:178, min:1, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/longrange.png?v=1781991986"}
   ]},
-  {section:"No. 05 · The Face", items:[
+  {section:"No. 03 · The Face", items:[
     {name:"Desert Veil", meta:"Tone Correction · 4 Shades", sku:"191116", retail:55, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertveil1.png?v=1781991094", variants:[
       {name:"Light Beige", sku:"191116"},
       {name:"Medium Beige", sku:"191118"},
@@ -164,7 +181,7 @@ const catalog = [
     {name:"Drawn Line", meta:"Matte Lip Tint — 01 Nude", sku:"193189", retail:42, min:6, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DrawnLine1.png"},
     {name:"Long Shot", meta:"Peptide Mascara — Blackened Earth", sku:"199855", retail:45, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Longshot1.png?v=1781990962"}
   ]},
-  {section:"No. 06 · Bundles", items:[
+  {section:"No. 04 · Bundles", items:[
     {name:"Morning Skin Routine", meta:"Bundle · 6 Products", sku:"MORNING", retail:353, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/morningskinbundle.png?v=1781982465"},
     {name:"Evening Repair Bundle", meta:"Night Recovery", sku:"EVENINGREPAIRSET", retail:274, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/eveningrepar.png?v=1782087114"},
     {name:"Desert Veil Full Shade Set", meta:"Bundle · 4 Shades", sku:"DESERTVEILEDIT", retail:187, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertveiledit4.png?v=1781987771"},
@@ -172,11 +189,7 @@ const catalog = [
     {name:"The Face Full Shade Edit", meta:"Bundle · 14 Products", sku:"FACEEDIT", retail:686, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/theface_fulledit_allshades1.png?v=1781998733"},
     {name:"The Face Bundle", meta:"Foundation + Essentials", sku:"FACEKIT", retail:186, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/theface1.png?v=1782407455"}
   ]},
-  {section:"No. 07 · What's Next", items:[
-    {name:"Wide Range Ranch Water Set", meta:"All Six Scents · 30ml Each", sku:"—", retail:null, min:1, soon:true, img:"https://or-cre.com/cdn/shop/files/widerange1.png?v=1784402619&width=1200"},
-    {name:"The Field Kit", meta:"Votive · Palo Santo · Matchbook", sku:"—", retail:null, min:1, soon:true, img:"https://or-cre.com/cdn/shop/files/girldkit2.png?v=1784432918&width=1200"}
-  ]},
-  {section:"No. 01 · Ritual", items:[
+  {section:"No. 05 · Ritual", items:[
     {name:"The Monument", meta:"Mega 4-Wick, 55oz", sku:"TM033026-HD", retail:190, min:2, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Themonument1_286ba5fd-33d4-46a3-a678-4a99682977ad.png?v=1781994789", variants:[
       {name:"Hang Dried", sku:"TM033026-HD"},
       {name:"Rough Hewn", sku:"TM033026-RH"},
@@ -194,6 +207,11 @@ const catalog = [
       {name:"Graze", sku:"RW033026-BW"},
       {name:"Flax", sku:"RW033026-SB"}
     ]}
+  ]},
+  {section:"No. 06 · What's Next", items:[
+    {name:"The Wash House", meta:"Shampoo, Conditioner + Cream Refill System", sku:"—", retail:null, min:3, soon:true, img:"https://or-cre.com/cdn/shop/files/washhouse1.png?v=1782596595&width=1200"},
+    {name:"Wide Range Ranch Water Set", meta:"All Six Scents · 30ml Each", sku:"—", retail:null, min:1, soon:true, img:"https://or-cre.com/cdn/shop/files/widerange1.png?v=1784402619&width=1200"},
+    {name:"The Field Kit", meta:"Votive · Palo Santo · Matchbook", sku:"—", retail:null, min:1, soon:true, img:"https://or-cre.com/cdn/shop/files/girldkit2.png?v=1784432918&width=1200"}
   ]}
 ];
 
@@ -218,7 +236,7 @@ catalog.forEach((section, si) => {
       <div class="row-info">
         <div class="row-name">${item.name}</div>
         <div class="row-meta">${item.meta} · Min. ${item.min}</div>
-        ${item.variants ? `<select id="variant-${id}" onchange="setVariant('${id}', this.value, this.options[this.selectedIndex].dataset.name)" style="margin-top:4px;font-size:0.85em;padding:3px 6px;border:1px solid var(--dust);border-radius:3px;background:#fff;">
+        ${item.variants ? `<select id="variant-${id}" class="variant-select" onchange="setVariant('${id}', this.value, this.options[this.selectedIndex].dataset.name)">
           ${item.variants.map(v => `<option value="${v.sku}" data-name="${v.name}">${v.name} — SKU ${v.sku}</option>`).join('')}
         </select>` : (item.sku && item.sku !== '—' ? `<div class="row-meta">SKU ${item.sku}</div>` : '')}
         <div class="row-price">${wholesale ? `<b>$${wholesale.toFixed(2)}</b> ea. wholesale <span class="retail">$${item.retail.toFixed(2)} retail</span>` : (item.soon ? `<i>Coming soon — pricing and MOQ confirmed at launch</i>` : `<i>Pricing on request</i>`)}</div>
