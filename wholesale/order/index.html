@@ -50,7 +50,8 @@
   .footer-bar .totals{display:flex; gap:22px; align-items:baseline; flex-wrap:wrap;}
   .footer-bar .totals span{font-size:0.72em; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); display:block; margin-bottom:2px;}
   .footer-bar .totals b{font-size:1.3em; font-weight:600;}
-  .footer-bar .min-warn{color:#e0a15b; font-size:0.85em;}
+  .footer-bar .min-warn{color:#e0a15b; font-size:0.85em; font-weight:700;}
+  .submit-group{display:flex; flex-direction:column; align-items:flex-end; gap:6px;}
   .submit-btn{background:var(--gold); color:var(--ink); border:none; padding:12px 22px; font-family:Arial,sans-serif; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; font-size:0.82em; border-radius:3px; cursor:pointer;}
   .submit-btn:hover{background:#dcbb80;}
   .modal-overlay{position:fixed; inset:0; background:rgba(26,16,8,0.6); z-index:100; display:none; align-items:center; justify-content:center; padding:20px;}
@@ -81,10 +82,13 @@
     .variant-select{width:100%;}
     .qty{order:3; margin-top:10px;}
     .line-total{order:4; margin-top:10px; margin-left:auto; width:auto;}
-    .footer-bar{padding:12px 14px; gap:10px;}
-    .footer-bar .totals{gap:14px;}
-    .submit-btn{flex:1 1 100%; order:3; margin-top:6px;}
-    .footer-bar .min-warn{order:2; width:100%;}
+    .footer-bar{padding:16px 14px; gap:10px;}
+    .footer-bar .totals{gap:18px;}
+    .footer-bar .totals span{font-size:0.75em;}
+    .footer-bar .totals b{font-size:1.7em;}
+    .submit-group{width:100%; align-items:stretch;}
+    .submit-btn{width:100%; margin-top:2px; padding:16px 22px; font-size:0.95em;}
+    .footer-bar .min-warn{text-align:center;}
     .modal-box{padding:20px;}
   }
 </style>
@@ -112,8 +116,10 @@
     <div><span>Units</span><b id="totalUnits">0</b></div>
     <div><span>Wholesale Total</span><b id="totalPrice">$0.00</b></div>
   </div>
-  <div id="minWarn" class="min-warn"></div>
-  <button class="submit-btn" onclick="submitOrder()">Submit Order →</button>
+  <div class="submit-group">
+    <div id="minWarn" class="min-warn"></div>
+    <button class="submit-btn" onclick="submitOrder()">Submit Order →</button>
+  </div>
 </div>
 
 <div class="footer">Ghost Town Ranch · Frontier Modernism · ghosttownranch.com · howdy@ghosttownranch.com</div>
