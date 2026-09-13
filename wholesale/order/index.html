@@ -16,7 +16,7 @@
   .kicker{font-family:Arial,sans-serif; text-transform:uppercase; letter-spacing:0.16em; font-size:0.72em; color:var(--terra); margin-bottom:10px;}
   h1{font-size:2.1em; font-weight:400; margin:0 0 6px;}
   h1 em{font-style:italic; color:var(--terra);}
-  .sub{font-family:Arial,sans-serif; color:rgba(26,16,8,0.65); font-size:0.92em; line-height:1.6; margin-bottom:8px; max-width:600px;}
+  .sub{font-family:Arial,sans-serif; color:rgba(26,16,8,0.75); font-size:1.15em; line-height:1.6; margin-bottom:8px; max-width:640px;}
   .min-note{font-family:Arial,sans-serif; font-size:0.8em; color:var(--terra); background:rgba(200,169,110,0.18); display:inline-block; padding:6px 12px; border-radius:3px; margin-top:10px;}
 
   .section-title{font-family:Arial,sans-serif; text-transform:uppercase; letter-spacing:0.14em; font-size:0.78em; color:var(--terra); font-weight:700; margin:44px 0 4px; padding-top:24px; border-top:1px solid var(--dust);}
@@ -75,7 +75,7 @@
   <a class="back-link" href="/wholesale/catalog/">← Back to Catalog</a>
   <div class="kicker">Wholesale Order Sheet</div>
   <h1>Ghost Town <em>Ranch.</em></h1>
-  <p class="sub">Set quantities below and submit. Wholesale pricing is 50% of retail. Items start at their category minimum — adjust as needed.</p>
+  <p class="sub">Set quantities below and submit. Wholesale pricing is 50% of retail. <strong>Items start at their category minimum — use the +/– buttons or type directly into the box to adjust.</strong></p>
   <div class="min-note">Order minimum: $250 opening · $150 reorder</div>
 
   <div id="items"></div>
@@ -110,16 +110,23 @@
 const catalog = [
   {section:"No. 02–03 · Wash House", items:[
     {name:"Golden Hour", meta:"Body + Glow Oil", sku:"188005", retail:68, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/goldenhour_body_2000.png?v=1782410035"},
-    {name:"The Wash", meta:"Hydrating Hand Wash · choose scent at checkout", sku:"187984", retail:44, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TheWash1.png?v=1781990058"},
+    {name:"The Wash", meta:"Hydrating Hand Wash", sku:"187984", retail:44, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TheWash1.png?v=1781990058", variants:[
+      {name:"Cold-Pressed Grapefruit", sku:"187984"},
+      {name:"Ginger + Smoky Cardamom", sku:"187981"},
+      {name:"Amber + Vanilla", sku:"239201"}
+    ]},
     {name:"Silk Skin", meta:"Hand Cream, Citrus + Pink Pepper", sku:"188001", retail:46, min:3, img:"https://or-cre.com/cdn/shop/files/silkskin1.png?v=1784474452&width=1200"},
     {name:"All Over Body Cream", meta:"Body Cream", sku:"195933", retail:55, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/allover_01.png?v=1781999297"},
-    {name:"The Basin", meta:"Hand Wash + Body Cream Set", sku:"BASIN", retail:89, min:3, img:"https://or-cre.com/cdn/shop/files/TheBasin_1.png?v=1782571443&width=1920"},
     {name:"The Wash House", meta:"Shampoo, Conditioner + Cream Refill System", sku:"—", retail:null, min:3, soon:true, img:"https://or-cre.com/cdn/shop/files/washhouse1.png?v=1782596595&width=1200"},
     {name:"Still Air", meta:"Natural Roll-On Deodorant", sku:"213994", retail:32, min:3, img:"https://or-cre.com/cdn/shop/files/StillAir_cap.png?v=1783413451&width=1200"},
     {name:"Outlaw's Reserve", meta:"2-in-1 Hair + Body Wash", sku:"188007", retail:55, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawsreserve1.png?v=1781992783"},
     {name:"Rosemary Mint Revive", meta:"Hair + Scalp Oil", sku:"187999", retail:53, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/rosemaryminthairoil1.png?v=1781992328"},
     {name:"Trail's End", meta:"Keratin Hair Mist", sku:"187985", retail:53, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/keratin1.png?v=1781993406"},
-    {name:"Dry Creek", meta:"Dry Shampoo Hair Mist", sku:"DC061926", retail:39, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/drycreek_washhouse_2000.png?v=1782407257"}
+    {name:"Dry Creek", meta:"Dry Shampoo Hair Mist", sku:"DC061926", retail:39, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/drycreek_washhouse_2000.png?v=1782407257"},
+    {name:"Sustainable Sink Tray", meta:"Plant-Based, Handcrafted", sku:"ST0111", retail:37, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/sinktray_1.png?v=1781999392", variants:[
+      {name:"Double", sku:"ST0111"},
+      {name:"Triple", sku:"ST0112"}
+    ]}
   ]},
   {section:"No. 04 · Routines", items:[
     {name:"Desert Day Cream", meta:"Daily Moisturiser", sku:"187979", retail:64, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertdaycream1.png?v=1781992402"},
@@ -136,8 +143,24 @@ const catalog = [
     {name:"Long Range Endurance", meta:"Skincare Collection", sku:"187742", retail:178, min:1, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/longrange.png?v=1781991986"}
   ]},
   {section:"No. 05 · The Face", items:[
-    {name:"Desert Veil", meta:"Tone Correction · 4 Shades · choose shade at checkout", sku:"DESERTVEIL", retail:55, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertveil1.png?v=1781991094"},
-    {name:"Soft Proof", meta:"Peptide Foundation · 10 Shades · choose shade at checkout", sku:"SOFTPROOF", retail:45, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/SoftProof1.png?v=1781987422"},
+    {name:"Desert Veil", meta:"Tone Correction · 4 Shades", sku:"191116", retail:55, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertveil1.png?v=1781991094", variants:[
+      {name:"Light Beige", sku:"191116"},
+      {name:"Medium Beige", sku:"191118"},
+      {name:"Tan Brown", sku:"191115"},
+      {name:"Deep Beige", sku:"191117"}
+    ]},
+    {name:"Soft Proof", meta:"Peptide Foundation · 10 Shades", sku:"193101", retail:45, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/SoftProof1.png?v=1781987422", variants:[
+      {name:"05 Fair Neutral", sku:"193101"},
+      {name:"10 Light Warm", sku:"193102"},
+      {name:"15 Light Cool", sku:"193103"},
+      {name:"20 Medium Neutral", sku:"193104"},
+      {name:"25 Medium Warm", sku:"193105"},
+      {name:"30 Tan Neutral", sku:"193106"},
+      {name:"35 Tan Warm", sku:"193107"},
+      {name:"40 Deep Neutral", sku:"193108"},
+      {name:"45 Deep Warm", sku:"210015"},
+      {name:"50 Deep Cool", sku:"193110"}
+    ]},
     {name:"Drawn Line", meta:"Matte Lip Tint — 01 Nude", sku:"193189", retail:42, min:6, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DrawnLine1.png"},
     {name:"Long Shot", meta:"Peptide Mascara — Blackened Earth", sku:"199855", retail:45, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Longshot1.png?v=1781990962"}
   ]},
@@ -154,10 +177,23 @@ const catalog = [
     {name:"The Field Kit", meta:"Votive · Palo Santo · Matchbook", sku:"—", retail:null, min:1, soon:true, img:"https://or-cre.com/cdn/shop/files/girldkit2.png?v=1784432918&width=1200"}
   ]},
   {section:"No. 01 · Ritual", items:[
-    {name:"The Monument", meta:"Mega 4-Wick, 55oz · choose scent at checkout", sku:"TM033026", retail:190, min:2, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Themonument1_286ba5fd-33d4-46a3-a678-4a99682977ad.png?v=1781994789"},
+    {name:"The Monument", meta:"Mega 4-Wick, 55oz", sku:"TM033026-HD", retail:190, min:2, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Themonument1_286ba5fd-33d4-46a3-a678-4a99682977ad.png?v=1781994789", variants:[
+      {name:"Hang Dried", sku:"TM033026-HD"},
+      {name:"Rough Hewn", sku:"TM033026-RH"},
+      {name:"Dusk", sku:"TM033026-RR"},
+      {name:"Ember", sku:"TM033026-BD"},
+      {name:"Graze", sku:"TM033026-BW"},
+      {name:"Flax", sku:"TM033026-SB"}
+    ]},
     {name:"The Monument — Ltd. Edition", meta:"Mega 4-Wick, 55oz · White, Dusk", sku:"TM033026-WHLTDDUSK", retail:204, min:2, img:"https://or-cre.com/cdn/shop/files/monumentltdeditiondusk.png?v=1783731982"},
-    {name:"Ranch Water", meta:"Body + Room Fragrance · choose scent at checkout", sku:"RW033026", retail:88, min:4, img:"https://or-cre.com/cdn/shop/files/RanchWater_Flax-bx.png?v=1783624841&width=1200"},
-    {name:"Sustainable Sink Tray", meta:"Double / Triple, priced from", sku:"ST0111", retail:37, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/sinktray_1.png?v=1781999392"}
+    {name:"Ranch Water", meta:"Body + Room Fragrance", sku:"RW033026-HD", retail:88, min:4, img:"https://or-cre.com/cdn/shop/files/RanchWater_Flax-bx.png?v=1783624841&width=1200", variants:[
+      {name:"Hang Dried", sku:"RW033026-HD"},
+      {name:"Rough Hewn", sku:"RW033026-RH"},
+      {name:"Dusk", sku:"RW033026-RR"},
+      {name:"Ember", sku:"RW033026-BD"},
+      {name:"Graze", sku:"RW033026-BW"},
+      {name:"Flax", sku:"RW033026-SB"}
+    ]}
   ]}
 ];
 
@@ -181,7 +217,10 @@ catalog.forEach((section, si) => {
       <img src="${item.img}" alt="${item.name}">
       <div class="row-info">
         <div class="row-name">${item.name}</div>
-        <div class="row-meta">${item.meta}${item.sku && item.sku !== '—' ? ` · SKU ${item.sku}` : ''} · Min. ${item.min}</div>
+        <div class="row-meta">${item.meta} · Min. ${item.min}</div>
+        ${item.variants ? `<select id="variant-${id}" onchange="setVariant('${id}', this.value, this.options[this.selectedIndex].dataset.name)" style="margin-top:4px;font-size:0.85em;padding:3px 6px;border:1px solid var(--dust);border-radius:3px;background:#fff;">
+          ${item.variants.map(v => `<option value="${v.sku}" data-name="${v.name}">${v.name} — SKU ${v.sku}</option>`).join('')}
+        </select>` : (item.sku && item.sku !== '—' ? `<div class="row-meta">SKU ${item.sku}</div>` : '')}
         <div class="row-price">${wholesale ? `<b>$${wholesale.toFixed(2)}</b> ea. wholesale <span class="retail">$${item.retail.toFixed(2)} retail</span>` : (item.soon ? `<i>Coming soon — pricing and MOQ confirmed at launch</i>` : `<i>Pricing on request</i>`)}</div>
       </div>
       <div class="qty">
@@ -195,6 +234,7 @@ catalog.forEach((section, si) => {
     row.dataset.wholesale = wholesale || 0;
     row.dataset.name = item.name;
     row.dataset.sku = item.sku;
+    if (item.variants) row.dataset.variantName = item.variants[0].name;
   });
 });
 
@@ -210,6 +250,12 @@ function setQty(id, val) {
   state[id] = Math.max(0, parseInt(val) || 0);
   document.getElementById(`qty-${id}`).value = state[id];
   updateTotals();
+}
+
+function setVariant(id, sku, name) {
+  const row = document.getElementById(`qty-${id}`).closest('.row');
+  row.dataset.sku = sku;
+  row.dataset.variantName = name;
 }
 
 function updateTotals() {
@@ -241,7 +287,8 @@ function submitOrder() {
     const qty = state[id] || 0;
     if (qty > 0) {
       const wholesale = parseFloat(row.dataset.wholesale) || 0;
-      lines.push(`${row.dataset.name} (SKU ${row.dataset.sku}) — Qty ${qty} — $${(qty*wholesale).toFixed(2)}`);
+      const variantLabel = row.dataset.variantName ? ` — ${row.dataset.variantName}` : '';
+      lines.push(`${row.dataset.name}${variantLabel} (SKU ${row.dataset.sku}) — Qty ${qty} — $${(qty*wholesale).toFixed(2)}`);
     }
   });
   const total = document.getElementById('totalPrice').textContent;
