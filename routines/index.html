@@ -254,6 +254,8 @@
     .routine-section {
       padding: 96px 48px;
       border-bottom: 1px solid var(--dust);
+      max-width: 1440px;
+      margin: 0 auto;
     }
     .routine-section:last-of-type { border-bottom: none; }
 
@@ -304,7 +306,7 @@
     .step-img-wrap {
       position: relative;
       width: 100%;
-      height: 260px;
+      height: 340px;
       overflow: hidden;
       background: var(--mist);
       margin-bottom: 24px;
@@ -314,7 +316,7 @@
       width: 100%; height: 100%;
       object-fit: contain;
       object-position: center bottom;
-      padding: 12% 16% 8%;
+      padding: 5% 8% 3%;
       transition: transform 0.6s ease;
     }
     .step-card:hover .step-img-wrap img { transform: scale(1.04); }
@@ -553,13 +555,18 @@
       .routine-nav { padding: 0 24px; overflow-x: auto; }
       .routine-section { padding: 64px 24px; }
       .routine-header { flex-direction: column; gap: 20px; }
-      .steps-grid.count-6 { grid-template-columns: repeat(3, 1fr); gap: 32px 0; }
-      .steps-grid.count-5 { grid-template-columns: repeat(3, 1fr); gap: 32px 0; }
-      .steps-grid.count-4 { grid-template-columns: repeat(2, 1fr); gap: 32px 0; }
+      .steps-grid.count-6 { grid-template-columns: repeat(3, 1fr); gap: 32px 20px; }
+      .steps-grid.count-5 { grid-template-columns: repeat(3, 1fr); gap: 32px 20px; }
+      .steps-grid.count-4 { grid-template-columns: repeat(2, 1fr); gap: 32px 20px; }
+      .step-img-wrap { height: 220px; }
       .step-card { border-right: none; padding: 0; border-bottom: 1px solid var(--dust); padding-bottom: 24px; }
       .step-card:last-child { border-bottom: none; }
       .routine-notes { flex-direction: column; gap: 20px; }
       footer { flex-direction: column; gap: 12px; align-items: flex-start; }
+    }
+    @media (max-width: 560px) {
+      .steps-grid.count-6, .steps-grid.count-5, .steps-grid.count-4 { grid-template-columns: 1fr; gap: 0; }
+      .step-img-wrap { height: 320px; }
     }
     /* ── PAGE HERO IMAGE ── */
     .page-hero-img {
@@ -864,19 +871,6 @@
 
     </div>
 
-    <div class="weekly-treatment fade-up" style="max-width:200px;margin:40px 0 0;">
-      <a href="https://ghosttownranch.com/#signup" class="step-card" style="text-decoration:none;color:inherit;border-right:none;padding-right:0;display:block;">
-        <div class="step-img-wrap">
-          <img src="https://or-cre.com/cdn/shop/files/QUICKDRAWKIT.png?v=1785171421&width=600" alt="Quick Draw — Still Air, Dry Creek, Mojave Reset, black canvas bag" loading="lazy">
-        </div>
-        <span class="step-function">Coming Soon</span>
-        <div class="step-name">Quick Draw<br>Refresh Kit</div>
-        <div class="step-note">Still Air, Dry Creek, and Mojave Reset in a black canvas bag, bull icon embroidered. On-the-go reset.</div>
-        <span class="step-price">Join the waitlist</span>
-        <span class="step-view-link">Sign up for first word →</span>
-      </a>
-    </div>
-
     <a class="routine-bundle fade-up" href="https://ghosttownranch.com/products/?handle=the-face-bundle">
       <span class="routine-bundle-text">
         <span class="routine-bundle-label">Shop the routine, together</span>
@@ -1007,16 +1001,6 @@
         <div class="step-note">Fifteen minutes to refill what dry country takes. Hyaluronic acid, lychee, apple. 7 masks.</div>
         <span class="step-price">$42</span>
         <span class="step-view-link">View full product page →</span>
-      </a>
-      <a href="https://ghosttownranch.com/#signup" class="step-card" style="text-decoration:none;color:inherit;border-right:none;padding-right:0;display:block;flex:1;min-width:180px;">
-        <div class="step-img-wrap">
-          <img src="https://or-cre.com/cdn/shop/files/shotgunwedding.png?v=1785170867&width=600" alt="Shotgun Wedding — Lips + Eyes Kit" loading="lazy">
-        </div>
-        <span class="step-function">Coming Soon</span>
-        <div class="step-name">Shotgun Wedding</div>
-        <div class="step-note">Lips + Eyes Kit. The Daybreak + The Kiss, together in a mini zipper bag.</div>
-        <span class="step-price">Join the waitlist</span>
-        <span class="step-view-link">Sign up for first word →</span>
       </a>
     </div>
 
