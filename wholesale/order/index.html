@@ -74,6 +74,7 @@
     .wrap{padding:32px 16px 30px;}
     h1{font-size:1.7em;}
     .sub{font-size:1em;}
+    .col-header{display:none !important;}
     .row{flex-wrap:wrap; position:relative; padding-left:60px; padding-right:0; gap:0;}
     .row img{position:absolute; left:0; top:14px; width:46px; height:46px;}
     .row-info{flex:1 1 100%; padding-right:4px;}
@@ -93,9 +94,16 @@
   <a class="back-link" href="/wholesale/catalog/">← Back to Catalog</a>
   <div class="kicker">Wholesale Order Sheet</div>
   <h1>Ghost Town <em>Ranch.</em></h1>
-  <p class="sub">Set quantities below and submit. Wholesale pricing is 50% of retail. <strong>Items start at their category minimum — use the +/– buttons or type directly into the box to adjust.</strong></p>
+  <p class="sub">Set quantities below and submit. Wholesale pricing is 50% of retail. <strong>Every item starts at 0 — use the +/– buttons or type directly into the box, and it will snap up to that item's minimum order quantity.</strong></p>
+  <p class="sub">Need help placing this order? Email us directly at <a href="mailto:wholesale@ghosttownranch.com" style="color:inherit;">wholesale@ghosttownranch.com</a>.</p>
   <div class="min-note">Order minimum: $250 opening · $150 reorder</div>
 
+  <div class="col-header" style="display:flex; align-items:center; gap:14px; padding:6px 0; border-bottom:2px solid var(--ink); font-family:Arial,sans-serif; font-size:0.72em; letter-spacing:0.06em; text-transform:uppercase; color:rgba(26,16,8,0.5);">
+    <div style="width:56px; flex-shrink:0;"></div>
+    <div style="flex:1; min-width:0;">Product</div>
+    <div style="width:96px; text-align:center; flex-shrink:0;">Qty</div>
+    <div style="width:74px; text-align:right; flex-shrink:0;">Total</div>
+  </div>
   <div id="items"></div>
 </div>
 
@@ -232,7 +240,7 @@ catalog.forEach((section, si) => {
   section.items.forEach((item, ii) => {
     const id = `s${si}i${ii}`;
     const wholesale = item.retail ? Math.round((item.retail/2)*100)/100 : null;
-    state[id] = wholesale ? item.min : 0;
+    state[id] = 0;
 
     const row = document.createElement('div');
     row.className = 'row';
@@ -248,10 +256,10 @@ catalog.forEach((section, si) => {
       </div>
       <div class="qty">
         <button onclick="changeQty('${id}', -1, ${item.min})" ${!wholesale ? 'disabled' : ''}>–</button>
-        <input type="number" id="qty-${id}" value="${wholesale ? item.min : 0}" min="0" ${!wholesale ? 'disabled' : ''} onchange="setQty('${id}', this.value)">
+        <input type="number" id="qty-${id}" value="0" min="0" ${!wholesale ? 'disabled' : ''} onchange="setQty('${id}', this.value, ${item.min})">
         <button onclick="changeQty('${id}', 1, ${item.min})" ${!wholesale ? 'disabled' : ''}>+</button>
       </div>
-      <div class="line-total" id="total-${id}">${wholesale ? '$'+(wholesale*item.min).toFixed(2) : '—'}</div>
+      <div class="line-total" id="total-${id}">${wholesale ? '$0.00' : '—'}</div>
     `;
     itemsEl.appendChild(row);
     row.dataset.wholesale = wholesale || 0;
@@ -264,14 +272,22 @@ catalog.forEach((section, si) => {
 function changeQty(id, delta, min) {
   const input = document.getElementById(`qty-${id}`);
   let v = parseInt(input.value) || 0;
-  v = Math.max(0, v + delta);
+  if (delta > 0) {
+    v = (v === 0) ? min : v + delta;
+  } else {
+    v = v - Math.abs(delta);
+    if (v > 0 && v < min) v = 0;
+  }
+  v = Math.max(0, v);
   input.value = v;
-  setQty(id, v);
+  setQty(id, v, min);
 }
 
-function setQty(id, val) {
-  state[id] = Math.max(0, parseInt(val) || 0);
-  document.getElementById(`qty-${id}`).value = state[id];
+function setQty(id, val, min) {
+  let v = Math.max(0, parseInt(val) || 0);
+  if (min && v > 0 && v < min) v = min;
+  state[id] = v;
+  document.getElementById(`qty-${id}`).value = v;
   updateTotals();
 }
 
