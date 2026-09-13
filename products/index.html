@@ -1476,10 +1476,13 @@ function splitIngredients(html) {
   const nodes = Array.from(tmp.children);
   const moved = [];
   let capture = false;
-  nodes.forEach(el => {
+  nodes.forEach((el, i) => {
     const txt = (el.textContent || '').trim();
     const isHeader = /^(full\s+)?ingredients?\b|^INCI\b/i.test(txt);
-    const isList = txt.length > 150 && (txt.match(/,/g) || []).length >= 8;
+    // The opening paragraph is always kept visible — a lifestyle intro that
+    // happens to name several oils/notes can be comma-heavy without being
+    // an ingredients list, so the comma-count heuristic never applies to it.
+    const isList = i > 0 && txt.length > 150 && (txt.match(/,/g) || []).length >= 8;
     if (isHeader) capture = true;
     if (capture || isList) {
       moved.push(el.outerHTML);
