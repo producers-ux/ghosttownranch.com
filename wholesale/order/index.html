@@ -295,6 +295,7 @@ function setVariant(id, sku, name) {
   const row = document.getElementById(`qty-${id}`).closest('.row');
   row.dataset.sku = sku;
   row.dataset.variantName = name;
+  setQty(id, 0);
 }
 
 function updateTotals() {
