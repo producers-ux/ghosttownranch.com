@@ -1035,6 +1035,8 @@ const CERTS = [
 
 // Products that are Coming Soon — disable ATC
 const COMING_SOON_HANDLES = ['still-air-natural-deodorant', 'the-wash-house', 'long-range-endurance-skincare-collection', 'the-field-kit'];
+// Fully discontinued — never shown anywhere, including "More from the Ranch"
+const RETIRED_HANDLES = ['the-votive-single', 'the-votive-candle-set-of-6'];
 
 // Lip + Eye cross-sell — show on each product, point to its partner ($17 off both at checkout)
 const PAIR_PROMO = {
@@ -1259,7 +1261,7 @@ async function fetchRelated(queryStr, excludeHandle) {
   }`);
   return (data?.data?.products?.edges || [])
     .map(e => e.node)
-    .filter(p => p.handle !== excludeHandle)
+    .filter(p => p.handle !== excludeHandle && !RETIRED_HANDLES.includes(p.handle))
     .slice(0, 4);
 }
 
@@ -1276,7 +1278,7 @@ async function fetchFill(excludeHandles) {
   }`);
   return (data?.data?.products?.edges || [])
     .map(e => e.node)
-    .filter(p => !excludeHandles.includes(p.handle));
+    .filter(p => !excludeHandles.includes(p.handle) && !RETIRED_HANDLES.includes(p.handle));
 }
 
 // ═══════════════════════════════════════════════════════════════
