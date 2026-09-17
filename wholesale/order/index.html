@@ -37,6 +37,16 @@
   .qty button:last-child{border-radius:0 3px 3px 0;}
   .qty input{width:44px; height:30px; text-align:center; border:1px solid var(--dust); border-left:none; border-right:none; font-family:Arial,sans-serif; font-size:0.95em; -moz-appearance:textfield;}
   .qty input::-webkit-outer-spin-button, .qty input::-webkit-inner-spin-button{-webkit-appearance:none; margin:0;}
+  .variant-qty-grid{display:flex; flex-direction:column; gap:6px; margin-top:8px;}
+  .variant-qty-row{display:flex; align-items:center; justify-content:space-between; gap:10px;}
+  .variant-qty-name{font-family:Arial,sans-serif; font-size:0.85em; color:rgba(26,16,8,0.8);}
+  .qty-mini{display:flex; align-items:center; gap:0; flex-shrink:0;}
+  .qty-mini button{width:26px; height:26px; border:1px solid var(--dust); background:#fff; font-size:14px; cursor:pointer; color:var(--ink); font-family:Arial,sans-serif;}
+  .qty-mini button:first-child{border-radius:3px 0 0 3px;}
+  .qty-mini button:last-child{border-radius:0 3px 3px 0;}
+  .qty-mini input{width:40px; height:26px; text-align:center; border:1px solid var(--dust); border-left:none; border-right:none; font-family:Arial,sans-serif; font-size:0.88em; -moz-appearance:textfield;}
+  .qty-mini input::-webkit-outer-spin-button, .qty-mini input::-webkit-inner-spin-button{-webkit-appearance:none; margin:0;}
+  .min-hint{font-family:Arial,sans-serif; font-size:0.75em; color:#b5762e; margin-top:4px;}
 
   .line-total{width:74px; text-align:right; font-family:Arial,sans-serif; font-weight:600; font-size:0.95em; flex-shrink:0;}
 
@@ -69,7 +79,6 @@
   .copy-confirm{font-family:Arial,sans-serif; font-size:0.78em; color:var(--terra); margin-top:8px; display:none;}
   .footer{font-family:Arial,sans-serif; color:rgba(26,16,8,0.5); font-size:0.8em; text-align:center; margin:60px 0 20px;}
   .note-inline{font-family:Arial,sans-serif; font-size:0.72em; color:rgba(26,16,8,0.45); margin-top:1px;}
-  .variant-select{margin-top:5px; font-size:0.85em; padding:4px 6px; border:1px solid var(--dust); border-radius:3px; background:#fff; max-width:100%;}
 
   @media (max-width: 640px) {
     .wrap{padding:32px 16px 30px;}
@@ -79,7 +88,6 @@
     .row{flex-wrap:wrap; position:relative; padding-left:60px; padding-right:0; gap:0;}
     .row img{position:absolute; left:0; top:14px; width:46px; height:46px;}
     .row-info{flex:1 1 100%; padding-right:4px;}
-    .variant-select{width:100%;}
     .qty{order:3; margin-top:10px;}
     .line-total{order:4; margin-top:10px; margin-left:auto; width:auto;}
     .footer-bar{padding:16px 14px; gap:10px;}
@@ -246,32 +254,61 @@ catalog.forEach((section, si) => {
   section.items.forEach((item, ii) => {
     const id = `s${si}i${ii}`;
     const wholesale = item.retail ? Math.round((item.retail/2)*100)/100 : null;
-    state[id] = 0;
 
     const row = document.createElement('div');
     row.className = 'row';
-    row.innerHTML = `
-      <img src="${item.img}" alt="${item.name}">
-      <div class="row-info">
-        <div class="row-name">${item.name}</div>
-        <div class="row-meta">${item.meta} · Min. ${item.min}</div>
-        ${item.variants ? `<select id="variant-${id}" class="variant-select" onchange="setVariant('${id}', this.value, this.options[this.selectedIndex].dataset.name)">
-          ${item.variants.map(v => `<option value="${v.sku}" data-name="${v.name}">${v.name} — SKU ${v.sku}</option>`).join('')}
-        </select>` : (item.sku && item.sku !== '—' ? `<div class="row-meta">SKU ${item.sku}</div>` : '')}
-        <div class="row-price">${wholesale ? `<b>$${wholesale.toFixed(2)}</b> ea. wholesale <span class="retail">$${item.retail.toFixed(2)} retail</span>` : (item.soon ? `<i>Coming soon — pricing and MOQ confirmed at launch</i>` : `<i>Pricing on request</i>`)}</div>
-      </div>
-      <div class="qty">
-        <button onclick="changeQty('${id}', -1, ${item.min})" ${!wholesale ? 'disabled' : ''}>–</button>
-        <input type="number" id="qty-${id}" value="0" min="0" ${!wholesale ? 'disabled' : ''} onchange="setQty('${id}', this.value, ${item.min})">
-        <button onclick="changeQty('${id}', 1, ${item.min})" ${!wholesale ? 'disabled' : ''}>+</button>
-      </div>
-      <div class="line-total" id="total-${id}">${wholesale ? '$0.00' : '—'}</div>
-    `;
-    itemsEl.appendChild(row);
+    row.dataset.id = id;
     row.dataset.wholesale = wholesale || 0;
     row.dataset.name = item.name;
-    row.dataset.sku = item.sku;
-    if (item.variants) row.dataset.variantName = item.variants[0].name;
+    row.dataset.min = item.min;
+
+    if (item.variants) {
+      // Multiple scents/shades can each carry their own quantity in the same order.
+      state[id] = {};
+      item.variants.forEach(v => { state[id][v.sku] = 0; });
+
+      row.innerHTML = `
+        <img src="${item.img}" alt="${item.name}">
+        <div class="row-info">
+          <div class="row-name">${item.name}</div>
+          <div class="row-meta">${item.meta} · Min. ${item.min} combined, mix scents/shades as needed</div>
+          <div class="variant-qty-grid">
+            ${item.variants.map(v => `
+              <div class="variant-qty-row">
+                <span class="variant-qty-name">${v.name} — SKU ${v.sku}</span>
+                <div class="qty-mini">
+                  <button onclick="changeVariantQty('${id}','${v.sku}',-1)">–</button>
+                  <input type="number" id="qty-${id}-${v.sku}" value="0" min="0" onchange="setVariantQty('${id}','${v.sku}', this.value)">
+                  <button onclick="changeVariantQty('${id}','${v.sku}',1)">+</button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+          <div class="min-hint" id="minhint-${id}"></div>
+          <div class="row-price">${wholesale ? `<b>$${wholesale.toFixed(2)}</b> ea. wholesale <span class="retail">$${item.retail.toFixed(2)} retail</span>` : `<i>Pricing on request</i>`}</div>
+        </div>
+        <div class="line-total" id="total-${id}">$0.00</div>
+      `;
+    } else {
+      state[id] = 0;
+      row.dataset.sku = item.sku;
+      row.innerHTML = `
+        <img src="${item.img}" alt="${item.name}">
+        <div class="row-info">
+          <div class="row-name">${item.name}</div>
+          <div class="row-meta">${item.meta} · Min. ${item.min}</div>
+          ${(item.sku && item.sku !== '—') ? `<div class="row-meta">SKU ${item.sku}</div>` : ''}
+          <div class="row-price">${wholesale ? `<b>$${wholesale.toFixed(2)}</b> ea. wholesale <span class="retail">$${item.retail.toFixed(2)} retail</span>` : (item.soon ? `<i>Coming soon — pricing and MOQ confirmed at launch</i>` : `<i>Pricing on request</i>`)}</div>
+        </div>
+        <div class="qty">
+          <button onclick="changeQty('${id}', -1, ${item.min})" ${!wholesale ? 'disabled' : ''}>–</button>
+          <input type="number" id="qty-${id}" value="0" min="0" ${!wholesale ? 'disabled' : ''} onchange="setQty('${id}', this.value, ${item.min})">
+          <button onclick="changeQty('${id}', 1, ${item.min})" ${!wholesale ? 'disabled' : ''}>+</button>
+        </div>
+        <div class="line-total" id="total-${id}">${wholesale ? '$0.00' : '—'}</div>
+      `;
+    }
+    itemsEl.appendChild(row);
   });
 });
 
@@ -297,21 +334,36 @@ function setQty(id, val, min) {
   updateTotals();
 }
 
-function setVariant(id, sku, name) {
-  const row = document.getElementById(`qty-${id}`).closest('.row');
-  row.dataset.sku = sku;
-  row.dataset.variantName = name;
-  setQty(id, 0);
+function changeVariantQty(id, sku, delta) {
+  const input = document.getElementById(`qty-${id}-${sku}`);
+  let v = Math.max(0, (parseInt(input.value) || 0) + delta);
+  input.value = v;
+  setVariantQty(id, sku, v);
+}
+
+function setVariantQty(id, sku, val) {
+  const v = Math.max(0, parseInt(val) || 0);
+  state[id][sku] = v;
+  document.getElementById(`qty-${id}-${sku}`).value = v;
+  updateTotals();
 }
 
 function updateTotals() {
-  let units = 0, price = 0, belowMin = [];
+  let units = 0, price = 0;
   document.querySelectorAll('.row').forEach(row => {
-    const input = row.querySelector('input[type="number"]');
-    if (!input) return;
-    const id = input.id.replace('qty-','');
-    const qty = state[id] || 0;
+    const id = row.dataset.id;
     const wholesale = parseFloat(row.dataset.wholesale) || 0;
+    const min = parseInt(row.dataset.min) || 0;
+    let qty;
+    if (typeof state[id] === 'object') {
+      qty = Object.values(state[id]).reduce((a,b) => a+b, 0);
+      const hint = document.getElementById(`minhint-${id}`);
+      if (hint) {
+        hint.textContent = (qty > 0 && qty < min) ? `Add ${min - qty} more (any mix of scents) to reach the ${min}-unit minimum` : '';
+      }
+    } else {
+      qty = state[id];
+    }
     const lineTotal = qty * wholesale;
     const totalEl = document.getElementById(`total-${id}`);
     if (wholesale) totalEl.textContent = '$' + lineTotal.toFixed(2);
@@ -327,14 +379,20 @@ function updateTotals() {
 function submitOrder() {
   let lines = [];
   document.querySelectorAll('.row').forEach(row => {
-    const input = row.querySelector('input[type="number"]');
-    if (!input) return;
-    const id = input.id.replace('qty-','');
-    const qty = state[id] || 0;
-    if (qty > 0) {
-      const wholesale = parseFloat(row.dataset.wholesale) || 0;
-      const variantLabel = row.dataset.variantName ? ` — ${row.dataset.variantName}` : '';
-      lines.push(`${row.dataset.name}${variantLabel} (SKU ${row.dataset.sku}) — Qty ${qty} — $${(qty*wholesale).toFixed(2)}`);
+    const id = row.dataset.id;
+    const wholesale = parseFloat(row.dataset.wholesale) || 0;
+    if (typeof state[id] === 'object') {
+      Object.entries(state[id]).forEach(([sku, qty]) => {
+        if (qty > 0) {
+          const variantName = row.querySelector(`#qty-${id}-${sku}`).closest('.variant-qty-row').querySelector('.variant-qty-name').textContent.split(' — SKU ')[0];
+          lines.push(`${row.dataset.name} — ${variantName} (SKU ${sku}) — Qty ${qty} — $${(qty*wholesale).toFixed(2)}`);
+        }
+      });
+    } else {
+      const qty = state[id];
+      if (qty > 0) {
+        lines.push(`${row.dataset.name} (SKU ${row.dataset.sku}) — Qty ${qty} — $${(qty*wholesale).toFixed(2)}`);
+      }
     }
   });
   const total = document.getElementById('totalPrice').textContent;
