@@ -47,6 +47,11 @@
   .qty-mini input{width:40px; height:26px; text-align:center; border:1px solid var(--dust); border-left:none; border-right:none; font-family:Arial,sans-serif; font-size:0.88em; -moz-appearance:textfield;}
   .qty-mini input::-webkit-outer-spin-button, .qty-mini input::-webkit-inner-spin-button{-webkit-appearance:none; margin:0;}
   .min-hint{font-family:Arial,sans-serif; font-size:0.75em; color:#b5762e; margin-top:4px;}
+  .contact-fields{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:28px 0 8px; padding:20px; background:#FAFAF7; border:1px solid var(--dust); border-radius:4px;}
+  .contact-field{display:flex; flex-direction:column; gap:5px;}
+  .contact-field label{font-family:Arial,sans-serif; font-size:0.75em; font-weight:700; letter-spacing:0.03em; color:var(--ink);}
+  .contact-field input{font-family:Arial,sans-serif; font-size:0.9em; padding:9px 10px; border:1px solid var(--dust); border-radius:3px; background:#fff;}
+  .contact-field input.field-error{border-color:#c0392b; background:#fff5f4;}
 
   .line-total{width:74px; text-align:right; font-family:Arial,sans-serif; font-weight:600; font-size:0.95em; flex-shrink:0;}
 
@@ -85,6 +90,7 @@
     h1{font-size:1.7em;}
     .sub{font-size:1em;}
     .col-header{display:none !important;}
+    .contact-fields{grid-template-columns:1fr;}
     .row{flex-wrap:wrap; position:relative; padding-left:60px; padding-right:0; gap:0;}
     .row img{position:absolute; left:0; top:14px; width:46px; height:46px;}
     .row-info{flex:1 1 100%; padding-right:4px;}
@@ -106,10 +112,28 @@
   <a class="back-link" href="/wholesale/catalog/">← Back to Catalog</a>
   <div class="kicker">Wholesale Order Sheet</div>
   <h1>Ghost Town <em>Ranch.</em></h1>
-  <p class="sub">Set quantities below and submit. Wholesale pricing is 50% of retail. <strong>Every item starts at 0 — use the +/– buttons or type directly into the box, and it will snap up to that item's minimum order quantity.</strong></p>
+  <p class="sub">Set quantities below and submit. Wholesale pricing is 50% of retail. <strong>Every item starts at 0 — use the +/– buttons or type directly into the box, and it will snap up to that item's minimum order quantity.</strong> An invoice will be emailed to you upon submission.</p>
   <p class="sub">Need help placing this order? Email us directly at <a href="mailto:wholesale@ghosttownranch.com" style="color:inherit;">wholesale@ghosttownranch.com</a>.</p>
   <div class="min-note">Order minimum: $250 opening · $150 reorder</div>
 
+  <div class="contact-fields">
+    <div class="contact-field">
+      <label for="contactName">Business / Account Name *</label>
+      <input type="text" id="contactName" placeholder="Your business name">
+    </div>
+    <div class="contact-field">
+      <label for="contactShipTo">Ship-To Address *</label>
+      <input type="text" id="contactShipTo" placeholder="Street, City, State, ZIP">
+    </div>
+    <div class="contact-field">
+      <label for="contactBilling">Billing Address (if different from shipping)</label>
+      <input type="text" id="contactBilling" placeholder="Street, City, State, ZIP">
+    </div>
+    <div class="contact-field">
+      <label for="contactInfo">Contact Email or Phone *</label>
+      <input type="text" id="contactInfo" placeholder="Email or phone number">
+    </div>
+  </div>
   <div class="col-header" style="display:flex; align-items:center; gap:14px; padding:6px 0; border-bottom:2px solid var(--ink); font-family:Arial,sans-serif; font-size:0.72em; letter-spacing:0.06em; text-transform:uppercase; color:rgba(26,16,8,0.5);">
     <div style="width:56px; flex-shrink:0;"></div>
     <div style="flex:1; min-width:0;">Product</div>
@@ -212,7 +236,7 @@ const catalog = [
     {name:"The Face Bundle", meta:"Foundation + Essentials", sku:"FACEKIT", retail:186, min:3, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/theface1.png?v=1782407455"}
   ]},
   {section:"No. 05 · Ritual", items:[
-    {name:"The Monument", meta:"Mega 4-Wick, 55oz", sku:"TM033026-HD", retail:190, min:2, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Themonument1_286ba5fd-33d4-46a3-a678-4a99682977ad.png?v=1781994789", variants:[
+    {name:"The Monument", meta:"Mega 4-Wick, 55oz", sku:"TM033026-HD", retail:190, min:2, perVariantMin:2, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Themonument1_286ba5fd-33d4-46a3-a678-4a99682977ad.png?v=1781994789", variants:[
       {name:"Hang Dried", sku:"TM033026-HD"},
       {name:"Rough Hewn", sku:"TM033026-RH"},
       {name:"Dusk", sku:"TM033026-RR"},
@@ -261,6 +285,7 @@ catalog.forEach((section, si) => {
     row.dataset.wholesale = wholesale || 0;
     row.dataset.name = item.name;
     row.dataset.min = item.min;
+    if (item.perVariantMin) row.dataset.perVariantMin = item.perVariantMin;
 
     if (item.variants) {
       // Multiple scents/shades can each carry their own quantity in the same order.
@@ -271,15 +296,15 @@ catalog.forEach((section, si) => {
         <img src="${item.img}" alt="${item.name}">
         <div class="row-info">
           <div class="row-name">${item.name}</div>
-          <div class="row-meta">${item.meta} · Min. ${item.min} combined, mix scents/shades as needed</div>
+          <div class="row-meta">${item.meta} · Min. ${item.min} combined${item.perVariantMin ? `, ${item.perVariantMin} minimum per scent ordered` : ', mix scents/shades as needed'}</div>
           <div class="variant-qty-grid">
             ${item.variants.map(v => `
               <div class="variant-qty-row">
                 <span class="variant-qty-name">${v.name} — SKU ${v.sku}</span>
                 <div class="qty-mini">
-                  <button onclick="changeVariantQty('${id}','${v.sku}',-1)">–</button>
-                  <input type="number" id="qty-${id}-${v.sku}" value="0" min="0" onchange="setVariantQty('${id}','${v.sku}', this.value)">
-                  <button onclick="changeVariantQty('${id}','${v.sku}',1)">+</button>
+                  <button onclick="changeVariantQty('${id}','${v.sku}',-1,${item.perVariantMin||0})">–</button>
+                  <input type="number" id="qty-${id}-${v.sku}" value="0" min="0" onchange="setVariantQty('${id}','${v.sku}', this.value, ${item.perVariantMin||0})">
+                  <button onclick="changeVariantQty('${id}','${v.sku}',1,${item.perVariantMin||0})">+</button>
                 </div>
               </div>
             `).join('')}
@@ -334,15 +359,23 @@ function setQty(id, val, min) {
   updateTotals();
 }
 
-function changeVariantQty(id, sku, delta) {
+function changeVariantQty(id, sku, delta, perMin) {
   const input = document.getElementById(`qty-${id}-${sku}`);
-  let v = Math.max(0, (parseInt(input.value) || 0) + delta);
+  let v = parseInt(input.value) || 0;
+  if (delta > 0) {
+    v = (v === 0 && perMin) ? perMin : v + delta;
+  } else {
+    v = v - Math.abs(delta);
+    if (perMin && v > 0 && v < perMin) v = 0;
+  }
+  v = Math.max(0, v);
   input.value = v;
-  setVariantQty(id, sku, v);
+  setVariantQty(id, sku, v, perMin);
 }
 
-function setVariantQty(id, sku, val) {
-  const v = Math.max(0, parseInt(val) || 0);
+function setVariantQty(id, sku, val, perMin) {
+  let v = Math.max(0, parseInt(val) || 0);
+  if (perMin && v > 0 && v < perMin) v = perMin;
   state[id][sku] = v;
   document.getElementById(`qty-${id}-${sku}`).value = v;
   updateTotals();
@@ -377,6 +410,21 @@ function updateTotals() {
 }
 
 function submitOrder() {
+  const nameEl = document.getElementById('contactName');
+  const shipEl = document.getElementById('contactShipTo');
+  const billingEl = document.getElementById('contactBilling');
+  const contactEl = document.getElementById('contactInfo');
+  [nameEl, shipEl, contactEl].forEach(el => el.classList.remove('field-error'));
+
+  const missing = [nameEl, shipEl, contactEl].filter(el => !el.value.trim());
+  if (missing.length) {
+    missing.forEach(el => el.classList.add('field-error'));
+    missing[0].scrollIntoView({behavior:'smooth', block:'center'});
+    missing[0].focus();
+    alert('Please fill in business name, ship-to address, and contact info before submitting — we need these to build your invoice.');
+    return;
+  }
+
   let lines = [];
   document.querySelectorAll('.row').forEach(row => {
     const id = row.dataset.id;
@@ -398,7 +446,8 @@ function submitOrder() {
   const total = document.getElementById('totalPrice').textContent;
   if (lines.length === 0) { alert('Add at least one item before submitting.'); return; }
 
-  const bodyText = `GTR Wholesale Order\n\n` + lines.join('\n') + `\n\nTotal: ${total}\n\nAccount name:\nShip-to address:\nContact:\n`;
+  const billingLine = billingEl.value.trim() ? `Billing address: ${billingEl.value.trim()}\n` : '';
+  const bodyText = `GTR Wholesale Order\n\nAccount name: ${nameEl.value.trim()}\nShip-to address: ${shipEl.value.trim()}\n${billingLine}Contact: ${contactEl.value.trim()}\n\n` + lines.join('\n') + `\n\nTotal: ${total}\n\nAn invoice will be emailed to you upon submission.\n`;
   document.getElementById('orderText').value = bodyText;
   document.getElementById('emailLink').href = `mailto:howdy@ghosttownranch.com?subject=Wholesale%20Order&body=${encodeURIComponent(bodyText)}`;
   document.getElementById('copyConfirm').style.display = 'none';
