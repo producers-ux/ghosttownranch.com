@@ -367,9 +367,10 @@
     .routine-section.evening .step-price { color: var(--ochre); }
 
     /* lip butter photo is shot close, so scale it down and feather it into its own background */
-    .step-img-wrap.fit-out { background:linear-gradient(135deg,#f5f1ee 0%,#e5dfd9 100%); }
-    .step-img-wrap.fit-out img { object-fit: cover; object-position: center; padding: 0; transform: scale(.8); -webkit-mask-image:linear-gradient(to right,transparent,#000 14%,#000 86%,transparent),linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 14%,#000 86%,transparent),linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent);mask-composite:intersect; }
-    .step-card:hover .step-img-wrap.fit-out img { transform: scale(.83); }
+    .step-img-wrap.fit-out,
+    .routine-section.evening .step-img-wrap.fit-out { background:linear-gradient(135deg,#f5f1ee 0%,#e5dfd9 100%); }
+    .step-img-wrap.fit-out img { object-fit: cover; object-position: center; padding: 0; transform: scale(.62); -webkit-mask-image:linear-gradient(to right,transparent,#000 14%,#000 86%,transparent),linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 14%,#000 86%,transparent),linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent);mask-composite:intersect; }
+    .step-card:hover .step-img-wrap.fit-out img { transform: scale(.65); }
 
     /* ── BUNDLE CTA ── */
     .routine-bundle {
