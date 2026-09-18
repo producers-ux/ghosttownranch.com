@@ -20,6 +20,7 @@
   .min-note{font-family:Arial,sans-serif; font-size:0.8em; color:var(--terra); background:rgba(200,169,110,0.18); display:inline-block; padding:6px 12px; border-radius:3px; margin-top:10px;}
 
   .section-title{font-family:Arial,sans-serif; text-transform:uppercase; letter-spacing:0.14em; font-size:0.78em; color:var(--terra); font-weight:700; margin:44px 0 4px; padding-top:24px; border-top:1px solid var(--dust);}
+  .section-title.section-title-big{font-size:1.5em; letter-spacing:0.06em; margin-top:64px; padding-top:32px; border-top:2px solid var(--ink);}
   .section-title:first-of-type{border-top:none; margin-top:30px;}
 
   .row{display:flex; align-items:center; gap:14px; padding:14px 0; border-bottom:1px solid var(--dust);}
@@ -38,6 +39,9 @@
   .qty input{width:44px; height:30px; text-align:center; border:1px solid var(--dust); border-left:none; border-right:none; font-family:Arial,sans-serif; font-size:0.95em; -moz-appearance:textfield;}
   .qty input::-webkit-outer-spin-button, .qty input::-webkit-inner-spin-button{-webkit-appearance:none; margin:0;}
   .variant-qty-grid{display:flex; flex-direction:column; gap:6px; margin-top:8px;}
+  .sample-variant-grid{display:flex; flex-wrap:wrap; gap:8px 16px; margin-top:8px;}
+  .sample-variant-option{display:flex; align-items:center; gap:6px; font-family:Arial,sans-serif; font-size:0.85em; color:rgba(26,16,8,0.8); cursor:pointer;}
+  .sample-variant-option input[type="checkbox"]{width:16px; height:16px; cursor:pointer; accent-color:var(--terra);}
   .variant-qty-row{display:flex; align-items:center; justify-content:space-between; gap:10px;}
   .variant-qty-name{font-family:Arial,sans-serif; font-size:0.85em; color:rgba(26,16,8,0.8);}
   .qty-mini{display:flex; align-items:center; gap:0; flex-shrink:0;}
@@ -112,8 +116,11 @@
   <a class="back-link" href="/wholesale/catalog/">← Back to Catalog</a>
   <div class="kicker">Wholesale Order Sheet</div>
   <h1>Ghost Town <em>Ranch.</em></h1>
-  <p class="sub">Set quantities below and submit. Wholesale pricing is 50% of retail. <strong>Every item starts at 0 — use the +/– buttons or type directly into the box, and it will snap up to that item's minimum order quantity.</strong> An invoice will be emailed to you upon submission.</p>
-  <p class="sub">Need help placing this order? Email us directly at <a href="mailto:wholesale@ghosttownranch.com" style="color:inherit;">wholesale@ghosttownranch.com</a>.</p>
+  <p class="sub">Welcome to Ghost Town Ranch wholesale. We're glad you're here.</p>
+  <p class="sub">Set your quantities below and submit when you're ready. Wholesale pricing is 50% of retail. Every item starts at zero, use the +/– buttons or type a number directly and it'll snap up to that item's minimum.</p>
+  <p class="sub">Want to try something first? Check out <strong>Testers</strong> below, a full-size unit of most items at a reduced price.</p>
+  <p class="sub">Both orders and testers are confirmed the same way: an invoice emailed to you as soon as you hit submit.</p>
+  <p class="sub">Need a hand? Email us directly at <a href="mailto:wholesale@ghosttownranch.com" style="color:inherit;">wholesale@ghosttownranch.com</a>.</p>
   <div class="min-note">Order minimum: $250 opening · $150 reorder</div>
 
   <div class="contact-fields">
@@ -260,9 +267,56 @@ const catalog = [
       {name:"Goldenrod", sku:"TRAILGR"}
     ]}
   ]},
-  {section:"No. 06 · What's Next", items:[
-    {name:"The Wash House", meta:"Shampoo, Conditioner + Cream Refill System", sku:"—", retail:null, min:3, soon:true, img:"https://or-cre.com/cdn/shop/files/washhouse1.png?v=1782596595&width=1200"},
-    {name:"Wide Range Ranch Water Set", meta:"All Six Scents · 30ml Each", sku:"—", retail:null, min:1, soon:true, img:"https://or-cre.com/cdn/shop/files/widerange1.png?v=1784402619&width=1200"}
+  {section:"Testers", items:[
+    {name:"Golden Hour", meta:"Body + Glow Oil · Tester", sku:"188005-TESTER", price:30.50, retail:68, min:1, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/goldenhour_body_2000.png?v=1782410035", sample:true},
+    {name:"The Wash", meta:"Hydrating Hand Wash · Tester — pick one scent", price:20.00, retail:44, min:1, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TheWash1.png?v=1781990058", sample:true, variants:[
+      {name:"Cold-Pressed Grapefruit", sku:"187984-TESTER"},
+      {name:"Ginger + Smoky Cardamom", sku:"187981-TESTER"},
+      {name:"Amber + Vanilla", sku:"239201-TESTER"}
+    ]},
+    {name:"Silk Skin", meta:"Hand Cream, Citrus + Pink Pepper · Tester", sku:"188001-TESTER", price:20.50, retail:46, min:1, img:"https://or-cre.com/cdn/shop/files/silkskin1.png?v=1784474452&width=1200", sample:true},
+    {name:"Still Air", meta:"Natural Roll-On Deodorant · Tester", sku:"213994-TESTER", price:14.50, retail:32, min:1, img:"https://or-cre.com/cdn/shop/files/StillAir_cap.png?v=1783413451&width=1200", sample:true},
+    {name:"Outlaw's Reserve", meta:"2-in-1 Hair + Body Wash · Tester", sku:"188007-TESTER", price:25.00, retail:55, min:1, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawsreserve1.png?v=1781992783", sample:true},
+    {name:"Rosemary Mint Revive", meta:"Hair + Scalp Oil · Tester", sku:"187999-TESTER", price:24.00, retail:53, min:1, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/rosemaryminthairoil1.png?v=1781992328", sample:true},
+    {name:"Trail's End", meta:"Keratin Hair Mist · Tester", sku:"187985-TESTER", price:24.00, retail:53, min:1, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/keratin1.png?v=1781993406", sample:true},
+    {name:"Desert Day Cream", meta:"Daily Moisturiser · Tester", sku:"187979-TESTER", price:29.00, retail:64, min:1, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertdaycream1.png?v=1781992402", sample:true},
+    {name:"The Hold", meta:"Anti-Age Day Cream · Tester", sku:"187976-TESTER", price:33.50, retail:74, min:1, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TheHold_1.png?v=1781998467", sample:true},
+    {name:"The Grade", meta:"Peptide Serum · Tester", sku:"187978-TESTER", price:32.50, retail:72, min:1, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Thegrade1.png?v=1781989289", sample:true},
+    {name:"Dusk Til Dawn", meta:"Overnight Hydration Gel · Tester", sku:"120767-TESTER", price:27.00, retail:60, min:1, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Dusktilldawn1.png?v=1781990513", sample:true},
+    {name:"Desert Glow", meta:"Hydrating Facial Oil · Tester", sku:"132294-TESTER", price:30.50, retail:68, min:1, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertglow1.png?v=1781989409", sample:true},
+    {name:"Mojave Reset", meta:"Cooling Face Mist · Tester", sku:"187991-TESTER", price:20.00, retail:44, min:1, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/mojavereset1.png?v=1781992858", sample:true},
+    {name:"Frontier Fade", meta:"Toning Exfoliant · Tester", sku:"187997-TESTER", price:25.00, retail:55, min:1, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/FrontierFade1.png?v=1781990405", sample:true},
+    {name:"Rose Cut", meta:"Daily Facial Wash · Tester", sku:"190011-TESTER", price:28.00, retail:62, min:1, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Rosecut1.png?v=1781989358", sample:true},
+    {name:"Outlaw's Wipeout", meta:"Biphasic Makeup Remover · Tester", sku:"187988-TESTER", price:25.00, retail:55, min:1, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawswipeout1.png?v=1781990191", sample:true},
+    {name:"All Told", meta:"3-in-1 Eye Cream · Tester", sku:"187975-TESTER", price:28.00, retail:62, min:1, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/alltold_1.png?v=1782051565", sample:true},
+    {name:"Desert Veil", meta:"Tone Correction · Tester — pick one shade", price:25.00, retail:55, min:1, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertveil1.png?v=1781991094", sample:true, variants:[
+      {name:"Light Beige", sku:"191116-TESTER"},
+      {name:"Medium Beige", sku:"191118-TESTER"},
+      {name:"Tan Brown", sku:"191115-TESTER"},
+      {name:"Deep Beige", sku:"191117-TESTER"}
+    ]},
+    {name:"Soft Proof", meta:"Peptide Foundation · Tester — pick one shade", price:20.00, retail:45, min:1, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/SoftProof1.png?v=1781987422", sample:true, variants:[
+      {name:"05 Fair Neutral", sku:"193101-TESTER"},
+      {name:"10 Light Warm", sku:"193102-TESTER"},
+      {name:"15 Light Cool", sku:"193103-TESTER"},
+      {name:"20 Medium Neutral", sku:"193104-TESTER"},
+      {name:"25 Medium Warm", sku:"193105-TESTER"},
+      {name:"30 Tan Neutral", sku:"193106-TESTER"},
+      {name:"35 Tan Warm", sku:"193107-TESTER"},
+      {name:"40 Deep Neutral", sku:"193108-TESTER"},
+      {name:"45 Deep Warm", sku:"210015-TESTER"},
+      {name:"50 Deep Cool", sku:"193110-TESTER"}
+    ]},
+    {name:"Drawn Line", meta:"Matte Lip Tint · Tester", sku:"193189-TESTER", price:19.00, retail:42, min:1, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DrawnLine1.png", sample:true},
+    {name:"Long Shot", meta:"Peptide Mascara · Tester", sku:"199855-TESTER", price:20.00, retail:45, min:1, img:"https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Longshot1.png?v=1781990962", sample:true},
+    {name:"Ranch Water", meta:"Body + Room Fragrance · Tester — pick one scent", price:39.50, retail:88, min:1, img:"https://or-cre.com/cdn/shop/files/RanchWater_Flax-bx.png?v=1783624841&width=1200", sample:true, variants:[
+      {name:"Hang Dried", sku:"RW033026-HD-TESTER"},
+      {name:"Rough Hewn", sku:"RW033026-RH-TESTER"},
+      {name:"Dusk", sku:"RW033026-RR-TESTER"},
+      {name:"Ember", sku:"RW033026-BD-TESTER"},
+      {name:"Graze", sku:"RW033026-BW-TESTER"},
+      {name:"Flax", sku:"RW033026-SB-TESTER"}
+    ]}
   ]}
 ];
 
@@ -271,13 +325,25 @@ let state = {};
 
 catalog.forEach((section, si) => {
   const h = document.createElement('div');
-  h.className = 'section-title';
+  h.className = 'section-title' + (section.section === 'Testers' ? ' section-title-big' : '');
   h.textContent = section.section;
   itemsEl.appendChild(h);
 
   section.items.forEach((item, ii) => {
     const id = `s${si}i${ii}`;
-    const wholesale = item.retail ? Math.round((item.retail/2)*100)/100 : null;
+    const wholesale = item.price != null ? item.price : (item.retail ? Math.round((item.retail/2)*100)/100 : null);
+
+    let priceLineHtml;
+    if (!wholesale) {
+      priceLineHtml = item.soon ? `<i>Coming soon — pricing and MOQ confirmed at launch</i>` : `<i>Pricing on request</i>`;
+    } else if (item.sample) {
+      const trueWholesale = item.retail ? Math.round((item.retail/2)*100)/100 : null;
+      priceLineHtml = `<b>$${wholesale.toFixed(2)}</b> ea. tester` +
+        (trueWholesale ? ` <span class="retail">$${trueWholesale.toFixed(2)} wholesale · $${item.retail.toFixed(2)} retail</span>` : '');
+    } else {
+      priceLineHtml = `<b>$${wholesale.toFixed(2)}</b> ea. wholesale` +
+        (item.retail ? ` <span class="retail">$${item.retail.toFixed(2)} retail</span>` : '');
+    }
 
     const row = document.createElement('div');
     row.className = 'row';
@@ -287,7 +353,50 @@ catalog.forEach((section, si) => {
     row.dataset.min = item.min;
     if (item.perVariantMin) row.dataset.perVariantMin = item.perVariantMin;
 
-    if (item.variants) {
+    if (item.sample && item.variants) {
+      // Sample items with scent/shade options: pick exactly one, quantity fixed at 1.
+      row.dataset.sampleSelect = '1';
+      state[id] = null;
+
+      row.innerHTML = `
+        <img src="${item.img}" alt="${item.name}">
+        <div class="row-info">
+          <div class="row-name">${item.name}</div>
+          <div class="row-meta">${item.meta}</div>
+          <div class="sample-variant-grid">
+            ${item.variants.map(v => `
+              <label class="sample-variant-option">
+                <input type="checkbox" class="sample-check" data-id="${id}" data-sku="${v.sku}" data-name="${v.name}" onclick="toggleSampleVariant('${id}', '${v.sku}', '${v.name}', this)">
+                <span>${v.name}</span>
+              </label>
+            `).join('')}
+          </div>
+          <div class="row-price">${priceLineHtml}</div>
+        </div>
+        <div class="line-total" id="total-${id}">$0.00</div>
+      `;
+    } else if (item.sample) {
+      // Tester items without scent/shade options: single checkbox, capped at 1 per order.
+      row.dataset.sampleSelect = '1';
+      row.dataset.sku = item.sku;
+      state[id] = false;
+
+      row.innerHTML = `
+        <img src="${item.img}" alt="${item.name}">
+        <div class="row-info">
+          <div class="row-name">${item.name}</div>
+          <div class="row-meta">${item.meta}</div>
+          <div class="sample-variant-grid">
+            <label class="sample-variant-option">
+              <input type="checkbox" class="sample-check-single" onclick="toggleSampleSingle('${id}', this)">
+              <span>Add 1 tester</span>
+            </label>
+          </div>
+          <div class="row-price">${priceLineHtml}</div>
+        </div>
+        <div class="line-total" id="total-${id}">$0.00</div>
+      `;
+    } else if (item.variants) {
       // Multiple scents/shades can each carry their own quantity in the same order.
       state[id] = {};
       item.variants.forEach(v => { state[id][v.sku] = 0; });
@@ -310,7 +419,7 @@ catalog.forEach((section, si) => {
             `).join('')}
           </div>
           <div class="min-hint" id="minhint-${id}"></div>
-          <div class="row-price">${wholesale ? `<b>$${wholesale.toFixed(2)}</b> ea. wholesale <span class="retail">$${item.retail.toFixed(2)} retail</span>` : `<i>Pricing on request</i>`}</div>
+          <div class="row-price">${priceLineHtml}</div>
         </div>
         <div class="line-total" id="total-${id}">$0.00</div>
       `;
@@ -323,7 +432,7 @@ catalog.forEach((section, si) => {
           <div class="row-name">${item.name}</div>
           <div class="row-meta">${item.meta} · Min. ${item.min}</div>
           ${(item.sku && item.sku !== '—') ? `<div class="row-meta">SKU ${item.sku}</div>` : ''}
-          <div class="row-price">${wholesale ? `<b>$${wholesale.toFixed(2)}</b> ea. wholesale <span class="retail">$${item.retail.toFixed(2)} retail</span>` : (item.soon ? `<i>Coming soon — pricing and MOQ confirmed at launch</i>` : `<i>Pricing on request</i>`)}</div>
+          <div class="row-price">${priceLineHtml}</div>
         </div>
         <div class="qty">
           <button onclick="changeQty('${id}', -1, ${item.min})" ${!wholesale ? 'disabled' : ''}>–</button>
@@ -381,6 +490,19 @@ function setVariantQty(id, sku, val, perMin) {
   updateTotals();
 }
 
+function toggleSampleVariant(id, sku, name, checkboxEl) {
+  document.querySelectorAll(`.sample-check[data-id="${id}"]`).forEach(cb => {
+    if (cb !== checkboxEl) cb.checked = false;
+  });
+  state[id] = checkboxEl.checked ? {sku, name} : null;
+  updateTotals();
+}
+
+function toggleSampleSingle(id, checkboxEl) {
+  state[id] = checkboxEl.checked;
+  updateTotals();
+}
+
 function updateTotals() {
   let units = 0, price = 0;
   document.querySelectorAll('.row').forEach(row => {
@@ -388,7 +510,9 @@ function updateTotals() {
     const wholesale = parseFloat(row.dataset.wholesale) || 0;
     const min = parseInt(row.dataset.min) || 0;
     let qty;
-    if (typeof state[id] === 'object') {
+    if (row.dataset.sampleSelect) {
+      qty = state[id] ? 1 : 0;
+    } else if (typeof state[id] === 'object') {
       qty = Object.values(state[id]).reduce((a,b) => a+b, 0);
       const hint = document.getElementById(`minhint-${id}`);
       if (hint) {
@@ -429,7 +553,15 @@ function submitOrder() {
   document.querySelectorAll('.row').forEach(row => {
     const id = row.dataset.id;
     const wholesale = parseFloat(row.dataset.wholesale) || 0;
-    if (typeof state[id] === 'object') {
+    if (row.dataset.sampleSelect) {
+      if (state[id]) {
+        if (state[id].sku) {
+          lines.push(`${row.dataset.name} — ${state[id].name} (SKU ${state[id].sku}) — Qty 1 — $${wholesale.toFixed(2)}`);
+        } else {
+          lines.push(`${row.dataset.name} (SKU ${row.dataset.sku}) — Qty 1 — $${wholesale.toFixed(2)}`);
+        }
+      }
+    } else if (typeof state[id] === 'object') {
       Object.entries(state[id]).forEach(([sku, qty]) => {
         if (qty > 0) {
           const variantName = row.querySelector(`#qty-${id}-${sku}`).closest('.variant-qty-row').querySelector('.variant-qty-name').textContent.split(' — SKU ')[0];
