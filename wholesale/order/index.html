@@ -39,9 +39,10 @@
   .qty input{width:44px; height:30px; text-align:center; border:1px solid var(--dust); border-left:none; border-right:none; font-family:Arial,sans-serif; font-size:0.95em; -moz-appearance:textfield;}
   .qty input::-webkit-outer-spin-button, .qty input::-webkit-inner-spin-button{-webkit-appearance:none; margin:0;}
   .variant-qty-grid{display:flex; flex-direction:column; gap:6px; margin-top:8px;}
-  .sample-variant-grid{display:flex; flex-wrap:wrap; gap:8px 16px; margin-top:8px;}
-  .sample-variant-option{display:flex; align-items:center; gap:6px; font-family:Arial,sans-serif; font-size:0.85em; color:rgba(26,16,8,0.8); cursor:pointer;}
-  .sample-variant-option input[type="checkbox"]{width:16px; height:16px; cursor:pointer; accent-color:var(--terra);}
+  .sample-variant-grid{display:flex; flex-wrap:wrap; gap:4px 16px; margin-top:8px;}
+  .sample-variant-option{display:flex; align-items:center; gap:8px; font-family:Arial,sans-serif; font-size:0.85em; color:rgba(26,16,8,0.8); cursor:pointer; padding:8px 6px; min-height:24px; border-radius:3px;}
+  .sample-variant-option:active{background:rgba(122,62,34,0.08);}
+  .sample-variant-option input[type="checkbox"]{width:20px; height:20px; cursor:pointer; accent-color:var(--terra); flex-shrink:0;}
   .variant-qty-row{display:flex; align-items:center; justify-content:space-between; gap:10px;}
   .variant-qty-name{font-family:Arial,sans-serif; font-size:0.85em; color:rgba(26,16,8,0.8);}
   .qty-mini{display:flex; align-items:center; gap:0; flex-shrink:0;}
@@ -108,6 +109,8 @@
     .submit-btn{width:100%; margin-top:2px; padding:16px 22px; font-size:0.95em;}
     .footer-bar .min-warn{text-align:center;}
     .modal-box{padding:20px;}
+    .sample-variant-grid{flex-direction:column; gap:2px;}
+    .sample-variant-option{width:100%; padding:10px 6px;}
   }
 </style>
 </head>
@@ -354,9 +357,10 @@ catalog.forEach((section, si) => {
     if (item.perVariantMin) row.dataset.perVariantMin = item.perVariantMin;
 
     if (item.sample && item.variants) {
-      // Sample items with scent/shade options: pick exactly one, quantity fixed at 1.
+      // Sample items with scent/shade options: pick any number, 1 unit each.
       row.dataset.sampleSelect = '1';
-      state[id] = null;
+      row.dataset.sampleMulti = '1';
+      state[id] = {};
 
       row.innerHTML = `
         <img src="${item.img}" alt="${item.name}">
@@ -491,10 +495,11 @@ function setVariantQty(id, sku, val, perMin) {
 }
 
 function toggleSampleVariant(id, sku, name, checkboxEl) {
-  document.querySelectorAll(`.sample-check[data-id="${id}"]`).forEach(cb => {
-    if (cb !== checkboxEl) cb.checked = false;
-  });
-  state[id] = checkboxEl.checked ? {sku, name} : null;
+  if (checkboxEl.checked) {
+    state[id][sku] = name;
+  } else {
+    delete state[id][sku];
+  }
   updateTotals();
 }
 
@@ -511,7 +516,7 @@ function updateTotals() {
     const min = parseInt(row.dataset.min) || 0;
     let qty;
     if (row.dataset.sampleSelect) {
-      qty = state[id] ? 1 : 0;
+      qty = row.dataset.sampleMulti ? Object.keys(state[id]).length : (state[id] ? 1 : 0);
     } else if (typeof state[id] === 'object') {
       qty = Object.values(state[id]).reduce((a,b) => a+b, 0);
       const hint = document.getElementById(`minhint-${id}`);
@@ -554,12 +559,12 @@ function submitOrder() {
     const id = row.dataset.id;
     const wholesale = parseFloat(row.dataset.wholesale) || 0;
     if (row.dataset.sampleSelect) {
-      if (state[id]) {
-        if (state[id].sku) {
-          lines.push(`${row.dataset.name} — ${state[id].name} (SKU ${state[id].sku}) — Qty 1 — $${wholesale.toFixed(2)}`);
-        } else {
-          lines.push(`${row.dataset.name} (SKU ${row.dataset.sku}) — Qty 1 — $${wholesale.toFixed(2)}`);
-        }
+      if (row.dataset.sampleMulti) {
+        Object.entries(state[id]).forEach(([sku, name]) => {
+          lines.push(`${row.dataset.name} — ${name} (SKU ${sku}) — Qty 1 — $${wholesale.toFixed(2)}`);
+        });
+      } else if (state[id]) {
+        lines.push(`${row.dataset.name} (SKU ${row.dataset.sku}) — Qty 1 — $${wholesale.toFixed(2)}`);
       }
     } else if (typeof state[id] === 'object') {
       Object.entries(state[id]).forEach(([sku, qty]) => {
