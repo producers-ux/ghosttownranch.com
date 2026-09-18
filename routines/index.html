@@ -76,7 +76,8 @@
           { "@type": "HowToStep", "position": 3, "name": "Resurface", "text": "Frontier Fade Toning Exfoliant — pH-adjusted glycolic acid, cranberry extract, lingonberry extract. Use 2–3 nights per week. COSMOS Natural certified." },
           { "@type": "HowToStep", "position": 4, "name": "Treat", "text": "The Grade Peptide Serum — peptides work overnight. Acetyl Hexapeptide-8 and Palmitoyl Tripeptide-1. Press in with fingertips." },
           { "@type": "HowToStep", "position": 5, "name": "Eye", "text": "All Told 3-in-1 Eye Cream — Alteromonas ferment extract supports skin resilience overnight." },
-          { "@type": "HowToStep", "position": 6, "name": "Restore", "text": "Dusk Til Dawn Hydration Gel — Sodium PCA draws moisture from air overnight. Sage and white tea calm. No residue. COSMOS Natural certified." }
+          { "@type": "HowToStep", "position": 6, "name": "Restore", "text": "Dusk Til Dawn Hydration Gel — Sodium PCA draws moisture from air overnight. Sage and white tea calm. No residue. COSMOS Natural certified." },
+          { "@type": "HowToStep", "position": 7, "name": "Seal", "text": "GTR Lip Butter — plant oils, beeswax and aloe in a recyclable metal tin. Apply to lips last thing before bed." }
         ]
       }
     ]
@@ -364,6 +365,11 @@
       color: var(--ochre); opacity: 1;
     }
     .routine-section.evening .step-price { color: var(--ochre); }
+
+    /* lip butter photo is shot close, so scale it down and feather it into its own background */
+    .step-img-wrap.fit-out { background:linear-gradient(135deg,#f5f1ee 0%,#e5dfd9 100%); }
+    .step-img-wrap.fit-out img { object-fit: cover; object-position: center; padding: 0; transform: scale(.8); -webkit-mask-image:linear-gradient(to right,transparent,#000 14%,#000 86%,transparent),linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 14%,#000 86%,transparent),linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent);mask-composite:intersect; }
+    .step-card:hover .step-img-wrap.fit-out img { transform: scale(.83); }
 
     /* ── BUNDLE CTA ── */
     .routine-bundle {
@@ -963,6 +969,18 @@
         <span class="step-function">Restore</span>
         <div class="step-name">Dusk Til Dawn<br>Hydration Gel</div><div class="step-note">Overnight gel. Sodium PCA draws moisture from air while you sleep.</div>
         <span class="step-price">$60</span>
+            <span class="step-view-link">View full product page →</span>
+      </a>
+
+      <a href="https://ghosttownranch.com/products/gtr-lip-butter" class="step-card" style="text-decoration:none;color:inherit;">
+        <div class="step-img-wrap fit-out">
+          <img src="https://or-cre.com/cdn/shop/files/4867fe54-885c-463d-ae4f-f0932e2aafba.png?v=1789769136&width=600" alt="GTR Lip Butter, Peppermint in a black tin and Vanilla in a silver tin" loading="lazy">
+        </div>
+        <span class="step-number">07</span>
+        <span class="step-function">Seal</span>
+        <div class="step-name">Lip Butter<br>Peppermint + Vanilla</div><div class="step-note">Plant oils, beeswax and aloe. Last thing before bed.</div>
+        <span class="step-price">$16</span>
+        <span class="step-soon" style="display:block;margin-top:6px;font-family:'Jost',system-ui,sans-serif;font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--ochre);">Pre-Order / Coming Soon</span>
             <span class="step-view-link">View full product page →</span>
       </a>
 
