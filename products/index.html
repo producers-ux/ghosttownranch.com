@@ -24,6 +24,7 @@
   <meta id="og-url" property="og:url" content="" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="robots" content="index, follow" />
+  <meta name="gtr-build" content="2026-09-18-lip-butter-preorder-variants" />
   <link rel="canonical" id="canonical" href="" />
 
   <style>
@@ -1038,6 +1039,13 @@ const CERTS = [
 
 // Products that are Coming Soon — disable ATC
 const COMING_SOON_HANDLES = ['still-air-natural-deodorant', 'the-wash-house', 'long-range-endurance-skincare-collection', 'the-field-kit'];
+// Pre-order products. Button reads "Pre-Order" and still runs through the Shopify cart to checkout.
+const LIP_BUTTER_HANDLE = 'lip-butter';
+const LIP_BUTTER_HANDLES = [LIP_BUTTER_HANDLE, 'gtr-lip-butter'];
+const PREORDER_HANDLES = LIP_BUTTER_HANDLES;
+// Made in North America and the formula includes color additives, so the EU-formulated,
+// vegan and "no dyes" claims that the rest of the line carries must not show on these.
+const NA_MADE_HANDLES = LIP_BUTTER_HANDLES;
 // Fully discontinued — never shown anywhere, including "More from the Ranch"
 const RETIRED_HANDLES = ['the-votive-single', 'the-votive-candle-set-of-6'];
 
@@ -1127,10 +1135,18 @@ async function addToCart(variantId, qty = 1) {
           }}
         }
       }
+      userErrors { message }
     }
   }`);
 
   const c = res?.data?.cartLinesAdd?.cart;
+  if (!c || res?.data?.cartLinesAdd?.userErrors?.length) {
+    btn.classList.remove('loading');
+    btn.textContent = 'Not available yet';
+    setTimeout(() => { btn.textContent = btn.dataset.label || 'Add to Cart'; }, 2500);
+    cartLoading = false;
+    return;
+  }
   if (c) {
     cart.id = c.id;
     cart.checkoutUrl = c.checkoutUrl;
@@ -1140,7 +1156,7 @@ async function addToCart(variantId, qty = 1) {
   }
 
   btn.classList.remove('loading');
-  btn.textContent = 'Add to Cart';
+  btn.textContent = btn.dataset.label || 'Add to Cart';
   cartLoading = false;
 }
 
@@ -1346,6 +1362,7 @@ function renderProduct(product) {
   const variants = product.variants.edges.map(e => e.node);
   const variantWrap = document.getElementById('variant-wrap');
   const variantGrid = document.getElementById('variant-grid');
+  const isPreorder = PREORDER_HANDLES.includes(handle);
   let selectedVariant = variants.find(v => v.availableForSale) || variants[0];
 
   // Determine if this is a scent-based product
@@ -1367,7 +1384,9 @@ function renderProduct(product) {
     if (isWaxCandle) {
       selectorLabelEl.innerHTML = 'Scent + Wax Color · <span id="selected-variant-label"></span>';
     } else {
-      selectorLabelEl.innerHTML = 'Scent · <span id="selected-variant-label"></span>';
+      const optName = (variants[0].selectedOptions[0] && variants[0].selectedOptions[0].name || '').toLowerCase();
+      const optLabel = optName === 'flavor' ? 'Flavor' : 'Scent';
+      selectorLabelEl.innerHTML = optLabel + ' · <span id="selected-variant-label"></span>';
     }
 
     // Query after innerHTML rewrite so reference is live
@@ -1390,7 +1409,7 @@ function renderProduct(product) {
       const swatch = color ? `<span class="scent-swatch" style="background:${color}"></span>` : '';
       return `<button class="variant-btn${v.id === selectedVariant.id ? ' selected' : ''}"
         data-variant-id="${v.id}"
-        ${!v.availableForSale ? 'disabled' : ''}
+        ${(!v.availableForSale && !isPreorder) ? 'disabled' : ''}
       >${swatch}${v.title}</button>`;
     }).join('');
 
@@ -1417,6 +1436,12 @@ function renderProduct(product) {
     atcBtn.textContent = 'Coming Soon';
     comingSoonNote.style.display = 'block';
   } else {
+    if (PREORDER_HANDLES.includes(handle)) {
+      atcBtn.textContent = 'Pre-Order';
+      atcBtn.dataset.label = 'Pre-Order';
+      comingSoonNote.textContent = 'Pre-Order \u00b7 Coming Soon';
+      comingSoonNote.style.display = 'block';
+    }
     atcBtn.addEventListener('click', () => {
       if (selectedVariant?.id) addToCart(selectedVariant.id);
     });
@@ -1448,13 +1473,17 @@ function renderProduct(product) {
   const certRow = document.getElementById('cert-row');
   const tags = product.tags || [];
   const certs = [];
-  if (isCosmosCertified(product)) {
-    certs.push('COSMOS Certified · ECOCERT');
+  if (NA_MADE_HANDLES.includes(handle)) {
+    certs.push('Made in North America');
+  } else {
+    if (isCosmosCertified(product)) {
+      certs.push('COSMOS Certified · ECOCERT');
+    }
+    const origin = originBadge(product);
+    if (origin) certs.push(origin);
+    if (!tags.includes('fragrance-only')) certs.push(isVegan(product) ? 'Vegan · Cruelty-Free' : 'Cruelty-Free');
+    certs.push('No Dyes · No Parabens · No Phthalates');
   }
-  const origin = originBadge(product);
-  if (origin) certs.push(origin);
-  if (!tags.includes('fragrance-only')) certs.push(isVegan(product) ? 'Vegan · Cruelty-Free' : 'Cruelty-Free');
-  certs.push('No Dyes · No Parabens · No Phthalates');
 
   certRow.innerHTML = certs.map(c => `<span class="cert-badge">${c}</span>`).join('');
 
@@ -1596,7 +1625,10 @@ function buildSpecs(product, variants, ingredientsHtml) {
   if (isCosmosCertified(product)) {
     detailLines.push('COSMOS Certified by ECOCERT, third-party verified');
   }
-  if (!isHomeFrag && (isCosmosCertified(product) || type.includes('skin') || type.includes('body') || type.includes('hair') || type.includes('eye') || type.includes('face') || type.includes('lip') || type.includes('makeup'))) {
+  if (NA_MADE_HANDLES.includes(product.handle)) {
+    detailLines.push('Net Wt. 15 g / 0.5 oz');
+    detailLines.push('Made in North America');
+  } else if (!isHomeFrag && (isCosmosCertified(product) || type.includes('skin') || type.includes('body') || type.includes('hair') || type.includes('eye') || type.includes('face') || type.includes('lip') || type.includes('makeup'))) {
     detailLines.push(isVegan(product) ? 'Vegan · Cruelty-Free' : 'Cruelty-Free');
     detailLines.push('Free of parabens, phthalates, and synthetic dyes');
   }
@@ -1620,7 +1652,7 @@ function buildSpecs(product, variants, ingredientsHtml) {
   // Shipping
   specs.push({
     title: 'Shipping & Returns',
-    body: `<p>Ships within 10 business days from the USA. Standard ground shipping.</p>
+    body: `<p>${PREORDER_HANDLES.includes(product.handle) ? 'Pre-order. Ships when stock arrives. Standard ground shipping from the USA.' : 'Ships within 10 business days from the USA. Standard ground shipping.'}</p>
            <p>For wholesale inquiries: <a href="mailto:wholesale@ghosttownranch.com" style="color:var(--dust)">wholesale@ghosttownranch.com</a></p>
            <p>Questions: <a href="mailto:howdy@ghosttownranch.com" style="color:var(--dust)">howdy@ghosttownranch.com</a></p>`
   });
