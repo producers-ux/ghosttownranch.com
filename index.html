@@ -942,10 +942,9 @@
 <section class="signup" id="signup">
   <span class="signup-eyebrow">Join the Ranch</span>
   <h2 class="signup-headline">From the ranch. In your inbox.</h2>
-  <p class="signup-subtext">First word on new releases, coming soon drops, and Ranch happenings — before anyone else.</p>
-  <form class="signup-form" action="https://formspree.io/f/xnjleeqp" method="POST" id="signup-form">
-    <input type="email" name="email" class="signup-input" placeholder="Your email" required>
-    <input type="hidden" name="_subject" value="New Ghost Town Ranch newsletter signup">
+  <p class="signup-subtext">First word on new releases, coming soon drops, and Ranch happenings. Before anyone else.</p>
+  <form class="signup-form" id="signup-form" novalidate>
+    <input type="email" name="email" class="signup-input" placeholder="Your email" aria-label="Email address" autocomplete="email" required>
     <button type="submit" class="signup-btn">Join →</button>
   </form>
   <p class="signup-note" id="signup-note" role="status" aria-live="polite"></p>
@@ -989,37 +988,48 @@
       });
     });
   });
-  // Newsletter signup — Formspree
+  // Newsletter signup: straight to Klaviyo "Email List" (double opt-in)
   document.addEventListener('DOMContentLoaded', function() {
+    var KLAVIYO_KEY = 'UkQyvw';   // public site key, safe in the browser
+    var LIST_ID = 'U4VMiP';       // Email List
     var form = document.getElementById('signup-form');
     var note = document.getElementById('signup-note');
     if (!form || !note) return;
+    function show(msg, isError) {
+      note.textContent = msg;
+      note.className = 'signup-note visible' + (isError ? ' error' : '');
+    }
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       var btn = form.querySelector('.signup-btn');
-      var data = new FormData(form);
+      var email = form.email.value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { show("That email doesn't look right.", true); return; }
       btn.disabled = true;
       note.textContent = '';
       note.className = 'signup-note';
-      fetch(form.action, {
+      fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + KLAVIYO_KEY, {
         method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
+        headers: { 'Content-Type': 'application/json', 'revision': '2024-10-15' },
+        body: JSON.stringify({ data: {
+          type: 'subscription',
+          attributes: {
+            custom_source: 'ghosttownranch.com Join the Ranch',
+            profile: { data: { type: 'profile', attributes: {
+              email: email,
+              subscriptions: { email: { marketing: { consent: 'SUBSCRIBED' } } }
+            } } }
+          },
+          relationships: { list: { data: { type: 'list', id: LIST_ID } } }
+        } })
       }).then(function(response) {
-        if (response.ok) {
-          note.textContent = "You're on the list. Welcome to the ranch.";
-          note.classList.add('visible');
+        if (response.status === 202) {
+          show("You're in. Check your inbox to confirm.", false);
           form.reset();
         } else {
-          return response.json().then(function(json) {
-            var msg = (json && json.errors && json.errors.length) ? json.errors.map(function(er){return er.message;}).join(', ') : 'Something went wrong. Please try again.';
-            note.textContent = msg;
-            note.classList.add('visible', 'error');
-          });
+          show('Something went wrong. Please try again.', true);
         }
       }).catch(function() {
-        note.textContent = 'Something went wrong. Please try again.';
-        note.classList.add('visible', 'error');
+        show('Something went wrong. Please try again.', true);
       }).finally(function() {
         btn.disabled = false;
       });
