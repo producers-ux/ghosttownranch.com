@@ -1009,7 +1009,7 @@
       note.className = 'signup-note';
       fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + KLAVIYO_KEY, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'revision': '2024-10-15' },
+        headers: { 'Content-Type': 'application/json', 'revision': '2026-07-15' },
         body: JSON.stringify({ data: {
           type: 'subscription',
           attributes: {
@@ -1019,7 +1019,7 @@
           relationships: { list: { data: { type: 'list', id: LIST_ID } } }
         } })
       }).then(function(response) {
-        if (response.status === 202) {
+        if (response.ok) {
           show("You're in. Check your inbox to confirm.", false);
           form.reset();
         } else {
