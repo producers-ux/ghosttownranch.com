@@ -1014,10 +1014,7 @@
           type: 'subscription',
           attributes: {
             custom_source: 'ghosttownranch.com Join the Ranch',
-            profile: { data: { type: 'profile', attributes: {
-              email: email,
-              subscriptions: { email: { marketing: { consent: 'SUBSCRIBED' } } }
-            } } }
+            profile: { data: { type: 'profile', attributes: { email: email } } }
           },
           relationships: { list: { data: { type: 'list', id: LIST_ID } } }
         } })
@@ -1026,6 +1023,7 @@
           show("You're in. Check your inbox to confirm.", false);
           form.reset();
         } else {
+          response.text().then(function(body) { console.error('Klaviyo signup error', response.status, body); });
           show('Something went wrong. Please try again.', true);
         }
       }).catch(function() {
