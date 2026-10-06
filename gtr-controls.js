@@ -31,7 +31,7 @@
     { t: "The Lookout Collection", c: "Aloe Hydrogel Eye Patches  ·  $36", u: "/products/anti-age-hydrogel-eye-patches-7-pcs", k: "the lookout collection aloe hydrogel eye patches 7 pairs 14 pcs gold rush under-eye mask puffiness face-care" },
     { t: "The Kiss", c: "Hydrogel Lip Mask  ·  $42", u: "/products/the-kiss-lip-mask-7-pcs", k: "the kiss hyaluronic hydrogel lip mask 7 pcs lips lip care hyaluronic acid" },
     { t: "Lip Butter", c: "Peppermint + Vanilla  ·  $24", u: "/products/gtr-lip-butter", k: "gtr lip butter lip balm lips peppermint vanilla tin black silver 1 oz beeswax aloe" },
-    { t: "Touch-up Blotting Papers", c: "Makeup Accessory  ·  $18", u: "/products/touch-up-blotting-papers", k: "touch-up blotting papers blotting paper oil shine face makeup accessories" },
+    { t: "Touch-up Blotting Papers", c: "Makeup Accessory  ·  $18", u: "/products/gtr-touch-up-blotting-paper", k: "touch-up blotting papers blotting paper oil shine face makeup accessories" },
     { t: "The Face Bundle", c: "Makeup as Skincare  ·  $186", u: "/products/the-face-bundle", k: "the face bundle makeup as skincare make-up" },
     { t: "Silk Skin Hand Cream", c: "Citrus + Pink Pepper  ·  $46", u: "/products/silk-skin-hand-cream-spices-sandalwood", k: "silk skin hand cream citrus pink pepper spices sandalwood body-care wash house" },
     { t: "Day Ride", c: "Padded Zipper Bag, Black + White  ·  $30", u: "/products/day-ride-bag", k: "day ride padded zipper bag black white pouch case travel carry accessories goods" },

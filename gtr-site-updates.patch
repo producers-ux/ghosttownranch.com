@@ -12,7 +12,7 @@ index 679a5ef..9f1bdfc 100644
        </div>
      </div>
 diff --git a/gtr-controls.js b/gtr-controls.js
-index 50a21f8..6d0b4dd 100644
+index 50a21f8..cf87100 100644
 --- a/gtr-controls.js
 +++ b/gtr-controls.js
 @@ -28,18 +28,28 @@
@@ -22,7 +22,7 @@ index 50a21f8..6d0b4dd 100644
 +    { t: "The Lookout Collection", c: "Aloe Hydrogel Eye Patches  ·  $36", u: "/products/anti-age-hydrogel-eye-patches-7-pcs", k: "the lookout collection aloe hydrogel eye patches 7 pairs 14 pcs gold rush under-eye mask puffiness face-care" },
 +    { t: "The Kiss", c: "Hydrogel Lip Mask  ·  $42", u: "/products/the-kiss-lip-mask-7-pcs", k: "the kiss hyaluronic hydrogel lip mask 7 pcs lips lip care hyaluronic acid" },
 +    { t: "Lip Butter", c: "Peppermint + Vanilla  ·  $24", u: "/products/gtr-lip-butter", k: "gtr lip butter lip balm lips peppermint vanilla tin black silver 1 oz beeswax aloe" },
-+    { t: "Touch-up Blotting Papers", c: "Makeup Accessory  ·  $18", u: "/products/touch-up-blotting-papers", k: "touch-up blotting papers blotting paper oil shine face makeup accessories" },
++    { t: "Touch-up Blotting Papers", c: "Makeup Accessory  ·  $18", u: "/products/gtr-touch-up-blotting-paper", k: "touch-up blotting papers blotting paper oil shine face makeup accessories" },
 +    { t: "The Face Bundle", c: "Makeup as Skincare  ·  $186", u: "/products/the-face-bundle", k: "the face bundle makeup as skincare make-up" },
 +    { t: "Silk Skin Hand Cream", c: "Citrus + Pink Pepper  ·  $46", u: "/products/silk-skin-hand-cream-spices-sandalwood", k: "silk skin hand cream citrus pink pepper spices sandalwood body-care wash house" },
 +    { t: "Day Ride", c: "Padded Zipper Bag, Black + White  ·  $30", u: "/products/day-ride-bag", k: "day ride padded zipper bag black white pouch case travel carry accessories goods" },
@@ -86,14 +86,14 @@ index 50a21f8..6d0b4dd 100644
        .map(function (i) { return { i: i, s: score(i, q) }; })
        .sort(function (a, b) {
 diff --git a/shop/index.html b/shop/index.html
-index 4d5fb5d..e33fa6f 100644
+index 4d5fb5d..88a7913 100644
 --- a/shop/index.html
 +++ b/shop/index.html
 @@ -180,6 +180,7 @@
          <a class="pcard" href="https://ghosttownranch.com/products/long-shot-peptide-mascara"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Longshot1.png" alt="Long Shot Peptide Mascara" loading="lazy"></div><div class="pcard-name">Long Shot</div><div class="pcard-sub">Peptide Mascara</div><div class="pcard-price">$45</div></a>
          <a class="pcard" href="https://ghosttownranch.com/products/drawn-line-matte-lip-color"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DrawnLine1.png" alt="Drawn Line Satin Lip Color" loading="lazy"></div><div class="pcard-name">Drawn Line</div><div class="pcard-sub">Satin Lip Color</div><div class="pcard-price">$42</div></a>
          <a class="pcard" href="https://ghosttownranch.com/products/biphasic-make-up-remover-fragrance-free"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawswipeout1.png" alt="Outlaw's Wipeout Makeup Remover" loading="lazy"></div><div class="pcard-name">Outlaw's Wipeout</div><div class="pcard-sub">Makeup Remover</div><div class="pcard-price">$55</div></a>
-+        <a class="pcard" href="https://ghosttownranch.com/products/touch-up-blotting-papers"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/GTR_Blotting_Papers.png?v=1791292788&width=1920" alt="GTR Touch-up Blotting Papers" loading="lazy"></div><div class="pcard-name">Blotting Papers</div><div class="pcard-sub">Touch-up</div><div class="pcard-price">$18</div></a>
++        <a class="pcard" href="https://ghosttownranch.com/products/gtr-touch-up-blotting-paper"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/GTR_Blotting_Papers.png?v=1791292788&width=1920" alt="GTR Touch-up Blotting Papers" loading="lazy"></div><div class="pcard-name">Blotting Papers</div><div class="pcard-sub">Touch-up</div><div class="pcard-price">$18</div></a>
          <a class="pcard" href="https://ghosttownranch.com/products/the-face-bundle"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/makeup_cu_01_76625f25-6ae8-4755-afc2-e7335b6c86e8.png" alt="The Face Bundle" loading="lazy"></div><div class="pcard-name">The Face Bundle</div><div class="pcard-sub">Makeup as Skincare</div><div class="pcard-price">$186</div></a>
          <a class="pcard" href="https://ghosttownranch.com/products/morning-skin-routine"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/morningedit_1.png" alt="Morning Skin Routine, 6 products" loading="lazy"></div><div class="pcard-name">Morning Skin</div><div class="pcard-sub">Routine, 6 products</div><div class="pcard-price">$353</div></a>
          <a class="pcard" href="https://ghosttownranch.com/products/evening-repair-bundle"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/eveningrepar.png" alt="Evening Repair Bundle" loading="lazy"></div><div class="pcard-name">Evening Repair</div><div class="pcard-sub">Bundle</div><div class="pcard-price">$274</div></a>
