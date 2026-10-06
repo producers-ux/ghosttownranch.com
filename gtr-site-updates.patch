@@ -1,0 +1,79 @@
+diff --git a/GTR_Catalog_2026.html b/GTR_Catalog_2026.html
+index 679a5ef..9f1bdfc 100644
+--- a/GTR_Catalog_2026.html
++++ b/GTR_Catalog_2026.html
+@@ -1410,7 +1410,7 @@ a { color: inherit; text-decoration: none; }
+         <p class="product-desc">Adds volume, absorbs oil. The quick refresh between the trailhead and town.</p>
+         <div class="product-footer">
+           <span class="product-sku">SKU: DC061926</span>
+-          <a href="https://ghosttownranch.com/products/quick-refresh-dry-shampoo-spray" class="product-link" target="_blank">Shop →</a>
++          <a href="https://ghosttownranch.com/products/quick-refresh-dry-shampoo-spray-1" class="product-link" target="_blank">Shop →</a>
+         </div>
+       </div>
+     </div>
+diff --git a/gtr-controls.js b/gtr-controls.js
+index 50a21f8..e570612 100644
+--- a/gtr-controls.js
++++ b/gtr-controls.js
+@@ -35,7 +35,7 @@
+     { t: "Desert Veil Full Shade Set Shade set · 4 shades", c: "Makeup  ·  $187", u: "/products/soft-proof-full-shade-set-10-shades-all-variants", k: "desert veil full shade set shades makeup bundle make-up buildup sun care the face routine soft proof 10 all variants" },
+     { t: "DESERT VEIL: Available in Light", c: "Medium, Tan, and Deep  ·  $55", u: "/products/desert-veil-tone-correction-barrier-protection", k: "desert veil available in light medium tan and deep face care all skin types ceramides cocoa butter damaged barrier dark spots evens tone face-care gluten free nut shoppe-object stick supports vegan white correction protection" },
+     { t: "Drawn Line", c: "Satin Lip Color  ·  $42", u: "/products/drawn-line-matte-lip-color", k: "drawn line matte lip tint makeup all skin types cream lipstick dehydrated face-care satin finish shea butter shoppe-object velvety white color" },
+-    { t: "Dry Creek", c: "Dry Shampoo Hair Mist  ·  $39", u: "/products/quick-refresh-dry-shampoo-spray", k: "dry creek shampoo hair mist adds volume to the hair-care nourishes and scalp shoppe-object quick refresh spray" },
++    { t: "Dry Creek", c: "Dry Shampoo Hair Mist  ·  $39", u: "/products/quick-refresh-dry-shampoo-spray-1", k: "dry creek shampoo hair mist adds volume to the hair-care nourishes and scalp shoppe-object quick refresh spray" },
+     { t: "Dusk Til Dawn Hydration Gel", c: "Night Gel  ·  $60", u: "/products/dusk-til-dawn-hydration-gel", k: "dusk til dawn hydration gel night hyaluronic acid overnight shoppe-object" },
+     { t: "Evening Repair Bundle", c: "Ghost Town Ranch  ·  $274", u: "/products/evening-repair-bundle", k: "evening repair bundle anti-age face-care shoppe-object" },
+     { t: "Frontier Fade Toning Exfoliant", c: "Toner  ·  $55", u: "/products/glycolic-acid-exfoliating-toner", k: "frontier fade toning exfoliant toner all skin types betaine dark spots exfoliates exfoliator face-care glycolic acid promotes the appearance of more even tone removes build-up shoppe-object sodium pca transparent exfoliating" },
+diff --git a/shop/index.html b/shop/index.html
+index 4d5fb5d..e33fa6f 100644
+--- a/shop/index.html
++++ b/shop/index.html
+@@ -180,6 +180,7 @@
+         <a class="pcard" href="https://ghosttownranch.com/products/long-shot-peptide-mascara"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Longshot1.png" alt="Long Shot Peptide Mascara" loading="lazy"></div><div class="pcard-name">Long Shot</div><div class="pcard-sub">Peptide Mascara</div><div class="pcard-price">$45</div></a>
+         <a class="pcard" href="https://ghosttownranch.com/products/drawn-line-matte-lip-color"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DrawnLine1.png" alt="Drawn Line Satin Lip Color" loading="lazy"></div><div class="pcard-name">Drawn Line</div><div class="pcard-sub">Satin Lip Color</div><div class="pcard-price">$42</div></a>
+         <a class="pcard" href="https://ghosttownranch.com/products/biphasic-make-up-remover-fragrance-free"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawswipeout1.png" alt="Outlaw's Wipeout Makeup Remover" loading="lazy"></div><div class="pcard-name">Outlaw's Wipeout</div><div class="pcard-sub">Makeup Remover</div><div class="pcard-price">$55</div></a>
++        <a class="pcard" href="https://ghosttownranch.com/products/touch-up-blotting-papers"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/GTR_Blotting_Papers.png?v=1791292788&width=1920" alt="GTR Touch-up Blotting Papers" loading="lazy"></div><div class="pcard-name">Blotting Papers</div><div class="pcard-sub">Touch-up</div><div class="pcard-price">$18</div></a>
+         <a class="pcard" href="https://ghosttownranch.com/products/the-face-bundle"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/makeup_cu_01_76625f25-6ae8-4755-afc2-e7335b6c86e8.png" alt="The Face Bundle" loading="lazy"></div><div class="pcard-name">The Face Bundle</div><div class="pcard-sub">Makeup as Skincare</div><div class="pcard-price">$186</div></a>
+         <a class="pcard" href="https://ghosttownranch.com/products/morning-skin-routine"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/morningedit_1.png" alt="Morning Skin Routine, 6 products" loading="lazy"></div><div class="pcard-name">Morning Skin</div><div class="pcard-sub">Routine, 6 products</div><div class="pcard-price">$353</div></a>
+         <a class="pcard" href="https://ghosttownranch.com/products/evening-repair-bundle"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/eveningrepar.png" alt="Evening Repair Bundle" loading="lazy"></div><div class="pcard-name">Evening Repair</div><div class="pcard-sub">Bundle</div><div class="pcard-price">$274</div></a>
+@@ -210,7 +211,7 @@
+         <a class="pcard" href="https://ghosttownranch.com/products/quick-refresh-dry-shampoo-spray-1"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/DryCreek-2.png?v=1787675919&width=1200" alt="Dry Creek Dry Shampoo Mist" loading="lazy"></div><div class="pcard-name">Dry Creek</div><div class="pcard-sub">Dry Shampoo Mist</div><div class="pcard-price">$39</div></a>
+         <a class="pcard" href="https://ghosttownranch.com/products/rosemary-hair-scalp-strengthening-oil"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/rosemaryminthairoil1.png" alt="Rosemary Mint Revive Hair + Scalp Oil" loading="lazy"></div><div class="pcard-name">Rosemary Mint Revive</div><div class="pcard-sub">Hair + Scalp Oil</div><div class="pcard-price">$53</div></a>
+         <a class="pcard" href="https://ghosttownranch.com/products/keratin-shine-leave-in-hair-mist"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/keratin1.png" alt="Trail's End Keratin Hair Shine" loading="lazy"></div><div class="pcard-name">Trail's End</div><div class="pcard-sub">Keratin Hair Shine</div><div class="pcard-price">$53</div></a>
+-        <a class="pcard" href="https://ghosttownranch.com/products/day-ride-bag"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/DayRide.png?v=1790825041&width=1200" alt="Day Ride padded zipper bag" loading="lazy"></div><div class="pcard-name">Day Ride</div><div class="pcard-sub">Padded Zipper Bag</div><div class="pcard-price">$30</div></a>
++        <a class="pcard" href="https://ghosttownranch.com/products/day-ride-bag"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/DayRide1.png?v=1791293321&width=1200" alt="Day Ride padded zipper bag in black and white" loading="lazy"></div><div class="pcard-name">Day Ride</div><div class="pcard-sub">Padded Zipper Bag, Black + White</div><div class="pcard-price">$30</div></a>
+       </div>
+     </section>
+ 
+diff --git a/wash-house/index.html b/wash-house/index.html
+index f2030e7..08b9cfa 100644
+--- a/wash-house/index.html
++++ b/wash-house/index.html
+@@ -755,23 +755,17 @@
+             <span class="step-view-link">View full product page &rarr;</span>
+       </a>
+ 
+-      <div class="step-card" style="opacity:0.8;">
++      <a href="https://ghosttownranch.com/products/quick-refresh-dry-shampoo-spray-1" class="step-card" style="text-decoration:none;color:inherit;">
+         <div class="step-img-wrap">
+           <img src="https://or-cre.com/cdn/shop/files/DryCreek-2.png?v=1787675919&width=1200" alt="Dry Creek Dry Shampoo Hair Mist" loading="lazy">
+         </div>
+         <span class="step-function">Hair</span>
+         <div class="step-name">Dry Creek<br>Dry Shampoo Hair Mist</div><div class="step-note">Lift between washes.</div>
+-        <span class="step-price">Coming soon</span>
+-        <a class="step-view-link" href="https://ghosttownranch.com/#signup">Join the list →</a>
+-      </div>
++        <span class="step-price">$39</span>
++            <span class="step-view-link">View full product page &rarr;</span>
++      </a>
+ 
+     </div>
+-    <div class="routine-notes fade-up">
+-      <div class="routine-note">
+-        <span class="routine-note-label">On the way</span>
+-        <span class="routine-note-text">Dry Creek dry shampoo is on its way. <a href="https://ghosttownranch.com/#signup" style="color:inherit;text-decoration:underline;">Join the list</a> from any page for first word when it ships.</span>
+-      </div>
+-    </div>
+   </section>
+ 
+   <!-- FOOTER -->
