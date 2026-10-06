@@ -156,28 +156,28 @@
   </url>
   <url>
     <loc>https://ghosttownranch.com/products/sustainable-sink-tray/</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/sinktray_1.png?v=1781999392</image:loc></image:image>
   </url>
   <url>
     <loc>https://ghosttownranch.com/products/gtr-unisex-tee-in-black-or-bone/</loc>
-    <lastmod>2026-07-17</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/newgtrbonet.png?v=1778979877</image:loc></image:image>
   </url>
   <url>
     <loc>https://ghosttownranch.com/products/gtr-unisex-sweatshirt-in-black-french-navy-white/</loc>
-    <lastmod>2026-07-15</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/sweatshirtnavy.png?v=1778950929</image:loc></image:image>
   </url>
   <url>
     <loc>https://ghosttownranch.com/products/gtr-unisex-hoodie-in-black-french-navy-white-copy/</loc>
-    <lastmod>2026-07-17</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/gtrblackhoodie.png?v=1778572385</image:loc></image:image>
@@ -309,6 +309,13 @@
     <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TheKiss.png?v=1785169951</image:loc></image:image>
   </url>
   <url>
+    <loc>https://ghosttownranch.com/products/day-ride-bag/</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DayRide1.png?v=1791293321</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://ghosttownranch.com/products/quick-refresh-dry-shampoo-spray-1/</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -328,5 +335,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/lipbuttermain.png?v=1790026938</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ghosttownranch.com/products/gtr-touch-up-blotting-paper/</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/GTR_Blotting_Papers.png?v=1791292788</image:loc></image:image>
   </url>
 </urlset>
