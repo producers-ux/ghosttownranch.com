@@ -56,6 +56,8 @@
     .w2-title{ font-family:var(--serif); font-weight:400; font-size:clamp(40px,6.5vw,76px); line-height:1.02; margin:14px 0 0; color:var(--parchment); }
     .w2-intro{ font-family:var(--serif); font-size:clamp(16px,1.6vw,22px); font-weight:300; line-height:1.7; color:rgba(244,239,230,0.95); text-shadow:0 1px 14px rgba(24,21,17,0.6); }
     .w2-title, .w2-eyebrow{ text-shadow:0 2px 18px rgba(24,21,17,0.45); }
+    .w2-credit{ position:absolute; right:56px; bottom:18px; font-family:var(--sans); font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(244,239,230,0.6); }
+    @media (max-width:600px){ .w2-credit{ right:24px; bottom:14px; } }
 
     /* pillars */
     .pillars{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(124,130,96,0.22);
@@ -220,15 +222,7 @@
     <div class="w2-hero-right">
       <p class="w2-intro">Not a line sheet. A room. Pop-ups, hospitality programs and collaborations for people who want something different.</p>
     </div>
-  </section>
-
-  <section class="press" style="padding-top:8px;">
-    <div class="lab">As Seen In</div>
-    <div class="press-names">
-      <a href="https://www.latimes.com/lifestyle/list/29-palms-near-joshua-tree-9-great-shops-new-businesses" target="_blank" rel="noopener noreferrer">Los Angeles Times</a>
-      <a href="https://voyagela.com/interview/life-values-legacy-our-chat-with-kate-pawlicki-bourne-of-palm-springs-joshua-tree-highlight/" target="_blank" rel="noopener noreferrer">VoyageLA</a>
-      <a href="https://boldjourney.com/meet-kate-pawlicki-bourne/" target="_blank" rel="noopener noreferrer">Bold Journey</a>
-    </div>
+    <span class="w2-credit">Concept rendering</span>
   </section>
 
   <div class="pillars">
