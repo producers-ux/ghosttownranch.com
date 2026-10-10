@@ -5,7 +5,7 @@
     { href: '/routines/',    label: 'Routines' },
     { href: '/wash-house/',  label: 'Wash House' },
     { href: '/field-guide/', label: 'Wide Light' },
-    { href: '/wholesale/',   label: 'Wholesale' },
+    { href: '/wholesale/',   label: 'Partners' },
   ];
 
   const path = window.location.pathname;
