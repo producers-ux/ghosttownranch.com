@@ -12,13 +12,13 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shop All &mdash; Ghost Town Ranch | The Full Range</title>
+  <title>Shop All | Ghost Town Ranch · The Full Range</title>
   <meta name="description" content="The full Ghost Town Ranch range. Wash House, Routines, Ritual, and goods. Clean formulas made for the wild light of the American West.">
   <link rel="canonical" href="https://ghosttownranch.com/shop/">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ghosttownranch.com/shop/">
-  <meta property="og:title" content="Shop All — Ghost Town Ranch">
+  <meta property="og:title" content="Shop All | Ghost Town Ranch">
   <meta property="og:description" content="The full Ghost Town Ranch range. Wash House, Routines, Ritual, and goods.">
   <meta property="og:image" content="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thebasinset.png">
 
@@ -32,25 +32,26 @@
     body{ background:var(--parchment); color:var(--ink); font-family:var(--sans); font-weight:300; -webkit-font-smoothing:antialiased; }
 
     /* page header */
-    .shop-hero{ padding:160px 48px 40px; text-align:center; }
-    .shop-eyebrow{ font-family:var(--serif); font-size:12px; letter-spacing:0.28em; text-transform:uppercase; color:var(--army); }
-    .shop-title{ font-family:var(--serif); font-weight:400; font-size:clamp(40px,7vw,84px); line-height:1; margin:18px 0 16px; }
-    .shop-intro{ max-width:540px; margin:0 auto; font-size:15px; line-height:1.7; color:#4a463f; }
-    .shop-search{ display:flex; justify-content:center; padding:8px 48px 8px; }
-    .shop-search input{ width:100%; max-width:440px; background:#fff; border:1px solid rgba(124,130,96,0.3);
-      color:var(--ink); font-family:var(--sans); font-size:14px; letter-spacing:0.04em; padding:13px 18px; outline:none; }
+    .shop-hero{ max-width:1500px; margin:0 auto; padding:112px 48px 20px; display:flex; align-items:flex-end; justify-content:space-between; gap:32px; flex-wrap:wrap; }
+    .shop-title{ font-family:var(--serif); font-weight:400; font-size:clamp(34px,4vw,52px); line-height:1; }
+    .shop-intro{ max-width:520px; margin-top:10px; font-size:14px; line-height:1.6; color:#4a463f; }
+    .shop-search{ flex:0 1 340px; }
+    .shop-search input{ width:100%; background:#fff; border:1px solid rgba(124,130,96,0.3);
+      color:var(--ink); font-family:var(--sans); font-size:14px; letter-spacing:0.04em; padding:12px 16px; outline:none; }
     .shop-search input::placeholder{ color:#9a958a; }
-    .shop-results-note{ text-align:center; font-size:13px; color:#6a655c; padding:6px 24px 0; min-height:18px; }
+    .shop-results-note{ max-width:1500px; margin:0 auto; font-size:13px; color:#6a655c; padding:0 48px; }
+    .shop-results-note:empty{ display:none; }
 
     /* sticky chips */
     .chips{ position:sticky; top:74px; z-index:40; display:flex; gap:28px; justify-content:center; flex-wrap:wrap;
-      padding:18px 24px; background:rgba(244,239,230,0.86); backdrop-filter:blur(8px); border-bottom:1px solid rgba(124,130,96,0.18); }
+      padding:14px 24px; background:rgba(244,239,230,0.86); backdrop-filter:blur(8px); border-bottom:1px solid rgba(124,130,96,0.18); }
     .chips a{ font-family:var(--serif); font-size:13px; letter-spacing:0.16em; text-transform:uppercase; text-decoration:none; color:var(--ink); opacity:0.7; transition:opacity .2s; }
     .chips a:hover{ opacity:1; }
 
     /* sections */
-    .shop-sec{ padding:64px 48px 24px; max-width:1500px; margin:0 auto; }
-    .sec-head{ margin-bottom:36px; }
+    .shop-sec{ padding:56px 48px 24px; max-width:1500px; margin:0 auto; }
+    #routines{ padding-top:32px; }
+    .sec-head{ margin-bottom:28px; }
     .sec-title{ font-family:var(--serif); font-weight:400; font-size:clamp(26px,3vw,40px); }
     .sec-note{ font-size:13.5px; color:#6a655c; margin-top:8px; max-width:520px; line-height:1.6; }
 
@@ -80,9 +81,13 @@
 
     @media (max-width:980px){ .pgrid{ grid-template-columns:repeat(3,1fr); gap:40px 24px; } }
     @media (max-width:640px){
-      .shop-hero{ padding:120px 24px 32px; }
-      .chips{ gap:18px; }
-      .shop-sec{ padding:48px 24px 16px; }
+      .shop-hero{ padding:84px 24px 16px; gap:16px; }
+      .shop-search{ flex:1 1 100%; }
+      .shop-results-note{ padding:0 24px; }
+      .chips{ top:60px; gap:18px; padding:12px 16px; }
+      .chips a{ font-size:12px; }
+      .shop-sec{ padding:40px 24px 16px; }
+      #routines{ padding-top:24px; }
       .pgrid{ grid-template-columns:repeat(2,1fr); gap:32px 16px; }
       footer{ padding:40px 24px; }
     }
@@ -139,14 +144,14 @@
   <!-- top nav injected by /nav.js -->
 
   <section class="shop-hero">
-    <div class="shop-eyebrow">Ghost Town Ranch</div>
-    <h1 class="shop-title">Shop All</h1>
-    <p class="shop-intro">Elevated essentials for the modern pioneer. At home anywhere, from the open road to a Paris apartment, a farmhouse in the South of France, a shelf in the Seattle rain. The wide light and open skies travel well.</p>
+    <div>
+      <h1 class="shop-title">Shop All</h1>
+      <p class="shop-intro">Elevated essentials for the modern pioneer. The wide light travels well.</p>
+    </div>
+    <div class="shop-search">
+      <input id="shop-q" type="search" placeholder="Search the range" aria-label="Search products" autocomplete="off">
+    </div>
   </section>
-
-  <div class="shop-search">
-    <input id="shop-q" type="search" placeholder="Search the range" aria-label="Search products" autocomplete="off">
-  </div>
   <div class="shop-results-note" id="shop-results-note"></div>
 
   <nav class="chips" aria-label="Shop categories">
@@ -160,7 +165,7 @@
   <section class="shop-sec" id="routines">
       <div class="sec-head">
         <h2 class="sec-title">Routines</h2>
-        <p class="sec-note">Deep Well — beauty from within — joins the routine this fall. Skin support and adaptogen tonics, made from the same land. <a class="inline-link" href="https://ghosttownranch.com/#signup">Join the waitlist</a> for first word.</p>
+        <p class="sec-note">Deep Well, beauty from within, joins the routine this fall. Skin support and adaptogen tonics, made from the same land. <a class="inline-link" href="https://ghosttownranch.com/#signup">Join the waitlist</a> for first word.</p>
       </div>
       <div class="pgrid">
         <a class="pcard" href="https://ghosttownranch.com/products/rose-cut-daily-facial-wash"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Rosecut1.png" alt="Rose Cut Daily Facial Wash" loading="lazy"></div><div class="pcard-name">Rose Cut</div><div class="pcard-sub">Daily Facial Wash</div><div class="pcard-price">$62</div></a>
@@ -247,7 +252,7 @@
 
   <footer>
     <div class="footer-left">Ghost Town Ranch &nbsp;&middot;&nbsp; Frontier Modernism</div>
-    <div class="footer-right"><a href="/wholesale/">Wholesale &amp; Hospitality</a></div>
+    <div class="footer-right"><a href="/wholesale/">Partners</a></div>
   </footer>
 
   <script>
