@@ -240,6 +240,23 @@
     font-weight: 400; color: var(--warm-black); opacity: 1;
   }
 
+  /* ── WHERE IT BEGAN ── */
+  .began { display:grid; grid-template-columns:1fr 1fr; background:var(--warm-black); border-bottom:1px solid var(--dust); }
+  .began-img { display:flex; align-items:center; justify-content:center; padding:56px 48px; }
+  .began-img img { width:100%; max-width:560px; height:auto; display:block; }
+  .began-text { padding:72px 56px; display:flex; flex-direction:column; justify-content:center; }
+  .began-eyebrow { font-family:var(--sans); font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:rgba(212,201,181,0.7); margin-bottom:22px; }
+  .began-line { font-family:var(--serif); font-weight:300; font-size:clamp(28px,3vw,44px); line-height:1.2; color:var(--parchment); }
+  .began-line em { font-style:italic; color:var(--dust); }
+  .began-caption { font-family:var(--sans); font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(244,239,230,0.5); margin-top:28px; }
+  .began-quote { margin-top:48px; padding-top:32px; border-top:1px solid rgba(212,201,181,0.18); font-family:var(--serif); font-weight:300; font-size:clamp(22px,2.2vw,30px); line-height:1.3; color:rgba(244,239,230,0.85); }
+  .began-quote em { font-style:italic; color:#C8A96E; }
+  @media (max-width:900px) {
+    .began { grid-template-columns:1fr; }
+    .began-img { padding:40px 24px 8px; }
+    .began-text { padding:32px 24px 56px; }
+  }
+
   /* ── PULL QUOTE ── */
   .pull-quote {
     padding: 64px 48px;
@@ -887,10 +904,23 @@
     </h2>
     <div class="entry-text">
       <p>Our story began in the foothills of Joshua Tree National Park, at a restored mid-century home on three acres where the West is still unfinished. The inspiration goes back further, to summers spent traveling the American West with family.</p>
-      <p>Down the hill, Palm Springs took that same wide light and refined it into clean lines and glass. Frontier Modernism sits between the two: the frontier's rawness, the modernist's discipline. Our flagship in Old Town Yucca Valley is where it becomes a room you can walk into.</p>
+      <p>Down the hill, Palm Springs took that same wide light and refined it into clean lines and glass. Frontier Modernism sits between the two: the frontier's rawness, the modernist's discipline.</p>
     </div>
   </div>
 </article>
+
+<!-- ══ WHERE IT BEGAN (from Our Story) ══ -->
+<section class="began">
+  <div class="began-img">
+    <img src="/where-it-began.jpg" alt="Family photographs from summers traveling the American West: a picnic in the pines and kids hauling hay to a horse at a ranch corral" loading="lazy">
+  </div>
+  <div class="began-text">
+    <span class="began-eyebrow">Where it began</span>
+    <p class="began-line">The inspiration was <em>summers across the American West.</em></p>
+    <span class="began-caption">Traveling the American West with family</span>
+    <p class="began-quote">Idea to execution is a <em>hundred</em> small bridges.</p>
+  </div>
+</section>
 
 <!-- ══ ENTRIES 02–04: CONDENSED INLINE ROW ══ -->
 <section class="inline-trio" style="grid-template-columns: 1fr;">
