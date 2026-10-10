@@ -12,14 +12,14 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wholesale &amp; Hospitality &mdash; Ghost Town Ranch | Trade, Refill, Private Label</title>
-  <meta name="description" content="Ghost Town Ranch for trade. Wholesale for design-forward retail, a refill program for hotels and spas, and private-label and co-branding for select partners. COSMOS-certified, woman-owned.">
+  <title>Partner with Ghost Town Ranch | Pop-ups, Collaborations, Hospitality</title>
+  <meta name="description" content="Pop-ups, collaborations and hospitality programs with Ghost Town Ranch. Frontier Modernism: the frontier's rawness, the modernist's discipline. COSMOS-certified, woman-owned.">
   <link rel="canonical" href="https://ghosttownranch.com/wholesale/">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ghosttownranch.com/wholesale/">
-  <meta property="og:title" content="Wholesale & Hospitality — Ghost Town Ranch">
-  <meta property="og:description" content="Wholesale, a hospitality refill program, and private-label co-branding for select partners. From the high desert.">
+  <meta property="og:title" content="Partner with Ghost Town Ranch">
+  <meta property="og:description" content="Not a line sheet. A room. Pop-ups, collaborations and hospitality programs from Ghost Town Ranch. Frontier Modernism.">
   <meta property="og:image" content="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thebasinset.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
@@ -30,6 +30,7 @@
     :root{ --parchment:#F4EFE6; --ink:#1e1c18; --sand:#d9d0bf; --army:#7c8260; --ochre:#9B7A3F; --serif:'PPEiko',Georgia,serif; --sans:'Jost',system-ui,sans-serif; }
     html{scroll-behavior:smooth;}
     body{ background:var(--parchment); color:var(--ink); font-family:var(--sans); font-weight:300; -webkit-font-smoothing:antialiased; line-height:1.6; }
+    em{ font-style:italic; font-weight:300; }
 
     /* hero */
     .w2-hero{
@@ -48,26 +49,28 @@
       background-position:center, center 15%;
       background-size:cover, cover;
     }
-    .w2-hero-left{ text-align:left; max-width:640px; }
-    .w2-hero-right{ text-align:right; max-width:520px; flex-shrink:0; }
+    .w2-hero-left{ text-align:left; max-width:680px; }
+    .w2-hero-right{ text-align:right; max-width:480px; flex-shrink:0; }
     .w2-eyebrow{ font-family:var(--serif); font-size:12px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(244,239,230,0.85); }
     .w2-title{ font-family:var(--serif); font-weight:400; font-size:clamp(40px,6.5vw,76px); line-height:1.02; margin:14px 0 0; color:var(--parchment); }
     .w2-intro{ font-family:var(--serif); font-size:clamp(16px,1.6vw,22px); font-weight:300; line-height:1.7; color:rgba(244,239,230,0.9); }
 
-    /* story */
-    .w2-story{ max-width:760px; margin:0 auto; padding:32px 48px 64px; text-align:center; }
-    .w2-story .lab{ font-family:var(--serif); font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--army); margin-bottom:16px; }
-    .w2-story p{ font-size:16px; line-height:1.8; color:#3a372f; }
-
     /* pillars */
     .pillars{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(124,130,96,0.22);
       border-top:1px solid rgba(124,130,96,0.22); border-bottom:1px solid rgba(124,130,96,0.22); }
-    .pillar{ background:var(--parchment); padding:54px 40px; }
+    .pillar{ background:var(--parchment); padding:54px 40px; display:flex; flex-direction:column; }
     .pillar-num{ font-family:var(--sans); font-size:12px; letter-spacing:0.2em; color:var(--army); }
+    .pillar-num span{ margin-left:10px; text-transform:uppercase; letter-spacing:0.22em; }
     .pillar h3{ font-family:var(--serif); font-weight:400; font-size:26px; margin:14px 0 14px; }
     .pillar p{ font-size:14.5px; line-height:1.75; color:#4a463f; }
-    .pillar a{ display:inline-block; margin-top:18px; font-family:var(--serif); font-size:12.5px; letter-spacing:0.12em;
-      text-transform:uppercase; color:var(--ink); text-decoration:none; border-bottom:1px solid var(--ochre); padding-bottom:3px; }
+    .pillar .note{ margin-top:16px; font-size:13.5px; line-height:1.65; color:#5a564c; }
+    .pillar .note strong{ color:var(--ink); font-weight:400; }
+    .lengths{ list-style:none; margin-top:20px; border-top:1px solid rgba(124,130,96,0.22); }
+    .lengths li{ display:flex; justify-content:space-between; gap:16px; padding:10px 0; border-bottom:1px solid rgba(124,130,96,0.22); font-size:13.5px; color:#4a463f; }
+    .lengths li b{ font-family:var(--serif); font-weight:400; color:var(--ink); white-space:nowrap; }
+    .pillar a{ align-self:flex-start; display:inline-block; margin-top:auto; padding-top:22px; font-family:var(--serif); font-size:12.5px; letter-spacing:0.12em;
+      text-transform:uppercase; color:var(--ink); text-decoration:none; }
+    .pillar a .u{ border-bottom:1px solid var(--ochre); padding-bottom:3px; }
 
     /* proof row */
     .proof{ display:flex; flex-wrap:wrap; justify-content:center; gap:14px 40px; padding:56px 48px; text-align:center; }
@@ -75,12 +78,13 @@
     .proof span::before{ content:"·"; margin-right:40px; color:var(--army); }
     .proof span:first-child::before{ content:""; margin:0; }
 
-    /* partners */
-    .partners-wrap{ padding:24px 48px 64px; max-width:1200px; margin:0 auto; }
-    .partners-head{ font-family:var(--serif); font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--army); margin-bottom:28px; }
-    .partners{ display:flex; flex-wrap:wrap; gap:72px; }
-    .partner h4{ font-family:var(--serif); font-weight:400; font-size:19px; margin-bottom:8px; }
-    .partner p{ font-size:13px; line-height:1.6; color:#5a564c; }
+    /* retail, one quiet line */
+    .retail{ max-width:760px; margin:0 auto; padding:8px 48px 72px; text-align:center; }
+    .retail .lab{ font-family:var(--serif); font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--army); margin-bottom:14px; }
+    .retail p{ font-size:15px; line-height:1.8; color:#3a372f; }
+    .retail .links{ margin-top:18px; display:flex; gap:12px 28px; justify-content:center; flex-wrap:wrap; font-family:var(--serif); font-size:12.5px; letter-spacing:0.12em; text-transform:uppercase; }
+    .retail .links a{ border-bottom:1px solid var(--ochre); padding-bottom:3px; }
+    .retail .links .quiet{ opacity:0.6; }
 
     /* inquiry */
     .inquiry{ background:var(--ink); color:var(--parchment); padding:80px 48px; text-align:center; }
@@ -109,7 +113,6 @@
     a:link, a:visited { color: inherit; }
 
     /* ── Search / cart icons injected by gtr-controls.js + cart.js ── */
-    /* These render as SVG buttons or <a> tags inside the nav */
     #gtr-shared-nav a,
     #gtr-shared-nav button,
     #gtr-shared-nav svg,
@@ -122,14 +125,12 @@
       stroke: #F4EFE6 !important;
       fill: none;
     }
-    /* Cart count badge if present */
     #gtr-shared-nav .cart-count,
     #gtr-shared-nav [class*="cart"],
     #gtr-shared-nav [class*="search"] {
       color: #F4EFE6 !important;
       border-color: rgba(244,239,230,0.5) !important;
     }
-    /* Any injected icon that falls outside the nav (gtr-controls corner widget) */
     [class*="gtr-search"],
     [class*="gtr-cart"],
     [id*="gtr-search"],
@@ -147,18 +148,17 @@
 
     @media (max-width:900px){
       .pillars{ grid-template-columns:1fr; }
-      .partners{ gap:40px; }
     }
     @media (max-width:600px){
       .w2-hero{ padding:120px 24px 40px; min-height:auto; flex-direction:column; align-items:flex-start; gap:24px; }
       .w2-hero-right{ text-align:left; max-width:100%; }
-      .w2-story,.partners-wrap,.proof,.press{ padding-left:24px; padding-right:24px; }
+      .retail,.proof,.press{ padding-left:24px; padding-right:24px; }
       .pillar{ padding:44px 28px; }
       .inquiry{ padding:60px 24px; }
       .proof span::before{ display:none; }
       footer{ padding:40px 24px; }
     }
-  
+
     /* ── TOP NAV (injected by /nav.js) ── */
     #gtr-shared-nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -212,11 +212,11 @@
 
   <section class="w2-hero">
     <div class="w2-hero-left">
-      <div class="w2-eyebrow">Ghost Town Ranch</div>
-      <h1 class="w2-title">Wholesale + Hospitality</h1>
+      <div class="w2-eyebrow">Partner with Ghost Town Ranch</div>
+      <h1 class="w2-title">Frontier Modernism, <em>on location.</em></h1>
     </div>
     <div class="w2-hero-right">
-      <p class="w2-intro">Trade pricing, private label, and refill programs for hotels, spas, and specialty retail. COSMOS-certified formulas, ready for your shelves.</p>
+      <p class="w2-intro">Not a line sheet. A room. Pop-ups, hospitality programs and collaborations for people who want something different.</p>
     </div>
   </section>
 
@@ -231,24 +231,28 @@
 
   <div class="pillars">
     <div class="pillar">
-      <div class="pillar-num">01</div>
-      <h3>Wholesale</h3>
-      <p>The full range for design-forward retail and specialty stores. COSMOS-certified by ECOCERT, made in small runs, and shelf-ready. Debuting at Shoppe Object Nourish in New York, August 2026. Request the line sheet, minimums, and terms.</p>
-      <a href="mailto:wholesale@ghosttownranch.com?subject=Wholesale%20Inquiry">Request the line sheet &rarr;</a>
-      <a href="/wholesale/catalog/" style="margin-top:10px;">View the catalog &rarr;</a>
+      <div class="pillar-num">01<span>Rooms</span></div>
+      <h3>Pop-ups and takeovers</h3>
+      <p>A day, a few weeks or a full season. Bring Ghost Town Ranch into your lobby, your floor or your event, or come to ours. Our flagship in Old Town Yucca Valley has room for a select few brands and artists.</p>
+      <ul class="lengths">
+        <li><b>One day</b><span>A launch, a dinner, a sink takeover</span></li>
+        <li><b>One to four weeks</b><span>A pop-up</span></li>
+        <li><b>Three to six months</b><span>A residency</span></li>
+      </ul>
+      <a href="mailto:wholesale@ghosttownranch.com?subject=Pop-up%20or%20Takeover"><span class="u">Ask about a pop-up &rarr;</span></a>
     </div>
     <div class="pillar">
-      <div class="pillar-num">02</div>
+      <div class="pillar-num">02<span>Programs</span></div>
       <h3>Hospitality</h3>
-      <p>The Wash House runs on a refill system made for hotels, spas, and short-term rentals. The Basin hand wash and body care in amenity and refill formats, in your choice of our six scents. Less waste, a fuller shelf life, a guest experience that reads as care.</p>
-      <p style="margin-top:16px; font-size:13.5px; line-height:1.65; color:#5a564c;">GTR is already in service at spa properties, built to run as a program: treatment-room facials, amenity refills, and retail on the same shelf.<br><br><strong style="color:var(--ink); font-weight:400;">Miracle Manor Boutique Hotel &amp; Spa</strong><br>Desert Hot Springs, CA<br>Current spa partner &middot; GTR facials on the treatment menu</p>
-      <a href="mailto:wholesale@ghosttownranch.com?subject=Hospitality%20Inquiry">Talk hospitality &rarr;</a>
+      <p>The Wash House runs on refill. Hand wash and body care in amenity and refill formats, in any of our six scents. Facials on the treatment menu. Retail on the same shelf.</p>
+      <p class="note"><strong>Miracle Manor Boutique Hotel &amp; Spa</strong><br>Desert Hot Springs, CA<br>In service now &middot; GTR facials on the spa menu</p>
+      <a href="mailto:wholesale@ghosttownranch.com?subject=Hospitality%20Program"><span class="u">Talk hospitality &rarr;</span></a>
     </div>
     <div class="pillar">
-      <div class="pillar-num">03</div>
-      <h3>Private Label &amp; Co-Branding</h3>
-      <p>For select partners, we make custom labels and co-branded products. Your property, our scents and our makers, a way to put the high desert on your shelf under your own name. A limited number of partnerships each season.</p>
-      <a href="mailto:wholesale@ghosttownranch.com?subject=Private%20Label%20%26%20Co-Branding%20Inquiry">Explore a partnership &rarr;</a>
+      <div class="pillar-num">03<span>Collaborations</span></div>
+      <h3>Co-branded and private label</h3>
+      <p>Your name, our scents, our makers. We have put co-branded product at the sinks of a New York event space during Fashion Week. We can do a capsule for your property, your store or your launch. A few each season.</p>
+      <a href="mailto:wholesale@ghosttownranch.com?subject=Collaboration"><span class="u">Start a collaboration &rarr;</span></a>
     </div>
   </div>
 
@@ -260,26 +264,22 @@
     <span>Shoppe Object Nourish 2026</span>
   </div>
 
-  <div class="partners-wrap">
-    <div class="partners-head">Where to find us</div>
-    <div class="partners">
-      <div class="partner">
-        <h4>Shoppe Object</h4>
-        <p>Online, July 2026<br>Nourish, New York City<br>August 2&ndash;4</p>
-      </div>
-      <div class="partner">
-        <h4>GTR Showroom</h4>
-        <p>Palm Springs, CA<br>Coming soon</p>
-      </div>
+  <section class="retail">
+    <div class="lab">Carrying the line</div>
+    <p>We keep retail to a handful of stores. If you think yours is one of them, write us and tell us why.</p>
+    <div class="links">
+      <a href="mailto:wholesale@ghosttownranch.com?subject=Retail">Write us &rarr;</a>
+      <a class="quiet" href="/wholesale/catalog/">Existing accounts: catalog and order sheet &rarr;</a>
     </div>
-  </div>
+  </section>
 
   <section class="inquiry">
-    <h2>Start a conversation</h2>
-    <p>Tell us your property or store, your timeline, and what you are after. We will send the line sheet, minimums, and terms, and point you to the right program.</p>
+    <h2>Tell us what you have in mind</h2>
+    <p>The space, the season and the idea. A sentence is plenty. We read everything and we write back.</p>
     <div class="inq-btns">
-      <a href="mailto:wholesale@ghosttownranch.com?subject=Wholesale%20Inquiry">Wholesale inquiry</a>
-      <a href="mailto:wholesale@ghosttownranch.com?subject=Hospitality%20%26%20Private%20Label%20Inquiry">Hospitality &amp; private label</a>
+      <a href="mailto:wholesale@ghosttownranch.com?subject=Pop-up%20or%20Takeover">Pop-ups</a>
+      <a href="mailto:wholesale@ghosttownranch.com?subject=Hospitality%20Program">Hospitality</a>
+      <a href="mailto:wholesale@ghosttownranch.com?subject=Collaboration">Collaborations</a>
     </div>
     <p class="inq-email"><a href="mailto:wholesale@ghosttownranch.com">wholesale@ghosttownranch.com</a></p>
   </section>
