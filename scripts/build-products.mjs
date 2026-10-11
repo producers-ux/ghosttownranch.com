@@ -120,7 +120,7 @@ function render(p) {
   );
   // Raw-HTML snapshot for crawlers that don't run JS. Hidden for people; same facts the live page shows.
   const snapshot = `<div hidden data-seo-snapshot><p><strong>${esc(clean(p.title))}</strong> — ${esc(cur === 'USD' ? '$' : cur + ' ')}${low.toFixed(2)}${prices.length > 1 && low !== high ? ' and up' : ''} · ${inStock ? 'In stock' : 'Currently unavailable'}</p><p>${esc(clean(p.description))}</p><p><a href="${SITE}/shop/">Shop all Ghost Town Ranch</a></p></div>`;
-  h = swap(h, /<body[^>]*>/, (m) => m, 'body');
+  if (!/<body[^>]*>/.test(h)) throw new Error('Template placeholder not found: body');
   h = h.replace(/<body[^>]*>/, (m) => `${m}\n${snapshot}`);
   return h;
 }

@@ -417,6 +417,12 @@
       cursor: wait;
     }
 
+    .buy-assure {
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      font-size: 12px; letter-spacing: 0.05em; color: var(--dust);
+      margin: -4px 0 18px; text-align: center;
+    }
+    .buy-assure a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
     .coming-soon-note {
       font-size: 12px;
       color: var(--dust);
@@ -861,7 +867,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Day Ride, Padded Zipper Bag","description":"A padded zipper bag for the long day. Lip tint, dry shampoo, a bottle of scent. Soft padding keeps the things you carry from getting knocked around. Nothing precious about it. Soft padded design protects your beauty essentials Lightweight and durable, for everyday use or travel Secure zipper closure keeps everything where you put it Compact enough to ride in a handbag, tote, saddlebag, or suitcase DetailsNet Wt. 4.7 oz / 132 g","url":"https://ghosttownranch.com/products/day-ride-bag/","brand":{"@type":"Brand","name":"Ghost Town Ranch"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"30.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/day-ride-bag/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DayRide1.png?v=1791293321","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DayRide.png?v=1790825041","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Dayridewhite.png?v=1791293631"],"sku":"DAYRIDECH","category":"Travel"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ghost Town Ranch","item":"https://ghosttownranch.com/"},{"@type":"ListItem","position":2,"name":"Shop","item":"https://ghosttownranch.com/shop/"},{"@type":"ListItem","position":3,"name":"Day Ride, Padded Zipper Bag","item":"https://ghosttownranch.com/products/day-ride-bag/"}]}</script>
 </head>
-(m) => m
+<body>
 
 <!-- ── NAV ── -->
 <nav>
@@ -937,7 +943,12 @@
         <!-- ATC -->
         <button class="atc-btn" id="atc-btn">Add to Cart</button>
         <div class="coming-soon-note" id="coming-soon-note" style="display:none">
-          Available at Shoppe Object Nourish · August 2026 · Javits Center
+          Coming soon. <a href="/#signup" style="color:inherit;text-decoration:underline;">Join the list</a> for first word.
+        </div>
+
+        <div class="buy-assure" id="buy-assure">
+          <div>10% off your first order, <a href="/#signup">get your code</a></div>
+          <div>Ships from the USA &middot; Secure checkout</div>
         </div>
 
         <!-- Lip + Eye cross-sell -->
@@ -967,9 +978,35 @@
   </div>
 </main>
 
+<script>
+/* Show name, price and photo instantly from the page's product data,
+   before the live Shopify data loads and takes over. */
+(function () {
+  try {
+    var blocks = document.querySelectorAll('script[type="application/ld+json"]'), p = null;
+    for (var i = 0; i < blocks.length; i++) {
+      var d = JSON.parse(blocks[i].textContent);
+      if (d && d['@type'] === 'Product') { p = d; break; }
+    }
+    if (!p) return;
+    var t = document.getElementById('product-title');
+    if (t && !t.textContent) t.textContent = p.name || '';
+    var o = Array.isArray(p.offers) ? p.offers[0] : p.offers, price = o && (o.price || o.lowPrice);
+    var pr = document.getElementById('product-price');
+    if (pr && !pr.textContent && price) { var n = parseFloat(price); pr.textContent = '$' + (n % 1 === 0 ? n.toFixed(0) : n.toFixed(2)); }
+    var img = document.getElementById('main-image'), src = Array.isArray(p.image) ? p.image[0] : p.image;
+    if (img && !img.getAttribute('src') && src) { img.src = src; img.alt = p.name || ''; }
+    var bc = document.getElementById('bc-title');
+    if (bc && !bc.textContent) bc.textContent = p.name || '';
+    var ld = document.getElementById('loading'), pg = document.getElementById('product-page');
+    if (ld && pg && t && t.textContent) { ld.style.display = 'none'; pg.style.display = 'block'; window.__gtrPrefilled = true; }
+  } catch (e) {}
+})();
+</script>
+
 <!-- Related -->
 <div class="related-section" id="related-section" style="display:none">
-  <div class="related-label">More from the Ranch</div>
+  <div class="related-label">Pairs well with</div>
   <div class="related-grid" id="related-grid"></div>
 </div>
 
@@ -1439,6 +1476,7 @@ function renderProduct(product) {
     atcBtn.disabled = true;
     atcBtn.textContent = 'Coming Soon';
     comingSoonNote.style.display = 'block';
+    var ba = document.getElementById('buy-assure'); if (ba) ba.style.display = 'none';
   } else {
     if (PREORDER_HANDLES.includes(handle)) {
       atcBtn.textContent = 'Pre-Order';
@@ -1498,7 +1536,7 @@ function renderProduct(product) {
   document.getElementById('loading').style.display = 'none';
   const page = document.getElementById('product-page');
   page.style.display = 'block';
-  page.style.opacity = 0;
+  if (!window.__gtrPrefilled) page.style.opacity = 0;
   requestAnimationFrame(() => {
     page.style.transition = 'opacity 0.4s';
     page.style.opacity = 1;
@@ -1797,5 +1835,50 @@ init();
 })();
 </script>
 <script src="/gtr-controls.js" defer></script>
+<script>
+/* Product films: playable thumbnails in the gallery, by product handle. */
+(function () {
+  var FILMS = {
+    'omega-6-9-glowing-skin-body-oil': [{ v: '/media/goldenhour.mp4', p: '/media/goldenhour.jpg', l: 'Golden Hour body oil, in the truck and in the studio' }],
+    'peptide-anti-aging-serum': [{ v: '/media/grade.mp4', p: '/media/grade.jpg', l: 'The Grade peptide serum, from bottle to drawing' }],
+    'rose-cut-daily-facial-wash': [{ v: '/media/rosecut.mp4', p: '/media/rosecut.jpg', l: 'Rose Cut facial wash at the sink' }]
+  };
+  var m = location.pathname.match(/\/products\/([^\/]+)/), h = m ? m[1] : new URLSearchParams(location.search).get('handle');
+  var films = h && FILMS[h];
+  if (!films) return;
+  function setup() {
+    var main = document.getElementById('main-image'), thumbs = document.getElementById('thumbs');
+    if (!main || !thumbs || document.getElementById('gtr-film')) return;
+    var vid = document.createElement('video');
+    vid.id = 'gtr-film'; vid.className = 'product-image-main';
+    vid.muted = true; vid.loop = true; vid.playsInline = true; vid.setAttribute('playsinline', '');
+    vid.style.display = 'none';
+    main.parentNode.insertBefore(vid, main.nextSibling);
+    if (!thumbs.children.length && main.src) {
+      thumbs.innerHTML = '<img class="thumb active" src="' + main.src + '" data-src="' + main.src + '" alt="">';
+      thumbs.querySelector('.thumb').addEventListener('click', function () { main.src = this.dataset.src; });
+    }
+    films.forEach(function (f) {
+      var t = document.createElement('button');
+      t.type = 'button'; t.className = 'thumb gtr-film-thumb'; t.setAttribute('aria-label', 'Play film: ' + f.l);
+      t.style.cssText = 'padding:0;background:#141414 url(' + f.p + ') center/cover no-repeat;position:relative;';
+      t.innerHTML = '<span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;text-shadow:0 1px 6px rgba(0,0,0,.6);">&#9654;</span>';
+      t.addEventListener('click', function () {
+        vid.src = f.v; vid.poster = f.p; vid.setAttribute('aria-label', f.l);
+        main.style.display = 'none'; vid.style.display = 'block'; vid.play();
+        thumbs.querySelectorAll('.thumb').forEach(function (x) { x.classList.remove('active'); }); t.classList.add('active');
+      });
+      thumbs.appendChild(t);
+    });
+    thumbs.addEventListener('click', function (e) {
+      if (!e.target.closest('.gtr-film-thumb')) { vid.pause(); vid.style.display = 'none'; main.style.display = 'block'; }
+    }, true);
+  }
+  var tries = 0, iv = setInterval(function () {
+    var thumbs = document.getElementById('thumbs');
+    if ((thumbs && thumbs.children.length) || ++tries > 40) { clearInterval(iv); setup(); }
+  }, 250);
+})();
+</script>
 </body>
 </html>
