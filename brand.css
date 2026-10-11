@@ -107,3 +107,7 @@ nav:has(> .nav-logo) .nav-links a {
   font-size: 12px !important; font-weight: 300 !important;
   letter-spacing: 0.2em !important; text-transform: uppercase !important;
 }
+@media (max-width: 900px) { nav:has(> .nav-logo) .nav-links.open a { color: #F6F6F3 !important; } }
+/* Keep the logo and the close (X) button above the open phone menu */
+nav:has(> .nav-logo) > .nav-logo, nav:has(> .nav-logo) .nav-hamburger { position: relative; z-index: 102; }
+@media (max-width: 900px) { nav:has(> .nav-logo) .nav-links.open { z-index: 101; } }
