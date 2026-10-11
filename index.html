@@ -167,7 +167,7 @@
 
   /* ══ 1. HERO — full viewport, almost no text ══ */
   .hero {
-    height: 100vh; min-height: 640px;
+    height: 80vh; min-height: 560px;
     position: relative; overflow: hidden;
     display: flex; align-items: flex-end;
     padding: 0 48px 64px;
@@ -410,7 +410,7 @@
   .objects-all:hover { opacity: 1; }
   .objects-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 28px;
   }
   .obj {
@@ -441,8 +441,8 @@
   @media (max-width: 768px) {
     .objects { padding: 64px 24px; }
     .objects-header { flex-direction: column; gap: 14px; }
-    .objects-grid { grid-template-columns: 1fr; gap: 20px; }
-    .obj-img { aspect-ratio: 4/3; }
+    .objects-grid { grid-template-columns: repeat(2, 1fr); gap: 20px 14px; }
+    .obj-img { aspect-ratio: 1/1; }
   }
 
   /* ══ 5b. ASSURANCE BAR — risk reversal under the product grid ══ */
@@ -759,18 +759,57 @@
       <span class="hero-aside-line">Frontier Modernism</span>
       <span class="hero-aside-line">Ritual · Skincare · Home</span>
       <span class="hero-aside-line">COSMOS Certified · Born in the high desert</span>
-      <a href="#ritual" class="hero-cta">The Ritual →</a>
+      <a href="https://ghosttownranch.com/shop/" class="hero-cta">Shop the line →</a>
     </div>
   </div>
 </section>
 
-<!-- ══ STATEMENT ══ -->
-<section class="statement">
-  <span class="statement-left">Frontier Modernism</span>
-  <p class="statement-right">
-    A lifestyle brand rooted in the American West, the land, and its rituals.<br>
-    <em>The grit of the pioneer West. The discipline of desert modernism.</em>
-  </p>
+<!-- ══ BESTSELLERS ══ -->
+<section id="objects" class="objects">
+  <div class="objects-header">
+    <span class="objects-label">Bestsellers</span>
+    <a href="https://ghosttownranch.com/shop/" class="objects-all">Shop all →</a>
+  </div>
+  <div class="objects-grid">
+    <a class="obj" href="https://ghosttownranch.com/products/the-basin-hand-wash-body-cream-set-of-two-choose-your-scent">
+      <div class="obj-img">
+        <img src="https://or-cre.com/cdn/shop/files/TheBasin_1.png?v=1782571443&width=800" alt="The Basin hand wash and body cream set" loading="lazy">
+      </div>
+      <p class="obj-cat">Wash House</p>
+      <h3 class="obj-name">The Basin</h3>
+      <p class="obj-price">$89 · Hand Wash + Body Cream</p>
+    </a>
+    <a class="obj" href="https://ghosttownranch.com/products/ranch-water-body-room-fragrance">
+      <div class="obj-img">
+        <img src="https://or-cre.com/cdn/shop/files/RanchWater_Flax-bx.png?v=1783624841&width=800" alt="Ranch Water body and room fragrance" loading="lazy">
+      </div>
+      <p class="obj-cat">The Ritual</p>
+      <h3 class="obj-name">Ranch Water</h3>
+      <p class="obj-price">$88 · Six scents</p>
+    </a>
+    <a class="obj" href="https://ghosttownranch.com/products/outlaws-reserve-2-in-1-hair-skin-rinse">
+      <div class="obj-img">
+        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawsreserve1.png" alt="Outlaw's Reserve 2-in-1 hair and body wash" loading="lazy">
+      </div>
+      <p class="obj-cat">Wash House</p>
+      <h3 class="obj-name">Outlaw's Reserve</h3>
+      <p class="obj-price">$55 · 2-in-1 Hair + Body</p>
+    </a>
+    <a class="obj" href="https://ghosttownranch.com/products/sunbroke-the-wash-cold-pressed-grapefruit">
+      <div class="obj-img">
+        <img src="https://or-cre.com/cdn/shop/files/thewashimage_7509c88e-32dc-4309-8da5-635175c5ab86.png?v=1776859541&width=800" alt="The Wash hydrating hand wash" loading="lazy">
+      </div>
+      <p class="obj-cat">Wash House</p>
+      <h3 class="obj-name">The Wash</h3>
+      <p class="obj-price">$44 · Three scents</p>
+    </a>
+  </div>
+  <div class="assurance-bar">
+    <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">Free shipping on your first order</span></div>
+    <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">COSMOS Certified · ECOCERT</span></div>
+    <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">Hassle-free returns on damaged items</span></div>
+    <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">Secure checkout</span></div>
+  </div>
 </section>
 
 <!-- ══ PILLARS ══ -->
@@ -807,117 +846,6 @@
   </a>
 </section>
 
-<!-- ══ SCENTS ══ -->
-<section class="scents">
-  <div class="scents-copy">
-    <p class="scents-label">The Six Scents</p>
-    <h2 class="scents-headline">One landscape.<br><em>Six ways in.</em></h2>
-    <p class="scents-sub" style="margin-top:14px;font-size:1.05rem;letter-spacing:0.02em;color:var(--ink);opacity:0.78;">One scent. Skin, linen, air.</p>
-    <a href="https://ghosttownranch.com/ritual/" class="scents-link">Scent guide →</a>
-  </div>
-  <div class="scent-list">
-    <div class="scent-row">
-      <div class="scent-swatch" style="background:#c4b89a;"></div>
-      <span class="scent-name">Rough Hewn</span>
-      <span class="scent-note">Cade · Cedarwood</span>
-    </div>
-    <div class="scent-row">
-      <div class="scent-swatch" style="background:#d4cbb5;"></div>
-      <span class="scent-name">Hang Dried</span>
-      <span class="scent-note">White Sage · Lavender</span>
-    </div>
-    <div class="scent-row">
-      <div class="scent-swatch" style="background:#8b6a4a;"></div>
-      <span class="scent-name">Ember</span>
-      <span class="scent-note">Charcoal · Amber</span>
-    </div>
-    <div class="scent-row">
-      <div class="scent-swatch" style="background:#7a8c5a;"></div>
-      <span class="scent-name">Graze</span>
-      <span class="scent-note">Sweetgrass · Sage</span>
-    </div>
-    <div class="scent-row">
-      <div class="scent-swatch" style="background:#c8c4a0;"></div>
-      <span class="scent-name">Flax</span>
-      <span class="scent-note">Cotton Blossom · Citron</span>
-    </div>
-    <div class="scent-row">
-      <div class="scent-swatch" style="background:#5a6070;"></div>
-      <span class="scent-name">Dusk</span>
-      <span class="scent-note">Palo Santo · Amber</span>
-    </div>
-  </div>
-</section>
-
-<!-- ══ SELECTED OBJECTS ══ -->
-<section id="objects" class="objects">
-  <div class="objects-header">
-    <span class="objects-label">From the Ranch</span>
-    <a href="https://ghosttownranch.com/shop/" class="objects-all">Shop the Ranch →</a>
-  </div>
-  <div class="objects-grid">
-    <a class="obj" href="https://ghosttownranch.com/products/the-face-bundle">
-      <div class="obj-img">
-        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/makeup_cu_01_76625f25-6ae8-4755-afc2-e7335b6c86e8.png?v=1782762989" alt="The Face Bundle — Ghost Town Ranch makeup as skincare" loading="lazy">
-      </div>
-      <p class="obj-cat">THE FACE</p>
-      <h3 class="obj-name">The Face Bundle</h3>
-      <p class="obj-price">$186 · 4 Steps</p>
-    </a>
-    <a class="obj" href="https://ghosttownranch.com/products/sunbroke-the-wash-cold-pressed-grapefruit">
-      <div class="obj-img">
-        <img src="https://or-cre.com/cdn/shop/files/thewashimage_7509c88e-32dc-4309-8da5-635175c5ab86.png?v=1776859541&width=800" alt="The Wash hand and body wash — Ghost Town Ranch, COSMOS-certified" loading="lazy">
-      </div>
-      <p class="obj-cat">Wash House</p>
-      <h3 class="obj-name">The Wash</h3>
-      <p class="obj-price">$44 · Three scents</p>
-    </a>
-    <a class="obj" href="https://ghosttownranch.com/products/ranch-water-body-room-fragrance">
-      <div class="obj-img">
-        <img src="https://or-cre.com/cdn/shop/files/RanchWater_Flax-bx.png?v=1783624841&width=800" alt="Ranch Water body and room fragrance — Ghost Town Ranch, born in the high desert" loading="lazy">
-      </div>
-      <p class="obj-cat">The Ritual</p>
-      <h3 class="obj-name">Ranch Water</h3>
-      <p class="obj-price">$88 · Six scents</p>
-    </a>
-  </div>
-  <div class="assurance-bar">
-    <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">Hassle-free returns on damaged items</span></div>
-    <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">Secure checkout</span></div>
-  </div>
-</section>
-
-
-<!-- ══ FIELD GUIDE TEASER ══ -->
-<section class="field-guide-section">
-  <div class="fg-header">
-    <div class="fg-header-left">
-      <span class="fg-issue">Pocket Guide &nbsp;·&nbsp; Frontier Modernism &nbsp;·&nbsp; No. 01</span>
-    </div>
-    <div class="fg-header-right">
-      <span class="fg-issue">Wide Light</span>
-    </div>
-  </div>
-  <div class="fg-body">
-    <div class="fg-drawing-col">
-      <img
-        src="/thewash_fieldguide_01.png"
-        alt="The Wash · Pocket Guide illustration, Frontier Modernism No. 01"
-        class="fg-drawing"
-        loading="lazy"
-      >
-    </div>
-    <div class="fg-text-col">
-      <div class="fg-dispatch-label">Wide Light</div>
-      <h2 class="fg-dispatch-headline">
-        The ritual first.<br><em>Everything else follows.</em>
-      </h2>
-      <p class="fg-dispatch-body">The wide open has its own rhythm. Wide Light is where GTR thinks out loud — about scent, landscape, and what the ritual is actually for.</p>
-      <a href="https://ghosttownranch.com/field-guide/" class="fg-enter-link">Enter Wide Light &nbsp;&rarr;</a>
-    </div>
-  </div>
-</section>
-
 <!-- ══ CERT STRIP ══ -->
 <div class="cert-strip">
   <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">COSMOS Certified · ECOCERT</span></div>
@@ -932,7 +860,6 @@
   <div class="press-strip-label">As Seen In</div>
   <div class="press-links">
     <a href="https://www.latimes.com/lifestyle/list/29-palms-near-joshua-tree-9-great-shops-new-businesses" target="_blank" rel="noopener noreferrer">Los Angeles Times</a>
-    <a href="#">Dwell</a>
     <a href="https://voyagela.com/interview/life-values-legacy-our-chat-with-kate-pawlicki-bourne-of-palm-springs-joshua-tree-highlight/" target="_blank" rel="noopener noreferrer">VoyageLA</a>
     <a href="https://boldjourney.com/meet-kate-pawlicki-bourne/" target="_blank" rel="noopener noreferrer">Bold Journey</a>
   </div>
@@ -940,9 +867,9 @@
 
 <!-- ══ SIGNUP ══ -->
 <section class="signup" id="signup">
-  <span class="signup-eyebrow">Join the Ranch</span>
-  <h2 class="signup-headline">From the ranch. In your inbox.</h2>
-  <p class="signup-subtext">First word on new releases, coming soon drops, and Ranch happenings. Before anyone else.</p>
+  <span class="signup-eyebrow">Join the Ranch · Free shipping on your first order</span>
+  <h2 class="signup-headline">Your first order ships free.</h2>
+  <p class="signup-subtext">Join the list for your free shipping code, plus first word on new releases and Ranch happenings.</p>
   <form class="signup-form" id="signup-form" novalidate>
     <input type="email" name="email" class="signup-input" placeholder="Your email" aria-label="Email address" autocomplete="email" required>
     <button type="submit" class="signup-btn">Join →</button>
@@ -952,7 +879,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-left">© 2025 Ghost Town Ranch</div>
+  <div class="footer-left">© 2026 Ghost Town Ranch</div>
   <div class="footer-right">
     <a href="https://instagram.com/ghosttownranch" target="_blank" rel="noopener">Instagram</a>
     <a href="https://ghosttownranch.com/wholesale/">Partners</a>
@@ -990,8 +917,8 @@
   });
   // Newsletter signup: straight to Klaviyo "Email List" (double opt-in)
   document.addEventListener('DOMContentLoaded', function() {
-    var KLAVIYO_KEY = 'UkQyvw';   // public site key, safe in the browser
-    var LIST_ID = 'U4VMiP';       // Email List
+    var KLAVIYO_KEY = 'UTbZ3B';   // public site key, safe in the browser
+    var LIST_ID = 'RAAZef';       // Email List (Ghost Town Ranch account)
     var form = document.getElementById('signup-form');
     var note = document.getElementById('signup-note');
     if (!form || !note) return;
@@ -1020,7 +947,7 @@
         } })
       }).then(function(response) {
         if (response.ok) {
-          show("You're in. Check your inbox to confirm.", false);
+          show("You're in. Use code RANCHSHIP at checkout for free shipping on your first order.", false);
           form.reset();
         } else {
           response.text().then(function(body) { console.error('Klaviyo signup error', response.status, body); });
