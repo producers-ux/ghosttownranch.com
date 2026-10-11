@@ -253,7 +253,7 @@
 
     /* ── ROUTINE SECTION ── */
     .routine-section {
-      padding: 96px 48px;
+      padding: 56px 48px 80px;
       border-bottom: 1px solid var(--dust);
       max-width: 1440px;
       margin: 0 auto;
@@ -264,8 +264,8 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 64px;
-      padding-bottom: 32px;
+      margin-bottom: 36px;
+      padding-bottom: 20px;
       border-bottom: 1px solid var(--dust);
     }
     .routine-label {
@@ -274,7 +274,7 @@
     }
     .routine-title {
       font-family: var(--serif);
-      font-size: clamp(52px, 6vw, 88px);
+      font-size: clamp(36px, 4vw, 58px);
       font-weight: 300; line-height: 1.1;
     }
     .routine-title em { font-style: italic; }
@@ -554,8 +554,8 @@
       .nav-dropdown-menu a:hover { opacity: 0.9 !important; }
       .page-hero { grid-template-columns: 1fr; padding: 100px 24px 60px; }
       .routine-nav { padding: 0 24px; overflow-x: auto; top: 60px; }
-      .routine-section { padding: 64px 24px; }
-      .routine-header { flex-direction: column; gap: 20px; }
+      .routine-section { padding: 36px 24px 56px; }
+      .routine-header { flex-direction: column; gap: 12px; margin-bottom: 24px; }
       .steps-grid.count-6 { grid-template-columns: repeat(3, 1fr); gap: 32px 20px; }
       .steps-grid.count-5 { grid-template-columns: repeat(3, 1fr); gap: 32px 20px; }
       .steps-grid.count-4 { grid-template-columns: repeat(2, 1fr); gap: 32px 20px; }
@@ -571,7 +571,7 @@
     }
     /* ── PAGE HERO IMAGE ── */
     .page-hero-img {
-      position: relative; width: 100%; height: 85vh; min-height: 560px;
+      position: relative; width: 100%; height: 52vh; min-height: 400px; max-height: 580px;
       overflow: hidden;
     }
     .page-hero-img img {
@@ -612,7 +612,7 @@
       max-width: 520px;
     }
     @media (max-width: 900px) {
-      .page-hero-img { height: 70vh; min-height: 400px; }
+      .page-hero-img { height: 46vh; min-height: 320px; }
       .page-hero-overlay { padding: 40px 24px; }
     }
 
@@ -682,7 +682,7 @@
     <div class="routine-header fade-up">
       <div>
         <div class="routine-label">Routine 01</div>
-        <h2 class="routine-title">Morning<br><em>Skin</em></h2>
+        <h2 class="routine-title">Morning <em>Skin</em></h2>
       </div>
       <div class="routine-hero-callout">featuring the two-peptide serum</div>
     </div>
@@ -789,7 +789,7 @@
     <div class="routine-header fade-up">
       <div>
         <div class="routine-label">Routine 02</div>
-        <h2 class="routine-title">The<br><em>Face</em></h2>
+        <h2 class="routine-title">The <em>Face</em></h2>
       </div>
       <div class="routine-hero-callout">featuring the peptide foundation</div>
     </div>
@@ -888,7 +888,7 @@
     <div class="routine-header fade-up">
       <div>
         <div class="routine-label">Routine 03</div>
-        <h2 class="routine-title">Evening<br><em>Repair</em></h2>
+        <h2 class="routine-title">Evening <em>Repair</em></h2>
       </div>
       <div class="routine-hero-callout">featuring the toning exfoliant</div>
     </div>
