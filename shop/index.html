@@ -58,6 +58,8 @@
     .pcard-img{ position:relative; aspect-ratio:1/1; background:#fff; border:1px solid rgba(93,100,58,0.14); overflow:hidden; }
     .pcard-img img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
     .pcard:hover .pcard-img img{ transform:scale(1.04); }
+    .pcard-img img.alt{ position:absolute; inset:0; opacity:0; background:#fff; transition:opacity .35s ease, transform .5s ease; }
+    @media (hover:hover){ .pcard:hover .pcard-img img.alt{ opacity:1; } }
     .pcard-name{ font-family:var(--serif); font-size:17px; margin-top:16px; }
     .pcard-sub{ font-size:12.5px; letter-spacing:0.04em; color:#666865; margin-top:3px; text-transform:uppercase; }
     .pcard-price{ font-size:13.5px; margin-top:10px; color:var(--ink); }
@@ -270,10 +272,10 @@
         
       </div>
       <div class="pgrid">
+        <a class="pcard" href="https://ghosttownranch.com/products/gtr-unisex-tee-in-black-or-bone"><div class="pcard-img"><img src="/media/tee-worn.jpg" alt="GTR Unisex Tee in bone and black, worn on the road" loading="lazy"><img class="alt" src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/newgtrbonet.png" alt="" aria-hidden="true" loading="lazy"></div><div class="pcard-name">Tee</div><div class="pcard-sub">Unisex</div><div class="pcard-price">$53</div></a>
         <a class="pcard" href="https://ghosttownranch.com/products/gtr-garment-dyed-long-sleeve-tee"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/GTRlongsleeveT.png" alt="Long-Sleeve Tee Garment-Dyed" loading="lazy"></div><div class="pcard-name">Long-Sleeve Tee</div><div class="pcard-sub">Garment-Dyed</div><div class="pcard-price">$64</div></a>
         <a class="pcard" href="https://ghosttownranch.com/products/gtr-unisex-hoodie-in-black-french-navy-white-copy"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/gtrblackhoodie.png" alt="Hoodie Unisex" loading="lazy"></div><div class="pcard-name">Hoodie</div><div class="pcard-sub">Unisex</div><div class="pcard-price">$74</div></a>
         <a class="pcard" href="https://ghosttownranch.com/products/gtr-unisex-sweatshirt-in-black-french-navy-white"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/sweatshirtnavy.png" alt="Sweatshirt Unisex" loading="lazy"></div><div class="pcard-name">Sweatshirt</div><div class="pcard-sub">Unisex</div><div class="pcard-price">$84</div></a>
-        <a class="pcard" href="https://ghosttownranch.com/products/gtr-unisex-tee-in-black-or-bone"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/newgtrbonet.png" alt="Tee Unisex" loading="lazy"></div><div class="pcard-name">Tee</div><div class="pcard-sub">Unisex</div><div class="pcard-price">$53</div></a>
       </div>
     </section>
 
