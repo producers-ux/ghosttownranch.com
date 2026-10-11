@@ -85,3 +85,19 @@
   letter-spacing: 0.01em;
 }
 .wl-dek strong, .header-dek strong { font-weight: 400; }
+
+/* Bull mark in the nav, every page */
+.nav-logo img { height: 30px; width: auto; display: block; }
+
+/* Top nav: light paper bar on every page (home has its own transparent-to-paper version) */
+nav:has(> .nav-logo):not(#main-nav) {
+  background: rgba(250,248,244,0.95) !important;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(20,20,20,0.08);
+  color: #141414;
+}
+nav:has(> .nav-logo) .nav-links:not(.open) a { color: #141414 !important; }
+nav:has(> .nav-logo) .nav-hamburger:not(.open) span { background: #141414 !important; }
+nav:has(> .nav-logo) .gtrc-tools { color: #141414 !important; }
+nav:has(> .nav-logo) button svg, nav:has(> .nav-logo) .nav-right svg { stroke: #141414 !important; color: #141414 !important; }
+nav:has(> .nav-logo) .gtr-cart-count, nav:has(> .nav-logo) .cart-count { color: #F6F6F3; }

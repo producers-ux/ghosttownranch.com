@@ -126,6 +126,15 @@
   }
   .nav-links a:hover { opacity: 1; }
 
+
+  /* Home: light nav over the light hero, cream bar once scrolled */
+  nav#main-nav { color: #141414; background: transparent; }
+  nav#main-nav:not(.scrolled) { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  nav#main-nav.scrolled { background: rgba(250,248,244,0.94); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(20,20,20,0.08); }
+  nav#main-nav .nav-links a { color: #141414; opacity: 0.8; }
+  nav#main-nav .nav-hamburger span { background: #141414; }
+  nav#main-nav .nav-hamburger.open span { background: #F6F6F3; }
+  @media (max-width: 900px) { nav#main-nav .nav-links.open a { color: #F6F6F3; opacity: 0.9; } }
   /* hamburger */
   .nav-hamburger {
     display: none; flex-direction: column; justify-content: center;
@@ -243,13 +252,16 @@
 
   /* Hero film: The Wash, drawing to photograph */
   .hero-film { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; background: #FAF8F4; }
+  @media (max-width: 900px) { .hero { background: #FAF8F4; } .hero-bg { top: 64px; } }
   @media (min-width: 901px) {
     .hero { background: #FAF8F4; }
+    .hero-bg { top: 88px !important; }
     .hero-bg { left: auto; right: 0; top: 0; bottom: 0; height: 100%; width: 70vw; }
     .hero-bg::after { background: linear-gradient(to right, #FAF8F4 0%, rgba(250,248,244,0.75) 16%, rgba(250,248,244,0) 42%); }
     .hero-film { object-position: 60% 42%; }
     .hero-inner { width: auto; max-width: 42vw; flex-direction: column; align-items: flex-start; gap: 36px; }
-    .hero-wordmark { color: #141414; text-shadow: none; }
+    .hero-wordmark { color: #141414; text-shadow: none; font-size: clamp(52px, min(8vw, 11vh), 110px); }
+    .hero { padding-top: 110px; }
     .hero-wordmark em { color: #6B6D68; text-shadow: none; }
     .hero-aside { text-align: left; }
     .hero-aside-line { color: rgba(20,20,20,0.62); }
@@ -763,12 +775,14 @@
 </style>
   <link rel="stylesheet" href="/nav.css">
   <link rel="stylesheet" href="/brand.css">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 <body>
 
 <!-- NAV -->
 <nav id="main-nav">
-  <a href="/" class="nav-logo">Ghost Town Ranch</a>
+  <a href="/" class="nav-logo" aria-label="Ghost Town Ranch home"><img src="/GTRlogo.png" alt="Ghost Town Ranch"></a>
   <div class="nav-right">
     <ul class="nav-links" id="home-nav-links">
       <li><a href="https://ghosttownranch.com/shop/">Shop</a></li>
