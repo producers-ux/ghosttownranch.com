@@ -417,12 +417,6 @@
       cursor: wait;
     }
 
-    .buy-assure {
-      display: flex; flex-direction: column; align-items: center; gap: 4px;
-      font-size: 12px; letter-spacing: 0.05em; color: var(--dust);
-      margin: -4px 0 18px; text-align: center;
-    }
-    .buy-assure a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
     .coming-soon-note {
       font-size: 12px;
       color: var(--dust);
@@ -863,9 +857,9 @@
       .nav-links a { font-size: 13px; letter-spacing: 0.25em; padding: 22px 0; display: block; width: 100%; min-height: 44px; }
     }
   </style>
+  <link rel="stylesheet" href="/brand.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Rosemary Mint Revive Hair + Scalp Oil","description":"Tame your mane. Rosemary and Peppermint invigorate the scalp, while Almond, Argan, and Avocado tame the wild. Nutrient-rich oil blend, infused with rosemary and peppermint, works to nourish the scalp, strengthen hair from root to end, and restore shine to dry or brittle strands. Sunflower, Argan, Avocado, and Sweet Almond oils condition and seal in moisture, while Rosemary and Peppermint invigorate the scalp and leave hair looking fuller and healthier over time. How to use:Apply a few drops to the scalp, massage in, then work remaining oil through lengths and ends. Leave in for at least 15 minutes, or overnight for a deeper treatment. Shampoo out. Patch test before first use. Key benefits: Nourishes hair and scalp Gives shine and a healthy glow Strengthens dry or brittle ends Invigorates the scalp with Rosemary and Peppermint Seals in moisture with a rich botanical oil blend Concerns addressed: Dull hair, dry ends, lack of shine, scalp healthHair type: All hair types Vegan, Natural Certified (Ecocert COSMOS Natural). Details+COSMOS Certified by ECOCERT, third-party verifiedVegan · Cruelty-FreeFrontier Modernism · Palm Springs, CA Ingredients+Ingredients / INCI: Helianthus Annuus (Sunflower) Seed Oil➀, Decyl Cocoate, Ricinus Communis (Castor) Seed Oil➀, Prunus Amygdalus Dulcis (Sweet Almond) Oil➀, Argania Spinosa (Argan) Kernel Oil➀, Parfum/Fragrance, Cannabis Sativa (Hemp) Seed Oil➀, Olea Europaea (Olive) Fruit Oil➀, Persea Gratissima (Avocado) Oil➀, Mentha Piperita (Peppermint) Oil➀, Rosmarinus Officinalis (Rosemary) Leaf Oil➀, Urtica Dioica (Nettle) Leaf Extract➀, Menthol➁, Limonene➁, Camphor➁, Pinene➁, Citrus Aurantium Bergamia Peel Oil, Linalool➁, Beta-Caryophyllene➁, Vanillin, Linalyl Acetate➁, Eugenia Caryophyllus Oil, Eugenol➁, Citrus Aurantium Peel Oil, Citrus Limon Peel Oil, Pogostemon Cablin Oil, Santalol➁, Coumarin**, Carvone➁ ➀ Ingredients from Organic Farming ➁ Made using organic ingredients Contains naturally occurring fragrance allergens (Limonene, Linalool, Eugenol, Coumarin, and others) from essential oils. Patch test recommended.","url":"https://ghosttownranch.com/products/rosemary-hair-scalp-strengthening-oil/","brand":{"@type":"Brand","name":"Ghost Town Ranch"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"53.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/rosemary-hair-scalp-strengthening-oil/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/rosemaryminthairoil1.png?v=1781992328","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/rosemaryhairoil_sm.png?v=1782594173","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/rosemaryminthairoilimage.png?v=1776860532","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/kYk7UgXnG-ntRx40rkz5Vs4anFVujm0H.jpg?v=1777664230"],"sku":"187999","category":"Hair Care"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ghost Town Ranch","item":"https://ghosttownranch.com/"},{"@type":"ListItem","position":2,"name":"Shop","item":"https://ghosttownranch.com/shop/"},{"@type":"ListItem","position":3,"name":"Rosemary Mint Revive Hair + Scalp Oil","item":"https://ghosttownranch.com/products/rosemary-hair-scalp-strengthening-oil/"}]}</script>
-  <link rel="stylesheet" href="/brand.css">
 </head>
 (m) => m
 
@@ -943,12 +937,7 @@
         <!-- ATC -->
         <button class="atc-btn" id="atc-btn">Add to Cart</button>
         <div class="coming-soon-note" id="coming-soon-note" style="display:none">
-          Coming soon. <a href="/#signup" style="color:inherit;text-decoration:underline;">Join the list</a> for first word.
-        </div>
-
-        <div class="buy-assure" id="buy-assure">
-          <div>10% off your first order, <a href="/#signup">get your code</a></div>
-          <div>Ships from the USA &middot; Secure checkout</div>
+          Available at Shoppe Object Nourish · August 2026 · Javits Center
         </div>
 
         <!-- Lip + Eye cross-sell -->
@@ -977,35 +966,10 @@
     </div>
   </div>
 </main>
-<script>
-/* Show name, price and photo instantly from the page's product data,
-   before the live Shopify data loads and takes over. */
-(function () {
-  try {
-    var blocks = document.querySelectorAll('script[type="application/ld+json"]'), p = null;
-    for (var i = 0; i < blocks.length; i++) {
-      var d = JSON.parse(blocks[i].textContent);
-      if (d && d['@type'] === 'Product') { p = d; break; }
-    }
-    if (!p) return;
-    var t = document.getElementById('product-title');
-    if (t && !t.textContent) t.textContent = p.name || '';
-    var o = Array.isArray(p.offers) ? p.offers[0] : p.offers, price = o && (o.price || o.lowPrice);
-    var pr = document.getElementById('product-price');
-    if (pr && !pr.textContent && price) { var n = parseFloat(price); pr.textContent = '$' + (n % 1 === 0 ? n.toFixed(0) : n.toFixed(2)); }
-    var img = document.getElementById('main-image'), src = Array.isArray(p.image) ? p.image[0] : p.image;
-    if (img && !img.getAttribute('src') && src) { img.src = src; img.alt = p.name || ''; }
-    var bc = document.getElementById('bc-title');
-    if (bc && !bc.textContent) bc.textContent = p.name || '';
-    var ld = document.getElementById('loading'), pg = document.getElementById('product-page');
-    if (ld && pg && t && t.textContent) { ld.style.display = 'none'; pg.style.display = 'block'; window.__gtrPrefilled = true; }
-  } catch (e) {}
-})();
-</script>
 
 <!-- Related -->
 <div class="related-section" id="related-section" style="display:none">
-  <div class="related-label">Pairs well with</div>
+  <div class="related-label">More from the Ranch</div>
   <div class="related-grid" id="related-grid"></div>
 </div>
 
@@ -1475,7 +1439,6 @@ function renderProduct(product) {
     atcBtn.disabled = true;
     atcBtn.textContent = 'Coming Soon';
     comingSoonNote.style.display = 'block';
-    var ba = document.getElementById('buy-assure'); if (ba) ba.style.display = 'none';
   } else {
     if (PREORDER_HANDLES.includes(handle)) {
       atcBtn.textContent = 'Pre-Order';
@@ -1535,7 +1498,7 @@ function renderProduct(product) {
   document.getElementById('loading').style.display = 'none';
   const page = document.getElementById('product-page');
   page.style.display = 'block';
-  if (!window.__gtrPrefilled) page.style.opacity = 0;
+  page.style.opacity = 0;
   requestAnimationFrame(() => {
     page.style.transition = 'opacity 0.4s';
     page.style.opacity = 1;

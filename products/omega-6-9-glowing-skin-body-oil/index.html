@@ -417,12 +417,6 @@
       cursor: wait;
     }
 
-    .buy-assure {
-      display: flex; flex-direction: column; align-items: center; gap: 4px;
-      font-size: 12px; letter-spacing: 0.05em; color: var(--dust);
-      margin: -4px 0 18px; text-align: center;
-    }
-    .buy-assure a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
     .coming-soon-note {
       font-size: 12px;
       color: var(--dust);
@@ -863,9 +857,9 @@
       .nav-links a { font-size: 13px; letter-spacing: 0.25em; padding: 22px 0; display: block; width: 100%; min-height: 44px; }
     }
   </style>
+  <link rel="stylesheet" href="/brand.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Golden Hour Body Oil","description":"Your skin's golden moment. A lightweight, fast-absorbing body oil. Sunflower, Sweet Almond, Jojoba, Argan, Rosehip, Raspberry, and Pumpkin Seed Oil. Made with ingredients from organic farming. A note of green cardamom and rosemary, opening into a green, cut-stem warmth — like herbs caught in the last light of day.","url":"https://ghosttownranch.com/products/omega-6-9-glowing-skin-body-oil/","brand":{"@type":"Brand","name":"Ghost Town Ranch"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"68.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/omega-6-9-glowing-skin-body-oil/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/goldenhour1_147f4a02-cfb7-4d37-af77-0af13b1a6ac6.png?v=1782410107","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/goldenhour.png?v=1777575723","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/R49HQyCmLrUiVk5DYUaHm2_AsoEj8Ikx.jpg?v=1777663856","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/goldenhour_body_2000.png?v=1782410035"],"sku":"188005","category":"Body Care"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ghost Town Ranch","item":"https://ghosttownranch.com/"},{"@type":"ListItem","position":2,"name":"Shop","item":"https://ghosttownranch.com/shop/"},{"@type":"ListItem","position":3,"name":"Golden Hour Body Oil","item":"https://ghosttownranch.com/products/omega-6-9-glowing-skin-body-oil/"}]}</script>
-  <link rel="stylesheet" href="/brand.css">
 </head>
 (m) => m
 
@@ -943,12 +937,7 @@
         <!-- ATC -->
         <button class="atc-btn" id="atc-btn">Add to Cart</button>
         <div class="coming-soon-note" id="coming-soon-note" style="display:none">
-          Coming soon. <a href="/#signup" style="color:inherit;text-decoration:underline;">Join the list</a> for first word.
-        </div>
-
-        <div class="buy-assure" id="buy-assure">
-          <div>10% off your first order, <a href="/#signup">get your code</a></div>
-          <div>Ships from the USA &middot; Secure checkout</div>
+          Available at Shoppe Object Nourish · August 2026 · Javits Center
         </div>
 
         <!-- Lip + Eye cross-sell -->
@@ -977,35 +966,10 @@
     </div>
   </div>
 </main>
-<script>
-/* Show name, price and photo instantly from the page's product data,
-   before the live Shopify data loads and takes over. */
-(function () {
-  try {
-    var blocks = document.querySelectorAll('script[type="application/ld+json"]'), p = null;
-    for (var i = 0; i < blocks.length; i++) {
-      var d = JSON.parse(blocks[i].textContent);
-      if (d && d['@type'] === 'Product') { p = d; break; }
-    }
-    if (!p) return;
-    var t = document.getElementById('product-title');
-    if (t && !t.textContent) t.textContent = p.name || '';
-    var o = Array.isArray(p.offers) ? p.offers[0] : p.offers, price = o && (o.price || o.lowPrice);
-    var pr = document.getElementById('product-price');
-    if (pr && !pr.textContent && price) { var n = parseFloat(price); pr.textContent = '$' + (n % 1 === 0 ? n.toFixed(0) : n.toFixed(2)); }
-    var img = document.getElementById('main-image'), src = Array.isArray(p.image) ? p.image[0] : p.image;
-    if (img && !img.getAttribute('src') && src) { img.src = src; img.alt = p.name || ''; }
-    var bc = document.getElementById('bc-title');
-    if (bc && !bc.textContent) bc.textContent = p.name || '';
-    var ld = document.getElementById('loading'), pg = document.getElementById('product-page');
-    if (ld && pg && t && t.textContent) { ld.style.display = 'none'; pg.style.display = 'block'; window.__gtrPrefilled = true; }
-  } catch (e) {}
-})();
-</script>
 
 <!-- Related -->
 <div class="related-section" id="related-section" style="display:none">
-  <div class="related-label">Pairs well with</div>
+  <div class="related-label">More from the Ranch</div>
   <div class="related-grid" id="related-grid"></div>
 </div>
 
@@ -1475,7 +1439,6 @@ function renderProduct(product) {
     atcBtn.disabled = true;
     atcBtn.textContent = 'Coming Soon';
     comingSoonNote.style.display = 'block';
-    var ba = document.getElementById('buy-assure'); if (ba) ba.style.display = 'none';
   } else {
     if (PREORDER_HANDLES.includes(handle)) {
       atcBtn.textContent = 'Pre-Order';
@@ -1535,7 +1498,7 @@ function renderProduct(product) {
   document.getElementById('loading').style.display = 'none';
   const page = document.getElementById('product-page');
   page.style.display = 'block';
-  if (!window.__gtrPrefilled) page.style.opacity = 0;
+  page.style.opacity = 0;
   requestAnimationFrame(() => {
     page.style.transition = 'opacity 0.4s';
     page.style.opacity = 1;
@@ -1834,41 +1797,5 @@ init();
 })();
 </script>
 <script src="/gtr-controls.js" defer></script>
-<script>
-/* Golden Hour: add the film to the gallery as a playable thumbnail */
-(function () {
-  var VIDEO = '/media/goldenhour.mp4', POSTER = '/media/goldenhour.jpg';
-  function setup() {
-    var main = document.getElementById('main-image'), thumbs = document.getElementById('thumbs');
-    if (!main || !thumbs || document.getElementById('gh-video')) return;
-    var vid = document.createElement('video');
-    vid.id = 'gh-video'; vid.className = 'product-image-main';
-    vid.src = VIDEO; vid.poster = POSTER; vid.muted = true; vid.loop = true; vid.playsInline = true;
-    vid.setAttribute('playsinline', ''); vid.setAttribute('aria-label', 'Golden Hour body oil, in the truck and in the studio');
-    vid.style.display = 'none';
-    main.parentNode.insertBefore(vid, main.nextSibling);
-    if (!thumbs.children.length && main.src) {
-      thumbs.innerHTML = '<img class="thumb active" src="' + main.src + '" data-src="' + main.src + '" alt="">';
-      thumbs.querySelector('.thumb').addEventListener('click', function () { main.src = this.dataset.src; });
-    }
-    var t = document.createElement('button');
-    t.type = 'button'; t.className = 'thumb gh-film'; t.setAttribute('aria-label', 'Play the Golden Hour film');
-    t.style.cssText = 'padding:0;background:#141414 url(' + POSTER + ') center/cover no-repeat;position:relative;';
-    t.innerHTML = '<span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;text-shadow:0 1px 6px rgba(0,0,0,.6);">&#9654;</span>';
-    thumbs.appendChild(t);
-    function showVideo() {
-      main.style.display = 'none'; vid.style.display = 'block'; vid.play();
-      thumbs.querySelectorAll('.thumb').forEach(function (x) { x.classList.remove('active'); }); t.classList.add('active');
-    }
-    function showImage() { vid.pause(); vid.style.display = 'none'; main.style.display = 'block'; }
-    t.addEventListener('click', showVideo);
-    thumbs.addEventListener('click', function (e) { if (!e.target.closest('.gh-film')) showImage(); }, true);
-  }
-  var tries = 0, iv = setInterval(function () {
-    var thumbs = document.getElementById('thumbs'), main = document.getElementById('main-image');
-    if ((thumbs && thumbs.children.length) || ++tries > 40) { clearInterval(iv); setup(); }
-  }, 250);
-})();
-</script>
 </body>
 </html>
