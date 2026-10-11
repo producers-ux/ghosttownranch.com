@@ -101,3 +101,9 @@ nav:has(> .nav-logo) .nav-hamburger:not(.open) span { background: #141414 !impor
 nav:has(> .nav-logo) .gtrc-tools { color: #141414 !important; }
 nav:has(> .nav-logo) button svg, nav:has(> .nav-logo) .nav-right svg { stroke: #141414 !important; color: #141414 !important; }
 nav:has(> .nav-logo) .gtr-cart-count, nav:has(> .nav-logo) .cart-count { color: #F6F6F3; }
+/* One nav type style on every page */
+nav:has(> .nav-logo) .nav-links a {
+  font-family: 'Jost', system-ui, sans-serif !important;
+  font-size: 12px !important; font-weight: 300 !important;
+  letter-spacing: 0.2em !important; text-transform: uppercase !important;
+}
