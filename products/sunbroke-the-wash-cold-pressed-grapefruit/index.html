@@ -1616,7 +1616,7 @@ function originBadge(product) {
   const isCosmetic = isCosmosCertified(product) ||
     ['skin', 'body', 'hair', 'face', 'eye', 'lip', 'makeup', 'cosmetic', 'deodorant', 'wash', 'mist']
       .some(k => type.includes(k));
-  return isCosmetic ? 'Formulated in the EU' : null;
+  return null; // certifications carry the standard; no origin badge on skincare
 }
 
 function buildSpecs(product, variants, ingredientsHtml) {
