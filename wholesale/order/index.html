@@ -6,7 +6,7 @@
 <title>Ghost Town Ranch · Wholesale Order Sheet</title>
 <style>
   :root{
-    --ink:#1A1512; --paper:#F8F5EF; --terra:#7A3E22; --gold:#C8A96E; --dust:rgba(26,16,8,0.1);
+    --ink:#141414; --paper:#F7F7F5; --terra:#7A3E22; --gold:#B5B99A; --dust:rgba(20,20,20,0.1);
   }
   *{box-sizing:border-box;}
   body{background:var(--paper); color:var(--ink); font-family: Georgia, 'Times New Roman', serif; margin:0; padding-bottom:110px;}
@@ -16,8 +16,8 @@
   .kicker{font-family:Arial,sans-serif; text-transform:uppercase; letter-spacing:0.16em; font-size:0.72em; color:var(--terra); margin-bottom:10px;}
   h1{font-size:2.1em; font-weight:400; margin:0 0 6px;}
   h1 em{font-style:italic; color:var(--terra);}
-  .sub{font-family:Arial,sans-serif; color:rgba(26,16,8,0.75); font-size:1.15em; line-height:1.6; margin-bottom:8px; max-width:640px;}
-  .min-note{font-family:Arial,sans-serif; font-size:0.8em; color:var(--terra); background:rgba(200,169,110,0.18); display:inline-block; padding:6px 12px; border-radius:3px; margin-top:10px;}
+  .sub{font-family:Arial,sans-serif; color:rgba(20,20,20,0.75); font-size:1.15em; line-height:1.6; margin-bottom:8px; max-width:640px;}
+  .min-note{font-family:Arial,sans-serif; font-size:0.8em; color:var(--terra); background:rgba(181,185,154,0.18); display:inline-block; padding:6px 12px; border-radius:3px; margin-top:10px;}
 
   .section-title{font-family:Arial,sans-serif; text-transform:uppercase; letter-spacing:0.14em; font-size:0.78em; color:var(--terra); font-weight:700; margin:44px 0 4px; padding-top:24px; border-top:1px solid var(--dust);}
   .section-title.section-title-big{font-size:1.5em; letter-spacing:0.06em; margin-top:64px; padding-top:32px; border-top:2px solid var(--ink);}
@@ -27,10 +27,10 @@
   .row img{width:56px; height:56px; object-fit:contain; background:#fff; border:1px solid var(--dust); border-radius:3px; flex-shrink:0;}
   .row-info{flex:1; min-width:0;}
   .row-name{font-size:1.05em; font-weight:400; line-height:1.25;}
-  .row-meta{font-family:Arial,sans-serif; font-size:0.75em; color:rgba(26,16,8,0.55); margin-top:2px;}
-  .row-price{font-family:Arial,sans-serif; font-size:0.82em; color:rgba(26,16,8,0.7); margin-top:3px;}
+  .row-meta{font-family:Arial,sans-serif; font-size:0.75em; color:rgba(20,20,20,0.55); margin-top:2px;}
+  .row-price{font-family:Arial,sans-serif; font-size:0.82em; color:rgba(20,20,20,0.7); margin-top:3px;}
   .row-price b{color:var(--ink); font-size:1.05em;}
-  .row-price .retail{text-decoration:line-through; color:rgba(26,16,8,0.35); margin-left:6px;}
+  .row-price .retail{text-decoration:line-through; color:rgba(20,20,20,0.35); margin-left:6px;}
 
   .qty{display:flex; align-items:center; gap:0; flex-shrink:0;}
   .qty button{width:30px; height:30px; border:1px solid var(--dust); background:#fff; font-size:16px; cursor:pointer; color:var(--ink); font-family:Arial,sans-serif;}
@@ -40,11 +40,11 @@
   .qty input::-webkit-outer-spin-button, .qty input::-webkit-inner-spin-button{-webkit-appearance:none; margin:0;}
   .variant-qty-grid{display:flex; flex-direction:column; gap:6px; margin-top:8px;}
   .sample-variant-grid{display:flex; flex-wrap:wrap; gap:4px 16px; margin-top:8px;}
-  .sample-variant-option{display:flex; align-items:center; gap:8px; font-family:Arial,sans-serif; font-size:0.85em; color:rgba(26,16,8,0.8); cursor:pointer; padding:8px 6px; min-height:24px; border-radius:3px;}
+  .sample-variant-option{display:flex; align-items:center; gap:8px; font-family:Arial,sans-serif; font-size:0.85em; color:rgba(20,20,20,0.8); cursor:pointer; padding:8px 6px; min-height:24px; border-radius:3px;}
   .sample-variant-option:active{background:rgba(122,62,34,0.08);}
   .sample-variant-option input[type="checkbox"]{width:20px; height:20px; cursor:pointer; accent-color:var(--terra); flex-shrink:0;}
   .variant-qty-row{display:flex; align-items:center; justify-content:space-between; gap:10px;}
-  .variant-qty-name{font-family:Arial,sans-serif; font-size:0.85em; color:rgba(26,16,8,0.8);}
+  .variant-qty-name{font-family:Arial,sans-serif; font-size:0.85em; color:rgba(20,20,20,0.8);}
   .qty-mini{display:flex; align-items:center; gap:0; flex-shrink:0;}
   .qty-mini button{width:26px; height:26px; border:1px solid var(--dust); background:#fff; font-size:14px; cursor:pointer; color:var(--ink); font-family:Arial,sans-serif;}
   .qty-mini button:first-child{border-radius:3px 0 0 3px;}
@@ -53,7 +53,7 @@
   .qty-mini input::-webkit-outer-spin-button, .qty-mini input::-webkit-inner-spin-button{-webkit-appearance:none; margin:0;}
   .min-hint{font-family:Arial,sans-serif; font-size:0.75em; color:#b5762e; margin-top:4px;}
   .ship-note{font-family:Arial,sans-serif; font-size:0.75em; color:var(--terra); margin-top:4px; font-weight:700;}
-  .contact-fields{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:28px 0 8px; padding:20px; background:#FAFAF7; border:1px solid var(--dust); border-radius:4px;}
+  .contact-fields{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:28px 0 8px; padding:20px; background:#FBFBF9; border:1px solid var(--dust); border-radius:4px;}
   .contact-field{display:flex; flex-direction:column; gap:5px;}
   .contact-field label{font-family:Arial,sans-serif; font-size:0.75em; font-weight:700; letter-spacing:0.03em; color:var(--ink);}
   .contact-field input{font-family:Arial,sans-serif; font-size:0.9em; padding:9px 10px; border:1px solid var(--dust); border-radius:3px; background:#fff;}
@@ -75,21 +75,21 @@
   .submit-group{display:flex; flex-direction:column; align-items:flex-end; gap:6px;}
   .submit-btn{background:var(--gold); color:var(--ink); border:none; padding:12px 22px; font-family:Arial,sans-serif; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; font-size:0.82em; border-radius:3px; cursor:pointer;}
   .submit-btn:hover{background:#dcbb80;}
-  .modal-overlay{position:fixed; inset:0; background:rgba(26,16,8,0.6); z-index:100; display:none; align-items:center; justify-content:center; padding:20px;}
+  .modal-overlay{position:fixed; inset:0; background:rgba(20,20,20,0.6); z-index:100; display:none; align-items:center; justify-content:center; padding:20px;}
   .modal-overlay.open{display:flex;}
   .modal-box{background:var(--paper); max-width:520px; width:100%; max-height:82vh; overflow-y:auto; padding:28px; border-radius:4px; box-shadow:0 10px 40px rgba(0,0,0,0.3);}
   .modal-box h3{margin:0 0 4px; font-weight:400; font-size:1.3em;}
-  .modal-box p.hint{font-family:Arial,sans-serif; font-size:0.85em; color:rgba(26,16,8,0.6); margin:0 0 14px;}
+  .modal-box p.hint{font-family:Arial,sans-serif; font-size:0.85em; color:rgba(20,20,20,0.6); margin:0 0 14px;}
   .modal-box textarea{width:100%; height:220px; font-family:'Courier New',monospace; font-size:0.8em; padding:12px; border:1px solid var(--dust); border-radius:3px; resize:vertical; background:#fff; color:var(--ink);}
   .modal-actions{display:flex; gap:10px; margin-top:16px; flex-wrap:wrap;}
   .modal-actions a, .modal-actions button{font-family:Arial,sans-serif; font-size:0.82em; text-transform:uppercase; letter-spacing:0.05em; padding:11px 18px; border-radius:3px; border:none; cursor:pointer; text-decoration:none; text-align:center; flex:1; min-width:140px;}
   .modal-actions .email-link{background:var(--terra); color:#fff;}
   .modal-actions .copy-btn{background:var(--gold); color:var(--ink);}
-  .modal-close{position:absolute; top:14px; right:18px; cursor:pointer; font-family:Arial,sans-serif; font-size:1.1em; color:rgba(26,16,8,0.5); background:none; border:none;}
+  .modal-close{position:absolute; top:14px; right:18px; cursor:pointer; font-family:Arial,sans-serif; font-size:1.1em; color:rgba(20,20,20,0.5); background:none; border:none;}
   .modal-box{position:relative;}
   .copy-confirm{font-family:Arial,sans-serif; font-size:0.78em; color:var(--terra); margin-top:8px; display:none;}
-  .footer{font-family:Arial,sans-serif; color:rgba(26,16,8,0.5); font-size:0.8em; text-align:center; margin:60px 0 20px;}
-  .note-inline{font-family:Arial,sans-serif; font-size:0.72em; color:rgba(26,16,8,0.45); margin-top:1px;}
+  .footer{font-family:Arial,sans-serif; color:rgba(20,20,20,0.5); font-size:0.8em; text-align:center; margin:60px 0 20px;}
+  .note-inline{font-family:Arial,sans-serif; font-size:0.72em; color:rgba(20,20,20,0.45); margin-top:1px;}
 
   @media (max-width: 640px) {
     .wrap{padding:32px 16px 30px;}
@@ -114,6 +114,7 @@
     .sample-variant-option{width:100%; padding:10px 6px;}
   }
 </style>
+  <link rel="stylesheet" href="/brand.css">
 </head>
 <body>
 <div class="wrap">
@@ -145,7 +146,7 @@
       <input type="text" id="contactInfo" placeholder="Email or phone number">
     </div>
   </div>
-  <div class="col-header" style="display:flex; align-items:center; gap:14px; padding:6px 0; border-bottom:2px solid var(--ink); font-family:Arial,sans-serif; font-size:0.72em; letter-spacing:0.06em; text-transform:uppercase; color:rgba(26,16,8,0.5);">
+  <div class="col-header" style="display:flex; align-items:center; gap:14px; padding:6px 0; border-bottom:2px solid var(--ink); font-family:Arial,sans-serif; font-size:0.72em; letter-spacing:0.06em; text-transform:uppercase; color:rgba(20,20,20,0.5);">
     <div style="width:56px; flex-shrink:0;"></div>
     <div style="flex:1; min-width:0;">Product</div>
     <div style="width:96px; text-align:center; flex-shrink:0;">Qty</div>

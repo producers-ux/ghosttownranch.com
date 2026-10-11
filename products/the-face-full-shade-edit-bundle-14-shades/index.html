@@ -30,12 +30,12 @@
   <style>
     /* ── TOKENS ── matches existing GTR site */
     :root {
-      --ink:       #1A1512;
-      --parchment: #F2EDE4;
-      --dust:      #C4B49A;
-      --ember:     #8B5E3C;
-      --ash:       #3A3530;
-      --white:     #FAFAF7;
+      --ink:       #141414;
+      --parchment: #F6F6F3;
+      --dust:      #C7CAC5;
+      --ember:     #5D643A;
+      --ash:       #3B3D3A;
+      --white:     #FBFBF9;
       --ff-display: 'IM Fell English', Georgia, serif;
       --ff-body:    'Jost', 'Helvetica Neue', sans-serif;
       --nav-h:     64px;
@@ -57,14 +57,14 @@
     }
 
     /* ── FONTS ── */
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap');
+    
 
     /* ── NAV ── matches main site exactly */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       height: var(--nav-h);
-      background: rgba(28, 24, 20, 0.72);
+      background: rgba(20,20,20, 0.72);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       display: flex;
@@ -82,7 +82,7 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
       text-decoration: none;
-      color: #F4EFE6;
+      color: #F6F6F3;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -107,7 +107,7 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
       text-decoration: none;
-      color: #F4EFE6;
+      color: #F6F6F3;
       opacity: 0.7;
       font-weight: 300;
       transition: opacity 0.2s;
@@ -123,7 +123,7 @@
     }
     .nav-hamburger span {
       display: block; width: 20px; height: 1.5px;
-      background: #F4EFE6; transition: all .25s ease; transform-origin: center;
+      background: #F6F6F3; transition: all .25s ease; transform-origin: center;
     }
     .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
     .nav-hamburger.open span:nth-child(2) { opacity: 0; }
@@ -136,7 +136,7 @@
       font-size: 11px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: #F4EFE6;
+      color: #F6F6F3;
       opacity: 0.7;
       font-weight: 300;
       cursor: pointer;
@@ -853,18 +853,19 @@
       .nav-links {
         display: none; position: fixed;
         top: 0; left: 0; right: 0; height: 100vh; height: 100dvh; overflow-y: auto;
-        background: #1a1512;
+        background: #141414;
         flex-direction: column; justify-content: center; align-items: center;
         gap: 0; z-index: 99; padding: 80px 32px 40px;
       }
       .nav-links.open { display: flex; }
-      .nav-links li { width: 100%; border-bottom: 1px solid rgba(244,239,230,0.1); }
-      .nav-links li:first-child { border-top: 1px solid rgba(244,239,230,0.1); }
+      .nav-links li { width: 100%; border-bottom: 1px solid rgba(246,246,243,0.1); }
+      .nav-links li:first-child { border-top: 1px solid rgba(246,246,243,0.1); }
       .nav-links a { font-size: 13px; letter-spacing: 0.25em; padding: 22px 0; display: block; width: 100%; min-height: 44px; }
     }
   </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"The Face — Full Shade Edit, Bundle · 14 products","description":"The Face — Full Shade EditBundle · 14 shades · $570 (save $100) Every Desert Veil and Soft Proof shade in one order. Four CC sticks, ten foundations — a complete shade range ready to go on shelf from day one. What's inside:Desert Veil CC Stick × 4 shades (Light, Medium, Tan, Deep) · Soft Proof Peptide Foundation × 10 shades Wholesale only. Single SKU, fixed contents, no shade selection required.","url":"https://ghosttownranch.com/products/the-face-full-shade-edit-bundle-14-shades/","brand":{"@type":"Brand","name":"Ghost Town Ranch"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"686.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/the-face-full-shade-edit-bundle-14-shades/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/theface_fulledit_allshades1.png?v=1781998733"],"sku":"FACEEDIT"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ghost Town Ranch","item":"https://ghosttownranch.com/"},{"@type":"ListItem","position":2,"name":"Shop","item":"https://ghosttownranch.com/shop/"},{"@type":"ListItem","position":3,"name":"The Face — Full Shade Edit, Bundle · 14 products","item":"https://ghosttownranch.com/products/the-face-full-shade-edit-bundle-14-shades/"}]}</script>
+  <link rel="stylesheet" href="/brand.css">
 </head>
 (m) => m
 
@@ -1060,9 +1061,9 @@ const STOREFRONT_TOKEN = 'c6efa00d9c5d9849c6c13d59cca6ab82';
 // Wax color map for GTR candle products
 const WAX_COLORS = {
   'Hang Dried':  '#d4dce3',
-  'Rough Hewn':  '#c4b49a',
+  'Rough Hewn':  '#C7CAC5',
   'Dusk':        '#c4956a',
-  'Ember':       '#3a3530',
+  'Ember':       '#3B3D3A',
   'Graze':       '#7d8c6e',
   'Flax':        '#d4c47a',
 };

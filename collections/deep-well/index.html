@@ -11,10 +11,6 @@
 <meta property="og:description" content="Adaptogenic tonics and skin support, drawn from the same land as the rest of the ranch. Forthcoming. Join the list.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ghosttownranch.com/collections/deep-well/">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
   @font-face {
     font-family: 'PPEiko';
@@ -28,12 +24,12 @@
   }
 
   :root {
-    --parchment: #F4EFE6;
-    --warm-black: #1A1512;
-    --ochre: #9B7A3F;
-    --dust: #D4C9B5;
-    --army: #7c8260;
-    --ink: #1e1c18;
+    --parchment: #F6F6F3;
+    --warm-black: #141414;
+    --ochre: #5D643A;
+    --dust: #C7CAC5;
+    --army: #5D643A;
+    --ink: #141414;
     --serif: 'PPEiko', Georgia, serif;
     --sans: 'PPEiko', Georgia, serif;
     --label: 'Jost', system-ui, sans-serif;
@@ -56,7 +52,7 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; justify-content: space-between; align-items: center;
     padding: 14px 48px;
-    background: rgba(28, 24, 20, 0.72);
+    background: rgba(20,20,20, 0.72);
     backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
     transition: background 0.3s ease;
   }
@@ -66,12 +62,12 @@
   .nav-links a {
     font-family: var(--label); font-size: 11px; font-weight: 400;
     letter-spacing: 0.18em; text-transform: uppercase;
-    color: #F4EFE6; opacity: 0.82; text-decoration: none; transition: opacity 0.2s;
+    color: #F6F6F3; opacity: 0.82; text-decoration: none; transition: opacity 0.2s;
   }
   .nav-links a:hover { opacity: 1; }
   .nav-links a.current { opacity: 1; border-bottom: 1px solid var(--ochre); padding-bottom: 3px; }
   .nav-toggle { display: none; background: none; border: 0; cursor: pointer; flex-direction: column; gap: 5px; }
-  .nav-toggle span { display: block; width: 22px; height: 1px; background: #F4EFE6; }
+  .nav-toggle span { display: block; width: 22px; height: 1px; background: #F6F6F3; }
 
   /* ── HERO (the descent) ── */
   .hero {
@@ -79,7 +75,7 @@
     min-height: 88vh; display: flex; flex-direction: column; justify-content: center;
     padding: 160px 48px 100px;
     background:
-      linear-gradient(180deg, rgba(26,21,18,0.48) 0%, rgba(26,21,18,0.38) 45%, rgba(21,17,13,0.86) 100%),
+      linear-gradient(180deg, rgba(20,20,20,0.48) 0%, rgba(20,20,20,0.38) 45%, rgba(21,17,13,0.86) 100%),
       url('../../deepwellhero.jpg');
     background-size: cover;
     background-position: center 55%;
@@ -102,17 +98,17 @@
   }
   .hero__tagline {
     font-family: var(--accent); font-style: italic; font-weight: 400;
-    font-size: clamp(20px, 2.6vw, 30px); line-height: 1.4; color: #E8DFC8;
+    font-size: clamp(20px, 2.6vw, 30px); line-height: 1.4; color: #E2E4E0;
     max-width: 640px; margin: 0 auto 24px;
   }
   .hero__sub {
     font-family: var(--label); font-weight: 300; font-size: 14px; line-height: 1.8;
-    letter-spacing: 0.04em; color: rgba(244,239,230,0.72);
+    letter-spacing: 0.04em; color: rgba(246,246,243,0.72);
     max-width: 480px; margin: 0 auto;
   }
   .hero__scroll {
     margin-top: 56px; font-family: var(--label); font-size: 10px;
-    letter-spacing: 0.25em; text-transform: uppercase; color: rgba(244,239,230,0.5);
+    letter-spacing: 0.25em; text-transform: uppercase; color: rgba(246,246,243,0.5);
   }
 
   /* ── THESIS ── */
@@ -157,7 +153,7 @@
   .card-img {
     position: relative; aspect-ratio: 3/4; overflow: hidden; margin-bottom: 20px;
     display: flex; align-items: center; justify-content: center;
-    background: linear-gradient(155deg, #EDE6D7 0%, #D4C9B5 100%);
+    background: linear-gradient(155deg, #EDE6D7 0%, #C7CAC5 100%);
   }
   .card-img .mark { width: 42%; height: auto; opacity: 0.10; mix-blend-mode: multiply; }
   .badge {
@@ -202,15 +198,15 @@
   }
   .waitlist__sub {
     font-family: var(--accent); font-style: italic; font-size: 20px; line-height: 1.5;
-    color: #E8DFC8; max-width: 480px; margin: 0 auto 44px;
+    color: #E2E4E0; max-width: 480px; margin: 0 auto 44px;
   }
   .waitlist-form { display: flex; gap: 0; max-width: 460px; margin: 0 auto; }
   .waitlist-form input[type="email"] {
-    flex: 1; background: transparent; border: 1px solid rgba(244,239,230,0.35);
+    flex: 1; background: transparent; border: 1px solid rgba(246,246,243,0.35);
     border-right: 0; color: var(--parchment); padding: 16px 18px;
     font-family: var(--label); font-size: 14px; letter-spacing: 0.04em;
   }
-  .waitlist-form input[type="email"]::placeholder { color: rgba(244,239,230,0.45); }
+  .waitlist-form input[type="email"]::placeholder { color: rgba(246,246,243,0.45); }
   .waitlist-form input[type="email"]:focus { outline: none; border-color: var(--ochre); }
   .waitlist-form button {
     background: var(--parchment); color: var(--warm-black); border: 1px solid var(--parchment);
@@ -221,11 +217,11 @@
   .waitlist-form button:hover { opacity: 0.85; }
   .waitlist__status {
     display: none; font-family: var(--accent); font-style: italic; font-size: 20px;
-    color: #E8DFC8; max-width: 460px; margin: 0 auto;
+    color: #E2E4E0; max-width: 460px; margin: 0 auto;
   }
   .waitlist__fine {
     font-family: var(--label); font-weight: 300; font-size: 11px; letter-spacing: 0.06em;
-    color: rgba(244,239,230,0.5); margin-top: 22px;
+    color: rgba(246,246,243,0.5); margin-top: 22px;
   }
 
   /* ── CLOSER / FOOTER ── */
@@ -239,7 +235,7 @@
     color: var(--warm-black); text-decoration: none; border-bottom: 1px solid var(--ochre); padding-bottom: 3px;
   }
   footer {
-    background: var(--warm-black); color: rgba(244,239,230,0.7); text-align: center;
+    background: var(--warm-black); color: rgba(246,246,243,0.7); text-align: center;
     padding: 40px 48px; font-family: var(--label); font-weight: 300; font-size: 11px;
     letter-spacing: 0.1em;
   }
@@ -253,16 +249,17 @@
     .nav-toggle { display: flex; }
     .nav-links.open {
       display: flex; flex-direction: column; position: absolute; top: 56px; right: 22px;
-      background: rgba(28,24,20,0.96); padding: 20px 24px; gap: 18px; border: 1px solid rgba(244,239,230,0.15);
+      background: rgba(20,20,20,0.96); padding: 20px 24px; gap: 18px; border: 1px solid rgba(246,246,243,0.15);
     }
     .hero, .thesis, .section-header, .product-grid, .waitlist, .closer { padding-left: 22px; padding-right: 22px; }
     .product-grid { grid-template-columns: 1fr; gap: 36px; }
     .closer { flex-direction: column; text-align: center; }
     .waitlist-form { flex-direction: column; }
-    .waitlist-form input[type="email"] { border-right: 1px solid rgba(244,239,230,0.35); border-bottom: 0; }
+    .waitlist-form input[type="email"] { border-right: 1px solid rgba(246,246,243,0.35); border-bottom: 0; }
   }
 </style>
   <link rel="stylesheet" href="/nav.css">
+  <link rel="stylesheet" href="/brand.css">
 </head>
 <body>
 

@@ -21,13 +21,11 @@
   <meta property="og:title" content="Partner with Ghost Town Ranch">
   <meta property="og:description" content="Not a line sheet. A room. Pop-ups, collaborations and hospitality programs from Ghost Town Ranch. Frontier Modernism.">
   <meta property="og:image" content="https://ghosttownranch.com/yucca-valley-shop.jpg">
-
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
   <style>
     @font-face { font-family:'PPEiko'; src:url('/PPEiko-Medium.woff2') format('woff2'); font-weight:400; font-display:swap; }
     @font-face { font-family:'PPEiko'; src:url('/PPEiko-Thin.woff2') format('woff2'); font-weight:300; font-display:swap; }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    :root{ --parchment:#F4EFE6; --ink:#1e1c18; --sand:#d9d0bf; --army:#7c8260; --ochre:#9B7A3F; --serif:'PPEiko',Georgia,serif; --sans:'Jost',system-ui,sans-serif; }
+    :root{ --parchment:#F6F6F3; --ink:#141414; --sand:#E2E4E0; --army:#5D643A; --ochre:#5D643A; --serif:'PPEiko',Georgia,serif; --sans:'Jost',system-ui,sans-serif; }
     html{scroll-behavior:smooth;}
     body{ background:var(--parchment); color:var(--ink); font-family:var(--sans); font-weight:300; -webkit-font-smoothing:antialiased; line-height:1.6; }
     em{ font-style:italic; font-weight:300; }
@@ -41,10 +39,10 @@
       justify-content:space-between;
       gap:40px;
       padding:140px 56px 64px;
-      background-color:#181511;
+      background-color:#141414;
       background-image:
-        linear-gradient(90deg, rgba(24,21,17,0.62) 0%, rgba(24,21,17,0.12) 42%, rgba(24,21,17,0.12) 62%, rgba(24,21,17,0.58) 100%),
-        linear-gradient(0deg, rgba(24,21,17,0.72) 0%, rgba(24,21,17,0.28) 45%, rgba(24,21,17,0.22) 100%),
+        linear-gradient(90deg, rgba(20,20,20,0.62) 0%, rgba(20,20,20,0.12) 42%, rgba(20,20,20,0.12) 62%, rgba(20,20,20,0.58) 100%),
+        linear-gradient(0deg, rgba(20,20,20,0.72) 0%, rgba(20,20,20,0.28) 45%, rgba(20,20,20,0.22) 100%),
         url('/yucca-valley-shop.jpg');
       background-repeat:no-repeat, no-repeat, no-repeat;
       background-position:center, center, center 54%;
@@ -52,25 +50,25 @@
     }
     .w2-hero-left{ text-align:left; max-width:680px; }
     .w2-hero-right{ text-align:right; max-width:480px; flex-shrink:0; }
-    .w2-eyebrow{ font-family:var(--serif); font-size:12px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(244,239,230,0.85); }
+    .w2-eyebrow{ font-family:var(--serif); font-size:12px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(246,246,243,0.85); }
     .w2-title{ font-family:var(--serif); font-weight:400; font-size:clamp(40px,6.5vw,76px); line-height:1.02; margin:14px 0 0; color:var(--parchment); }
-    .w2-intro{ font-family:var(--serif); font-size:clamp(16px,1.6vw,22px); font-weight:300; line-height:1.7; color:rgba(244,239,230,0.95); text-shadow:0 1px 14px rgba(24,21,17,0.6); }
-    .w2-title, .w2-eyebrow{ text-shadow:0 2px 18px rgba(24,21,17,0.45); }
-    .w2-credit{ position:absolute; right:56px; bottom:18px; font-family:var(--sans); font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(244,239,230,0.6); }
+    .w2-intro{ font-family:var(--serif); font-size:clamp(16px,1.6vw,22px); font-weight:300; line-height:1.7; color:rgba(246,246,243,0.95); text-shadow:0 1px 14px rgba(20,20,20,0.6); }
+    .w2-title, .w2-eyebrow{ text-shadow:0 2px 18px rgba(20,20,20,0.45); }
+    .w2-credit{ position:absolute; right:56px; bottom:18px; font-family:var(--sans); font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(246,246,243,0.6); }
     @media (max-width:600px){ .w2-credit{ right:24px; bottom:14px; } }
 
     /* pillars */
-    .pillars{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(124,130,96,0.22);
-      border-top:1px solid rgba(124,130,96,0.22); border-bottom:1px solid rgba(124,130,96,0.22); }
+    .pillars{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(93,100,58,0.22);
+      border-top:1px solid rgba(93,100,58,0.22); border-bottom:1px solid rgba(93,100,58,0.22); }
     .pillar{ background:var(--parchment); padding:54px 40px; display:flex; flex-direction:column; }
     .pillar-num{ font-family:var(--sans); font-size:12px; letter-spacing:0.2em; color:var(--army); }
     .pillar-num span{ margin-left:10px; text-transform:uppercase; letter-spacing:0.22em; }
     .pillar h3{ font-family:var(--serif); font-weight:400; font-size:26px; margin:14px 0 14px; }
-    .pillar p{ font-size:14.5px; line-height:1.75; color:#4a463f; }
-    .pillar .note{ margin-top:16px; font-size:13.5px; line-height:1.65; color:#5a564c; }
+    .pillar p{ font-size:14.5px; line-height:1.75; color:#444644; }
+    .pillar .note{ margin-top:16px; font-size:13.5px; line-height:1.65; color:#555754; }
     .pillar .note strong{ color:var(--ink); font-weight:400; }
-    .lengths{ list-style:none; margin-top:20px; border-top:1px solid rgba(124,130,96,0.22); }
-    .lengths li{ display:flex; justify-content:space-between; gap:16px; padding:10px 0; border-bottom:1px solid rgba(124,130,96,0.22); font-size:13.5px; color:#4a463f; }
+    .lengths{ list-style:none; margin-top:20px; border-top:1px solid rgba(93,100,58,0.22); }
+    .lengths li{ display:flex; justify-content:space-between; gap:16px; padding:10px 0; border-bottom:1px solid rgba(93,100,58,0.22); font-size:13.5px; color:#444644; }
     .lengths li b{ font-family:var(--serif); font-weight:400; color:var(--ink); white-space:nowrap; }
     .pillar a{ align-self:flex-start; display:inline-block; margin-top:auto; padding-top:22px; font-family:var(--serif); font-size:12.5px; letter-spacing:0.12em;
       text-transform:uppercase; color:var(--ink); text-decoration:none; }
@@ -78,14 +76,14 @@
 
     /* proof row */
     .proof{ display:flex; flex-wrap:wrap; justify-content:center; gap:14px 40px; padding:56px 48px; text-align:center; }
-    .proof span{ font-family:var(--serif); font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:#5a564c; }
+    .proof span{ font-family:var(--serif); font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:#555754; }
     .proof span::before{ content:"·"; margin-right:40px; color:var(--army); }
     .proof span:first-child::before{ content:""; margin:0; }
 
     /* retail, one quiet line */
     .retail{ max-width:760px; margin:0 auto; padding:8px 48px 72px; text-align:center; }
     .retail .lab{ font-family:var(--serif); font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--army); margin-bottom:14px; }
-    .retail p{ font-size:15px; line-height:1.8; color:#3a372f; }
+    .retail p{ font-size:15px; line-height:1.8; color:#363835; }
     .retail .links{ margin-top:18px; display:flex; gap:12px 28px; justify-content:center; flex-wrap:wrap; font-family:var(--serif); font-size:12.5px; letter-spacing:0.12em; text-transform:uppercase; }
     .retail .links a{ border-bottom:1px solid var(--ochre); padding-bottom:3px; }
     .retail .links .quiet{ opacity:0.6; }
@@ -96,7 +94,7 @@
     .inquiry p{ max-width:540px; margin:0 auto 32px; font-size:14.5px; line-height:1.7; opacity:0.82; }
     .inq-btns{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
     .inq-btns a{ font-family:var(--serif); font-size:13px; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none;
-      padding:15px 28px; border:1px solid rgba(244,239,230,0.5); color:var(--parchment); transition:background .2s,color .2s; }
+      padding:15px 28px; border:1px solid rgba(246,246,243,0.5); color:var(--parchment); transition:background .2s,color .2s; }
     .inq-btns a:hover{ background:var(--parchment); color:var(--ink); }
     .inq-email{ margin-top:26px; font-size:13px; letter-spacing:0.04em; opacity:0.7; }
     .inq-email a{ color:var(--parchment); }
@@ -109,8 +107,8 @@
     .press-names a:hover{ opacity:1; }
 
     footer{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
-      padding:56px 48px; border-top:1px solid rgba(124,130,96,0.2); font-size:13px; }
-    footer a{ color:var(--ink); text-decoration:none; border-bottom:1px solid rgba(30,28,24,0.3); padding-bottom:2px; }
+      padding:56px 48px; border-top:1px solid rgba(93,100,58,0.2); font-size:13px; }
+    footer a{ color:var(--ink); text-decoration:none; border-bottom:1px solid rgba(20,20,20,0.3); padding-bottom:2px; }
 
     /* ── GLOBAL: kill browser-default blue on all links ── */
     a { color: inherit; text-decoration: none; }
@@ -125,15 +123,15 @@
     #gtr-shared-nav svg line,
     #gtr-shared-nav svg polyline,
     #gtr-shared-nav svg rect {
-      color: #F4EFE6 !important;
-      stroke: #F4EFE6 !important;
+      color: #F6F6F3 !important;
+      stroke: #F6F6F3 !important;
       fill: none;
     }
     #gtr-shared-nav .cart-count,
     #gtr-shared-nav [class*="cart"],
     #gtr-shared-nav [class*="search"] {
-      color: #F4EFE6 !important;
-      border-color: rgba(244,239,230,0.5) !important;
+      color: #F6F6F3 !important;
+      border-color: rgba(246,246,243,0.5) !important;
     }
     [class*="gtr-search"],
     [class*="gtr-cart"],
@@ -154,7 +152,7 @@
       .pillars{ grid-template-columns:1fr; }
     }
     @media (max-width:600px){
-      .w2-hero{ padding:140px 24px 40px; min-height:560px; flex-direction:column; justify-content:flex-end; align-items:flex-start; gap:20px; background-image:linear-gradient(0deg, rgba(24,21,17,0.85) 0%, rgba(24,21,17,0.45) 45%, rgba(24,21,17,0.12) 100%), url('/yucca-valley-shop.jpg'); background-position:center, 50% 72%; background-repeat:no-repeat, no-repeat; background-size:cover, cover; }
+      .w2-hero{ padding:140px 24px 40px; min-height:560px; flex-direction:column; justify-content:flex-end; align-items:flex-start; gap:20px; background-image:linear-gradient(0deg, rgba(20,20,20,0.85) 0%, rgba(20,20,20,0.45) 45%, rgba(20,20,20,0.12) 100%), url('/yucca-valley-shop.jpg'); background-position:center, 50% 72%; background-repeat:no-repeat, no-repeat; background-size:cover, cover; }
       .w2-hero-right{ text-align:left; max-width:100%; }
       .retail,.proof,.press{ padding-left:24px; padding-right:24px; }
       .pillar{ padding:44px 28px; }
@@ -168,7 +166,7 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; justify-content: space-between; align-items: center;
       padding: 24px 48px;
-      background: rgba(28, 24, 20, 0.72);
+      background: rgba(20,20,20, 0.72);
       backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
     }
     #gtr-shared-nav .nav-logo { display:flex; align-items:center; text-decoration:none; }
@@ -179,16 +177,16 @@
     #gtr-shared-nav .nav-links a {
       font-family: var(--serif);
       font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-      text-decoration: none; color: #F4EFE6; opacity: 0.7; transition: opacity 0.2s;
+      text-decoration: none; color: #F6F6F3; opacity: 0.7; transition: opacity 0.2s;
     }
     #gtr-shared-nav .nav-links a:hover, #gtr-shared-nav .nav-links a.active { opacity: 1; }
-    #gtr-shared-nav .nav-links a.active { border-bottom: 1px solid rgba(244,239,230,0.5); padding-bottom: 2px; }
+    #gtr-shared-nav .nav-links a.active { border-bottom: 1px solid rgba(246,246,243,0.5); padding-bottom: 2px; }
     #gtr-shared-nav .nav-hamburger {
       display: none; flex-direction: column; justify-content: center;
       gap: 5px; background: none; border: none; cursor: pointer;
       padding: 6px; min-width: 44px; min-height: 44px; align-items: center;
     }
-    #gtr-shared-nav .nav-hamburger span { display:block; width:20px; height:1.5px; background:#F4EFE6; transition:all .25s ease; transform-origin:center; }
+    #gtr-shared-nav .nav-hamburger span { display:block; width:20px; height:1.5px; background:#F6F6F3; transition:all .25s ease; transform-origin:center; }
     #gtr-shared-nav .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
     #gtr-shared-nav .nav-hamburger.open span:nth-child(2) { opacity: 0; }
     #gtr-shared-nav .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
@@ -198,17 +196,18 @@
       #gtr-shared-nav .nav-right { gap: 8px; }
       #gtr-shared-nav .nav-links {
         display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-        background: rgba(26,21,18,0.97);
+        background: rgba(20,20,20,0.97);
         flex-direction: column; justify-content: center; align-items: center;
         gap: 0; z-index: 99; padding: 80px 32px 40px;
       }
       #gtr-shared-nav .nav-links.open { display: flex; }
-      #gtr-shared-nav .nav-links li { width: 100%; border-bottom: 1px solid rgba(244,239,230,0.1); }
-      #gtr-shared-nav .nav-links li:first-child { border-top: 1px solid rgba(244,239,230,0.1); }
+      #gtr-shared-nav .nav-links li { width: 100%; border-bottom: 1px solid rgba(246,246,243,0.1); }
+      #gtr-shared-nav .nav-links li:first-child { border-top: 1px solid rgba(246,246,243,0.1); }
       #gtr-shared-nav .nav-links a { font-size: 13px; letter-spacing: 0.25em; padding: 22px 0; width:100%; min-height:44px; }
     }
   </style>
   <link rel="stylesheet" href="/nav.css">
+  <link rel="stylesheet" href="/brand.css">
 </head>
 <body>
 

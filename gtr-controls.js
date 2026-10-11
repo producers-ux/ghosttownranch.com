@@ -111,44 +111,44 @@
   .gtrc-btn:hover{opacity:1;}
   .gtrc-btn svg{width:19px;height:19px;display:block;}
   .gtrc-count{position:absolute;top:3px;right:0;min-width:15px;height:15px;padding:0 3px;
-    display:none;align-items:center;justify-content:center;border-radius:8px;background:#9B7A3F;
-    color:#F4EFE6;font-family:'Jost',system-ui,sans-serif;font-size:9px;font-weight:500;
+    display:none;align-items:center;justify-content:center;border-radius:8px;background:#5D643A;
+    color:#F6F6F3;font-family:'Jost',system-ui,sans-serif;font-size:9px;font-weight:500;
     letter-spacing:0.02em;line-height:1;}
   .gtrc-count.on{display:inline-flex;}
 
   .gtrc-search-overlay{position:fixed;inset:0;z-index:600;display:none;
-    background:rgba(26,21,18,0.55);backdrop-filter:blur(4px);}
+    background:rgba(20,20,20,0.55);backdrop-filter:blur(4px);}
   .gtrc-search-overlay.open{display:block;}
-  .gtrc-search-panel{position:absolute;top:0;left:0;right:0;background:#F4EFE6;
-    border-bottom:1px solid #1e1c18;box-shadow:0 24px 60px rgba(26,21,18,0.25);
+  .gtrc-search-panel{position:absolute;top:0;left:0;right:0;background:#F6F6F3;
+    border-bottom:1px solid #141414;box-shadow:0 24px 60px rgba(20,20,20,0.25);
     transform:translateY(-12px);opacity:0;transition:transform .28s ease,opacity .28s ease;
     max-height:88vh;overflow-y:auto;}
   .gtrc-search-overlay.open .gtrc-search-panel{transform:translateY(0);opacity:1;}
   .gtrc-search-inner{max-width:760px;margin:0 auto;padding:40px 32px 48px;}
   .gtrc-search-head{display:flex;align-items:center;gap:16px;
-    border-bottom:1px solid rgba(30,28,24,0.25);padding-bottom:14px;}
-  .gtrc-search-icon{flex-shrink:0;color:#7c8260;opacity:0.85;}
+    border-bottom:1px solid rgba(20,20,20,0.25);padding-bottom:14px;}
+  .gtrc-search-icon{flex-shrink:0;color:#5D643A;opacity:0.85;}
   .gtrc-search-icon svg{width:22px;height:22px;display:block;}
   .gtrc-search-input{flex:1;background:none;border:none;outline:none;
     font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;font-weight:300;
-    color:#1e1c18;letter-spacing:0.01em;padding:4px 0;}
-  .gtrc-search-input::placeholder{color:rgba(30,28,24,0.32);}
+    color:#141414;letter-spacing:0.01em;padding:4px 0;}
+  .gtrc-search-input::placeholder{color:rgba(20,20,20,0.32);}
   .gtrc-search-close{background:none;border:none;cursor:pointer;flex-shrink:0;
     font-family:'Jost',system-ui,sans-serif;font-size:10px;letter-spacing:0.22em;
-    text-transform:uppercase;color:#7c8260;opacity:0.8;padding:8px;transition:opacity .2s;}
+    text-transform:uppercase;color:#5D643A;opacity:0.8;padding:8px;transition:opacity .2s;}
   .gtrc-search-close:hover{opacity:1;}
   .gtrc-hint{font-family:'Jost',system-ui,sans-serif;font-size:11px;letter-spacing:0.2em;
-    text-transform:uppercase;color:#7c8260;opacity:0.6;margin:22px 0 10px;}
+    text-transform:uppercase;color:#5D643A;opacity:0.6;margin:22px 0 10px;}
   .gtrc-results{display:flex;flex-direction:column;}
   .gtrc-result{display:flex;align-items:baseline;gap:16px;text-decoration:none;
-    padding:15px 4px;border-bottom:1px solid rgba(30,28,24,0.08);transition:background .15s;}
-  .gtrc-result:hover,.gtrc-result.sel{background:rgba(124,130,96,0.08);}
+    padding:15px 4px;border-bottom:1px solid rgba(20,20,20,0.08);transition:background .15s;}
+  .gtrc-result:hover,.gtrc-result.sel{background:rgba(93,100,58,0.08);}
   .gtrc-result-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:21px;
-    font-weight:300;color:#1e1c18;flex:1;letter-spacing:0.01em;}
+    font-weight:300;color:#141414;flex:1;letter-spacing:0.01em;}
   .gtrc-result-cat{font-family:'Jost',system-ui,sans-serif;font-size:10px;letter-spacing:0.18em;
-    text-transform:uppercase;color:#7c8260;opacity:0.8;white-space:nowrap;}
+    text-transform:uppercase;color:#5D643A;opacity:0.8;white-space:nowrap;}
   .gtrc-empty{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:19px;
-    color:#7c8260;padding:28px 4px;}
+    color:#5D643A;padding:28px 4px;}
   @media(max-width:600px){
     .gtrc-tools{margin-left:6px;gap:2px;}
     .gtrc-search-inner{padding:24px 18px 32px;}

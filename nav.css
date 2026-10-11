@@ -20,7 +20,7 @@ nav:has(.nav-hamburger) {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; justify-content: space-between; align-items: center;
   padding: 24px 48px;
-  background: rgba(28, 24, 20, 0.72);
+  background: rgba(20,20,20, 0.72);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
@@ -30,7 +30,7 @@ nav:has(.nav-hamburger) {
 nav:has(.nav-hamburger) .nav-logo {
   font-family: Georgia, serif; font-size: 13px; font-weight: 400;
   letter-spacing: 0.2em; text-transform: uppercase;
-  text-decoration: none; color: #F4EFE6;
+  text-decoration: none; color: #F6F6F3;
   display: flex; align-items: center;
 }
 #gtr-shared-nav .nav-logo img,
@@ -50,7 +50,7 @@ nav:has(.nav-hamburger) .nav-links li { display: flex; align-items: center; }
 #gtr-shared-nav .nav-links a,
 nav:has(.nav-hamburger) .nav-links a {
   font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-  text-decoration: none; color: #F4EFE6; opacity: 0.7;
+  text-decoration: none; color: #F6F6F3; opacity: 0.7;
   transition: opacity 0.2s;
 }
 #gtr-shared-nav .nav-links a:hover,
@@ -59,7 +59,7 @@ nav:has(.nav-hamburger) .nav-links a:hover,
 nav:has(.nav-hamburger) .nav-links a.active { opacity: 1; }
 #gtr-shared-nav .nav-links a.active,
 nav:has(.nav-hamburger) .nav-links a.active {
-  border-bottom: 1px solid rgba(244,239,230,0.5); padding-bottom: 2px;
+  border-bottom: 1px solid rgba(246,246,243,0.5); padding-bottom: 2px;
 }
 
 /* ---- HAMBURGER (hidden on desktop) ---- */
@@ -72,7 +72,7 @@ nav:has(.nav-hamburger) .nav-hamburger {
 #gtr-shared-nav .nav-hamburger span,
 nav:has(.nav-hamburger) .nav-hamburger span {
   display: block; width: 20px; height: 1.5px;
-  background: #F4EFE6; transition: all 0.25s ease; transform-origin: center;
+  background: #F6F6F3; transition: all 0.25s ease; transform-origin: center;
 }
 #gtr-shared-nav .nav-hamburger.open span:nth-child(1),
 nav:has(.nav-hamburger) .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
@@ -108,7 +108,7 @@ nav:has(.nav-hamburger) .nav-hamburger.open span:nth-child(3) { transform: trans
     height: 100vh;        /* fallback */
     height: 100dvh;       /* fills the viewport even with the bar's backdrop-filter */
     overflow-y: auto;
-    background: #1a1512;   /* fully opaque — no bleed-through */
+    background: #141414;   /* fully opaque — no bleed-through */
     flex-direction: column; justify-content: center; align-items: center;
     gap: 0; z-index: 99; padding: 80px 32px 40px; list-style: none;
   }
@@ -119,11 +119,11 @@ nav:has(.nav-hamburger) .nav-hamburger.open span:nth-child(3) { transform: trans
 
   #gtr-shared-nav .nav-links li,
   nav:has(.nav-hamburger) .nav-links li {
-    width: 100%; border-bottom: 1px solid rgba(244,239,230,0.1);
+    width: 100%; border-bottom: 1px solid rgba(246,246,243,0.1);
   }
   #gtr-shared-nav .nav-links li:first-child,
   nav:has(.nav-hamburger) .nav-links li:first-child {
-    border-top: 1px solid rgba(244,239,230,0.1);
+    border-top: 1px solid rgba(246,246,243,0.1);
   }
   #gtr-shared-nav .nav-links a,
   nav:has(.nav-hamburger) .nav-links a {

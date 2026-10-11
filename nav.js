@@ -15,7 +15,7 @@
   nav.innerHTML = `
     <a class="nav-logo" href="/" aria-label="Ghost Town Ranch home">
       <img src="/GTRlogo.png" alt="Ghost Town Ranch"
-        onerror="this.style.display='none';this.parentNode.innerHTML='<span style=\\'font-family:Georgia,serif;font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:#F4EFE6;\\'>Ghost Town Ranch</span>'">
+        onerror="this.style.display='none';this.parentNode.innerHTML='<span style=\\'font-family:Georgia,serif;font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:#F6F6F3;\\'>Ghost Town Ranch</span>'">
     </a>
     <div class="nav-right">
       <ul class="nav-links" id="gtr-nav-links">
