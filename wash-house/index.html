@@ -575,6 +575,18 @@
     /* Match Shop product imagery: square, white, edge to edge */
     .step-img-wrap { height:auto !important; aspect-ratio:1/1; background:#fff; border:1px solid rgba(93,100,58,0.14); }
     .step-img-wrap img { object-fit:cover !important; object-position:center !important; padding:0 !important; }
+  
+    /* ── FILM CALLOUT ── */
+    .film-callout { display:grid; grid-template-columns:minmax(260px,420px) 1fr; gap:56px; align-items:center; margin:64px 0 8px; padding-top:48px; border-top:1px solid var(--dust); }
+    .film-callout .film { position:relative; aspect-ratio:4/5; overflow:hidden; background:#141414; }
+    .film-callout video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .film-callout .fc-label { font-family:'Jost',sans-serif; font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:var(--army); }
+    .film-callout h3 { font-family:var(--serif); font-weight:400; font-size:clamp(30px,3.2vw,46px); line-height:1.05; margin:12px 0 16px; }
+    .film-callout h3 em { font-style:italic; }
+    .film-callout p { font-family:'Jost',sans-serif; font-weight:300; font-size:15px; line-height:1.8; color:#444644; max-width:440px; }
+    .film-callout .fc-price { display:block; margin-top:18px; font-family:'Jost',sans-serif; font-size:14px; letter-spacing:0.06em; }
+    .film-callout .fc-cta { display:inline-block; margin-top:18px; font-family:'Jost',sans-serif; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink); border-bottom:1px solid currentColor; padding-bottom:3px; text-decoration:none; }
+    @media (max-width:800px){ .film-callout { grid-template-columns:1fr; gap:24px; margin-top:40px; padding-top:32px; } .film-callout .film { max-width:420px; } }
   </style>
   <link rel="stylesheet" href="/nav.css">
   <link rel="stylesheet" href="/brand.css">
@@ -724,6 +736,16 @@
             <span class="step-view-link">View full product page &rarr;</span>
       </a>
 
+    </div>
+    <div class="film-callout fade-up">
+      <a class="film" href="https://ghosttownranch.com/products/omega-6-9-glowing-skin-body-oil" aria-label="Shop Golden Hour"><video src="/media/goldenhour-tall.mp4" poster="/media/goldenhour-tall.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Golden Hour body oil, in the truck and in the studio"></video></a>
+      <div>
+        <div class="fc-label">Body Oil</div>
+        <h3>Golden <em>Hour.</em></h3>
+        <p>Argan oil and vitamin E, organic certified. Hydrates and gives skin a warm glow. The light at five o&rsquo;clock, bottled.</p>
+        <span class="fc-price">$68</span>
+        <a class="fc-cta" href="https://ghosttownranch.com/products/omega-6-9-glowing-skin-body-oil">Shop Golden Hour &rarr;</a>
+      </div>
     </div>
   </section>
 
