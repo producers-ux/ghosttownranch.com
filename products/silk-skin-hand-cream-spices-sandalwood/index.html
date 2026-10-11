@@ -1515,7 +1515,7 @@ function renderProduct(product) {
   const tags = product.tags || [];
   const certs = [];
   if (NA_MADE_HANDLES.includes(handle)) {
-    certs.push('Made in North America');
+    certs.push('Made in USA');
   } else {
     if (isCosmosCertified(product)) {
       certs.push('COSMOS Certified · ECOCERT');
@@ -1668,7 +1668,7 @@ function buildSpecs(product, variants, ingredientsHtml) {
   }
   if (NA_MADE_HANDLES.includes(product.handle)) {
     detailLines.push('Net Wt. 15 g / 0.5 oz');
-    detailLines.push('Made in North America');
+    detailLines.push('Made in USA');
   } else if (!isHomeFrag && (isCosmosCertified(product) || type.includes('skin') || type.includes('body') || type.includes('hair') || type.includes('eye') || type.includes('face') || type.includes('lip') || type.includes('makeup'))) {
     detailLines.push(isVegan(product) ? 'Vegan · Cruelty-Free' : 'Cruelty-Free');
     detailLines.push('Free of parabens, phthalates, and synthetic dyes');
