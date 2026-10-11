@@ -20,7 +20,7 @@
   <meta property="og:url" content="https://ghosttownranch.com/wholesale/">
   <meta property="og:title" content="Partner with Ghost Town Ranch">
   <meta property="og:description" content="Not a line sheet. A room. Pop-ups, collaborations and hospitality programs from Ghost Town Ranch. Frontier Modernism.">
-  <meta property="og:image" content="https://ghosttownranch.com/yucca-valley-shop.jpg">
+  <meta property="og:image" content="https://ghosttownranch.com/widelight.jpg">
   <style>
     @font-face { font-family:'PPEiko'; src:url('/PPEiko-Medium.woff2') format('woff2'); font-weight:400; font-display:swap; }
     @font-face { font-family:'PPEiko'; src:url('/PPEiko-Thin.woff2') format('woff2'); font-weight:300; font-display:swap; }
@@ -43,9 +43,9 @@
       background-image:
         linear-gradient(90deg, rgba(20,20,20,0.62) 0%, rgba(20,20,20,0.12) 42%, rgba(20,20,20,0.12) 62%, rgba(20,20,20,0.58) 100%),
         linear-gradient(0deg, rgba(20,20,20,0.72) 0%, rgba(20,20,20,0.28) 45%, rgba(20,20,20,0.22) 100%),
-        url('/yucca-valley-shop.jpg');
+        url('/widelight.jpg');
       background-repeat:no-repeat, no-repeat, no-repeat;
-      background-position:center, center, center 54%;
+      background-position:center, center, center 60%;
       background-size:cover, cover, cover;
     }
     .w2-hero-left{ text-align:left; max-width:680px; }
@@ -74,6 +74,18 @@
       text-transform:uppercase; color:var(--ink); text-decoration:none; }
     .pillar a .u{ border-bottom:1px solid var(--ochre); padding-bottom:3px; }
 
+    /* flagship concept (in development) */
+    .concept{ display:grid; grid-template-columns:1.15fr 1fr; gap:56px; align-items:center; max-width:1300px; margin:0 auto; padding:88px 56px; }
+    .concept figure{ margin:0; }
+    .concept img{ width:100%; height:auto; display:block; }
+    .concept figcaption{ margin-top:10px; font-size:12px; letter-spacing:0.04em; color:var(--stone,#6E716C); }
+    .concept .lab{ font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:var(--army); }
+    .concept h2{ font-family:var(--serif); font-weight:400; font-size:clamp(30px,3.4vw,46px); line-height:1.08; margin:14px 0 18px; }
+    .concept h2 em{ font-style:italic; }
+    .concept p{ font-size:15px; line-height:1.8; color:#444644; margin-bottom:14px; max-width:480px; }
+    .concept .status{ display:inline-block; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; border:1px solid var(--dust); padding:7px 12px; margin-bottom:18px; }
+    .concept .cta{ display:inline-block; margin-top:10px; font-family:var(--serif); font-size:12.5px; letter-spacing:0.12em; text-transform:uppercase; border-bottom:1px solid var(--ochre); padding-bottom:3px; color:var(--ink); }
+    @media (max-width:900px){ .concept{ grid-template-columns:1fr; gap:28px; padding:56px 24px; } }
     /* proof row */
     .proof{ display:flex; flex-wrap:wrap; justify-content:center; gap:14px 40px; padding:56px 48px; text-align:center; }
     .proof span{ font-family:var(--serif); font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:#555754; }
@@ -152,7 +164,7 @@
       .pillars{ grid-template-columns:1fr; }
     }
     @media (max-width:600px){
-      .w2-hero{ padding:140px 24px 40px; min-height:560px; flex-direction:column; justify-content:flex-end; align-items:flex-start; gap:20px; background-image:linear-gradient(0deg, rgba(20,20,20,0.85) 0%, rgba(20,20,20,0.45) 45%, rgba(20,20,20,0.12) 100%), url('/yucca-valley-shop.jpg'); background-position:center, 50% 72%; background-repeat:no-repeat, no-repeat; background-size:cover, cover; }
+      .w2-hero{ padding:140px 24px 40px; min-height:560px; flex-direction:column; justify-content:flex-end; align-items:flex-start; gap:20px; background-image:linear-gradient(0deg, rgba(20,20,20,0.85) 0%, rgba(20,20,20,0.45) 45%, rgba(20,20,20,0.12) 100%), url('/widelight.jpg'); background-position:center, 60% 60%; background-repeat:no-repeat, no-repeat; background-size:cover, cover; }
       .w2-hero-right{ text-align:left; max-width:100%; }
       .retail,.proof,.press{ padding-left:24px; padding-right:24px; }
       .pillar{ padding:44px 28px; }
@@ -221,14 +233,13 @@
     <div class="w2-hero-right">
       <p class="w2-intro">Not a line sheet. A room. Pop-ups, hospitality programs and collaborations for people who want something different.</p>
     </div>
-    <span class="w2-credit">Concept rendering</span>
   </section>
 
   <div class="pillars">
     <div class="pillar">
       <div class="pillar-num">01<span>Rooms</span></div>
       <h3>Pop-ups and takeovers</h3>
-      <p>A day, a few weeks or a full season. Bring Ghost Town Ranch into your lobby, your floor or your event. A flagship of our own is in the works, with room for guest brands and events.</p>
+      <p>A day, a few weeks or a full season. Bring Ghost Town Ranch into your lobby, your floor or your event. We&rsquo;re also developing a flagship concept, with room for guest brands and events. <a href="#flagship" style="border-bottom:1px solid currentColor;">More below</a>.</p>
       <ul class="lengths">
         <li><b>One day</b><span>A launch, a dinner, a sink takeover</span></li>
         <li><b>One to four weeks</b><span>A pop-up</span></li>
@@ -250,6 +261,21 @@
       <a href="mailto:howdy@ghosttownranch.com?subject=Collaboration"><span class="u">Start a collaboration &rarr;</span></a>
     </div>
   </div>
+
+  <section class="concept" id="flagship">
+    <figure>
+      <img src="/yucca-valley-shop.jpg" alt="Concept rendering of a possible Ghost Town Ranch flagship interior" loading="lazy">
+      <figcaption>Concept rendering. Not a photograph of an existing space.</figcaption>
+    </figure>
+    <div>
+      <span class="status">In development</span>
+      <div class="lab">The flagship concept</div>
+      <h2>A farmstand that went to <em>design school.</em></h2>
+      <p>We&rsquo;re developing a Ghost Town Ranch flagship: white walls, black steel and a canopy of olive branches, with the full collection alongside a short list of guest brands, artists and events.</p>
+      <p>Nothing is signed yet. The location and timing are still taking shape, and we&rsquo;re talking now with the brands and partners who could help build it.</p>
+      <a class="cta" href="mailto:howdy@ghosttownranch.com?subject=Flagship%20Founding%20Partner">Talk to us about the flagship &rarr;</a>
+    </div>
+  </section>
 
   <div class="proof">
     <span>COSMOS-certified by ECOCERT</span>
