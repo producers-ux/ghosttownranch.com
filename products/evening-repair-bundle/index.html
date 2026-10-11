@@ -417,6 +417,12 @@
       cursor: wait;
     }
 
+    .buy-assure {
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      font-size: 12px; letter-spacing: 0.05em; color: var(--dust);
+      margin: -4px 0 18px; text-align: center;
+    }
+    .buy-assure a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
     .coming-soon-note {
       font-size: 12px;
       color: var(--dust);
@@ -937,7 +943,12 @@
         <!-- ATC -->
         <button class="atc-btn" id="atc-btn">Add to Cart</button>
         <div class="coming-soon-note" id="coming-soon-note" style="display:none">
-          Available at Shoppe Object Nourish · August 2026 · Javits Center
+          Coming soon. <a href="/#signup" style="color:inherit;text-decoration:underline;">Join the list</a> for first word.
+        </div>
+
+        <div class="buy-assure" id="buy-assure">
+          <div>Free shipping on your first order, <a href="/#signup">get your code</a></div>
+          <div>Ships from the USA &middot; Secure checkout</div>
         </div>
 
         <!-- Lip + Eye cross-sell -->
@@ -966,10 +977,35 @@
     </div>
   </div>
 </main>
+<script>
+/* Show name, price and photo instantly from the page's product data,
+   before the live Shopify data loads and takes over. */
+(function () {
+  try {
+    var blocks = document.querySelectorAll('script[type="application/ld+json"]'), p = null;
+    for (var i = 0; i < blocks.length; i++) {
+      var d = JSON.parse(blocks[i].textContent);
+      if (d && d['@type'] === 'Product') { p = d; break; }
+    }
+    if (!p) return;
+    var t = document.getElementById('product-title');
+    if (t && !t.textContent) t.textContent = p.name || '';
+    var o = Array.isArray(p.offers) ? p.offers[0] : p.offers, price = o && (o.price || o.lowPrice);
+    var pr = document.getElementById('product-price');
+    if (pr && !pr.textContent && price) { var n = parseFloat(price); pr.textContent = '$' + (n % 1 === 0 ? n.toFixed(0) : n.toFixed(2)); }
+    var img = document.getElementById('main-image'), src = Array.isArray(p.image) ? p.image[0] : p.image;
+    if (img && !img.getAttribute('src') && src) { img.src = src; img.alt = p.name || ''; }
+    var bc = document.getElementById('bc-title');
+    if (bc && !bc.textContent) bc.textContent = p.name || '';
+    var ld = document.getElementById('loading'), pg = document.getElementById('product-page');
+    if (ld && pg && t && t.textContent) { ld.style.display = 'none'; pg.style.display = 'block'; window.__gtrPrefilled = true; }
+  } catch (e) {}
+})();
+</script>
 
 <!-- Related -->
 <div class="related-section" id="related-section" style="display:none">
-  <div class="related-label">More from the Ranch</div>
+  <div class="related-label">Pairs well with</div>
   <div class="related-grid" id="related-grid"></div>
 </div>
 
@@ -1438,6 +1474,7 @@ function renderProduct(product) {
     atcBtn.disabled = true;
     atcBtn.textContent = 'Coming Soon';
     comingSoonNote.style.display = 'block';
+    var ba = document.getElementById('buy-assure'); if (ba) ba.style.display = 'none';
   } else {
     if (PREORDER_HANDLES.includes(handle)) {
       atcBtn.textContent = 'Pre-Order';
@@ -1497,7 +1534,7 @@ function renderProduct(product) {
   document.getElementById('loading').style.display = 'none';
   const page = document.getElementById('product-page');
   page.style.display = 'block';
-  page.style.opacity = 0;
+  if (!window.__gtrPrefilled) page.style.opacity = 0;
   requestAnimationFrame(() => {
     page.style.transition = 'opacity 0.4s';
     page.style.opacity = 1;
