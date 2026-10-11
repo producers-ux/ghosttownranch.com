@@ -765,6 +765,10 @@
       .scent-card:nth-child(odd) { border-right: 1px solid var(--dust); }
       footer { flex-direction: column; gap: 12px; align-items: flex-start; padding: 40px 24px; }
     }
+  
+    /* Match Shop product imagery: square, white, edge to edge */
+    .product-img-wrap { padding-bottom:0 !important; aspect-ratio:1/1; background:#fff; border:1px solid rgba(93,100,58,0.14); }
+    .product-img-wrap img { object-fit:cover !important; object-position:center !important; padding:0 !important; }
   </style>
   <link rel="stylesheet" href="/nav.css">
   <link rel="stylesheet" href="/brand.css">
@@ -891,7 +895,7 @@
     <!-- Ranch Water -->
     <article class="ritual-product" data-scents="rough-hewn hang-dried ember graze flax dusk">
       <div class="product-img-wrap" onclick="location.href='https://ghosttownranch.com/products/ranch-water-body-room-fragrance'" style="cursor:pointer">
-        <img src="https://or-cre.com/cdn/shop/files/Graze__bodylinen_1f079a0b-ca90-49d3-a761-37c3bcbcd229.png?v=1783628366&width=1200" alt="Ranch Water Body + Linen Fragrance">
+        <img src="https://or-cre.com/cdn/shop/files/RanchWater_Flax-bx.png?v=1783624841" alt="Ranch Water Body + Linen Fragrance">
       </div>
       <div class="product-cat">Fragrance · Body + Home</div>
       <h2 class="product-name">Ranch Water<br>Body + Room Fragrance</h2>
