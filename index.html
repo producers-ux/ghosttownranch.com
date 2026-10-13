@@ -433,6 +433,9 @@
   .road-media { position:relative; aspect-ratio:4/5; overflow:hidden; background:#1f201e; }
   .road-media img, .road-media video { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s ease; }
   .road-tile:hover .road-media img, .road-tile:hover .road-media video { transform:scale(1.03); }
+  .road-cast { margin-top:14px; font-family:'Jost',sans-serif; font-size:13px; letter-spacing:0.02em; line-height:1.6; color:var(--stone,#6E716C); max-width:520px; }
+  .road-cast strong { font-weight:400; color:var(--ink,#141414); }
+  .road-who { position:absolute; left:10px; bottom:10px; font-family:'Jost',sans-serif; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#F6F6F3; background:rgba(20,20,20,0.38); padding:4px 8px; backdrop-filter:blur(4px); }
   .road-cap { margin-top:12px; font-family:'Jost',sans-serif; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; }
   .road-cap span { display:block; margin-top:3px; letter-spacing:0.04em; text-transform:none; color:var(--stone, #6E716C); font-size:13px; }
   @media (max-width:900px){
@@ -871,24 +874,25 @@
     <div>
       <div class="road-label">On the road</div>
       <h2 class="road-title">Out in the <em>wide open.</em></h2>
+      <p class="road-cast"><strong>Lou, Audra and Saylor</strong> are a cast created for Ghost Town Ranch. The characters are invented. The products are real.</p>
     </div>
     <a class="road-ig" href="https://instagram.com/ghosttownranch" target="_blank" rel="noopener">Follow @ghosttownranch &rarr;</a>
   </div>
   <div class="road-grid">
     <a class="road-tile" href="https://ghosttownranch.com/products/drawn-line-matte-lip-color">
-      <div class="road-media"><video src="/media/road-drawnline.mp4" poster="/media/road-drawnline.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Drawn Line matte lip pigment, applied on a road trip"></video></div>
+      <div class="road-media"><video src="/media/road-drawnline.mp4" poster="/media/road-drawnline.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Drawn Line matte lip pigment, applied on a road trip"></video><span class="road-who">Lou &amp; Audra</span></div>
       <div class="road-cap">Drawn Line<span>Matte Lip Pigment &middot; $42</span></div>
     </a>
     <a class="road-tile" href="https://ghosttownranch.com/products/ranch-water-body-room-fragrance">
-      <div class="road-media"><img src="/media/road-flax.jpg" alt="Ranch Water in No. 05 Flax, held outside a roadside diner" loading="lazy"></div>
+      <div class="road-media"><img src="/media/road-flax.jpg" alt="Ranch Water in No. 05 Flax, held outside a roadside diner" loading="lazy"><span class="road-who">Lou</span></div>
       <div class="road-cap">Ranch Water<span>No. 05 Flax &middot; $88</span></div>
     </a>
     <a class="road-tile" href="https://ghosttownranch.com/products/quick-refresh-dry-shampoo-spray-1">
-      <div class="road-media"><video src="/media/drycreek.mp4" poster="/media/drycreek.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Dry Creek dry shampoo mist, used in a vintage car outside a desert diner"></video></div>
+      <div class="road-media"><video src="/media/drycreek.mp4" poster="/media/drycreek.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Dry Creek dry shampoo mist, used in a vintage car outside a desert diner"></video><span class="road-who">Audra &amp; Lou</span></div>
       <div class="road-cap">Dry Creek<span>Dry Shampoo Hair Mist &middot; $39</span></div>
     </a>
     <a class="road-tile" href="https://ghosttownranch.com/products/still-air-natural-roll-on-deodorant1">
-      <div class="road-media"><img src="/media/road-stillair.jpg" alt="On the road in a vintage truck through Joshua tree country, with Still Air natural roll-on deodorant" loading="lazy"></div>
+      <div class="road-media"><img src="/media/road-stillair.jpg" alt="On the road in a vintage truck through Joshua tree country, with Still Air natural roll-on deodorant" loading="lazy"><span class="road-who">Lou &amp; Saylor</span></div>
       <div class="road-cap">Still Air<span>Natural Roll-On Deodorant &middot; $32</span></div>
     </a>
   </div>
