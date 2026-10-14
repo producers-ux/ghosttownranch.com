@@ -250,12 +250,31 @@
     var rates = { win: usd(tier.win) + " / month", res: usd(tier.res) + " / month", pop: usd(tier.day) + " / day, " + usd(tier.week) + " / week" };
     document.querySelectorAll("#spaces [data-rate]").forEach(function (el) { el.textContent = rates[el.getAttribute("data-rate")]; });
   }
-  if (tier && space) {
+  document.querySelectorAll("#spaces [data-space]").forEach(function (li) {
+    var k = li.querySelector(".k");
+    var a = document.createElement("a");
+    var params = new URLSearchParams();
+    if (q.get("r")) params.set("r", q.get("r"));
+    params.set("s", li.getAttribute("data-space"));
+    a.href = "?" + params.toString() + "#reserve";
+    a.textContent = k.textContent;
+    a.style.color = "inherit";
+    k.textContent = "";
+    k.appendChild(a);
+  });
+  if (space) {
     var li = document.querySelector('#spaces [data-space="' + space + '"]');
-    li.querySelector(".k").style.color = "var(--olive)";
-    li.querySelector(".k").textContent += " (yours)";
-    var rate = space === "window" ? usd(tier.win) + " / month" : space === "wall" ? usd(tier.res) + " / month" : usd(tier.day) + " / day, " + usd(tier.week) + " / week";
-    var due = space === "window" ? usd(tier.win) : space === "wall" ? usd(tier.res) : "50% of your booking";
+    var link = li.querySelector(".k a");
+    link.style.color = "var(--olive)";
+    link.textContent += " (yours)";
+    var rate, due;
+    if (tier) {
+      rate = space === "window" ? usd(tier.win) + " / month" : space === "wall" ? usd(tier.res) + " / month" : usd(tier.day) + " / day, " + usd(tier.week) + " / week";
+      due = space === "window" ? usd(tier.win) : space === "wall" ? usd(tier.res) : "50% of your booking";
+    } else {
+      rate = "Shared with your invitation";
+      due = space === "popup" ? "50% of your booking" : "One month at your rate";
+    }
     document.getElementById("inv-space").textContent = SPACES[space];
     document.getElementById("inv-rate").textContent = rate;
     document.getElementById("inv-due").textContent = due;
