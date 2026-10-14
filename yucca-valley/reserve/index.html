@@ -256,7 +256,7 @@
     var params = new URLSearchParams();
     if (q.get("r")) params.set("r", q.get("r"));
     params.set("s", li.getAttribute("data-space"));
-    a.href = "?" + params.toString() + "#reserve";
+    a.href = "?" + params.toString();
     a.textContent = k.textContent;
     a.style.color = "inherit";
     k.textContent = "";
