@@ -187,7 +187,7 @@
 
     <section id="reserve">
       <h2>Reserve your space</h2>
-      <p class="intro">We confirm your space and send a deposit invoice within two business days. Your reservation is held once the deposit is paid.</p>
+      <p class="intro">We will be in touch within two business days to confirm your space and send your deposit invoice.</p>
 
       <form id="reserve-form">
         <div class="gotcha" aria-hidden="true">
@@ -201,68 +201,7 @@
 
         <div class="field">
           <label for="studio">Brand or studio name</label>
-          <span class="hint">As it should appear on the resident agreement.</span>
           <input type="text" id="studio" name="brand_or_studio" required>
-        </div>
-
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" autocomplete="email" required>
-        </div>
-
-        <div class="field">
-          <label for="phone">Phone</label>
-          <input type="text" id="phone" name="phone" autocomplete="tel" required>
-        </div>
-
-        <div class="field">
-          <label for="site">Website or Instagram</label>
-          <input type="text" id="site" name="website_or_instagram" required>
-        </div>
-
-        <div class="field">
-          <label for="space">Which space</label>
-          <select id="space" name="space" required>
-            <option value="">Choose one</option>
-            <option>Window residency</option>
-            <option>Residency 2</option>
-            <option>Residency 3</option>
-            <option>Residency 4</option>
-            <option>Two residencies side by side</option>
-            <option>Any wall residency</option>
-          </select>
-        </div>
-
-        <fieldset>
-          <legend class="legend">Rate tier</legend>
-          <span class="hint">As shown on the rate sheet we sent you.</span>
-          <div class="choices"><label><input type="radio" name="rate_tier" value="Local" required>Local</label>
-          <label><input type="radio" name="rate_tier" value="National">National</label></div>
-        </fieldset>
-
-        <div class="field">
-          <label for="start">When would you like to start</label>
-          <select id="start" name="preferred_start" required>
-            <option value="">Choose one</option>
-            <option>Opening month</option>
-            <option>Spring 2027</option>
-            <option>Fall 2027</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="signature">Signature</label>
-          <span class="hint">Type your full legal name to sign.</span>
-          <input type="text" id="signature" name="signature" autocomplete="name" required>
-        </div>
-
-        <div class="field">
-          <label for="title">Title</label>
-          <input type="text" id="title" name="title" placeholder="Founder">
-        </div>
-
-        <div class="field check">
-          <label><input type="checkbox" name="agree" value="yes" required>I have read the reservation terms on this page and agree to them on behalf of my brand.</label>
         </div>
 
         <button type="submit" id="send">Reserve</button>
