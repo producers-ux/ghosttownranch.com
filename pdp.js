@@ -213,6 +213,12 @@ var GTR_PRODUCTS = {"The Monument": {"ingredients": "Coconut-Soy Wax Blend, Prem
   }
 
   function clientAddToCart(variantId, productTitle, variantTitle, price) {
+    // Use the site-wide Shopify cart (cart.js) when it's on the page, so there is only one cart.
+    if (window.GTRCart && typeof window.GTRCart.add === 'function') {
+      var vid = String(variantId).split('/').pop();
+      window.GTRCart.add(vid, productTitle, variantTitle || 'Default', parseFloat(price) || 0, '');
+      return;
+    }
     var existing = null; for (var ei=0;ei<gtrCart.length;ei++) { if (gtrCart[ei].variantId===variantId){existing=gtrCart[ei];break;} }
     if (existing) {
       existing.qty += 1;
