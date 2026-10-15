@@ -365,7 +365,7 @@
       opacity: 0.8;
     }
 
-    /* ── FEATURED: FIELD KIT ── */
+    /* ── FEATURED STRIP ── */
     .featured-strip {
       background: var(--ink);
       padding: 96px 48px;
@@ -860,7 +860,7 @@
     <div class="scent-reveal" id="scent-reveal"></div>
   </section>
 
-  <!-- FIELD KIT FEATURED -->
+  <!-- RANCH WATER FEATURED -->
   <section class="featured-strip">
     <div>
       <div class="featured-label">Frontier Modernism · Landscape as Scent</div>
@@ -1060,15 +1060,6 @@
     if (badge) { badge.textContent = n > 0 ? n : ''; badge.style.display = n > 0 ? 'flex' : 'none'; }
   });
 
-  function addFieldKitToCart(e, btn) {
-    e.preventDefault();
-    var scentSel = document.getElementById('fieldkit-scent-selector');
-    var variantId = scentSel ? scentSel.value : '51849834627368';
-    var scent = scentSel ? scentSel.options[scentSel.selectedIndex].text.trim() : '';
-    btn.textContent = 'Added ✓';
-    setTimeout(function(){ btn.textContent = 'Add to Cart'; btn.disabled = false; }, 1400);
-    clientAddToCart(variantId, 'The Field Kit', scent, 44);
-  }
 
   function addVariantToCart(e, btn, handle) {
     e.preventDefault();
