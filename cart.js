@@ -356,17 +356,34 @@
   }
 
   // ── WRITES ─────────────────────────────────────────────────────────────────
+  // Resolves true if the item made it into the Shopify cart.
   function addLine(variantId, qty) {
+    var line = { merchandiseId: gid(variantId), quantity: qty || 1 };
+    function has(c) {
+      return !!c && c.lines.edges.some(function(e) { return e.node.merchandise.id === line.merchandiseId; });
+    }
     return run(function() {
       return ensureCart().then(function() {
         return mutate('cartLinesAdd(cartId: $id, lines: $lines)', '$id: ID!, $lines: [CartLineInput!]!',
-          { id: cart.id, lines: [{ merchandiseId: gid(variantId), quantity: qty || 1 }] })
+          { id: cart.id, lines: [line] })
           .catch(function() {
             // Cart expired or was checked out: start a fresh one with this item.
-            return createCart([{ merchandiseId: gid(variantId), quantity: qty || 1 }]);
+            return createCart([line]);
           });
-      }).then(applyCart);
-    }).then(render);
+      }).then(function(c) {
+        var ok = has(c);
+        if (ok) applyCart(c);
+        return ok;
+      });
+    }).then(function(ok) {
+      if (!ok) cart.lines = cart.lines.filter(function(l) { return String(l.id).indexOf('pending-') !== 0; });
+      if (!ok && cart.id) {
+        // Drop any placeholder line and show Shopify's real cart.
+        return fetchCart(cart.id).then(function(c) { if (c) applyCart(c); render(); return false; });
+      }
+      render();
+      return !!ok;
+    });
   }
 
   // ── PUBLIC API ─────────────────────────────────────────────────────────────
@@ -393,6 +410,16 @@
       render();
       GTRCart.open();
       return addLine(variantId, 1);
+    },
+    // Add by variant only (product pages). Opens the cart on success; resolves true/false.
+    addVariant: function(variantId, qty) {
+      return addLine(variantId, qty || 1).then(function(ok) {
+        if (ok) GTRCart.open();
+        return ok;
+      });
+    },
+    count: function() {
+      return cart.lines.reduce(function(s, l) { return s + l.quantity; }, 0);
     },
     setQty: function(lineId, qty) {
       if (String(lineId).indexOf('pending-') === 0) return;

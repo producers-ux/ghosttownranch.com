@@ -1030,25 +1030,6 @@
   </ul>
 </footer>
 
-<!-- Cart drawer -->
-<div class="cart-overlay" id="cart-overlay"></div>
-<div class="cart-drawer" id="cart-drawer">
-  <div class="cart-header">
-    <span class="cart-title">Cart</span>
-    <button class="cart-close" id="cart-close">✕</button>
-  </div>
-  <div class="cart-items" id="cart-items">
-    <div class="cart-empty">Your cart is empty.</div>
-  </div>
-  <div class="cart-footer">
-    <div class="cart-subtotal">
-      <span>Subtotal</span>
-      <span id="cart-subtotal">—</span>
-    </div>
-    <button class="checkout-btn" id="checkout-btn">Checkout</button>
-  </div>
-</div>
-
 <!-- Toast -->
 <div class="toast" id="toast"></div>
 
@@ -1111,148 +1092,30 @@ function setupPairCallout(handle) {
 }
 
 // ═══════════════════════════════════════════════════════════════
-//  CART STATE
+//  CART — handled site-wide by /cart.js (one cart for every page)
 // ═══════════════════════════════════════════════════════════════
-let cart = { id: null, lines: [], checkoutUrl: '' };
-let cartLoading = false;
-
-async function initCart() {
-  const stored = localStorage.getItem('gtr_cart_id');
-  if (stored) {
-    try {
-      const res = await storefrontFetch(`{
-        cart(id: "${stored}") {
-          id checkoutUrl
-          lines(first: 50) {
-            edges { node {
-              id quantity
-              merchandise { ... on ProductVariant {
-                id title price { amount }
-                image { url altText }
-                product { title }
-              }}
-            }}
-          }
-        }
-      }`);
-      if (res?.data?.cart) {
-        const c = res.data.cart;
-        cart.id = c.id;
-        cart.checkoutUrl = c.checkoutUrl;
-        cart.lines = c.lines.edges.map(e => e.node);
-        renderCart();
-        return;
-      }
-    } catch {}
-  }
-  // create new cart
-  const res = await storefrontFetch(`mutation {
-    cartCreate { cart { id checkoutUrl } }
-  }`);
-  cart.id = res?.data?.cartCreate?.cart?.id;
-  cart.checkoutUrl = res?.data?.cartCreate?.cart?.checkoutUrl;
-  localStorage.setItem('gtr_cart_id', cart.id);
-}
+async function initCart() {}
 
 async function addToCart(variantId, qty = 1) {
-  if (!cart.id || cartLoading) return;
-  cartLoading = true;
   const btn = document.getElementById('atc-btn');
+  if (!window.GTRCart || btn.classList.contains('loading')) return;
   btn.classList.add('loading');
   btn.textContent = 'Adding…';
-
-  const res = await storefrontFetch(`mutation {
-    cartLinesAdd(cartId: "${cart.id}", lines: [{
-      merchandiseId: "${variantId}",
-      quantity: ${qty}
-    }]) {
-      cart {
-        id checkoutUrl
-        lines(first: 50) {
-          edges { node {
-            id quantity
-            merchandise { ... on ProductVariant {
-              id title price { amount }
-              image { url altText }
-              product { title }
-            }}
-          }}
-        }
-      }
-      userErrors { message }
-    }
-  }`);
-
-  const c = res?.data?.cartLinesAdd?.cart;
-  if (!c || res?.data?.cartLinesAdd?.userErrors?.length) {
-    btn.classList.remove('loading');
-    btn.textContent = 'Not available yet';
-    setTimeout(() => { btn.textContent = btn.dataset.label || 'Add to Cart'; }, 2500);
-    cartLoading = false;
-    return;
-  }
-  if (c) {
-    cart.id = c.id;
-    cart.checkoutUrl = c.checkoutUrl;
-    cart.lines = c.lines.edges.map(e => e.node);
-    renderCart();
-    openCart();
-  }
-
+  const ok = await GTRCart.addVariant(variantId, qty);
   btn.classList.remove('loading');
-  btn.textContent = btn.dataset.label || 'Add to Cart';
-  cartLoading = false;
+  btn.textContent = ok ? (btn.dataset.label || 'Add to Cart') : 'Not available yet';
+  if (!ok) setTimeout(() => { btn.textContent = btn.dataset.label || 'Add to Cart'; }, 2500);
 }
 
-function renderCart() {
-  const itemsEl = document.getElementById('cart-items');
-  const subtotalEl = document.getElementById('cart-subtotal');
-  const countEl = document.getElementById('cart-count');
+function openCart() { if (window.GTRCart) GTRCart.open(); }
+function closeCart() { if (window.GTRCart) GTRCart.close(); }
 
-  if (!cart.lines.length) {
-    itemsEl.innerHTML = '<div class="cart-empty">Your cart is empty.</div>';
-    subtotalEl.textContent = '—';
-    countEl.textContent = '';
-    return;
-  }
-
-  let total = 0;
-  let count = 0;
-  itemsEl.innerHTML = cart.lines.map(line => {
-    const v = line.merchandise;
-    const price = parseFloat(v.price.amount) * line.quantity;
-    total += price;
-    count += line.quantity;
-    return `<div class="cart-item">
-      <img src="${v.image?.url || ''}" alt="${v.image?.altText || ''}" />
-      <div>
-        <div class="cart-item-name">${v.product.title}</div>
-        <div class="cart-item-variant">${v.title !== 'Default Title' ? v.title : ''}</div>
-        <div class="cart-item-price">$${price.toFixed(2)}</div>
-      </div>
-    </div>`;
-  }).join('');
-
-  subtotalEl.textContent = '$' + total.toFixed(2);
-  countEl.textContent = count ? ` (${count})` : '';
+function updateNavCount(n) {
+  const el = document.getElementById('cart-count');
+  if (el) el.textContent = n ? ` (${n})` : '';
 }
-
-function openCart() {
-  document.getElementById('cart-drawer').classList.add('open');
-  document.getElementById('cart-overlay').classList.add('open');
-}
-
-function closeCart() {
-  document.getElementById('cart-drawer').classList.remove('open');
-  document.getElementById('cart-overlay').classList.remove('open');
-}
-
+window.addEventListener('gtr:cart-updated', e => updateNavCount(e.detail?.count || 0));
 document.getElementById('cart-btn').addEventListener('click', openCart);
-document.getElementById('cart-close').addEventListener('click', closeCart);
-document.getElementById('cart-overlay').addEventListener('click', closeCart);
-document.getElementById('checkout-btn').addEventListener('click', () => {
-  if (cart.checkoutUrl) window.location.href = cart.checkoutUrl;
-});
 
 // ═══════════════════════════════════════════════════════════════
 //  STOREFRONT API
@@ -1837,6 +1700,7 @@ init();
   });
 })();
 </script>
+<script src="/cart.js"></script>
 <script src="/gtr-controls.js" defer></script>
 <script>
 /* Product films: playable thumbnails in the gallery, by product handle. */
