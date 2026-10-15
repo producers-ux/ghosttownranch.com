@@ -9,7 +9,7 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 
 const SITE = 'https://ghosttownranch.com';
-const SHOP = process.env.SHOPIFY_DOMAIN || 'or-cre.com';
+const SHOP = process.env.SHOPIFY_DOMAIN || 'muq7w3-im.myshopify.com';
 const TOKEN = process.env.SHOPIFY_STOREFRONT_TOKEN || 'c6efa00d9c5d9849c6c13d59cca6ab82'; // public Storefront token already shipped in products/index.html
 const API = `https://${SHOP}/api/2025-01/graphql.json`;
 

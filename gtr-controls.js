@@ -99,7 +99,7 @@
   function openCartUI() {
     if (window.GTRCart && typeof window.GTRCart.open === 'function') return window.GTRCart.open();
     if (typeof window.openCart === 'function') return window.openCart();
-    window.location.href = 'https://or-cre.com/cart';
+    window.location.href = 'https://muq7w3-im.myshopify.com/cart';
   }
 
   // ── STYLES ────────────────────────────────────────────────────────────────

@@ -3,7 +3,7 @@
 // product pages and Ritual, so whatever a shopper adds anywhere lands in one cart
 // and one checkout.
 (function() {
-  var DOMAIN      = 'or-cre.com';
+  var DOMAIN      = 'muq7w3-im.myshopify.com';   // permanent Shopify address; unaffected by custom domain changes
   var TOKEN       = 'c6efa00d9c5d9849c6c13d59cca6ab82';
   var API_VERSION = '2025-01';
   var CART_KEY    = 'gtr_cart_id';
