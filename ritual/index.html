@@ -769,6 +769,7 @@
     /* Match Shop product imagery: square, white, edge to edge */
     .product-img-wrap { padding-bottom:0 !important; aspect-ratio:1/1; background:#fff; border:1px solid rgba(93,100,58,0.14); }
     .product-img-wrap img { object-fit:cover !important; object-position:center !important; padding:0 !important; }
+    .product-img-wrap .card-film { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
   </style>
   <link rel="stylesheet" href="/nav.css">
   <link rel="stylesheet" href="/brand.css">
@@ -939,7 +940,7 @@
     <!-- The Monument -->
     <article class="ritual-product" data-scents="rough-hewn hang-dried ember graze flax dusk">
       <div class="product-img-wrap" onclick="location.href='https://ghosttownranch.com/products/the-monument-candle'" style="cursor:pointer">
-        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Themonument1_286ba5fd-33d4-46a3-a678-4a99682977ad.png?v=1781994789" alt="The Monument 4-Wick Candle">
+        <video class="card-film" src="/media/monument.mp4" poster="/media/monument.jpg" autoplay muted loop playsinline preload="metadata" aria-label="The Monument, all four wicks lit"></video>
       </div>
       <div class="product-cat">Candle · Statement</div>
       <h2 class="product-name">The Monument<br>4-Wick, 55oz</h2>
