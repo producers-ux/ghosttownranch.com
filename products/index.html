@@ -23,7 +23,9 @@
   <meta id="og-image" property="og:image" content="https://ghosttownranch.com/herogtr.png" />
   <meta id="og-url" property="og:url" content="" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="robots" content="index, follow" />
+  <!-- The bare /products/ template has no product of its own, so it stays out of search.
+       scripts/build-products.mjs switches this to "index, follow" on every real product page. -->
+  <meta name="robots" content="noindex, follow" />
   <meta name="gtr-build" content="2026-10-09-plunge-preorder-variants" />
   <link rel="canonical" id="canonical" href="" />
 
