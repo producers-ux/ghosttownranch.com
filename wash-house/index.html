@@ -581,6 +581,8 @@
     .film-callout { display:grid; grid-template-columns:minmax(260px,420px) 1fr; gap:56px; align-items:center; margin:64px 0 8px; padding-top:48px; border-top:1px solid var(--dust); }
     .film-callout .film { position:relative; aspect-ratio:4/5; overflow:hidden; background:#141414; }
     .film-callout video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .film-callout.film-tall { grid-template-columns:minmax(220px,340px) 1fr; }
+    .film-callout.film-tall .film { aspect-ratio:9/16; }
     .film-callout .fc-label { font-family:'Jost',sans-serif; font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:var(--army); }
     .film-callout h3 { font-family:var(--serif); font-weight:400; font-size:clamp(30px,3.2vw,46px); line-height:1.05; margin:12px 0 16px; }
     .film-callout h3 em { font-style:italic; }
@@ -588,6 +590,7 @@
     .film-callout .fc-price { display:block; margin-top:18px; font-family:'Jost',sans-serif; font-size:14px; letter-spacing:0.06em; }
     .film-callout .fc-cta { display:inline-block; margin-top:18px; font-family:'Jost',sans-serif; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink); border-bottom:1px solid currentColor; padding-bottom:3px; text-decoration:none; }
     @media (max-width:800px){ .film-callout { grid-template-columns:1fr; gap:24px; margin-top:40px; padding-top:32px; } .film-callout .film { max-width:420px; } }
+    @media (max-width:800px){ .film-callout.film-tall { grid-template-columns:1fr; } .film-callout.film-tall .film { max-width:300px; } }
   </style>
   <link rel="stylesheet" href="/nav.css">
   <link rel="stylesheet" href="/brand.css">
@@ -633,6 +636,17 @@
         <h2 class="routine-title">Where it <em>started</em></h2>
       </div>
       <div class="routine-hero-callout">hand wash, and now the bath</div>
+    </div>
+    <div class="film-callout film-lead film-tall fade-up">
+      <a class="film" href="https://ghosttownranch.com/products/the-soak-lights-out" aria-label="Shop The Soak"><video src="/media/lightsout.mp4" poster="/media/lightsout.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Lights Out: The Soak and The Plunge in the bath"></video></a>
+      <div>
+        <div class="fc-label">Bath</div>
+        <h3>Lights <em>Out.</em></h3>
+        <p>Two new ways to stay in. The Plunge fizzes, The Soak settles. Cedarwood and bitter orange on one, lavender and cornflower on the other. Phone goes in the other room.</p>
+        <span class="fc-price">The Soak $38 &middot; The Plunge $46</span>
+        <a class="fc-cta" href="https://ghosttownranch.com/products/the-soak-lights-out">Shop The Soak &rarr;</a><br>
+        <a class="fc-cta" href="https://ghosttownranch.com/products/the-plunge-salt-moon-bath-bomb-set-of-3">Shop The Plunge &rarr;</a>
+      </div>
     </div>
     <div class="steps-grid count-6">
 
