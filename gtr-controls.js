@@ -21,7 +21,7 @@
     // Sections / pages
     { t: 'Ritual',          c: 'Scent + Home',  u: '/ritual/',                k: 'candle votive diffuser fragrance scent home reed' },
     { t: 'Routines',        c: 'Skin',          u: '/routines/',              k: 'serum cream eye routine morning evening skincare face' },
-    { t: 'Wash House',      c: 'At the sink',   u: '/wash-house/',            k: 'hand wash soap body cream sink' },
+    { t: 'Wash House',      c: 'At the sink',   u: '/wash-house/',            k: 'hand wash soap body cream sink bath soak bath salt bath bomb' },
     { t: 'Wide Light',     c: 'Origin',        u: '/field-guide/',           k: 'origin philosophy frontier modernism story about wide light' },
     { t: 'Shop the Ranch',  c: 'All Objects',   u: '/shop/',                  k: 'shop all products store browse' },
     { t: 'Wholesale',       c: 'Trade',         u: '/wholesale/',             k: 'wholesale trade stockist retailer line sheet hospitality' },
@@ -73,6 +73,8 @@
     { t: "The Hold", c: "Anti-age day cream  ·  $74", u: "/products/the-hold-anti-age-day-cream", k: "the hold anti-age day cream aloe juice betaine face-care hyaluronic acid luxurious texture mature moisture boost moisturiser shea butter shoppe-object white anti age" },
     { t: "The Monument", c: "Candle  ·  $190", u: "/products/the-monument-candle", k: "the monument hand-poured mega 4-wick coconut-soy candle 55oz coconut soy large shoppe-object" },
     { t: "The Slow — Ltd. Edition", c: "No. 06 Dusk, White Matte Glass  ·  $58", u: "/products/the-slow-hand-poured-colored-wax-candle-ltd-001", k: "the slow ltd edition hand-poured colored wax candle 11oz coconut soy white matte glass palo santo amber dusk shoppe-object" },
+    { t: "The Plunge", c: "Bath Bomb Set of 3, Salt Moon + Windbreak  ·  $46", u: "/products/the-plunge-salt-moon-bath-bomb-set-of-3", k: "the plunge bath bomb bombs set of 3 three salt moon windbreak cedarwood bitter orange sea salt eucalyptus bath soak tub wash house pre-order" },
+    { t: "The Soak", c: "Bath Salt, Lights Out  ·  $38", u: "/products/the-soak-lights-out", k: "the soak lights out bath salt salts soak tub mineral magnesium epsom sea salt lavender lavandin cornflower eucalyptus relax relaxation wind down wash house" },
     { t: "The Wash", c: "Hydrating Hand Wash  ·  $44", u: "/products/sunbroke-the-wash-cold-pressed-grapefruit", k: "the wash hydrating hand soap body grapefruit shoppe-object vegan sunbroke cold pressed" },
     { t: "Trail's End Keratin Hair Mist", c: "Hair Care  ·  $53", u: "/products/keratin-shine-leave-in-hair-mist", k: "trail end keratin hair mist care adds shine all skin types softening hair-care lack of glow volume shoppe-object transparent leave in" }
   ];
