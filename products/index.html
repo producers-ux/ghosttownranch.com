@@ -1745,8 +1745,8 @@ init();
     'peptide-anti-aging-serum': [{ v: '/media/grade.mp4', p: '/media/grade.jpg', l: 'The Grade peptide serum, from bottle to drawing' }],
     'rose-cut-daily-facial-wash': [{ v: '/media/rosecut.mp4', p: '/media/rosecut.jpg', l: 'Rose Cut facial wash at the sink' }],
     'quick-refresh-dry-shampoo-spray-1': [{ v: '/media/drycreek.mp4', p: '/media/drycreek.jpg', l: 'Dry Creek dry shampoo mist, on a desert road trip' }],
-    'the-soak-lights-out': [{ v: '/media/lightsout.mp4', p: '/media/lightsout.jpg', l: 'Lights Out: The Soak and The Plunge in the bath', fit: 'contain' }],
-    'the-plunge-salt-moon-bath-bomb-set-of-3': [{ v: '/media/lightsout.mp4', p: '/media/lightsout.jpg', l: 'Lights Out: The Plunge and The Soak in the bath', fit: 'contain' }]
+    'the-soak-lights-out': [{ v: '/media/soak.mp4', p: '/media/soak.jpg', l: 'The Soak, poured into a warm bath with cornflower', pos: 'center 30%' }],
+    'the-plunge-salt-moon-bath-bomb-set-of-3': [{ v: '/media/plunge.mp4', p: '/media/plunge.jpg', l: 'The Plunge, dropped in and fizzing' }]
   };
   var m = location.pathname.match(/\/products\/([^\/]+)/), h = m ? m[1] : new URLSearchParams(location.search).get('handle');
   var films = h && FILMS[h];
@@ -1769,7 +1769,7 @@ init();
       t.style.cssText = 'padding:0;background:#141414 url(' + f.p + ') center/cover no-repeat;position:relative;';
       t.innerHTML = '<span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;text-shadow:0 1px 6px rgba(0,0,0,.6);">&#9654;</span>';
       t.addEventListener('click', function () {
-        vid.src = f.v; vid.poster = f.p; vid.setAttribute('aria-label', f.l); vid.style.objectFit = f.fit || ''; vid.style.background = f.fit ? '#141414' : '';
+        vid.src = f.v; vid.poster = f.p; vid.setAttribute('aria-label', f.l); vid.style.objectFit = f.fit || ''; vid.style.objectPosition = f.pos || ''; vid.style.background = f.fit ? '#141414' : '';
         main.style.display = 'none'; vid.style.display = 'block'; vid.play();
         thumbs.querySelectorAll('.thumb').forEach(function (x) { x.classList.remove('active'); }); t.classList.add('active');
       });
