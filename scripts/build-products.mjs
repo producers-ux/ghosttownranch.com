@@ -112,6 +112,8 @@ function render(p) {
   h = swap(h, /<meta id="og-image"[^>]*>/, `<meta id="og-image" property="og:image" content="${esc(images[0]?.url || SITE + '/herogtr-v2.png')}" />`, 'og-image');
   h = swap(h, /<meta id="og-url"[^>]*>/, `<meta id="og-url" property="og:url" content="${url}" />`, 'og-url');
   h = swap(h, /<link rel="canonical" id="canonical"[^>]*>/, `<link rel="canonical" id="canonical" href="${url}" />`, 'canonical');
+  // The template is noindex (the bare /products/ page has no product); real product pages are indexable.
+  h = swap(h, /<meta name="robots" content="[^"]*"\s*\/?>/, `<meta name="robots" content="index, follow" />`, 'robots');
   h = swap(
     h,
     /<\/head>/,
@@ -132,6 +134,34 @@ for (const p of products) {
   await writeFile(`products/${p.handle}/index.html`, render(p));
   built.push(p);
 }
+
+// Pages left over from products that are no longer published (or now retired / coming soon):
+// keep the URL working for anyone with an old link, but take it out of search and point
+// search engines at the shop. Only touches pages this script generated (they carry the snapshot).
+const { readdir } = await import('node:fs/promises');
+const live = new Set(built.map((p) => p.handle));
+const stale = [];
+const dirs = (await readdir('products', { withFileTypes: true })).filter((d) => d.isDirectory());
+// Safety: if Shopify came back with far fewer products than we have pages (an API hiccup, a
+// channel unpublished by mistake), don't de-index the shop. Skip this step and say so.
+const leftover = dirs.filter((d) => !live.has(d.name)).length;
+if (built.length < 5 || leftover > built.length) {
+  console.warn(`Skipped stale-page cleanup: only ${built.length} live products vs ${leftover} leftover pages. Check the Shopify channel.`);
+  dirs.length = 0;
+}
+for (const d of dirs) {
+  if (live.has(d.name)) continue;
+  const file = `products/${d.name}/index.html`;
+  let html;
+  try { html = await readFile(file, 'utf8'); } catch { continue; }
+  if (!html.includes('data-seo-snapshot')) continue;
+  html = html
+    .replace(/<meta name="robots" content="[^"]*"\s*\/?>/, '<meta name="robots" content="noindex, follow" />')
+    .replace(/<script type="application\/ld\+json">\{"@context":"https:\/\/schema\.org","@type":"Product"[\s\S]*?<\/script>\n?/, '');
+  await writeFile(file, html);
+  stale.push(d.name);
+}
+if (stale.length) console.log(`Marked ${stale.length} stale product page(s) noindex: ${stale.join(', ')}`);
 
 // Rebuild sitemap: keep existing non-product URLs, replace product URLs.
 let sm = await readFile('sitemap.xml', 'utf8');
