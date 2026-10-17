@@ -1,0 +1,12 @@
+{
+  "_note": "Old product addresses -> where they should land now. Run: node scripts/build-redirects.mjs",
+  "/products/desert-glow-hydrating-facial-oil-ghost-town-ranch/": "/products/desert-glow-hydrating-facial-oil/",
+  "/products/desert-day-cream/": "/products/moisturising-day-cream/",
+  "/products/hand-body-wash-grapefruit-ghost-town-ranch/": "/products/hand-body-wash-grapefruit/",
+  "/products/hand-body-wash-grapefruit-1/": "/products/hand-body-wash-grapefruit/",
+  "/products/hand-cream-citrus-pink-peppercorn/": "/products/silk-skin-hand-cream-spices-sandalwood/",
+  "/products/pillow-room-spray-hang-dried/": "/products/ranch-water-body-room-fragrance/",
+  "/products/gtr-bull-icon-unisex-sleeveless-tee-in-black/": "/products/gtr-unisex-tee-in-black-or-bone/",
+  "/products/gtr-black-trucker-hat/": "/shop/",
+  "/products/apothecary-cedar-and-vanilla-candle/": "/ritual/"
+}
