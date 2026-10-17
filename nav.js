@@ -1,6 +1,7 @@
 (function () {
   const links = [
     { href: '/shop/',        label: 'Shop' },
+    { href: '/guest-ranch/', label: 'Guest Ranch' },
     { href: '/ritual/',      label: 'Ritual' },
     { href: '/routines/',    label: 'Routines' },
     { href: '/wash-house/',  label: 'Wash House' },

@@ -87,7 +87,7 @@ function render(p) {
     name: clean(p.title),
     description: clean(p.description) || desc,
     url,
-    brand: { '@type': 'Brand', name: 'Ghost Town Ranch' },
+    brand: { '@type': 'Brand', name: (p.tags || []).includes('guest-ranch') && clean(p.vendor) ? clean(p.vendor) : 'Ghost Town Ranch' },
     offers: offer,
   };
   if (images.length) product.image = images.map((i) => i.url);
