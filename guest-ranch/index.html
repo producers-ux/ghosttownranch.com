@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPT3TQ1C0B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BPT3TQ1C0B');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guest Ranch | Ghost Town Ranch · Makers We Keep Company With</title>
+  <meta name="description" content="Guest Ranch: a short list of makers Ghost Town Ranch keeps company with. Eyewear, alpaca throws and desert-made goods. Unisex, made to last, hard to find.">
+  <link rel="canonical" href="https://ghosttownranch.com/guest-ranch/">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ghosttownranch.com/guest-ranch/">
+  <meta property="og:title" content="Guest Ranch | Ghost Town Ranch">
+  <meta property="og:description" content="Makers we keep company with. Unisex, made to last, hard to find.">
+  <meta property="og:image" content="https://ghosttownranch.com/herogtr-v2.png">
+  <style>
+    @font-face { font-family:'PPEiko'; src:url('/PPEiko-Medium.woff2') format('woff2'); font-weight:400; font-display:swap; }
+    @font-face { font-family:'PPEiko'; src:url('/PPEiko-Thin.woff2') format('woff2'); font-weight:300; font-display:swap; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{ --parchment:#F6F6F3; --ink:#141414; --sand:#E2E4E0; --army:#5D643A; --serif:'PPEiko',Georgia,serif; --sans:'Jost',system-ui,sans-serif; }
+    html{scroll-behavior:smooth;}
+    body{ background:var(--parchment); color:var(--ink); font-family:var(--sans); font-weight:300; -webkit-font-smoothing:antialiased; }
+
+    /* page header */
+    .shop-hero{ max-width:1500px; margin:0 auto; padding:112px 48px 20px; display:flex; align-items:flex-end; justify-content:space-between; gap:32px; flex-wrap:wrap; }
+    .shop-title{ font-family:var(--serif); font-weight:400; font-size:clamp(34px,4vw,52px); line-height:1; }
+    .shop-intro{ max-width:520px; margin-top:10px; font-size:14px; line-height:1.6; color:#444644; }
+    .shop-search{ flex:0 1 340px; }
+    .shop-search input{ width:100%; background:#fff; border:1px solid rgba(93,100,58,0.3);
+      color:var(--ink); font-family:var(--sans); font-size:14px; letter-spacing:0.04em; padding:12px 16px; outline:none; }
+    .shop-search input::placeholder{ color:#9A9C98; }
+    .shop-results-note{ max-width:1500px; margin:0 auto; font-size:13px; color:#666865; padding:0 48px; }
+    .shop-results-note:empty{ display:none; }
+
+    /* sticky chips */
+    .chips{ position:sticky; top:74px; z-index:40; display:flex; gap:28px; justify-content:center; flex-wrap:wrap;
+      padding:14px 24px; background:rgba(246,246,243,0.86); backdrop-filter:blur(8px); border-bottom:1px solid rgba(93,100,58,0.18); }
+    .chips a{ font-family:var(--serif); font-size:13px; letter-spacing:0.16em; text-transform:uppercase; text-decoration:none; color:var(--ink); opacity:0.7; transition:opacity .2s; }
+    .chips a:hover{ opacity:1; }
+
+    /* sections */
+    .shop-sec{ padding:56px 48px 24px; max-width:1500px; margin:0 auto; }
+    #routines{ padding-top:32px; }
+    .sec-head{ margin-bottom:28px; }
+    .sec-title{ font-family:var(--serif); font-weight:400; font-size:clamp(26px,3vw,40px); }
+    .sec-note{ font-size:13.5px; color:#666865; margin-top:8px; max-width:520px; line-height:1.6; }
+
+    .pgrid{ display:grid; grid-template-columns:repeat(4,1fr); gap:48px 36px; }
+    .pcard{ text-decoration:none; color:inherit; display:flex; flex-direction:column; }
+    .pcard-img{ position:relative; aspect-ratio:1/1; background:#fff; border:1px solid rgba(93,100,58,0.14); overflow:hidden; }
+    .pcard-img img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+    .pcard:hover .pcard-img img{ transform:scale(1.04); }
+    .pcard-img img.alt{ position:absolute; inset:0; opacity:0; background:#fff; transition:opacity .35s ease, transform .5s ease; }
+    @media (hover:hover){ .pcard:hover .pcard-img img.alt{ opacity:1; } }
+    .pcard-name{ font-family:var(--serif); font-size:17px; margin-top:16px; }
+    .pcard-sub{ font-size:12.5px; letter-spacing:0.04em; color:#666865; margin-top:3px; text-transform:uppercase; }
+    .pcard-price{ font-size:13.5px; margin-top:10px; color:var(--ink); }
+    .pcard-save{ font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ochre,#9B7A3F); margin-top:4px; }
+    .start-sec{ padding-top:24px; }
+    .pcard-desc{ font-size:12px; line-height:1.5; color:#666865; margin-top:8px; }
+    .best-badge,.soon-badge{ position:absolute; top:12px; left:12px; font-family:var(--sans); font-size:10px; letter-spacing:0.14em;
+      text-transform:uppercase; background:var(--ink); color:var(--parchment); padding:5px 9px; }
+    .soon-badge{ background:none; color:var(--army); padding:0; font-weight:500; text-shadow:none; }
+    .soon-badge-below{ position:static; display:block; margin-top:6px; text-shadow:none; }
+    .soon .pcard-img{ opacity:0.82; }
+    .soon-text{ color:var(--army); }
+    .inline-link{ color:var(--army); text-decoration:underline; text-decoration-color:rgba(93,100,58,0.5); text-underline-offset:2px; }
+    .inline-link:hover{ text-decoration-color:var(--army); }
+    .soon-intro{ grid-column:1/-1; padding-top:28px; margin-top:8px; border-top:1px solid rgba(93,100,58,0.22); }
+    .soon-intro-label{ font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--army); }
+    .soon-intro-title{ font-family:var(--serif); font-weight:400; font-size:24px; margin-top:8px; }
+
+
+    footer{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+      padding:60px 48px; margin-top:48px; border-top:1px solid rgba(93,100,58,0.18); font-size:13px; }
+    footer a{ color:var(--ink); text-decoration:none; border-bottom:1px solid rgba(20,20,20,0.3); padding-bottom:2px; }
+    .footer-left{ font-family:var(--serif); letter-spacing:0.04em; }
+
+    @media (max-width:980px){ .pgrid{ grid-template-columns:repeat(3,1fr); gap:40px 24px; } }
+    @media (max-width:640px){
+      .shop-hero{ padding:84px 24px 16px; gap:16px; }
+      .shop-search{ flex:1 1 100%; }
+      .shop-results-note{ padding:0 24px; }
+      .chips{ top:60px; gap:18px; padding:12px 16px; }
+      .chips a{ font-size:12px; }
+      .shop-sec{ padding:40px 24px 16px; }
+      #routines{ padding-top:24px; }
+      .pgrid{ grid-template-columns:repeat(2,1fr); gap:32px 16px; }
+      footer{ padding:40px 24px; }
+    }
+  
+    /* ── TOP NAV (injected by /nav.js) ── */
+    #gtr-shared-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 24px 48px;
+      background: rgba(20,20,20, 0.72);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    }
+    #gtr-shared-nav .nav-logo { display:flex; align-items:center; text-decoration:none; }
+    #gtr-shared-nav .nav-logo img { height: 28px; width:auto; display:block; }
+    #gtr-shared-nav .nav-right { display: flex; align-items: center; gap: 32px; }
+    #gtr-shared-nav .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; margin:0; padding:0; }
+    #gtr-shared-nav .nav-links li { display: flex; align-items: center; }
+    #gtr-shared-nav .nav-links a {
+      font-family: var(--serif);
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      text-decoration: none; color: #F6F6F3; opacity: 0.7; transition: opacity 0.2s;
+    }
+    #gtr-shared-nav .nav-links a:hover, #gtr-shared-nav .nav-links a.active { opacity: 1; }
+    #gtr-shared-nav .nav-links a.active { border-bottom: 1px solid rgba(246,246,243,0.5); padding-bottom: 2px; }
+    #gtr-shared-nav .nav-hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; background: none; border: none; cursor: pointer;
+      padding: 6px; min-width: 44px; min-height: 44px; align-items: center;
+    }
+    #gtr-shared-nav .nav-hamburger span { display:block; width:20px; height:1.5px; background:#F6F6F3; transition:all .25s ease; transform-origin:center; }
+    #gtr-shared-nav .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    #gtr-shared-nav .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    #gtr-shared-nav .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    @media (max-width: 900px) {
+      #gtr-shared-nav { padding: 0 20px; height: 60px; }
+      #gtr-shared-nav .nav-hamburger { display: flex; }
+      #gtr-shared-nav .nav-right { gap: 8px; }
+      #gtr-shared-nav .nav-links {
+        display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(20,20,20,0.97);
+        flex-direction: column; justify-content: center; align-items: center;
+        gap: 0; z-index: 99; padding: 80px 32px 40px;
+      }
+      #gtr-shared-nav .nav-links.open { display: flex; }
+      #gtr-shared-nav .nav-links li { width: 100%; border-bottom: 1px solid rgba(246,246,243,0.1); }
+      #gtr-shared-nav .nav-links li:first-child { border-top: 1px solid rgba(246,246,243,0.1); }
+      #gtr-shared-nav .nav-links a { font-size: 13px; letter-spacing: 0.25em; padding: 22px 0; width:100%; min-height:44px; }
+    }
+  
+    /* ── GUEST RANCH ── */
+    .gr-hero{ background:var(--ink); color:var(--parchment); padding:150px 48px 88px; }
+    .gr-hero-inner{ max-width:1500px; margin:0 auto; }
+    .gr-eyebrow{ font-size:11px; letter-spacing:0.28em; text-transform:uppercase; opacity:0.6; }
+    .gr-title{ font-family:var(--serif); font-weight:300; font-size:clamp(52px,8vw,112px); line-height:0.95; margin-top:18px; }
+    .gr-title em{ font-style:italic; color:#B9BDA8; }
+    .gr-lede{ max-width:560px; margin-top:28px; font-size:16px; line-height:1.7; color:rgba(246,246,243,0.82); }
+    .gr-rules{ display:flex; gap:28px; flex-wrap:wrap; margin-top:36px; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(246,246,243,0.6); }
+    .gr-rules span::before{ content:"\00B7"; margin-right:10px; opacity:0.6; }
+    .gr-rules span:first-child::before{ content:none; }
+
+    .gr-brand{ max-width:1500px; margin:0 auto; padding:88px 48px 24px; border-bottom:1px solid rgba(93,100,58,0.18); }
+    .gr-brand-head{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.3fr); gap:48px; align-items:end; margin-bottom:40px; }
+    .gr-room{ font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:var(--army); }
+    .gr-brand-name{ font-family:var(--serif); font-weight:400; font-size:clamp(34px,4vw,56px); line-height:1; margin-top:10px; }
+    .gr-brand-place{ font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:#666865; margin-top:12px; }
+    .gr-note{ font-size:15px; line-height:1.75; color:#3a3c39; max-width:560px; }
+    .gr-note-label{ display:block; font-size:10.5px; letter-spacing:0.22em; text-transform:uppercase; color:var(--army); margin-bottom:10px; }
+    .gr-empty{ grid-column:1/-1; padding:36px 0 8px; font-family:var(--serif); font-size:20px; color:#666865; }
+    .gr-empty small{ display:block; font-family:var(--sans); font-size:12px; letter-spacing:0.16em; text-transform:uppercase; margin-top:8px; color:var(--army); }
+    .pcard-brand{ font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--army); margin-top:14px; }
+    .pcard-brand + .pcard-name{ margin-top:4px; }
+    .pgrid.loading .pcard-img{ background:linear-gradient(90deg,#efefeb,#f7f7f4,#efefeb); background-size:200% 100%; animation:grshimmer 1.4s infinite; }
+    @keyframes grshimmer{ to{ background-position:-200% 0; } }
+
+    .gr-house{ background:var(--ink); color:var(--parchment); padding:96px 48px; margin-top:72px; }
+    .gr-house-inner{ max-width:1500px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+    .gr-house h2{ font-family:var(--serif); font-weight:300; font-size:clamp(30px,3.6vw,48px); line-height:1.05; }
+    .gr-house p{ font-size:14.5px; line-height:1.75; color:rgba(246,246,243,0.78); margin-top:18px; max-width:460px; }
+    .gr-form{ display:flex; border-bottom:1px solid rgba(246,246,243,0.5); }
+    .gr-form input{ flex:1; background:none; border:0; color:var(--parchment); font-family:var(--sans); font-size:15px; padding:14px 0; outline:none; }
+    .gr-form input::placeholder{ color:rgba(246,246,243,0.45); }
+    .gr-form button{ background:none; border:0; color:var(--parchment); font-family:var(--sans); font-size:11px; letter-spacing:0.22em; text-transform:uppercase; cursor:pointer; padding:0 0 0 16px; }
+    .gr-form button:disabled{ opacity:0.4; cursor:default; }
+    .gr-form-note{ font-size:12.5px; margin-top:12px; min-height:18px; color:rgba(246,246,243,0.7); }
+    .gr-house-link{ display:inline-block; margin-top:26px; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--parchment); text-decoration:none; border-bottom:1px solid rgba(246,246,243,0.4); padding-bottom:3px; }
+
+    .footer-right{ display:flex; gap:24px; }
+    @media (max-width:860px){
+      .gr-brand-head{ grid-template-columns:1fr; gap:20px; }
+      .gr-house-inner{ grid-template-columns:1fr; gap:36px; }
+    }
+    @media (max-width:640px){
+      .gr-hero{ padding:116px 24px 64px; }
+      .gr-rules{ gap:10px 16px; }
+      .gr-brand{ padding:64px 24px 16px; }
+      .gr-house{ padding:72px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- top nav injected by /nav.js -->
+  <header class="gr-hero">
+    <div class="gr-hero-inner">
+      <div class="gr-eyebrow">Ghost Town Ranch &middot; Guests of the house</div>
+      <h1 class="gr-title">Guest<br><em>Ranch</em></h1>
+      <p class="gr-lede">A short list of makers we keep company with. We didn't make these. We'd hand any of them the keys. Everything here works for every body, is made to outlast the trip, and is hard to find anywhere else.</p>
+      <div class="gr-rules"><span>Unisex</span><span>Made to last</span><span>Hard to find</span></div>
+    </div>
+  </header>
+
+  <main id="gr-brands"></main>
+
+  <section class="gr-house" id="arrivals">
+    <div class="gr-house-inner">
+      <div>
+        <h2>New guests arrive without much warning.</h2>
+        <p>Rooms open quietly and small runs go fast. Leave your email and we'll tell you who's checking in, plus 10% off your first Ghost Town Ranch order.</p>
+        <a class="gr-house-link" href="/shop/">Shop the house line &rarr;</a>
+      </div>
+      <div>
+        <form class="gr-form" id="gr-form" novalidate>
+          <input type="email" id="gr-email" placeholder="Email address" aria-label="Email address" autocomplete="email" required>
+          <button type="submit" id="gr-btn">Check in</button>
+        </form>
+        <div class="gr-form-note" id="gr-note" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-left">Ghost Town Ranch &nbsp;&middot;&nbsp; Frontier Modernism</div>
+    <div class="footer-right">
+    <a href="/field-guide/">Our Story</a><a href="/wholesale/">Partners</a></div>
+  </footer>
+
+  <script>
+  (function () {
+    // ── The guests. To add a brand: add an entry here, then in Shopify set the product's Vendor
+    //    to the same name and add the tag "guest-ranch". Products appear automatically.
+    var GUESTS = [
+      { id: 'elisa-johnson', room: 'Room 1', name: 'Elisa Johnson', place: 'Eyewear',
+        vendor: ['elisa johnson'],
+        note: 'Frames with a point of view, each one named like a person you met once and never forgot. Made for long drives, late light and the hour after the diner closes. Worn by anyone who wants to be looked at, or not.' },
+      { id: 'blacksaw', room: 'Room 2', name: 'Blacksaw', place: 'Alpaca throws',
+        vendor: ['blacksaw'],
+        note: 'Alpaca from the Andes, woven to be handed down. Unisex, ageless, quietly heavy. The throw on the back seat, the one on the end of the bed, the one nobody gives back.' },
+      { id: 'garza-marfa', room: 'Room 3', name: 'Garza Marfa', place: 'Marfa, Texas',
+        vendor: ['garza marfa', 'garza'],
+        note: 'Jamey and Constance Garza make furniture, textiles and objects out of a West Texas town that runs on light and distance. Mid-century California restraint, desert color, saddle leather and handwoven cloth.' }
+    ];
+
+    var DOMAIN = 'muq7w3-im.myshopify.com';
+    var TOKEN  = 'c6efa00d9c5d9849c6c13d59cca6ab82';   // public Storefront token, same as cart.js
+    var root = document.getElementById('gr-brands');
+
+    function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
+    function money(a) { var n = parseFloat(a); return isNaN(n) ? '' : '$' + (n % 1 ? n.toFixed(2) : n.toFixed(0)); }
+
+    // Brand shells render immediately; products fill in after.
+    root.innerHTML = GUESTS.map(function (g) {
+      return '<section class="gr-brand" id="' + g.id + '">' +
+        '<div class="gr-brand-head"><div><div class="gr-room">' + esc(g.room) + '</div>' +
+        '<h2 class="gr-brand-name">' + esc(g.name) + '</h2><div class="gr-brand-place">' + esc(g.place) + '</div></div>' +
+        '<p class="gr-note"><span class="gr-note-label">Why they’re here</span>' + esc(g.note) + '</p></div>' +
+        '<div class="pgrid loading" data-guest="' + g.id + '">' +
+          '<div class="pcard"><div class="pcard-img"></div></div><div class="pcard"><div class="pcard-img"></div></div>' +
+          '<div class="pcard"><div class="pcard-img"></div></div><div class="pcard"><div class="pcard-img"></div></div>' +
+        '</div></section>';
+    }).join('');
+
+    function guestFor(vendor) {
+      var v = (vendor || '').toLowerCase();
+      for (var i = 0; i < GUESTS.length; i++) {
+        for (var j = 0; j < GUESTS[i].vendor.length; j++) if (v.indexOf(GUESTS[i].vendor[j]) !== -1) return GUESTS[i];
+      }
+      return null;
+    }
+
+    function card(p) {
+      var img = p.featuredImage ? p.featuredImage.url : '';
+      var alt = p.featuredImage && p.featuredImage.altText ? p.featuredImage.altText : p.title;
+      var price = p.priceRange ? money(p.priceRange.minVariantPrice.amount) : '';
+      var from = p.priceRange && p.priceRange.minVariantPrice.amount !== p.priceRange.maxVariantPrice.amount ? 'From ' : '';
+      var sold = p.availableForSale === false;
+      return '<a class="pcard' + (sold ? ' soon' : '') + '" href="/products/' + encodeURIComponent(p.handle) + '/">' +
+        '<div class="pcard-img">' + (img ? '<img src="' + esc(img) + (img.indexOf('?') > -1 ? '&' : '?') + 'width=800" alt="' + esc(alt) + '" loading="lazy">' : '') + '</div>' +
+        '<div class="pcard-brand">' + esc(p.vendor) + '</div>' +
+        '<div class="pcard-name">' + esc(p.title) + '</div>' +
+        (p.productType ? '<div class="pcard-sub">' + esc(p.productType) + '</div>' : '') +
+        '<div class="pcard-price">' + (sold ? '<span class="soon-text">Sold out</span>' : from + price) + '</div></a>';
+    }
+
+    function fill(byGuest) {
+      GUESTS.forEach(function (g) {
+        var grid = root.querySelector('[data-guest="' + g.id + '"]');
+        var list = byGuest[g.id] || [];
+        grid.classList.remove('loading');
+        grid.innerHTML = list.length ? list.map(card).join('')
+          : '<div class="gr-empty">The room is being made up.<small><a class="inline-link" href="#arrivals">Get word when they check in</a></small></div>';
+      });
+    }
+
+    var vendorQ = GUESTS.map(function (g) { return 'vendor:"' + g.name + '"'; }).join(' OR ');
+    var query = 'query($q:String!){ products(first:100, query:$q, sortKey:BEST_SELLING){ edges{ node{ handle title vendor productType availableForSale ' +
+      'featuredImage{ url altText } priceRange{ minVariantPrice{ amount } maxVariantPrice{ amount } } } } } }';
+
+    fetch('https://' + DOMAIN + '/api/2025-01/graphql.json', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Shopify-Storefront-Access-Token': TOKEN },
+      body: JSON.stringify({ query: query, variables: { q: '(tag:guest-ranch) OR ' + vendorQ } })
+    }).then(function (r) { return r.json(); }).then(function (j) {
+      var byGuest = {};
+      ((j.data && j.data.products && j.data.products.edges) || []).forEach(function (e) {
+        var g = guestFor(e.node.vendor); if (!g) return;
+        (byGuest[g.id] = byGuest[g.id] || []).push(e.node);
+      });
+      fill(byGuest);
+    }).catch(function () { fill({}); });
+
+    // ── Waitlist: same Klaviyo list as the homepage signup, tagged so we know where it came from.
+    var KLAVIYO_KEY = 'UTbZ3B';   // public site key
+    var LIST_ID = 'RAAZef';       // Email List (Ghost Town Ranch account)
+    var form = document.getElementById('gr-form'), email = document.getElementById('gr-email'),
+        btn = document.getElementById('gr-btn'), note = document.getElementById('gr-note');
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var v = email.value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { note.textContent = 'That address doesn’t look right.'; return; }
+      btn.disabled = true; note.textContent = '';
+      fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + KLAVIYO_KEY, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'revision': '2026-07-15' },
+        body: JSON.stringify({ data: { type: 'subscription', attributes: {
+          custom_source: 'ghosttownranch.com Guest Ranch',
+          profile: { data: { type: 'profile', attributes: { email: v } } } },
+          relationships: { list: { data: { type: 'list', id: LIST_ID } } } } })
+      }).then(function (r) {
+        if (r.ok) { form.style.display = 'none'; note.textContent = 'You’re on the guest list. Check your inbox for your 10%.'; }
+        else { btn.disabled = false; note.textContent = 'Something went sideways. Try again in a minute.'; }
+      }).catch(function () { btn.disabled = false; note.textContent = 'Something went sideways. Try again in a minute.'; });
+    });
+  })();
+  </script>
+
+  <script defer src="/nav.js"></script>
+<script src="/cart.js"></script>
+<script src="/gtr-controls.js" defer></script>
+</body>
+</html>
