@@ -152,6 +152,10 @@
     .gr-jump a{ color:var(--ink); text-decoration:none; border-bottom:1px solid rgba(20,20,20,0.35); padding-bottom:3px; }
     .gr-jump a:hover{ border-bottom-color:var(--ink); }
 
+    .gr-rooms-head{ max-width:1500px; margin:0 auto; padding:96px 48px 0; }
+    .gr-rooms-label{ font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:var(--army); }
+    .gr-rooms-title{ font-family:var(--serif); font-weight:400; font-size:clamp(30px,4.4vw,64px); line-height:1; margin-top:12px; }
+    #gr-brands{ max-width:1500px; margin:0 auto; padding:48px 48px 24px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:56px 40px; align-items:start; }
     .gr-brand{ min-width:0; }
     .gr-brand-head{ display:flex; flex-direction:column; gap:14px; margin-bottom:24px; }
     .gr-brand .pgrid{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:32px 20px; }
@@ -189,6 +193,15 @@
     }
     @media (max-width:640px){
       .gr-hero{ padding:96px 24px 0; }
+      /* phones: keep each room short so the whole section scrolls in a few swipes */
+      #gr-brands{ gap:44px; }
+      .gr-brand-head{ gap:8px; margin-bottom:16px; }
+      .gr-note-label{ display:none; }
+      .gr-note{ font-size:14px; line-height:1.6; }
+      .gr-brand .pgrid, .gr-brand .pgrid.single{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px 14px; }
+      .gr-brand .pgrid.single .pcard-img, .gr-brand .pcard-img{ aspect-ratio:1/1; }
+      .gr-empty{ aspect-ratio:auto; padding:28px 16px; font-size:17px; }
+      .nd-photo{ aspect-ratio:1/1; }
       .gr-rooms-head{ padding:72px 24px 0; }
       #gr-brands{ padding:36px 24px 16px; }
       .gr-house{ padding:72px 24px; }
