@@ -48,6 +48,7 @@
     { t: 'Morihata',         c: 'Guest Ranch · Coming soon', u: '/guest-ranch/#first-light', k: 'morihata charcoal facial puff sponge sleep mask binchotan japan guest brand' },
     { t: 'Kontex',           c: 'Guest Ranch · Coming soon', u: '/guest-ranch/#hot-springs', k: 'kontex moku light towel japan guest brand' },
     { t: 'Be Home',          c: 'Guest Ranch · Coming soon', u: '/guest-ranch/#ranch-house', k: 'be home stoneware basket caddy kitchen home goods guest brand' },
+    { t: 'AL13 Safety Razor', c: 'Henson Shaving · Mild', u: '/products/henson-shaving-al13-v2-mild-safety-razor', k: 'henson shaving al13 safety razor shave shaving aluminum closed comb blades unisex room 29 guest ranch' },
     { t: 'Jane',             c: 'Elisa Johnson · Sunglasses  ·  $145', u: '/products/elisa-johnson-jane-gold-metal-amber-lens', k: 'jane elisa johnson sunglasses eyewear gold metal amber lens shades guest ranch' },
     { t: 'Peyote Reversible Throw', c: 'Blacksaw · Alpaca Throw  ·  $598', u: '/products/blacksaw-peyote-reversible-throw', k: 'peyote reversible throw blanket blacksaw baby alpaca guest ranch' },
 
