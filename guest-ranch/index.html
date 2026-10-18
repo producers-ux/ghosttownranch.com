@@ -160,6 +160,11 @@
     @media (max-width:1380px){ #gr-brands{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
     @media (max-width:1100px){ #gr-brands{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
     .gr-brand{ min-width:0; }
+    /* Line the photos up across the row: every brand's head shares one row height, so the images start together. */
+    @supports (grid-template-rows: subgrid){
+      .gr-brand{ display:grid; grid-row:span 2; grid-template-rows:subgrid; row-gap:0; }
+      .gr-brand .gr-brand-head{ margin-bottom:24px; }
+    }
     .gr-brand-head{ display:flex; flex-direction:column; gap:14px; margin-bottom:24px; }
     .gr-brand .pgrid{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:32px 20px; }
     .gr-brand .pgrid.single{ grid-template-columns:1fr; }
@@ -370,6 +375,7 @@
         note: 'Baby alpaca in undyed, natural colors, reversible, made to be handed down. Unisex, ageless, quietly heavy. The throw on the back seat, the one on the end of the bed, the one nobody gives back.' },
       { id: 'casamera', room: '', name: 'Casamera', place: 'Robes \u00b7 House slippers',
         vendor: ['casamera'],
+        preview: { img: '/guest-ranch/casamera-waffle-robe.jpg', alt: '/guest-ranch/casamera-house-slippers.jpg', title: 'Waffle Robe \u00b7 House Slippers' },
         note: 'A black waffle robe with a hood and a loop to hang your sunglasses on. Made for the walk from the tub to the porch, and the house slippers for the walk back. Wear it after The Soak.' },
       { id: 'craighill', room: '', name: 'Craighill', place: 'Objects \u00b7 New York',
         vendor: ['craighill'],
@@ -435,7 +441,7 @@
         grid.classList.remove('loading');
         grid.classList.toggle('single', list.length === 1 || (!list.length && !!g.preview));
         grid.innerHTML = list.length ? list.map(card).join('')
-          : g.preview ? '<a class="pcard" href="' + esc(g.preview.href || '#arrivals') + '"><div class="pcard-img"><img src="' + esc(g.preview.img) + '" alt="' + esc(g.name + ' ' + g.preview.title) + '" loading="lazy"></div>' +
+          : g.preview ? '<a class="pcard" href="' + esc(g.preview.href || '#arrivals') + '"><div class="pcard-img"><img src="' + esc(g.preview.img) + '" alt="' + esc(g.name + ' ' + g.preview.title) + '" loading="lazy">' + (g.preview.alt ? '<img class="alt" src="' + esc(g.preview.alt) + '" alt="" loading="lazy">' : '') + '</div>' +
               '<div class="pcard-brand">' + esc(g.name) + '</div><div class="pcard-name">' + esc(g.preview.title) + '</div>' +
               '<div class="pcard-price"><span class="soon-text">' + (g.preview.status ? esc(g.preview.status) : 'Arriving soon &middot; get word') + '</span></div></a>'
           : g.soon ? '<div class="gr-empty">' + esc(g.soon.title) + '<small><a class="inline-link" href="' + esc(g.soon.href) + '">' + esc(g.soon.link) + ' &rarr;</a></small></div>'
