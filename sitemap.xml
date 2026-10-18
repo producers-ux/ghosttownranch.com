@@ -402,7 +402,7 @@
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/aircraftaluminum-01.jpg?v=1792336149</image:loc></image:image>
+    <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Capturadepantalla2023-09-07ala_s_8.31.12p.m..jpg?v=1792336149</image:loc></image:image>
   </url>
   <url>
     <loc>https://ghosttownranch.com/products/henson-shaving-razor-stand/</loc>
@@ -431,5 +431,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/SLIPCHR-PP-1.png?v=1792341456</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ghosttownranch.com/products/long-ride-beard-butter/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/LongRideBB_be2611d7-276b-4778-961f-109a43e9db98.png?v=1792366233</image:loc></image:image>
   </url>
 </urlset>
