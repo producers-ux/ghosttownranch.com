@@ -35,6 +35,7 @@
     { t: 'Last Gas',         c: 'Day Trip No. 03',     u: '/guest-ranch/#last-gas',       k: 'last gas last light before dark sundown road trip glovebox flashlight dash sunglasses elisa johnson jane' },
     { t: 'No Signal',        c: 'Day Trip No. 04',     u: '/guest-ranch/#no-signal',      k: 'no signal overnight candle matchbook craighill flashlight camp' },
     { t: 'High Noon',        c: 'Day Trip No. 05',     u: '/guest-ranch/#high-noon',      k: 'high noon day trip midday pioneertown hat shu atelier bespoke sunglasses jane mist' },
+    { t: 'Porch Light',      c: 'Day Trip No. 06',     u: '/guest-ranch/#porch-light',    k: 'porch light after dark home arrival slippers robe candle ranch water monument still basin soak casamera be home' },
     { t: 'The Ranch House',  c: 'Staying in',          u: '/guest-ranch/#ranch-house',    k: 'ranch house home goods staying in be home cookhouse bunkhouse wash house' },
     { t: 'The Cookhouse',    c: 'Ranch House · Kitchen', u: '/guest-ranch/#cookhouse',    k: 'cookhouse kitchen be home stoneware measuring cups spoons onyx brass dish rack' },
     { t: 'The Bunkhouse',    c: 'Ranch House · Bed',   u: '/guest-ranch/#bunkhouse',      k: 'bunkhouse bed bedroom blanket throw be home leather everything basket blacksaw' },
