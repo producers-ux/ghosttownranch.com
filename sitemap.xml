@@ -390,4 +390,25 @@
     <priority>0.8</priority>
     <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot_2026-10-17_121021.png?v=1792264408</image:loc></image:image>
   </url>
+  <url>
+    <loc>https://ghosttownranch.com/products/henson-shaving-al13-v2-medium-safety-razor/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/aircraftaluminum-01.jpg?v=1792336149</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ghosttownranch.com/products/henson-shaving-razor-stand/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/stand-6.jpg?v=1792336153</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ghosttownranch.com/products/henson-shaving-al13-v2-mild-safety-razor/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/tan-01_1.jpg?v=1792336154</image:loc></image:image>
+  </url>
 </urlset>
