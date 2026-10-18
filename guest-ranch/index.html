@@ -415,7 +415,7 @@
     var LEAD = { id: 'hot-springs', no: 'Day Trip No. 01', tag: 'Before the heat', name: 'Hot Springs', sub: 'What Audra packs for the pool.',
         img: '/guest-ranch/kontex-moku-towel.jpg', alt: 'Kontex MOKU light towel in charcoal, rolled with a paper band',
         copy: 'Desert Hot Springs, an hour before sunrise. The mineral pool is steaming and nobody else is up. Charcoal and Desert Veil at the edge of the water, a thin black towel over one shoulder.',
-        bag: [ [null,'Charcoal Facial Puff','Morihata'], [null,'MOKU Light Towel','Kontex'], ['the-bathrobe','The Bathrobe','Casamera'], [null,'The Pool Bag','Ghost Town Ranch'], ['desert-veil-tone-correction-barrier-protection','Desert Veil'], ['outlaws-reserve-2-in-1-hair-skin-rinse','Outlaw’s Reserve'], ['keratin-shine-leave-in-hair-mist','Trail’s End'], ['quick-refresh-dry-shampoo-spray-1','Dry Creek'], ['omega-6-9-glowing-skin-body-oil','Golden Hour'], ['still-air-natural-roll-on-deodorant1','Still Air'] ] };
+        bag: [ [null,'Charcoal Facial Puff','Morihata'], [null,'MOKU Light Towel','Kontex'], ['the-bathrobe','The Bathrobe','Casamera'], [null,'Hobo-Stitch Socks','Kapital'], [null,'The Pool Bag','Ghost Town Ranch'], ['desert-veil-tone-correction-barrier-protection','Desert Veil'], ['outlaws-reserve-2-in-1-hair-skin-rinse','Outlaw’s Reserve'], ['keratin-shine-leave-in-hair-mist','Trail’s End'], ['quick-refresh-dry-shampoo-spray-1','Dry Creek'], ['omega-6-9-glowing-skin-body-oil','Golden Hour'], ['still-air-natural-roll-on-deodorant1','Still Air'] ] };
     var HOUSE = [
       { id: 'cookhouse', no: 'Kitchen', name: 'The Cookhouse', img: '/guest-ranch/be-home-leo-dish-rack.jpg', alt: 'Brass wire dish rack on oak rails',
         copy: 'Black stoneware, onyx spoons and a brass rack by the sink, where the hand wash lives.',
@@ -468,7 +468,7 @@
       renderLead(live);
     }
     // Lead story: photo tiles. Guest pieces use their own brand photos; ours come from Shopify.
-    var LEAD_IMG = { 'Charcoal Facial Puff': '/guest-ranch/morihata-charcoal-puff.jpg', 'MOKU Light Towel': '/guest-ranch/kontex-moku-towel.jpg', 'The Bathrobe': '/guest-ranch/casamera-waffle-robe.jpg' };
+    var LEAD_IMG = { 'Charcoal Facial Puff': '/guest-ranch/morihata-charcoal-puff.jpg', 'MOKU Light Towel': '/guest-ranch/kontex-moku-towel.jpg', 'The Bathrobe': '/guest-ranch/casamera-waffle-robe.jpg', 'Hobo-Stitch Socks': '/guest-ranch/kapital-hobo-socks.jpg' };
     function renderLead(live) {
       document.getElementById('nd-copy').textContent = LEAD.copy;
       document.getElementById('nd-kit').innerHTML = LEAD.bag.filter(function (it) { return it[0] || LEAD_IMG[it[1]]; }).map(function (it) {
