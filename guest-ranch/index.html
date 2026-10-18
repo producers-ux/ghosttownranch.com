@@ -13,7 +13,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Guest Ranch | Ghost Town Ranch · Makers We Keep Company With</title>
-  <meta name="description" content="Guest Ranch: makers Ghost Town Ranch keeps company with, and the Last Light day trip to take them on. Elisa Johnson eyewear, Blacksaw alpaca throws, Casamera robes, Craighill objects, SHU Atelier bespoke hats. Unisex, made to last, hard to find.">
+  <meta name="description" content="Guest Ranch: day trips that pack Ghost Town Ranch skin, hair and home with a few things we found along the way. Morihata, Kontex, Casamera, Elisa Johnson, Blacksaw, Craighill, Henson, Be Home and SHU Atelier.">
   <link rel="canonical" href="https://ghosttownranch.com/guest-ranch/">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
@@ -214,7 +214,7 @@
       #gr-brands{ padding:36px 24px 16px; }
       .gr-house{ padding:72px 24px; }
     }
-    #hot-springs, #in-residence, .st-head, .gr-brand, #arrivals{ scroll-margin-top:84px; }
+    #hot-springs, .st-head, .gr-brand, #arrivals{ scroll-margin-top:84px; }
     .gr-jump a, .nd-rooms-link, .gr-house-link, .gr-empty .inline-link{ display:inline-block; padding-top:12px; padding-bottom:6px; }
     /* ── STORIES (more Day Trips + Ranch House) ── */
     .st-head{ max-width:1500px; margin:0 auto; padding:96px 48px 0; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:16px 48px; }
@@ -285,7 +285,7 @@
       </div>
       <div>
         <p class="gr-lede">A short list of makers we keep company with, and the places we take them. We'd hand any of them the keys.</p>
-        <div class="gr-jump"><a href="#hot-springs">Hot Springs &darr;</a><a href="#in-residence">In Residence &darr;</a><a href="#ranch-house">The Ranch House &darr;</a><a href="#day-trips">More Day Trips &darr;</a></div>
+        <div class="gr-jump"><a href="#hot-springs">Hot Springs &darr;</a><a href="#ranch-house">The Ranch House &darr;</a><a href="#day-trips">More Day Trips &darr;</a></div>
       </div>
     </div>
   </header>
@@ -303,16 +303,9 @@
         <p class="nd-copy" id="nd-copy"></p>
         <div class="nd-kit-label">Packed</div>
         <div class="nd-kit" id="nd-kit"></div>
-        <a class="nd-rooms-link" href="#in-residence">Meet the guests &darr;</a>
       </div>
     </div>
   </section>
-
-  <div class="gr-rooms-head" id="in-residence">
-    <div class="gr-rooms-label">In Residence</div>
-    <h2 class="gr-rooms-title">Fall 2026.</h2>
-  </div>
-  <main id="gr-brands"></main>
 
   <div class="st-head" id="ranch-house">
     <div>
@@ -357,110 +350,12 @@
 
   <script>
   (function () {
-    // ── The guests. To add a brand: add an entry here, then in Shopify set the product's Vendor
-    //    to the same name and add the tag "guest-ranch". Products appear automatically.
-    var GUESTS = [
-      { id: 'elisa-johnson', room: '', name: 'Elisa Johnson', place: 'Eyewear',
-        cardImg: '/guest-ranch/night-drive-jane.jpg', cardAlt: '/guest-ranch/jane-gold-amber.jpg',
-        vendor: ['elisa johnson'],
-        note: 'Frames with a point of view, each one named like a person you met once and never forgot. Made for long drives, late light and the hour after the diner closes. Worn by anyone who wants to be looked at, or not.' },
-      { id: 'blacksaw', room: '', name: 'Blacksaw', place: 'Alpaca throws',
-        vendor: ['blacksaw'],
-        note: 'Baby alpaca in undyed, natural colors, reversible, made to be handed down. Unisex, ageless, quietly heavy. The throw on the back seat, the one on the end of the bed, the one nobody gives back.' },
-      { id: 'casamera', room: '', name: 'Casamera', place: 'Robes \u00b7 House slippers',
-        vendor: ['casamera'],
-        preview: { img: '/guest-ranch/casamera-waffle-robe.jpg', alt: '/guest-ranch/casamera-house-slippers.jpg', title: 'Waffle Robe \u00b7 House Slippers' },
-        note: 'A black waffle robe with a hood and a loop to hang your sunglasses on. Made for the walk from the tub to the porch, and the house slippers for the walk back. Wear it after The Soak.' },
-      { id: 'craighill', room: '', name: 'Craighill', place: 'Objects \u00b7 New York',
-        vendor: ['craighill'],
-        preview: { img: '/guest-ranch/craighill-temple-white.jpg', title: 'Temple Flashlight, White' },
-        note: 'Design objects from a New York studio, made since 2015. The Temple flashlight in white aluminum with a warm beam and three settings. The thing in the glovebox you reach for when the road goes dark.' },
-      { id: 'shu-atelier', room: '', name: 'SHU Atelier', place: 'Bespoke hats \u00b7 Yucca Valley',
-        vendor: ['shu atelier'],
-        preview: { img: '/guest-ranch/shu-atelier-hat-blocks.jpg', title: 'Bespoke Hat', href: 'mailto:howdy@ghosttownranch.com?subject=SHU%20Atelier%20fitting', status: 'Coming soon \u00b7 ask about a fitting' },
-        note: 'A hat maker from Yucca Valley, just up the road from the ranch. Each hat starts with a fitting, in person or over video: your head measured, the crown, brim and band chosen together. Then it is shaped by hand, one at a time, for one head.' }
-    ];
-
     var DOMAIN = 'muq7w3-im.myshopify.com';
     var TOKEN  = 'c6efa00d9c5d9849c6c13d59cca6ab82';   // public Storefront token, same as cart.js
-    var root = document.getElementById('gr-brands');
 
     function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
     function money(a) { var n = parseFloat(a); return isNaN(n) ? '' : '$' + (n % 1 ? n.toFixed(2) : n.toFixed(0)); }
 
-    // Brand shells render immediately; products fill in after.
-    root.innerHTML = GUESTS.map(function (g) {
-      return '<section class="gr-brand" id="' + g.id + '">' +
-        '<div class="gr-brand-head"><div>' + (g.room ? '<div class="gr-room">' + esc(g.room) + '</div>' : '') +
-        '<h2 class="gr-brand-name">' + esc(g.name) + '</h2><div class="gr-brand-place">' + esc(g.place) + '</div></div>' +
-        '<p class="gr-note"><span class="gr-note-label">Why they’re here</span>' + esc(g.note) + '</p></div>' +
-        '<div class="pgrid loading" data-guest="' + g.id + '">' +
-          '<div class="pcard"><div class="pcard-img"></div></div><div class="pcard"><div class="pcard-img"></div></div>' +
-        '</div></section>';
-    }).join('');
-
-    function guestFor(vendor) {
-      var v = (vendor || '').toLowerCase();
-      for (var i = 0; i < GUESTS.length; i++) {
-        for (var j = 0; j < GUESTS[i].vendor.length; j++) if (v.indexOf(GUESTS[i].vendor[j]) !== -1) return GUESTS[i];
-      }
-      return null;
-    }
-
-    // "ELISA JOHNSON Jane Gold Metal / Amber Lens" -> "Jane Gold Metal / Amber Lens" (brand is shown above the name)
-    function shortTitle(p) {
-      var t = String(p.title || ''), v = String(p.vendor || '');
-      if (v && t.toLowerCase().indexOf(v.toLowerCase()) === 0) t = t.slice(v.length).replace(/^[\s:\-\u00b7|,]+/, '');
-      return t || p.title;
-    }
-
-    function card(p, g) {
-      var own = g && g.cardImg;   // our own photo in place of the Shopify image (e.g. a close-up)
-      var img = own ? g.cardImg : (p.featuredImage ? p.featuredImage.url : '');
-      var alt = p.featuredImage && p.featuredImage.altText ? p.featuredImage.altText : p.title;
-      var price = p.priceRange ? money(p.priceRange.minVariantPrice.amount) : '';
-      var from = p.priceRange && p.priceRange.minVariantPrice.amount !== p.priceRange.maxVariantPrice.amount ? 'From ' : '';
-      var sold = p.availableForSale === false;
-      return '<a class="pcard' + (sold ? ' soon' : '') + '" href="/products/' + encodeURIComponent(p.handle) + '/">' +
-        '<div class="pcard-img">' + (img ? '<img src="' + esc(img) + (own ? '' : (img.indexOf('?') > -1 ? '&' : '?') + 'width=800') + '" alt="' + esc(alt) + '" loading="lazy">' : '') +
-          (own && g.cardAlt ? '<img class="alt" src="' + esc(g.cardAlt) + '" alt="" loading="lazy">' : '') + '</div>' +
-        '<div class="pcard-brand">' + esc(p.vendor) + '</div>' +
-        '<div class="pcard-name">' + esc(shortTitle(p)) + '</div>' +
-        (p.productType ? '<div class="pcard-sub">' + esc(p.productType) + '</div>' : '') +
-        '<div class="pcard-price">' + (sold ? '<span class="soon-text">Sold out</span>' : from + price) + '</div></a>';
-    }
-
-    function fill(byGuest) {
-      GUESTS.forEach(function (g) {
-        var grid = root.querySelector('[data-guest="' + g.id + '"]');
-        var list = byGuest[g.id] || [];
-        grid.classList.remove('loading');
-        grid.classList.toggle('single', list.length === 1 || (!list.length && !!g.preview));
-        grid.innerHTML = list.length ? list.map(function (p) { return card(p, g); }).join('')
-          : g.preview ? '<a class="pcard" href="' + esc(g.preview.href || '#arrivals') + '"><div class="pcard-img"><img src="' + esc(g.preview.img) + '" alt="' + esc(g.name + ' ' + g.preview.title) + '" loading="lazy">' + (g.preview.alt ? '<img class="alt" src="' + esc(g.preview.alt) + '" alt="" loading="lazy">' : '') + '</div>' +
-              '<div class="pcard-brand">' + esc(g.name) + '</div><div class="pcard-name">' + esc(g.preview.title) + '</div>' +
-              '<div class="pcard-price"><span class="soon-text">' + (g.preview.status ? esc(g.preview.status) : 'Arriving soon &middot; get word') + '</span></div></a>'
-          : g.soon ? '<div class="gr-empty">' + esc(g.soon.title) + '<small><a class="inline-link" href="' + esc(g.soon.href) + '">' + esc(g.soon.link) + ' &rarr;</a></small></div>'
-          : '<div class="gr-empty">The room is being made up.<small><a class="inline-link" href="#arrivals">Get word when they check in</a></small></div>';
-      });
-    }
-
-    var vendorQ = GUESTS.map(function (g) { return 'vendor:"' + g.name + '"'; }).join(' OR ');
-    var query = 'query($q:String!){ products(first:100, query:$q, sortKey:BEST_SELLING){ edges{ node{ handle title vendor productType availableForSale ' +
-      'featuredImage{ url altText } priceRange{ minVariantPrice{ amount } maxVariantPrice{ amount } } } } } }';
-
-    fetch('https://' + DOMAIN + '/api/2025-01/graphql.json', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'X-Shopify-Storefront-Access-Token': TOKEN },
-      body: JSON.stringify({ query: query, variables: { q: '(tag:guest-ranch) OR ' + vendorQ } })
-    }).then(function (r) { return r.json(); }).then(function (j) {
-      var byGuest = {};
-      ((j.data && j.data.products && j.data.products.edges) || []).forEach(function (e) {
-        var g = guestFor(e.node.vendor); if (!g) return;
-        (byGuest[g.id] = byGuest[g.id] || []).push(e.node);
-      });
-      fill(byGuest);
-    }).catch(function () { fill({}); });
 
     // ── Waitlist: same Klaviyo list as the homepage signup, tagged so we know where it came from.
     var KLAVIYO_KEY = 'UTbZ3B';   // public site key
@@ -571,7 +466,7 @@
         var h = it[0], name = it[1], maker = it[2] || 'Ghost Town Ranch', p = h && live[h];
         var img = LEAD_IMG[name] || (p && p.featuredImage ? p.featuredImage.url + (p.featuredImage.url.indexOf('?') > -1 ? '&' : '?') + 'width=600' : '');
         var meta = !h ? 'Coming soon' : (p === undefined ? '' : (!p ? 'Coming soon' : (p.availableForSale ? money(p.priceRange.minVariantPrice.amount) : 'Sold out')));
-        var href = h && p ? '/products/' + h + '/' : '#in-residence';
+        var href = h && p ? '/products/' + h + '/' : '#hot-springs';
         return '<a class="nd-item" href="' + esc(href) + '"><div class="nd-item-img">' + (img ? '<img src="' + esc(img) + '" alt="' + esc(maker + ' ' + name) + '" loading="lazy">' : '') + '</div>' +
           '<div class="nd-item-name">' + esc(name) + '</div><div class="nd-item-meta">' + esc(maker) + (meta ? ' &middot; ' + meta : '') + '</div></a>';
       }).join('');
