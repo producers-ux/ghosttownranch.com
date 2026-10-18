@@ -372,9 +372,11 @@
     }
 
     .variant-btn:disabled {
-      opacity: 0.3;
+      opacity: 0.45;
       cursor: not-allowed;
+      text-decoration: line-through;
     }
+    .variant-out { text-decoration: none; display: inline-block; margin-left: 6px; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
 
     /* wax color dot — shows for candle products */
     .scent-swatch {
@@ -1332,8 +1334,9 @@ function renderProduct(product) {
     if (isWaxCandle) {
       selectorLabelEl.innerHTML = 'Scent + Wax Color · <span id="selected-variant-label"></span>';
     } else {
-      const optName = (variants[0].selectedOptions[0] && variants[0].selectedOptions[0].name || '').toLowerCase();
-      const optLabel = optName === 'flavor' ? 'Flavor' : 'Scent';
+      // Label the selector by Shopify's own option name (Scent, Color, Size...), title-cased.
+      const rawOpt = (variants[0].selectedOptions[0] && variants[0].selectedOptions[0].name) || 'Option';
+      const optLabel = (rawOpt.toLowerCase() === 'title' ? 'Option' : rawOpt).replace(/\b\w/g, c => c.toUpperCase());
       selectorLabelEl.innerHTML = optLabel + ' · <span id="selected-variant-label"></span>';
     }
 
@@ -1349,19 +1352,22 @@ function renderProduct(product) {
       }
       // update price display
       document.getElementById('product-price').textContent =
-        '$' + parseFloat(v.price.amount).toFixed(0);
+        (n => '$' + (n % 1 ? n.toFixed(2) : n.toFixed(0)))(parseFloat(v.price.amount));
     }
 
     variantGrid.innerHTML = variants.map(v => {
       const color = WAX_COLORS[v.title];
       const swatch = color ? `<span class="scent-swatch" style="background:${color}"></span>` : '';
+      const out = !v.availableForSale && !isPreorder;
       return `<button class="variant-btn${v.id === selectedVariant.id ? ' selected' : ''}"
         data-variant-id="${v.id}"
-        ${(!v.availableForSale && !isPreorder) ? 'disabled' : ''}
-      >${swatch}${v.title}</button>`;
+        ${out ? 'disabled title="Sold out"' : ''}
+      >${swatch}${v.title}${out ? ' <span class="variant-out">Sold out</span>' : ''}</button>`;
     }).join('');
 
     selectedLabel.textContent = selectedVariant.title;
+    // Show the selected variant's own photo from the start (not just after a click).
+    if (selectedVariant.image?.url) mainImg.src = selectedVariant.image.url;
 
     variantGrid.querySelectorAll('.variant-btn:not(:disabled)').forEach(btn => {
       btn.addEventListener('click', () => {
