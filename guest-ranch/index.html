@@ -562,7 +562,7 @@
         '<ul class="st-bag">' + st.bag.map(function (it) { return row(it, live); }).join('') + '</ul></article>';
     }
     function render(live) {
-      document.getElementById('st-trips').innerHTML = TRIPS.map(function (t) { return card(t, live, 'In the bag'); }).join('');
+      document.getElementById('st-trips').innerHTML = TRIPS.map(function (t) { return card(t, live, 'Packed'); }).join('');
       document.getElementById('st-house').innerHTML = HOUSE.map(function (h) { return card(h, live, 'Kept here'); }).join('');
     }
     render({});
