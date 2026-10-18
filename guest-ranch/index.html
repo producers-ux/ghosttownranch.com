@@ -377,7 +377,7 @@
         note: 'Design objects from a New York studio, made since 2015. The Temple flashlight in white aluminum with a warm beam and three settings. The thing in the glovebox you reach for when the road goes dark.' },
       { id: 'shu-atelier', room: '', name: 'SHU Atelier', place: 'Bespoke hats \u00b7 Yucca Valley',
         vendor: ['shu atelier'],
-        soon: { title: 'Coming soon.', link: 'Fittings in person or by video. Ask us', href: 'mailto:howdy@ghosttownranch.com?subject=SHU%20Atelier%20fitting' },
+        preview: { img: '/guest-ranch/shu-atelier-hat-blocks.jpg', title: 'Bespoke Hat', href: 'mailto:howdy@ghosttownranch.com?subject=SHU%20Atelier%20fitting', status: 'Coming soon \u00b7 ask about a fitting' },
         note: 'A hat maker from Yucca Valley, just up the road from the ranch. Each hat starts with a fitting, in person or over video: your head measured, the crown, brim and band chosen together. Then it is shaped by hand, one at a time, for one head.' }
     ];
 
@@ -435,9 +435,9 @@
         grid.classList.remove('loading');
         grid.classList.toggle('single', list.length === 1 || (!list.length && !!g.preview));
         grid.innerHTML = list.length ? list.map(card).join('')
-          : g.preview ? '<a class="pcard" href="#arrivals"><div class="pcard-img"><img src="' + esc(g.preview.img) + '" alt="' + esc(g.name + ' ' + g.preview.title) + '" loading="lazy"></div>' +
+          : g.preview ? '<a class="pcard" href="' + esc(g.preview.href || '#arrivals') + '"><div class="pcard-img"><img src="' + esc(g.preview.img) + '" alt="' + esc(g.name + ' ' + g.preview.title) + '" loading="lazy"></div>' +
               '<div class="pcard-brand">' + esc(g.name) + '</div><div class="pcard-name">' + esc(g.preview.title) + '</div>' +
-              '<div class="pcard-price"><span class="soon-text">Arriving soon &middot; get word</span></div></a>'
+              '<div class="pcard-price"><span class="soon-text">' + (g.preview.status ? esc(g.preview.status) : 'Arriving soon &middot; get word') + '</span></div></a>'
           : g.soon ? '<div class="gr-empty">' + esc(g.soon.title) + '<small><a class="inline-link" href="' + esc(g.soon.href) + '">' + esc(g.soon.link) + ' &rarr;</a></small></div>'
           : '<div class="gr-empty">The room is being made up.<small><a class="inline-link" href="#arrivals">Get word when they check in</a></small></div>';
       });
