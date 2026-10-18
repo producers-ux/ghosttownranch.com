@@ -368,6 +368,7 @@
     //    to the same name and add the tag "guest-ranch". Products appear automatically.
     var GUESTS = [
       { id: 'elisa-johnson', room: '', name: 'Elisa Johnson', place: 'Eyewear',
+        cardImg: '/guest-ranch/night-drive-jane.jpg', cardAlt: '/guest-ranch/jane-gold-amber.jpg',
         vendor: ['elisa johnson'],
         note: 'Frames with a point of view, each one named like a person you met once and never forgot. Made for long drives, late light and the hour after the diner closes. Worn by anyone who wants to be looked at, or not.' },
       { id: 'blacksaw', room: '', name: 'Blacksaw', place: 'Alpaca throws',
@@ -420,14 +421,16 @@
       return t || p.title;
     }
 
-    function card(p) {
-      var img = p.featuredImage ? p.featuredImage.url : '';
+    function card(p, g) {
+      var own = g && g.cardImg;   // our own photo in place of the Shopify image (e.g. a close-up)
+      var img = own ? g.cardImg : (p.featuredImage ? p.featuredImage.url : '');
       var alt = p.featuredImage && p.featuredImage.altText ? p.featuredImage.altText : p.title;
       var price = p.priceRange ? money(p.priceRange.minVariantPrice.amount) : '';
       var from = p.priceRange && p.priceRange.minVariantPrice.amount !== p.priceRange.maxVariantPrice.amount ? 'From ' : '';
       var sold = p.availableForSale === false;
       return '<a class="pcard' + (sold ? ' soon' : '') + '" href="/products/' + encodeURIComponent(p.handle) + '/">' +
-        '<div class="pcard-img">' + (img ? '<img src="' + esc(img) + (img.indexOf('?') > -1 ? '&' : '?') + 'width=800" alt="' + esc(alt) + '" loading="lazy">' : '') + '</div>' +
+        '<div class="pcard-img">' + (img ? '<img src="' + esc(img) + (own ? '' : (img.indexOf('?') > -1 ? '&' : '?') + 'width=800') + '" alt="' + esc(alt) + '" loading="lazy">' : '') +
+          (own && g.cardAlt ? '<img class="alt" src="' + esc(g.cardAlt) + '" alt="" loading="lazy">' : '') + '</div>' +
         '<div class="pcard-brand">' + esc(p.vendor) + '</div>' +
         '<div class="pcard-name">' + esc(shortTitle(p)) + '</div>' +
         (p.productType ? '<div class="pcard-sub">' + esc(p.productType) + '</div>' : '') +
@@ -440,7 +443,7 @@
         var list = byGuest[g.id] || [];
         grid.classList.remove('loading');
         grid.classList.toggle('single', list.length === 1 || (!list.length && !!g.preview));
-        grid.innerHTML = list.length ? list.map(card).join('')
+        grid.innerHTML = list.length ? list.map(function (p) { return card(p, g); }).join('')
           : g.preview ? '<a class="pcard" href="' + esc(g.preview.href || '#arrivals') + '"><div class="pcard-img"><img src="' + esc(g.preview.img) + '" alt="' + esc(g.name + ' ' + g.preview.title) + '" loading="lazy">' + (g.preview.alt ? '<img class="alt" src="' + esc(g.preview.alt) + '" alt="" loading="lazy">' : '') + '</div>' +
               '<div class="pcard-brand">' + esc(g.name) + '</div><div class="pcard-name">' + esc(g.preview.title) + '</div>' +
               '<div class="pcard-price"><span class="soon-text">' + (g.preview.status ? esc(g.preview.status) : 'Arriving soon &middot; get word') + '</span></div></a>'
