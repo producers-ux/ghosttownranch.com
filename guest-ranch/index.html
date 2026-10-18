@@ -443,7 +443,7 @@
     }
     function card(st, live, bagLabel) {
       return '<article class="st-card" id="' + st.id + '">' +
-        (st.video ? '<div class="st-photo"><video src="' + esc(st.video) + '" poster="' + esc(st.img) + '" autoplay muted loop playsinline preload="metadata" aria-label="' + esc(st.alt) + '"' + (st.pos ? ' style="object-position:' + esc(st.pos) + '"' : '') + '></video>'
+        (st.video ? '<div class="st-photo"><video src="' + esc(st.video) + '" poster="' + esc(st.img) + '" autoplay muted playsinline preload="metadata" aria-label="' + esc(st.alt) + '"' + (st.pos ? ' style="object-position:' + esc(st.pos) + '"' : '') + '></video>'
           : st.img ? '<div class="st-photo"><img src="' + esc(st.img) + '" alt="' + esc(st.alt) + '" loading="lazy"' + (st.pos ? ' style="object-position:' + esc(st.pos) + '"' : '') + (st.fit ? ' style="object-fit:' + esc(st.fit) + ';background:' + esc(st.bg || '#fff') + '"' : '') + '>'
           : '<div class="st-photo blank"><span class="blank-name">' + esc(st.blank) + '</span><span class="blank-note">Photographs to come</span>') +
         (st.tag ? '<div class="st-tag">' + esc(st.tag) + '</div>' : '') + '</div>' +
@@ -455,7 +455,11 @@
         '<ul class="st-bag">' + st.bag.map(function (it) { return row(it, live); }).join('') + '</ul></article>';
     }
     function render(live) {
-      document.getElementById('st-trips').innerHTML = TRIPS.map(function (t) { return card(t, live, 'Packed'); }).join('');
+      // Keep the playing video when prices load, so it plays once and doesn't restart.
+      var trips = document.getElementById('st-trips'), vids = {};
+      trips.querySelectorAll('.st-card video').forEach(function (v) { vids[v.closest('.st-card').id] = v; });
+      trips.innerHTML = TRIPS.map(function (t) { return card(t, live, 'Packed'); }).join('');
+      Object.keys(vids).forEach(function (id) { var n = trips.querySelector('#' + id + ' video'); if (n) n.replaceWith(vids[id]); });
       document.getElementById('st-house').innerHTML = HOUSE.map(function (h) { return card(h, live, 'Kept here'); }).join('');
       renderLead(live);
     }
