@@ -392,7 +392,7 @@
         copy: 'The bunkhouse mirror at six. Cold water, the charcoal puff, then the face goes on in the order it always does: tone, serum, cream, a little shade, the lip.',
         bag: [ [null,'Charcoal Facial Puff','Morihata'], ['elisa-johnson-jane-gold-metal-amber-lens','Jane','Elisa Johnson'], ['rose-cut-daily-facial-wash','Rose Cut'], ['glycolic-acid-exfoliating-toner','Frontier Fade'], ['peptide-anti-aging-serum','The Grade'], ['moisturising-day-cream','Desert Day Cream'], ['desert-veil-tone-correction-barrier-protection','Desert Veil'], ['soft-proof-peptide-foundation','Soft Proof'], ['long-shot-peptide-mascara','Long Shot'], ['drawn-line-matte-lip-color','Drawn Line'] ] },
       { id: 'last-light', no: 'Day Trip No. 02', tag: 'Leave before sundown', name: 'Last Light', sub: 'What Lou keeps in the glovebox.',
-        img: 'https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot_2026-10-17_121021.png?v=1792264408&width=1200', fit: 'contain', bg: '#fff', alt: 'Blacksaw Peyote reversible baby alpaca throw',
+        img: 'https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot_2026-10-17_121021.png?v=1792264408&width=1200', fit: 'contain', bg: '#DAD8D3', blend: 'multiply', alt: 'Blacksaw Peyote reversible baby alpaca throw',
         copy: 'The hour before you go. The desert turns gold through the front window and the amber lenses go on. Glovebox stocked for the long way out, past the last gas station, where the road gets dark fast.',
         bag: [ ['elisa-johnson-jane-gold-metal-amber-lens','Jane','Elisa Johnson'], ['blacksaw-peyote-reversible-throw','Peyote Throw','Blacksaw'], [null,'Temple Flashlight','Craighill'], ['drawn-line-matte-lip-color','Drawn Line'], ['quick-refresh-dry-shampoo-spray-1','Dry Creek'], ['trail-light-travel-soy-candle','Trail Light'], ['the-still-amber-glass-reed-diffuser','The Still'], ['day-ride-bag','Day Ride'] ] },
       { id: 'room-29', no: 'Day Trip No. 03', tag: 'Check in late', name: 'Room 29', sub: 'What’s on the edge of the tub.',
@@ -448,7 +448,7 @@
       }
       return '<article class="st-card" id="' + st.id + '">' +
         (st.video ? '<div class="st-photo"><video src="' + esc(st.video) + '" poster="' + esc(st.img) + '" autoplay muted playsinline preload="metadata" aria-label="' + esc(st.alt) + '"' + (st.pos ? ' style="object-position:' + esc(st.pos) + '"' : '') + '></video>'
-          : st.img ? '<div class="st-photo"><img src="' + esc(st.img) + '" alt="' + esc(st.alt) + '" loading="lazy"' + (st.pos ? ' style="object-position:' + esc(st.pos) + '"' : '') + (st.fit ? ' style="object-fit:' + esc(st.fit) + ';background:' + esc(st.bg || '#fff') + '"' : '') + '>'
+          : st.img ? '<div class="st-photo"' + (st.blend ? ' style="background:' + esc(st.bg) + '"' : '') + '><img src="' + esc(st.img) + '" alt="' + esc(st.alt) + '" loading="lazy"' + (st.pos ? ' style="object-position:' + esc(st.pos) + '"' : '') + (st.fit ? ' style="object-fit:' + esc(st.fit) + (st.blend ? ';mix-blend-mode:' + esc(st.blend) : ';background:' + esc(st.bg || '#fff')) + '"' : '') + '>'
           : '<div class="st-photo blank"><span class="blank-name">' + esc(st.blank) + '</span><span class="blank-note">Photographs to come</span>') +
         (st.tag ? '<div class="st-tag">' + esc(st.tag) + '</div>' : '') + '</div>' +
         '<div class="st-label">' + esc(st.no) + '</div>' +
