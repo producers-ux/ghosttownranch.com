@@ -211,6 +211,34 @@
     }
     #last-light, .gr-brand, #arrivals{ scroll-margin-top:84px; }
     .gr-jump a, .nd-rooms-link, .gr-house-link, .gr-empty .inline-link{ display:inline-block; padding-top:12px; padding-bottom:6px; }
+    /* ── STORIES (more Day Trips + Ranch House) ── */
+    .st-head{ max-width:1500px; margin:0 auto; padding:96px 48px 0; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:16px 48px; }
+    .st-label{ font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:var(--army); }
+    .st-title{ font-family:var(--serif); font-weight:400; font-size:clamp(30px,4.4vw,64px); line-height:1; margin-top:12px; }
+    .st-lede{ max-width:440px; font-size:15px; line-height:1.7; color:#444644; }
+    .st-grid{ max-width:1500px; margin:0 auto; padding:40px 48px 0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:64px 40px; }
+    .st-grid.three{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .st-card{ display:flex; flex-direction:column; gap:14px; min-width:0; scroll-margin-top:84px; }
+    .st-photo{ position:relative; aspect-ratio:4/3; overflow:hidden; background:var(--ink); }
+    .st-grid.three .st-photo{ aspect-ratio:4/5; }
+    .st-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .st-tag{ position:absolute; left:16px; bottom:14px; font-size:10.5px; letter-spacing:0.22em; text-transform:uppercase; color:var(--parchment); background:rgba(20,20,20,0.62); padding:7px 10px; }
+    .st-name{ font-family:var(--serif); font-weight:400; font-size:clamp(30px,3vw,42px); line-height:1; margin-top:6px; }
+    .st-sub{ font-style:italic; font-size:16px; color:var(--army); }
+    .st-copy{ font-size:14.5px; line-height:1.75; color:#444644; }
+    .st-bag-label{ font-size:10.5px; letter-spacing:0.22em; text-transform:uppercase; color:var(--army); margin-top:4px; }
+    .st-bag{ list-style:none; border-top:1px solid rgba(93,100,58,0.22); }
+    .st-bag li{ display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:9px 0; border-bottom:1px solid rgba(93,100,58,0.22); font-size:13.5px; }
+    .st-bag a{ color:var(--ink); text-decoration:none; border-bottom:1px solid rgba(20,20,20,0.25); }
+    .st-bag a:hover{ border-bottom-color:var(--ink); }
+    .st-maker{ font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:#8a8c86; margin-left:8px; }
+    .st-price{ white-space:nowrap; color:var(--ink); }
+    .st-soon{ white-space:nowrap; color:var(--army); font-size:12px; letter-spacing:0.08em; }
+    @media (max-width:1100px){ .st-grid.three{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:760px){
+      .st-head{ padding:72px 24px 0; }
+      .st-grid, .st-grid.three{ grid-template-columns:1fr; padding:32px 24px 0; gap:56px; }
+    }
     /* ── LAST LIGHT (Day Trip No. 01) ── */
     .nd{ max-width:1500px; margin:0 auto; padding:56px 48px 0; }
     .nd-label{ font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:var(--army); margin-bottom:18px; }
@@ -249,7 +277,7 @@
       </div>
       <div>
         <p class="gr-lede">A short list of makers we keep company with, and the places we take them. We'd hand any of them the keys.</p>
-        <div class="gr-jump"><a href="#last-light">Catch the Last Light &darr;</a><a href="#elisa-johnson">Meet the guests &darr;</a></div>
+        <div class="gr-jump"><a href="#last-light">Catch the Last Light &darr;</a><a href="#day-trips">More Day Trips &darr;</a><a href="#ranch-house">The Ranch House &darr;</a><a href="#elisa-johnson">In Residence &darr;</a></div>
       </div>
     </div>
   </header>
@@ -278,6 +306,24 @@
       </div>
     </div>
   </section>
+
+  <div class="st-head" id="day-trips">
+    <div>
+      <div class="st-label">More Day Trips</div>
+      <h2 class="st-title">Where we take the guests.</h2>
+    </div>
+    <p class="st-lede">Each trip packs our own line with a few things we found along the way. Pieces marked coming soon are on their way to the shop.</p>
+  </div>
+  <div class="st-grid" id="st-trips"></div>
+
+  <div class="st-head" id="ranch-house">
+    <div>
+      <div class="st-label">The Ranch House</div>
+      <h2 class="st-title">Staying in.</h2>
+    </div>
+    <p class="st-lede">The Day Trips leave the ranch. These stay. Three buildings, each kept the way we keep ours: something found, next to something of our own.</p>
+  </div>
+  <div class="st-grid three" id="st-house"></div>
 
   <div class="gr-rooms-head">
     <div class="gr-rooms-label">In Residence</div>
@@ -433,6 +479,104 @@
         else { btn.disabled = false; note.textContent = 'Something went sideways. Try again in a minute.'; }
       }).catch(function () { btn.disabled = false; note.textContent = 'Something went sideways. Try again in a minute.'; });
     });
+  })();
+  </script>
+
+  <script>
+  (function () {
+    // ── Stories. GTR pieces use a Shopify handle (live price + link). Pieces not in Shopify yet are marked soon.
+    //    When a guest product goes live, give it its handle and remove soon.
+    var TRIPS = [
+      { id: 'first-light', no: 'At the ranch', tag: 'Six a.m.', name: 'First Light', sub: 'What Saylor puts on before anyone’s up.',
+        img: '/media/rosecut.jpg', alt: 'Two women at a bathroom sink in the early light, desert through the window',
+        copy: 'The bunkhouse mirror at six. Cold water, the charcoal puff, then the face goes on in the order it always does: tone, serum, cream, a little shade, the lip.',
+        bag: [ ['glycolic-acid-exfoliating-toner','Frontier Fade'], ['peptide-anti-aging-serum','The Grade'], ['dusk-til-dawn-hydration-gel','Dusk Til Dawn'],
+               ['moisturising-day-cream','Desert Day Cream'], ['desert-veil-tone-correction-barrier-protection','Desert Veil'], ['soft-proof-peptide-foundation','Soft Proof'],
+               ['long-shot-peptide-mascara','Long Shot'], ['drawn-line-matte-lip-color','Drawn Line'],
+               [null,'Charcoal Facial Puff','Morihata'], ['elisa-johnson-jane-gold-metal-amber-lens','Jane','Elisa Johnson'] ] },
+      { id: 'hot-springs', no: 'Day Trip No. 02', tag: 'Before the heat', name: 'Hot Springs', sub: 'What Audra packs for the pool.',
+        img: '/media/plunge.jpg', alt: 'The Plunge bath bomb settling into water',
+        copy: 'Desert Hot Springs, an hour before sunrise. The mineral pool is steaming and nobody else is up. Charcoal and Rose Cut at the edge of the water, a thin black towel over one shoulder.',
+        bag: [ ['rose-cut-daily-facial-wash','Rose Cut'], ['outlaws-reserve-2-in-1-hair-skin-rinse','Outlaw’s Reserve'], ['keratin-shine-leave-in-hair-mist','Trail’s End'],
+               [null,'Charcoal Facial Puff','Morihata'], [null,'MOKU Light Towel','Kontex'], [null,'Waffle Robe','Casamera'], [null,'The Pool Bag','Ghost Town Ranch'] ] },
+      { id: 'room-29', no: 'Day Trip No. 03', tag: 'Check in late', name: 'Room 29', sub: 'What’s on the edge of the tub.',
+        img: '/media/soak.jpg', alt: 'Hands opening a jar of The Soak beside a filling tub',
+        copy: 'The motel on the road to Twentynine Palms. Key 29 on a brass tag, a tub that takes forever to fill, a waffle robe on the back of the door.',
+        bag: [ ['the-soak-lights-out','The Soak'], ['the-plunge-salt-moon-bath-bomb-set-of-3','The Plunge'], ['omega-6-9-glowing-skin-body-oil','Golden Hour'],
+               ['the-kiss-lip-mask-7-pcs','The Kiss'], ['still-air-natural-roll-on-deodorant1','Still Air'],
+               [null,'Waffle Robe','Casamera'], [null,'Charcoal Sleep Mask','Morihata'] ] },
+      { id: 'last-gas', no: 'Day Trip No. 04', tag: 'Golden hour', name: 'Last Gas', sub: 'What Lou keeps on the dash.',
+        img: '/media/road-flax.jpg', alt: 'Lou holding Ranch Water outside a roadside gas station, an old pickup behind her',
+        copy: 'The diner sign flickers on before the sun goes down. Fill the tank, mist the cab, take the long way back.',
+        bag: [ ['ranch-water-body-room-fragrance','Ranch Water'], ['gtr-lip-butter','Lip Butter'], ['gtr-touch-up-blotting-paper','Blotting Papers'],
+               ['drawn-line-matte-lip-color','Drawn Line'], ['day-ride-bag','Day Ride'],
+               ['elisa-johnson-jane-gold-metal-amber-lens','Jane','Elisa Johnson'], ['blacksaw-peyote-reversible-throw','Peyote Throw','Blacksaw'] ] },
+      { id: 'no-signal', no: 'Day Trip No. 05', tag: 'Overnight', name: 'No Signal', sub: 'What’s lit when the phone isn’t.',
+        img: '/media/traillight-lit.jpg', alt: 'A match lighting Trail Light, a matchbox beside it',
+        copy: 'A cabin past where the phone works. One candle, a wool throw, and the stars doing the rest.',
+        bag: [ ['trail-light-travel-soy-candle','Trail Light'], ['the-still-amber-glass-reed-diffuser','The Still'], ['the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz','The Monument'],
+               ['all-told-eye-cream','All Told'], ['blacksaw-peyote-reversible-throw','Peyote Throw','Blacksaw'],
+               [null,'Temple Flashlight','Craighill'], [null,'Matchbook','Ghost Town Ranch'] ] }
+    ];
+    var HOUSE = [
+      { id: 'cookhouse', no: 'Kitchen', name: 'The Cookhouse', img: '/guest-ranch/be-home-cups.jpg', alt: 'Black stoneware measuring cups',
+        copy: 'Black stoneware, onyx spoons and a brass rack by the sink, where the hand wash lives.',
+        bag: [ ['sunbroke-the-wash-cold-pressed-grapefruit','The Wash'], ['hand-body-wash-patchouli-amber-vanilla','Hand & Body Wash, Amber + Vanilla'],
+               ['silk-skin-hand-cream-spices-sandalwood','Silk Skin'], ['trail-light-travel-soy-candle','Trail Light'],
+               [null,'Stoneware Measuring Cups','Be Home'], [null,'Measuring Spoons, Onyx','Be Home'], [null,'Brass Dish Rack','Be Home'], [null,'Vintage French Stoneware','Be Home'] ] },
+      { id: 'bunkhouse', no: 'Bed', name: 'The Bunkhouse', img: '/media/monument.jpg', alt: 'Saylor on a sofa beside The Monument candle',
+        copy: 'Alpaca at the foot of the bed, spare blankets in a leather basket, one candle burning down. Lights out by ten.',
+        bag: [ ['ranch-water-body-room-fragrance','Ranch Water'], ['anti-age-hydrogel-eye-patches-7-pcs','The Lookout'], ['the-slow-hand-poured-colored-wax-candle-ltd-001','The Slow'],
+               ['blacksaw-peyote-reversible-throw','Peyote Throw','Blacksaw'], [null,'Leather Everything Basket','Be Home'], [null,'Charcoal Sleep Mask','Morihata'], [null,'House Slippers','Casamera'] ] },
+      { id: 'wash-house-room', no: 'Bath', name: 'The Wash House', img: '/media/washhouse-sink.jpg', alt: 'Two women at a bathroom sink with the desert outside',
+        copy: 'A cane caddy carries everything to the tub. Charcoal for the face, a thin black towel, salts in the water.',
+        bag: [ ['outlaws-reserve-2-in-1-hair-skin-rinse','Outlaw’s Reserve'], ['the-soak-lights-out','The Soak'], ['the-plunge-salt-moon-bath-bomb-set-of-3','The Plunge'],
+               [null,'Cane Caddy','Be Home'], [null,'Charcoal Facial Puff','Morihata'], [null,'MOKU Light Towel','Kontex'] ] }
+    ];
+
+    var DOMAIN = 'muq7w3-im.myshopify.com', TOKEN = 'c6efa00d9c5d9849c6c13d59cca6ab82';
+    function esc(x) { return String(x == null ? '' : x).replace(/[&<>"']/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
+    function money(a) { var n = parseFloat(a); return isNaN(n) ? '' : '$' + (n % 1 ? n.toFixed(2) : n.toFixed(0)); }
+
+    function row(item, live) {
+      var handle = item[0], name = item[1], maker = item[2] || '';
+      var p = handle && live[handle];
+      var label = esc(name) + (maker ? '<span class="st-maker">' + esc(maker) + '</span>' : '');
+      if (!handle) return '<li><span>' + label + '</span><span class="st-soon">Coming soon</span></li>';
+      var right = p === undefined ? '' : (!p ? '<span class="st-soon">Coming soon</span>'
+        : (p.availableForSale ? '<span class="st-price">' + (p.priceRange.minVariantPrice.amount !== p.priceRange.maxVariantPrice.amount ? 'From ' : '') + money(p.priceRange.minVariantPrice.amount) + '</span>' : '<span class="st-soon">Sold out</span>'));
+      return '<li><span>' + (p ? '<a href="/products/' + esc(handle) + '/">' + label + '</a>' : label) + '</span>' + right + '</li>';
+    }
+    function card(st, live, bagLabel) {
+      return '<article class="st-card" id="' + st.id + '">' +
+        '<div class="st-photo"><img src="' + esc(st.img) + '" alt="' + esc(st.alt) + '" loading="lazy">' + (st.tag ? '<div class="st-tag">' + esc(st.tag) + '</div>' : '') + '</div>' +
+        '<div class="st-label">' + esc(st.no) + '</div>' +
+        '<h3 class="st-name">' + esc(st.name) + '</h3>' +
+        (st.sub ? '<div class="st-sub">' + esc(st.sub) + '</div>' : '') +
+        '<p class="st-copy">' + esc(st.copy) + '</p>' +
+        '<div class="st-bag-label">' + bagLabel + '</div>' +
+        '<ul class="st-bag">' + st.bag.map(function (it) { return row(it, live); }).join('') + '</ul></article>';
+    }
+    function render(live) {
+      document.getElementById('st-trips').innerHTML = TRIPS.map(function (t) { return card(t, live, 'In the bag'); }).join('');
+      document.getElementById('st-house').innerHTML = HOUSE.map(function (h) { return card(h, live, 'Kept here'); }).join('');
+    }
+    render({});
+
+    var handles = {};
+    TRIPS.concat(HOUSE).forEach(function (st) { st.bag.forEach(function (it) { if (it[0]) handles[it[0]] = 1; }); });
+    var list = Object.keys(handles);
+    var q = 'query{' + list.map(function (h, i) {
+      return 'p' + i + ':product(handle:' + JSON.stringify(h) + '){ handle availableForSale priceRange{ minVariantPrice{ amount } maxVariantPrice{ amount } } }';
+    }).join(' ') + '}';
+    fetch('https://' + DOMAIN + '/api/2025-01/graphql.json', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Shopify-Storefront-Access-Token': TOKEN },
+      body: JSON.stringify({ query: q })
+    }).then(function (r) { return r.json(); }).then(function (j) {
+      var live = {};
+      list.forEach(function (h, i) { live[h] = (j.data && j.data['p' + i]) || null; });
+      render(live);
+    }).catch(function () {});
   })();
   </script>
 
