@@ -221,7 +221,7 @@
     .st-label{ font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:var(--army); }
     .st-title{ font-family:var(--serif); font-weight:400; font-size:clamp(30px,4.4vw,64px); line-height:1; margin-top:12px; }
     .st-lede{ max-width:440px; font-size:15px; line-height:1.7; color:#444644; }
-    .st-grid{ max-width:1500px; margin:0 auto; padding:40px 48px 0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:64px 40px; }
+    .st-grid{ max-width:1500px; margin:0 auto; padding:64px 48px 0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:64px 40px; }
     .st-grid.three{ grid-template-columns:repeat(3,minmax(0,1fr)); }
     .st-card{ display:flex; flex-direction:column; gap:14px; min-width:0; scroll-margin-top:84px; }
     .st-photo{ position:relative; aspect-ratio:4/3; overflow:hidden; background:var(--ink); }
@@ -248,7 +248,7 @@
       .st-grid, .st-grid.three{ grid-template-columns:1fr; padding:32px 24px 0; gap:56px; }
     }
     /* ── LEAD STORY (Day Trip No. 01, Hot Springs) ── */
-    .nd{ max-width:1500px; margin:0 auto; padding:56px 48px 0; }
+    .nd{ max-width:1500px; margin:0 auto; padding:40px 48px 0; }
     .nd-label{ font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:var(--army); margin-bottom:18px; }
     .nd-card{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); background:var(--ink); color:var(--parchment); }
     .nd-photo{ position:relative; min-height:620px; overflow:hidden; }
@@ -285,10 +285,18 @@
       </div>
       <div>
         <p class="gr-lede">A short list of makers we keep company with, and the places we take them. We'd hand any of them the keys.</p>
-        <div class="gr-jump"><a href="#hot-springs">Hot Springs &darr;</a><a href="#ranch-house">The Ranch House &darr;</a><a href="#day-trips">More Day Trips &darr;</a></div>
+        <div class="gr-jump"><a href="#day-trips">Day Trips &darr;</a><a href="#ranch-house">The Ranch House &darr;</a></div>
       </div>
     </div>
   </header>
+
+  <div class="st-head" id="day-trips">
+    <div>
+      <div class="st-label">Day Trips</div>
+      <h2 class="st-title">Where we take the guests.</h2>
+    </div>
+    <p class="st-lede">Each trip packs our own line with a few things we found along the way. Pieces marked coming soon are on their way to the shop.</p>
+  </div>
 
   <section class="nd" id="hot-springs">
     <div class="nd-label">Day Trip No. 01</div>
@@ -307,6 +315,8 @@
     </div>
   </section>
 
+  <div class="st-grid" id="st-trips"></div>
+
   <div class="st-head" id="ranch-house">
     <div>
       <div class="st-label">The Ranch House</div>
@@ -315,15 +325,6 @@
     <p class="st-lede">The Day Trips leave the ranch. These stay. Three buildings, each kept the way we keep ours: something found, next to something of our own.</p>
   </div>
   <div class="st-grid three" id="st-house"></div>
-
-  <div class="st-head" id="day-trips">
-    <div>
-      <div class="st-label">More Day Trips</div>
-      <h2 class="st-title">Where we take the guests.</h2>
-    </div>
-    <p class="st-lede">Each trip packs our own line with a few things we found along the way. Pieces marked coming soon are on their way to the shop.</p>
-  </div>
-  <div class="st-grid" id="st-trips"></div>
 
   <section class="gr-house" id="arrivals">
     <div class="gr-house-inner">
