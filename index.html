@@ -444,6 +444,30 @@
     .road-grid { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:12px; padding-right:24px; -webkit-overflow-scrolling:touch; }
     .road-tile { flex:0 0 72%; scroll-snap-align:start; }
   }
+  /* ── Guest Ranch pairings: one found piece, and what of ours goes with it ── */
+  .gp { padding: 88px 48px; border-bottom: 1px solid var(--dust); }
+  .gp-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+  .gp-card { display:flex; flex-direction:column; min-width:0; }
+  .gp-media { display:block; position:relative; aspect-ratio:1/1; overflow:hidden; background:#ECEDEA; }
+  .gp-media img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease; }
+  .gp-media:hover img { transform:scale(1.03); }
+  .gp-story { position:absolute; left:10px; bottom:10px; font-family:'Jost',sans-serif; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#F6F6F3; background:rgba(20,20,20,0.45); padding:4px 8px; }
+  .gp-maker { margin-top:14px; font-family:'Jost',sans-serif; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--army); }
+  .gp-name { display:flex; justify-content:space-between; gap:12px; margin-top:4px; font-family:var(--serif); font-size:22px; line-height:1.15; color:inherit; text-decoration:none; }
+  .gp-name span { font-family:'Jost',sans-serif; font-size:13px; white-space:nowrap; padding-top:5px; color:var(--stone,#6E716C); }
+  .gp-with { margin-top:16px; font-family:'Jost',sans-serif; font-size:10.5px; letter-spacing:0.22em; text-transform:uppercase; color:var(--stone,#6E716C); }
+  .gp-list { list-style:none; margin:8px 0 0; padding:0; border-top:1px solid var(--dust); }
+  .gp-list li { display:flex; justify-content:space-between; gap:12px; padding:9px 0; border-bottom:1px solid var(--dust); font-family:'Jost',sans-serif; font-size:13.5px; }
+  .gp-list a { color:inherit; text-decoration:none; }
+  .gp-list a:hover { text-decoration:underline; text-underline-offset:3px; }
+  .gp-list .p { color:var(--stone,#6E716C); white-space:nowrap; }
+  .gp-more { margin-top:14px; font-family:'Jost',sans-serif; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink); text-decoration:none; align-self:flex-start; border-bottom:1px solid currentColor; padding:10px 0 3px; }
+  @media (max-width:900px){
+    .gp { padding:56px 0 56px 24px; }
+    .gp .road-head { padding-right:24px; }
+    .gp-grid { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:16px; padding-right:24px; -webkit-overflow-scrolling:touch; }
+    .gp-card { flex:0 0 78%; scroll-snap-align:start; }
+  }
   .objects {
     padding: 88px 48px;
     border-top: 1px solid var(--dust);
@@ -899,6 +923,19 @@
   </div>
 </section>
 
+<!-- ══ GUEST RANCH PAIRINGS ══ -->
+<section class="gp" id="guest-ranch-pairings">
+  <div class="road-head">
+    <div>
+      <div class="road-label">Guest Ranch</div>
+      <h2 class="road-title">Kept with <em>ours.</em></h2>
+      <p class="road-cast">A few things we found, and what of ours goes with them.</p>
+    </div>
+    <a class="road-ig" href="/guest-ranch/">All the trips &rarr;</a>
+  </div>
+  <div class="gp-grid" id="gp-grid"></div>
+</section>
+
 <!-- ══ PILLARS ══ -->
 <section id="ritual" class="pillars">
   <a class="pillar" href="https://ghosttownranch.com/ritual/">
@@ -1048,6 +1085,55 @@
       });
     });
   });
+</script>
+<script>
+(function () {
+  // Guest Ranch pairings. Guest piece first, then the GTR products it sits with. Prices load live from Shopify.
+  var PAIRS = [
+    { story: 'Room 29', href: '/guest-ranch/#room-29', guest: ['henson-shaving-al13-v2-mild-safety-razor', 'AL13 Safety Razor', 'Henson Shaving'],
+      img: null, fallback: '/guest-ranch/morihata-sleep-mask.jpg',
+      with: [['the-soak-lights-out','The Soak'], ['omega-6-9-glowing-skin-body-oil','Golden Hour'], ['anti-age-hydrogel-eye-patches-7-pcs','The Lookout']] },
+    { story: 'Last Gas', href: '/guest-ranch/#last-gas', guest: ['elisa-johnson-jane-gold-metal-amber-lens', 'Jane', 'Elisa Johnson'],
+      img: '/guest-ranch/jane-gold-amber.jpg',
+      with: [['ranch-water-body-room-fragrance','Ranch Water'], ['drawn-line-matte-lip-color','Drawn Line'], ['quick-refresh-dry-shampoo-spray-1','Dry Creek']] },
+    { story: 'First Light', href: '/guest-ranch/#first-light', guest: [null, 'Charcoal Facial Puff', 'Morihata'],
+      img: '/guest-ranch/morihata-charcoal-puff.jpg',
+      with: [['rose-cut-daily-facial-wash','Rose Cut'], ['glycolic-acid-exfoliating-toner','Frontier Fade'], ['moisturising-day-cream','Desert Day Cream']] }
+  ];
+  var grid = document.getElementById('gp-grid'); if (!grid) return;
+  function esc(x) { return String(x == null ? '' : x).replace(/[&<>"']/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
+  function money(a) { var n = parseFloat(a); return isNaN(n) ? '' : '$' + (n % 1 ? n.toFixed(2) : n.toFixed(0)); }
+  function price(p) { return !p ? '' : (p.availableForSale ? money(p.priceRange.minVariantPrice.amount) : 'Sold out'); }
+  function render(live) {
+    grid.innerHTML = PAIRS.map(function (x) {
+      var g = x.guest, gp = g[0] && live[g[0]];
+      var img = x.img || (gp && gp.featuredImage ? gp.featuredImage.url + (gp.featuredImage.url.indexOf('?') > -1 ? '&' : '?') + 'width=900' : x.fallback);
+      var gHref = gp ? '/products/' + g[0] + '/' : x.href;
+      return '<div class="gp-card">' +
+        '<a class="gp-media" href="' + esc(gHref) + '"><img src="' + esc(img) + '" alt="' + esc(g[2] + ' ' + g[1]) + '" loading="lazy"><span class="gp-story">' + esc(x.story) + '</span></a>' +
+        '<div class="gp-maker">' + esc(g[2]) + '</div>' +
+        '<a class="gp-name" href="' + esc(gHref) + '">' + esc(g[1]) + '<span>' + (g[0] ? price(gp) : 'Coming soon') + '</span></a>' +
+        '<div class="gp-with">Kept with</div>' +
+        '<ul class="gp-list">' + x.with.map(function (w) {
+          var p = live[w[0]];
+          return '<li><a href="/products/' + esc(w[0]) + '/">' + esc(w[1]) + '</a><span class="p">' + price(p) + '</span></li>';
+        }).join('') + '</ul>' +
+        '<a class="gp-more" href="' + esc(x.href) + '">See the whole bag &rarr;</a></div>';
+    }).join('');
+  }
+  render({});
+  var handles = [];
+  PAIRS.forEach(function (x) { if (x.guest[0]) handles.push(x.guest[0]); x.with.forEach(function (w) { handles.push(w[0]); }); });
+  var q = 'query{' + handles.map(function (h, i) {
+    return 'p' + i + ':product(handle:' + JSON.stringify(h) + '){ availableForSale featuredImage{ url } priceRange{ minVariantPrice{ amount } } }';
+  }).join(' ') + '}';
+  fetch('https://muq7w3-im.myshopify.com/api/2025-01/graphql.json', {
+    method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Shopify-Storefront-Access-Token': 'c6efa00d9c5d9849c6c13d59cca6ab82' },
+    body: JSON.stringify({ query: q })
+  }).then(function (r) { return r.json(); }).then(function (j) {
+    var live = {}; handles.forEach(function (h, i) { live[h] = (j.data && j.data['p' + i]) || null; }); render(live);
+  }).catch(function () {});
+})();
 </script>
 <script src="/cart.js"></script>
 <script src="/gtr-controls.js" defer></script>
