@@ -57,6 +57,7 @@
     // ── PRODUCTS (generated) ──
     { t: "The Lookout Collection", c: "Aloe Hydrogel Eye Patches  ·  $36", u: "/products/anti-age-hydrogel-eye-patches-7-pcs", k: "the lookout collection aloe hydrogel eye patches 7 pairs 14 pcs gold rush under-eye mask puffiness face-care" },
     { t: "The Kiss", c: "Hydrogel Lip Mask  ·  $42", u: "/products/the-kiss-lip-mask-7-pcs", k: "the kiss hyaluronic hydrogel lip mask 7 pcs lips lip care hyaluronic acid" },
+    { t: "The Basin", c: "Hand Wash + Body Cream  ·  $89", u: "/products/the-basin-hand-wash-body-cream-set-of-two-choose-your-scent", k: "the basin hand wash body cream set of two choose your scent soap lotion wash house cookhouse porch light gift" },
     { t: "Hand & Body Wash", c: "Amber + Vanilla  ·  $44", u: "/products/hand-body-wash-patchouli-amber-vanilla", k: "hand body wash amber vanilla patchouli soap wash house body-care" },
     { t: "AL13 Safety Razor, Medium", c: "Henson Shaving  ·  $69.99", u: "/products/henson-shaving-al13-v2-medium-safety-razor", k: "henson shaving al13 medium safety razor shave shaving aluminum guest ranch" },
     { t: "Lip Butter", c: "Peppermint + Vanilla  ·  $24", u: "/products/gtr-lip-butter", k: "gtr lip butter lip balm lips peppermint vanilla tin black silver 1 oz beeswax aloe" },
