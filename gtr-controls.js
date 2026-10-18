@@ -33,7 +33,7 @@
     { t: 'First Light',      c: 'At the ranch',        u: '/guest-ranch/#first-light',    k: 'first light morning six am routine morihata charcoal facial puff' },
     { t: 'Hot Springs',      c: 'Day Trip No. 02',     u: '/guest-ranch/#hot-springs',    k: 'hot springs pool spa soak day trip kontex moku towel morihata pool bag' },
     { t: 'Room 29',          c: 'Day Trip No. 03',     u: '/guest-ranch/#room-29',        k: 'room 29 twentynine palms motel tub bath sleep mask morihata casamera robe slippers' },
-    { t: 'Last Gas',         c: 'Day Trip No. 04',     u: '/guest-ranch/#last-gas',       k: 'last gas golden hour road trip dash sunglasses elisa johnson jane' },
+    { t: 'Last Gas',         c: 'Day Trip No. 04',     u: '/guest-ranch/#last-gas',       k: 'last gas before dark sundown road trip dash sunglasses elisa johnson jane' },
     { t: 'No Signal',        c: 'Day Trip No. 05',     u: '/guest-ranch/#no-signal',      k: 'no signal overnight candle matchbook craighill flashlight camp' },
     { t: 'High Noon',        c: 'Day Trip No. 06',     u: '/guest-ranch/#high-noon',      k: 'high noon day trip midday pioneertown hat shu atelier bespoke sunglasses jane mist' },
     { t: 'The Ranch House',  c: 'Staying in',          u: '/guest-ranch/#ranch-house',    k: 'ranch house home goods staying in be home cookhouse bunkhouse wash house' },
