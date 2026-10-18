@@ -78,7 +78,6 @@
     .soon-intro-label{ font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--army); }
     .soon-intro-title{ font-family:var(--serif); font-weight:400; font-size:24px; margin-top:8px; }
 
-
     footer{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
       padding:60px 48px; margin-top:48px; border-top:1px solid rgba(93,100,58,0.18); font-size:13px; }
     footer a{ color:var(--ink); text-decoration:none; border-bottom:1px solid rgba(20,20,20,0.3); padding-bottom:2px; }
@@ -285,10 +284,19 @@
       </div>
       <div>
         <p class="gr-lede">A short list of makers we keep company with, and the places we take them. We'd hand any of them the keys.</p>
-        <div class="gr-jump"><a href="#day-trips">Day Trips &darr;</a><a href="#ranch-house">The Ranch House &darr;</a></div>
+        <div class="gr-jump"><a href="#ranch-house">The Ranch House &darr;</a><a href="#day-trips">Day Trips &darr;</a></div>
       </div>
     </div>
   </header>
+
+  <div class="st-head" id="ranch-house">
+    <div>
+      <div class="st-label">The Ranch House</div>
+      <h2 class="st-title">Staying in.</h2>
+    </div>
+    <p class="st-lede">Three rooms, kept the way we keep ours: something found, next to something of our own.</p>
+  </div>
+  <div class="st-grid three" id="st-house"></div>
 
   <div class="st-head" id="day-trips">
     <div>
@@ -317,14 +325,6 @@
 
   <div class="st-grid" id="st-trips"></div>
 
-  <div class="st-head" id="ranch-house">
-    <div>
-      <div class="st-label">The Ranch House</div>
-      <h2 class="st-title">Staying in.</h2>
-    </div>
-    <p class="st-lede">The Day Trips leave the ranch. These stay. Three buildings, each kept the way we keep ours: something found, next to something of our own.</p>
-  </div>
-  <div class="st-grid three" id="st-house"></div>
 
   <section class="gr-house" id="arrivals">
     <div class="gr-house-inner">
@@ -356,7 +356,6 @@
 
     function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
     function money(a) { var n = parseFloat(a); return isNaN(n) ? '' : '$' + (n % 1 ? n.toFixed(2) : n.toFixed(0)); }
-
 
     // ── Waitlist: same Klaviyo list as the homepage signup, tagged so we know where it came from.
     var KLAVIYO_KEY = 'UTbZ3B';   // public site key
