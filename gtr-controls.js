@@ -24,8 +24,31 @@
     { t: 'Wash House',      c: 'At the sink',   u: '/wash-house/',            k: 'hand wash soap body cream sink bath soak bath salt bath bomb' },
     { t: 'Wide Light',     c: 'Origin',        u: '/field-guide/',           k: 'origin philosophy frontier modernism story about wide light' },
     { t: 'Shop the Ranch',  c: 'All Objects',   u: '/shop/',                  k: 'shop all products store browse' },
-    { t: 'Wholesale',       c: 'Trade',         u: '/wholesale/',             k: 'wholesale trade stockist retailer line sheet hospitality' },
+    { t: 'Partners',        c: 'Trade',         u: '/wholesale/',             k: 'partners wholesale trade stockist retailer line sheet hospitality pop-up pop up collaboration collab private label guest ranch' },
     { t: 'Deep Well',       c: 'Ingestible',    u: '/collections/deep-well/', k: 'deep well ingestible beauty supplement the well first light last light' },
+
+    // Guest Ranch: page, stories and guest brands (hand-kept; not part of the generated block)
+    { t: 'Guest Ranch',      c: 'Guests of the house', u: '/guest-ranch/',                k: 'guest ranch guests brands makers partners curated edit day trips in residence' },
+    { t: 'Last Light',       c: 'Day Trip No. 01',     u: '/guest-ranch/#last-light',     k: 'last light day trip night drive glovebox sunglasses elisa johnson jane blacksaw throw craighill flashlight' },
+    { t: 'First Light',      c: 'At the ranch',        u: '/guest-ranch/#first-light',    k: 'first light morning six am routine morihata charcoal facial puff' },
+    { t: 'Hot Springs',      c: 'Day Trip No. 02',     u: '/guest-ranch/#hot-springs',    k: 'hot springs pool spa soak day trip kontex moku towel morihata pool bag' },
+    { t: 'Room 29',          c: 'Day Trip No. 03',     u: '/guest-ranch/#room-29',        k: 'room 29 twentynine palms motel tub bath sleep mask morihata casamera robe slippers' },
+    { t: 'Last Gas',         c: 'Day Trip No. 04',     u: '/guest-ranch/#last-gas',       k: 'last gas golden hour road trip dash sunglasses elisa johnson jane' },
+    { t: 'No Signal',        c: 'Day Trip No. 05',     u: '/guest-ranch/#no-signal',      k: 'no signal overnight candle matchbook craighill flashlight camp' },
+    { t: 'The Ranch House',  c: 'Staying in',          u: '/guest-ranch/#ranch-house',    k: 'ranch house home goods staying in be home cookhouse bunkhouse wash house' },
+    { t: 'The Cookhouse',    c: 'Ranch House · Kitchen', u: '/guest-ranch/#cookhouse',    k: 'cookhouse kitchen be home stoneware measuring cups spoons onyx brass dish rack' },
+    { t: 'The Bunkhouse',    c: 'Ranch House · Bed',   u: '/guest-ranch/#bunkhouse',      k: 'bunkhouse bed bedroom blanket throw be home leather everything basket blacksaw' },
+    { t: 'The Wash House',   c: 'Ranch House · Bath',  u: '/guest-ranch/#wash-house-room', k: 'wash house bath bathroom be home cane caddy towel' },
+    { t: 'Elisa Johnson',    c: 'In Residence · Eyewear', u: '/guest-ranch/#elisa-johnson', k: 'elisa johnson eyewear sunglasses shades jane guest brand' },
+    { t: 'Blacksaw',         c: 'In Residence · Alpaca throws', u: '/guest-ranch/#blacksaw', k: 'blacksaw alpaca throw blanket peyote guest brand' },
+    { t: 'Casamera',         c: 'In Residence · Robes, slippers', u: '/guest-ranch/#casamera', k: 'casamera robe waffle bathrobe house slippers guest brand' },
+    { t: 'Craighill',        c: 'In Residence · Objects', u: '/guest-ranch/#craighill',   k: 'craighill temple flashlight objects new york guest brand' },
+    { t: 'SHU Atelier',      c: 'In Residence · Bespoke hats', u: '/guest-ranch/#shu-atelier', k: 'shu atelier hat hats bespoke custom fitting milliner yucca valley guest brand' },
+    { t: 'Morihata',         c: 'Guest Ranch · Coming soon', u: '/guest-ranch/#first-light', k: 'morihata charcoal facial puff sponge sleep mask binchotan japan guest brand' },
+    { t: 'Kontex',           c: 'Guest Ranch · Coming soon', u: '/guest-ranch/#hot-springs', k: 'kontex moku light towel japan guest brand' },
+    { t: 'Be Home',          c: 'Guest Ranch · Coming soon', u: '/guest-ranch/#ranch-house', k: 'be home stoneware basket caddy kitchen home goods guest brand' },
+    { t: 'Jane',             c: 'Elisa Johnson · Sunglasses  ·  $145', u: '/products/elisa-johnson-jane-gold-metal-amber-lens', k: 'jane elisa johnson sunglasses eyewear gold metal amber lens shades guest ranch' },
+    { t: 'Peyote Reversible Throw', c: 'Blacksaw · Alpaca Throw  ·  $598', u: '/products/blacksaw-peyote-reversible-throw', k: 'peyote reversible throw blanket blacksaw baby alpaca guest ranch' },
 
     // ── PRODUCTS (generated) ──
     { t: "The Lookout Collection", c: "Aloe Hydrogel Eye Patches  ·  $36", u: "/products/anti-age-hydrogel-eye-patches-7-pcs", k: "the lookout collection aloe hydrogel eye patches 7 pairs 14 pcs gold rush under-eye mask puffiness face-care" },
@@ -226,7 +249,7 @@
     var q = input.value.trim().toLowerCase();
     if (!q) {
       hint.textContent = 'Start typing — any product, scent, or category';
-      renderResults(INDEX.filter(function (i) { return i.u.indexOf('/products/') !== 0; }));
+      renderResults(INDEX.filter(function (i) { return i.u.indexOf('/products/') !== 0 && i.u.indexOf('#') < 0; }));
       return;
     }
     // Every whitespace-separated token must appear somewhere in the blob,
