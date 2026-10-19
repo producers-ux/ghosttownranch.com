@@ -456,7 +456,7 @@
         st = Object.assign({}, st, { img: u + (u.indexOf('?') > -1 ? '&' : '?') + 'width=1200', pos: null });
       }
       return '<article class="st-card" id="' + st.id + '">' +
-        (st.video ? '<div class="st-photo"><video src="' + esc(st.video) + '" poster="' + esc(st.img) + '" autoplay muted playsinline preload="metadata" aria-label="' + esc(st.alt) + '"' + (st.pos ? ' style="object-position:' + esc(st.pos) + '"' : '') + '></video>'
+        (st.video ? '<div class="st-photo"><video src="' + esc(st.video) + '" poster="' + esc(st.img) + '" data-inview muted playsinline preload="metadata" aria-label="' + esc(st.alt) + '"' + (st.pos ? ' style="object-position:' + esc(st.pos) + '"' : '') + '></video>'
           : st.img ? '<div class="st-photo"' + (st.blend ? ' style="background:' + esc(st.bg) + '"' : '') + '><img src="' + esc(st.img) + '" alt="' + esc(st.alt) + '" loading="lazy"' + (st.pos ? ' style="object-position:' + esc(st.pos) + '"' : '') + (st.fit ? ' style="object-fit:' + esc(st.fit) + (st.blend ? ';mix-blend-mode:' + esc(st.blend) : ';background:' + esc(st.bg || '#fff')) + '"' : '') + '>'
           : '<div class="st-photo blank"><span class="blank-name">' + esc(st.blank) + '</span><span class="blank-note">Photographs to come</span>') +
         (st.tag ? '<div class="st-tag">' + esc(st.tag) + '</div>' : '') + '</div>' +

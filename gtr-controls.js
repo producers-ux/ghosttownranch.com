@@ -387,3 +387,26 @@
     boot(12);
   }
 })();
+
+/* Play-once videos start when they scroll into view, not on page load */
+(function () {
+  function bind(root) {
+    var vs = (root || document).querySelectorAll('video[data-inview]:not([data-bound])');
+    Array.prototype.forEach.call(vs, function (v) {
+      v.setAttribute('data-bound', '1');
+      v.muted = true;
+      if (!('IntersectionObserver' in window)) { v.play().catch(function () {}); return; }
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (e.isIntersecting) { v.play().catch(function () {}); io.disconnect(); }
+        });
+      }, { threshold: 0.5 });
+      io.observe(v);
+    });
+  }
+  function start() {
+    bind(document);
+    if ('MutationObserver' in window) new MutationObserver(function () { bind(document); }).observe(document.body, { childList: true, subtree: true });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+})();
