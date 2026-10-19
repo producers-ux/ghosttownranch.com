@@ -593,22 +593,23 @@
   }
 
   /* ══ 7. SIGNUP — prominent ══ */
+  .assurance-bottom { margin-top: 0; padding: 32px 48px 36px; border-top: none; }
   /* ── Teaser: horn ── */
-  .teaser { padding: 96px 48px; background: var(--warm-black,#141414); color: #F6F6F3; display:grid; grid-template-columns: 5fr 7fr; gap: 56px; align-items:center; }
+  .teaser { padding: 56px 48px; background: var(--warm-black,#141414); color: #F6F6F3; display:grid; grid-template-columns: 1fr auto; gap: 56px; align-items:center; }
   .teaser-mark { width: 28px; height: auto; display:block; margin-bottom: 22px; opacity: 0.85; }
   .teaser-title { font-family:var(--serif); font-weight:300; font-size:clamp(36px,4.6vw,64px); line-height:1.02; margin-top:12px; }
   .teaser-title em { font-style:italic; }
   .teaser-body { font-family:'Jost',sans-serif; font-size:15px; line-height:1.7; letter-spacing:0.01em; color:var(--ash,#3B3D3A); max-width:440px; margin:24px 0; }
-  .teaser-pair { display:grid; grid-template-columns: 1fr 1fr; gap: 16px; margin:0; }
-  .teaser-pair figure { margin:0; aspect-ratio: 4/5; overflow:hidden; background:#141414; }
+  .teaser-pair { display:grid; grid-template-columns: repeat(2, 300px); gap: 12px; margin:0; }
+  .teaser-pair figure { margin:0; aspect-ratio: 1/1; overflow:hidden; background:#141414; }
   .teaser-pair img { width:100%; height:100%; object-fit:cover; display:block; }
   .teaser .road-label { color: rgba(246,246,243,0.55); }
   .teaser .road-ig { color: #F6F6F3; }
   .teaser-body { color: rgba(246,246,243,0.72) !important; }
   .teaser-pair figure { background:#000; }
   @media (max-width: 768px) {
-    .teaser { grid-template-columns: 1fr; gap: 32px; padding: 64px 24px; }
-    .teaser-pair { gap: 10px; }
+    .teaser { grid-template-columns: 1fr; gap: 28px; padding: 48px 24px; }
+    .teaser-pair { grid-template-columns: 1fr 1fr; gap: 10px; }
   }
   .signup {
     padding: 96px 48px;
@@ -902,11 +903,20 @@
       <p class="obj-price">$44 · Three scents</p>
     </a>
   </div>
-  <div class="assurance-bar">
-    <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">10% off your first order</span></div>
-    <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">COSMOS Certified · ECOCERT</span></div>
-    <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">Hassle-free returns on damaged items</span></div>
-    <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">Secure checkout</span></div>
+</section>
+
+<!-- ══ TEASER: HORN ══ -->
+<section class="teaser" id="coming-spring" aria-labelledby="teaser-title">
+  <div class="teaser-text">
+    <img class="teaser-mark" src="/ghost_town_ranch_bull_icon_filled_in_white.png" alt="" aria-hidden="true">
+    <div class="road-label">Coming Soon</div>
+    <h2 class="teaser-title" id="teaser-title">Nothing <em>wasted.</em></h2>
+    <p class="teaser-body">Every piece starts as cattle horn and ends as something you carry for life. Hand finished in England, marked with the Bull, each one its own colour.</p>
+    <a class="road-ig" href="#signup">Get first word &rarr;</a>
+  </div>
+  <div class="teaser-pair">
+    <figure><img src="/media/horn-comb.jpg" alt="Natural horn comb marked with the Ghost Town Ranch Bull" loading="lazy" width="1196" height="1500"></figure>
+    <figure><img src="/media/horn-shoehorn.jpg" alt="Natural horn shoehorn with leather loop, marked with the Ghost Town Ranch Bull" loading="lazy" width="1196" height="1500"></figure>
   </div>
 </section>
 
@@ -987,21 +997,6 @@
   </a>
 </section>
 
-<!-- ══ TEASER: HORN ══ -->
-<section class="teaser" id="coming-spring" aria-labelledby="teaser-title">
-  <div class="teaser-text">
-    <img class="teaser-mark" src="/ghost_town_ranch_bull_icon_filled_in_white.png" alt="" aria-hidden="true">
-    <div class="road-label">Coming Soon</div>
-    <h2 class="teaser-title" id="teaser-title">Nothing <em>wasted.</em></h2>
-    <p class="teaser-body">Every piece starts as cattle horn and ends as something you carry for life. Hand finished in England, marked with the Bull, each one its own colour.</p>
-    <a class="road-ig" href="#signup">Get first word &rarr;</a>
-  </div>
-  <div class="teaser-pair">
-    <figure><img src="/media/horn-comb.jpg" alt="Natural horn comb marked with the Ghost Town Ranch Bull" loading="lazy" width="1196" height="1500"></figure>
-    <figure><img src="/media/horn-shoehorn.jpg" alt="Natural horn shoehorn with leather loop, marked with the Ghost Town Ranch Bull" loading="lazy" width="1196" height="1500"></figure>
-  </div>
-</section>
-
 <!-- ══ CERT STRIP ══ -->
 <div class="cert-strip">
   <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">COSMOS Certified · ECOCERT</span></div>
@@ -1032,6 +1027,14 @@
   </form>
   <p class="signup-note" id="signup-note" role="status" aria-live="polite"></p>
 </section>
+
+<!-- ══ ASSURANCE ══ -->
+  <div class="assurance-bar assurance-bottom">
+  <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">10% off your first order</span></div>
+  <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">COSMOS Certified · ECOCERT</span></div>
+  <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">Hassle-free returns on damaged items</span></div>
+  <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">Secure checkout</span></div>
+</div>
 
 <!-- FOOTER -->
 <footer>
