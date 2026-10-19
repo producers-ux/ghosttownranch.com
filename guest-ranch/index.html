@@ -20,7 +20,7 @@
   <meta property="og:url" content="https://ghosttownranch.com/guest-ranch/">
   <meta property="og:title" content="Guest Ranch | Ghost Town Ranch">
   <meta property="og:description" content="Makers we keep company with. Unisex, made to last, hard to find.">
-  <meta property="og:image" content="https://ghosttownranch.com/guest-ranch/night-drive-jane.jpg">
+  <meta property="og:image" content="https://ghosttownranch.com/guest-ranch/hero-dusk-road.jpg">
   <style>
     @font-face { font-family:'PPEiko'; src:url('/PPEiko-Medium.woff2') format('woff2'); font-weight:400; font-display:swap; }
     @font-face { font-family:'PPEiko'; src:url('/PPEiko-Thin.woff2') format('woff2'); font-weight:300; font-display:swap; }
@@ -142,6 +142,18 @@
     }
   
     /* ── GUEST RANCH ── */
+    /* Hero image, same treatment as the other collection pages */
+    .gr-hero-img{ position:relative; width:100%; height:62vh; min-height:440px; max-height:680px; overflow:hidden; background:#1c1d1b; }
+    .gr-hero-img img{ width:100%; height:100%; object-fit:cover; object-position:center 55%; display:block; }
+    .gr-hero-img::after{ content:''; position:absolute; inset:0; background:linear-gradient(to bottom, rgba(20,20,20,0.3) 0%, rgba(20,20,20,0.1) 30%, rgba(20,20,20,0.72) 100%); }
+    .gr-hero-overlay{ position:absolute; inset:0; z-index:2; display:flex; flex-direction:column; justify-content:flex-end; padding:64px 48px; max-width:1500px; margin:0 auto; }
+    .gr-hero-eyebrow{ font-size:10px; letter-spacing:0.35em; text-transform:uppercase; color:rgba(246,246,243,0.7); margin-bottom:16px; }
+    .gr-hero-title{ font-family:var(--serif); font-weight:300; font-size:clamp(52px,7vw,96px); line-height:1; color:#F6F6F3; margin-bottom:20px; }
+    .gr-hero-title em{ font-style:italic; }
+    .gr-hero-lede{ font-family:var(--serif); font-weight:300; font-size:clamp(16px,1.6vw,21px); line-height:1.6; color:rgba(246,246,243,0.8); max-width:540px; }
+    .gr-hero-overlay .gr-jump a{ color:#F6F6F3; border-bottom-color:rgba(246,246,243,0.55); }
+    .gr-hero-overlay .gr-jump a:hover{ border-bottom-color:#F6F6F3; }
+    @media (max-width:900px){ .gr-hero-img{ height:58vh; min-height:400px; } .gr-hero-overlay{ padding:40px 24px; } .gr-hero-img img{ object-position:62% 55%; } }
     .gr-hero{ max-width:1500px; margin:0 auto; padding:132px 48px 0; }
     .gr-hero-inner{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:24px 64px; align-items:end; }
     .gr-eyebrow{ font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:var(--army); }
@@ -276,16 +288,13 @@
 </head>
 <body>
   <!-- top nav injected by /nav.js -->
-  <header class="gr-hero">
-    <div class="gr-hero-inner">
-      <div>
-        <div class="gr-eyebrow">Guest Ranch</div>
-        <h1 class="gr-title">Guests of the house.</h1>
-      </div>
-      <div>
-        <p class="gr-lede">A short list of makers we keep company with, and the places we take them. We'd hand any of them the keys.</p>
-        <div class="gr-jump"><a href="#ranch-house">The Ranch House &darr;</a><a href="#day-trips">Day Trips &darr;</a></div>
-      </div>
+  <header class="gr-hero-img">
+    <img src="/guest-ranch/hero-dusk-road.jpg" alt="Dusk through a dusty truck windshield, a lone gas station sign lit down the desert road" loading="eager">
+    <div class="gr-hero-overlay">
+      <div class="gr-hero-eyebrow">Guest Ranch</div>
+      <h1 class="gr-hero-title">Guests of the <em>house.</em></h1>
+      <p class="gr-hero-lede">A short list of makers we keep company with, and the places we take them. We'd hand any of them the keys.</p>
+      <div class="gr-jump gr-jump-light"><a href="#ranch-house">The Ranch House &darr;</a><a href="#day-trips">Day Trips &darr;</a></div>
     </div>
   </header>
 
