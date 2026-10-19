@@ -593,6 +593,15 @@
   }
 
   /* ══ 7. SIGNUP — prominent ══ */
+  /* ── Teaser: horn ── */
+  .teaser { padding: 96px 48px; border-top: 1px solid var(--dust); border-bottom: 1px solid var(--dust); display:grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items:end; }
+  .teaser-mark { width: 28px; height: auto; display:block; margin-bottom: 22px; opacity: 0.85; }
+  .teaser-title { font-family:var(--serif); font-weight:300; font-size:clamp(36px,4.6vw,64px); line-height:1.02; margin-top:12px; }
+  .teaser-title em { font-style:italic; }
+  .teaser-body { font-family:'Jost',sans-serif; font-size:15px; line-height:1.7; letter-spacing:0.01em; color:var(--ash,#3B3D3A); max-width:440px; margin-bottom:24px; }
+  @media (max-width: 768px) {
+    .teaser { grid-template-columns: 1fr; gap: 20px; padding: 64px 24px; }
+  }
   .signup {
     padding: 96px 48px;
     display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px;
@@ -988,6 +997,19 @@
     <a href="https://boldjourney.com/meet-kate-pawlicki-bourne/" target="_blank" rel="noopener noreferrer">Bold Journey</a>
   </div>
 </div>
+
+<!-- ══ TEASER: HORN ══ -->
+<section class="teaser" id="coming-spring" aria-labelledby="teaser-title">
+  <div>
+    <img class="teaser-mark" src="/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png" alt="" aria-hidden="true">
+    <div class="road-label">Coming Spring</div>
+    <h2 class="teaser-title" id="teaser-title">Nothing <em>wasted.</em></h2>
+  </div>
+  <div>
+    <p class="teaser-body">Every piece starts as cattle horn and ends as something you carry for life. Hand finished in England, marked with the Bull, each one its own colour.</p>
+    <a class="road-ig" href="#signup">Get first word &rarr;</a>
+  </div>
+</section>
 
 <!-- ══ SIGNUP ══ -->
 <section class="signup" id="signup">
