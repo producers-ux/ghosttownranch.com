@@ -259,7 +259,6 @@
     .hero-bg { left: auto; right: 0; top: 0; bottom: 0; height: 100%; width: 70vw; }
     .hero-bg::after { background: linear-gradient(to right, #FAF8F4 0%, rgba(250,248,244,0.75) 16%, rgba(250,248,244,0) 42%); }
     .hero-film { object-position: 60% 42%; }
-    .hero-coop { object-position: 50% 36%; }
     .hero-inner { width: auto; max-width: 42vw; flex-direction: column; align-items: flex-start; gap: 36px; }
     .hero-wordmark { color: #141414; text-shadow: none; font-size: clamp(52px, min(8vw, 11vh), 110px); }
     .hero { padding-top: 110px; }
@@ -847,8 +846,8 @@
 <!-- ══ HERO ══ -->
 <section class="hero">
   <div class="hero-bg">
-    <!-- Previous hero: <video class="hero-film" src="/media/hero-wash.mp4" poster="/media/hero-wash.jpg"> -->
-    <a href="https://ghosttownranch.com/products/gtr-beard-butter" aria-label="GTR Beard Butter"><img class="hero-film hero-coop" src="/media/hero-coop.jpg" alt="Coop working GTR Beard Butter through his beard at dusk outside a silver trailer in Joshua tree country" fetchpriority="high"></a>
+    <video class="hero-film" src="/media/hero-wash.mp4" poster="/media/hero-wash.jpg" autoplay muted playsinline preload="auto" aria-label="The Wash, drawn by hand and then made real: an amber bottle hanging in bundles of dried herbs"></video>
+    <script>(function(){var v=document.querySelector('.hero-film'),n=0;if(!v)return;v.addEventListener('ended',function(){if(++n<2){v.currentTime=0;v.play();}});})();</script>
   </div>
   <div class="hero-inner">
     <h1 class="hero-wordmark">
@@ -887,13 +886,13 @@
       <h3 class="obj-name">Ranch Water</h3>
       <p class="obj-price">$88 · Six scents</p>
     </a>
-    <a class="obj" href="https://ghosttownranch.com/products/gtr-beard-wash">
+    <a class="obj" href="https://ghosttownranch.com/products/gtr-beard-butter">
       <div class="obj-img">
-        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/gtrbeardwash.png?v=1792367130&width=800" alt="GTR Beard Wash in a black foaming pump bottle with the Bull" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/LongRideBB_be2611d7-276b-4778-961f-109a43e9db98.png?v=1792366233&width=800" alt="GTR Beard Butter in a black tin with the Bull" loading="lazy">
       </div>
       <p class="obj-cat">Wash House</p>
-      <h3 class="obj-name">GTR Beard Wash</h3>
-      <p class="obj-price">$38 · Foaming Cleanser</p>
+      <h3 class="obj-name">GTR Beard Butter</h3>
+      <p class="obj-price">$42 · Shea + Babassu</p>
     </a>
     <a class="obj" href="https://ghosttownranch.com/products/sunbroke-the-wash-cold-pressed-grapefruit">
       <div class="obj-img">
@@ -944,9 +943,9 @@
       <div class="road-media"><video src="/media/drycreek.mp4" poster="/media/drycreek.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Dry Creek dry shampoo mist, used in a vintage car outside a desert diner"></video><span class="road-who">Audra &amp; Lou</span></div>
       <div class="road-cap">Dry Creek<span>Dry Shampoo Hair Mist &middot; $39</span></div>
     </a>
-    <a class="road-tile" href="https://ghosttownranch.com/products/still-air-natural-roll-on-deodorant1">
-      <div class="road-media"><img src="/media/road-stillair.jpg" alt="On the road in a vintage truck through Joshua tree country, with Still Air natural roll-on deodorant" loading="lazy"><span class="road-who">Lou &amp; Saylor</span></div>
-      <div class="road-cap">Still Air<span>Natural Roll-On Deodorant &middot; $32</span></div>
+    <a class="road-tile" href="https://ghosttownranch.com/products/gtr-beard-butter">
+      <div class="road-media"><img src="/media/road-beardbutter.jpg" alt="Working GTR Beard Butter through his beard at dusk outside a silver trailer in Joshua tree country" loading="lazy"><span class="road-who">Coop</span></div>
+      <div class="road-cap">GTR Beard Butter<span>Shea + Babassu &middot; $42</span></div>
     </a>
   </div>
 </section>
