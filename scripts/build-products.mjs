@@ -163,6 +163,9 @@ for (const d of dirs) {
 }
 if (stale.length) console.log(`Marked ${stale.length} stale product page(s) noindex: ${stale.join(', ')}`);
 
+// Small public manifest (handle, vendor, tags) for site tooling and maker credits.
+await writeFile('products/catalog.json', JSON.stringify(built.map((p) => ({ handle: p.handle, title: clean(p.title), vendor: clean(p.vendor), tags: p.tags || [] })), null, 1));
+
 // Rebuild sitemap: keep existing non-product URLs, replace product URLs.
 let sm = await readFile('sitemap.xml', 'utf8');
 sm = sm.replace(/\s*<url>(?:(?!<\/url>)[\s\S])*?\/products\/[\s\S]*?<\/url>/g, '');
