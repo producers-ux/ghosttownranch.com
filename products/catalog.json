@@ -1,0 +1,787 @@
+[
+ {
+  "handle": "all-told-eye-cream",
+  "title": "All Told, 3-in-1 Eye Cream",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "Aloe Juice (Active ingredients)",
+   "Anti-age (Concern)",
+   "Black (Packaging color)",
+   "Calms the skin around eyes",
+   "Eye cream (Type)",
+   "face-care",
+   "Hyaluronic Acid (Active ingredients)",
+   "Lightweight texture",
+   "shoppe-object",
+   "Under-eye fatigue (Concern)"
+  ]
+ },
+ {
+  "handle": "peptide-anti-aging-serum",
+  "title": "The Grade Peptide Serum",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "Aloe Juice (Active ingredients)",
+   "Anti-age (Concern)",
+   "Dehydrated skin (Concern)",
+   "Dry (Skin type)",
+   "face-care",
+   "Hyaluronic Acid (Active ingredients)",
+   "Normal (Skin type)",
+   "Peptides (Active ingredients)",
+   "Reduces fine lines",
+   "Serum (Type)",
+   "shoppe-object",
+   "Smooths",
+   "Sodium PCA  (Active ingredients)",
+   "Transparent (Packaging color)",
+   "White (Packaging color)"
+  ]
+ },
+ {
+  "handle": "moisturising-day-cream",
+  "title": "Desert Day Cream",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "Aloe Juice (Active ingredients)",
+   "Betaine (Active ingredients)",
+   "Black (Packaging color)",
+   "Dehydrated skin (Concern)",
+   "face-care",
+   "Gluten Free (Claims)",
+   "Hyaluronic acid",
+   "Hyaluronic Acid (Active ingredients)",
+   "Luxurious texture",
+   "Moisture boost",
+   "Moisturiser (Type)",
+   "Natural Certified (Claims)",
+   "Nut Free (Claims)",
+   "shoppe-object",
+   "Vegan (Claims)"
+  ]
+ },
+ {
+  "handle": "keratin-shine-leave-in-hair-mist",
+  "title": "Trail's End Keratin Hair Shine, Leave-In Conditioner",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "Adds shine",
+   "All skin types (Skin type)",
+   "Hair softening",
+   "hair-care",
+   "Keratin (Active ingredients)",
+   "Lack of glow (Concern)",
+   "Lack of volume (Concern)",
+   "shoppe-object",
+   "Transparent (Packaging color)"
+  ]
+ },
+ {
+  "handle": "biphasic-make-up-remover-fragrance-free",
+  "title": "Outlaw's Wipeout Makeup Remover",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "Aloe Juice (Active ingredients)",
+   "Cleanser (Type)",
+   "Cleansing (Concern)",
+   "face-care",
+   "Gentle to skin",
+   "Hyaluronic Acid (Active ingredients)",
+   "Make-up buildup (Concern)",
+   "removes make-up and impurities",
+   "shoppe-object",
+   "Transparent (Packaging color)"
+  ]
+ },
+ {
+  "handle": "microbiome-prebiotics-face-mist-1",
+  "title": "Mojave Reset Cooling Face Mist",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "Calming effect",
+   "Damaged skin barrier (Concern)",
+   "Dehydrated skin (Concern)",
+   "Face mist (Type)",
+   "face-care",
+   "Hyaluronic Acid (Active ingredients)",
+   "Hydrates and refreshes the skin",
+   "Prebiotics (Active ingredients)",
+   "Protects the skin barrier",
+   "shoppe-object",
+   "Transparent (Packaging color)",
+   "White (Packaging color)"
+  ]
+ },
+ {
+  "handle": "glycolic-acid-exfoliating-toner",
+  "title": "Frontier Fade Toning Exfoliant",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "Betaine (Active ingredients)",
+   "Dark spots (Concern)",
+   "Exfoliates",
+   "Exfoliator (Type)",
+   "face-care",
+   "Glycolic Acid (Active ingredients)",
+   "promotes the appearance of a more even skin tone",
+   "removes build-up",
+   "shoppe-object",
+   "Sodium PCA  (Active ingredients)",
+   "Toner (Type)",
+   "Transparent (Packaging color)"
+  ]
+ },
+ {
+  "handle": "rosemary-hair-scalp-strengthening-oil",
+  "title": "Rosemary Mint Revive Hair + Scalp Oil",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "Dehydrated skin (Concern)",
+   "Dry ends (Concern)",
+   "Gives shine and healthy glow",
+   "hair-care",
+   "Lack of volume (Concern)",
+   "Nourishes hair and scalp",
+   "Rosemary Oil (Active ingredients)",
+   "shoppe-object",
+   "Transparent (Packaging color)",
+   "White (Packaging color)"
+  ]
+ },
+ {
+  "handle": "omega-6-9-glowing-skin-body-oil",
+  "title": "Golden Hour Body Oil",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "Adds Healthy Glow",
+   "All skin types (Skin type)",
+   "Argan Oil (Active ingredients)",
+   "Black (Packaging color)",
+   "Body Oil (Type)",
+   "body-care",
+   "Dehydrated skin (Concern)",
+   "Gluten Free (Claims)",
+   "Hydrating",
+   "Organic Certified (Claims)",
+   "Rejuvenating",
+   "shoppe-object",
+   "Vegan (Claims)",
+   "Vitamin E (Active ingredients)"
+  ]
+ },
+ {
+  "handle": "outlaws-reserve-2-in-1-hair-skin-rinse",
+  "title": "Outlaw's Reserve 2-in-1 Hair + Body Wash",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "adds volume to the hair",
+   "All skin types (Skin type)",
+   "Amber (Packaging color)",
+   "Betaine (Active ingredients)",
+   "Body wash (Type)",
+   "body-care",
+   "Cleansing (Concern)",
+   "Dehydrated skin (Concern)",
+   "Lack of volume (Concern)",
+   "Shampoo (Type)",
+   "shoppe-object",
+   "Suitable for skin and hair",
+   "Wheat Protein (Active ingredients)"
+  ]
+ },
+ {
+  "handle": "sunbroke-the-wash-cold-pressed-grapefruit",
+  "title": "The Wash, Hydrating Hand Wash",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "body wash",
+   "grapefruit",
+   "shoppe-object",
+   "vegan",
+   "wash"
+  ]
+ },
+ {
+  "handle": "the-still-amber-glass-reed-diffuser",
+  "title": "The Still, Reed Diffuser",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "diffuser",
+   "home fragrance",
+   "reed diffuser",
+   "shoppe-object"
+  ]
+ },
+ {
+  "handle": "the-monument-candle",
+  "title": "The Monument, Hand-Poured Mega 4-Wick Coconut-Soy Candle, 55oz",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "candle",
+   "coconut soy",
+   "hand-poured",
+   "large",
+   "shoppe-object"
+  ]
+ },
+ {
+  "handle": "ranch-water-body-room-fragrance",
+  "title": "Ranch Water, Body + Room Fragrance - Six Scents",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "body mist",
+   "fragrance",
+   "phthalate-free",
+   "room spray",
+   "shoppe-object"
+  ]
+ },
+ {
+  "handle": "desert-glow-hydrating-facial-oil",
+  "title": "Desert Glow Hydrating Facial Oil",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "avocado",
+   "facial oil",
+   "hydration",
+   "jojoba",
+   "shoppe-object"
+  ]
+ },
+ {
+  "handle": "dusk-til-dawn-hydration-gel",
+  "title": "Dusk Til Dawn Hydration Gel",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "hyaluronic acid",
+   "hydration gel",
+   "overnight",
+   "shoppe-object"
+  ]
+ },
+ {
+  "handle": "sustainable-sink-tray",
+  "title": "Sustainable Sink Tray",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "bathroom",
+   "handcrafted",
+   "plant-based",
+   "shoppe-object",
+   "sink tray",
+   "sustainable"
+  ]
+ },
+ {
+  "handle": "gtr-unisex-tee-in-black-or-bone",
+  "title": "GTR Unisex Tee in Black or Bone",
+  "vendor": "Ghost Town Ranch",
+  "tags": []
+ },
+ {
+  "handle": "gtr-unisex-sweatshirt-in-black-french-navy-white",
+  "title": "GTR Unisex Sweatshirt in Black/French Navy/White",
+  "vendor": "Ghost Town Ranch",
+  "tags": []
+ },
+ {
+  "handle": "rose-cut-daily-facial-wash",
+  "title": "ROSE CUT Daily Facial Wash",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "Aloe Juice (Active ingredients)",
+   "Betaine (Active ingredients)",
+   "Cleanser (Type)",
+   "Cleansing (Concern)",
+   "face-care",
+   "Gently cleanses refreshes",
+   "Gluten Free (Claims)",
+   "Make-up buildup (Concern)",
+   "Normal (Skin type)",
+   "Nut Free (Claims)",
+   "Oily (Skin type)",
+   "revitalises reveals natural radiance",
+   "shoppe-object",
+   "Sodium PCA  (Active ingredients)",
+   "Transparent (Packaging color)",
+   "Vegan (Claims)"
+  ]
+ },
+ {
+  "handle": "desert-veil-tone-correction-barrier-protection",
+  "title": "DESERT VEIL: Available in Light, Medium, Tan, and Deep",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "Ceramides (Active ingredients)",
+   "Cocoa Butter (Active ingredients)",
+   "Damaged skin barrier (Concern)",
+   "Dark spots (Concern)",
+   "Evens skin tone",
+   "face-care",
+   "Gluten Free (Claims)",
+   "Nut Free (Claims)",
+   "shoppe-object",
+   "Stick (Type)",
+   "supports skin barrier",
+   "Vegan (Claims)",
+   "White (Packaging color)"
+  ]
+ },
+ {
+  "handle": "soft-proof-peptide-foundation",
+  "title": "Soft Proof, Pigment Foundation with Peptides, 10 Shades",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "Dark spots (Concern)",
+   "Delicate",
+   "for even complexion",
+   "makeup",
+   "Peptides (Active ingredients)",
+   "Sensitive skin (Concern)",
+   "shoppe-object",
+   "velvety feel",
+   "White (Packaging color)"
+  ]
+ },
+ {
+  "handle": "drawn-line-matte-lip-color",
+  "title": "Drawn Line, Matte Lip Color",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "Cream lipstick",
+   "Dehydrated skin (Concern)",
+   "face-care",
+   "makeup",
+   "satin finish",
+   "Shea Butter (Active ingredients)",
+   "shoppe-object",
+   "velvety",
+   "White (Packaging color)"
+  ]
+ },
+ {
+  "handle": "long-shot-peptide-mascara",
+  "title": "LONG SHOT Peptide Mascara in Blackened Earth",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "Gives volume and length",
+   "Gluten Free (Claims)",
+   "Lack of volume (Concern)",
+   "makeup",
+   "Nut Free (Claims)",
+   "Peptide-infused",
+   "Peptides (Active ingredients)",
+   "shoppe-object",
+   "Vegan (Claims)",
+   "White (Packaging color)"
+  ]
+ },
+ {
+  "handle": "gtr-garment-dyed-long-sleeve-tee",
+  "title": "GTR Garment-dyed long-sleeve Tee",
+  "vendor": "Ghost Town Ranch",
+  "tags": []
+ },
+ {
+  "handle": "silk-skin-hand-cream-spices-sandalwood",
+  "title": "Silk Skin Hand Cream, Citrus + Pink Pepper",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "Amber (Packaging color)",
+   "body-care",
+   "Cocoa Butter (Active ingredients)",
+   "Deep hydration",
+   "Dehydrated skin (Concern)",
+   "Hand cream (Type)",
+   "nourishing and soothing",
+   "protects the skin",
+   "Sodium PCA  (Active ingredients)"
+  ]
+ },
+ {
+  "handle": "morning-skin-routine",
+  "title": "Morning Skin Routine, Bundle · 6 products",
+  "vendor": "GTR",
+  "tags": [
+   "bundle",
+   "Calms the skin around eyes",
+   "routine",
+   "skincare"
+  ]
+ },
+ {
+  "handle": "the-basin-hand-wash-body-cream-set-of-two-choose-your-scent",
+  "title": "The Basin | Hand Wash + Body Cream + Set of two · Choose your scent",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "body cream",
+   "hand wash",
+   "liquid soap",
+   "shoppe-object"
+  ]
+ },
+ {
+  "handle": "evening-repair-bundle",
+  "title": "Evening Repair Bundle",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "Anti-age (Concern)",
+   "bundle",
+   "face-care",
+   "shoppe-object"
+  ]
+ },
+ {
+  "handle": "the-face-bundle",
+  "title": "The Face Bundle, Makeup as skincare. The whole face, four steps.",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "bundle",
+   "makeup",
+   "shoppe-object",
+   "skincare"
+  ]
+ },
+ {
+  "handle": "still-air-natural-roll-on-deodorant1",
+  "title": "Still Air, Natural Deodorant",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "Aloe Juice (Active ingredients)",
+   "Black (Packaging color)",
+   "body-care",
+   "Deodorant (Type)",
+   "Dermatologically tested (Claims)",
+   "Gluten Free (Claims)",
+   "Nut Free (Claims)",
+   "Odor protection",
+   "Odor protection (Concern)",
+   "Panthenol (Active ingredients)",
+   "shoppe-object",
+   "Soothing",
+   "Vegan (Claims)"
+  ]
+ },
+ {
+  "handle": "the-slow-hand-poured-colored-wax-candle-ltd-001",
+  "title": "The Slow — Ltd. Edition Candle | Dusk No. 001",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "candle",
+   "coconut soy",
+   "hand-poured",
+   "shoppe-object"
+  ]
+ },
+ {
+  "handle": "the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz",
+  "title": "The Monument — Ltd. Edition Candle | Dusk No. 001",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "candle",
+   "coconut soy",
+   "hand-poured",
+   "large",
+   "shoppe-object"
+  ]
+ },
+ {
+  "handle": "anti-age-hydrogel-eye-patches-7-pcs",
+  "title": "THE LOOKOUT COLLECTION, Eye Mask, 14 pcs per box",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "Allergen Label Free (Claims)",
+   "Aloe Juice (Active ingredients)",
+   "Anti-age (Concern)",
+   "Dermatologically tested (Claims)",
+   "face-care",
+   "Firming",
+   "Fragrance Free (Claims)",
+   "Gluten Free (Claims)",
+   "Hyaluronic Acid (Active ingredients)",
+   "Hydrating",
+   "Niacinamide (B3) (Active ingredients)",
+   "Nut Free (Claims)",
+   "Panthenol (Active ingredients)",
+   "Refreshing",
+   "White (Packaging color)"
+  ]
+ },
+ {
+  "handle": "the-kiss-lip-mask-7-pcs",
+  "title": "THE KISS, Lip Mask, 7 pcs",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "Allergen Label Free (Claims)",
+   "Aloe Juice (Active ingredients)",
+   "Anti-age (Concern)",
+   "Dermatologically tested (Claims)",
+   "face-care",
+   "Firming",
+   "Fragrance Free (Claims)",
+   "Gluten Free (Claims)",
+   "Hyaluronic Acid (Active ingredients)",
+   "Hydrating",
+   "Niacinamide (B3) (Active ingredients)",
+   "Nut Free (Claims)",
+   "Panthenol (Active ingredients)",
+   "Refreshing",
+   "White (Packaging color)"
+  ]
+ },
+ {
+  "handle": "day-ride-bag",
+  "title": "Day Ride, Padded Zipper Bag",
+  "vendor": "Ghost Town Ranch",
+  "tags": []
+ },
+ {
+  "handle": "quick-refresh-dry-shampoo-spray-1",
+  "title": "Dry Creek Fine Mist Dry Shampoo",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "Controls Sebum production",
+   "Gas free",
+   "Glycerin (Active ingredients)",
+   "hair-care",
+   "Lack of volume (Concern)",
+   "No white residue",
+   "Nut Free (Claims)",
+   "Panthenol (Active ingredients)",
+   "Propanediol (Active ingredients)",
+   "Shampoo (Type)",
+   "Transparent (Packaging color)",
+   "Vegan (Claims)"
+  ]
+ },
+ {
+  "handle": "trail-light-travel-soy-candle",
+  "title": "Trail Light — Travel Soy Candle, with Lid",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "Cotton wick",
+   "Gentle aroma",
+   "Gluten Free (Claims)",
+   "Natural soy wax",
+   "Nut Free (Claims)",
+   "Transparent (Packaging color)",
+   "Vegan (Claims)",
+   "White (Packaging color)"
+  ]
+ },
+ {
+  "handle": "gtr-lip-butter",
+  "title": "GTR Lip Butter",
+  "vendor": "Ghost Town Ranch",
+  "tags": []
+ },
+ {
+  "handle": "gtr-touch-up-blotting-paper",
+  "title": "GTR Touch-up Blotting Papers",
+  "vendor": "Ghost Town Ranch",
+  "tags": []
+ },
+ {
+  "handle": "the-plunge-salt-moon-bath-bomb-set-of-3",
+  "title": "The Plunge · Bath Bomb Set of 3 - PRE-ORDER",
+  "vendor": "Ghost Town Ranch",
+  "tags": []
+ },
+ {
+  "handle": "the-soak-lights-out",
+  "title": "THE SOAK, Lights Out",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "body-care",
+   "Creator / Influencer (Curated for )",
+   "Gluten Free (Claims)",
+   "Hospitality (Curated for )",
+   "Magnesium (Active ingredients)",
+   "Nut Free (Claims)",
+   "Relaxation (Concern)",
+   "Sea Salt (Type)",
+   "Spa / Massage centre (Curated for )",
+   "Spa-inspired",
+   "Vegan (Claims)",
+   "With magnesiumm"
+  ]
+ },
+ {
+  "handle": "elisa-johnson-jane-gold-metal-amber-lens",
+  "title": "ELISA JOHNSON Jane Eyewear",
+  "vendor": "Elisa Johnson",
+  "tags": [
+   "EYEWEAR",
+   "guest-ranch",
+   "SUNGLASSES"
+  ]
+ },
+ {
+  "handle": "blacksaw-peyote-reversible-throw",
+  "title": "BLACKSAW Peyote Reversible Throw",
+  "vendor": "Blacksaw",
+  "tags": [
+   "guest-ranch"
+  ]
+ },
+ {
+  "handle": "henson-shaving-al13-v2-mild-safety-razor",
+  "title": "HENSON SHAVING Mild Safety Razor",
+  "vendor": "Pasteur Pharmacy",
+  "tags": [
+   "guest-ranch",
+   "Pasteur Pharmacy",
+   "Shopify Collective"
+  ]
+ },
+ {
+  "handle": "the-bathrobe",
+  "title": "CASAMERA The Bathrobe",
+  "vendor": "Casamera",
+  "tags": [
+   "Casamera",
+   "guest-ranch",
+   "Shopify Collective"
+  ]
+ },
+ {
+  "handle": "the-house-slipper",
+  "title": "CASAMERA The House Slipper",
+  "vendor": "Casamera",
+  "tags": [
+   "Casamera",
+   "Shopify Collective"
+  ]
+ },
+ {
+  "handle": "gtr-beard-butter",
+  "title": "GTR Beard Butter",
+  "vendor": "Ghost Town Ranch",
+  "tags": []
+ },
+ {
+  "handle": "gtr-beard-wash",
+  "title": "GTR Beard Wash",
+  "vendor": "Ghost Town Ranch",
+  "tags": []
+ },
+ {
+  "handle": "gtr-precision-tweezers",
+  "title": "GTR Precision Tweezers",
+  "vendor": "Ghost Town Ranch",
+  "tags": []
+ },
+ {
+  "handle": "onyx-measuring-spoons",
+  "title": "Onyx Measuring Spoons",
+  "vendor": "Be Home",
+  "tags": [
+   "guest-ranch",
+   "Shopify Collective",
+   "Tea + Linen"
+  ]
+ },
+ {
+  "handle": "rowan-caddy-basket",
+  "title": "Rowan Caddy Basket",
+  "vendor": "Be Home",
+  "tags": [
+   "Be Home",
+   "Shopify Collective"
+  ]
+ },
+ {
+  "handle": "pali-recycled-leather-everything-basket",
+  "title": "Pali Recycled Leather Everything Basket",
+  "vendor": "Be Home",
+  "tags": [
+   "Be Home",
+   "Shopify Collective"
+  ]
+ },
+ {
+  "handle": "vintage-french-stoneware-conical-butter-pot",
+  "title": "Vintage French Stoneware Conical Butter Pot",
+  "vendor": "Be Home",
+  "tags": [
+   "Be Home",
+   "guest-ranch",
+   "Shopify Collective"
+  ]
+ },
+ {
+  "handle": "vintage-french-stoneware-rectangular-pan",
+  "title": "Vintage French Stoneware Rectangular Pan",
+  "vendor": "Be Home",
+  "tags": [
+   "Be Home",
+   "guest-ranch",
+   "Shopify Collective"
+  ]
+ },
+ {
+  "handle": "filt-black-cotton-shopper-medium-220blkme",
+  "title": "Black Cotton Shopper",
+  "vendor": "Be Home",
+  "tags": [
+   "Be Home",
+   "guest-ranch",
+   "Shopify Collective"
+  ]
+ },
+ {
+  "handle": "leo-dish-drying-rack-1",
+  "title": "Leo Dish Drying Rack",
+  "vendor": "Be Home",
+  "tags": [
+   "Be Home",
+   "guest-ranch",
+   "Shopify Collective"
+  ]
+ },
+ {
+  "handle": "antique-brick-mold",
+  "title": "Antique Brick Mold",
+  "vendor": "elsie green",
+  "tags": [
+   "elsie green",
+   "Shopify Collective"
+  ]
+ },
+ {
+  "handle": "anti-age-day-cream",
+  "title": "THE HOLD, Anti-Age Day Cream",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "Aloe Juice (Active ingredients)",
+   "Anti-age (Concern)",
+   "Betaine (Active ingredients)",
+   "face-care",
+   "Hair salon / Barbershop (Curated for )",
+   "Hyaluronic acid",
+   "Hyaluronic Acid (Active ingredients)",
+   "Luxurious  texture",
+   "Mature (Skin type)",
+   "Moisturiser (Type)",
+   "Moisturising",
+   "Shea Butter (Active ingredients)"
+  ]
+ }
+]
