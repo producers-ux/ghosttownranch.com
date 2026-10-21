@@ -15,11 +15,11 @@
   <title>Vintage French Stoneware Rectangular Pan · Ghost Town Ranch</title>
 
   <!-- Dynamic meta — overwritten by JS once product loads -->
-  <meta name="description" content="VINTAGE FRENCH STONEWARE Discovered in a centuries-old factory on the grounds of a château in France’s Loire Valley, this vintage stoneware poterie reflects a…" />
+  <meta name="description" content="From a château pottery in the Loire. Salt-glazed stoneware from an old pottery on the grounds of a château in France’s Loire Valley, made from local clay in a…" />
   <meta property="og:site_name" content="Ghost Town Ranch" />
   <meta property="og:type" content="product" />
   <meta id="og-title" property="og:title" content="Vintage French Stoneware Rectangular Pan · Ghost Town Ranch" />
-  <meta id="og-description" property="og:description" content="VINTAGE FRENCH STONEWARE Discovered in a centuries-old factory on the grounds of a château in France’s Loire Valley, this vintage stoneware poterie reflects a…" />
+  <meta id="og-description" property="og:description" content="From a château pottery in the Loire. Salt-glazed stoneware from an old pottery on the grounds of a château in France’s Loire Valley, made from local clay in a…" />
   <meta id="og-image" property="og:image" content="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/7200-PC94-BRXL-R-2-12-02-1024x1024.jpg?v=1792453214" />
   <meta id="og-url" property="og:url" content="https://ghosttownranch.com/products/vintage-french-stoneware-rectangular-pan/" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -908,11 +908,11 @@
   <link rel="stylesheet" href="/brand.css">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Vintage French Stoneware Rectangular Pan","description":"VINTAGE FRENCH STONEWARE Discovered in a centuries-old factory on the grounds of a château in France’s Loire Valley, this vintage stoneware poterie reflects a time-honored approach to everyday ceramics. Crafted from local clay and finished with a traditional salt glaze, each piece has a naturally textured surface and a durability made for daily use. The classic silhouettes- once found in cafés and homes across France, date back hundreds of years. Earthy, functional, and quietly beautiful, these pieces are no longer in production and available only in limited quantities, made to be used, loved, and passed down. Extra Large (2.5L)--Brown All sales are final.","url":"https://ghosttownranch.com/products/vintage-french-stoneware-rectangular-pan/","brand":{"@type":"Brand","name":"Be Home"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"38.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/vintage-french-stoneware-rectangular-pan/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/7200-PC94-BRXL-R-2-12-02-1024x1024.jpg?v=1792453214"],"sku":"7200-EPC94-BRXL-R"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Vintage French Stoneware Rectangular Pan","description":"From a château pottery in the Loire. Salt-glazed stoneware from an old pottery on the grounds of a château in France’s Loire Valley, made from local clay in a shape that has been in French kitchens for centuries. Brown, heavy and built for daily use. No longer made, so what’s here is what’s left. The details Vintage salt-glazed stoneware, brown Extra large, 2.5 L Every piece varies in glaze and texture Found by Be Home All sales final","url":"https://ghosttownranch.com/products/vintage-french-stoneware-rectangular-pan/","brand":{"@type":"Brand","name":"Be Home"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"38.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/vintage-french-stoneware-rectangular-pan/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/7200-PC94-BRXL-R-2-12-02-1024x1024.jpg?v=1792453214"],"sku":"7200-EPC94-BRXL-R"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ghost Town Ranch","item":"https://ghosttownranch.com/"},{"@type":"ListItem","position":2,"name":"Shop","item":"https://ghosttownranch.com/shop/"},{"@type":"ListItem","position":3,"name":"Vintage French Stoneware Rectangular Pan","item":"https://ghosttownranch.com/products/vintage-french-stoneware-rectangular-pan/"}]}</script>
 </head>
 <body>
-<div hidden data-seo-snapshot><p><strong>Vintage French Stoneware Rectangular Pan</strong> — $38.00 · In stock</p><p>VINTAGE FRENCH STONEWARE Discovered in a centuries-old factory on the grounds of a château in France’s Loire Valley, this vintage stoneware poterie reflects a time-honored approach to everyday ceramics. Crafted from local clay and finished with a traditional salt glaze, each piece has a naturally textured surface and a durability made for daily use. The classic silhouettes- once found in cafés and homes across France, date back hundreds of years. Earthy, functional, and quietly beautiful, these pieces are no longer in production and available only in limited quantities, made to be used, loved, and passed down. Extra Large (2.5L)--Brown All sales are final.</p><p><a href="https://ghosttownranch.com/shop/">Shop all Ghost Town Ranch</a></p></div>
+<div hidden data-seo-snapshot><p><strong>Vintage French Stoneware Rectangular Pan</strong> — $38.00 · In stock</p><p>From a château pottery in the Loire. Salt-glazed stoneware from an old pottery on the grounds of a château in France’s Loire Valley, made from local clay in a shape that has been in French kitchens for centuries. Brown, heavy and built for daily use. No longer made, so what’s here is what’s left. The details Vintage salt-glazed stoneware, brown Extra large, 2.5 L Every piece varies in glaze and texture Found by Be Home All sales final</p><p><a href="https://ghosttownranch.com/shop/">Shop all Ghost Town Ranch</a></p></div>
 
 <!-- ── NAV ── -->
 <nav>
@@ -1184,6 +1184,7 @@ async function fetchProduct(handle) {
       id title handle
       description descriptionHtml
       productType
+      vendor
       tags
       priceRange { minVariantPrice { amount currencyCode } }
       images(first: 8) {
@@ -1200,6 +1201,16 @@ async function fetchProduct(handle) {
     }
   }`);
   return data?.data?.product || null;
+}
+
+// Guest Ranch makers: anything not made by Ghost Town Ranch is credited to its maker
+// and never carries GTR's formula badges.
+const MAKER_BY_HANDLE_PREFIX = { 'henson-shaving': 'Henson Shaving' };
+function makerName(product) {
+  for (const k in MAKER_BY_HANDLE_PREFIX) if ((product.handle || '').startsWith(k)) return MAKER_BY_HANDLE_PREFIX[k];
+  const v = (product.vendor || '').trim();
+  if (!v || /^(ghost town ranch|gtr)$/i.test(v)) return null;
+  return v.replace(/\b\w/g, c => c.toUpperCase());
 }
 
 // Utility tags that should never display as a category
@@ -1269,11 +1280,12 @@ function renderProduct(product) {
   document.getElementById('canonical').href = pageUrl;
 
   // Breadcrumb
-  document.getElementById('bc-category').textContent = getCategory(product);
+  const MAKER = makerName(product);
+  document.getElementById('bc-category').textContent = MAKER ? 'Guest Ranch' : getCategory(product);
   document.getElementById('bc-title').textContent = product.title;
 
   // Category eyebrow — always renders (Product Type, else category tag, else The Ranch)
-  document.getElementById('product-tag').textContent = getCategory(product);
+  document.getElementById('product-tag').textContent = MAKER ? `Guest Ranch · ${MAKER}` : getCategory(product);
 
   // Title — split on first space for italic styling if subtitle exists
   const titleParts = product.title.split('  ');
@@ -1428,7 +1440,9 @@ function renderProduct(product) {
   const certRow = document.getElementById('cert-row');
   const tags = product.tags || [];
   const certs = [];
-  if (NA_MADE_HANDLES.includes(handle)) {
+  if (makerName(product)) {
+    // Guest maker: no GTR formula badges
+  } else if (NA_MADE_HANDLES.includes(handle)) {
     certs.push('Made in USA');
   } else {
     if (isCosmosCertified(product)) {
@@ -1558,6 +1572,7 @@ function buildSpecs(product, variants, ingredientsHtml) {
 
   // Details
   const detailLines = [];
+  const guestMaker = makerName(product);
   if (isHomeFrag) {
     detailLines.push('Skin-safe fragrances, hand-blended in the USA');
     detailLines.push('Made from the finest fragrances and ingredients');
@@ -1580,14 +1595,16 @@ function buildSpecs(product, variants, ingredientsHtml) {
   if (isCosmosCertified(product)) {
     detailLines.push('COSMOS Certified by ECOCERT, third-party verified');
   }
-  if (NA_MADE_HANDLES.includes(product.handle)) {
+  if (guestMaker) {
+    detailLines.push(`Made by ${guestMaker}. Part of Guest Ranch, the makers we keep company with.`);
+  } else if (NA_MADE_HANDLES.includes(product.handle)) {
     detailLines.push('Net Wt. 15 g / 0.5 oz');
     detailLines.push('Made in USA');
   } else if (!isHomeFrag && (isCosmosCertified(product) || type.includes('skin') || type.includes('body') || type.includes('hair') || type.includes('eye') || type.includes('face') || type.includes('lip') || type.includes('makeup'))) {
     detailLines.push(isVegan(product) ? 'Vegan · Cruelty-Free' : 'Cruelty-Free');
     detailLines.push('Free of parabens, phthalates, and synthetic dyes');
   }
-  detailLines.push('Frontier Modernism · Palm Springs, CA');
+  if (!guestMaker) detailLines.push('Frontier Modernism · Palm Springs, CA');
 
   if (detailLines.length) {
     specs.push({

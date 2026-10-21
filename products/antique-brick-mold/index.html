@@ -908,7 +908,7 @@
   <link rel="stylesheet" href="/brand.css">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Antique Brick Mold","description":"Found in Alsace. A wooden brick mold from a flea market in eastern France, with metal at the corners and a raw, dry finish worn smooth by use. It no longer makes bricks. On a dresser it holds keys, a watch and a book of matches. On a shelf it’s simply good to look at. The details Vintage, wood with metal details About 13.25\" x 6.25\" One of a kind, so wear and marks vary Found by Be Home","url":"https://ghosttownranch.com/products/antique-brick-mold/","brand":{"@type":"Brand","name":"Ghost Town Ranch"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"79.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/antique-brick-mold/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/antique-brick-mold-decor-elsie-green-5278871.jpg?v=1792454007","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/antique-brick-mold-decor-elsie-green-6752886.jpg?v=1792454007","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/antique-brick-mold-decor-elsie-green-9151185.jpg?v=1792454007","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/antique-brick-mold-decor-elsie-green-2279206.jpg?v=1792454007","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/antique-brick-mold-decor-elsie-green-7815518.jpg?v=1792454008","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/antique-brick-mold-decor-elsie-green-9351316.jpg?v=1792454008"],"sku":"91188-1","category":"decor"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Antique Brick Mold","description":"Found in Alsace. A wooden brick mold from a flea market in eastern France, with metal at the corners and a raw, dry finish worn smooth by use. It no longer makes bricks. On a dresser it holds keys, a watch and a book of matches. On a shelf it’s simply good to look at. The details Vintage, wood with metal details About 13.25\" x 6.25\" One of a kind, so wear and marks vary Found by Be Home","url":"https://ghosttownranch.com/products/antique-brick-mold/","brand":{"@type":"Brand","name":"Elsie Green"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"79.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/antique-brick-mold/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/antique-brick-mold-decor-elsie-green-5278871.jpg?v=1792454007","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/antique-brick-mold-decor-elsie-green-6752886.jpg?v=1792454007","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/antique-brick-mold-decor-elsie-green-9151185.jpg?v=1792454007","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/antique-brick-mold-decor-elsie-green-2279206.jpg?v=1792454007","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/antique-brick-mold-decor-elsie-green-7815518.jpg?v=1792454008","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/antique-brick-mold-decor-elsie-green-9351316.jpg?v=1792454008"],"sku":"91188-1","category":"decor"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ghost Town Ranch","item":"https://ghosttownranch.com/"},{"@type":"ListItem","position":2,"name":"Shop","item":"https://ghosttownranch.com/shop/"},{"@type":"ListItem","position":3,"name":"Antique Brick Mold","item":"https://ghosttownranch.com/products/antique-brick-mold/"}]}</script>
 </head>
 <body>
@@ -1184,6 +1184,7 @@ async function fetchProduct(handle) {
       id title handle
       description descriptionHtml
       productType
+      vendor
       tags
       priceRange { minVariantPrice { amount currencyCode } }
       images(first: 8) {
@@ -1200,6 +1201,16 @@ async function fetchProduct(handle) {
     }
   }`);
   return data?.data?.product || null;
+}
+
+// Guest Ranch makers: anything not made by Ghost Town Ranch is credited to its maker
+// and never carries GTR's formula badges.
+const MAKER_BY_HANDLE_PREFIX = { 'henson-shaving': 'Henson Shaving' };
+function makerName(product) {
+  for (const k in MAKER_BY_HANDLE_PREFIX) if ((product.handle || '').startsWith(k)) return MAKER_BY_HANDLE_PREFIX[k];
+  const v = (product.vendor || '').trim();
+  if (!v || /^(ghost town ranch|gtr)$/i.test(v)) return null;
+  return v.replace(/\b\w/g, c => c.toUpperCase());
 }
 
 // Utility tags that should never display as a category
@@ -1269,11 +1280,12 @@ function renderProduct(product) {
   document.getElementById('canonical').href = pageUrl;
 
   // Breadcrumb
-  document.getElementById('bc-category').textContent = getCategory(product);
+  const MAKER = makerName(product);
+  document.getElementById('bc-category').textContent = MAKER ? 'Guest Ranch' : getCategory(product);
   document.getElementById('bc-title').textContent = product.title;
 
   // Category eyebrow — always renders (Product Type, else category tag, else The Ranch)
-  document.getElementById('product-tag').textContent = getCategory(product);
+  document.getElementById('product-tag').textContent = MAKER ? `Guest Ranch · ${MAKER}` : getCategory(product);
 
   // Title — split on first space for italic styling if subtitle exists
   const titleParts = product.title.split('  ');
@@ -1428,7 +1440,9 @@ function renderProduct(product) {
   const certRow = document.getElementById('cert-row');
   const tags = product.tags || [];
   const certs = [];
-  if (NA_MADE_HANDLES.includes(handle)) {
+  if (makerName(product)) {
+    // Guest maker: no GTR formula badges
+  } else if (NA_MADE_HANDLES.includes(handle)) {
     certs.push('Made in USA');
   } else {
     if (isCosmosCertified(product)) {
@@ -1558,6 +1572,7 @@ function buildSpecs(product, variants, ingredientsHtml) {
 
   // Details
   const detailLines = [];
+  const guestMaker = makerName(product);
   if (isHomeFrag) {
     detailLines.push('Skin-safe fragrances, hand-blended in the USA');
     detailLines.push('Made from the finest fragrances and ingredients');
@@ -1580,14 +1595,16 @@ function buildSpecs(product, variants, ingredientsHtml) {
   if (isCosmosCertified(product)) {
     detailLines.push('COSMOS Certified by ECOCERT, third-party verified');
   }
-  if (NA_MADE_HANDLES.includes(product.handle)) {
+  if (guestMaker) {
+    detailLines.push(`Made by ${guestMaker}. Part of Guest Ranch, the makers we keep company with.`);
+  } else if (NA_MADE_HANDLES.includes(product.handle)) {
     detailLines.push('Net Wt. 15 g / 0.5 oz');
     detailLines.push('Made in USA');
   } else if (!isHomeFrag && (isCosmosCertified(product) || type.includes('skin') || type.includes('body') || type.includes('hair') || type.includes('eye') || type.includes('face') || type.includes('lip') || type.includes('makeup'))) {
     detailLines.push(isVegan(product) ? 'Vegan · Cruelty-Free' : 'Cruelty-Free');
     detailLines.push('Free of parabens, phthalates, and synthetic dyes');
   }
-  detailLines.push('Frontier Modernism · Palm Springs, CA');
+  if (!guestMaker) detailLines.push('Frontier Modernism · Palm Springs, CA');
 
   if (detailLines.length) {
     specs.push({

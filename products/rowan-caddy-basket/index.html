@@ -908,7 +908,7 @@
   <link rel="stylesheet" href="/brand.css">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Rowan Caddy Basket","description":"Carries everything to the tub. Woven cane with a tall handle, made by hand in India by a family of weavers working the way their parents did. Load it with towels, salts and the charcoal puff and carry the whole bath in one trip. Between baths it holds whatever needs holding. The details Hand-woven cane 13\" x 6\" x 14\" Handcrafted in India in small batches Wipe with a damp cloth, do not soak Each one varies slightly From Be Home","url":"https://ghosttownranch.com/products/rowan-caddy-basket/","brand":{"@type":"Brand","name":"Ghost Town Ranch"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"96.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/rowan-caddy-basket/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/BeHome031522-71-07-1598.jpg?v=1792452780","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/71-07.png?v=1792452781"],"sku":"71-E07","category":"Home Organization & Decor"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Rowan Caddy Basket","description":"Carries everything to the tub. Woven cane with a tall handle, made by hand in India by a family of weavers working the way their parents did. Load it with towels, salts and the charcoal puff and carry the whole bath in one trip. Between baths it holds whatever needs holding. The details Hand-woven cane 13\" x 6\" x 14\" Handcrafted in India in small batches Wipe with a damp cloth, do not soak Each one varies slightly From Be Home","url":"https://ghosttownranch.com/products/rowan-caddy-basket/","brand":{"@type":"Brand","name":"Be Home"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"96.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/rowan-caddy-basket/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/BeHome031522-71-07-1598.jpg?v=1792452780","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/71-07.png?v=1792452781"],"sku":"71-E07","category":"Home Organization & Decor"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ghost Town Ranch","item":"https://ghosttownranch.com/"},{"@type":"ListItem","position":2,"name":"Shop","item":"https://ghosttownranch.com/shop/"},{"@type":"ListItem","position":3,"name":"Rowan Caddy Basket","item":"https://ghosttownranch.com/products/rowan-caddy-basket/"}]}</script>
 </head>
 <body>
@@ -1184,6 +1184,7 @@ async function fetchProduct(handle) {
       id title handle
       description descriptionHtml
       productType
+      vendor
       tags
       priceRange { minVariantPrice { amount currencyCode } }
       images(first: 8) {
@@ -1200,6 +1201,16 @@ async function fetchProduct(handle) {
     }
   }`);
   return data?.data?.product || null;
+}
+
+// Guest Ranch makers: anything not made by Ghost Town Ranch is credited to its maker
+// and never carries GTR's formula badges.
+const MAKER_BY_HANDLE_PREFIX = { 'henson-shaving': 'Henson Shaving' };
+function makerName(product) {
+  for (const k in MAKER_BY_HANDLE_PREFIX) if ((product.handle || '').startsWith(k)) return MAKER_BY_HANDLE_PREFIX[k];
+  const v = (product.vendor || '').trim();
+  if (!v || /^(ghost town ranch|gtr)$/i.test(v)) return null;
+  return v.replace(/\b\w/g, c => c.toUpperCase());
 }
 
 // Utility tags that should never display as a category
@@ -1269,11 +1280,12 @@ function renderProduct(product) {
   document.getElementById('canonical').href = pageUrl;
 
   // Breadcrumb
-  document.getElementById('bc-category').textContent = getCategory(product);
+  const MAKER = makerName(product);
+  document.getElementById('bc-category').textContent = MAKER ? 'Guest Ranch' : getCategory(product);
   document.getElementById('bc-title').textContent = product.title;
 
   // Category eyebrow — always renders (Product Type, else category tag, else The Ranch)
-  document.getElementById('product-tag').textContent = getCategory(product);
+  document.getElementById('product-tag').textContent = MAKER ? `Guest Ranch · ${MAKER}` : getCategory(product);
 
   // Title — split on first space for italic styling if subtitle exists
   const titleParts = product.title.split('  ');
@@ -1428,7 +1440,9 @@ function renderProduct(product) {
   const certRow = document.getElementById('cert-row');
   const tags = product.tags || [];
   const certs = [];
-  if (NA_MADE_HANDLES.includes(handle)) {
+  if (makerName(product)) {
+    // Guest maker: no GTR formula badges
+  } else if (NA_MADE_HANDLES.includes(handle)) {
     certs.push('Made in USA');
   } else {
     if (isCosmosCertified(product)) {
@@ -1558,6 +1572,7 @@ function buildSpecs(product, variants, ingredientsHtml) {
 
   // Details
   const detailLines = [];
+  const guestMaker = makerName(product);
   if (isHomeFrag) {
     detailLines.push('Skin-safe fragrances, hand-blended in the USA');
     detailLines.push('Made from the finest fragrances and ingredients');
@@ -1580,14 +1595,16 @@ function buildSpecs(product, variants, ingredientsHtml) {
   if (isCosmosCertified(product)) {
     detailLines.push('COSMOS Certified by ECOCERT, third-party verified');
   }
-  if (NA_MADE_HANDLES.includes(product.handle)) {
+  if (guestMaker) {
+    detailLines.push(`Made by ${guestMaker}. Part of Guest Ranch, the makers we keep company with.`);
+  } else if (NA_MADE_HANDLES.includes(product.handle)) {
     detailLines.push('Net Wt. 15 g / 0.5 oz');
     detailLines.push('Made in USA');
   } else if (!isHomeFrag && (isCosmosCertified(product) || type.includes('skin') || type.includes('body') || type.includes('hair') || type.includes('eye') || type.includes('face') || type.includes('lip') || type.includes('makeup'))) {
     detailLines.push(isVegan(product) ? 'Vegan · Cruelty-Free' : 'Cruelty-Free');
     detailLines.push('Free of parabens, phthalates, and synthetic dyes');
   }
-  detailLines.push('Frontier Modernism · Palm Springs, CA');
+  if (!guestMaker) detailLines.push('Frontier Modernism · Palm Springs, CA');
 
   if (detailLines.length) {
     specs.push({
