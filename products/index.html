@@ -1181,6 +1181,7 @@ async function fetchProduct(handle) {
       id title handle
       description descriptionHtml
       productType
+      vendor
       tags
       priceRange { minVariantPrice { amount currencyCode } }
       images(first: 8) {
@@ -1197,6 +1198,16 @@ async function fetchProduct(handle) {
     }
   }`);
   return data?.data?.product || null;
+}
+
+// Guest Ranch makers: anything not made by Ghost Town Ranch is credited to its maker
+// and never carries GTR's formula badges.
+const MAKER_BY_HANDLE_PREFIX = { 'henson-shaving': 'Henson Shaving' };
+function makerName(product) {
+  for (const k in MAKER_BY_HANDLE_PREFIX) if ((product.handle || '').startsWith(k)) return MAKER_BY_HANDLE_PREFIX[k];
+  const v = (product.vendor || '').trim();
+  if (!v || /^(ghost town ranch|gtr)$/i.test(v)) return null;
+  return v.replace(/\b\w/g, c => c.toUpperCase());
 }
 
 // Utility tags that should never display as a category
@@ -1266,11 +1277,12 @@ function renderProduct(product) {
   document.getElementById('canonical').href = pageUrl;
 
   // Breadcrumb
-  document.getElementById('bc-category').textContent = getCategory(product);
+  const MAKER = makerName(product);
+  document.getElementById('bc-category').textContent = MAKER ? 'Guest Ranch' : getCategory(product);
   document.getElementById('bc-title').textContent = product.title;
 
   // Category eyebrow — always renders (Product Type, else category tag, else The Ranch)
-  document.getElementById('product-tag').textContent = getCategory(product);
+  document.getElementById('product-tag').textContent = MAKER ? `Guest Ranch · ${MAKER}` : getCategory(product);
 
   // Title — split on first space for italic styling if subtitle exists
   const titleParts = product.title.split('  ');
@@ -1425,7 +1437,9 @@ function renderProduct(product) {
   const certRow = document.getElementById('cert-row');
   const tags = product.tags || [];
   const certs = [];
-  if (NA_MADE_HANDLES.includes(handle)) {
+  if (makerName(product)) {
+    // Guest maker: no GTR formula badges
+  } else if (NA_MADE_HANDLES.includes(handle)) {
     certs.push('Made in USA');
   } else {
     if (isCosmosCertified(product)) {
@@ -1555,6 +1569,7 @@ function buildSpecs(product, variants, ingredientsHtml) {
 
   // Details
   const detailLines = [];
+  const guestMaker = makerName(product);
   if (isHomeFrag) {
     detailLines.push('Skin-safe fragrances, hand-blended in the USA');
     detailLines.push('Made from the finest fragrances and ingredients');
@@ -1577,14 +1592,16 @@ function buildSpecs(product, variants, ingredientsHtml) {
   if (isCosmosCertified(product)) {
     detailLines.push('COSMOS Certified by ECOCERT, third-party verified');
   }
-  if (NA_MADE_HANDLES.includes(product.handle)) {
+  if (guestMaker) {
+    detailLines.push(`Made by ${guestMaker}. Part of Guest Ranch, the makers we keep company with.`);
+  } else if (NA_MADE_HANDLES.includes(product.handle)) {
     detailLines.push('Net Wt. 15 g / 0.5 oz');
     detailLines.push('Made in USA');
   } else if (!isHomeFrag && (isCosmosCertified(product) || type.includes('skin') || type.includes('body') || type.includes('hair') || type.includes('eye') || type.includes('face') || type.includes('lip') || type.includes('makeup'))) {
     detailLines.push(isVegan(product) ? 'Vegan · Cruelty-Free' : 'Cruelty-Free');
     detailLines.push('Free of parabens, phthalates, and synthetic dyes');
   }
-  detailLines.push('Frontier Modernism · Palm Springs, CA');
+  if (!guestMaker) detailLines.push('Frontier Modernism · Palm Springs, CA');
 
   if (detailLines.length) {
     specs.push({

@@ -87,7 +87,7 @@ function render(p) {
     name: clean(p.title),
     description: clean(p.description) || desc,
     url,
-    brand: { '@type': 'Brand', name: (p.tags || []).includes('guest-ranch') && clean(p.vendor) ? clean(p.vendor) : 'Ghost Town Ranch' },
+    brand: { '@type': 'Brand', name: maker(p) || 'Ghost Town Ranch' },
     offers: offer,
   };
   if (images.length) product.image = images.map((i) => i.url);
@@ -125,6 +125,14 @@ function render(p) {
   if (!/<body[^>]*>/.test(h)) throw new Error('Template placeholder not found: body');
   h = h.replace(/<body[^>]*>/, (m) => `${m}\n${snapshot}`);
   return h;
+}
+
+// Guest Ranch makers: credit the maker, not GTR (Collective supplier names mapped where they differ).
+function maker(p) {
+  if ((p.handle || '').startsWith('henson-shaving')) return 'Henson Shaving';
+  const v = clean(p.vendor || '');
+  if (!v || /^(ghost town ranch|gtr)$/i.test(v)) return null;
+  return v.replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 const products = (await loadProducts()).filter((p) => p.handle && !SKIP.has(p.handle));
