@@ -59,6 +59,7 @@
     { t: "GTR Precision Tweezers", c: "Stainless Steel  ·  $22", u: "/products/gtr-precision-tweezers", k: "gtr precision tweezers tweezer slanted stainless steel brows brow beard grooming tools splinter room 29" },
     { t: "GTR Beard Wash", c: "Foaming Cleanser  ·  $38", u: "/products/gtr-beard-wash", k: "gtr beard wash foaming cleanser face wash beard shampoo mens grooming shave unscented vegan wash house hair room 29" },
     { t: "Wash, Then Butter", c: "Beard Wash + Butter Set  ·  $68", u: "/products/wash-then-butter", k: "wash then butter set bundle gift beard wash beard butter grooming kit mens room 29" },
+    { t: "The Hold", c: "Anti-Age Day Cream  ·  $74", u: "/products/anti-age-day-cream", k: "the hold anti-age anti age day cream moisturizer moisturiser hyaluronic acid shea butter aloe betaine mature skin face care morning routine" },
     { t: "GTR Beard Butter", c: "Shea + Babassu  ·  $36", u: "/products/gtr-beard-butter", k: "gtr beard butter balm beard oil shea babassu beeswax unscented mens grooming shave razor wash house hair room 29 last gas" },
     { t: "Lip Butter", c: "Peppermint + Vanilla  ·  $24", u: "/products/gtr-lip-butter", k: "gtr lip butter lip balm lips peppermint vanilla tin black silver 1 oz beeswax aloe" },
     { t: "Touch-up Blotting Papers", c: "Makeup Accessory  ·  $18", u: "/products/gtr-touch-up-blotting-paper", k: "touch-up blotting papers blotting paper oil shine face makeup accessories" },
