@@ -58,7 +58,7 @@
     { t: "The Basin", c: "Hand Wash + Body Cream  ·  $89", u: "/products/the-basin-hand-wash-body-cream-set-of-two-choose-your-scent", k: "the basin hand wash body cream set of two choose your scent soap lotion wash house cookhouse porch light gift" },
     { t: "GTR Precision Tweezers", c: "Stainless Steel  ·  $22", u: "/products/gtr-precision-tweezers", k: "gtr precision tweezers tweezer slanted stainless steel brows brow beard grooming tools splinter room 29" },
     { t: "GTR Beard Wash", c: "Foaming Cleanser  ·  $38", u: "/products/gtr-beard-wash", k: "gtr beard wash foaming cleanser face wash beard shampoo mens grooming shave unscented vegan wash house hair room 29" },
-    { t: "GTR Beard Butter", c: "Shea + Babassu  ·  $42", u: "/products/gtr-beard-butter", k: "gtr beard butter balm beard oil shea babassu beeswax unscented mens grooming shave razor wash house hair room 29 last gas" },
+    { t: "GTR Beard Butter", c: "Shea + Babassu  ·  $36", u: "/products/gtr-beard-butter", k: "gtr beard butter balm beard oil shea babassu beeswax unscented mens grooming shave razor wash house hair room 29 last gas" },
     { t: "Lip Butter", c: "Peppermint + Vanilla  ·  $24", u: "/products/gtr-lip-butter", k: "gtr lip butter lip balm lips peppermint vanilla tin black silver 1 oz beeswax aloe" },
     { t: "Touch-up Blotting Papers", c: "Makeup Accessory  ·  $18", u: "/products/gtr-touch-up-blotting-paper", k: "touch-up blotting papers blotting paper oil shine face makeup accessories" },
     { t: "The Face Bundle", c: "Makeup as Skincare  ·  $186", u: "/products/the-face-bundle", k: "the face bundle makeup as skincare make-up" },
