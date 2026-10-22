@@ -386,6 +386,7 @@
       border-radius: 50%;
       margin-right: 6px;
       vertical-align: middle;
+      box-shadow: 0 0 0 1px rgba(160, 155, 145, 0.55);
     }
 
     /* add to cart */
@@ -1085,12 +1086,13 @@ const STOREFRONT_TOKEN = 'c6efa00d9c5d9849c6c13d59cca6ab82';
 
 // Wax color map for GTR candle products
 const WAX_COLORS = {
-  'Hang Dried':  '#d4dce3',
-  'Rough Hewn':  '#C7CAC5',
-  'Dusk':        '#c4956a',
-  'Ember':       '#3B3D3A',
-  'Graze':       '#7d8c6e',
-  'Flax':        '#d4c47a',
+  // Scent colors, matched to the label hex values (GTRHEX)
+  'Rough Hewn':  '#5C3D2B',
+  'Hang Dried':  '#CAD6E0',
+  'Ember':       '#2A2420',
+  'Graze':       '#5D643A',
+  'Flax':        '#F0E3A8',
+  'Dusk':        '#8A491D',
 };
 
 // GTR cert badges — default reference set. Origin is set per product (see
