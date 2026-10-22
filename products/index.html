@@ -1360,7 +1360,10 @@ function renderProduct(product) {
   const variantWrap = document.getElementById('variant-wrap');
   const variantGrid = document.getElementById('variant-grid');
   const isPreorder = PREORDER_HANDLES.includes(handle);
-  let selectedVariant = variants.find(v => v.availableForSale) || variants[0];
+  // Default scent per product (Ranch Water opens on Hang Dried); falls back to the first in-stock scent.
+  const DEFAULT_SCENT = { 'ranch-water-body-room-fragrance': 'Hang Dried' };
+  let selectedVariant = variants.find(v => v.title === DEFAULT_SCENT[handle] && v.availableForSale)
+    || variants.find(v => v.availableForSale) || variants[0];
 
   // Determine if this is a scent-based product
   const scentOptions = variants.some(v =>
