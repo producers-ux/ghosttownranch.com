@@ -1366,7 +1366,7 @@ function renderProduct(product) {
   const variantGrid = document.getElementById('variant-grid');
   const isPreorder = PREORDER_HANDLES.includes(handle);
   // Default scent per product (Ranch Water opens on Hang Dried); falls back to the first in-stock scent.
-  const DEFAULT_SCENT = { 'ranch-water-body-room-fragrance': 'Hang Dried' };
+  const DEFAULT_SCENT = { 'ranch-water-body-room-fragrance': 'Hang Dried', 'the-still-amber-glass-reed-diffuser': 'Hang Dried' };
   let selectedVariant = variants.find(v => v.title === DEFAULT_SCENT[handle] && v.availableForSale)
     || variants.find(v => v.availableForSale) || variants[0];
 
@@ -1423,7 +1423,7 @@ function renderProduct(product) {
     selectedLabel.textContent = selectedVariant.title;
     // Show the selected variant's own photo from the start (not just after a click).
     // Ranch Water opens on its main photo; a scent's photo shows once that scent is tapped.
-    if (selectedVariant.image?.url && handle !== 'ranch-water-body-room-fragrance') mainImg.src = selectedVariant.image.url;
+    if (selectedVariant.image?.url && !['ranch-water-body-room-fragrance', 'the-still-amber-glass-reed-diffuser'].includes(handle)) mainImg.src = selectedVariant.image.url;
 
     variantGrid.querySelectorAll('.variant-btn:not(:disabled)').forEach(btn => {
       btn.addEventListener('click', () => {
