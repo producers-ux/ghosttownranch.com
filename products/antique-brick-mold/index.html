@@ -386,6 +386,7 @@
       border-radius: 50%;
       margin-right: 6px;
       vertical-align: middle;
+      box-shadow: 0 0 0 1px rgba(160, 155, 145, 0.55);
     }
 
     /* add to cart */
@@ -1088,12 +1089,13 @@ const STOREFRONT_TOKEN = 'c6efa00d9c5d9849c6c13d59cca6ab82';
 
 // Wax color map for GTR candle products
 const WAX_COLORS = {
-  'Hang Dried':  '#d4dce3',
-  'Rough Hewn':  '#C7CAC5',
-  'Dusk':        '#c4956a',
-  'Ember':       '#3B3D3A',
-  'Graze':       '#7d8c6e',
-  'Flax':        '#d4c47a',
+  // Scent colors, matched to the label hex values (GTRHEX)
+  'Rough Hewn':  '#5C3D2B',
+  'Hang Dried':  '#CAD6E0',
+  'Ember':       '#2A2420',
+  'Graze':       '#5D643A',
+  'Flax':        '#F0E3A8',
+  'Dusk':        '#8A491D',
 };
 
 // GTR cert badges — default reference set. Origin is set per product (see
@@ -1363,7 +1365,10 @@ function renderProduct(product) {
   const variantWrap = document.getElementById('variant-wrap');
   const variantGrid = document.getElementById('variant-grid');
   const isPreorder = PREORDER_HANDLES.includes(handle);
-  let selectedVariant = variants.find(v => v.availableForSale) || variants[0];
+  // Default scent per product (Ranch Water opens on Hang Dried); falls back to the first in-stock scent.
+  const DEFAULT_SCENT = { 'ranch-water-body-room-fragrance': 'Hang Dried' };
+  let selectedVariant = variants.find(v => v.title === DEFAULT_SCENT[handle] && v.availableForSale)
+    || variants.find(v => v.availableForSale) || variants[0];
 
   // Determine if this is a scent-based product
   const scentOptions = variants.some(v =>
