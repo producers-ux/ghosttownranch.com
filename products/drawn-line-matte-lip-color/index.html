@@ -1397,7 +1397,8 @@ function renderProduct(product) {
 
     selectedLabel.textContent = selectedVariant.title;
     // Show the selected variant's own photo from the start (not just after a click).
-    if (selectedVariant.image?.url) mainImg.src = selectedVariant.image.url;
+    // Ranch Water opens on its main photo; a scent's photo shows once that scent is tapped.
+    if (selectedVariant.image?.url && handle !== 'ranch-water-body-room-fragrance') mainImg.src = selectedVariant.image.url;
 
     variantGrid.querySelectorAll('.variant-btn:not(:disabled)').forEach(btn => {
       btn.addEventListener('click', () => {
