@@ -1244,6 +1244,26 @@ function getCategory(product) {
   return 'The Ranch';
 }
 
+// Hand-picked "Pairs well with" rows, by product handle. Shown in this order.
+const PAIRS_WELL = {
+  'ranch-water-body-room-fragrance': [
+    'the-still-amber-glass-reed-diffuser',
+    'trail-light-travel-soy-candle',
+    'the-monument-candle',
+    'the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz'
+  ]
+};
+
+async function fetchByHandles(handles) {
+  const q = handles.map((h, i) => `p${i}: product(handle: "${h}") {
+      title handle
+      priceRange { minVariantPrice { amount } }
+      images(first: 1) { edges { node { url altText } } }
+    }`).join('\n');
+  const data = await storefrontFetch(`{ ${q} }`);
+  return handles.map((h, i) => data?.data?.['p' + i]).filter(p => p && !RETIRED_HANDLES.includes(p.handle));
+}
+
 async function fetchRelated(queryStr, excludeHandle) {
   const data = await storefrontFetch(`{
     products(first: 6, query: "${queryStr}") {
@@ -1666,7 +1686,9 @@ async function renderRelated(product) {
   let related = [];
 
   // Match by Product Type first, then by category tag
-  if (product.productType) {
+  if (PAIRS_WELL[product.handle]) {
+    related = await fetchByHandles(PAIRS_WELL[product.handle]);
+  } else if (product.productType) {
     related = await fetchRelated(`product_type:\\"${product.productType}\\"`, product.handle);
   } else {
     const tag = getCategoryTag(product);
