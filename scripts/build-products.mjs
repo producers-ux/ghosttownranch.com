@@ -130,6 +130,7 @@ function render(p) {
 // Guest Ranch makers: credit the maker, not GTR (Collective supplier names mapped where they differ).
 function maker(p) {
   if ((p.handle || '').startsWith('henson-shaving')) return 'Henson Shaving';
+  if ((p.handle || '').startsWith('kontex-')) return 'Kontex';
   const v = clean(p.vendor || '');
   if (!v || /^(ghost town ranch|gtr)$/i.test(v)) return null;
   return v.replace(/\b\w/g, (c) => c.toUpperCase());
