@@ -1225,7 +1225,7 @@ async function fetchProduct(handle) {
 
 // Guest Ranch makers: anything not made by Ghost Town Ranch is credited to its maker
 // and never carries GTR's formula badges.
-const MAKER_BY_HANDLE_PREFIX = { 'henson-shaving': 'Henson Shaving' };
+const MAKER_BY_HANDLE_PREFIX = { 'henson-shaving': 'Henson Shaving', 'kontex-': 'Kontex' };
 function makerName(product) {
   for (const k in MAKER_BY_HANDLE_PREFIX) if ((product.handle || '').startsWith(k)) return MAKER_BY_HANDLE_PREFIX[k];
   const v = (product.vendor || '').trim();
