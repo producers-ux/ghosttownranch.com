@@ -609,6 +609,21 @@
   .teaser-pair figure { background:#000; }
   .teaser-film { margin:0; width:min(380px, 100%); aspect-ratio:4/5; overflow:hidden; background:#000; }
   .teaser-film video { width:100%; height:100%; object-fit:cover; display:block; }
+  .teaser { grid-template-columns: minmax(0,1.15fr) minmax(240px,0.85fr) auto; padding-left:max(48px, calc((100vw - 1500px) / 2)); padding-right:max(48px, calc((100vw - 1500px) / 2)); }
+  .teaser-cta { align-self:center; border-left:1px solid rgba(246,246,243,0.18); padding-left:44px; }
+  .teaser-cta-text { font-family:'Jost',sans-serif; font-size:15px; line-height:1.7; color:rgba(246,246,243,0.72); margin:14px 0 22px; max-width:300px; }
+  .teaser-form { display:flex; border-bottom:1px solid rgba(246,246,243,0.4); max-width:320px; }
+  .teaser-input { flex:1; min-width:0; background:none; border:none; outline:none; font-family:var(--serif); font-size:18px; color:#F6F6F3; padding:12px 0; }
+  .teaser-input::placeholder { color:rgba(246,246,243,0.4); }
+  .teaser-btn { background:none; border:none; cursor:pointer; font-family:'Jost',sans-serif; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:#F6F6F3; padding:12px 0 12px 18px; white-space:nowrap; }
+  .teaser-btn:hover { opacity:0.6; }
+  .teaser-btn:disabled { opacity:0.4; cursor:default; }
+  .teaser-note { font-family:'Jost',sans-serif; font-size:12px; letter-spacing:0.04em; color:rgba(246,246,243,0.75); margin-top:10px; min-height:1.2em; max-width:320px; }
+  .teaser-note.error { color:#d98b7f; }
+  @media (max-width: 1000px) {
+    .teaser { grid-template-columns: 1fr; padding-left:24px; padding-right:24px; }
+    .teaser-cta { border-left:0; padding-left:0; border-top:1px solid rgba(246,246,243,0.18); padding-top:28px; }
+  }
   @media (max-width: 768px) {
     .teaser { grid-template-columns: 1fr; gap: 28px; padding: 48px 24px; }
     .teaser-pair { grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -914,7 +929,15 @@
     <div class="road-label">Coming Soon</div>
     <h2 class="teaser-title" id="teaser-title">Nothing <em>wasted.</em></h2>
     <p class="teaser-body">Every piece starts as cattle horn and ends as something you carry for life. Hand finished in England, marked with the Bull in silver, each one its own color.</p>
-    <a class="road-ig" href="#signup">Get first word &rarr;</a>
+  </div>
+  <div class="teaser-cta">
+    <div class="road-label">Get first word</div>
+    <p class="teaser-cta-text">Be first when the horn pieces land. Join the list and take 10% off your first order.</p>
+    <form class="teaser-form" id="teaser-form" novalidate>
+      <input type="email" name="email" class="teaser-input" placeholder="Your email" aria-label="Email address" autocomplete="email" required>
+      <button type="submit" class="teaser-btn">Join &rarr;</button>
+    </form>
+    <p class="teaser-note" id="teaser-note" role="status" aria-live="polite"></p>
   </div>
   <figure class="teaser-film"><video src="/media/horn-teaser.mp4" poster="/media/horn-teaser.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Horn comb and horn shoehorn, each marked with the Ghost Town Ranch Bull in silver"></video></figure>
 </section>
@@ -1072,6 +1095,29 @@
         btn.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
       });
+    });
+  });
+  // Horn teaser signup: same Klaviyo list, tagged by source
+  document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('teaser-form'), note = document.getElementById('teaser-note');
+    if (!form || !note) return;
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = form.querySelector('.teaser-btn'), email = form.email.value.trim();
+      note.className = 'teaser-note';
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { note.textContent = "That email doesn't look right."; note.className = 'teaser-note error'; return; }
+      btn.disabled = true; note.textContent = '';
+      fetch('https://a.klaviyo.com/client/subscriptions/?company_id=UTbZ3B', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'revision': '2026-07-15' },
+        body: JSON.stringify({ data: { type: 'subscription',
+          attributes: { custom_source: 'ghosttownranch.com Horn teaser', profile: { data: { type: 'profile', attributes: { email: email } } } },
+          relationships: { list: { data: { type: 'list', id: 'RAAZef' } } } } })
+      }).then(function(r) {
+        if (r.ok) { note.textContent = "You're in. First word on the horn pieces, and code STAYNOTORIOUS for 10% off."; form.reset(); }
+        else { note.textContent = 'Something went wrong. Please try again.'; note.className = 'teaser-note error'; }
+      }).catch(function() { note.textContent = 'Something went wrong. Please try again.'; note.className = 'teaser-note error'; })
+        .finally(function() { btn.disabled = false; });
     });
   });
   // Newsletter signup: straight to Klaviyo "Email List" (double opt-in)
