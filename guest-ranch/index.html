@@ -225,7 +225,7 @@
       #gr-brands{ padding:36px 24px 16px; }
       .gr-house{ padding:72px 24px; }
     }
-    #hot-springs, .st-head, .gr-brand, #arrivals{ scroll-margin-top:84px; }
+    #high-noon, #hot-springs, .st-head, .gr-brand, #arrivals{ scroll-margin-top:84px; }
     .gr-jump a, .nd-rooms-link, .gr-house-link, .gr-empty .inline-link{ display:inline-block; padding-top:12px; padding-bottom:6px; }
     /* ── STORIES (more Day Trips + Ranch House) ── */
     .st-head{ max-width:1500px; margin:0 auto; padding:96px 48px 0; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:16px 48px; }
@@ -263,7 +263,7 @@
     .nd-label{ font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:var(--army); margin-bottom:18px; }
     .nd-card{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); background:var(--ink); color:var(--parchment); }
     .nd-photo{ position:relative; min-height:620px; overflow:hidden; }
-    .nd-photo img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 35%; }
+    .nd-photo img, .nd-photo video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 35%; }
     .nd-tag{ position:absolute; left:28px; bottom:26px; font-size:11px; letter-spacing:0.24em; text-transform:uppercase; background:rgba(20,20,20,0.6); padding:8px 12px; }
     .nd-body{ padding:60px 52px; display:flex; flex-direction:column; gap:20px; }
     .nd-title{ font-family:var(--serif); font-weight:300; font-size:clamp(44px,5vw,64px); line-height:0.95; }
@@ -294,9 +294,36 @@
       <div class="gr-hero-eyebrow">Guest Ranch</div>
       <h1 class="gr-hero-title">Guests of the <em>house.</em></h1>
       <p class="gr-hero-lede">A short list of makers we keep company with, and the places we take them. We'd hand any of them the keys.</p>
-      <div class="gr-jump gr-jump-light"><a href="#ranch-house">The Ranch House &darr;</a><a href="#day-trips">Day Trips &darr;</a></div>
+      <div class="gr-jump gr-jump-light"><a href="#day-trips">Day Trips &darr;</a><a href="#ranch-house">The Ranch House &darr;</a></div>
     </div>
   </header>
+
+  <div class="st-head" id="day-trips">
+    <div>
+      <div class="st-label">Day Trips</div>
+      <h2 class="st-title">Where we take the guests.</h2>
+    </div>
+    <p class="st-lede">Each trip packs our own line with a few things we found along the way. Pieces marked coming soon are on their way to the shop.</p>
+  </div>
+
+  <section class="nd" id="high-noon">
+    <div class="nd-label">Day Trip No. 01</div>
+    <div class="nd-card">
+      <div class="nd-photo">
+        <video src="/guest-ranch/jane-mini-black.mp4" poster="/guest-ranch/jane-mini-black.jpg" data-inview muted playsinline preload="metadata" aria-label="Woman in a wide-brim hat and Elisa Johnson Jane in Mini Black, midday sun" style="object-position:50% 28%"></video>
+        <div class="nd-tag">Midday</div>
+      </div>
+      <div class="nd-body">
+        <h2 class="nd-title">High Noon</h2>
+        <div class="nd-sub">What Saylor wears into town.</div>
+        <p class="nd-copy" id="nd-copy"></p>
+        <div class="nd-kit-label">Packed</div>
+        <div class="nd-kit" id="nd-kit"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="st-grid" id="st-trips"></div>
 
   <div class="st-head" id="ranch-house">
     <div>
@@ -307,32 +334,6 @@
   </div>
   <div class="st-grid three" id="st-house"></div>
 
-  <div class="st-head" id="day-trips">
-    <div>
-      <div class="st-label">Day Trips</div>
-      <h2 class="st-title">Where we take the guests.</h2>
-    </div>
-    <p class="st-lede">Each trip packs our own line with a few things we found along the way. Pieces marked coming soon are on their way to the shop.</p>
-  </div>
-
-  <section class="nd" id="hot-springs">
-    <div class="nd-label">Day Trip No. 01</div>
-    <div class="nd-card">
-      <div class="nd-photo">
-        <img src="/guest-ranch/kontex-moku-towel-tall.jpg" alt="Kontex MOKU light towel in charcoal, rolled with a paper band" style="object-position:50% 50%">
-        <div class="nd-tag">Before the heat</div>
-      </div>
-      <div class="nd-body">
-        <h2 class="nd-title">Hot Springs</h2>
-        <div class="nd-sub">What Audra packs for the pool.</div>
-        <p class="nd-copy" id="nd-copy"></p>
-        <div class="nd-kit-label">Packed</div>
-        <div class="nd-kit" id="nd-kit"></div>
-      </div>
-    </div>
-  </section>
-
-  <div class="st-grid" id="st-trips"></div>
 
 
   <section class="gr-house" id="arrivals">
@@ -412,19 +413,19 @@
         img: 'https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot_2026-10-17_121021.png?v=1792264408&width=1200', fit: 'contain', bg: '#DAD8D3', blend: 'multiply', alt: 'Blacksaw Peyote reversible baby alpaca throw',
         copy: 'A cabin past where the phone works. One candle, a wool throw, and the stars doing the rest.',
         bag: [ ['blacksaw-peyote-reversible-throw','Peyote Throw','Blacksaw'], [null,'Hobo-Stitch Socks','Kapital'], [null,'Temple Flashlight','Craighill'], [null,'Matchbook','Ghost Town Ranch'], ['trail-light-travel-soy-candle','Trail Light'], ['the-still-amber-glass-reed-diffuser','The Still'], ['the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz','The Monument'], ['all-told-eye-cream','All Told'], ['dusk-til-dawn-hydration-gel','Dusk Til Dawn'], ['omega-6-9-glowing-skin-body-oil','Golden Hour'] ] },
-      { id: 'high-noon', no: 'Day Trip No. 05', tag: 'Midday', name: 'High Noon', sub: 'What Saylor wears into town.',
-        img: '/guest-ranch/jane-mini-black.jpg', video: '/guest-ranch/jane-mini-black.mp4', alt: 'Woman in a wide-brim hat and Elisa Johnson Jane in Mini Black, midday sun', pos: '50% 28%',
-        copy: 'Pioneertown at noon, no shade for a mile. A hat made for one head, brim pulled low, and a mist in the bag for the drive home.',
-        bag: [ [null,'Bespoke Hat','SHU Atelier'], ['elisa-johnson-jane-gold-metal-amber-lens','Jane','Elisa Johnson'], ['desert-veil-tone-correction-barrier-protection','Desert Veil'], ['microbiome-prebiotics-face-mist-1','Mojave Reset'], ['drawn-line-matte-lip-color','Drawn Line'], ['quick-refresh-dry-shampoo-spray-1','Dry Creek'], ['gtr-touch-up-blotting-paper','Blotting Papers'], ['still-air-natural-roll-on-deodorant1','Still Air'], ['day-ride-bag','Day Ride'] ] },
+      { id: 'hot-springs', no: 'Day Trip No. 05', tag: 'Before the heat', name: 'Hot Springs', sub: 'What Audra packs for the pool.',
+        img: '/guest-ranch/kontex-moku-towel-tall.jpg', pos: '50% 50%', alt: 'Kontex MOKU light towel in charcoal, rolled with a paper band',
+        copy: 'Desert Hot Springs, an hour before sunrise. The mineral pool is steaming and nobody else is up. Charcoal and Desert Veil at the edge of the water, a thin black towel over one shoulder.',
+        bag: [ [null,'Charcoal Facial Puff','Morihata'], [null,'MOKU Light Towel','Kontex'], ['the-bathrobe','The Bathrobe','Casamera'], ['filt-black-cotton-shopper-medium-220blkme','Filt Market Bag','Be Home'], ['desert-veil-tone-correction-barrier-protection','Desert Veil'], ['outlaws-reserve-2-in-1-hair-skin-rinse','Outlaw’s Reserve'], ['keratin-shine-leave-in-hair-mist','Trail’s End'], ['quick-refresh-dry-shampoo-spray-1','Dry Creek'], ['microbiome-prebiotics-face-mist-1','Mojave Reset'], ['omega-6-9-glowing-skin-body-oil','Golden Hour'], ['still-air-natural-roll-on-deodorant1','Still Air'], ['gtr-lip-butter','Lip Butter'] ] },
       { id: 'porch-light', no: 'Day Trip No. 06', tag: 'After dark', name: 'Porch Light', sub: 'What’s waiting when the truck pulls in.',
         img: '/guest-ranch/casamera-house-slippers.jpg', alt: 'Casamera black waffle house slippers on a jute rug',
         copy: 'Dust on the boots, keys on the hook. Slippers by the door, a robe behind it, a candle lit before the bags come in. The house smells like Ranch Water again.',
         bag: [ ['the-house-slipper','The House Slipper','Casamera'], ['the-bathrobe','The Bathrobe','Casamera'], [null,'Leather Everything Basket','Be Home'], ['ranch-water-body-room-fragrance','Ranch Water'], ['the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz','The Monument'], ['the-still-amber-glass-reed-diffuser','The Still'], ['the-basin-hand-wash-body-cream-set-of-two-choose-your-scent','The Basin'], ['the-soak-lights-out','The Soak'], ['silk-skin-hand-cream-spices-sandalwood','Silk Skin'] ] }
     ];
-    var LEAD = { id: 'hot-springs', no: 'Day Trip No. 01', tag: 'Before the heat', name: 'Hot Springs', sub: 'What Audra packs for the pool.',
-        img: '/guest-ranch/kontex-moku-towel.jpg', alt: 'Kontex MOKU light towel in charcoal, rolled with a paper band',
-        copy: 'Desert Hot Springs, an hour before sunrise. The mineral pool is steaming and nobody else is up. Charcoal and Desert Veil at the edge of the water, a thin black towel over one shoulder.',
-        bag: [ [null,'Charcoal Facial Puff','Morihata'], [null,'MOKU Light Towel','Kontex'], ['the-bathrobe','The Bathrobe','Casamera'], ['filt-black-cotton-shopper-medium-220blkme','Filt Market Bag','Be Home'], ['desert-veil-tone-correction-barrier-protection','Desert Veil'], ['outlaws-reserve-2-in-1-hair-skin-rinse','Outlaw’s Reserve'], ['keratin-shine-leave-in-hair-mist','Trail’s End'], ['quick-refresh-dry-shampoo-spray-1','Dry Creek'], ['microbiome-prebiotics-face-mist-1','Mojave Reset'], ['omega-6-9-glowing-skin-body-oil','Golden Hour'], ['still-air-natural-roll-on-deodorant1','Still Air'], ['gtr-lip-butter','Lip Butter'] ] };
+    var LEAD = { id: 'high-noon', no: 'Day Trip No. 01', tag: 'Midday', name: 'High Noon', sub: 'What Saylor wears into town.',
+        img: '/guest-ranch/jane-mini-black.jpg', video: '/guest-ranch/jane-mini-black.mp4', alt: 'Woman in a wide-brim hat and Elisa Johnson Jane in Mini Black, midday sun', pos: '50% 28%',
+        copy: 'Pioneertown at noon, no shade for a mile. A hat made for one head, brim pulled low, and a mist in the bag for the drive home.',
+        bag: [ [null,'Bespoke Hat','SHU Atelier'], ['elisa-johnson-jane-gold-metal-amber-lens','Jane','Elisa Johnson'], ['desert-veil-tone-correction-barrier-protection','Desert Veil'], ['microbiome-prebiotics-face-mist-1','Mojave Reset'], ['drawn-line-matte-lip-color','Drawn Line'], ['quick-refresh-dry-shampoo-spray-1','Dry Creek'], ['gtr-touch-up-blotting-paper','Blotting Papers'], ['still-air-natural-roll-on-deodorant1','Still Air'], ['day-ride-bag','Day Ride'] ] };
     var HOUSE = [
       { id: 'cookhouse', no: 'Kitchen', name: 'The Cookhouse', img: '/guest-ranch/be-home-leo-dish-rack.jpg', alt: 'Wood and gold dish drying rack by the sink',
         copy: 'Salt-glazed French stoneware, a butter pot for the counter and a big pan for whatever comes next. Onyx spoons in the drawer, a rack by the sink, and the hand wash within reach.',
@@ -477,14 +478,14 @@
       renderLead(live);
     }
     // Lead story: photo tiles. Guest pieces use their own brand photos; ours come from Shopify.
-    var LEAD_IMG = { 'Charcoal Facial Puff': '/guest-ranch/morihata-charcoal-puff.jpg', 'MOKU Light Towel': '/guest-ranch/kontex-moku-towel.jpg', 'The Bathrobe': '/guest-ranch/casamera-waffle-robe.jpg', 'Hobo-Stitch Socks': '/guest-ranch/kapital-hobo-socks.jpg' };
+    var LEAD_IMG = { 'Charcoal Facial Puff': '/guest-ranch/morihata-charcoal-puff.jpg', 'MOKU Light Towel': '/guest-ranch/kontex-moku-towel.jpg', 'The Bathrobe': '/guest-ranch/casamera-waffle-robe.jpg', 'Hobo-Stitch Socks': '/guest-ranch/kapital-hobo-socks.jpg', 'Bespoke Hat': '/guest-ranch/shu-atelier-hat-blocks.jpg' };
     function renderLead(live) {
       document.getElementById('nd-copy').textContent = LEAD.copy;
       document.getElementById('nd-kit').innerHTML = LEAD.bag.filter(function (it) { return it[0] || LEAD_IMG[it[1]]; }).map(function (it) {
         var h = it[0], name = it[1], maker = it[2] || 'Ghost Town Ranch', p = h && live[h];
         var img = LEAD_IMG[name] || (p && p.featuredImage ? p.featuredImage.url + (p.featuredImage.url.indexOf('?') > -1 ? '&' : '?') + 'width=600' : '');
         var meta = !h ? 'Coming soon' : (p === undefined ? '' : (!p ? 'Coming soon' : (p.availableForSale ? money(p.priceRange.minVariantPrice.amount) : 'Sold out')));
-        var href = h && p ? '/products/' + h + '/' : '#hot-springs';
+        var href = h && p ? '/products/' + h + '/' : '#high-noon';
         return '<a class="nd-item" href="' + esc(href) + '"><div class="nd-item-img">' + (img ? '<img src="' + esc(img) + '" alt="' + esc(maker + ' ' + name) + '" loading="lazy">' : '') + '</div>' +
           '<div class="nd-item-name">' + esc(name) + '</div><div class="nd-item-meta">' + esc(maker) + (meta ? ' &middot; ' + meta : '') + '</div></a>';
       }).join('');
