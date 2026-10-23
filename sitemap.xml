@@ -467,4 +467,18 @@
     <priority>0.8</priority>
     <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot2026-10-21071052.png?v=1792591890</image:loc></image:image>
   </url>
+  <url>
+    <loc>https://ghosttownranch.com/products/kontex-moku-light-towel/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot_2026-10-23_161026.png?v=1792797042</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ghosttownranch.com/products/morihata-binchotan-charcoal-facial-puff/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot_2026-10-23_161549.png?v=1792797826</image:loc></image:image>
+  </url>
 </urlset>
