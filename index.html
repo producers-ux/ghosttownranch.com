@@ -607,6 +607,8 @@
   .teaser .road-ig { color: #F6F6F3; }
   .teaser-body { color: rgba(246,246,243,0.72) !important; }
   .teaser-pair figure { background:#000; }
+  .teaser-film { margin:0; width:min(380px, 100%); aspect-ratio:4/5; overflow:hidden; background:#000; }
+  .teaser-film video { width:100%; height:100%; object-fit:cover; display:block; }
   @media (max-width: 768px) {
     .teaser { grid-template-columns: 1fr; gap: 28px; padding: 48px 24px; }
     .teaser-pair { grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -911,13 +913,10 @@
     <img class="teaser-mark" src="/ghost_town_ranch_bull_icon_filled_in_white.png" alt="" aria-hidden="true">
     <div class="road-label">Coming Soon</div>
     <h2 class="teaser-title" id="teaser-title">Nothing <em>wasted.</em></h2>
-    <p class="teaser-body">Every piece starts as cattle horn and ends as something you carry for life. Hand finished in England, marked with the Bull, each one its own color.</p>
+    <p class="teaser-body">Every piece starts as cattle horn and ends as something you carry for life. Hand finished in England, marked with the Bull in silver, each one its own color.</p>
     <a class="road-ig" href="#signup">Get first word &rarr;</a>
   </div>
-  <div class="teaser-pair">
-    <figure><img src="/media/horn-comb.jpg" alt="Natural horn comb marked with the Ghost Town Ranch Bull" loading="lazy" width="1196" height="1500"></figure>
-    <figure><img src="/media/horn-shoehorn.jpg" alt="Natural horn shoehorn with leather loop, marked with the Ghost Town Ranch Bull" loading="lazy" width="1196" height="1500"></figure>
-  </div>
+  <figure class="teaser-film"><video src="/media/horn-teaser.mp4" poster="/media/horn-teaser.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Horn comb and horn shoehorn, each marked with the Ghost Town Ranch Bull in silver"></video></figure>
 </section>
 
 <!-- ══ ON THE ROAD ══ -->
