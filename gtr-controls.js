@@ -49,6 +49,7 @@
     { t: 'Kontex',           c: 'Guest Ranch · Towels', u: '/guest-ranch/#hot-springs', k: 'kontex moku light towel japan guest brand' },
     { t: 'Be Home',          c: 'Guest Ranch · Kitchen, bath and home', u: '/guest-ranch/#ranch-house', k: 'be home vintage french stoneware butter pot pan leo dish drying rack onyx measuring spoons rowan cane caddy basket pali leather everything basket kitchen home goods guest brand' },
     { t: 'Anastasio Home',   c: 'Guest Ranch · Stone trays', u: '/guest-ranch/#bunkhouse', k: 'anastasio home juliet tray marble oxblood stone braided rope vanity tray guest brand' },
+    { t: 'Abbeyhorn',        c: 'Guest Ranch · Coming soon', u: '/guest-ranch/#room-29', k: 'abbeyhorn horn comb beard comb shoehorn shoe horn england guest brand' },
     { t: 'Elsie Green',      c: 'Guest Ranch · Found objects', u: '/guest-ranch/#bunkhouse', k: 'elsie green antique vintage brick mold found objects france alsace guest brand' },
     { t: 'Filt',             c: 'Guest Ranch · Market bag', u: '/guest-ranch/#hot-springs', k: 'filt market bag cotton net shopper tote pool bag france normandy guest brand' },
     { t: 'Henson Shaving',   c: 'Guest Ranch · Safety razors', u: '/guest-ranch/#room-29', k: 'henson shaving al13 safety razor shave shaving blades aluminum guest brand' },
