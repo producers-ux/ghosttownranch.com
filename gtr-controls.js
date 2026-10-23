@@ -19,6 +19,7 @@
   // Shopify export; regenerate this PRODUCTS block when the catalog changes.
   var INDEX = [
     // Sections / pages
+    { t: 'Dry Goods',       c: 'Wear, carry, the ranch house', u: '/shop/#dry-goods', k: 'dry goods apparel tee tshirt hoodie sweatshirt long sleeve bag day ride carry travel clothing' },
     { t: 'Ritual',          c: 'Scent + Home',  u: '/ritual/',                k: 'candle votive diffuser fragrance scent home reed' },
     { t: 'Routines',        c: 'Skin',          u: '/routines/',              k: 'serum cream eye routine morning evening skincare face' },
     { t: 'Wash House',      c: 'At the sink',   u: '/wash-house/',            k: 'hand wash soap body cream sink bath soak bath salt bath bomb' },
