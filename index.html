@@ -446,7 +446,7 @@
   }
   /* ── Guest Ranch pairings: one found piece, and what of ours goes with it ── */
   .gp { padding: 88px 48px; border-bottom: 1px solid var(--dust); }
-  .gp-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+  .gp-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:56px 28px; }
   .gp-card { display:flex; flex-direction:column; min-width:0; }
   .gp-media { display:block; position:relative; aspect-ratio:1/1; overflow:hidden; background:#ECEDEA; }
   .gp-media img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease; }
@@ -978,7 +978,7 @@
     <div>
       <div class="road-label">Guest Ranch</div>
       <h2 class="road-title">Kept with <em>ours.</em></h2>
-      <p class="road-cast">A few things we found, and what of ours goes with them.</p>
+      <p class="road-cast">A few things we found, from the apothecary shelf to dry goods, and what of ours goes with them.</p>
     </div>
     <a class="road-ig" href="/guest-ranch/">All the trips &rarr;</a>
   </div>
@@ -1178,7 +1178,16 @@
       with: [['outlaws-reserve-2-in-1-hair-skin-rinse','Outlaw’s Reserve'], ['keratin-shine-leave-in-hair-mist','Trail’s End'], ['omega-6-9-glowing-skin-body-oil','Golden Hour']] },
     { story: 'First Light', href: '/guest-ranch/#first-light', guest: ['morihata-binchotan-charcoal-facial-puff', 'Charcoal Facial Puff', 'Morihata'],
       img: '/guest-ranch/morihata-charcoal-puff.jpg',
-      with: [['rose-cut-daily-facial-wash','Rose Cut'], ['peptide-anti-aging-serum','The Grade'], ['moisturising-day-cream','Desert Day Cream']] }
+      with: [['rose-cut-daily-facial-wash','Rose Cut'], ['peptide-anti-aging-serum','The Grade'], ['moisturising-day-cream','Desert Day Cream']] },
+    { story: 'Last Gas', href: '/guest-ranch/#last-gas', guest: ['elisa-johnson-jane-gold-metal-amber-lens', 'Jane', 'Elisa Johnson'],
+      img: '/guest-ranch/jane-gold-amber.jpg',
+      with: [['gtr-lip-butter','Lip Butter'], ['gtr-touch-up-blotting-paper','Blotting Papers'], ['day-ride-bag','Day Ride']] },
+    { story: 'No Signal', href: '/guest-ranch/#no-signal', guest: ['blacksaw-peyote-reversible-throw', 'Peyote Throw', 'Blacksaw'],
+      img: null, fallback: '/guest-ranch/last-gas-glovebox.jpg',
+      with: [['trail-light-travel-soy-candle','Trail Light'], ['the-still-amber-glass-reed-diffuser','The Still'], ['the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz','The Monument']] },
+    { story: 'Porch Light', href: '/guest-ranch/#porch-light', guest: ['the-house-slipper', 'The House Slipper', 'Casamera'],
+      img: '/guest-ranch/casamera-house-slippers.jpg',
+      with: [['ranch-water-body-room-fragrance','Ranch Water'], ['the-basin-hand-wash-body-cream-set-of-two-choose-your-scent','The Basin'], ['the-soak-lights-out','The Soak']] }
   ];
   var grid = document.getElementById('gp-grid'); if (!grid) return;
   function esc(x) { return String(x == null ? '' : x).replace(/[&<>"']/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
