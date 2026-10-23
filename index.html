@@ -448,8 +448,8 @@
   .gp { padding: 88px 48px; border-bottom: 1px solid var(--dust); }
   .gp-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:56px 28px; }
   .gp-card { display:flex; flex-direction:column; min-width:0; }
-  .gp-media { display:block; position:relative; aspect-ratio:1/1; overflow:hidden; background:#ECEDEA; }
-  .gp-media img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease; }
+  .gp-media { display:block; position:relative; aspect-ratio:3/2; overflow:hidden; background:#ECEDEA; }
+  .gp-media img, .gp-media video { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease; }
   .gp-media:hover img { transform:scale(1.03); }
   .gp-story { position:absolute; left:10px; bottom:10px; font-family:'Jost',sans-serif; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#F6F6F3; background:rgba(20,20,20,0.45); padding:4px 8px; }
   .gp-maker { margin-top:14px; font-family:'Jost',sans-serif; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--army); }
@@ -1180,7 +1180,7 @@
       img: '/guest-ranch/morihata-charcoal-puff.jpg',
       with: [['rose-cut-daily-facial-wash','Rose Cut'], ['peptide-anti-aging-serum','The Grade'], ['moisturising-day-cream','Desert Day Cream']] },
     { story: 'Last Gas', href: '/guest-ranch/#last-gas', guest: ['elisa-johnson-jane-gold-metal-amber-lens', 'Jane', 'Elisa Johnson'],
-      img: '/guest-ranch/jane-gold-amber.jpg',
+      img: '/guest-ranch/jane-mini-black.jpg', video: '/guest-ranch/jane-mini-black.mp4', pos: '50% 28%',
       with: [['gtr-lip-butter','Lip Butter'], ['gtr-touch-up-blotting-paper','Blotting Papers'], ['day-ride-bag','Day Ride']] },
     { story: 'No Signal', href: '/guest-ranch/#no-signal', guest: ['blacksaw-peyote-reversible-throw', 'Peyote Throw', 'Blacksaw'],
       img: null, fallback: '/guest-ranch/last-gas-glovebox.jpg',
@@ -1199,7 +1199,7 @@
       var img = x.img || (gp && gp.featuredImage ? gp.featuredImage.url + (gp.featuredImage.url.indexOf('?') > -1 ? '&' : '?') + 'width=900' : x.fallback);
       var gHref = gp ? '/products/' + g[0] + '/' : x.href;
       return '<div class="gp-card">' +
-        '<a class="gp-media" href="' + esc(gHref) + '"><img src="' + esc(img) + '" alt="' + esc(g[2] + ' ' + g[1]) + '" loading="lazy"><span class="gp-story">' + esc(x.story) + '</span></a>' +
+        '<a class="gp-media" href="' + esc(gHref) + '">' + (x.video ? '<video src="' + esc(x.video) + '" poster="' + esc(x.img) + '" data-inview muted playsinline preload="metadata" aria-label="' + esc(g[2] + ' ' + g[1]) + '"' + (x.pos ? ' style="object-position:' + esc(x.pos) + '"' : '') + '></video>' : '<img src="' + esc(img) + '" alt="' + esc(g[2] + ' ' + g[1]) + '" loading="lazy">') + '<span class="gp-story">' + esc(x.story) + '</span></a>' +
         '<div class="gp-maker">' + esc(g[2]) + '</div>' +
         '<a class="gp-name" href="' + esc(gHref) + '">' + esc(g[1]) + '<span>' + (g[0] ? price(gp) : 'Coming soon') + '</span></a>' +
         '<div class="gp-with">Kept with</div>' +
