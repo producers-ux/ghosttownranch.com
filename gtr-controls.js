@@ -28,7 +28,6 @@
     { t: 'Wide Light',     c: 'Origin',        u: '/field-guide/',           k: 'origin philosophy frontier modernism story about wide light' },
     { t: 'Shop the Ranch',  c: 'All Objects',   u: '/shop/',                  k: 'shop all products store browse' },
     { t: 'Partners',        c: 'Trade',         u: '/wholesale/',             k: 'partners wholesale trade stockist retailer line sheet hospitality pop-up pop up collaboration collab private label guest ranch' },
-    { t: 'Deep Well',       c: 'Ingestible',    u: '/collections/deep-well/', k: 'deep well ingestible beauty supplement the well first light last light' },
 
     // Guest Ranch: page, stories and guest brands (hand-kept; not part of the generated block)
     { t: 'Guest Ranch',      c: 'Guests of the house', u: '/guest-ranch/',                k: 'guest ranch guests brands makers curated edit day trips' },
