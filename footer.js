@@ -43,7 +43,7 @@
         '<li><a href="https://instagram.com/ghosttownranch" target="_blank" rel="noopener" itemprop="sameAs">Instagram</a></li>' +
         '<li><a href="mailto:howdy@ghosttownranch.com" itemprop="email">Contact</a></li></ul></div>' +
       '<div class="gf-partners"><h4>Partners</h4>' +
-        '<p>Wholesale for shops, and amenities for hotels, rentals and spas, with refills by the gallon.</p>' +
+        '<p>Wholesale for shops, and amenities for hotels, rentals and spas.</p>' +
         '<a class="gf-btn" href="/wholesale/">Partner with us</a><br>' +
         '<a class="gf-mail" href="mailto:howdy@ghosttownranch.com">howdy@ghosttownranch.com</a></div>' +
     '</div>' +
