@@ -1315,7 +1315,7 @@ function renderProduct(product) {
   document.getElementById('og-description').content = product.description?.slice(0, 160) || '';
   const firstImg = product.images.edges[0]?.node?.url || '';
   document.getElementById('og-image').content = firstImg;
-  const pageUrl = `https://ghosttownranch.com/products/${handle}`;
+  const pageUrl = `https://ghosttownranch.com/products/${handle}/`;
   document.getElementById('og-url').content = pageUrl;
   document.getElementById('canonical').href = pageUrl;
 
