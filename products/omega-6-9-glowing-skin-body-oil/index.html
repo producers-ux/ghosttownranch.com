@@ -922,11 +922,11 @@
   </a>
   <ul class="nav-links" id="nav-links-list">
     <li><a href="/shop/">Shop</a></li>
+    <li><a href="/routines/">Face</a></li>
+    <li><a href="/wash-house/">Bath + Body</a></li>
+    <li><a href="/ritual/">Scent + Home</a></li>
+    <li><a href="/gifts/">Gifts</a></li>
     <li><a href="/guest-ranch/">Guest Ranch</a></li>
-    <li><a href="/ritual/">Ritual</a></li>
-    <li><a href="/routines/">Routines</a></li>
-    <li><a href="/wash-house/">Wash House</a></li>
-    <li><a href="/wholesale/">Partners</a></li>
   </ul>
   <div class="nav-actions" style="display:flex;align-items:center;gap:12px;">
     <button class="nav-cart" id="cart-btn">Cart <span id="cart-count"></span></button>
@@ -1225,7 +1225,7 @@ async function fetchProduct(handle) {
 
 // Guest Ranch makers: anything not made by Ghost Town Ranch is credited to its maker
 // and never carries GTR's formula badges.
-const MAKER_BY_HANDLE_PREFIX = { 'henson-shaving': 'Henson Shaving', 'kontex-': 'Kontex' };
+const MAKER_BY_HANDLE_PREFIX = { 'henson-shaving': 'Henson Shaving', 'kontex-': 'Kontex', 'elisa-johnson-': 'Elisa Johnson' };
 function makerName(product) {
   for (const k in MAKER_BY_HANDLE_PREFIX) if ((product.handle || '').startsWith(k)) return MAKER_BY_HANDLE_PREFIX[k];
   const v = (product.vendor || '').trim();

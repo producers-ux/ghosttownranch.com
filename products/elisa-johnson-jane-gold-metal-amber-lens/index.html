@@ -909,7 +909,7 @@
   <link rel="stylesheet" href="/brand.css">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"ELISA JOHNSON Eyewear in Jane","description":"A small edit of frames from Elisa Johnson, picked to wear every day. Warm tortoise. Amber, Blue and Olive Green lenses take the edge off the glare and warm everything in view, from the morning coffee run to the last light on the drive home, when the road goes the color of whiskey held up to a lamp. Elisa Johnson makes eyewear under her own name. Classic shapes, a modern edge, each one a little unlike the rest. Real craftsmanship at a price you can actually live in. Details: Designed in Los Angeles Acetate frames UV400 protection (UVA and UVB) Lens width, bridge and temple listed for each frame","url":"https://ghosttownranch.com/products/elisa-johnson-jane-gold-metal-amber-lens/","brand":{"@type":"Brand","name":"Ghost Town Ranch"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"145.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/elisa-johnson-jane-gold-metal-amber-lens/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/janeminiblack_e10d0a06-016b-4185-967c-46ac0bd0185b.png?v=1792325543","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/janetortblue.png?v=1792324109","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/janeminiolive.png?v=1792485112","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/rn-image_picker_lib_temp_9daa3584-47a0-4177-b5e7-14046e9bd4af.jpg?v=1792706653","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/ElisaJohnsonJaneBlackRed.png?v=1792788598","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/JaneBLACKRED1.png?v=1792788788"],"sku":"J-110-M-3","category":"Sunglasses"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"ELISA JOHNSON Eyewear in Jane","description":"A small edit of frames from Elisa Johnson, picked to wear every day. Warm tortoise. Amber, Blue and Olive Green lenses take the edge off the glare and warm everything in view, from the morning coffee run to the last light on the drive home, when the road goes the color of whiskey held up to a lamp. Elisa Johnson makes eyewear under her own name. Classic shapes, a modern edge, each one a little unlike the rest. Real craftsmanship at a price you can actually live in. Details: Designed in Los Angeles Acetate frames UV400 protection (UVA and UVB) Lens width, bridge and temple listed for each frame","url":"https://ghosttownranch.com/products/elisa-johnson-jane-gold-metal-amber-lens/","brand":{"@type":"Brand","name":"Elisa Johnson"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"145.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/elisa-johnson-jane-gold-metal-amber-lens/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/janeminiblack_e10d0a06-016b-4185-967c-46ac0bd0185b.png?v=1792325543","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/janetortblue.png?v=1792324109","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/janeminiolive.png?v=1792485112","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/rn-image_picker_lib_temp_9daa3584-47a0-4177-b5e7-14046e9bd4af.jpg?v=1792706653","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/ElisaJohnsonJaneBlackRed.png?v=1792788598","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/JaneBLACKRED1.png?v=1792788788"],"sku":"J-110-M-3","category":"Sunglasses"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ghost Town Ranch","item":"https://ghosttownranch.com/"},{"@type":"ListItem","position":2,"name":"Shop","item":"https://ghosttownranch.com/shop/"},{"@type":"ListItem","position":3,"name":"ELISA JOHNSON Eyewear in Jane","item":"https://ghosttownranch.com/products/elisa-johnson-jane-gold-metal-amber-lens/"}]}</script>
 </head>
 <body>
@@ -922,11 +922,11 @@
   </a>
   <ul class="nav-links" id="nav-links-list">
     <li><a href="/shop/">Shop</a></li>
+    <li><a href="/routines/">Face</a></li>
+    <li><a href="/wash-house/">Bath + Body</a></li>
+    <li><a href="/ritual/">Scent + Home</a></li>
+    <li><a href="/gifts/">Gifts</a></li>
     <li><a href="/guest-ranch/">Guest Ranch</a></li>
-    <li><a href="/ritual/">Ritual</a></li>
-    <li><a href="/routines/">Routines</a></li>
-    <li><a href="/wash-house/">Wash House</a></li>
-    <li><a href="/wholesale/">Partners</a></li>
   </ul>
   <div class="nav-actions" style="display:flex;align-items:center;gap:12px;">
     <button class="nav-cart" id="cart-btn">Cart <span id="cart-count"></span></button>
@@ -1225,7 +1225,7 @@ async function fetchProduct(handle) {
 
 // Guest Ranch makers: anything not made by Ghost Town Ranch is credited to its maker
 // and never carries GTR's formula badges.
-const MAKER_BY_HANDLE_PREFIX = { 'henson-shaving': 'Henson Shaving', 'kontex-': 'Kontex' };
+const MAKER_BY_HANDLE_PREFIX = { 'henson-shaving': 'Henson Shaving', 'kontex-': 'Kontex', 'elisa-johnson-': 'Elisa Johnson' };
 function makerName(product) {
   for (const k in MAKER_BY_HANDLE_PREFIX) if ((product.handle || '').startsWith(k)) return MAKER_BY_HANDLE_PREFIX[k];
   const v = (product.vendor || '').trim();
