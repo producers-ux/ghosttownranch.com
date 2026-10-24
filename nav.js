@@ -2,6 +2,7 @@
   const links = [
     { href: '/shop/', label: 'Shop' },
     { href: '/routines/', label: 'Face' },
+    { href: '/hair/', label: 'Hair' },
     { href: '/wash-house/', label: 'Bath + Body' },
     { href: '/ritual/', label: 'Scent + Home' },
     { href: '/gifts/', label: 'Gifts' },
