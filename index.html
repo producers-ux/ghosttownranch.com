@@ -450,6 +450,13 @@
   .gp-card { display:flex; flex-direction:column; min-width:0; }
   .gp-media { display:block; position:relative; aspect-ratio:3/2; overflow:hidden; background:#ECEDEA; }
   .gp-media img, .gp-media video { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease; }
+  #gift-kits .gp-name { margin-top:16px; }
+  .gk-foot { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:16px; flex-wrap:wrap; }
+  .gk-total { font-family:'Jost',sans-serif; font-size:13px; color:var(--stone,#6E716C); }
+  .gk-total b { font-weight:500; color:var(--ink); }
+  .gk-add { font-family:'Jost',sans-serif; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; background:var(--ink); color:#F6F6F3; border:0; padding:13px 20px; cursor:pointer; }
+  .gk-add:hover { background:var(--army,#5D643A); }
+  .gk-add[disabled] { opacity:.55; cursor:default; }
   .gp-media:hover img { transform:scale(1.03); }
   .gp-story { position:absolute; left:10px; bottom:10px; font-family:'Jost',sans-serif; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#F6F6F3; background:rgba(20,20,20,0.45); padding:4px 8px; }
   .gp-maker { margin-top:14px; font-family:'Jost',sans-serif; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--army); }
@@ -973,15 +980,15 @@
   </div>
 </section>
 
-<!-- ══ GUEST RANCH PAIRINGS ══ -->
-<section class="gp" id="guest-ranch-pairings">
+<!-- ══ GIFT GUIDE KITS ══ -->
+<section class="gp" id="gift-kits">
   <div class="road-head">
     <div>
-      <div class="road-label">Guest Ranch</div>
-      <h2 class="road-title">Kept with <em>ours.</em></h2>
-      <p class="road-cast">A few things we found, from the apothecary shelf to dry goods, and what of ours goes with them.</p>
+      <div class="road-label">The Gift Guide</div>
+      <h2 class="road-title">Gifts from the <em>ranch.</em></h2>
+      <p class="road-cast">A kit for everyone on your list. Our own formulas and tools, with dry goods from the makers we host on Guest Ranch.</p>
     </div>
-    <a class="road-ig" href="/guest-ranch/">All the trips &rarr;</a>
+    <a class="road-ig" href="/gifts/">The full guide &rarr;</a>
   </div>
   <div class="gp-grid" id="gp-grid"></div>
 </section>
@@ -1169,59 +1176,65 @@
 </script>
 <script>
 (function () {
-  // Guest Ranch pairings. Guest piece first, then the GTR products it sits with. Prices load live from Shopify.
-  var PAIRS = [
-    { story: 'Room 29', href: '/guest-ranch/#room-29', guest: ['henson-shaving-al13-v2-mild-safety-razor', 'AL13 Safety Razor', 'Henson Shaving'],
-      img: null, fallback: '/guest-ranch/morihata-sleep-mask.jpg', fit: 'contain', bg: '#FFFFFF',
-      with: [['gtr-beard-wash','Beard Wash'], ['gtr-beard-butter','Beard Butter'], ['the-soak-lights-out','The Soak']] },
-    { story: 'Hot Springs', href: '/guest-ranch/#hot-springs', guest: ['the-bathrobe', 'The Bathrobe', 'Casamera'],
-      img: '/guest-ranch/casamera-waffle-robe-tight.jpg', fit: 'contain', bg: '#EEEEEE',
-      with: [['outlaws-reserve-2-in-1-hair-skin-rinse','Outlaw’s Reserve'], ['keratin-shine-leave-in-hair-mist','Trail’s End'], ['omega-6-9-glowing-skin-body-oil','Golden Hour']] },
-    { story: 'First Light', href: '/guest-ranch/#first-light', guest: ['morihata-binchotan-charcoal-facial-puff', 'Charcoal Facial Puff', 'Morihata'],
-      img: '/guest-ranch/morihata-charcoal-puff.jpg',
-      with: [['rose-cut-daily-facial-wash','Rose Cut'], ['peptide-anti-aging-serum','The Grade'], ['moisturising-day-cream','Desert Day Cream']] },
-    { story: 'Last Gas', href: '/guest-ranch/#last-gas', guest: ['elisa-johnson-jane-gold-metal-amber-lens', 'Jane', 'Elisa Johnson'],
-      img: '/guest-ranch/jane-mini-black.jpg', video: '/guest-ranch/jane-mini-black.mp4', pos: '50% 28%',
-      with: [['gtr-lip-butter','Lip Butter'], ['gtr-touch-up-blotting-paper','Blotting Papers'], ['day-ride-bag','Day Ride']] },
-    { story: 'No Signal', href: '/guest-ranch/#no-signal', guest: ['blacksaw-peyote-reversible-throw', 'Peyote Throw', 'Blacksaw'],
-      img: null, fallback: '/guest-ranch/last-gas-glovebox.jpg',
-      with: [['trail-light-travel-soy-candle','Trail Light'], ['the-still-amber-glass-reed-diffuser','The Still'], ['the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz','The Monument']] },
-    { story: 'Porch Light', href: '/guest-ranch/#porch-light', guest: ['the-house-slipper', 'The House Slipper', 'Casamera'],
-      img: '/guest-ranch/casamera-house-slippers.jpg',
-      with: [['ranch-water-body-room-fragrance','Ranch Water'], ['the-basin-hand-wash-body-cream-set-of-two-choose-your-scent','The Basin'], ['the-soak-lights-out','The Soak']] }
+  // Gift Guide kits. Each links to its kit on /gifts/. Prices and the one-tap add load live from Shopify.
+  var KITS = [
+    { id: 'kit-road', label: 'The Road', line: 'For the one who is always leaving.', img: '/guest-ranch/last-gas-glovebox.jpg',
+      items: [['day-ride-bag','Day Ride'], ['gtr-lip-butter','Lip Butter'], ['gtr-touch-up-blotting-paper','Blotting Papers'], ['still-air-natural-roll-on-deodorant1','Still Air'], ['microbiome-prebiotics-face-mist-1','Mojave Reset']] },
+    { id: 'kit-night', label: 'Lights Out', line: 'For the one who needs a night in.', img: '/media/lightsout.jpg', pos: '50% 62%',
+      items: [['the-soak-lights-out','The Soak'], ['trail-light-travel-soy-candle','Trail Light'], ['the-kiss-lip-mask-7-pcs','The Kiss'], ['anti-age-hydrogel-eye-patches-7-pcs','The Lookout']] },
+    { id: 'kit-hair', label: 'Hair + Scalp', line: 'For the one with the good hair.', img: '/media/drycreek.jpg', pos: '50% 25%',
+      items: [['outlaws-reserve-2-in-1-hair-skin-rinse','Outlaw’s Reserve'], ['rosemary-hair-scalp-strengthening-oil','Rosemary Mint Revive'], ['keratin-shine-leave-in-hair-mist','Trail’s End'], ['quick-refresh-dry-shampoo-spray-1','Dry Creek']] },
+    { id: 'kit-host', label: 'The Host', line: 'For the house everyone ends up at.', img: '/media/washhouse-sink.jpg', pos: '50% 55%',
+      items: [['the-still-amber-glass-reed-diffuser','The Still'], ['sunbroke-the-wash-cold-pressed-grapefruit','The Wash'], ['silk-skin-hand-cream-spices-sandalwood','Silk Skin'], ['sustainable-sink-tray','Sink Tray']] },
+    { id: 'kit-shave', label: 'The Shave', line: 'For the one with the beard.', img: '/media/road-beardbutter.jpg', pos: '50% 35%',
+      items: [['wash-then-butter','Wash, Then Butter'], ['henson-shaving-al13-v2-mild-safety-razor','AL13 Safety Razor · Henson'], ['gtr-precision-tweezers','Precision Tweezers'], ['kontex-moku-light-towel','MOKU Light Towel · Kontex']] },
+    { id: 'kit-cold', label: 'Cold Night', line: 'For the one who runs cold.', img: '/guest-ranch/casamera-waffle-robe-tight.jpg', fit: 'contain', bg: '#EEEEEE',
+      items: [['the-bathrobe','The Bathrobe · Casamera'], ['the-house-slipper','The House Slipper · Casamera'], ['blacksaw-peyote-reversible-throw','Peyote Throw · Blacksaw'], ['omega-6-9-glowing-skin-body-oil','Golden Hour']] }
   ];
   var grid = document.getElementById('gp-grid'); if (!grid) return;
+  var LIVE = {};
   function esc(x) { return String(x == null ? '' : x).replace(/[&<>"']/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
   function money(a) { var n = parseFloat(a); return isNaN(n) ? '' : '$' + (n % 1 ? n.toFixed(2) : n.toFixed(0)); }
-  function price(p) { return !p ? '' : (p.availableForSale ? money(p.priceRange.minVariantPrice.amount) : 'Sold out'); }
-  function render(live) {
-    grid.innerHTML = PAIRS.map(function (x) {
-      var g = x.guest, gp = g[0] && live[g[0]];
-      var img = x.img || (gp && gp.featuredImage ? gp.featuredImage.url + (gp.featuredImage.url.indexOf('?') > -1 ? '&' : '?') + 'width=900' : x.fallback);
-      var gHref = gp ? '/products/' + g[0] + '/' : x.href;
+  function variant(h) { var p = LIVE[h]; if (!p || !p.availableForSale || !p.variants) return null; return p.variants.nodes.filter(function (n) { return n.availableForSale; })[0] || null; }
+  function render() {
+    grid.innerHTML = KITS.map(function (k) {
+      var href = '/gifts/#' + k.id, total = 0, n = 0;
+      var lis = k.items.map(function (it) {
+        var p = LIVE[it[0]], v = variant(it[0]);
+        if (v) { total += parseFloat(v.price.amount); n++; }
+        var pr = p === undefined ? '' : (v ? money(v.price.amount) : 'Sold out');
+        return '<li><a href="/products/' + esc(it[0]) + '/">' + esc(it[1]) + '</a><span class="p">' + pr + '</span></li>';
+      }).join('');
       return '<div class="gp-card">' +
-        '<a class="gp-media" href="' + esc(gHref) + '"' + (x.bg ? ' style="background:' + esc(x.bg) + '"' : '') + '>' + (x.video ? '<video src="' + esc(x.video) + '" poster="' + esc(x.img) + '" data-inview muted playsinline preload="metadata" aria-label="' + esc(g[2] + ' ' + g[1]) + '"' + (x.pos ? ' style="object-position:' + esc(x.pos) + '"' : '') + '></video>' : '<img src="' + esc(img) + '" alt="' + esc(g[2] + ' ' + g[1]) + '" loading="lazy"' + (x.fit === 'contain' ? ' style="object-fit:contain"' : '') + '>') + '<span class="gp-story">' + esc(x.story) + '</span></a>' +
-        '<div class="gp-maker">' + esc(g[2]) + '</div>' +
-        '<a class="gp-name" href="' + esc(gHref) + '">' + esc(g[1]) + '<span>' + (g[0] ? price(gp) : 'Coming soon') + '</span></a>' +
-        '<div class="gp-with">Kept with</div>' +
-        '<ul class="gp-list">' + x.with.map(function (w) {
-          var p = live[w[0]];
-          return '<li><a href="/products/' + esc(w[0]) + '/">' + esc(w[1]) + '</a><span class="p">' + price(p) + '</span></li>';
-        }).join('') + '</ul>' +
-        '<a class="gp-more" href="' + esc(x.href) + '">See the rest &rarr;</a></div>';
+        '<a class="gp-media" href="' + href + '"' + (k.bg ? ' style="background:' + esc(k.bg) + '"' : '') + '><img src="' + esc(k.img) + '" alt="' + esc(k.label) + ' gift kit" loading="lazy" style="' + (k.fit ? 'object-fit:' + k.fit + ';' : '') + (k.pos ? 'object-position:' + k.pos : '') + '"><span class="gp-story">' + esc(k.label) + '</span></a>' +
+        '<a class="gp-name" href="' + href + '">' + esc(k.line) + '</a>' +
+        '<ul class="gp-list">' + lis + '</ul>' +
+        '<div class="gk-foot"><span class="gk-total">' + (n ? n + ' pieces &middot; <b>' + money(total) + '</b>' : '') + '</span>' +
+        (n ? '<button class="gk-add" type="button" data-kit="' + esc(k.id) + '">Add the kit</button>' : '<a class="gp-more" href="' + href + '">See the kit &rarr;</a>') + '</div></div>';
     }).join('');
   }
-  render({});
+  grid.addEventListener('click', function (ev) {
+    var btn = ev.target.closest('.gk-add'); if (!btn || btn.disabled || !window.GTRCart) return;
+    var k = KITS.filter(function (x) { return x.id === btn.getAttribute('data-kit'); })[0];
+    var ids = k.items.map(function (it) { return variant(it[0]); }).filter(Boolean).map(function (v) { return v.id.split('/').pop(); });
+    var i = 0; btn.disabled = true; btn.textContent = 'Adding…';
+    (function next() {
+      if (i >= ids.length) { btn.disabled = false; btn.textContent = 'Added'; try { GTRCart.open(); } catch (e) {} return; }
+      GTRCart.addVariant(ids[i++], 1).then(next, next);
+    })();
+    try { gtag('event', 'add_kit', { kit: k.id, source: 'home' }); } catch (e) {}
+  });
+  render();
   var handles = [];
-  PAIRS.forEach(function (x) { if (x.guest[0]) handles.push(x.guest[0]); x.with.forEach(function (w) { handles.push(w[0]); }); });
+  KITS.forEach(function (k) { k.items.forEach(function (it) { if (handles.indexOf(it[0]) < 0) handles.push(it[0]); }); });
   var q = 'query{' + handles.map(function (h, i) {
-    return 'p' + i + ':product(handle:' + JSON.stringify(h) + '){ availableForSale featuredImage{ url } priceRange{ minVariantPrice{ amount } } }';
+    return 'p' + i + ':product(handle:' + JSON.stringify(h) + '){ availableForSale variants(first:20){ nodes{ id availableForSale price{ amount } } } }';
   }).join(' ') + '}';
   fetch('https://muq7w3-im.myshopify.com/api/2025-01/graphql.json', {
     method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Shopify-Storefront-Access-Token': 'c6efa00d9c5d9849c6c13d59cca6ab82' },
     body: JSON.stringify({ query: q })
   }).then(function (r) { return r.json(); }).then(function (j) {
-    var live = {}; handles.forEach(function (h, i) { live[h] = (j.data && j.data['p' + i]) || null; }); render(live);
+    handles.forEach(function (h, i) { LIVE[h] = (j.data && j.data['p' + i]) || null; }); render();
   }).catch(function () {});
 })();
 </script>
