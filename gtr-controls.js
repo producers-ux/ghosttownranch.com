@@ -19,6 +19,7 @@
   // Shopify export; regenerate this PRODUCTS block when the catalog changes.
   var INDEX = [
     // Sections / pages
+    { t: 'Gift Guide',      c: '$30 and under, under $75, the big ones', u: '/gifts/', k: 'gift gifts guide holiday christmas present stocking stuffer for him for her under 30 under 75' },
     { t: 'Dry Goods',       c: 'Wear, carry, the ranch house', u: '/shop/#dry-goods', k: 'dry goods apparel tee tshirt hoodie sweatshirt long sleeve bag day ride carry travel clothing' },
     { t: 'Ritual',          c: 'Scent + Home',  u: '/ritual/',                k: 'candle votive diffuser fragrance scent home reed' },
     { t: 'Routines',        c: 'Skin',          u: '/routines/',              k: 'serum cream eye routine morning evening skincare face' },

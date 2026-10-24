@@ -1,11 +1,11 @@
 (function () {
   const links = [
-    { href: '/shop/',        label: 'Shop' },
+    { href: '/shop/', label: 'Shop' },
+    { href: '/routines/', label: 'Face' },
+    { href: '/wash-house/', label: 'Bath + Body' },
+    { href: '/ritual/', label: 'Scent + Home' },
+    { href: '/gifts/', label: 'Gifts' },
     { href: '/guest-ranch/', label: 'Guest Ranch' },
-    { href: '/ritual/',      label: 'Ritual' },
-    { href: '/routines/',    label: 'Routines' },
-    { href: '/wash-house/',  label: 'Wash House' },
-    { href: '/wholesale/',   label: 'Partners' },
   ];
 
   const path = window.location.pathname;

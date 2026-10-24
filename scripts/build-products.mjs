@@ -131,6 +131,7 @@ function render(p) {
 function maker(p) {
   if ((p.handle || '').startsWith('henson-shaving')) return 'Henson Shaving';
   if ((p.handle || '').startsWith('kontex-')) return 'Kontex';
+  if ((p.handle || '').startsWith('elisa-johnson-')) return 'Elisa Johnson';
   const v = clean(p.vendor || '');
   if (!v || /^(ghost town ranch|gtr)$/i.test(v)) return null;
   return v.replace(/\b\w/g, (c) => c.toUpperCase());
