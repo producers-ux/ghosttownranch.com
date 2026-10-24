@@ -195,6 +195,17 @@
     .kit-add[disabled]{ opacity:.55; cursor:default; }
     .pcard-step{ font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--army); margin-top:14px; }
     .pcard-step + .pcard-name{ margin-top:4px; }
+    .gift-hero.tri{ display:grid; grid-template-columns:repeat(3,1fr); }
+    .gift-hero.tri > a{ position:relative; overflow:hidden; display:block; }
+    .gift-hero.tri video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .tri-cap{ position:absolute; z-index:3; top:96px; left:20px; font-size:10.5px; letter-spacing:0.22em; text-transform:uppercase; color:#F6F6F3; background:rgba(20,20,20,0.45); padding:6px 9px; }
+    .gift-hero.tri .gift-hero-copy{ pointer-events:none; } .gift-hero.tri .gift-hero-copy a{ pointer-events:auto; }
+    .rt-foot{ display:flex; align-items:center; justify-content:space-between; gap:16px 24px; flex-wrap:wrap; margin-top:36px; padding:20px 24px; background:#fff; border:1px solid rgba(93,100,58,0.14); }
+    .rt-total{ font-size:14px; color:#444644; } .rt-total b{ font-weight:500; color:var(--ink); }
+    .rt-actions{ display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
+    .rt-bundle{ font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink); text-decoration:none; border-bottom:1px solid currentColor; padding-bottom:3px; }
+    .rt-aside{ font-size:13.5px; color:#444644; margin-top:18px; } .rt-aside a{ color:var(--army); }
+    @media (max-width:640px){ .gift-hero.tri{ grid-template-columns:1fr 1fr; } .gift-hero.tri > a:nth-child(3){ display:none; } .tri-cap{ top:76px; left:12px; } .rt-foot{ padding:18px 16px; } }
     .by-price{ max-width:1500px; margin:24px auto 0; padding:40px 48px 0; border-top:1px solid rgba(93,100,58,0.18); }
     .by-price .gift-eyebrow{ margin:0; }
 
@@ -214,8 +225,10 @@
 
   <!-- top nav injected by /nav.js -->
 
-  <section class="gift-hero">
-    <video style="object-position:50% 22%" src="/media/drycreek.mp4" poster="/media/drycreek.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Dry Creek dry shampoo mist, used in a vintage car outside a desert diner"></video>
+  <section class="gift-hero tri">
+    <a href="/products/quick-refresh-dry-shampoo-spray-1/" aria-label="Dry Creek"><video src="/media/drycreek.mp4" poster="/media/drycreek.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Dry Creek dry shampoo mist, used in a vintage car outside a desert diner"></video><span class="tri-cap">Dry Creek</span></a>
+    <a href="#beard" aria-label="Beard Wash"><video src="/media/beard-wash-butter.mp4" poster="/media/beard-wash-butter.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Coop washing his beard at a concrete sink"></video><span class="tri-cap">Beard Wash</span></a>
+    <a href="/products/gtr-beard-butter/" aria-label="Beard Butter"><video src="/media/road-beardbutter.mp4" poster="/media/road-beardbutter-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="A fingertip of GTR Beard Butter from the tin"></video><span class="tri-cap">Beard Butter</span></a>
     <div class="gift-hero-copy">
       <div class="gift-eyebrow">Hair</div>
       <h1 class="shop-title">Hair + <em>Scalp.</em></h1>
