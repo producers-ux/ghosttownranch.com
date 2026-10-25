@@ -428,7 +428,7 @@
   .road-title { font-family:var(--serif); font-weight:300; font-size:clamp(30px,3.4vw,48px); line-height:1.05; margin-top:10px; }
   .road-title em { font-style:italic; }
   .road-ig { color:var(--ink,#141414); text-decoration:none; font-family:'Jost',sans-serif; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; border-bottom:1px solid currentColor; padding-bottom:3px; }
-  .road-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .road-grid { display:grid; grid-template-columns:repeat(var(--cols,4),1fr); gap:16px; }
   .road-tile { display:block; color:inherit; text-decoration:none; }
   .road-media { position:relative; aspect-ratio:4/5; overflow:hidden; background:#1f201e; }
   .road-media img, .road-media video { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s ease; }
@@ -889,7 +889,7 @@
 </section>
 
 <!-- ══ THE COLLECTION ══ -->
-<section class="road collection" id="objects">
+<section class="road collection" id="objects" style="--cols:3">
   <div class="road-head">
     <div>
       <div class="road-label">The Collection</div>
@@ -899,10 +899,6 @@
     <a class="road-ig" href="https://ghosttownranch.com/shop/">Shop all &rarr;</a>
   </div>
   <div class="road-grid">
-    <a class="road-tile" href="https://ghosttownranch.com/shop/">
-      <div class="road-media"><img src="/media/collection-apothecary.jpg" alt="The Ghost Town Ranch apothecary: black crates of Ranch Water, The Still, The Wash and Beard Butter under an olive and dried flower canopy, with the Bull on the wall" loading="lazy"></div>
-      <div class="road-cap">The Apothecary<span>The full counter</span></div>
-    </a>
     <a class="road-tile" href="https://ghosttownranch.com/hair/">
       <div class="road-media"><img src="/media/collection-morning.jpg" alt="Horn shoehorn, horn comb, Golden Hour body oil and Dry Creek hair mist in a black Bull box" loading="lazy"></div>
       <div class="road-cap">Morning<span>Shoehorn, comb, Golden Hour, Dry Creek</span></div>
