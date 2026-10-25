@@ -16,3 +16,4 @@ User-agent: ClaudeBot
 Allow: /
 
 Sitemap: https://ghosttownranch.com/sitemap.xml
+Disallow: /media/ads/
