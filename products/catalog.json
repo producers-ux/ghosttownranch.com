@@ -858,5 +858,15 @@
    "guest-ranch",
    "kitchen"
   ]
+ },
+ {
+  "handle": "horn-valet-tray",
+  "title": "Horn Valet Tray",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "coming-soo",
+   "dry-goods",
+   "tools"
+  ]
  }
 ]
