@@ -260,6 +260,13 @@
   .began { display:grid; grid-template-columns:1fr 1fr; background:var(--warm-black); border-bottom:1px solid var(--dust); }
   .began-img { display:flex; align-items:center; justify-content:center; padding:56px 48px; }
   .began-img img { width:100%; max-width:560px; height:auto; display:block; }
+  .began-img { flex-direction:column; gap:28px; }
+  .began-figure, .founders-figure { margin:0; width:100%; max-width:560px; }
+  .began-figure img { max-width:340px; margin:0 auto; }
+  .began-figure figcaption { font-family:var(--sans); font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(246,246,243,0.5); text-align:center; margin-top:12px; }
+  .founders-figure { margin:12px 0 28px; max-width:520px; }
+  .founders-figure img { width:100%; height:auto; display:block; }
+  .founders-figure figcaption { font-family:var(--sans); font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--ink); opacity:0.6; margin-top:12px; }
   .began-text { padding:72px 56px; display:flex; flex-direction:column; justify-content:center; }
   .began-eyebrow { font-family:var(--sans); font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:rgba(199,202,197,0.7); margin-bottom:22px; }
   .began-line { font-family:var(--serif); font-weight:300; font-size:clamp(28px,3vw,44px); line-height:1.2; color:var(--parchment); }
@@ -944,6 +951,10 @@
 <section class="began">
   <div class="began-img">
     <img src="/where-it-began.jpg" alt="Family photographs from traveling the American West: a picnic in the pines and kids hauling hay to a horse at a ranch corral" loading="lazy">
+    <figure class="began-figure">
+      <img src="/media/nancy.webp" width="870" height="1094" alt="Nancy as a child in woolly chaps, smiling in front of a porch" loading="lazy">
+      <figcaption>Nancy</figcaption>
+    </figure>
   </div>
   <div class="began-text">
     <span class="began-eyebrow">Where it began</span>
@@ -958,9 +969,13 @@
   <div class="founders-text">
     <span class="founders-eyebrow">The founders</span>
     <h2 class="founders-name">CJ + Kate Bourne.</h2>
-    <p>We grew up in the Pacific Northwest, lost track of each other for a few decades, and picked back up in 2018.</p>
-    <p>He asked at the top of a run at Deer Valley.</p>
-    <p>Then came the ranch: a mid-century house on three acres in Twentynine Palms that we restored together.</p>
+    <p>We grew up in the Pacific Northwest and lost track of each other for a few decades. In the summer of 2018, we found each other again at the Salmon Bake in Browns Point, Washington.</p>
+    <figure class="founders-figure">
+      <img src="/media/browns-point-salmon-bake.webp" width="930" height="737" alt="The Salmon Bake sign above the fire pits at Browns Point, Washington" loading="lazy">
+      <figcaption>The Salmon Bake at Browns Point, where we found each other again.</figcaption>
+    </figure>
+    <p>That same summer came the ranch: a mid-century house on three acres in Twentynine Palms that we restored together.</p>
+    <p>In 2020, he asked at the top of a run at Deer Valley.</p>
     <p>Ghost Town Ranch grew out of that work, and out of a life spent on the road across the West. It's for anyone who would rather be out there too.</p>
   </div>
   <div class="founders-img">
