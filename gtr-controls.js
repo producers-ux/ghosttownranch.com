@@ -71,7 +71,6 @@
     { t: "The Face Bundle", c: "Makeup as Skincare  ·  $186", u: "/products/the-face-bundle", k: "the face bundle makeup as skincare make-up" },
     { t: "Silk Skin Hand Cream", c: "Citrus + Pink Pepper  ·  $46", u: "/products/silk-skin-hand-cream-spices-sandalwood", k: "silk skin hand cream citrus pink pepper spices sandalwood body-care wash house" },
     { t: "Day Ride", c: "Padded Zipper Bag, Black + White  ·  $30", u: "/products/day-ride-bag", k: "day ride padded zipper bag black white pouch case travel carry accessories goods" },
-    { t: "The Monument — Ltd. Edition", c: "White, Dusk  ·  $204", u: "/products/the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz", k: "the monument ltd edition limited white dusk mega 4-wick coconut soy candle 55oz scent home" },
     { t: "Trail Light", c: "Travel Soy Candle, with Lid  ·  $28", u: "/products/trail-light-travel-soy-candle", k: "trail light travel soy candle lid small portable scent home" },
     { t: "The Still", c: "Reed Diffuser  ·  $68", u: "/products/the-still-amber-glass-reed-diffuser", k: "the still reed diffuser amber glass scent fragrance home hang dried rough hewn dusk ember graze flax" },
     { t: "All Told", c: "3-in-1 Eye Cream  ·  $62", u: "/products/all-told-eye-cream", k: "all told 3-in-1 eye cream skin types aloe juice anti-age black calms the around eyes face-care hyaluronic acid lightweight texture shoppe-object under-eye fatigue" },
