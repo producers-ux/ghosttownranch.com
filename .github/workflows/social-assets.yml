@@ -1,0 +1,18 @@
+name: Social assets
+on:
+  push:
+    branches: [social-assets]
+    paths: ['social/tiers.json','social/fetch.mjs']
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node social/fetch.mjs
+      - run: |
+          git config user.name "github-actions"; git config user.email "actions@github.com"
+          git add social/assets && git commit -m "Social assets" && git push || echo nothing
