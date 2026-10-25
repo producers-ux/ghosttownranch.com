@@ -273,6 +273,20 @@
     .began-text { padding:32px 24px 56px; }
   }
 
+  /* ── THE FOUNDERS ── */
+  .founders { display:grid; grid-template-columns:1fr 1fr; background:var(--parchment); border-bottom:1px solid var(--dust); }
+  .founders-text { padding:72px 56px; display:flex; flex-direction:column; justify-content:center; }
+  .founders-eyebrow { font-family:var(--sans); font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--ink); opacity:0.6; margin-bottom:22px; }
+  .founders-name { font-family:var(--serif); font-weight:300; font-size:clamp(28px,3vw,44px); line-height:1.15; color:var(--ink); margin-bottom:28px; }
+  .founders-text p { font-family:var(--serif); font-size:clamp(17px,1.4vw,19px); line-height:1.8; color:var(--ink); opacity:0.85; margin-bottom:16px; max-width:520px; }
+  .founders-img { display:flex; align-items:center; justify-content:center; padding:56px 48px; }
+  .founders-img img { width:100%; max-width:560px; height:auto; display:block; }
+  @media (max-width:900px) {
+    .founders { grid-template-columns:1fr; }
+    .founders-img { padding:8px 24px 48px; order:2; }
+    .founders-text { padding:56px 24px 24px; order:1; }
+  }
+
   /* ── PULL QUOTE ── */
   .pull-quote {
     padding: 64px 48px;
@@ -927,6 +941,20 @@
     <p class="began-line">The inspiration was <em>every season across the American West.</em></p>
     <span class="began-caption">Traveling the American West with family</span>
     <p class="began-quote">Idea to execution is a <em>hundred</em> small bridges.</p>
+  </div>
+</section>
+
+<!-- ══ THE FOUNDERS ══ -->
+<section class="founders" id="founders">
+  <div class="founders-text">
+    <span class="founders-eyebrow">The founders</span>
+    <h2 class="founders-name">CJ + Kate Bourne.</h2>
+    <p>We grew up in the Pacific Northwest, lost track of each other for a few decades, and picked back up in 2018.</p>
+    <p>Then came the ranch: a mid-century house on three acres in Twentynine Palms that we restored together.</p>
+    <p>Ghost Town Ranch grew out of that work, and out of a life spent on the road across the West. It's for anyone who would rather be out there too.</p>
+  </div>
+  <div class="founders-img">
+    <img src="/media/founders-olive-harvest.webp" width="1077" height="1050" alt="Picking olives under an open desert sky" loading="lazy">
   </div>
 </section>
 
