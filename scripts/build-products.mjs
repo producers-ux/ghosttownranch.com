@@ -132,6 +132,8 @@ function maker(p) {
   if ((p.handle || '').startsWith('henson-shaving')) return 'Henson Shaving';
   if ((p.handle || '').startsWith('kontex-')) return 'Kontex';
   if ((p.handle || '').startsWith('yoshii-')) return 'Yoshii';
+  if ((p.handle || '').startsWith('shinto-')) return 'Shinto';
+  if ((p.handle || '').startsWith('kizara-')) return 'Kizara';
   if ((p.handle || '').startsWith('elisa-johnson-')) return 'Elisa Johnson';
   const v = clean(p.vendor || '');
   if (!v || /^(ghost town ranch|gtr)$/i.test(v)) return null;

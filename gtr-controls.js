@@ -48,6 +48,7 @@
     { t: 'Craighill',        c: 'Guest Ranch · Objects', u: '/guest-ranch/#no-signal',   k: 'craighill temple flashlight objects new york guest brand' },
     { t: 'SHU Atelier',      c: 'Guest Ranch · Bespoke hats', u: '/guest-ranch/#high-noon', k: 'shu atelier hat hats bespoke custom fitting milliner yucca valley guest brand' },
     { t: 'Morihata',         c: 'Guest Ranch · Charcoal', u: '/guest-ranch/#first-light', k: 'morihata charcoal facial puff sponge binchotan konjac japan guest brand' },
+    { t: 'Shinto',           c: 'Guest Ranch · Kitchen', u: '/guest-ranch/#cookhouse', k: 'shinto gauze kitchen towel dish towel tea towel charcoal japan guest brand cookhouse' },
     { t: 'Yoshii',           c: 'Guest Ranch · Towels', u: '/guest-ranch/#hot-springs', k: 'yoshii chambray towel hand towel bath towel bath mat pebble ishikoro japan guest brand' },
     { t: 'Be Home',          c: 'Guest Ranch · Kitchen, bath and home', u: '/guest-ranch/#ranch-house', k: 'be home vintage french stoneware butter pot pan leo dish drying rack onyx measuring spoons rowan cane caddy basket pali leather everything basket kitchen home goods guest brand' },
     { t: 'Anastasio Home',   c: 'Guest Ranch · Stone trays', u: '/guest-ranch/#bunkhouse', k: 'anastasio home juliet tray marble oxblood stone braided rope vanity tray guest brand' },
