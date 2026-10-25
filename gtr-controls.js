@@ -20,7 +20,7 @@
   var INDEX = [
     // Sections / pages
     { t: 'Hair + Scalp',    c: 'Scalp oil, leave-in shine, dry shampoo, beard, tools', u: '/hair/', k: 'hair scalp shampoo dry shampoo conditioner leave-in oil rosemary keratin beard comb brush' },
-    { t: 'Gift Guide',      c: '$30 and under, under $75, the big ones', u: '/gifts/', k: 'gift gifts guide holiday christmas present stocking stuffer for him for her under 30 under 75' },
+    { t: 'Gift Guide',      c: '$30 and under, under $75, the big ones', u: '/gifts/', k: 'gift gifts guide holiday christmas present stocking stuffer for him for her under 30 under 75 towel set bath set' },
     { t: 'Dry Goods',       c: 'Wear, carry, the ranch house', u: '/shop/#dry-goods', k: 'dry goods apparel tee tshirt hoodie sweatshirt long sleeve bag day ride carry travel clothing' },
     { t: 'Ritual',          c: 'Scent + Home',  u: '/ritual/',                k: 'candle votive diffuser fragrance scent home reed' },
     { t: 'Routines',        c: 'Skin',          u: '/routines/',              k: 'serum cream eye routine morning evening skincare face' },
@@ -49,7 +49,7 @@
     { t: 'SHU Atelier',      c: 'Guest Ranch · Bespoke hats', u: '/guest-ranch/#high-noon', k: 'shu atelier hat hats bespoke custom fitting milliner yucca valley guest brand' },
     { t: 'Morihata',         c: 'Guest Ranch · Charcoal', u: '/guest-ranch/#first-light', k: 'morihata charcoal facial puff sponge binchotan konjac japan guest brand' },
     { t: 'Shinto',           c: 'Guest Ranch · Kitchen', u: '/guest-ranch/#cookhouse', k: 'shinto gauze kitchen towel dish towel tea towel charcoal japan guest brand cookhouse' },
-    { t: 'Yoshii',           c: 'Guest Ranch · Towels', u: '/guest-ranch/#hot-springs', k: 'yoshii chambray towel hand towel bath towel bath mat pebble ishikoro japan guest brand' },
+    { t: 'Yoshii',           c: 'Guest Ranch · Towels', u: '/guest-ranch/#hot-springs', k: 'yoshii chambray towel towel set hand towel bath towel washcloth wash cloth bath mat pebble ishikoro japan guest brand' },
     { t: 'Be Home',          c: 'Guest Ranch · Kitchen, bath and home', u: '/guest-ranch/#ranch-house', k: 'be home vintage french stoneware butter pot pan leo dish drying rack onyx measuring spoons rowan cane caddy basket pali leather everything basket kitchen home goods guest brand' },
     { t: 'Anastasio Home',   c: 'Guest Ranch · Stone trays', u: '/guest-ranch/#bunkhouse', k: 'anastasio home juliet tray marble oxblood stone braided rope vanity tray guest brand' },
     { t: 'Horn Comb, Brush + Shoehorn', c: 'Coming soon · Made in England', u: '/hair/#tools', k: 'horn comb hair comb pocket comb hair brush hairbrush boar bristle brush shoehorn shoe horn abbeyhorn england cattle horn coming soon' },
