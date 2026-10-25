@@ -32,7 +32,7 @@
     // Guest Ranch: page, stories and guest brands (hand-kept; not part of the generated block)
     { t: 'Guest Ranch',      c: 'Guests of the house', u: '/guest-ranch/',                k: 'guest ranch guests brands makers curated edit day trips' },
     { t: 'First Light',      c: 'At the ranch',        u: '/guest-ranch/#first-light',    k: 'first light morning six am routine morihata charcoal facial puff' },
-    { t: 'Hot Springs',      c: 'Day Trip No. 05',     u: '/guest-ranch/#hot-springs',    k: 'hot springs pool spa soak day trip kontex moku towel morihata pool bag' },
+    { t: 'Hot Springs',      c: 'Day Trip No. 05',     u: '/guest-ranch/#hot-springs',    k: 'hot springs pool spa soak day trip yoshii chambray towel morihata pool bag' },
     { t: 'Room 29',          c: 'Day Trip No. 02',     u: '/guest-ranch/#room-29',        k: 'room 29 twentynine palms motel tub bath sleep mask morihata casamera robe slippers' },
     { t: 'Last Gas',         c: 'Day Trip No. 03',     u: '/guest-ranch/#last-gas',       k: 'last gas last light before dark sundown road trip glovebox flashlight dash sunglasses elisa johnson jane' },
     { t: 'No Signal',        c: 'Day Trip No. 04',     u: '/guest-ranch/#no-signal',      k: 'no signal overnight candle matchbook craighill flashlight camp' },
@@ -48,7 +48,7 @@
     { t: 'Craighill',        c: 'Guest Ranch · Objects', u: '/guest-ranch/#no-signal',   k: 'craighill temple flashlight objects new york guest brand' },
     { t: 'SHU Atelier',      c: 'Guest Ranch · Bespoke hats', u: '/guest-ranch/#high-noon', k: 'shu atelier hat hats bespoke custom fitting milliner yucca valley guest brand' },
     { t: 'Morihata',         c: 'Guest Ranch · Charcoal', u: '/guest-ranch/#first-light', k: 'morihata charcoal facial puff sponge binchotan konjac japan guest brand' },
-    { t: 'Kontex',           c: 'Guest Ranch · Towels', u: '/guest-ranch/#hot-springs', k: 'kontex moku light towel japan guest brand' },
+    { t: 'Yoshii',           c: 'Guest Ranch · Towels', u: '/guest-ranch/#hot-springs', k: 'yoshii chambray towel hand towel bath towel japan guest brand' },
     { t: 'Be Home',          c: 'Guest Ranch · Kitchen, bath and home', u: '/guest-ranch/#ranch-house', k: 'be home vintage french stoneware butter pot pan leo dish drying rack onyx measuring spoons rowan cane caddy basket pali leather everything basket kitchen home goods guest brand' },
     { t: 'Anastasio Home',   c: 'Guest Ranch · Stone trays', u: '/guest-ranch/#bunkhouse', k: 'anastasio home juliet tray marble oxblood stone braided rope vanity tray guest brand' },
     { t: 'Horn Comb, Brush + Shoehorn', c: 'Coming soon · Made in England', u: '/hair/#tools', k: 'horn comb hair comb pocket comb hair brush hairbrush boar bristle brush shoehorn shoe horn abbeyhorn england cattle horn coming soon' },
