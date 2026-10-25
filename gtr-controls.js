@@ -52,7 +52,7 @@
     { t: 'Yoshii',           c: 'Guest Ranch · Towels', u: '/guest-ranch/#hot-springs', k: 'yoshii chambray towel towel set hand towel bath towel washcloth wash cloth bath mat pebble ishikoro japan guest brand' },
     { t: 'Be Home',          c: 'Guest Ranch · Kitchen, bath and home', u: '/guest-ranch/#ranch-house', k: 'be home vintage french stoneware butter pot pan leo dish drying rack onyx measuring spoons rowan cane caddy basket pali leather everything basket kitchen home goods guest brand' },
     { t: 'Anastasio Home',   c: 'Guest Ranch · Stone trays', u: '/guest-ranch/#bunkhouse', k: 'anastasio home juliet tray marble oxblood stone braided rope vanity tray guest brand' },
-    { t: 'Horn Comb, Brush + Shoehorn', c: 'Coming soon · Made in England', u: '/hair/#tools', k: 'horn comb hair comb pocket comb hair brush hairbrush boar bristle brush shoehorn shoe horn abbeyhorn england cattle horn coming soon' },
+    { t: 'Horn Comb, Brush, Shoehorn + Tray', c: 'Coming soon · Made in England', u: '/hair/#tools', k: 'horn comb hair comb pocket comb hair brush hairbrush boar bristle brush shoehorn shoe horn valet tray catchall dish abbeyhorn england cattle horn coming soon' },
     { t: 'Elsie Green',      c: 'Guest Ranch · Found objects', u: '/guest-ranch/#bunkhouse', k: 'elsie green antique vintage brick mold found objects france alsace guest brand' },
     { t: 'Filt',             c: 'Guest Ranch · Market bag', u: '/guest-ranch/#hot-springs', k: 'filt market bag cotton net shopper tote pool bag france normandy guest brand' },
     { t: 'Henson Shaving',   c: 'Guest Ranch · Safety razors', u: '/guest-ranch/#room-29', k: 'henson shaving al13 safety razor shave shaving blades aluminum guest brand' },
