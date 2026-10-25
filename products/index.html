@@ -1232,7 +1232,7 @@ function makerName(product) {
 }
 
 // Utility tags that should never display as a category
-const UTILITY_TAGS = ['cosmos', 'ecocert', 'fragrance-only', 'coming-soon', 'bestseller', 'best-seller', 'new', 'featured', 'sale'];
+const UTILITY_TAGS = ['cosmos', 'ecocert', 'fragrance-only', 'coming-soon', 'coming-soo', 'bestseller', 'best-seller', 'new', 'featured', 'sale'];
 
 // Category tag = first Shopify tag that isn't a utility tag
 function getCategoryTag(product) {
@@ -1304,7 +1304,7 @@ async function fetchFill(excludeHandles) {
 // ═══════════════════════════════════════════════════════════════
 function renderProduct(product) {
   const handle = product.handle;
-  const isComingSoon = COMING_SOON_HANDLES.includes(handle);
+  const isComingSoon = COMING_SOON_HANDLES.includes(handle) || (product.tags || []).some(t => /^coming-soo/i.test(String(t).trim()));
   setupPairCallout(handle);
 
   // Meta
@@ -1482,8 +1482,13 @@ function renderProduct(product) {
   const certRow = document.getElementById('cert-row');
   const tags = product.tags || [];
   const certs = [];
+  const lowTags = tags.map(t => String(t).toLowerCase().trim());
+  const isGoods = lowTags.some(t => ['tools', 'dry-goods', 'apparel', 'goods'].includes(t)) || /^horn-/.test(handle);
   if (makerName(product)) {
     // Guest maker: no GTR formula badges
+  } else if (isGoods) {
+    // Our own tools and dry goods: no formula badges
+    if (/^horn-/.test(handle)) certs.push('Handmade in England');
   } else if (NA_MADE_HANDLES.includes(handle)) {
     certs.push('Made in USA');
   } else {
