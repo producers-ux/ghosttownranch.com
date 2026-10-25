@@ -281,6 +281,15 @@
   .founders-text p { font-family:var(--serif); font-size:clamp(17px,1.4vw,19px); line-height:1.8; color:var(--ink); opacity:0.85; margin-bottom:16px; max-width:520px; }
   .founders-img { display:flex; align-items:center; justify-content:center; padding:56px 48px; }
   .founders-img img { width:100%; max-width:560px; height:auto; display:block; }
+  .west-strip { background:var(--parchment); border-bottom:1px solid var(--dust); padding:8px 48px 64px; }
+  .founders:has(+ .west-strip) { border-bottom:none; }
+  .west-strip-label { font-family:var(--sans); font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--ink); opacity:0.6; display:block; margin-bottom:20px; }
+  .west-strip-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+  .west-strip-grid img { width:100%; height:auto; aspect-ratio:1/1; object-fit:cover; display:block; align-self:start; }
+  @media (max-width:900px) {
+    .west-strip { padding:0 24px 48px; }
+    .west-strip-grid { grid-template-columns:repeat(2,1fr); gap:8px; }
+  }
   @media (max-width:900px) {
     .founders { grid-template-columns:1fr; }
     .founders-img { padding:8px 24px 48px; order:2; }
@@ -955,6 +964,15 @@
   </div>
   <div class="founders-img">
     <img src="/media/founders-olive-harvest.webp" width="1077" height="1050" alt="Picking olives under an open desert sky" loading="lazy">
+  </div>
+</section>
+<section class="west-strip" aria-label="Out West">
+  <span class="west-strip-label">Out West</span>
+  <div class="west-strip-grid">
+    <img src="/media/west-snow.webp" width="900" height="900" alt="CJ and Kate in the snow with mountains behind them" loading="lazy">
+    <img src="/media/west-viewpoint.webp" width="900" height="900" alt="CJ and Kate at a mountain viewpoint above the desert" loading="lazy">
+    <img src="/media/west-deer-valley.webp" width="900" height="900" alt="CJ and Kate on skis at Deer Valley, Utah" loading="lazy">
+    <img src="/media/west-burro.webp" width="900" height="900" alt="CJ meeting a wild burro on a desert road" loading="lazy">
   </div>
 </section>
 
