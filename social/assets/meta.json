@@ -1,0 +1,293 @@
+{
+ "trail-light-travel-soy-candle": {
+  "title": "Trail Light — Travel Soy Candle, with Lid",
+  "vendor": "Ghost Town Ranch",
+  "available": true,
+  "min": "28.0",
+  "max": "28.0",
+  "images": [
+   "social/assets/trail-light-travel-soy-candle-0.png",
+   "social/assets/trail-light-travel-soy-candle-1.jpg"
+  ]
+ },
+ "gtr-lip-butter": {
+  "title": "GTR Lip Butter",
+  "vendor": "Ghost Town Ranch",
+  "available": true,
+  "min": "24.0",
+  "max": "24.0",
+  "images": [
+   "social/assets/gtr-lip-butter-0.png",
+   "social/assets/gtr-lip-butter-1.png",
+   "social/assets/gtr-lip-butter-2.png",
+   "social/assets/gtr-lip-butter-3.png"
+  ]
+ },
+ "gtr-precision-tweezers": {
+  "title": "Precision Tweezers",
+  "vendor": "Ghost Town Ranch",
+  "available": true,
+  "min": "22.0",
+  "max": "22.0",
+  "images": [
+   "social/assets/gtr-precision-tweezers-0.png"
+  ]
+ },
+ "kizara-wood-sheet-memo-pad-small": {
+  "title": "KIZARA · Wood Sheet Memo Pad, Small",
+  "vendor": "Kizara",
+  "available": false,
+  "min": "16.0",
+  "max": "16.0",
+  "images": [
+   "social/assets/kizara-wood-sheet-memo-pad-small-0.png",
+   "social/assets/kizara-wood-sheet-memo-pad-small-1.png"
+  ]
+ },
+ "yoshii-two-tone-chambray-hand-towel-in-black-ghost-town-ranch": {
+  "title": "YOSHII · Two-Tone Chambray Hand Towel, Black",
+  "vendor": "Yoshii",
+  "available": true,
+  "min": "22.0",
+  "max": "22.0",
+  "images": [
+   "social/assets/yoshii-two-tone-chambray-hand-towel-in-black-ghost-town-ranch-0.png",
+   "social/assets/yoshii-two-tone-chambray-hand-towel-in-black-ghost-town-ranch-1.png",
+   "social/assets/yoshii-two-tone-chambray-hand-towel-in-black-ghost-town-ranch-2.png"
+  ]
+ },
+ "gtr-touch-up-blotting-paper": {
+  "title": "GTR Touch-up Blotting Papers",
+  "vendor": "Ghost Town Ranch",
+  "available": true,
+  "min": "18.0",
+  "max": "18.0",
+  "images": [
+   "social/assets/gtr-touch-up-blotting-paper-0.png"
+  ]
+ },
+ "shinto-2-5-ply-gauze-kitchen-towel-charcoal-1": {
+  "title": "SHINTO · 2.5-Ply Gauze Kitchen Towel, Charcoal",
+  "vendor": "Shinto",
+  "available": true,
+  "min": "30.0",
+  "max": "30.0",
+  "images": [
+   "social/assets/shinto-2-5-ply-gauze-kitchen-towel-charcoal-1-0.png",
+   "social/assets/shinto-2-5-ply-gauze-kitchen-towel-charcoal-1-1.png",
+   "social/assets/shinto-2-5-ply-gauze-kitchen-towel-charcoal-1-2.png"
+  ]
+ },
+ "day-ride-bag": {
+  "title": "Day Ride, Padded Zipper Bag",
+  "vendor": "Ghost Town Ranch",
+  "available": true,
+  "min": "30.0",
+  "max": "30.0",
+  "images": [
+   "social/assets/day-ride-bag-0.png",
+   "social/assets/day-ride-bag-1.png",
+   "social/assets/day-ride-bag-2.png"
+  ]
+ },
+ "wash-then-butter": {
+  "title": "Wash, Then Butter",
+  "vendor": "Ghost Town Ranch",
+  "available": true,
+  "min": "68.0",
+  "max": "68.0",
+  "images": [
+   "social/assets/wash-then-butter-0.png",
+   "social/assets/wash-then-butter-1.png"
+  ]
+ },
+ "henson-shaving-al13-v2-mild-safety-razor": {
+  "title": "HENSON SHAVING Mild Safety Razor",
+  "vendor": "Pasteur Pharmacy",
+  "available": true,
+  "min": "69.99",
+  "max": "69.99",
+  "images": [
+   "social/assets/henson-shaving-al13-v2-mild-safety-razor-0.jpg",
+   "social/assets/henson-shaving-al13-v2-mild-safety-razor-1.jpg",
+   "social/assets/henson-shaving-al13-v2-mild-safety-razor-2.jpg",
+   "social/assets/henson-shaving-al13-v2-mild-safety-razor-3.jpg"
+  ]
+ },
+ "omega-6-9-glowing-skin-body-oil": {
+  "title": "Golden Hour Body Oil",
+  "vendor": "Ghost Town Ranch",
+  "available": true,
+  "min": "68.0",
+  "max": "68.0",
+  "images": [
+   "social/assets/omega-6-9-glowing-skin-body-oil-0.png",
+   "social/assets/omega-6-9-glowing-skin-body-oil-1.png",
+   "social/assets/omega-6-9-glowing-skin-body-oil-2.jpg",
+   "social/assets/omega-6-9-glowing-skin-body-oil-3.png"
+  ]
+ },
+ "the-still-amber-glass-reed-diffuser": {
+  "title": "The Still, Reed Diffuser",
+  "vendor": "Ghost Town Ranch",
+  "available": true,
+  "min": "68.0",
+  "max": "68.0",
+  "images": [
+   "social/assets/the-still-amber-glass-reed-diffuser-0.png",
+   "social/assets/the-still-amber-glass-reed-diffuser-1.png",
+   "social/assets/the-still-amber-glass-reed-diffuser-2.png",
+   "social/assets/the-still-amber-glass-reed-diffuser-3.png"
+  ]
+ },
+ "rose-cut-daily-facial-wash": {
+  "title": "ROSE CUT Daily Facial Wash",
+  "vendor": "Ghost Town Ranch",
+  "available": true,
+  "min": "62.0",
+  "max": "62.0",
+  "images": [
+   "social/assets/rose-cut-daily-facial-wash-0.png",
+   "social/assets/rose-cut-daily-facial-wash-1.png",
+   "social/assets/rose-cut-daily-facial-wash-2.png",
+   "social/assets/rose-cut-daily-facial-wash-3.jpg"
+  ]
+ },
+ "silk-skin-hand-cream-spices-sandalwood": {
+  "title": "Silk Skin Hand Cream, Citrus + Pink Pepper",
+  "vendor": "Ghost Town Ranch",
+  "available": true,
+  "min": "46.0",
+  "max": "46.0",
+  "images": [
+   "social/assets/silk-skin-hand-cream-spices-sandalwood-0.png",
+   "social/assets/silk-skin-hand-cream-spices-sandalwood-1.png",
+   "social/assets/silk-skin-hand-cream-spices-sandalwood-2.jpg",
+   "social/assets/silk-skin-hand-cream-spices-sandalwood-3.jpg"
+  ]
+ },
+ "the-soak-lights-out": {
+  "title": "THE SOAK, Lights Out",
+  "vendor": "Ghost Town Ranch",
+  "available": true,
+  "min": "38.0",
+  "max": "38.0",
+  "images": [
+   "social/assets/the-soak-lights-out-0.png",
+   "social/assets/the-soak-lights-out-1.png",
+   "social/assets/the-soak-lights-out-2.jpg"
+  ]
+ },
+ "gtr-unisex-tee-in-black-or-bone": {
+  "title": "GTR Unisex Tee in Black or Bone",
+  "vendor": "Ghost Town Ranch",
+  "available": true,
+  "min": "53.0",
+  "max": "53.0",
+  "images": [
+   "social/assets/gtr-unisex-tee-in-black-or-bone-0.png",
+   "social/assets/gtr-unisex-tee-in-black-or-bone-1.png",
+   "social/assets/gtr-unisex-tee-in-black-or-bone-2.png",
+   "social/assets/gtr-unisex-tee-in-black-or-bone-3.png"
+  ]
+ },
+ "ranch-water-body-room-fragrance": {
+  "title": "Ranch Water, Body + Room Fragrance  - Six Scents",
+  "vendor": "Ghost Town Ranch",
+  "available": true,
+  "min": "88.0",
+  "max": "88.0",
+  "images": [
+   "social/assets/ranch-water-body-room-fragrance-0.png",
+   "social/assets/ranch-water-body-room-fragrance-1.png",
+   "social/assets/ranch-water-body-room-fragrance-2.png",
+   "social/assets/ranch-water-body-room-fragrance-3.png"
+  ]
+ },
+ "the-basin-hand-wash-body-cream-set-of-two-choose-your-scent": {
+  "title": "The Basin | Hand Wash + Body Cream + Set of two · Choose your scent",
+  "vendor": "Ghost Town Ranch",
+  "available": true,
+  "min": "89.0",
+  "max": "89.0",
+  "images": [
+   "social/assets/the-basin-hand-wash-body-cream-set-of-two-choose-your-scent-0.png"
+  ]
+ },
+ "the-bathrobe": {
+  "title": "CASAMERA The Bathrobe",
+  "vendor": "Casamera",
+  "available": true,
+  "min": "160.0",
+  "max": "160.0",
+  "images": [
+   "social/assets/the-bathrobe-0.png",
+   "social/assets/the-bathrobe-1.png",
+   "social/assets/the-bathrobe-2.png",
+   "social/assets/the-bathrobe-3.gif"
+  ]
+ },
+ "elisa-johnson-jane-gold-metal-amber-lens": {
+  "title": "ELISA JOHNSON Eyewear in Jane",
+  "vendor": "Ghost Town Ranch",
+  "available": true,
+  "min": "145.0",
+  "max": "145.0",
+  "images": [
+   "social/assets/elisa-johnson-jane-gold-metal-amber-lens-0.png",
+   "social/assets/elisa-johnson-jane-gold-metal-amber-lens-1.png",
+   "social/assets/elisa-johnson-jane-gold-metal-amber-lens-2.png",
+   "social/assets/elisa-johnson-jane-gold-metal-amber-lens-3.jpg"
+  ]
+ },
+ "the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz": {
+  "title": "The Monument — Ltd. Edition Candle | Dusk No. 001",
+  "vendor": "Ghost Town Ranch",
+  "available": true,
+  "min": "204.0",
+  "max": "204.0",
+  "images": [
+   "social/assets/the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz-0.png",
+   "social/assets/the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz-1.png",
+   "social/assets/the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz-2.png"
+  ]
+ },
+ "yoshii-two-tone-chambray-towel-set-black": {
+  "title": "YOSHII · Two-Tone Chambray Towel Set, Black",
+  "vendor": "Yoshii",
+  "available": true,
+  "min": "96.0",
+  "max": "96.0",
+  "images": [
+   "social/assets/yoshii-two-tone-chambray-towel-set-black-0.png",
+   "social/assets/yoshii-two-tone-chambray-towel-set-black-1.png",
+   "social/assets/yoshii-two-tone-chambray-towel-set-black-2.png",
+   "social/assets/yoshii-two-tone-chambray-towel-set-black-3.png"
+  ]
+ },
+ "evening-repair-bundle": {
+  "title": "Evening Repair Bundle",
+  "vendor": "Ghost Town Ranch",
+  "available": true,
+  "min": "274.0",
+  "max": "274.0",
+  "images": [
+   "social/assets/evening-repair-bundle-0.png",
+   "social/assets/evening-repair-bundle-1.png",
+   "social/assets/evening-repair-bundle-2.png",
+   "social/assets/evening-repair-bundle-3.png"
+  ]
+ },
+ "blacksaw-peyote-reversible-throw": {
+  "title": "BLACKSAW Peyote Reversible Throw",
+  "vendor": "Blacksaw",
+  "available": true,
+  "min": "598.0",
+  "max": "598.0",
+  "images": [
+   "social/assets/blacksaw-peyote-reversible-throw-0.png",
+   "social/assets/blacksaw-peyote-reversible-throw-1.png",
+   "social/assets/blacksaw-peyote-reversible-throw-2.png"
+  ]
+ }
+}
