@@ -36,7 +36,7 @@
  "kizara-wood-sheet-memo-pad-small": {
   "title": "KIZARA · Wood Sheet Memo Pad, Small",
   "vendor": "Kizara",
-  "available": false,
+  "available": true,
   "min": "16.0",
   "max": "16.0",
   "images": [
@@ -240,16 +240,16 @@
    "social/assets/elisa-johnson-jane-gold-metal-amber-lens-3.jpg"
   ]
  },
- "the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz": {
-  "title": "The Monument — Ltd. Edition Candle | Dusk No. 001",
+ "the-monument-candle": {
+  "title": "The Monument, Hand-Poured Mega 4-Wick Coconut-Soy Candle, 55oz",
   "vendor": "Ghost Town Ranch",
   "available": true,
-  "min": "204.0",
-  "max": "204.0",
+  "min": "190.0",
+  "max": "190.0",
   "images": [
-   "social/assets/the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz-0.png",
-   "social/assets/the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz-1.png",
-   "social/assets/the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz-2.png"
+   "social/assets/the-monument-candle-0.png",
+   "social/assets/the-monument-candle-1.png",
+   "social/assets/the-monument-candle-2.png"
   ]
  },
  "yoshii-two-tone-chambray-towel-set-black": {
