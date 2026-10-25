@@ -1486,7 +1486,8 @@ function renderProduct(product) {
   const tags = product.tags || [];
   const certs = [];
   const lowTags = tags.map(t => String(t).toLowerCase().trim());
-  const isGoods = lowTags.some(t => ['tools', 'dry-goods', 'apparel', 'goods'].includes(t)) || /^horn-/.test(handle);
+  const GOODS_HANDLES = ['gtr-precision-tweezers', 'day-ride-bag', 'gtr-unisex-tee-in-black-or-bone', 'gtr-unisex-sweatshirt-in-black-french-navy-white', 'gtr-garment-dyed-long-sleeve-tee', 'sustainable-sink-tray', 'trail-light-travel-soy-candle', 'the-monument-candle', 'the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz', 'the-slow-hand-poured-colored-wax-candle-ltd-001'];
+  const isGoods = lowTags.some(t => ['tools', 'dry-goods', 'apparel', 'goods'].includes(t)) || /^horn-/.test(handle) || GOODS_HANDLES.includes(handle);
   if (makerName(product)) {
     // Guest maker: no GTR formula badges
   } else if (isGoods) {
