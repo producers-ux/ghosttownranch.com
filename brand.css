@@ -1,68 +1,69 @@
 /* Ghost Town Ranch type + color system.
-   Two typefaces everywhere: PP Eiko for display, Jost for everything else.
+   Two typefaces everywhere: PP Eiko for display, JetBrains Mono for everything else.
+   No italics: any italic request renders upright (PP Eiko Thin for display, the light mono for text).
    Older font names used across the site are mapped onto these two. */
 
 @font-face{font-family:'PPEiko';src:url('/PPEiko-Thin.woff2') format('woff2');font-weight:100 300;font-style:normal;font-display:swap;}
 @font-face{font-family:'PPEiko';src:url('/PPEiko-Medium.woff2') format('woff2');font-weight:400 900;font-style:normal;font-display:swap;}
-@font-face{font-family:'PPEiko';src:url('/PPEiko-LightItalic.otf') format('opentype');font-weight:100 900;font-style:italic;font-display:swap;}
+@font-face{font-family:'PPEiko';src:url('/PPEiko-Thin.woff2') format('woff2');font-weight:100 900;font-style:italic;font-display:swap;}
 @font-face{font-family:'PP Eiko';src:url('/PPEiko-Thin.woff2') format('woff2');font-weight:100 300;font-style:normal;font-display:swap;}
 @font-face{font-family:'PP Eiko';src:url('/PPEiko-Medium.woff2') format('woff2');font-weight:400 900;font-style:normal;font-display:swap;}
-@font-face{font-family:'PP Eiko';src:url('/PPEiko-LightItalic.otf') format('opentype');font-weight:100 900;font-style:italic;font-display:swap;}
+@font-face{font-family:'PP Eiko';src:url('/PPEiko-Thin.woff2') format('woff2');font-weight:100 900;font-style:italic;font-display:swap;}
 @font-face{font-family:'Cormorant Garamond';src:url('/PPEiko-Thin.woff2') format('woff2');font-weight:100 300;font-style:normal;font-display:swap;}
 @font-face{font-family:'Cormorant Garamond';src:url('/PPEiko-Medium.woff2') format('woff2');font-weight:400 900;font-style:normal;font-display:swap;}
-@font-face{font-family:'Cormorant Garamond';src:url('/PPEiko-LightItalic.otf') format('opentype');font-weight:100 900;font-style:italic;font-display:swap;}
+@font-face{font-family:'Cormorant Garamond';src:url('/PPEiko-Thin.woff2') format('woff2');font-weight:100 900;font-style:italic;font-display:swap;}
 @font-face{font-family:'IM Fell English';src:url('/PPEiko-Thin.woff2') format('woff2');font-weight:100 300;font-style:normal;font-display:swap;}
 @font-face{font-family:'IM Fell English';src:url('/PPEiko-Medium.woff2') format('woff2');font-weight:400 900;font-style:normal;font-display:swap;}
-@font-face{font-family:'IM Fell English';src:url('/PPEiko-LightItalic.otf') format('opentype');font-weight:100 900;font-style:italic;font-display:swap;}
+@font-face{font-family:'IM Fell English';src:url('/PPEiko-Thin.woff2') format('woff2');font-weight:100 900;font-style:italic;font-display:swap;}
 @font-face{font-family:'Georgia';src:url('/PPEiko-Thin.woff2') format('woff2');font-weight:100 300;font-style:normal;font-display:swap;}
 @font-face{font-family:'Georgia';src:url('/PPEiko-Medium.woff2') format('woff2');font-weight:400 900;font-style:normal;font-display:swap;}
-@font-face{font-family:'Georgia';src:url('/PPEiko-LightItalic.otf') format('opentype');font-weight:100 900;font-style:italic;font-display:swap;}
+@font-face{font-family:'Georgia';src:url('/PPEiko-Thin.woff2') format('woff2');font-weight:100 900;font-style:italic;font-display:swap;}
 @font-face{font-family:'Times New Roman';src:url('/PPEiko-Thin.woff2') format('woff2');font-weight:100 300;font-style:normal;font-display:swap;}
 @font-face{font-family:'Times New Roman';src:url('/PPEiko-Medium.woff2') format('woff2');font-weight:400 900;font-style:normal;font-display:swap;}
-@font-face{font-family:'Times New Roman';src:url('/PPEiko-LightItalic.otf') format('opentype');font-weight:100 900;font-style:italic;font-display:swap;}
-@font-face{font-family:'Jost';src:url('/fonts/jost-latin-300-normal.woff2') format('woff2');font-weight:100 300;font-style:normal;font-display:swap;}
-@font-face{font-family:'Jost';src:url('/fonts/jost-latin-300-italic.woff2') format('woff2');font-weight:100 300;font-style:italic;font-display:swap;}
-@font-face{font-family:'Jost';src:url('/fonts/jost-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
-@font-face{font-family:'Jost';src:url('/fonts/jost-latin-400-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap;}
-@font-face{font-family:'Jost';src:url('/fonts/jost-latin-500-normal.woff2') format('woff2');font-weight:500 900;font-style:normal;font-display:swap;}
-@font-face{font-family:'Jost';src:url('/fonts/jost-latin-500-italic.woff2') format('woff2');font-weight:500 900;font-style:italic;font-display:swap;}
-@font-face{font-family:'Barlow';src:url('/fonts/jost-latin-300-normal.woff2') format('woff2');font-weight:100 300;font-style:normal;font-display:swap;}
-@font-face{font-family:'Barlow';src:url('/fonts/jost-latin-300-italic.woff2') format('woff2');font-weight:100 300;font-style:italic;font-display:swap;}
-@font-face{font-family:'Barlow';src:url('/fonts/jost-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
-@font-face{font-family:'Barlow';src:url('/fonts/jost-latin-400-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap;}
-@font-face{font-family:'Barlow';src:url('/fonts/jost-latin-500-normal.woff2') format('woff2');font-weight:500 900;font-style:normal;font-display:swap;}
-@font-face{font-family:'Barlow';src:url('/fonts/jost-latin-500-italic.woff2') format('woff2');font-weight:500 900;font-style:italic;font-display:swap;}
-@font-face{font-family:'Barlow Condensed';src:url('/fonts/jost-latin-300-normal.woff2') format('woff2');font-weight:100 300;font-style:normal;font-display:swap;}
-@font-face{font-family:'Barlow Condensed';src:url('/fonts/jost-latin-300-italic.woff2') format('woff2');font-weight:100 300;font-style:italic;font-display:swap;}
-@font-face{font-family:'Barlow Condensed';src:url('/fonts/jost-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
-@font-face{font-family:'Barlow Condensed';src:url('/fonts/jost-latin-400-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap;}
-@font-face{font-family:'Barlow Condensed';src:url('/fonts/jost-latin-500-normal.woff2') format('woff2');font-weight:500 900;font-style:normal;font-display:swap;}
-@font-face{font-family:'Barlow Condensed';src:url('/fonts/jost-latin-500-italic.woff2') format('woff2');font-weight:500 900;font-style:italic;font-display:swap;}
-@font-face{font-family:'Hanken Grotesk';src:url('/fonts/jost-latin-300-normal.woff2') format('woff2');font-weight:100 300;font-style:normal;font-display:swap;}
-@font-face{font-family:'Hanken Grotesk';src:url('/fonts/jost-latin-300-italic.woff2') format('woff2');font-weight:100 300;font-style:italic;font-display:swap;}
-@font-face{font-family:'Hanken Grotesk';src:url('/fonts/jost-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
-@font-face{font-family:'Hanken Grotesk';src:url('/fonts/jost-latin-400-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap;}
-@font-face{font-family:'Hanken Grotesk';src:url('/fonts/jost-latin-500-normal.woff2') format('woff2');font-weight:500 900;font-style:normal;font-display:swap;}
-@font-face{font-family:'Hanken Grotesk';src:url('/fonts/jost-latin-500-italic.woff2') format('woff2');font-weight:500 900;font-style:italic;font-display:swap;}
-@font-face{font-family:'Helvetica Neue';src:url('/fonts/jost-latin-300-normal.woff2') format('woff2');font-weight:100 300;font-style:normal;font-display:swap;}
-@font-face{font-family:'Helvetica Neue';src:url('/fonts/jost-latin-300-italic.woff2') format('woff2');font-weight:100 300;font-style:italic;font-display:swap;}
-@font-face{font-family:'Helvetica Neue';src:url('/fonts/jost-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
-@font-face{font-family:'Helvetica Neue';src:url('/fonts/jost-latin-400-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap;}
-@font-face{font-family:'Helvetica Neue';src:url('/fonts/jost-latin-500-normal.woff2') format('woff2');font-weight:500 900;font-style:normal;font-display:swap;}
-@font-face{font-family:'Helvetica Neue';src:url('/fonts/jost-latin-500-italic.woff2') format('woff2');font-weight:500 900;font-style:italic;font-display:swap;}
-@font-face{font-family:'JetBrains Mono';src:url('/fonts/jost-latin-300-normal.woff2') format('woff2');font-weight:100 300;font-style:normal;font-display:swap;}
-@font-face{font-family:'JetBrains Mono';src:url('/fonts/jost-latin-300-italic.woff2') format('woff2');font-weight:100 300;font-style:italic;font-display:swap;}
-@font-face{font-family:'JetBrains Mono';src:url('/fonts/jost-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
-@font-face{font-family:'JetBrains Mono';src:url('/fonts/jost-latin-400-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap;}
-@font-face{font-family:'JetBrains Mono';src:url('/fonts/jost-latin-500-normal.woff2') format('woff2');font-weight:500 900;font-style:normal;font-display:swap;}
-@font-face{font-family:'JetBrains Mono';src:url('/fonts/jost-latin-500-italic.woff2') format('woff2');font-weight:500 900;font-style:italic;font-display:swap;}
+@font-face{font-family:'Times New Roman';src:url('/PPEiko-Thin.woff2') format('woff2');font-weight:100 900;font-style:italic;font-display:swap;}
+@font-face{font-family:'Jost';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:100 300;font-style:normal;font-display:swap;}
+@font-face{font-family:'Jost';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:100 300;font-style:italic;font-display:swap;}
+@font-face{font-family:'Jost';src:url('/fonts/jetbrains-mono-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Jost';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap;}
+@font-face{font-family:'Jost';src:url('/fonts/jetbrains-mono-latin-500-normal.woff2') format('woff2');font-weight:500 900;font-style:normal;font-display:swap;}
+@font-face{font-family:'Jost';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:500 900;font-style:italic;font-display:swap;}
+@font-face{font-family:'Barlow';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:100 300;font-style:normal;font-display:swap;}
+@font-face{font-family:'Barlow';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:100 300;font-style:italic;font-display:swap;}
+@font-face{font-family:'Barlow';src:url('/fonts/jetbrains-mono-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Barlow';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap;}
+@font-face{font-family:'Barlow';src:url('/fonts/jetbrains-mono-latin-500-normal.woff2') format('woff2');font-weight:500 900;font-style:normal;font-display:swap;}
+@font-face{font-family:'Barlow';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:500 900;font-style:italic;font-display:swap;}
+@font-face{font-family:'Barlow Condensed';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:100 300;font-style:normal;font-display:swap;}
+@font-face{font-family:'Barlow Condensed';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:100 300;font-style:italic;font-display:swap;}
+@font-face{font-family:'Barlow Condensed';src:url('/fonts/jetbrains-mono-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Barlow Condensed';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap;}
+@font-face{font-family:'Barlow Condensed';src:url('/fonts/jetbrains-mono-latin-500-normal.woff2') format('woff2');font-weight:500 900;font-style:normal;font-display:swap;}
+@font-face{font-family:'Barlow Condensed';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:500 900;font-style:italic;font-display:swap;}
+@font-face{font-family:'Hanken Grotesk';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:100 300;font-style:normal;font-display:swap;}
+@font-face{font-family:'Hanken Grotesk';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:100 300;font-style:italic;font-display:swap;}
+@font-face{font-family:'Hanken Grotesk';src:url('/fonts/jetbrains-mono-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Hanken Grotesk';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap;}
+@font-face{font-family:'Hanken Grotesk';src:url('/fonts/jetbrains-mono-latin-500-normal.woff2') format('woff2');font-weight:500 900;font-style:normal;font-display:swap;}
+@font-face{font-family:'Hanken Grotesk';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:500 900;font-style:italic;font-display:swap;}
+@font-face{font-family:'Helvetica Neue';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:100 300;font-style:normal;font-display:swap;}
+@font-face{font-family:'Helvetica Neue';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:100 300;font-style:italic;font-display:swap;}
+@font-face{font-family:'Helvetica Neue';src:url('/fonts/jetbrains-mono-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Helvetica Neue';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap;}
+@font-face{font-family:'Helvetica Neue';src:url('/fonts/jetbrains-mono-latin-500-normal.woff2') format('woff2');font-weight:500 900;font-style:normal;font-display:swap;}
+@font-face{font-family:'Helvetica Neue';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:500 900;font-style:italic;font-display:swap;}
+@font-face{font-family:'JetBrains Mono';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:100 300;font-style:normal;font-display:swap;}
+@font-face{font-family:'JetBrains Mono';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:100 300;font-style:italic;font-display:swap;}
+@font-face{font-family:'JetBrains Mono';src:url('/fonts/jetbrains-mono-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'JetBrains Mono';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap;}
+@font-face{font-family:'JetBrains Mono';src:url('/fonts/jetbrains-mono-latin-500-normal.woff2') format('woff2');font-weight:500 900;font-style:normal;font-display:swap;}
+@font-face{font-family:'JetBrains Mono';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:500 900;font-style:italic;font-display:swap;}
 
-@font-face{font-family:'Arial';src:url('/fonts/jost-latin-300-normal.woff2') format('woff2');font-weight:100 300;font-style:normal;font-display:swap;}
-@font-face{font-family:'Arial';src:url('/fonts/jost-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
-@font-face{font-family:'Arial';src:url('/fonts/jost-latin-500-normal.woff2') format('woff2');font-weight:500 900;font-style:normal;font-display:swap;}
-@font-face{font-family:'Helvetica';src:url('/fonts/jost-latin-300-normal.woff2') format('woff2');font-weight:100 300;font-style:normal;font-display:swap;}
-@font-face{font-family:'Helvetica';src:url('/fonts/jost-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
-@font-face{font-family:'Helvetica';src:url('/fonts/jost-latin-500-normal.woff2') format('woff2');font-weight:500 900;font-style:normal;font-display:swap;}
+@font-face{font-family:'Arial';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:100 300;font-style:normal;font-display:swap;}
+@font-face{font-family:'Arial';src:url('/fonts/jetbrains-mono-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Arial';src:url('/fonts/jetbrains-mono-latin-500-normal.woff2') format('woff2');font-weight:500 900;font-style:normal;font-display:swap;}
+@font-face{font-family:'Helvetica';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:100 300;font-style:normal;font-display:swap;}
+@font-face{font-family:'Helvetica';src:url('/fonts/jetbrains-mono-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Helvetica';src:url('/fonts/jetbrains-mono-latin-500-normal.woff2') format('woff2');font-weight:500 900;font-style:normal;font-display:swap;}
 
 /* Cool, minimal palette (from the Yucca Valley concept: chalk walls, black steel, olive) */
 :root{
@@ -71,18 +72,18 @@
   --ink:#141414; --warm-black:#141414; --dark:#141414;
   --ochre:#5D643A; --ember:#5D643A; --army:#5D643A;
   --serif:'PPEiko',Georgia,serif; --display:'PPEiko',Georgia,serif; --ff-display:'PPEiko',Georgia,serif;
-  --sans:'Jost',system-ui,sans-serif; --body:'Jost',system-ui,sans-serif; --ff-body:'Jost',system-ui,sans-serif;
-  --label:'Jost',system-ui,sans-serif; --accent:'Jost',system-ui,sans-serif; --mono:'Jost',system-ui,sans-serif;
+  --sans:'JetBrains Mono',ui-monospace,monospace; --body:'JetBrains Mono',ui-monospace,monospace; --ff-body:'JetBrains Mono',ui-monospace,monospace;
+  --label:'JetBrains Mono',ui-monospace,monospace; --accent:'JetBrains Mono',ui-monospace,monospace; --mono:'JetBrains Mono',ui-monospace,monospace;
 }
 
-/* Body copy in Jost for a cleaner, more minimal read. PP Eiko stays on headlines. */
+/* Body copy in JetBrains Mono. PP Eiko stays on headlines. */
 .entry-text p, .trio-body, .tenet-list-desc, .scents-entry-intro, .footer-left,
 .product-desc, .featured-desc, .hero-body, .w2-intro, .routine-note-text, .fg-entry-line,
 .split-body p, .scent-card-desc, .wl-dek, .header-dek {
-  font-family: 'Jost', system-ui, sans-serif !important;
+  font-family: 'JetBrains Mono', ui-monospace, monospace !important;
   font-style: normal !important;
   font-weight: 300;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
 }
 .wl-dek strong, .header-dek strong { font-weight: 400; }
 
@@ -103,11 +104,14 @@ nav:has(> .nav-logo) button svg, nav:has(> .nav-logo) .nav-right svg { stroke: #
 nav:has(> .nav-logo) .gtr-cart-count, nav:has(> .nav-logo) .cart-count { color: #F6F6F3; }
 /* One nav type style on every page */
 nav:has(> .nav-logo) .nav-links a {
-  font-family: 'Jost', system-ui, sans-serif !important;
-  font-size: 12px !important; font-weight: 300 !important;
-  letter-spacing: 0.2em !important; text-transform: uppercase !important;
+  font-family: 'JetBrains Mono', ui-monospace, monospace !important;
+  font-size: 11px !important; font-weight: 400 !important;
+  letter-spacing: 0.1em !important; text-transform: uppercase !important;
 }
 @media (max-width: 900px) { nav:has(> .nav-logo) .nav-links.open a { color: #F6F6F3 !important; } }
 /* Keep the logo and the close (X) button above the open phone menu */
 nav:has(> .nav-logo) > .nav-logo, nav:has(> .nav-logo) .nav-hamburger { position: relative; z-index: 102; }
 @media (max-width: 900px) { nav:has(> .nav-logo) .nav-links.open { z-index: 101; } }
+
+/* No faux slants or faux bolds from the browser. Italic requests already land on upright faces above. */
+html, body, body * { font-synthesis: none; }
