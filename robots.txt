@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /media/ads/
 
 # AI search + assistant crawlers: explicitly welcome so products can be cited and recommended
 User-agent: OAI-SearchBot
@@ -16,4 +17,3 @@ User-agent: ClaudeBot
 Allow: /
 
 Sitemap: https://ghosttownranch.com/sitemap.xml
-Disallow: /media/ads/
