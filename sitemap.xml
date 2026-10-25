@@ -540,4 +540,11 @@
     <priority>0.8</priority>
     <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/keyringhorn.png?v=1792932286</image:loc></image:image>
   </url>
+  <url>
+    <loc>https://ghosttownranch.com/products/kizara-wood-sheet-memo-pad-small/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/kizaranotepad.png?v=1792933355</image:loc></image:image>
+  </url>
 </urlset>
