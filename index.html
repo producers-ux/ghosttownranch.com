@@ -428,7 +428,7 @@
   .road-title { font-family:var(--serif); font-weight:300; font-size:clamp(30px,3.4vw,48px); line-height:1.05; margin-top:10px; }
   .road-title em { font-style:italic; }
   .road-ig { color:var(--ink,#141414); text-decoration:none; font-family:'Jost',sans-serif; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; border-bottom:1px solid currentColor; padding-bottom:3px; }
-  .road-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .road-grid { display:grid; grid-template-columns:repeat(var(--cols,4),1fr); gap:16px; }
   .road-tile { display:block; color:inherit; text-decoration:none; }
   .road-media { position:relative; aspect-ratio:4/5; overflow:hidden; background:#1f201e; }
   .road-media img, .road-media video { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s ease; }
@@ -888,44 +888,28 @@
   </div>
 </section>
 
-<!-- ══ BESTSELLERS ══ -->
-<section id="objects" class="objects">
-  <div class="objects-header">
-    <span class="objects-label">Start here</span>
-    <a href="https://ghosttownranch.com/shop/" class="objects-all">Shop all →</a>
+<!-- ══ THE COLLECTION ══ -->
+<section class="road collection" id="objects" style="--cols:3">
+  <div class="road-head">
+    <div>
+      <div class="road-label">The Collection</div>
+      <h2 class="road-title">Made for <em>every body.</em></h2>
+      <p class="road-cast">Skin, scent, bath and horn, kept together the way an apothecary should be. Pick a ritual, or take all three.</p>
+    </div>
+    <a class="road-ig" href="https://ghosttownranch.com/shop/">Shop all &rarr;</a>
   </div>
-  <div class="objects-grid">
-    <a class="obj" href="https://ghosttownranch.com/products/drawn-line-matte-lip-color">
-      <div class="obj-img">
-        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DrawnLine1.png" alt="Drawn Line matte lip pigment" loading="lazy">
-      </div>
-      <p class="obj-cat">Skin + Shade</p>
-      <h3 class="obj-name">Drawn Line</h3>
-      <p class="obj-price">$42 · Matte Lip Pigment</p>
+  <div class="road-grid">
+    <a class="road-tile" href="https://ghosttownranch.com/hair/">
+      <div class="road-media"><img src="/media/collection-morning.jpg" alt="Horn shoehorn, horn comb, Golden Hour body oil and Dry Creek hair mist in a black Bull box" loading="lazy"></div>
+      <div class="road-cap">Morning<span>Shoehorn, comb, Golden Hour, Dry Creek</span></div>
     </a>
-    <a class="obj" href="https://ghosttownranch.com/products/ranch-water-body-room-fragrance">
-      <div class="obj-img">
-        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Ranchwater-hangdried1.png?v=1792696497&width=800" alt="Ranch Water body and room fragrance" loading="lazy">
-      </div>
-      <p class="obj-cat">The Ritual</p>
-      <h3 class="obj-name">Ranch Water</h3>
-      <p class="obj-price">$88 · Six scents</p>
+    <a class="road-tile" href="https://ghosttownranch.com/routines/">
+      <div class="road-media"><img src="/media/collection-out-the-door.jpg" alt="Horn hairbrush, horn keyring, Silk Skin hand cream, Drawn Line and Ranch Water with the Day Ride bag" loading="lazy"></div>
+      <div class="road-cap">Out the Door<span>Brush, keyring, Silk Skin, Drawn Line</span></div>
     </a>
-    <a class="obj" href="https://ghosttownranch.com/products/gtr-beard-butter">
-      <div class="obj-img">
-        <img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/LongRideBB_be2611d7-276b-4778-961f-109a43e9db98.png?v=1792366233&width=800" alt="GTR Beard Butter in a black tin with the Bull" loading="lazy">
-      </div>
-      <p class="obj-cat">Wash House</p>
-      <h3 class="obj-name">Beard Butter</h3>
-      <p class="obj-price">$36 · Shea + Babassu</p>
-    </a>
-    <a class="obj" href="https://ghosttownranch.com/products/sunbroke-the-wash-cold-pressed-grapefruit">
-      <div class="obj-img">
-        <img src="https://or-cre.com/cdn/shop/files/thewashimage_7509c88e-32dc-4309-8da5-635175c5ab86.png?v=1776859541&width=800" alt="The Wash hydrating hand wash" loading="lazy">
-      </div>
-      <p class="obj-cat">Wash House</p>
-      <h3 class="obj-name">The Wash</h3>
-      <p class="obj-price">$44 · Three scents</p>
+    <a class="road-tile" href="https://ghosttownranch.com/wash-house/">
+      <div class="road-media"><img src="/media/collection-end-of-day.jpg" alt="Horn valet tray, comb and brush with The Wash, Ranch Water and Beard Butter in a black Bull box" loading="lazy"></div>
+      <div class="road-cap">End of the Day<span>Valet tray, The Wash, Beard Butter</span></div>
     </a>
   </div>
 </section>
