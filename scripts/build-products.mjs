@@ -135,6 +135,7 @@ function maker(p) {
   if ((p.handle || '').startsWith('shinto-')) return 'Shinto';
   if ((p.handle || '').startsWith('kizara-')) return 'Kizara';
   if ((p.handle || '').startsWith('elisa-johnson-')) return 'Elisa Johnson';
+  if ((p.handle || '').startsWith('filt-')) return 'Filt';
   const v = clean(p.vendor || '');
   if (!v || /^(ghost town ranch|gtr)$/i.test(v)) return null;
   return v.replace(/\b\w/g, (c) => c.toUpperCase());
