@@ -877,5 +877,32 @@
    "guest-ranch",
    "the-road"
   ]
+ },
+ {
+  "handle": "vintage-mustard-pot",
+  "title": "Vintage Mustard Pot",
+  "vendor": "elsie green",
+  "tags": [
+   "elsie green",
+   "Shopify Collective"
+  ]
+ },
+ {
+  "handle": "restored-copper-pot",
+  "title": "Restored Copper Pot",
+  "vendor": "elsie green",
+  "tags": [
+   "elsie green",
+   "Shopify Collective"
+  ]
+ },
+ {
+  "handle": "vintage-canning-jar",
+  "title": "Vintage Canning Jar",
+  "vendor": "elsie green",
+  "tags": [
+   "elsie green",
+   "Shopify Collective"
+  ]
  }
 ]

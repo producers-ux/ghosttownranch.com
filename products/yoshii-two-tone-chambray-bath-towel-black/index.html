@@ -20,7 +20,7 @@
   <meta property="og:type" content="product" />
   <meta id="og-title" property="og:title" content="YOSHII · Two-Tone Chambray Bath Towel, Black · Ghost Town Ranch" />
   <meta id="og-description" property="og:description" content="The bath towel, Japanese style: slim, light and quick to dry. A tightly woven chambray front, a looped terry back and a split block of two blacks. It folds…" />
-  <meta id="og-image" property="og:image" content="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot_2026-10-25_043202.png?v=1792928011" />
+  <meta id="og-image" property="og:image" content="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot_2026-10-25_043136.png?v=1792928015" />
   <meta id="og-url" property="og:url" content="https://ghosttownranch.com/products/yoshii-two-tone-chambray-bath-towel-black/" />
   <meta name="twitter:card" content="summary_large_image" />
   <!-- The bare /products/ template has no product of its own, so it stays out of search.
@@ -909,7 +909,7 @@
   <link rel="stylesheet" href="/brand.css">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"YOSHII · Two-Tone Chambray Bath Towel, Black","description":"The bath towel, Japanese style: slim, light and quick to dry. A tightly woven chambray front, a looped terry back and a split block of two blacks. It folds smaller than a hotel towel and drinks just as much. Hang it next to the Ishikoro mat and The Soak. Found on Guest Ranch. Made by Yoshii in Japan. 100% cotton. Machine wash cold, no bleach or fabric softener, hang dry or tumble low. Bath Towel (L): 25\" L x 51\" W","url":"https://ghosttownranch.com/products/yoshii-two-tone-chambray-bath-towel-black/","brand":{"@type":"Brand","name":"Yoshii"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"48.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/yoshii-two-tone-chambray-bath-towel-black/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot_2026-10-25_043202.png?v=1792928011","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot_2026-10-25_043136.png?v=1792928015","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot_2026-10-25_043151.png?v=1792928013"],"category":"Bath"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"YOSHII · Two-Tone Chambray Bath Towel, Black","description":"The bath towel, Japanese style: slim, light and quick to dry. A tightly woven chambray front, a looped terry back and a split block of two blacks. It folds smaller than a hotel towel and drinks just as much. Hang it next to the Ishikoro mat and The Soak. Found on Guest Ranch. Made by Yoshii in Japan. 100% cotton. Machine wash cold, no bleach or fabric softener, hang dry or tumble low. Bath Towel (L): 25\" L x 51\" W","url":"https://ghosttownranch.com/products/yoshii-two-tone-chambray-bath-towel-black/","brand":{"@type":"Brand","name":"Yoshii"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"48.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/yoshii-two-tone-chambray-bath-towel-black/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot_2026-10-25_043136.png?v=1792928015","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot_2026-10-25_043202.png?v=1792928011","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot_2026-10-25_043151.png?v=1792928013"],"category":"Bath"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ghost Town Ranch","item":"https://ghosttownranch.com/"},{"@type":"ListItem","position":2,"name":"Shop","item":"https://ghosttownranch.com/shop/"},{"@type":"ListItem","position":3,"name":"YOSHII · Two-Tone Chambray Bath Towel, Black","item":"https://ghosttownranch.com/products/yoshii-two-tone-chambray-bath-towel-black/"}]}</script>
 </head>
 <body>
@@ -1226,7 +1226,7 @@ async function fetchProduct(handle) {
 
 // Guest Ranch makers: anything not made by Ghost Town Ranch is credited to its maker
 // and never carries GTR's formula badges.
-const MAKER_BY_HANDLE_PREFIX = { 'henson-shaving': 'Henson Shaving', 'kontex-': 'Kontex', 'yoshii-': 'Yoshii', 'shinto-': 'Shinto', 'kizara-': 'Kizara', 'elisa-johnson-': 'Elisa Johnson' };
+const MAKER_BY_HANDLE_PREFIX = { 'henson-shaving': 'Henson Shaving', 'kontex-': 'Kontex', 'yoshii-': 'Yoshii', 'shinto-': 'Shinto', 'kizara-': 'Kizara', 'elisa-johnson-': 'Elisa Johnson', 'filt-': 'Filt' };
 function makerName(product) {
   for (const k in MAKER_BY_HANDLE_PREFIX) if ((product.handle || '').startsWith(k)) return MAKER_BY_HANDLE_PREFIX[k];
   const v = (product.vendor || '').trim();
