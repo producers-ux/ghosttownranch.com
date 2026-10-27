@@ -458,6 +458,15 @@
   .gk-add:hover { background:var(--army,#5D643A); }
   .gk-add[disabled] { opacity:.55; cursor:default; }
   .gp-media:hover img { transform:scale(1.03); }
+  .gp-grid#gp-grid { grid-template-columns:repeat(4,1fr); gap:56px 24px; }
+  @media (max-width:1200px) and (min-width:901px){ .gp-grid#gp-grid { grid-template-columns:repeat(2,1fr); } }
+  .gp-list li.gk-from { font-size:10.5px; letter-spacing:0.22em; text-transform:uppercase; color:var(--stone,#6E716C); padding:14px 0 6px; }
+  .gp-list li.gk-from:first-child { padding-top:9px; }
+  .gp-list li.gk-from.gr { color:var(--army,#5D643A); }
+  .gk-guide { justify-content:center; gap:0; padding:28px; background:#ECEDEA; }
+  .gk-guide .road-label { margin-bottom:14px; }
+  .gk-guide a:not(.gp-more) { font-family:var(--serif); font-size:22px; line-height:1.2; color:var(--ink); text-decoration:none; padding:8px 0; border-bottom:1px solid var(--dust); }
+  .gk-guide a:not(.gp-more):hover { color:var(--army,#5D643A); }
   .gp-story { position:absolute; left:10px; bottom:10px; font-family:'Jost',sans-serif; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#F6F6F3; background:rgba(20,20,20,0.45); padding:4px 8px; }
   .gp-maker { margin-top:14px; font-family:'Jost',sans-serif; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--army); }
   .gp-name { display:flex; justify-content:space-between; gap:12px; margin-top:4px; font-family:var(--serif); font-size:22px; line-height:1.15; color:inherit; text-decoration:none; }
@@ -971,7 +980,7 @@
     <div>
       <div class="road-label">The Gift Guide</div>
       <h2 class="road-title">Gifts from the <em>ranch.</em></h2>
-      <p class="road-cast">A kit for everyone on your list. Our own formulas, tools and horn goods, all marked with the Bull.</p>
+      <p class="road-cast">A kit for everyone on your list. Our own on one side, a few finds from Guest Ranch on the other.</p>
     </div>
     <a class="road-ig" href="/gifts/">The full guide &rarr;</a>
   </div>
@@ -1159,23 +1168,18 @@
     });
   });
 </script>
+<script src="/gifts/kits.js"></script>
 <script>
 (function () {
-  // Gift Guide kits. Each links to its kit on /gifts/. Prices and the one-tap add load live from Shopify.
-  var KITS = [
-    { id: 'kit-road', label: 'The Road', line: 'For the one who takes the long way.', img: '/media/collection-out-the-door.jpg', pos: '50% 50%',
-      items: [['day-ride-bag','Day Ride'], ['gtr-lip-butter','Lip Butter'], ['gtr-touch-up-blotting-paper','Blotting Papers'], ['still-air-natural-roll-on-deodorant1','Still Air'], ['microbiome-prebiotics-face-mist-1','Mojave Reset'], [null,'Shoehorn Keyring']] },
-    { id: 'kit-night', label: 'Lights Out', line: 'For the one who needs a night in.', img: '/media/lightsout.jpg', pos: '50% 62%',
-      items: [['the-soak-lights-out','The Soak'], ['trail-light-travel-soy-candle','Trail Light'], ['the-kiss-lip-mask-7-pcs','The Kiss'], ['anti-age-hydrogel-eye-patches-7-pcs','The Lookout']] },
-    { id: 'kit-hair', label: 'Hair + Scalp', line: 'For the one with the good hair.', img: '/media/drycreek.jpg', pos: '50% 25%',
-      items: [['outlaws-reserve-2-in-1-hair-skin-rinse','Outlaw’s Reserve'], ['rosemary-hair-scalp-strengthening-oil','Rosemary Mint Revive'], ['keratin-shine-leave-in-hair-mist','Trail’s End'], ['quick-refresh-dry-shampoo-spray-1','Dry Creek'], [null,'Horn Hair Brush']] },
-    { id: 'kit-host', label: 'The Host', line: 'For the house everyone ends up at.', img: '/media/washhouse-sink.jpg', pos: '50% 55%',
-      items: [['the-still-amber-glass-reed-diffuser','The Still'], ['sunbroke-the-wash-cold-pressed-grapefruit','The Wash'], ['silk-skin-hand-cream-spices-sandalwood','Silk Skin'], ['sustainable-sink-tray','Sink Tray']] },
-    { id: 'kit-shave', label: 'The Shave', line: 'For the one with the beard.', img: '/media/road-beardbutter.jpg', pos: '50% 35%',
-      items: [['wash-then-butter','Wash, Then Butter'], ['gtr-precision-tweezers','Precision Tweezers'], [null,'Horn Comb'], [null,'Horn Bowl']] },
-    { id: 'kit-cold', label: 'Cold Night', line: 'For the one who runs cold.', img: '/media/monument.jpg', pos: '60% 50%',
-      items: [['the-monument-candle','The Monument'], ['omega-6-9-glowing-skin-body-oil','Golden Hour'], ['the-soak-lights-out','The Soak'], ['ranch-water-body-room-fragrance','Ranch Water']] }
-  ];
+  // Gift Guide kits come from /gifts/kits.js, the same list /gifts/ reads, so the two always match.
+  // Each card links to its kit on /gifts/. Prices and the one-tap add load live from Shopify.
+  var KITS = (window.GTR_KITS || []).map(function (k) {
+    var m = k.media.match(/poster="([^"]+)"/) || k.media.match(/<img[^>]*src="([^"]+)"/);
+    var fit = (k.media.match(/object-fit:\s*(\w+)/) || [])[1];
+    var bg = (k.mediaStyle.match(/background:\s*([^;]+)/) || [])[1];
+    return { id: k.id, label: k.label, line: k.title.replace(/<[^>]+>/g, ''), img: m ? m[1].replace(/&amp;/g, '&') : '', fit: fit, bg: bg,
+      items: k.items.map(function (i) { return [i.h, i.name, i.from]; }) };
+  });
   var grid = document.getElementById('gp-grid'); if (!grid) return;
   var LIVE = {};
   function esc(x) { return String(x == null ? '' : x).replace(/[&<>"']/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
@@ -1184,20 +1188,26 @@
   function render() {
     grid.innerHTML = KITS.map(function (k) {
       var href = '/gifts/#' + k.id, total = 0, n = 0;
-      var lis = k.items.map(function (it) {
+      function row(it) {
         if (!it[0]) return '<li><a href="/shop/#dry-goods">' + esc(it[1]) + '</a><span class="p">Soon</span></li>';
         var p = LIVE[it[0]], v = variant(it[0]);
         if (v) { total += parseFloat(v.price.amount); n++; }
         var pr = p === undefined ? '' : (v ? money(v.price.amount) : 'Sold out');
         return '<li><a href="/products/' + esc(it[0]) + '/">' + esc(it[1]) + '</a><span class="p">' + pr + '</span></li>';
-      }).join('');
+      }
+      var ours = k.items.filter(function (it) { return it[2] !== 'gr'; }), gr = k.items.filter(function (it) { return it[2] === 'gr'; });
+      var lis = (ours.length ? '<li class="gk-from">Ghost Town Ranch</li>' + ours.map(row).join('') : '') +
+                (gr.length ? '<li class="gk-from gr">Guest Ranch</li>' + gr.map(row).join('') : '');
       return '<div class="gp-card">' +
         '<a class="gp-media" href="' + href + '"' + (k.bg ? ' style="background:' + esc(k.bg) + '"' : '') + '><img src="' + esc(k.img) + '" alt="' + esc(k.label) + ' gift kit" loading="lazy" style="' + (k.fit ? 'object-fit:' + k.fit + ';' : '') + (k.pos ? 'object-position:' + k.pos : '') + '"><span class="gp-story">' + esc(k.label) + '</span></a>' +
         '<a class="gp-name" href="' + href + '">' + esc(k.line) + '</a>' +
         '<ul class="gp-list">' + lis + '</ul>' +
         '<div class="gk-foot"><span class="gk-total">' + (n ? n + ' pieces &middot; <b>' + money(total) + '</b>' : '') + '</span>' +
         (n ? '<button class="gk-add" type="button" data-kit="' + esc(k.id) + '">Add the kit</button>' : '<a class="gp-more" href="' + href + '">See the kit &rarr;</a>') + '</div></div>';
-    }).join('');
+    }).join('') +
+      '<div class="gp-card gk-guide"><div class="road-label">The full guide</div>' +
+      '<a href="/gifts/#sets">Ready to give</a><a href="/gifts/#under-30">$30 and under</a><a href="/gifts/#under-75">Under $75</a><a href="/gifts/#the-big-ones">The big ones</a>' +
+      '<a class="gp-more" href="/gifts/">See the guide &rarr;</a></div>';
   }
   grid.addEventListener('click', function (ev) {
     var btn = ev.target.closest('.gk-add'); if (!btn || btn.disabled || !window.GTRCart) return;

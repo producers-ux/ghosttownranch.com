@@ -185,6 +185,14 @@
     .kit-name small{ display:block; font-family:var(--sans); font-size:11.5px; letter-spacing:0.04em; color:#666865; text-transform:uppercase; margin-top:2px; }
     .kit-p{ font-size:13.5px; }
     .kit-p.out{ color:#9A9C98; }
+    .kit-split{ margin-top:24px; }
+    .kit-split.two{ display:grid; grid-template-columns:1fr 1fr; gap:0 28px; }
+    .kit-from{ font-size:10.5px; letter-spacing:0.22em; text-transform:uppercase; color:#666865; padding-bottom:8px; }
+    .kit-split .kit-items{ margin-top:0; }
+    .kit-split.two .kit-items a{ grid-template-columns:44px 1fr auto; gap:12px; }
+    .kit-split.two .kit-thumb{ width:44px; height:44px; }
+    .kit-split.two .kit-col + .kit-col .kit-from{ color:var(--army); }
+    @media (max-width:640px){ .kit-split.two{ grid-template-columns:1fr; gap:22px; } }
     .kit-foot{ display:flex; align-items:center; justify-content:space-between; gap:16px; margin-top:22px; flex-wrap:wrap; }
     .kit-total{ font-size:13.5px; color:#444644; }
     .kit-total b{ font-weight:500; color:var(--ink); }
@@ -239,76 +247,24 @@
         <h2 class="sec-title">Who it's for</h2>
         <p class="sec-note">A kit for each person on your list. Add the whole thing in one go, or pick the pieces.</p>
       </div>
-      <article class="kit" id="kit-road">
-        <div class="kit-media"><img src="/guest-ranch/last-gas-glovebox.jpg" alt="A glovebox lit at night, a bottle and sunglasses inside" loading="lazy"></div>
-        <div class="kit-body">
-          <div class="kit-label">The Road</div>
-          <h3 class="kit-title">For the one who takes the long way.</h3>
-          <p class="kit-copy">Everything fits in the Day Ride, and the Day Ride fits in the glovebox. Lips, face, the long drive and the motel after.</p>
-          <ul class="kit-items"><li data-handle="day-ride-bag"><a href="/products/day-ride-bag/"><span class="kit-thumb"></span><span class="kit-name">Day Ride<small>Padded zipper bag</small></span><span class="kit-p">$30</span></a></li><li data-handle="gtr-lip-butter"><a href="/products/gtr-lip-butter/"><span class="kit-thumb"></span><span class="kit-name">Lip Butter<small>Plant oils in a tin</small></span><span class="kit-p">$24</span></a></li><li data-handle="gtr-touch-up-blotting-paper"><a href="/products/gtr-touch-up-blotting-paper/"><span class="kit-thumb"></span><span class="kit-name">Blotting Papers<small>For the road</small></span><span class="kit-p">$18</span></a></li><li data-handle="still-air-natural-roll-on-deodorant1"><a href="/products/still-air-natural-roll-on-deodorant1/"><span class="kit-thumb"></span><span class="kit-name">Still Air<small>Natural deodorant</small></span><span class="kit-p"></span></a></li><li data-handle="microbiome-prebiotics-face-mist-1"><a href="/products/microbiome-prebiotics-face-mist-1/"><span class="kit-thumb"></span><span class="kit-name">Mojave Reset<small>Cooling face mist</small></span><span class="kit-p"></span></a></li><li data-handle="kizara-wood-sheet-memo-pad-small"><a href="/products/kizara-wood-sheet-memo-pad-small/"><span class="kit-thumb"></span><span class="kit-name">Wood Sheet Memo Pad<small>Kizara · Japanese red pine</small></span><span class="kit-p"></span></a></li></ul>
-          <div class="kit-foot"><span class="kit-total"></span><button class="kit-add" type="button">Add the kit to bag</button></div>
-        </div>
-      </article>
-      <article class="kit" id="kit-night">
-        <div class="kit-media"><img src="/media/lightsout.jpg" alt="A hand opening a jar of The Soak bath salts at the edge of a bath" loading="lazy"></div>
-        <div class="kit-body">
-          <div class="kit-label">Lights Out</div>
-          <h3 class="kit-title">For the one who needs a night in.</h3>
-          <p class="kit-copy">Bath drawn, phone in the other room. The candle does the rest.</p>
-          <ul class="kit-items"><li data-handle="the-soak-lights-out"><a href="/products/the-soak-lights-out/"><span class="kit-thumb"></span><span class="kit-name">The Soak<small>Bath salts, Lights Out</small></span><span class="kit-p">$38</span></a></li><li data-handle="trail-light-travel-soy-candle"><a href="/products/trail-light-travel-soy-candle/"><span class="kit-thumb"></span><span class="kit-name">Trail Light<small>Travel candle</small></span><span class="kit-p">$28</span></a></li><li data-handle="the-kiss-lip-mask-7-pcs"><a href="/products/the-kiss-lip-mask-7-pcs/"><span class="kit-thumb"></span><span class="kit-name">The Kiss<small>Lip mask, 7 pieces</small></span><span class="kit-p"></span></a></li><li data-handle="anti-age-hydrogel-eye-patches-7-pcs"><a href="/products/anti-age-hydrogel-eye-patches-7-pcs/"><span class="kit-thumb"></span><span class="kit-name">The Lookout<small>Eye masks, 14 pieces</small></span><span class="kit-p"></span></a></li></ul>
-          <div class="kit-foot"><span class="kit-total"></span><button class="kit-add" type="button">Add the kit to bag</button></div>
-        </div>
-      </article>
-      <article class="kit" id="kit-hair">
-        <div class="kit-media"><video src="/media/drycreek.mp4" poster="/media/drycreek.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Dry Creek dry shampoo mist, used in a vintage car outside a desert diner"></video></div>
-        <div class="kit-body">
-          <div class="kit-label">Hair + Scalp</div>
-          <h3 class="kit-title">For the one with the good hair.</h3>
-          <p class="kit-copy">Wash day, the days between, and the scalp under it all. Rosemary and mint for the roots, a little shine for the ends, and dry shampoo for the motel with bad water pressure.</p>
-          <ul class="kit-items"><li data-handle="outlaws-reserve-2-in-1-hair-skin-rinse"><a href="/products/outlaws-reserve-2-in-1-hair-skin-rinse/"><span class="kit-thumb"></span><span class="kit-name">Outlaw's Reserve<small>2-in-1 hair + body wash</small></span><span class="kit-p"></span></a></li><li data-handle="rosemary-hair-scalp-strengthening-oil"><a href="/products/rosemary-hair-scalp-strengthening-oil/"><span class="kit-thumb"></span><span class="kit-name">Rosemary Mint Revive<small>Hair + scalp oil</small></span><span class="kit-p"></span></a></li><li data-handle="keratin-shine-leave-in-hair-mist"><a href="/products/keratin-shine-leave-in-hair-mist/"><span class="kit-thumb"></span><span class="kit-name">Trail's End<small>Keratin leave-in shine</small></span><span class="kit-p"></span></a></li><li data-handle="quick-refresh-dry-shampoo-spray-1"><a href="/products/quick-refresh-dry-shampoo-spray-1/"><span class="kit-thumb"></span><span class="kit-name">Dry Creek<small>Fine mist dry shampoo</small></span><span class="kit-p"></span></a></li></ul>
-          <div class="kit-foot"><span class="kit-total"></span><button class="kit-add" type="button">Add the kit to bag</button></div>
-        </div>
-      </article>
-      <article class="kit" id="kit-host">
-        <div class="kit-media"><img src="/media/washhouse-sink.jpg" alt="Two women at a long concrete sink in a desert wash house" loading="lazy"></div>
-        <div class="kit-body">
-          <div class="kit-label">The Host</div>
-          <h3 class="kit-title">For the house everyone ends up at.</h3>
-          <p class="kit-copy">A gift for the house, used by everyone who comes through it. Set it out by the sink and on the shelf, and it smells like the ranch.</p>
-          <ul class="kit-items"><li data-handle="the-still-amber-glass-reed-diffuser"><a href="/products/the-still-amber-glass-reed-diffuser/"><span class="kit-thumb"></span><span class="kit-name">The Still<small>Reed diffuser, six scents</small></span><span class="kit-p">$68</span></a></li><li data-handle="sunbroke-the-wash-cold-pressed-grapefruit"><a href="/products/sunbroke-the-wash-cold-pressed-grapefruit/"><span class="kit-thumb"></span><span class="kit-name">The Wash<small>Hand wash</small></span><span class="kit-p"></span></a></li><li data-handle="silk-skin-hand-cream-spices-sandalwood"><a href="/products/silk-skin-hand-cream-spices-sandalwood/"><span class="kit-thumb"></span><span class="kit-name">Silk Skin<small>Hand cream</small></span><span class="kit-p">$46</span></a></li><li data-handle="sustainable-sink-tray"><a href="/products/sustainable-sink-tray/"><span class="kit-thumb"></span><span class="kit-name">Sink Tray<small>Plant-based, handmade</small></span><span class="kit-p"></span></a></li></ul>
-          <div class="kit-foot"><span class="kit-total"></span><button class="kit-add" type="button">Add the kit to bag</button></div>
-        </div>
-      </article>
-      <article class="kit" id="kit-shave">
-        <div class="kit-media"><img src="/media/road-beardbutter.jpg" alt="A fingertip of Beard Butter at a concrete sink" loading="lazy"></div>
-        <div class="kit-body">
-          <div class="kit-label">The Shave</div>
-          <h3 class="kit-title">For the one with the beard.</h3>
-          <p class="kit-copy">Four hundred miles on the face and one sink. Wash, butter, a clean edge, and a towel that dries before the next stop.</p>
-          <ul class="kit-items"><li data-handle="wash-then-butter"><a href="/products/wash-then-butter/"><span class="kit-thumb"></span><span class="kit-name">Wash, Then Butter<small>Beard Wash + Beard Butter</small></span><span class="kit-p">$68</span></a></li><li data-handle="henson-shaving-al13-v2-mild-safety-razor"><a href="/products/henson-shaving-al13-v2-mild-safety-razor/"><span class="kit-thumb"></span><span class="kit-name">AL13 Safety Razor<small>Henson Shaving</small></span><span class="kit-p">$69.99</span></a></li><li data-handle="gtr-precision-tweezers"><a href="/products/gtr-precision-tweezers/"><span class="kit-thumb"></span><span class="kit-name">Precision Tweezers<small>The Bull in olive</small></span><span class="kit-p">$22</span></a></li><li data-handle="yoshii-two-tone-chambray-hand-towel-in-black-ghost-town-ranch"><a href="/products/yoshii-two-tone-chambray-hand-towel-in-black-ghost-town-ranch/"><span class="kit-thumb"></span><span class="kit-name">Chambray Hand Towel<small>Yoshii · Two-tone black</small></span><span class="kit-p">$22</span></a></li></ul>
-          <div class="kit-foot"><span class="kit-total"></span><button class="kit-add" type="button">Add the kit to bag</button></div>
-        </div>
-      </article>
-      <article class="kit" id="kit-cold">
-        <div class="kit-media" style="background:#EEEEEE"><img src="/guest-ranch/casamera-waffle-robe-tight.jpg" alt="Casamera waffle cotton bathrobe with hood" loading="lazy" style="object-fit:contain"></div>
-        <div class="kit-body">
-          <div class="kit-label">Cold Night</div>
-          <h3 class="kit-title">For the one who runs cold.</h3>
-          <p class="kit-copy">The desert drops forty degrees after dark. Robe on, slippers on, the throw over the knees, and oil on the skin the wind took.</p>
-          <ul class="kit-items"><li data-handle="the-bathrobe"><a href="/products/the-bathrobe/"><span class="kit-thumb"></span><span class="kit-name">The Bathrobe<small>Casamera · Waffle cotton</small></span><span class="kit-p"></span></a></li><li data-handle="the-house-slipper"><a href="/products/the-house-slipper/"><span class="kit-thumb"></span><span class="kit-name">The House Slipper<small>Casamera</small></span><span class="kit-p"></span></a></li><li data-handle="blacksaw-peyote-reversible-throw"><a href="/products/blacksaw-peyote-reversible-throw/"><span class="kit-thumb"></span><span class="kit-name">Peyote Throw<small>Blacksaw · Baby alpaca</small></span><span class="kit-p"></span></a></li><li data-handle="omega-6-9-glowing-skin-body-oil"><a href="/products/omega-6-9-glowing-skin-body-oil/"><span class="kit-thumb"></span><span class="kit-name">Golden Hour<small>Body oil</small></span><span class="kit-p"></span></a></li></ul>
-          <div class="kit-foot"><span class="kit-total"></span><button class="kit-add" type="button">Add the kit to bag</button></div>
-        </div>
-      </article>
-      <article class="kit" id="kit-wash-house">
-        <div class="kit-media" style="background:#EDEDEA"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot_2026-10-25_043151.png?v=1792928013&amp;width=1200" alt="Yoshii two-tone chambray towels in black, stacked" loading="lazy" style="object-fit:cover"></div>
-        <div class="kit-body">
-          <div class="kit-label">Wash House</div>
-          <h3 class="kit-title">For the one who takes <em>the long bath.</em></h3>
-          <p class="kit-copy">The Plunge to start it, The Soak to settle it, a charcoal puff for the face, a stack of Japanese chambray towels and a riverbed of a mat underfoot. The bathroom, done in one go.</p>
-          <ul class="kit-items"><li data-handle="yoshii-two-tone-chambray-towel-set-black"><a href="/products/yoshii-two-tone-chambray-towel-set-black/"><span class="kit-thumb"></span><span class="kit-name">Chambray Towel Set<small>Yoshii · Bath, hand, wash</small></span><span class="kit-p"></span></a></li><li data-handle="yoshii-ishikoro-pebble-bath-mat"><a href="/products/yoshii-ishikoro-pebble-bath-mat/"><span class="kit-thumb"></span><span class="kit-name">Ishikoro Bath Mat<small>Yoshii · Black or Light Grey</small></span><span class="kit-p"></span></a></li><li data-handle="the-soak-lights-out"><a href="/products/the-soak-lights-out/"><span class="kit-thumb"></span><span class="kit-name">The Soak<small>Bath salt, Lights Out</small></span><span class="kit-p"></span></a></li><li data-handle="the-plunge-salt-moon-bath-bomb-set-of-3"><a href="/products/the-plunge-salt-moon-bath-bomb-set-of-3/"><span class="kit-thumb"></span><span class="kit-name">The Plunge<small>Bath bomb set of 3</small></span><span class="kit-p"></span></a></li><li data-handle="morihata-binchotan-charcoal-facial-puff"><a href="/products/morihata-binchotan-charcoal-facial-puff/"><span class="kit-thumb"></span><span class="kit-name">Charcoal Facial Puff<small>Morihata · Binchotan + konjac</small></span><span class="kit-p"></span></a></li></ul>
-          <div class="kit-foot"><span class="kit-total"></span><button class="kit-add" type="button">Add the kit to bag</button></div>
-        </div>
-      </article>
+      <div id="kits"></div>
+      <script src="/gifts/kits.js"></script>
+      <script>
+      (function () {
+        // Kits come from /gifts/kits.js, the same list the home page reads. Our own on the left, Guest Ranch on the right.
+        function esc(x) { return String(x == null ? '' : x).replace(/[&<>"']/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
+        function li(i) { return '<li data-handle="' + esc(i.h) + '"><a href="/products/' + esc(i.h) + '/"><span class="kit-thumb"></span><span class="kit-name">' + esc(i.name) + '<small>' + esc(i.sub) + '</small></span><span class="kit-p">' + esc(i.p) + '</span></a></li>'; }
+        function col(head, items) { return items.length ? '<div class="kit-col"><div class="kit-from">' + head + '</div><ul class="kit-items">' + items.map(li).join('') + '</ul></div>' : ''; }
+        document.getElementById('kits').outerHTML = (window.GTR_KITS || []).map(function (k) {
+          var ours = k.items.filter(function (i) { return i.from !== 'gr'; }), gr = k.items.filter(function (i) { return i.from === 'gr'; });
+          return '<article class="kit" id="' + esc(k.id) + '">' +
+            '<div class="kit-media"' + (k.mediaStyle ? ' style="' + esc(k.mediaStyle) + '"' : '') + '>' + k.media + '</div>' +
+            '<div class="kit-body"><div class="kit-label">' + esc(k.label) + '</div><h3 class="kit-title">' + k.title + '</h3><p class="kit-copy">' + esc(k.copy) + '</p>' +
+            '<div class="kit-split' + (gr.length && ours.length ? ' two' : '') + '">' + col('Ghost Town Ranch', ours) + col('Guest Ranch', gr) + '</div>' +
+            '<div class="kit-foot"><span class="kit-total"></span><button class="kit-add" type="button">Add the kit to bag</button></div></div></article>';
+        }).join('');
+      })();
+      </script>
     </section>
 
     <div class="by-price"><div class="gift-eyebrow">Or shop by price</div></div>
