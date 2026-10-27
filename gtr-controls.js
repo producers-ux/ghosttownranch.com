@@ -33,7 +33,7 @@
     { t: 'Horn Comb', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn comb hair comb pocket comb beard comb grooming hair tools coming soon abbeyhorn horn cattle horn ox horn handmade england made in england dry goods' },
     { t: 'Horn Hair Brush', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn hair brush hairbrush boar bristle brush grooming hair tools coming soon abbeyhorn horn cattle horn ox horn handmade england made in england dry goods' },
     { t: 'Horn Shoehorn', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn shoehorn shoe horn long shoehorn boots bunkhouse coming soon abbeyhorn horn cattle horn ox horn handmade england made in england dry goods' },
-    { t: 'Horn Valet Tray', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn valet tray catchall catch-all dish square tray keys watch rings bunkhouse coming soon abbeyhorn horn cattle horn ox horn handmade england made in england dry goods' },
+    { t: 'Horn Bowl', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn bowl catchall catch-all dish ring dish valet tray keys watch rings shave bowl shaving bowl lather shave soap bunkhouse coming soon abbeyhorn horn cattle horn ox horn handmade england made in england dry goods' },
     { t: 'Horn Shoehorn Keyring', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn shoehorn keyring key ring keychain key chain mini shoehorn fob gift abbeyhorn horn cattle horn ox horn handmade england made in england dry goods' },
 
     // ── PRODUCTS (generated) ──
