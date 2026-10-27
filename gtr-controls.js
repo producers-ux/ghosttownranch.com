@@ -30,11 +30,11 @@
     { t: 'Partners',        c: 'Trade',         u: '/wholesale/',             k: 'partners wholesale trade stockist retailer line sheet hospitality pop-up pop up collaboration collab private label' },
 
     // Horn pieces (GTR x Abbeyhorn)
-    { t: 'Horn Comb', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn comb hair comb pocket comb beard comb grooming hair tools coming soon abbeyhorn horn cattle horn ox horn handmade england made in england dry goods' },
-    { t: 'Horn Hair Brush', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn hair brush hairbrush boar bristle brush grooming hair tools coming soon abbeyhorn horn cattle horn ox horn handmade england made in england dry goods' },
-    { t: 'Horn Shoehorn', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn shoehorn shoe horn long shoehorn boots bunkhouse coming soon abbeyhorn horn cattle horn ox horn handmade england made in england dry goods' },
+    { t: 'Horn Comb', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn comb hair comb pocket comb beard comb grooming hair tools coming soon abbeyhorn horn cattle horn cow horn handmade england made in england dry goods' },
+    { t: 'Horn Hair Brush', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn hair brush hairbrush boar bristle brush grooming hair tools coming soon abbeyhorn horn cattle horn cow horn handmade england made in england dry goods' },
+    { t: 'Horn Shoehorn', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn shoehorn shoe horn long shoehorn boots bunkhouse coming soon abbeyhorn horn cattle horn cow horn handmade england made in england dry goods' },
     { t: 'Horn Bowl', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn bowl catchall catch-all dish ring dish valet tray keys watch rings shave bowl shaving bowl lather shave soap bunkhouse coming soon abbeyhorn horn cattle horn ox horn handmade england made in england dry goods' },
-    { t: 'Horn Shoehorn Keyring', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn shoehorn keyring key ring keychain key chain mini shoehorn fob gift abbeyhorn horn cattle horn ox horn handmade england made in england dry goods' },
+    { t: 'Horn Shoehorn Keyring', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn shoehorn keyring key ring keychain key chain mini shoehorn fob gift abbeyhorn horn cattle horn cow horn handmade england made in england dry goods' },
 
     // ── PRODUCTS (generated) ──
     { t: "The Lookout Collection", c: "Aloe Hydrogel Eye Patches  ·  $36", u: "/products/anti-age-hydrogel-eye-patches-7-pcs", k: "the lookout collection aloe hydrogel eye patches 7 pairs 14 pcs gold rush under-eye mask puffiness face-care" },
