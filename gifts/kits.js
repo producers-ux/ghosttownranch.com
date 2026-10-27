@@ -160,7 +160,7 @@ window.GTR_KITS = [
   "id": "kit-host",
   "label": "The Host",
   "title": "For the house everyone ends up at.",
-  "copy": "A gift for the house, used by everyone who comes through it. Set it out by the sink and on the shelf, and it smells like the ranch.",
+  "copy": "A gift for the house, used by everyone who comes through it. Set it out by the sink and on the shelf, hang the boot horn by the door, and the place smells like the ranch.",
   "mediaStyle": "",
   "media": "<img src=\"/media/washhouse-sink.jpg\" alt=\"Two women at a long concrete sink in a desert wash house\" loading=\"lazy\">",
   "items": [
@@ -190,6 +190,15 @@ window.GTR_KITS = [
     "name": "Sink Tray",
     "sub": "Plant-based, handmade",
     "p": "",
+    "from": "gtr"
+   },
+   {
+    "h": null,
+    "name": "Boot Horn",
+    "sub": "Horn · Made for GTR in England",
+    "p": "Soon",
+    "img": "/media/horn-shoehorn.jpg",
+    "soon": true,
     "from": "gtr"
    }
   ]
