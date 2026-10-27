@@ -45,6 +45,15 @@ window.GTR_KITS = [
     "from": "gtr"
    },
    {
+    "h": null,
+    "name": "Shoehorn Keyring",
+    "sub": "Horn · Made for GTR in England",
+    "p": "Soon",
+    "img": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/keyringhorn.png?v=1792932286&width=300",
+    "soon": true,
+    "from": "gtr"
+   },
+   {
     "h": "kizara-wood-sheet-memo-pad-small",
     "name": "Wood Sheet Memo Pad",
     "sub": "Kizara · Japanese red pine",
@@ -126,6 +135,15 @@ window.GTR_KITS = [
     "sub": "Fine mist dry shampoo",
     "p": "",
     "from": "gtr"
+   },
+   {
+    "h": null,
+    "name": "Horn Hair Brush",
+    "sub": "Horn + boar bristle · Made for GTR in England",
+    "p": "Soon",
+    "img": "/media/horn-brush.jpg",
+    "soon": true,
+    "from": "gtr"
    }
   ]
  },
@@ -171,7 +189,7 @@ window.GTR_KITS = [
   "id": "kit-shave",
   "label": "The Shave",
   "title": "For the one with the beard.",
-  "copy": "Four hundred miles on the face and one sink. Wash, butter, a clean edge, and a towel that dries before the next stop.",
+  "copy": "Four hundred miles on the face and one sink. Wash, butter, a clean edge, a horn comb, and a towel that dries before the next stop.",
   "mediaStyle": "",
   "media": "<img src=\"/media/road-beardbutter.jpg\" alt=\"A fingertip of Beard Butter at a concrete sink\" loading=\"lazy\">",
   "items": [
@@ -188,6 +206,24 @@ window.GTR_KITS = [
     "sub": "Henson Shaving",
     "p": "$69.99",
     "from": "gr"
+   },
+   {
+    "h": null,
+    "name": "Horn Comb",
+    "sub": "Horn · Made for GTR in England",
+    "p": "Soon",
+    "img": "/media/horn-comb.jpg",
+    "soon": true,
+    "from": "gtr"
+   },
+   {
+    "h": null,
+    "name": "Horn Bowl",
+    "sub": "Shave bowl or ring dish",
+    "p": "Soon",
+    "img": "/media/horn-bowl.jpg?v=2",
+    "soon": true,
+    "from": "gtr"
    },
    {
     "h": "gtr-precision-tweezers",
@@ -209,10 +245,17 @@ window.GTR_KITS = [
   "id": "kit-cold",
   "label": "Cold Night",
   "title": "For the one who runs cold.",
-  "copy": "The desert drops forty degrees after dark. Robe on, slippers on, the throw over the knees, and oil on the skin the wind took.",
+  "copy": "The desert drops forty degrees after dark. The Monument lit, a hot bath with The Soak, robe and slippers on, the throw over the knees, and oil on the skin the wind took.",
   "mediaStyle": "background:#EEEEEE",
   "media": "<img src=\"/guest-ranch/casamera-waffle-robe-tight.jpg\" alt=\"Casamera waffle cotton bathrobe with hood\" loading=\"lazy\" style=\"object-fit:contain\">",
   "items": [
+   {
+    "h": "the-monument-candle",
+    "name": "The Monument",
+    "sub": "Four-wick coconut soy candle",
+    "p": "$190",
+    "from": "gtr"
+   },
    {
     "h": "the-bathrobe",
     "name": "The Bathrobe",
@@ -239,6 +282,20 @@ window.GTR_KITS = [
     "name": "Golden Hour",
     "sub": "Body oil",
     "p": "",
+    "from": "gtr"
+   },
+   {
+    "h": "the-soak-lights-out",
+    "name": "The Soak",
+    "sub": "Bath salts, Lights Out",
+    "p": "$38",
+    "from": "gtr"
+   },
+   {
+    "h": "ranch-water-body-room-fragrance",
+    "name": "Ranch Water",
+    "sub": "Body + room fragrance",
+    "p": "$88",
     "from": "gtr"
    }
   ]

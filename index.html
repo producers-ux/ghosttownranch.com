@@ -1189,7 +1189,7 @@
     grid.innerHTML = KITS.map(function (k) {
       var href = '/gifts/#' + k.id, total = 0, n = 0;
       function row(it) {
-        if (!it[0]) return '<li><a href="/shop/#dry-goods">' + esc(it[1]) + '</a><span class="p">Soon</span></li>';
+        if (!it[0]) return '<li><a href="/#coming-spring">' + esc(it[1]) + '</a><span class="p">Soon</span></li>';
         var p = LIVE[it[0]], v = variant(it[0]);
         if (v) { total += parseFloat(v.price.amount); n++; }
         var pr = p === undefined ? '' : (v ? money(v.price.amount) : 'Sold out');
