@@ -104,7 +104,7 @@ window.GTR_KITS = [
   "id": "kit-hair",
   "label": "Hair + Scalp",
   "title": "For the one with the good hair.",
-  "copy": "Wash day, the days between, and the scalp under it all. Rosemary and mint for the roots, a little shine for the ends, and dry shampoo for the motel with bad water pressure.",
+  "copy": "Wash day, the days between, and the scalp under it all. Rosemary and mint for the roots, a little shine for the ends, dry shampoo for the motel with bad water pressure, and a horn comb and brush, marked with the Bull.",
   "mediaStyle": "",
   "media": "<video src=\"/media/drycreek.mp4\" poster=\"/media/drycreek.jpg\" autoplay muted loop playsinline preload=\"metadata\" aria-label=\"Dry Creek dry shampoo mist, used in a vintage car outside a desert diner\"></video>",
   "items": [
@@ -134,6 +134,15 @@ window.GTR_KITS = [
     "name": "Dry Creek",
     "sub": "Fine mist dry shampoo",
     "p": "",
+    "from": "gtr"
+   },
+   {
+    "h": null,
+    "name": "Horn Comb",
+    "sub": "Horn · Made for GTR in England",
+    "p": "Soon",
+    "img": "/media/horn-comb.jpg",
+    "soon": true,
     "from": "gtr"
    },
    {
@@ -189,7 +198,7 @@ window.GTR_KITS = [
   "id": "kit-shave",
   "label": "The Shave",
   "title": "For the one with the beard.",
-  "copy": "Four hundred miles on the face and one sink. Wash, butter, a clean edge, a horn comb, and a towel that dries before the next stop.",
+  "copy": "Four hundred miles on the face and one sink. Wash, butter, a clean edge, a horn bowl, and a towel that dries before the next stop.",
   "mediaStyle": "",
   "media": "<img src=\"/media/road-beardbutter.jpg\" alt=\"A fingertip of Beard Butter at a concrete sink\" loading=\"lazy\">",
   "items": [
@@ -206,15 +215,6 @@ window.GTR_KITS = [
     "sub": "Henson Shaving",
     "p": "$69.99",
     "from": "gr"
-   },
-   {
-    "h": null,
-    "name": "Horn Comb",
-    "sub": "Horn · Made for GTR in England",
-    "p": "Soon",
-    "img": "/media/horn-comb.jpg",
-    "soon": true,
-    "from": "gtr"
    },
    {
     "h": null,
