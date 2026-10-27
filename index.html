@@ -971,7 +971,7 @@
     <div>
       <div class="road-label">The Gift Guide</div>
       <h2 class="road-title">Gifts from the <em>ranch.</em></h2>
-      <p class="road-cast">A kit for everyone on your list. Our own formulas and tools, with dry goods from the makers we host on Guest Ranch.</p>
+      <p class="road-cast">A kit for everyone on your list. Our own formulas, tools and horn goods, all marked with the Bull.</p>
     </div>
     <a class="road-ig" href="/gifts/">The full guide &rarr;</a>
   </div>
@@ -1163,18 +1163,18 @@
 (function () {
   // Gift Guide kits. Each links to its kit on /gifts/. Prices and the one-tap add load live from Shopify.
   var KITS = [
-    { id: 'kit-road', label: 'The Road', line: 'For the one who takes the long way.', img: '/guest-ranch/last-gas-glovebox.jpg',
-      items: [['day-ride-bag','Day Ride'], ['gtr-lip-butter','Lip Butter'], ['gtr-touch-up-blotting-paper','Blotting Papers'], ['still-air-natural-roll-on-deodorant1','Still Air'], ['microbiome-prebiotics-face-mist-1','Mojave Reset'], ['kizara-wood-sheet-memo-pad-small','Memo Pad · Kizara']] },
+    { id: 'kit-road', label: 'The Road', line: 'For the one who takes the long way.', img: '/media/collection-out-the-door.jpg', pos: '50% 50%',
+      items: [['day-ride-bag','Day Ride'], ['gtr-lip-butter','Lip Butter'], ['gtr-touch-up-blotting-paper','Blotting Papers'], ['still-air-natural-roll-on-deodorant1','Still Air'], ['microbiome-prebiotics-face-mist-1','Mojave Reset'], [null,'Shoehorn Keyring']] },
     { id: 'kit-night', label: 'Lights Out', line: 'For the one who needs a night in.', img: '/media/lightsout.jpg', pos: '50% 62%',
       items: [['the-soak-lights-out','The Soak'], ['trail-light-travel-soy-candle','Trail Light'], ['the-kiss-lip-mask-7-pcs','The Kiss'], ['anti-age-hydrogel-eye-patches-7-pcs','The Lookout']] },
     { id: 'kit-hair', label: 'Hair + Scalp', line: 'For the one with the good hair.', img: '/media/drycreek.jpg', pos: '50% 25%',
-      items: [['outlaws-reserve-2-in-1-hair-skin-rinse','Outlaw’s Reserve'], ['rosemary-hair-scalp-strengthening-oil','Rosemary Mint Revive'], ['keratin-shine-leave-in-hair-mist','Trail’s End'], ['quick-refresh-dry-shampoo-spray-1','Dry Creek']] },
+      items: [['outlaws-reserve-2-in-1-hair-skin-rinse','Outlaw’s Reserve'], ['rosemary-hair-scalp-strengthening-oil','Rosemary Mint Revive'], ['keratin-shine-leave-in-hair-mist','Trail’s End'], ['quick-refresh-dry-shampoo-spray-1','Dry Creek'], [null,'Horn Hair Brush']] },
     { id: 'kit-host', label: 'The Host', line: 'For the house everyone ends up at.', img: '/media/washhouse-sink.jpg', pos: '50% 55%',
       items: [['the-still-amber-glass-reed-diffuser','The Still'], ['sunbroke-the-wash-cold-pressed-grapefruit','The Wash'], ['silk-skin-hand-cream-spices-sandalwood','Silk Skin'], ['sustainable-sink-tray','Sink Tray']] },
     { id: 'kit-shave', label: 'The Shave', line: 'For the one with the beard.', img: '/media/road-beardbutter.jpg', pos: '50% 35%',
-      items: [['wash-then-butter','Wash, Then Butter'], ['henson-shaving-al13-v2-mild-safety-razor','AL13 Safety Razor · Henson'], ['gtr-precision-tweezers','Precision Tweezers'], ['yoshii-two-tone-chambray-hand-towel-in-black-ghost-town-ranch','Chambray Hand Towel · Yoshii']] },
-    { id: 'kit-cold', label: 'Cold Night', line: 'For the one who runs cold.', img: '/guest-ranch/casamera-waffle-robe-tight.jpg', fit: 'contain', bg: '#EEEEEE',
-      items: [['the-bathrobe','The Bathrobe · Casamera'], ['the-house-slipper','The House Slipper · Casamera'], ['blacksaw-peyote-reversible-throw','Peyote Throw · Blacksaw'], ['omega-6-9-glowing-skin-body-oil','Golden Hour']] }
+      items: [['wash-then-butter','Wash, Then Butter'], ['gtr-precision-tweezers','Precision Tweezers'], [null,'Horn Comb'], [null,'Horn Bowl']] },
+    { id: 'kit-cold', label: 'Cold Night', line: 'For the one who runs cold.', img: '/media/monument.jpg', pos: '60% 50%',
+      items: [['the-monument-candle','The Monument'], ['omega-6-9-glowing-skin-body-oil','Golden Hour'], ['the-soak-lights-out','The Soak'], ['ranch-water-body-room-fragrance','Ranch Water']] }
   ];
   var grid = document.getElementById('gp-grid'); if (!grid) return;
   var LIVE = {};
@@ -1185,6 +1185,7 @@
     grid.innerHTML = KITS.map(function (k) {
       var href = '/gifts/#' + k.id, total = 0, n = 0;
       var lis = k.items.map(function (it) {
+        if (!it[0]) return '<li><a href="/shop/#dry-goods">' + esc(it[1]) + '</a><span class="p">Soon</span></li>';
         var p = LIVE[it[0]], v = variant(it[0]);
         if (v) { total += parseFloat(v.price.amount); n++; }
         var pr = p === undefined ? '' : (v ? money(v.price.amount) : 'Sold out');
@@ -1201,7 +1202,7 @@
   grid.addEventListener('click', function (ev) {
     var btn = ev.target.closest('.gk-add'); if (!btn || btn.disabled || !window.GTRCart) return;
     var k = KITS.filter(function (x) { return x.id === btn.getAttribute('data-kit'); })[0];
-    var ids = k.items.map(function (it) { return variant(it[0]); }).filter(Boolean).map(function (v) { return v.id.split('/').pop(); });
+    var ids = k.items.map(function (it) { return it[0] ? variant(it[0]) : null; }).filter(Boolean).map(function (v) { return v.id.split('/').pop(); });
     var i = 0; btn.disabled = true; btn.textContent = 'Adding…';
     (function next() {
       if (i >= ids.length) { btn.disabled = false; btn.textContent = 'Added'; try { GTRCart.open(); } catch (e) {} return; }
@@ -1211,7 +1212,7 @@
   });
   render();
   var handles = [];
-  KITS.forEach(function (k) { k.items.forEach(function (it) { if (handles.indexOf(it[0]) < 0) handles.push(it[0]); }); });
+  KITS.forEach(function (k) { k.items.forEach(function (it) { if (it[0] && handles.indexOf(it[0]) < 0) handles.push(it[0]); }); });
   var q = 'query{' + handles.map(function (h, i) {
     return 'p' + i + ':product(handle:' + JSON.stringify(h) + '){ availableForSale variants(first:20){ nodes{ id availableForSale price{ amount } } } }';
   }).join(' ') + '}';
