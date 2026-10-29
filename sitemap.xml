@@ -574,4 +574,11 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://ghosttownranch.com/products/stock-tank-keratin-hair-care/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://ghosttownranch.com/media/stock-tank-full.jpg</image:loc></image:image>
+  </url>
 </urlset>
