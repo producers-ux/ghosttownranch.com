@@ -1367,7 +1367,11 @@ function renderProduct(product) {
   const isPreorder = PREORDER_HANDLES.includes(handle);
   // Default scent per product (Ranch Water opens on Hang Dried); falls back to the first in-stock scent.
   const DEFAULT_SCENT = { 'ranch-water-body-room-fragrance': 'Hang Dried', 'the-still-amber-glass-reed-diffuser': 'Hang Dried' };
-  let selectedVariant = variants.find(v => v.title === DEFAULT_SCENT[handle] && v.availableForSale)
+  // ?variant=<numeric id> (QR codes on product labels) opens that exact option, even if it is sold out.
+  const urlVariantId = new URLSearchParams(window.location.search).get('variant');
+  const requestedVariant = urlVariantId ? variants.find(v => String(v.id).split('/').pop() === urlVariantId) : null;
+  let selectedVariant = requestedVariant
+    || variants.find(v => v.title === DEFAULT_SCENT[handle] && v.availableForSale)
     || variants.find(v => v.availableForSale) || variants[0];
 
   // Determine if this is a scent-based product
@@ -1400,6 +1404,9 @@ function renderProduct(product) {
 
     function selectVariant(v) {
       selectedVariant = v;
+      // Leaving a sold-out scent that was opened from a label link: re-enable Add to Cart.
+      const atc = document.getElementById('atc-btn');
+      if (atc && atc.dataset.soldOut) { delete atc.dataset.soldOut; atc.disabled = false; atc.textContent = atc.dataset.label || 'Add to Cart'; }
       selectedLabel.textContent = v.title;
       // update image if variant has its own
       if (v.image?.url) {
@@ -1423,7 +1430,8 @@ function renderProduct(product) {
     selectedLabel.textContent = selectedVariant.title;
     // Show the selected variant's own photo from the start (not just after a click).
     // Ranch Water opens on its main photo; a scent's photo shows once that scent is tapped.
-    if (selectedVariant.image?.url && !['ranch-water-body-room-fragrance', 'the-still-amber-glass-reed-diffuser'].includes(handle)) mainImg.src = selectedVariant.image.url;
+    // A scent requested in the address shows its own photo straight away.
+    if (selectedVariant.image?.url && (requestedVariant || !['ranch-water-body-room-fragrance', 'the-still-amber-glass-reed-diffuser'].includes(handle))) mainImg.src = selectedVariant.image.url;
 
     variantGrid.querySelectorAll('.variant-btn:not(:disabled)').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -1456,6 +1464,12 @@ function renderProduct(product) {
     atcBtn.addEventListener('click', () => {
       if (selectedVariant?.id) addToCart(selectedVariant.id);
     });
+    // Opened on a sold-out scent (label QR code): say so instead of swapping in another scent.
+    if (!isPreorder && selectedVariant && !selectedVariant.availableForSale) {
+      atcBtn.disabled = true;
+      atcBtn.dataset.soldOut = '1';
+      atcBtn.textContent = 'Sold Out';
+    }
   }
 
   // Share button
