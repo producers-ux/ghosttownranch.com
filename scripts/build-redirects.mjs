@@ -13,14 +13,15 @@ for (const [from, to] of Object.entries(map)) {
   if (from.startsWith('_')) continue;
   if (!from.startsWith('/') || !from.endsWith('/') || from.includes('..')) throw new Error(`Bad path: ${from}`);
   const dest = SITE + to;
+  const canonical = SITE + to.split('?')[0]; // label links carry ?variant= and tracking tags
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <title>Moved · Ghost Town Ranch</title>
-<link rel="canonical" href="${esc(dest)}">
+<link rel="canonical" href="${esc(canonical)}">
 <meta http-equiv="refresh" content="0; url=${esc(dest)}">
-<script>location.replace(${JSON.stringify(dest)} + location.search + location.hash);</script>
+<script>var d=${JSON.stringify(dest)},q=location.search;location.replace(d+(q?(d.indexOf('?')>-1?'&'+q.slice(1):q):'')+location.hash);</script>
 </head>
 <body style="background:#141414;color:#F6F6F3;font-family:system-ui,sans-serif;padding:48px">
 <p>This page has moved. <a href="${esc(dest)}" style="color:#F6F6F3">Continue to Ghost Town Ranch</a></p>
