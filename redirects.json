@@ -37,7 +37,7 @@
   "/rosemary-mint/": "/products/rosemary-mint-revive-hair-scalp-oil/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=rosemary-mint",
   "/silk-skin/": "/products/hand-cream-citrus-pink-pepper/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=silk-skin",
   "/soft-proof/": "/products/soft-proof-peptide-foundation/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=soft-proof",
-  "/still-air/": "/products/still-air-natural-roll-on-deodorant1/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=still-air",
+  "/still-air/": "/products/still-air-lavender-lemon-deodorant/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=still-air",
   "/stock-tank/": "/hair/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=stock-tank",
   "/the-grade/": "/products/the-grade-peptide-anti-aging-serum/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=the-grade",
   "/the-hold/": "/products/the-hold-anti-age-day-cream1/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=the-hold",
@@ -95,5 +95,7 @@
   "/products/desert-glow-hydrating-facial-oil/": "/products/desert-glow-facial-oil/",
   "/products/anti-age-day-cream/": "/products/the-hold-anti-age-day-cream1/",
   "/products/dusk-til-dawn-hydration-gel/": "/products/dusk-till-dawn-hydration-gel/",
-  "/products/double-hydration-boost-gel-ha-1/": "/products/dusk-till-dawn-hydration-gel/"
+  "/products/double-hydration-boost-gel-ha-1/": "/products/dusk-till-dawn-hydration-gel/",
+  "/products/still-air-natural-roll-on-deodorant1/": "/products/still-air-lavender-lemon-deodorant/",
+  "/products/still-air-lavendar-lemon-deodorant/": "/products/still-air-lavender-lemon-deodorant/"
 }
