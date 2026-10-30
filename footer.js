@@ -37,7 +37,7 @@
         '<p class="gf-line"><a href="/#signup">Join the list</a> for 10% off your first order.</p></div>' +
       '<div><h4>Shop</h4><ul>' +
         '<li><a href="/shop/">Shop all</a></li><li><a href="/routines/">Face</a></li><li><a href="/hair/">Hair</a></li>' +
-        '<li><a href="/wash-house/">Bath + Body</a></li><li><a href="/ritual/">Scent + Home</a></li><li><a href="/gifts/">Gifts</a></li></ul></div>' +
+        '<li><a href="/wash-house/">Bath + Body</a></li><li><a href="/ritual/">Scent + Home</a></li><li><a href="/travel/">Travel</a></li><li><a href="/gifts/">Gifts</a></li></ul></div>' +
       '<div><h4>The Ranch</h4><ul>' +
         '<li><a href="/guest-ranch/">Guest Ranch</a></li><li><a href="/field-guide/">Our Story</a></li>' +
         '<li><a href="https://instagram.com/ghosttownranch" target="_blank" rel="noopener" itemprop="sameAs">Instagram</a></li>' +

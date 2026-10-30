@@ -5,7 +5,7 @@
     { href: '/hair/', label: 'Hair' },
     { href: '/wash-house/', label: 'Bath + Body' },
     { href: '/ritual/', label: 'Scent + Home' },
-    { href: '/gifts/', label: 'Gifts' },
+    { href: '/travel/', label: 'Travel' },
     { href: '/guest-ranch/', label: 'Guest Ranch' },
   ];
 
