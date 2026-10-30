@@ -344,7 +344,7 @@
         <a class="pcard" href="/products/anti-age-day-cream/" data-handle="anti-age-day-cream"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/THEHOLDmain.png?v=1792462101&amp;width=1200" alt="The Hold" loading="lazy"></div><div class="pcard-step">05 · Moisturize</div><div class="pcard-name">The Hold</div><div class="pcard-sub">Anti-Age Day Cream</div><div class="pcard-desc">Multi-molecular HA. Shea. Aloe base. Holds all day.</div><div class="pcard-price" data-price>$74</div></a>
         <a class="pcard" href="/products/desert-veil-tone-correction-barrier-protection/" data-handle="desert-veil-tone-correction-barrier-protection"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertveil1.png" alt="Desert Veil" loading="lazy"></div><div class="pcard-step">06 · Protect</div><div class="pcard-name">Desert Veil</div><div class="pcard-sub">CC Stick</div><div class="pcard-desc">Zinc oxide. Ceramides. 98% natural. Sheer mineral protection.</div><div class="pcard-price" data-price>$55</div></a>
       </div>
-      <div class="rt-foot"><span class="rt-total">6 steps</span><span class="rt-actions"><a class="rt-bundle" href="/products/morning-skin-routine/" data-bundle="morning-skin-routine">Or the bundle &rarr;</a><button class="kit-add" type="button">Add the routine</button></span></div><p class="rt-aside">With a beard? Rose Cut for the skin, then <a href="/products/wash-then-butter/">Wash, Then Butter</a> for the beard.</p>
+      <div class="rt-foot"><span class="rt-total">6 steps</span><span class="rt-actions"><button class="kit-add" type="button">Add the routine</button></span></div><p class="rt-aside">With a beard? Rose Cut for the skin, then <a href="/products/wash-then-butter/">Wash, Then Butter</a> for the beard.</p>
     </section>
 
 
@@ -381,7 +381,7 @@
         <a class="pcard" href="/products/dusk-til-dawn-hydration-gel/" data-handle="dusk-til-dawn-hydration-gel"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Dusktilldawn1.png" alt="Dusk Til Dawn" loading="lazy"></div><div class="pcard-step">06 · Restore</div><div class="pcard-name">Dusk Til Dawn</div><div class="pcard-sub">Hydration Gel</div><div class="pcard-desc">Overnight gel. Sodium PCA draws moisture from air while you sleep.</div><div class="pcard-price" data-price>$60</div></a>
         <a class="pcard" href="/products/gtr-lip-butter/" data-handle="gtr-lip-butter"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/lipbuttermain.png?v=1790026938&amp;width=1200" alt="Lip Butter" loading="lazy"></div><div class="pcard-step">07 · Seal</div><div class="pcard-name">Lip Butter</div><div class="pcard-sub">Peppermint + Vanilla</div><div class="pcard-desc">Plant oils, beeswax and aloe. Last thing before bed.</div><div class="pcard-price" data-price>$24</div></a>
       </div>
-      <div class="rt-foot"><span class="rt-total">7 steps</span><span class="rt-actions"><a class="rt-bundle" href="/products/evening-repair-bundle/" data-bundle="evening-repair-bundle">Or the bundle &rarr;</a><button class="kit-add" type="button">Add the routine</button></span></div>
+      <div class="rt-foot"><span class="rt-total">7 steps</span><span class="rt-actions"><button class="kit-add" type="button">Add the routine</button></span></div>
     </section>
 
     <section class="shop-sec" id="extras">
@@ -417,8 +417,9 @@
         var ids = [], total = 0;
         sec.getAttribute('data-steps').split(',').forEach(function (h) { var v = v1(D[h]); if (v) { ids.push(v.id.split('/').pop()); total += Number(v.price.amount); } });
         var t = sec.querySelector('.rt-total'), btn = sec.querySelector('.kit-add'), b = sec.querySelector('[data-bundle]');
-        var bp = D[b.getAttribute('data-bundle')];
-        if (bp && bp.availableForSale) {
+        var bp = b ? D[b.getAttribute('data-bundle')] : null;
+        if (!b) {}
+        else if (bp && bp.availableForSale) {
           var bn = Number(bp.priceRange.minVariantPrice.amount);
           b.innerHTML = b.textContent.replace(/\s*→\s*$/, '') + ', ' + money(bn) + (total > bn ? ' (save ' + money(total - bn) + ')' : '') + ' &rarr;';
         } else b.style.display = 'none';
