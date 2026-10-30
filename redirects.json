@@ -18,7 +18,7 @@
   "/desert-veil/": "/products/desert-veil-tone-correction-barrier-protection/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=desert-veil",
   "/drawn-line/": "/products/drawn-line-matte-lip-color/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=drawn-line",
   "/dry-creek/": "/products/dry-creek-quick-refresh-hair-mist/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=dry-creek",
-  "/dusk-til-dawn/": "/products/dusk-til-dawn-hydration-gel/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=dusk-til-dawn",
+  "/dusk-til-dawn/": "/products/dusk-till-dawn-hydration-gel/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=dusk-til-dawn",
   "/frontier-fade/": "/products/mojave-reset-cooling-face-mist/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=frontier-fade",
   "/golden-hour/": "/products/golden-hour-body-oil/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=golden-hour",
   "/lip-butter-peppermint/": "/products/gtr-lip-butter/?variant=52410705346856&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=lip-butter-peppermint",
@@ -93,5 +93,7 @@
   "/products/rosemary-hair-scalp-strengthening-oil/": "/products/rosemary-mint-revive-hair-scalp-oil/",
   "/products/peptide-anti-aging-serum/": "/products/the-grade-peptide-anti-aging-serum/",
   "/products/desert-glow-hydrating-facial-oil/": "/products/desert-glow-facial-oil/",
-  "/products/anti-age-day-cream/": "/products/the-hold-anti-age-day-cream1/"
+  "/products/anti-age-day-cream/": "/products/the-hold-anti-age-day-cream1/",
+  "/products/dusk-til-dawn-hydration-gel/": "/products/dusk-till-dawn-hydration-gel/",
+  "/products/double-hydration-boost-gel-ha-1/": "/products/dusk-till-dawn-hydration-gel/"
 }

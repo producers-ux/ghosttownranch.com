@@ -29,7 +29,7 @@
     'the-grade-peptide-anti-aging-serum':               'the-hold-anti-age-day-cream',
     'the-hold-anti-age-day-cream':            'the-grade-peptide-anti-aging-serum',
     'moisturising-day-cream':                 'the-grade-peptide-anti-aging-serum',
-    'dusk-til-dawn-hydration-gel':            'gold-rush-hydrogel-eye-mask',
+    'dusk-till-dawn-hydration-gel':            'gold-rush-hydrogel-eye-mask',
     'biphasic-make-up-remover-fragrance-free':'rose-cut-daily-facial-wash',
     'rosemary-mint-revive-hair-scalp-oil':  'trails-end-leave-in-hair-conditioner',
     'outlaws-reserve-2-in-1-hair-skin-rinse': 'rosemary-mint-revive-hair-scalp-oil',
