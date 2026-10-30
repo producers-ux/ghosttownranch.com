@@ -30,7 +30,6 @@
     'the-hold-anti-age-day-cream':            'peptide-anti-aging-serum',
     'moisturising-day-cream':                 'peptide-anti-aging-serum',
     'dusk-til-dawn-hydration-gel':            'gold-rush-hydrogel-eye-mask',
-    'glycolic-acid-exfoliating-toner':        'microbiome-prebiotics-face-mist-1',
     'biphasic-make-up-remover-fragrance-free':'rose-cut-daily-facial-wash',
     'rosemary-hair-scalp-strengthening-oil':  'trails-end-leave-in-hair-conditioner',
     'outlaws-reserve-2-in-1-hair-skin-rinse': 'rosemary-hair-scalp-strengthening-oil',

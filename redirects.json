@@ -19,12 +19,12 @@
   "/drawn-line/": "/products/drawn-line-matte-lip-color/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=drawn-line",
   "/dry-creek/": "/products/dry-creek-quick-refresh-hair-mist/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=dry-creek",
   "/dusk-til-dawn/": "/products/dusk-til-dawn-hydration-gel/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=dusk-til-dawn",
-  "/frontier-fade/": "/products/glycolic-acid-exfoliating-toner/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=frontier-fade",
+  "/frontier-fade/": "/products/mojave-reset-cooling-face-mist/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=frontier-fade",
   "/golden-hour/": "/products/omega-6-9-glowing-skin-body-oil/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=golden-hour",
   "/lip-butter-peppermint/": "/products/gtr-lip-butter/?variant=52410705346856&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=lip-butter-peppermint",
   "/lip-butter-vanilla/": "/products/gtr-lip-butter/?variant=52410312196392&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=lip-butter-vanilla",
   "/long-shot/": "/products/long-shot-peptide-mascara/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=long-shot",
-  "/mojave-reset/": "/products/microbiome-prebiotics-face-mist-1/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=mojave-reset",
+  "/mojave-reset/": "/products/mojave-reset-cooling-face-mist/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=mojave-reset",
   "/outlaws-reserve/": "/products/outlaws-reserve-2-in-1-hair-skin-rinse/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=outlaws-reserve",
   "/wipeout/": "/products/biphasic-make-up-remover-fragrance-free/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=wipeout",
   "/ranch-water-dusk/": "/products/ranch-water-body-room-fragrance/?variant=51730077253928&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=ranch-water-dusk",
@@ -81,5 +81,7 @@
   "/products/dry-creek-no-rinse-shampoo-mist/": "/products/dry-creek-quick-refresh-hair-mist/",
   "/products/quick-refresh-dry-shampoo-spray-2/": "/products/dry-creek-quick-refresh-hair-mist/",
   "/products/the-hair-set/": "/hair/",
-  "/products/keratin-shine-leave-in-hair-mist/": "/products/trails-end-leave-in-hair-conditioner/"
+  "/products/keratin-shine-leave-in-hair-mist/": "/products/trails-end-leave-in-hair-conditioner/",
+  "/products/microbiome-prebiotics-face-mist-1/": "/products/mojave-reset-cooling-face-mist/",
+  "/products/glycolic-acid-exfoliating-toner/": "/products/mojave-reset-cooling-face-mist/"
 }

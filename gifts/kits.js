@@ -38,7 +38,7 @@ window.GTR_KITS = [
     "from": "gtr"
    },
    {
-    "h": "microbiome-prebiotics-face-mist-1",
+    "h": "mojave-reset-cooling-face-mist",
     "name": "Mojave Reset",
     "sub": "Cooling face mist",
     "p": "",
