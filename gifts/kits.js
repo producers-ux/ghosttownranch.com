@@ -180,8 +180,8 @@ window.GTR_KITS = [
    },
    {
     "h": "silk-skin-hand-cream-spices-sandalwood",
-    "name": "Silk Skin",
-    "sub": "Hand cream",
+    "name": "Hand Cream",
+    "sub": "Citrus + pink pepper",
     "p": "$46",
     "from": "gtr"
    },
