@@ -13,7 +13,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Guest Ranch | Ghost Town Ranch · Makers We Keep Company With</title>
-  <meta name="description" content="Guest Ranch: day trips that pack Ghost Town Ranch skin, hair and home with a few things we found along the way. Morihata, Yoshii, Casamera, Elisa Johnson, Blacksaw, Craighill, Henson, Be Home and SHU Atelier.">
+  <meta name="description" content="Guest Ranch: day trips that pack Ghost Town Ranch skin, hair and home with a few things we found along the way. Morihata, Yoshii, Casamera, Elisa Johnson, Blacksaw, Craighill, Henson, Be Home, Industry of All Nations and SHU Atelier.">
   <link rel="canonical" href="https://ghosttownranch.com/guest-ranch/">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
@@ -470,7 +470,7 @@
       { id: 'no-signal', no: 'Day Trip No. 04', tag: 'Overnight', name: 'No Signal', sub: 'What’s lit when the phone isn’t.',
         img: 'https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot_2026-10-17_121021.png?v=1792264408&width=1200', fit: 'contain', bg: '#DAD8D3', blend: 'multiply', alt: 'Blacksaw Peyote reversible baby alpaca throw',
         copy: 'A cabin past where the phone works. One candle, a wool throw, and the stars doing the rest.',
-        bag: [ ['blacksaw-peyote-reversible-throw','Peyote Throw','Blacksaw'], [null,'Hobo-Stitch Socks','Kapital'], [null,'Temple Flashlight','Craighill'], [null,'Matchbook','Ghost Town Ranch'], ['trail-light-travel-soy-candle','Trail Light'], ['the-still-amber-glass-reed-diffuser','The Still'], ['the-monument-candle','The Monument'], ['gold-rush-hydrogel-eye-mask','Gold Rush Eye Mask'], ['dusk-til-dawn-hydration-gel','Dusk Til Dawn'], ['golden-hour-body-oil','Golden Hour'] ] },
+        bag: [ ['blacksaw-peyote-reversible-throw','Peyote Throw','Blacksaw'], [null,'Organic Cotton Socks 3 Pack','Industry of All Nations'], [null,'Temple Flashlight','Craighill'], [null,'Matchbook','Ghost Town Ranch'], ['trail-light-travel-soy-candle','Trail Light'], ['the-still-amber-glass-reed-diffuser','The Still'], ['the-monument-candle','The Monument'], ['gold-rush-hydrogel-eye-mask','Gold Rush Eye Mask'], ['dusk-til-dawn-hydration-gel','Dusk Til Dawn'], ['golden-hour-body-oil','Golden Hour'] ] },
       { id: 'hot-springs', no: 'Day Trip No. 05', tag: 'Before the heat', name: 'Hot Springs', sub: 'What Audra packs for the pool.',
         img: 'https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot_2026-10-25_043151.png?v=1792928013&width=1200', alt: 'Yoshii two-tone chambray hand towel in black',
         copy: 'Desert Hot Springs, an hour before sunrise. The mineral pool is steaming and nobody else is up. Charcoal and Desert Veil at the edge of the water, a thin black towel over one shoulder.',
@@ -500,7 +500,7 @@
     function esc(x) { return String(x == null ? '' : x).replace(/[&<>"']/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
     function money(a) { var n = parseFloat(a); return isNaN(n) ? '' : '$' + (n % 1 ? n.toFixed(2) : n.toFixed(0)); }
 
-    var THUMB = { 'Horn Bowl': '/media/horn-bowl.jpg?v=2', 'Tamura Body Brush': '/media/tamura-body-brush.jpg', 'Charcoal Facial Puff': '/guest-ranch/morihata-charcoal-puff.jpg', 'Hobo-Stitch Socks': '/guest-ranch/kapital-hobo-socks.jpg', 'Bespoke Hat': '/guest-ranch/shu-atelier-hat-blocks.jpg', 'Temple Flashlight': '/guest-ranch/craighill-temple-white.jpg', 'Stoneware Measuring Cups': '/guest-ranch/be-home-cups.jpg', 'Horn Comb': '/media/horn-comb.jpg', 'Boot Horn': '/media/horn-shoehorn.jpg' };
+    var THUMB = { 'Horn Bowl': '/media/horn-bowl.jpg?v=2', 'Tamura Body Brush': '/media/tamura-body-brush.jpg', 'Charcoal Facial Puff': '/guest-ranch/morihata-charcoal-puff.jpg', 'Organic Cotton Socks 3 Pack': 'https://industryofallnations.com/cdn/shop/files/organic-cotton-socks-3-pack-csock-ecbr-sm-3572589_1024x1024.jpg?v=1791552548', 'Bespoke Hat': '/guest-ranch/shu-atelier-hat-blocks.jpg', 'Temple Flashlight': '/guest-ranch/craighill-temple-white.jpg', 'Stoneware Measuring Cups': '/guest-ranch/be-home-cups.jpg', 'Horn Comb': '/media/horn-comb.jpg', 'Boot Horn': '/media/horn-shoehorn.jpg' };
     function sized(u, w) { return u + (u.indexOf('?') > -1 ? '&' : '?') + 'width=' + w; }
     function row(item, live) {
       var handle = item[0], name = item[1], maker = item[2] || '';
@@ -557,7 +557,7 @@
       renderLead(live);
     }
     // Lead story: photo tiles. Guest pieces use their own brand photos; ours come from Shopify.
-    var LEAD_IMG = { 'Charcoal Facial Puff': '/guest-ranch/morihata-charcoal-puff.jpg', 'The Bathrobe': '/guest-ranch/casamera-waffle-robe.jpg', 'Hobo-Stitch Socks': '/guest-ranch/kapital-hobo-socks.jpg', 'Bespoke Hat': '/guest-ranch/shu-atelier-hat-blocks.jpg' };
+    var LEAD_IMG = { 'Charcoal Facial Puff': '/guest-ranch/morihata-charcoal-puff.jpg', 'The Bathrobe': '/guest-ranch/casamera-waffle-robe.jpg', 'Organic Cotton Socks 3 Pack': 'https://industryofallnations.com/cdn/shop/files/organic-cotton-socks-3-pack-csock-ecbr-sm-3572589_1024x1024.jpg?v=1791552548', 'Bespoke Hat': '/guest-ranch/shu-atelier-hat-blocks.jpg' };
     function renderLead(live) {
       document.getElementById('nd-copy').textContent = LEAD.copy;
       document.getElementById('nd-kit').innerHTML = LEAD.bag.filter(function (it) { return it[0] || LEAD_IMG[it[1]]; }).map(function (it) {
