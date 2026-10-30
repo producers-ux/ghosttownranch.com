@@ -34,7 +34,7 @@
     'biphasic-make-up-remover-fragrance-free':'rose-cut-daily-facial-wash',
     'rosemary-hair-scalp-strengthening-oil':  'keratin-shine-leave-in-hair-mist',
     'outlaws-reserve-2-in-1-hair-skin-rinse': 'rosemary-hair-scalp-strengthening-oil',
-    'quick-refresh-dry-shampoo-spray-1':      'keratin-shine-leave-in-hair-mist',
+    'dry-creek-no-rinse-shampoo-mist':      'keratin-shine-leave-in-hair-mist',
     'day-ride-bag':                           'drawn-line-matte-lip-color'
   };
   var FALLBACK = ['ranch-water-body-room-fragrance', 'day-ride-bag'];
