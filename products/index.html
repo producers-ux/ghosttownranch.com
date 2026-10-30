@@ -1115,7 +1115,7 @@ const PREORDER_HANDLES = [...LIP_BUTTER_HANDLES, PLUNGE_HANDLE];
 // vegan and "no dyes" claims that the rest of the line carries must not show on these.
 const NA_MADE_HANDLES = LIP_BUTTER_HANDLES;
 // Fully discontinued — never shown anywhere, including "More from the Ranch"
-const RETIRED_HANDLES = ['the-hair-set', 'sunbroke-the-wash-cold-pressed-grapefruit', 'glycolic-acid-exfoliating-toner', 'microbiome-prebiotics-face-mist-1', 'keratin-shine-leave-in-hair-mist', 'quick-refresh-dry-shampoo-spray-2', 'dry-creek-no-rinse-shampoo-mist', 'quick-refresh-dry-shampoo-spray-1', 'morning-skin-routine', 'evening-repair-bundle', 'horn-valet-tray', 'stock-tank-keratin-hair-care', 'tamura-body-brush', 'the-basin-hand-wash-body-cream-set-of-two-choose-your-scent', 'all-told-eye-cream', 'anti-age-hydrogel-eye-patches-7-pcs', 'the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz', 'the-votive-single', 'the-votive-candle-set-of-6', 'the-field-kit'];
+const RETIRED_HANDLES = ['the-wash-ginger-smoky-cardamom', 'the-wash-cold-pressed-grapefruit', 'the-wash-amber-vanilla', 'the-hair-set', 'sunbroke-the-wash-cold-pressed-grapefruit', 'glycolic-acid-exfoliating-toner', 'microbiome-prebiotics-face-mist-1', 'keratin-shine-leave-in-hair-mist', 'quick-refresh-dry-shampoo-spray-2', 'dry-creek-no-rinse-shampoo-mist', 'quick-refresh-dry-shampoo-spray-1', 'morning-skin-routine', 'evening-repair-bundle', 'horn-valet-tray', 'stock-tank-keratin-hair-care', 'tamura-body-brush', 'the-basin-hand-wash-body-cream-set-of-two-choose-your-scent', 'all-told-eye-cream', 'anti-age-hydrogel-eye-patches-7-pcs', 'the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz', 'the-votive-single', 'the-votive-candle-set-of-6', 'the-field-kit'];
 
 // Lip + Eye cross-sell — show on each product, point to its partner ($17 off both at checkout)
 const PAIR_PROMO = {
@@ -1364,7 +1364,7 @@ function renderProduct(product) {
   const variantGrid = document.getElementById('variant-grid');
   const isPreorder = PREORDER_HANDLES.includes(handle);
   // Default scent per product (Ranch Water opens on Hang Dried); falls back to the first in-stock scent.
-  const DEFAULT_SCENT = { 'ranch-water-body-room-fragrance': 'Hang Dried', 'the-still-amber-glass-reed-diffuser': 'Hang Dried' };
+  const DEFAULT_SCENT = { 'the-wash': 'Amber + Vanilla', 'ranch-water-body-room-fragrance': 'Hang Dried', 'the-still-amber-glass-reed-diffuser': 'Hang Dried' };
   // ?variant=<numeric id> (QR codes on product labels) opens that exact option, even if it is sold out.
   const urlVariantId = new URLSearchParams(window.location.search).get('variant');
   const requestedVariant = urlVariantId ? variants.find(v => String(v.id).split('/').pop() === urlVariantId) : null;
@@ -1429,7 +1429,7 @@ function renderProduct(product) {
     // Show the selected variant's own photo from the start (not just after a click).
     // Ranch Water opens on its main photo; a scent's photo shows once that scent is tapped.
     // A scent requested in the address shows its own photo straight away.
-    if (selectedVariant.image?.url && (requestedVariant || !['ranch-water-body-room-fragrance', 'the-still-amber-glass-reed-diffuser'].includes(handle))) mainImg.src = selectedVariant.image.url;
+    if (selectedVariant.image?.url && (requestedVariant || !['the-wash', 'ranch-water-body-room-fragrance', 'the-still-amber-glass-reed-diffuser'].includes(handle))) mainImg.src = selectedVariant.image.url;
 
     variantGrid.querySelectorAll('.variant-btn:not(:disabled)').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -1443,25 +1443,6 @@ function renderProduct(product) {
     variantWrap.style.display = 'none';
   }
 
-  // Sibling products shown as one product with options (each scent is its own Shopify
-  // product so Selfnamed can drop ship it; the buttons link between the pages).
-  const SIBLING_GROUPS = [
-    { label: 'Scent', title: 'The Wash', items: [
-      ['the-wash-amber-vanilla', 'Amber + Vanilla'],
-      ['the-wash-cold-pressed-grapefruit', 'Cold-Pressed Grapefruit'],
-      ['the-wash-ginger-smoky-cardamom', 'Ginger + Smoky Cardamom'] ] }
-  ];
-  const sibGroup = SIBLING_GROUPS.find(g => g.items.some(i => i[0] === handle));
-  if (sibGroup && !hasVariants) {
-    const cur = sibGroup.items.find(i => i[0] === handle);
-    variantWrap.style.display = 'block';
-    if (sibGroup.title) document.getElementById('product-title').textContent = sibGroup.title;
-    selectorLabelEl.innerHTML = sibGroup.label + ' · <span id="selected-variant-label"></span>';
-    document.getElementById('selected-variant-label').textContent = cur[1];
-    variantGrid.innerHTML = sibGroup.items.map(([h, name]) =>
-      `<a class="variant-btn${h === handle ? ' selected' : ''}" href="/products/${h}/"${h === handle ? ' aria-current="page"' : ''} style="text-decoration:none;color:inherit">${name}</a>`
-    ).join('');
-  }
 
   // ATC
   const atcBtn = document.getElementById('atc-btn');
