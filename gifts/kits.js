@@ -116,7 +116,7 @@ window.GTR_KITS = [
     "from": "gtr"
    },
    {
-    "h": "rosemary-hair-scalp-strengthening-oil",
+    "h": "rosemary-mint-revive-hair-scalp-oil",
     "name": "Rosemary Mint Revive",
     "sub": "Hair + scalp oil",
     "p": "",

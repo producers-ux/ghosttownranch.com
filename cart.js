@@ -31,8 +31,8 @@
     'moisturising-day-cream':                 'peptide-anti-aging-serum',
     'dusk-til-dawn-hydration-gel':            'gold-rush-hydrogel-eye-mask',
     'biphasic-make-up-remover-fragrance-free':'rose-cut-daily-facial-wash',
-    'rosemary-hair-scalp-strengthening-oil':  'trails-end-leave-in-hair-conditioner',
-    'outlaws-reserve-2-in-1-hair-skin-rinse': 'rosemary-hair-scalp-strengthening-oil',
+    'rosemary-mint-revive-hair-scalp-oil':  'trails-end-leave-in-hair-conditioner',
+    'outlaws-reserve-2-in-1-hair-skin-rinse': 'rosemary-mint-revive-hair-scalp-oil',
     'dry-creek-quick-refresh-hair-mist':      'trails-end-leave-in-hair-conditioner',
     'day-ride-bag':                           'drawn-line-matte-lip-color'
   };
