@@ -26,7 +26,7 @@
   "/long-shot/": "/products/long-shot-peptide-mascara/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=long-shot",
   "/mojave-reset/": "/products/mojave-reset-cooling-face-mist/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=mojave-reset",
   "/outlaws-reserve/": "/products/outlaws-reserve-2-in-1-hair-skin-rinse/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=outlaws-reserve",
-  "/wipeout/": "/products/biphasic-make-up-remover-fragrance-free/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=wipeout",
+  "/wipeout/": "/products/the-shakedown-makeup-remover/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=wipeout",
   "/ranch-water-dusk/": "/products/ranch-water-body-room-fragrance/?variant=51730077253928&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=ranch-water-dusk",
   "/ranch-water-ember/": "/products/ranch-water-body-room-fragrance/?variant=51730077155624&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=ranch-water-ember",
   "/ranch-water-flax/": "/products/ranch-water-body-room-fragrance/?variant=51730077221160&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=ranch-water-flax",
@@ -97,5 +97,7 @@
   "/products/dusk-til-dawn-hydration-gel/": "/products/dusk-till-dawn-hydration-gel/",
   "/products/double-hydration-boost-gel-ha-1/": "/products/dusk-till-dawn-hydration-gel/",
   "/products/still-air-natural-roll-on-deodorant1/": "/products/still-air-lavender-lemon-deodorant/",
-  "/products/still-air-lavendar-lemon-deodorant/": "/products/still-air-lavender-lemon-deodorant/"
+  "/products/still-air-lavendar-lemon-deodorant/": "/products/still-air-lavender-lemon-deodorant/",
+  "/products/biphasic-make-up-remover-fragrance-free/": "/products/the-shakedown-makeup-remover/",
+  "/shakedown/": "/products/the-shakedown-makeup-remover/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=shakedown"
 }
