@@ -39,7 +39,6 @@
     // ── PRODUCTS (generated) ──
     { t: "Gold Rush", c: "Hydrogel Eye Mask  ·  $36", u: "/products/gold-rush-hydrogel-eye-mask", k: "gold rush hydrogel eye mask the lookout collection aloe hydrogel eye patches 7 pairs 14 pcs gold rush under-eye mask puffiness face-care" },
     { t: "The Kiss", c: "Hydrogel Lip Mask  ·  $42", u: "/products/the-kiss-lip-mask-7-pcs", k: "the kiss hyaluronic hydrogel lip mask 7 pcs lips lip care hyaluronic acid" },
-    { t: "The Basin", c: "Hand Wash + Body Cream  ·  $89", u: "/products/the-basin-hand-wash-body-cream-set-of-two-choose-your-scent", k: "the basin hand wash body cream set of two choose your scent soap lotion wash house cookhouse porch light gift" },
     { t: "GTR Precision Tweezers", c: "Stainless Steel  ·  $22", u: "/products/gtr-precision-tweezers", k: "gtr precision tweezers tweezer slanted stainless steel brows brow beard grooming tools splinter room 29" },
     { t: "Beard Wash", c: "Foaming Cleanser  ·  $38", u: "/products/gtr-beard-wash", k: "gtr beard wash foaming cleanser face wash beard shampoo mens grooming shave unscented vegan wash house hair room 29" },
     { t: "Wash, Then Butter", c: "Beard Wash + Butter Set  ·  $68", u: "/products/wash-then-butter", k: "wash then butter set bundle gift beard wash beard butter grooming kit mens room 29" },
