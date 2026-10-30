@@ -491,7 +491,7 @@
     function esc(x) { return String(x == null ? '' : x).replace(/[&<>"']/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
     function money(a) { var n = parseFloat(a); return isNaN(n) ? '' : '$' + (n % 1 ? n.toFixed(2) : n.toFixed(0)); }
 
-    var THUMB = { 'Horn Bowl': '/media/horn-bowl.jpg?v=2', 'Tamura Body Brush': '/media/tamura-body-brush.jpg', 'Charcoal Facial Puff': '/guest-ranch/morihata-charcoal-puff.jpg', 'Hobo-Stitch Socks': '/guest-ranch/kapital-hobo-socks.jpg', 'Bespoke Hat': '/guest-ranch/shu-atelier-hat-blocks.jpg', 'Temple Flashlight': '/guest-ranch/craighill-temple-white.jpg', 'Stoneware Measuring Cups': '/guest-ranch/be-home-cups.jpg', 'Horn Comb': '/media/horn-comb.jpg', 'Boot Horn': '/media/horn-shoehorn.jpg', 'Horn Valet Tray': '/media/horn-tray.jpg' };
+    var THUMB = { 'Horn Bowl': '/media/horn-bowl.jpg?v=2', 'Tamura Body Brush': '/media/tamura-body-brush.jpg', 'Charcoal Facial Puff': '/guest-ranch/morihata-charcoal-puff.jpg', 'Hobo-Stitch Socks': '/guest-ranch/kapital-hobo-socks.jpg', 'Bespoke Hat': '/guest-ranch/shu-atelier-hat-blocks.jpg', 'Temple Flashlight': '/guest-ranch/craighill-temple-white.jpg', 'Stoneware Measuring Cups': '/guest-ranch/be-home-cups.jpg', 'Horn Comb': '/media/horn-comb.jpg', 'Boot Horn': '/media/horn-shoehorn.jpg' };
     function sized(u, w) { return u + (u.indexOf('?') > -1 ? '&' : '?') + 'width=' + w; }
     function row(item, live) {
       var handle = item[0], name = item[1], maker = item[2] || '';
