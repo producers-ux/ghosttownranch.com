@@ -19,7 +19,7 @@
   // Shopify export; regenerate this PRODUCTS block when the catalog changes.
   var INDEX = [
     // Sections / pages
-    { t: 'Hair + Scalp',    c: 'Scalp oil, leave-in shine, dry shampoo, beard, tools', u: '/hair/', k: 'hair scalp shampoo dry shampoo conditioner leave-in oil rosemary keratin beard comb brush' },
+    { t: 'Hair + Scalp',    c: 'Scalp oil, leave-in shine, no-rinse mist, beard, tools', u: '/hair/', k: 'hair scalp shampoo dry shampoo conditioner leave-in oil rosemary keratin beard comb brush' },
     { t: 'Travel',          c: 'Day Ride sets and everything carry-on sized', u: '/travel/', k: 'travel carry-on carry on tsa plane flight trip road trip travel size mini minis day ride glovebox airport 3-1-1 quart bag' },
     { t: 'Gift Guide',      c: '$30 and under, under $75, the big ones', u: '/gifts/', k: 'gift gifts guide holiday christmas present stocking stuffer for him for her under 30 under 75' },
     { t: 'Dry Goods',       c: 'Wear, carry, the ranch house', u: '/shop/#dry-goods', k: 'dry goods apparel tee tshirt hoodie sweatshirt long sleeve bag day ride carry travel clothing' },
@@ -61,7 +61,7 @@
     { t: "Desert Glow Hydrating Facial Oil", c: "Facial Oil  ·  $68", u: "/products/desert-glow-hydrating-facial-oil", k: "desert glow hydrating facial oil avocado hydration jojoba shoppe-object" },
     { t: "DESERT VEIL: Available in Light", c: "Medium, Tan, and Deep  ·  $55", u: "/products/desert-veil-tone-correction-barrier-protection", k: "desert veil available in light medium tan and deep face care all skin types ceramides cocoa butter damaged barrier dark spots evens tone face-care gluten free nut shoppe-object stick supports vegan white correction protection" },
     { t: "Drawn Line", c: "Matte Lip Pigment  ·  $42", u: "/products/drawn-line-matte-lip-color", k: "drawn line matte lip tint makeup all skin types cream lipstick dehydrated face-care matte finish shea butter shoppe-object velvety white color" },
-    { t: "Dry Creek", c: "Dry Shampoo Hair Mist  ·  $39", u: "/products/quick-refresh-dry-shampoo-spray-1", k: "dry creek shampoo hair mist adds volume to the hair-care nourishes and scalp shoppe-object quick refresh spray" },
+    { t: "Dry Creek", c: "No-Rinse Shampoo Mist  ·  $39", u: "/products/dry-creek-no-rinse-shampoo-mist", k: "dry creek no-rinse no rinse shampoo mist dry shampoo waterless non-aerosol spray refresh roots oil volume travel carry-on hair-care" },
     { t: "Dusk Til Dawn Hydration Gel", c: "Night Gel  ·  $60", u: "/products/dusk-til-dawn-hydration-gel", k: "dusk til dawn hydration gel night hyaluronic acid overnight shoppe-object" },
     { t: "Frontier Fade Toning Exfoliant", c: "Toner  ·  $55", u: "/products/glycolic-acid-exfoliating-toner", k: "frontier fade toning exfoliant toner all skin types betaine dark spots exfoliates exfoliator face-care glycolic acid promotes the appearance of more even tone removes build-up shoppe-object sodium pca transparent exfoliating" },
     { t: "Golden Hour Body Oil", c: "Body Care  ·  $68", u: "/products/omega-6-9-glowing-skin-body-oil", k: "golden hour body oil care adds healthy glow all skin types argan black body-care dehydrated gluten free hydrating organic certified rejuvenating shoppe-object vegan vitamin omega glowing" },
