@@ -287,7 +287,7 @@ window.GTR_KITS = [
     "from": "gr"
    },
    {
-    "h": "omega-6-9-glowing-skin-body-oil",
+    "h": "golden-hour-body-oil",
     "name": "Golden Hour",
     "sub": "Body oil",
     "p": "",

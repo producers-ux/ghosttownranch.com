@@ -20,7 +20,7 @@
   "/dry-creek/": "/products/dry-creek-quick-refresh-hair-mist/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=dry-creek",
   "/dusk-til-dawn/": "/products/dusk-til-dawn-hydration-gel/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=dusk-til-dawn",
   "/frontier-fade/": "/products/mojave-reset-cooling-face-mist/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=frontier-fade",
-  "/golden-hour/": "/products/omega-6-9-glowing-skin-body-oil/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=golden-hour",
+  "/golden-hour/": "/products/golden-hour-body-oil/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=golden-hour",
   "/lip-butter-peppermint/": "/products/gtr-lip-butter/?variant=52410705346856&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=lip-butter-peppermint",
   "/lip-butter-vanilla/": "/products/gtr-lip-butter/?variant=52410312196392&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=lip-butter-vanilla",
   "/long-shot/": "/products/long-shot-peptide-mascara/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=long-shot",
@@ -88,5 +88,6 @@
   "/products/the-wash-cold-pressed-grapefruit/": "/products/the-wash/?variant=51744790839592",
   "/products/the-wash-ginger-smoky-cardamom/": "/products/the-wash/?variant=51744790872360",
   "/products/sunbroke-the-wash-cold-pressed-grapefruit/": "/products/the-wash/",
-  "/products/silk-skin-hand-cream-spices-sandalwood/": "/products/hand-cream-citrus-pink-pepper/"
+  "/products/silk-skin-hand-cream-spices-sandalwood/": "/products/hand-cream-citrus-pink-pepper/",
+  "/products/omega-6-9-glowing-skin-body-oil/": "/products/golden-hour-body-oil/"
 }
