@@ -179,7 +179,7 @@ window.GTR_KITS = [
     "from": "gtr"
    },
    {
-    "h": "silk-skin-hand-cream-spices-sandalwood",
+    "h": "hand-cream-citrus-pink-pepper",
     "name": "Hand Cream",
     "sub": "Citrus + pink pepper",
     "p": "$46",
@@ -287,7 +287,7 @@ window.GTR_KITS = [
     "from": "gr"
    },
    {
-    "h": "omega-6-9-glowing-skin-body-oil",
+    "h": "golden-hour-body-oil",
     "name": "Golden Hour",
     "sub": "Body oil",
     "p": "",
