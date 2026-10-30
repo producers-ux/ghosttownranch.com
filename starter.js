@@ -56,3 +56,30 @@
     });
   }).catch(function () {});
 })();
+
+// What's-packed photo grid: <li data-pk-handle="product" data-pk-variant="Charcoal"> gets that product's
+// (or that variant's) photo from Shopify, so new visitors can see exactly what's in a set.
+(function () {
+  var SHOP = 'muq7w3-im.myshopify.com', TOKEN = 'c6efa00d9c5d9849c6c13d59cca6ab82';
+  var lis = [].slice.call(document.querySelectorAll('[data-pk-handle]'));
+  if (!lis.length) return;
+  var hs = [];
+  lis.forEach(function (l) { var h = l.getAttribute('data-pk-handle'); if (hs.indexOf(h) < 0) hs.push(h); });
+  var q = 'query{' + hs.map(function (h, i) {
+    return 'p' + i + ':product(handle:' + JSON.stringify(h) + '){ title featuredImage{ url } variants(first:20){ nodes{ title image{ url } } } }';
+  }).join(' ') + '}';
+  function sized(u) { return u + (u.indexOf('?') < 0 ? '?' : '&') + 'width=400'; }
+  fetch('https://' + SHOP + '/api/2025-01/graphql.json', {
+    method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Shopify-Storefront-Access-Token': TOKEN },
+    body: JSON.stringify({ query: q })
+  }).then(function (r) { return r.json(); }).then(function (j) {
+    lis.forEach(function (l) {
+      var p = j.data && j.data['p' + hs.indexOf(l.getAttribute('data-pk-handle'))]; if (!p) return;
+      var want = (l.getAttribute('data-pk-variant') || '').toLowerCase(), url = null;
+      if (want) (p.variants.nodes || []).forEach(function (v) { if (!url && v.image && v.title.toLowerCase().indexOf(want) > -1) url = v.image.url; });
+      if (!url && p.featuredImage) url = p.featuredImage.url;
+      var box = l.querySelector('.st-th-img');
+      if (url && box && !box.firstChild) box.innerHTML = '<img src="' + sized(url) + '" alt="' + p.title.replace(/"/g, '&quot;') + '" loading="lazy">';
+    });
+  }).catch(function () {});
+})();
