@@ -105,11 +105,25 @@
     <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawsreserve1.png?v=1781992783</image:loc></image:image>
   </url>
   <url>
-    <loc>https://ghosttownranch.com/products/sunbroke-the-wash-cold-pressed-grapefruit/</loc>
+    <loc>https://ghosttownranch.com/products/the-wash-cold-pressed-grapefruit/</loc>
     <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thewash-ambervanilla_3d2da936-b379-400c-afe2-01fa00df98dd.png?v=1793318868</image:loc></image:image>
+    <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Thewashgrapefruit-001.png?v=1793378490</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ghosttownranch.com/products/the-wash-ginger-smoky-cardamom/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thewashginger-003.png?v=1793382081</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://ghosttownranch.com/products/the-wash-amber-vanilla/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thewashambervan-001_13167b4b-ce17-457b-84d2-fae784b08dd8.png?v=1793379844</image:loc></image:image>
   </url>
   <url>
     <loc>https://ghosttownranch.com/products/the-still-amber-glass-reed-diffuser/</loc>

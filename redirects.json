@@ -61,9 +61,9 @@
   "/still-graze/": "/products/the-still-amber-glass-reed-diffuser/?variant=51730076795176&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=still-graze",
   "/still-hang-dried/": "/products/the-still-amber-glass-reed-diffuser/?variant=51730076729640&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=still-hang-dried",
   "/still-rough-hewn/": "/products/the-still-amber-glass-reed-diffuser/?variant=51730076696872&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=still-rough-hewn",
-  "/hw-amber/": "/products/sunbroke-the-wash-cold-pressed-grapefruit/?variant=52278018769192&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=hw-amber",
-  "/hw-grapefruit/": "/products/sunbroke-the-wash-cold-pressed-grapefruit/?variant=51744790839592&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=hw-grapefruit",
-  "/hw-ginger/": "/products/sunbroke-the-wash-cold-pressed-grapefruit/?variant=51744790872360&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=hw-ginger",
+  "/hw-amber/": "/products/the-wash-amber-vanilla/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=hw-amber",
+  "/hw-grapefruit/": "/products/the-wash-cold-pressed-grapefruit/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=hw-grapefruit",
+  "/hw-ginger/": "/products/the-wash-ginger-smoky-cardamom/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=hw-ginger",
   "/trail-light-creekside/": "/products/trail-light-travel-soy-candle/?variant=52377110642984&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=trail-light-creekside",
   "/trail-light-lavender/": "/products/trail-light-travel-soy-candle/?variant=52377109954856&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=trail-light-lavender",
   "/trail-light-goldenrod/": "/products/trail-light-travel-soy-candle/?variant=52377110675752&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=trail-light-goldenrod",
@@ -83,5 +83,6 @@
   "/products/the-hair-set/": "/hair/",
   "/products/keratin-shine-leave-in-hair-mist/": "/products/trails-end-leave-in-hair-conditioner/",
   "/products/microbiome-prebiotics-face-mist-1/": "/products/mojave-reset-cooling-face-mist/",
-  "/products/glycolic-acid-exfoliating-toner/": "/products/mojave-reset-cooling-face-mist/"
+  "/products/glycolic-acid-exfoliating-toner/": "/products/mojave-reset-cooling-face-mist/",
+  "/products/sunbroke-the-wash-cold-pressed-grapefruit/": "/wash-house/#hands"
 }
