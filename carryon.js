@@ -1,5 +1,5 @@
 // GTR carry-on badge.
-// Any product tagged "carry-on" in Shopify gets a small CARRY-ON badge on its card,
+// Any product tagged "carry-on" in Shopify gets a small carry-on case icon on its card,
 // wherever the card appears, plus a line on its product page. Tag or untag in Shopify;
 // no site change needed. Loaded on every page by gtr-controls.js.
 (function () {
@@ -7,19 +7,22 @@
   var TAG = 'carry-on';
   var API = 'https://muq7w3-im.myshopify.com/api/2025-01/graphql.json';
   var TOKEN = 'c6efa00d9c5d9849c6c13d59cca6ab82';
+  var ICON = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 6V3.5h5V6"/><rect x="6" y="6" width="12" height="13" rx="2"/><path d="M10 9.5v6M14 9.5v6"/><circle cx="9" cy="20.5" r="1"/><circle cx="15" cy="20.5" r="1"/></svg>';
   var known = {};      // handle -> true/false once looked up
   var pending = {};    // handle -> true while a lookup is in flight
 
   var css = document.createElement('style');
   css.textContent =
-    '.co-badge{position:absolute;left:10px;top:10px;z-index:2;font-family:"JetBrains Mono",ui-monospace,monospace;' +
-    'font-size:9.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;line-height:1;padding:5px 7px 4px;' +
-    'background:rgba(246,246,243,.94);color:#5D643A;border:1px solid rgba(93,100,58,.45);pointer-events:none;}' +
+    '.co-badge{position:absolute;left:10px;top:10px;z-index:2;width:28px;height:28px;border-radius:50%;' +
+    'display:flex;align-items:center;justify-content:center;background:rgba(246,246,243,.94);color:#5D643A;' +
+    'border:1px solid rgba(93,100,58,.4);}' +
     '.co-host{position:relative;}' +
-    '.co-inline{display:inline-block;margin-top:8px;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:10px;' +
-    'letter-spacing:.14em;text-transform:uppercase;color:#5D643A;border:1px solid rgba(93,100,58,.45);padding:5px 8px 4px;}' +
-    '.co-pdp{margin-top:10px;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.1em;' +
-    'text-transform:uppercase;color:#5D643A;}';
+    '.co-inline{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;' +
+    'vertical-align:middle;color:#5D643A;border:1px solid rgba(93,100,58,.4);background:#F6F6F3;}' +
+    '.co-inline svg{width:11px;height:11px;}' +
+    '.co-pdp{display:flex;align-items:center;gap:8px;margin-top:10px;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;' +
+    'letter-spacing:.1em;text-transform:uppercase;color:inherit;opacity:.82;}' +
+    '.co-pdp .co-inline{width:24px;height:24px;} .co-pdp .co-inline svg{width:13px;height:13px;}';
   document.head.appendChild(css);
 
   function handleOf(el) {
@@ -40,13 +43,13 @@
     if (el.querySelector('.co-badge, .co-inline')) return;
     if (el.matches('.kit-items li')) {               // small list rows: inline tag after the name
       var n = el.querySelector('.kit-name');
-      if (n) { var s = document.createElement('span'); s.className = 'co-inline'; s.textContent = 'Carry-on'; s.style.marginTop = '4px'; s.style.display = 'table'; n.appendChild(s); }
+      if (n) { var s = document.createElement('span'); s.className = 'co-inline'; s.title = 'Carry-on size'; s.setAttribute('aria-label', 'Carry-on size'); s.innerHTML = ICON; s.style.marginLeft = '6px'; n.appendChild(s); }
       return;
     }
     var host = el.querySelector('.pcard-img, .set-img, .gp-img, .card-img') || (el.querySelector('img') || {}).parentNode;
     if (!host || host === document) return;
     host.classList.add('co-host');
-    var b = document.createElement('span'); b.className = 'co-badge'; b.textContent = 'Carry-on';
+    var b = document.createElement('span'); b.className = 'co-badge'; b.title = 'Carry-on size'; b.setAttribute('role', 'img'); b.setAttribute('aria-label', 'Carry-on size'); b.innerHTML = ICON;
     host.appendChild(b);
   }
 
@@ -64,7 +67,7 @@
     var h = pdp(), sub = document.getElementById('product-subtitle');
     if (h && known[h] && sub && !document.querySelector('.co-pdp')) {
       var d = document.createElement('div'); d.className = 'co-pdp';
-      d.textContent = '✦ Carry-on size · clears security';
+      d.innerHTML = '<span class="co-inline">' + ICON + '</span><span>Carry-on size \u00b7 clears security</span>';
       sub.parentNode.insertBefore(d, sub.nextSibling);
     }
   }
@@ -94,6 +97,7 @@
   var t;
   function soon() { clearTimeout(t); t = setTimeout(lookup, 250); }
   function start() {
+    [].slice.call(document.querySelectorAll('.co-legend')).forEach(function (el) { el.innerHTML = ICON; });
     lookup();
     if ('MutationObserver' in window) new MutationObserver(soon).observe(document.body, { childList: true, subtree: true });
   }
