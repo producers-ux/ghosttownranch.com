@@ -172,7 +172,7 @@ window.GTR_KITS = [
     "from": "gtr"
    },
    {
-    "h": "the-wash-amber-vanilla",
+    "h": "the-wash",
     "name": "The Wash",
     "sub": "Hand wash",
     "p": "",

@@ -172,7 +172,7 @@ var VARIANT_IDS = {
 var PRODUCT_URLS = {
   "The Monument":         "/products/the-monument-candle",
   "Ranch Water":          "/products/ranch-water-body-room-fragrance",
-  "The Wash":             "/products/sunbroke-the-wash",
+  "The Wash":             "/products/the-wash",
   "Hand Cream":           "/products/worn-soft-hand-cream",
   "GTR Tee":              "/products/gtr-unisex-tee",
   "GTR Hoodie":           "/products/gtr-unisex-hoodie",
