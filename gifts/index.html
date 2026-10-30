@@ -277,7 +277,7 @@
         // Kits come from /gifts/kits.js, the same list the home page reads. Our own on the left, Guest Ranch on the right.
         function esc(x) { return String(x == null ? '' : x).replace(/[&<>"']/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
         function li(i) {
-          if (!i.h) return '<li class="soon"><a href="/#coming-spring"><span class="kit-thumb">' + (i.img ? '<img src="' + esc(i.img) + '" alt="" loading="lazy">' : '') + '</span><span class="kit-name">' + esc(i.name) + '<small>' + esc(i.sub) + '</small></span><span class="kit-p out">Soon</span></a></li>';
+          if (!i.h) return '<li class="soon"><a href="/#signup"><span class="kit-thumb">' + (i.img ? '<img src="' + esc(i.img) + '" alt="" loading="lazy">' : '') + '</span><span class="kit-name">' + esc(i.name) + '<small>' + esc(i.sub) + '</small></span><span class="kit-p out">Soon</span></a></li>';
           return '<li data-handle="' + esc(i.h) + '"><a href="/products/' + esc(i.h) + '/"><span class="kit-thumb"></span><span class="kit-name">' + esc(i.name) + '<small>' + esc(i.sub) + '</small></span><span class="kit-p">' + esc(i.p) + '</span></a></li>'; }
         function col(head, items) { return items.length ? '<div class="kit-col"><div class="kit-from">' + head + '</div><ul class="kit-items">' + items.map(li).join('') + '</ul></div>' : ''; }
         document.getElementById('kits').outerHTML = (window.GTR_KITS || []).map(function (k) {
