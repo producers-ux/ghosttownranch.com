@@ -172,7 +172,7 @@ window.GTR_KITS = [
     "from": "gtr"
    },
    {
-    "h": "sunbroke-the-wash-cold-pressed-grapefruit",
+    "h": "the-wash-amber-vanilla",
     "name": "The Wash",
     "sub": "Hand wash",
     "p": "",

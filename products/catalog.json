@@ -147,15 +147,30 @@
   ]
  },
  {
-  "handle": "sunbroke-the-wash-cold-pressed-grapefruit",
-  "title": "The Wash, Hydrating Hand Wash",
+  "handle": "the-wash-cold-pressed-grapefruit",
+  "title": "The Wash, Cold-Pressed Grapefruit",
   "vendor": "Ghost Town Ranch",
   "tags": [
-   "body wash",
-   "grapefruit",
-   "shoppe-object",
-   "vegan",
-   "wash"
+   "body-care",
+   "Vegan"
+  ]
+ },
+ {
+  "handle": "the-wash-ginger-smoky-cardamom",
+  "title": "The Wash, Ginger + Smoky Cardamom",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "body-care",
+   "Vegan"
+  ]
+ },
+ {
+  "handle": "the-wash-amber-vanilla",
+  "title": "The Wash, Amber + Vanilla",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "body-care",
+   "Vegan"
   ]
  },
  {
