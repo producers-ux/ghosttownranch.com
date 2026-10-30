@@ -6,6 +6,7 @@
   "tags": [
    "Aloe Juice (Active ingredients)",
    "Anti-age (Concern)",
+   "carry-on",
    "Dehydrated skin (Concern)",
    "Dry (Skin type)",
    "face-care",
@@ -30,6 +31,7 @@
    "Aloe Juice (Active ingredients)",
    "Betaine (Active ingredients)",
    "Black (Packaging color)",
+   "carry-on",
    "Dehydrated skin (Concern)",
    "face-care",
    "Gluten Free (Claims)",
@@ -45,28 +47,13 @@
   ]
  },
  {
-  "handle": "trails-end-leave-in-hair-conditioner",
-  "title": "Trail's End, Leave-In Hair Conditioner",
-  "vendor": "Ghost Town Ranch",
-  "tags": [
-   "Adds shine",
-   "All skin types (Skin type)",
-   "Hair softening",
-   "hair-care",
-   "Keratin (Active ingredients)",
-   "Lack of glow (Concern)",
-   "Lack of volume (Concern)",
-   "shoppe-object",
-   "Transparent (Packaging color)"
-  ]
- },
- {
   "handle": "biphasic-make-up-remover-fragrance-free",
   "title": "Outlaw's Wipeout Makeup Remover",
   "vendor": "Ghost Town Ranch",
   "tags": [
    "All skin types (Skin type)",
    "Aloe Juice (Active ingredients)",
+   "carry-on",
    "Cleanser (Type)",
    "Cleansing (Concern)",
    "face-care",
@@ -85,6 +72,7 @@
   "tags": [
    "All skin types (Skin type)",
    "Calming effect",
+   "carry-on",
    "Damaged skin barrier (Concern)",
    "Dehydrated skin (Concern)",
    "Face mist (Type)",
@@ -104,6 +92,7 @@
   "vendor": "Ghost Town Ranch",
   "tags": [
    "All skin types (Skin type)",
+   "carry-on",
    "Dehydrated skin (Concern)",
    "Dry ends (Concern)",
    "Gives shine and healthy glow",
@@ -198,6 +187,7 @@
   "vendor": "Ghost Town Ranch",
   "tags": [
    "body mist",
+   "carry-on",
    "fragrance",
    "phthalate-free",
    "room spray",
@@ -210,6 +200,7 @@
   "vendor": "Ghost Town Ranch",
   "tags": [
    "avocado",
+   "carry-on",
    "facial oil",
    "hydration",
    "jojoba",
@@ -221,6 +212,7 @@
   "title": "Dusk Til Dawn Hydration Gel",
   "vendor": "Ghost Town Ranch",
   "tags": [
+   "carry-on",
    "hyaluronic acid",
    "hydration gel",
    "overnight",
@@ -281,6 +273,7 @@
   "vendor": "Ghost Town Ranch",
   "tags": [
    "All skin types (Skin type)",
+   "carry-on",
    "Ceramides (Active ingredients)",
    "Cocoa Butter (Active ingredients)",
    "Damaged skin barrier (Concern)",
@@ -302,6 +295,7 @@
   "vendor": "Ghost Town Ranch",
   "tags": [
    "All skin types (Skin type)",
+   "carry-on",
    "Dark spots (Concern)",
    "Delicate",
    "for even complexion",
@@ -319,6 +313,7 @@
   "vendor": "Ghost Town Ranch",
   "tags": [
    "All skin types (Skin type)",
+   "carry-on",
    "Cream lipstick",
    "Dehydrated skin (Concern)",
    "face-care",
@@ -336,6 +331,7 @@
   "vendor": "Ghost Town Ranch",
   "tags": [
    "All skin types (Skin type)",
+   "carry-on",
    "Gives volume and length",
    "Gluten Free (Claims)",
    "Lack of volume (Concern)",
@@ -391,6 +387,7 @@
    "Aloe Juice (Active ingredients)",
    "Black (Packaging color)",
    "body-care",
+   "carry-on",
    "Deodorant (Type)",
    "Dermatologically tested (Claims)",
    "Gluten Free (Claims)",
@@ -415,29 +412,6 @@
   ]
  },
  {
-  "handle": "gold-rush-hydrogel-eye-mask",
-  "title": "Gold Rush, Hydrogel Eye Mask",
-  "vendor": "Ghost Town Ranch",
-  "tags": [
-   "All skin types (Skin type)",
-   "Allergen Label Free (Claims)",
-   "Aloe Juice (Active ingredients)",
-   "Anti-age (Concern)",
-   "Dermatologically tested (Claims)",
-   "face-care",
-   "Firming",
-   "Fragrance Free (Claims)",
-   "Gluten Free (Claims)",
-   "Hyaluronic Acid (Active ingredients)",
-   "Hydrating",
-   "Niacinamide (B3) (Active ingredients)",
-   "Nut Free (Claims)",
-   "Panthenol (Active ingredients)",
-   "Refreshing",
-   "White (Packaging color)"
-  ]
- },
- {
   "handle": "the-kiss-lip-mask-7-pcs",
   "title": "THE KISS, Lip Mask, 7 pcs",
   "vendor": "Ghost Town Ranch",
@@ -446,6 +420,7 @@
    "Allergen Label Free (Claims)",
    "Aloe Juice (Active ingredients)",
    "Anti-age (Concern)",
+   "carry-on",
    "Dermatologically tested (Claims)",
    "face-care",
    "Firming",
@@ -467,30 +442,11 @@
   "tags": []
  },
  {
-  "handle": "dry-creek-quick-refresh-hair-mist",
-  "title": "Dry Creek, Quick Refresh Hair Mist",
-  "vendor": "Ghost Town Ranch",
-  "tags": [
-   "All skin types (Skin type)",
-   "Controls Sebum production",
-   "Gas free",
-   "Glycerin (Active ingredients)",
-   "hair-care",
-   "Lack of volume (Concern)",
-   "No white residue",
-   "Nut Free (Claims)",
-   "Panthenol (Active ingredients)",
-   "Propanediol (Active ingredients)",
-   "Shampoo (Type)",
-   "Transparent (Packaging color)",
-   "Vegan (Claims)"
-  ]
- },
- {
   "handle": "trail-light-travel-soy-candle",
   "title": "Trail Light — Travel Soy Candle, with Lid",
   "vendor": "Ghost Town Ranch",
   "tags": [
+   "carry-on",
    "Cotton wick",
    "Gentle aroma",
    "Gluten Free (Claims)",
@@ -505,13 +461,17 @@
   "handle": "gtr-lip-butter",
   "title": "GTR Lip Butter",
   "vendor": "Ghost Town Ranch",
-  "tags": []
+  "tags": [
+   "carry-on"
+  ]
  },
  {
   "handle": "gtr-touch-up-blotting-paper",
   "title": "GTR Touch-up Blotting Papers",
   "vendor": "Ghost Town Ranch",
-  "tags": []
+  "tags": [
+   "carry-on"
+  ]
  },
  {
   "handle": "the-plunge-salt-moon-bath-bomb-set-of-3",
@@ -590,7 +550,9 @@
   "handle": "gtr-beard-butter",
   "title": "Beard Butter",
   "vendor": "Ghost Town Ranch",
-  "tags": []
+  "tags": [
+   "carry-on"
+  ]
  },
  {
   "handle": "gtr-beard-wash",
@@ -602,7 +564,9 @@
   "handle": "gtr-precision-tweezers",
   "title": "Precision Tweezers",
   "vendor": "Ghost Town Ranch",
-  "tags": []
+  "tags": [
+   "carry-on"
+  ]
  },
  {
   "handle": "onyx-measuring-spoons",
@@ -689,6 +653,7 @@
    "Aloe Juice (Active ingredients)",
    "Anti-age (Concern)",
    "Betaine (Active ingredients)",
+   "carry-on",
    "face-care",
    "Hair salon / Barbershop (Curated for )",
    "Hyaluronic acid",
@@ -729,6 +694,7 @@
   "title": "MORIHATA · Binchotan Charcoal Facial Puff",
   "vendor": "Morihata",
   "tags": [
+   "carry-on",
    "guest-ranch"
   ]
  },
@@ -821,6 +787,133 @@
   "tags": [
    "elsie green",
    "Shopify Collective"
+  ]
+ },
+ {
+  "handle": "hand-body-wash-patchouli-amber-vanilla-1",
+  "title": "The Wash, Amber + Vanilla",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "Allergen Label Free (Claims)",
+   "Betaine (Active ingredients)",
+   "Body wash (Type)",
+   "body-care",
+   "Cleansing (Concern)",
+   "Creator / Influencer (Business type)",
+   "Dehydrated skin (Concern)",
+   "Gentle to skin",
+   "Gluten Free (Claims)",
+   "Hospitality (Business type)",
+   "Hydrating",
+   "Nail salon (Business type)",
+   "Natural Certified (Claims)",
+   "Nut Free (Claims)",
+   "Spa / Massage centre (Business type)",
+   "Vegan",
+   "Vegan (Claims)"
+  ]
+ },
+ {
+  "handle": "gold-rush-hydrogel-eye-mask",
+  "title": "Gold Rush, Hydrogel Eye Mask",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "Allergen Label Free (Claims)",
+   "Aloe Juice (Active ingredients)",
+   "Anti-age (Concern)",
+   "Beauty salon (Business type)",
+   "carry-on",
+   "Creator / Influencer (Business type)",
+   "Dermatologically tested (Claims)",
+   "Ecommerce (Business type)",
+   "face-care",
+   "Firming",
+   "Fragrance Free (Claims)",
+   "Gluten Free (Claims)",
+   "Hospitality (Business type)",
+   "Hyaluronic Acid (Active ingredients)",
+   "Hydrating",
+   "Makeup artist (Business type)",
+   "Niacinamide (B3) (Active ingredients)",
+   "Nut Free (Claims)",
+   "Panthenol (Active ingredients)",
+   "Patches (Type)",
+   "Refreshing"
+  ]
+ },
+ {
+  "handle": "the-wash-house-set",
+  "title": "The Wash House Set",
+  "vendor": "GTR",
+  "tags": []
+ },
+ {
+  "handle": "the-face-set",
+  "title": "The Face Set",
+  "vendor": "GTR",
+  "tags": []
+ },
+ {
+  "handle": "ranch-scent-set",
+  "title": "Ranch Scent Set",
+  "vendor": "GTR",
+  "tags": []
+ },
+ {
+  "handle": "day-ride-travel-set-his",
+  "title": "Day Ride Travel Set, His",
+  "vendor": "GTR",
+  "tags": [
+   "carry-on"
+  ]
+ },
+ {
+  "handle": "day-ride-travel-set-hers",
+  "title": "Day Ride Travel Set, Hers",
+  "vendor": "GTR",
+  "tags": [
+   "carry-on"
+  ]
+ },
+ {
+  "handle": "dry-creek-quick-refresh-hair-mist",
+  "title": "Dry Creek, Quick Refresh Hair Mist",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "carry-on",
+   "Controls excess sebum",
+   "Gas free",
+   "Glycerin (Active ingredients)",
+   "hair-care",
+   "Lack of volume (Concern)",
+   "No white residue",
+   "Nut Free (Claims)",
+   "Panthenol (Active ingredients)",
+   "Propanediol (Active ingredients)",
+   "Shampoo (Type)",
+   "Vegan (Claims)"
+  ]
+ },
+ {
+  "handle": "trails-end-leave-in-hair-conditioner",
+  "title": "Trail's End, Leave-In Hair Conditioner",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "Adds shine",
+   "All skin types (Skin type)",
+   "carry-on",
+   "Ecommerce (Business type)",
+   "Hair salon / Barbershop (Business type)",
+   "Hair softening",
+   "hair-care",
+   "Hospitality (Business type)",
+   "Keratin (Active ingredients)",
+   "Lack of glow (Concern)",
+   "Lack of volume (Concern)",
+   "Spa / Massage centre (Business type)"
   ]
  }
 ]
