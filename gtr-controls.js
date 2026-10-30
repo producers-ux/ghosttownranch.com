@@ -82,7 +82,7 @@
     { t: "The Plunge", c: "Bath Bomb Set of 3, Salt Moon + Windbreak  ·  $46", u: "/products/the-plunge-salt-moon-bath-bomb-set-of-3", k: "the plunge bath bomb bombs set of 3 three salt moon windbreak cedarwood bitter orange sea salt eucalyptus bath soak tub wash house pre-order" },
     { t: "The Soak", c: "Bath Salt, Lights Out  ·  $38", u: "/products/the-soak-lights-out", k: "the soak lights out bath salt salts soak tub mineral magnesium epsom sea salt lavender lavandin cornflower eucalyptus relax relaxation wind down wash house" },
     { t: "The Wash", c: "Hydrating Hand Wash  ·  $44", u: "/products/sunbroke-the-wash-cold-pressed-grapefruit", k: "the wash hydrating hand soap body grapefruit shoppe-object vegan sunbroke cold pressed" },
-    { t: "Trail's End Leave-In Conditioner", c: "Hair Care  ·  $43", u: "/products/keratin-shine-leave-in-hair-mist", k: "trail end keratin hair mist care adds shine all skin types softening hair-care lack of glow volume shoppe-object transparent leave in" }
+    { t: "Trail's End Leave-In Conditioner", c: "Hair Care  ·  $43", u: "/products/trails-end-leave-in-hair-conditioner", k: "trail end keratin hair mist care adds shine all skin types softening hair-care lack of glow volume shoppe-object transparent leave in" }
   ];
 
   // ── HELPERS ───────────────────────────────────────────────────────────────

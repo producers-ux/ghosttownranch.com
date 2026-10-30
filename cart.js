@@ -32,9 +32,9 @@
     'dusk-til-dawn-hydration-gel':            'gold-rush-hydrogel-eye-mask',
     'glycolic-acid-exfoliating-toner':        'microbiome-prebiotics-face-mist-1',
     'biphasic-make-up-remover-fragrance-free':'rose-cut-daily-facial-wash',
-    'rosemary-hair-scalp-strengthening-oil':  'keratin-shine-leave-in-hair-mist',
+    'rosemary-hair-scalp-strengthening-oil':  'trails-end-leave-in-hair-conditioner',
     'outlaws-reserve-2-in-1-hair-skin-rinse': 'rosemary-hair-scalp-strengthening-oil',
-    'dry-creek-quick-refresh-hair-mist':      'keratin-shine-leave-in-hair-mist',
+    'dry-creek-quick-refresh-hair-mist':      'trails-end-leave-in-hair-conditioner',
     'day-ride-bag':                           'drawn-line-matte-lip-color'
   };
   var FALLBACK = ['ranch-water-body-room-fragrance', 'day-ride-bag'];

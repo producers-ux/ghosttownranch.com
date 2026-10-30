@@ -68,7 +68,7 @@
   "/trail-light-lavender/": "/products/trail-light-travel-soy-candle/?variant=52377109954856&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=trail-light-lavender",
   "/trail-light-goldenrod/": "/products/trail-light-travel-soy-candle/?variant=52377110675752&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=trail-light-goldenrod",
   "/trail-light-sunbreak/": "/products/trail-light-travel-soy-candle/?variant=52377110610216&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=trail-light-sunbreak",
-  "/trails-end/": "/products/keratin-shine-leave-in-hair-mist/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=trails-end",
+  "/trails-end/": "/products/trails-end-leave-in-hair-conditioner/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=trails-end",
   "/products/all-told-eye-cream/": "/products/gold-rush-hydrogel-eye-mask/",
   "/products/anti-age-hydrogel-eye-patches-7-pcs/": "/products/gold-rush-hydrogel-eye-mask/",
   "/products/the-basin-hand-wash-body-cream-set-of-two-choose-your-scent/": "/products/the-wash-house-set/",
@@ -80,5 +80,6 @@
   "/products/quick-refresh-dry-shampoo-spray-1/": "/products/dry-creek-quick-refresh-hair-mist/",
   "/products/dry-creek-no-rinse-shampoo-mist/": "/products/dry-creek-quick-refresh-hair-mist/",
   "/products/quick-refresh-dry-shampoo-spray-2/": "/products/dry-creek-quick-refresh-hair-mist/",
-  "/products/the-hair-set/": "/hair/"
+  "/products/the-hair-set/": "/hair/",
+  "/products/keratin-shine-leave-in-hair-mist/": "/products/trails-end-leave-in-hair-conditioner/"
 }

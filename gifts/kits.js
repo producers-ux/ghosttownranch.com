@@ -123,7 +123,7 @@ window.GTR_KITS = [
     "from": "gtr"
    },
    {
-    "h": "keratin-shine-leave-in-hair-mist",
+    "h": "trails-end-leave-in-hair-conditioner",
     "name": "Trail's End",
     "sub": "Leave-in conditioner",
     "p": "",
