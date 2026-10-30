@@ -153,7 +153,6 @@ document.body.appendChild(div);
 // ── DATA ────────────────────────────────────────────────────────────────────
 // Variant IDs for buy buttons
 var VARIANT_IDS = {
-  "All Told\n3-in-1 Eye Cream":          51729909350696,
   "The Grade\nPeptide Serum":            51729911120168,
   "The Hold\nAnti-Age Day Cream":        51729910137128,
   "Desert Day Cream":                    51729912103208,
@@ -182,7 +181,7 @@ var PRODUCT_URLS = {
 
 // Product prices
 var PRICES = {
-  "All Told": 48, "The Grade": 58, "The Hold": 64, "Desert Day Cream": 56,
+  "The Grade": 58, "The Hold": 64, "Desert Day Cream": 56,
   "Dusk Til Dawn": 52, "Desert Glow": 58, "Frontier Fade": 48, "Mojave Reset": 46,
   "Outlaw's Wipeout": 48, "Rose Cut": 54, "Golden Hour": 64,
   "Rosemary Mint Revive": 44, "Trail's End": 46, "Outlaw's Reserve": 48,
