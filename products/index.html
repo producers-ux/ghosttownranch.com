@@ -1443,6 +1443,26 @@ function renderProduct(product) {
     variantWrap.style.display = 'none';
   }
 
+  // Sibling products shown as one product with options (each scent is its own Shopify
+  // product so Selfnamed can drop ship it; the buttons link between the pages).
+  const SIBLING_GROUPS = [
+    { label: 'Scent', title: 'The Wash', items: [
+      ['the-wash-amber-vanilla', 'Amber + Vanilla'],
+      ['the-wash-cold-pressed-grapefruit', 'Cold-Pressed Grapefruit'],
+      ['the-wash-ginger-smoky-cardamom', 'Ginger + Smoky Cardamom'] ] }
+  ];
+  const sibGroup = SIBLING_GROUPS.find(g => g.items.some(i => i[0] === handle));
+  if (sibGroup && !hasVariants) {
+    const cur = sibGroup.items.find(i => i[0] === handle);
+    variantWrap.style.display = 'block';
+    if (sibGroup.title) document.getElementById('product-title').textContent = sibGroup.title;
+    selectorLabelEl.innerHTML = sibGroup.label + ' · <span id="selected-variant-label"></span>';
+    document.getElementById('selected-variant-label').textContent = cur[1];
+    variantGrid.innerHTML = sibGroup.items.map(([h, name]) =>
+      `<a class="variant-btn${h === handle ? ' selected' : ''}" href="/products/${h}/"${h === handle ? ' aria-current="page"' : ''} style="text-decoration:none;color:inherit">${name}</a>`
+    ).join('');
+  }
+
   // ATC
   const atcBtn = document.getElementById('atc-btn');
   const comingSoonNote = document.getElementById('coming-soon-note');
