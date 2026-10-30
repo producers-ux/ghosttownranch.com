@@ -29,7 +29,7 @@
     'peptide-anti-aging-serum':               'the-hold-anti-age-day-cream',
     'the-hold-anti-age-day-cream':            'peptide-anti-aging-serum',
     'moisturising-day-cream':                 'peptide-anti-aging-serum',
-    'dusk-til-dawn-hydration-gel':            'anti-age-hydrogel-eye-patches-7-pcs',
+    'dusk-til-dawn-hydration-gel':            'gold-rush-hydrogel-eye-mask',
     'glycolic-acid-exfoliating-toner':        'microbiome-prebiotics-face-mist-1',
     'biphasic-make-up-remover-fragrance-free':'rose-cut-daily-facial-wash',
     'rosemary-hair-scalp-strengthening-oil':  'keratin-shine-leave-in-hair-mist',

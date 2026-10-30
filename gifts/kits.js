@@ -92,7 +92,7 @@ window.GTR_KITS = [
     "from": "gtr"
    },
    {
-    "h": "anti-age-hydrogel-eye-patches-7-pcs",
+    "h": "gold-rush-hydrogel-eye-mask",
     "name": "Gold Rush",
     "sub": "Hydrogel eye mask, 7 pairs",
     "p": "",
