@@ -10,7 +10,7 @@
   "/products/gtr-black-trucker-hat/": "/shop/",
   "/products/apothecary-cedar-and-vanilla-candle/": "/ritual/",
   "/body-cream/": "/products/all-over-body-cream/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=body-cream",
-  "/all-told/": "/products/all-told-eye-cream/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=all-told",
+  "/all-told/": "/products/gold-rush-hydrogel-eye-mask/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=all-told",
   "/beard-butter/": "/products/gtr-beard-butter/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=beard-butter",
   "/beard-wash/": "/products/gtr-beard-wash/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=beard-wash",
   "/desert-day/": "/products/moisturising-day-cream/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=desert-day",
@@ -42,8 +42,8 @@
   "/the-grade/": "/products/peptide-anti-aging-serum/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=the-grade",
   "/the-hold/": "/products/anti-age-day-cream/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=the-hold",
   "/the-kiss/": "/products/the-kiss-lip-mask-7-pcs/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=the-kiss",
-  "/lookout-boom-town/": "/products/anti-age-hydrogel-eye-patches-7-pcs/?variant=52296907784488&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=lookout-boom-town",
-  "/lookout-gold-rush/": "/products/anti-age-hydrogel-eye-patches-7-pcs/?variant=52150587130152&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=lookout-gold-rush",
+  "/lookout-boom-town/": "/products/gold-rush-hydrogel-eye-mask/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=lookout-boom-town",
+  "/lookout-gold-rush/": "/products/gold-rush-hydrogel-eye-mask/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=lookout-gold-rush",
   "/monument-dusk/": "/products/the-monument-candle/?variant=51730077057320&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=monument-dusk",
   "/monument-ember/": "/products/the-monument-candle/?variant=51730076959016&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=monument-ember",
   "/monument-flax/": "/products/the-monument-candle/?variant=51730077024552&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=monument-flax",
@@ -68,5 +68,7 @@
   "/trail-light-lavender/": "/products/trail-light-travel-soy-candle/?variant=52377109954856&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=trail-light-lavender",
   "/trail-light-goldenrod/": "/products/trail-light-travel-soy-candle/?variant=52377110675752&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=trail-light-goldenrod",
   "/trail-light-sunbreak/": "/products/trail-light-travel-soy-candle/?variant=52377110610216&utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=trail-light-sunbreak",
-  "/trails-end/": "/products/keratin-shine-leave-in-hair-mist/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=trails-end"
+  "/trails-end/": "/products/keratin-shine-leave-in-hair-mist/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=trails-end",
+  "/products/all-told-eye-cream/": "/products/gold-rush-hydrogel-eye-mask/",
+  "/products/anti-age-hydrogel-eye-patches-7-pcs/": "/products/gold-rush-hydrogel-eye-mask/"
 }

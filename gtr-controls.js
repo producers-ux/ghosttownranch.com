@@ -37,7 +37,7 @@
     { t: 'Shoehorn Keyring', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn shoehorn keyring key ring keychain key chain mini shoehorn fob gift abbeyhorn horn cattle horn cow horn handmade england made in england dry goods' },
 
     // ── PRODUCTS (generated) ──
-    { t: "The Lookout Collection", c: "Aloe Hydrogel Eye Patches  ·  $36", u: "/products/anti-age-hydrogel-eye-patches-7-pcs", k: "the lookout collection aloe hydrogel eye patches 7 pairs 14 pcs gold rush under-eye mask puffiness face-care" },
+    { t: "Gold Rush", c: "Hydrogel Eye Mask  ·  $36", u: "/products/gold-rush-hydrogel-eye-mask", k: "gold rush hydrogel eye mask the lookout collection aloe hydrogel eye patches 7 pairs 14 pcs gold rush under-eye mask puffiness face-care" },
     { t: "The Kiss", c: "Hydrogel Lip Mask  ·  $42", u: "/products/the-kiss-lip-mask-7-pcs", k: "the kiss hyaluronic hydrogel lip mask 7 pcs lips lip care hyaluronic acid" },
     { t: "The Basin", c: "Hand Wash + Body Cream  ·  $89", u: "/products/the-basin-hand-wash-body-cream-set-of-two-choose-your-scent", k: "the basin hand wash body cream set of two choose your scent soap lotion wash house cookhouse porch light gift" },
     { t: "GTR Precision Tweezers", c: "Stainless Steel  ·  $22", u: "/products/gtr-precision-tweezers", k: "gtr precision tweezers tweezer slanted stainless steel brows brow beard grooming tools splinter room 29" },
@@ -52,7 +52,6 @@
     { t: "Day Ride", c: "Padded Zipper Bag, Black + White  ·  $30", u: "/products/day-ride-bag", k: "day ride padded zipper bag black white pouch case travel carry accessories goods" },
     { t: "Trail Light", c: "Travel Soy Candle, with Lid  ·  $28", u: "/products/trail-light-travel-soy-candle", k: "trail light travel soy candle lid small portable scent home" },
     { t: "The Still", c: "Reed Diffuser  ·  $68", u: "/products/the-still-amber-glass-reed-diffuser", k: "the still reed diffuser amber glass scent fragrance home hang dried rough hewn dusk ember graze flax" },
-    { t: "All Told", c: "3-in-1 Eye Cream  ·  $62", u: "/products/all-told-eye-cream", k: "all told 3-in-1 eye cream skin types aloe juice anti-age black calms the around eyes face-care hyaluronic acid lightweight texture shoppe-object under-eye fatigue" },
     { t: "Desert Day Cream", c: "Moisturizer  ·  $64", u: "/products/moisturising-day-cream", k: "desert day cream moisturizer all skin types aloe juice betaine black dehydrated face-care gluten free hyaluronic acid luxurious texture moisture boost moisturiser natural certified nut shoppe-object vegan moisturising" },
     { t: "Desert Glow Hydrating Facial Oil", c: "Facial Oil  ·  $68", u: "/products/desert-glow-hydrating-facial-oil", k: "desert glow hydrating facial oil avocado hydration jojoba shoppe-object" },
     { t: "DESERT VEIL: Available in Light", c: "Medium, Tan, and Deep  ·  $55", u: "/products/desert-veil-tone-correction-barrier-protection", k: "desert veil available in light medium tan and deep face care all skin types ceramides cocoa butter damaged barrier dark spots evens tone face-care gluten free nut shoppe-object stick supports vegan white correction protection" },
