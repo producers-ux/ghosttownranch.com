@@ -1,6 +1,6 @@
 {
   "_note": "Old product addresses -> where they should land now. Run: node scripts/build-redirects.mjs",
-  "/products/desert-glow-hydrating-facial-oil-ghost-town-ranch/": "/products/desert-glow-hydrating-facial-oil/",
+  "/products/desert-glow-hydrating-facial-oil-ghost-town-ranch/": "/products/desert-glow-facial-oil/",
   "/products/desert-day-cream/": "/products/moisturising-day-cream/",
   "/products/hand-body-wash-grapefruit-ghost-town-ranch/": "/products/hand-body-wash-grapefruit/",
   "/products/hand-body-wash-grapefruit-1/": "/products/hand-body-wash-grapefruit/",
@@ -14,7 +14,7 @@
   "/beard-butter/": "/products/gtr-beard-butter/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=beard-butter",
   "/beard-wash/": "/products/gtr-beard-wash/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=beard-wash",
   "/desert-day/": "/products/moisturising-day-cream/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=desert-day",
-  "/desert-glow/": "/products/desert-glow-hydrating-facial-oil/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=desert-glow",
+  "/desert-glow/": "/products/desert-glow-facial-oil/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=desert-glow",
   "/desert-veil/": "/products/desert-veil-tone-correction-barrier-protection/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=desert-veil",
   "/drawn-line/": "/products/drawn-line-matte-lip-color/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=drawn-line",
   "/dry-creek/": "/products/dry-creek-quick-refresh-hair-mist/?utm_source=label&utm_medium=qr&utm_campaign=product_labels&utm_content=dry-creek",
@@ -91,5 +91,6 @@
   "/products/silk-skin-hand-cream-spices-sandalwood/": "/products/hand-cream-citrus-pink-pepper/",
   "/products/omega-6-9-glowing-skin-body-oil/": "/products/golden-hour-body-oil/",
   "/products/rosemary-hair-scalp-strengthening-oil/": "/products/rosemary-mint-revive-hair-scalp-oil/",
-  "/products/peptide-anti-aging-serum/": "/products/the-grade-peptide-anti-aging-serum/"
+  "/products/peptide-anti-aging-serum/": "/products/the-grade-peptide-anti-aging-serum/",
+  "/products/desert-glow-hydrating-facial-oil/": "/products/desert-glow-facial-oil/"
 }
