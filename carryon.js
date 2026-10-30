@@ -1,5 +1,5 @@
 // GTR carry-on badge.
-// Any product tagged "carry-on" in Shopify gets a small carry-on case icon on its card,
+// Any product tagged "carry-on" in Shopify gets a small carry-on case icon next to its name on its card,
 // wherever the card appears, plus a line on its product page. Tag or untag in Shopify;
 // no site change needed. Loaded on every page by gtr-controls.js.
 (function () {
@@ -17,12 +17,12 @@
     'display:flex;align-items:center;justify-content:center;background:rgba(246,246,243,.94);color:#5D643A;' +
     'border:1px solid rgba(93,100,58,.4);}' +
     '.co-host{position:relative;}' +
-    '.co-inline{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;' +
-    'vertical-align:middle;color:#5D643A;border:1px solid rgba(93,100,58,.4);background:#F6F6F3;}' +
+    '.co-inline{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;margin-left:8px;' +
+    'vertical-align:.12em;flex:none;color:#5D643A;border:1px solid rgba(93,100,58,.4);background:#F6F6F3;}' +
     '.co-inline svg{width:11px;height:11px;}' +
     '.co-pdp{display:flex;align-items:center;gap:8px;margin-top:10px;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;' +
     'letter-spacing:.1em;text-transform:uppercase;color:inherit;opacity:.82;}' +
-    '.co-pdp .co-inline{width:24px;height:24px;} .co-pdp .co-inline svg{width:13px;height:13px;}';
+    '.co-pdp .co-inline{width:24px;height:24px;margin-left:0;} .co-pdp .co-inline svg{width:13px;height:13px;}';
   document.head.appendChild(css);
 
   function handleOf(el) {
@@ -40,17 +40,16 @@
   }
 
   function badge(el) {
-    if (el.querySelector('.co-badge, .co-inline')) return;
-    if (el.matches('.kit-items li')) {               // small list rows: inline tag after the name
-      var n = el.querySelector('.kit-name');
-      if (n) { var s = document.createElement('span'); s.className = 'co-inline'; s.title = 'Carry-on size'; s.setAttribute('aria-label', 'Carry-on size'); s.innerHTML = ICON; s.style.marginLeft = '6px'; n.appendChild(s); }
-      return;
-    }
-    var host = el.querySelector('.pcard-img, .set-img, .gp-img, .card-img') || (el.querySelector('img') || {}).parentNode;
-    if (!host || host === document) return;
-    host.classList.add('co-host');
-    var b = document.createElement('span'); b.className = 'co-badge'; b.title = 'Carry-on size'; b.setAttribute('role', 'img'); b.setAttribute('aria-label', 'Carry-on size'); b.innerHTML = ICON;
-    host.appendChild(b);
+    if (el.querySelector('.co-inline')) return;
+    // the icon sits right after the product name, never on the photo
+    var n = el.querySelector('.pcard-name, .set-name, .st-name, .gp-name, .card-name, .kit-name, .product-name, h3, h4');
+    if (!n) return;
+    var s = document.createElement('span');
+    s.className = 'co-inline'; s.title = 'Carry-on size';
+    s.setAttribute('role', 'img'); s.setAttribute('aria-label', 'Carry-on size');
+    s.innerHTML = ICON;
+    var sub = n.querySelector('small');               // names with a sub-line: keep the icon on the name line
+    if (sub) n.insertBefore(s, sub); else n.appendChild(s);
   }
 
   function pdp() {
