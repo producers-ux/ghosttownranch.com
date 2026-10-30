@@ -37,7 +37,7 @@
     { t: 'Shoehorn Keyring', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn shoehorn keyring key ring keychain key chain mini shoehorn fob gift abbeyhorn horn cattle horn cow horn handmade england made in england dry goods' },
 
     // ── PRODUCTS (generated) ──
-    { t: "The Lookout Collection", c: "Aloe Hydrogel Eye Patches  ·  $36", u: "/products/anti-age-hydrogel-eye-patches-7-pcs", k: "the lookout collection aloe hydrogel eye patches 7 pairs 14 pcs gold rush under-eye mask puffiness face-care" },
+    { t: "Gold Rush", c: "Hydrogel Eye Mask  ·  $36", u: "/products/anti-age-hydrogel-eye-patches-7-pcs", k: "gold rush hydrogel eye mask the lookout collection aloe hydrogel eye patches 7 pairs 14 pcs gold rush under-eye mask puffiness face-care" },
     { t: "The Kiss", c: "Hydrogel Lip Mask  ·  $42", u: "/products/the-kiss-lip-mask-7-pcs", k: "the kiss hyaluronic hydrogel lip mask 7 pcs lips lip care hyaluronic acid" },
     { t: "The Basin", c: "Hand Wash + Body Cream  ·  $89", u: "/products/the-basin-hand-wash-body-cream-set-of-two-choose-your-scent", k: "the basin hand wash body cream set of two choose your scent soap lotion wash house cookhouse porch light gift" },
     { t: "GTR Precision Tweezers", c: "Stainless Steel  ·  $22", u: "/products/gtr-precision-tweezers", k: "gtr precision tweezers tweezer slanted stainless steel brows brow beard grooming tools splinter room 29" },
