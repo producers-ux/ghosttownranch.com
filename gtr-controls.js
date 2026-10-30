@@ -20,6 +20,7 @@
   var INDEX = [
     // Sections / pages
     { t: 'Hair + Scalp',    c: 'Scalp oil, leave-in shine, dry shampoo, beard, tools', u: '/hair/', k: 'hair scalp shampoo dry shampoo conditioner leave-in oil rosemary keratin beard comb brush' },
+    { t: 'Travel',          c: 'Day Ride sets and everything carry-on sized', u: '/travel/', k: 'travel carry-on carry on tsa plane flight trip road trip travel size mini minis day ride glovebox airport 3-1-1 quart bag' },
     { t: 'Gift Guide',      c: '$30 and under, under $75, the big ones', u: '/gifts/', k: 'gift gifts guide holiday christmas present stocking stuffer for him for her under 30 under 75' },
     { t: 'Dry Goods',       c: 'Wear, carry, the ranch house', u: '/shop/#dry-goods', k: 'dry goods apparel tee tshirt hoodie sweatshirt long sleeve bag day ride carry travel clothing' },
     { t: 'Ritual',          c: 'Scent + Home',  u: '/ritual/',                k: 'candle votive diffuser fragrance scent home reed' },
@@ -391,3 +392,6 @@
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();
+
+// Carry-on badges (products tagged "carry-on" in Shopify), on every page that loads this file.
+(function () { if (document.querySelector('script[src="/carryon.js"]')) return; var s = document.createElement('script'); s.src = '/carryon.js'; s.defer = true; document.head.appendChild(s); })();
