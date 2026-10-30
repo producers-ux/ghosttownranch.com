@@ -80,9 +80,7 @@
     { t: "The Monument", c: "Candle  ·  $190", u: "/products/the-monument-candle", k: "the monument hand-poured mega 4-wick coconut-soy candle 55oz coconut soy large shoppe-object" },
     { t: "The Plunge", c: "Bath Bomb Set of 3, Salt Moon + Windbreak  ·  $46", u: "/products/the-plunge-salt-moon-bath-bomb-set-of-3", k: "the plunge bath bomb bombs set of 3 three salt moon windbreak cedarwood bitter orange sea salt eucalyptus bath soak tub wash house pre-order" },
     { t: "The Soak", c: "Bath Salt, Lights Out  ·  $38", u: "/products/the-soak-lights-out", k: "the soak lights out bath salt salts soak tub mineral magnesium epsom sea salt lavender lavandin cornflower eucalyptus relax relaxation wind down wash house" },
-    { t: "The Wash, Cold-Pressed Grapefruit", c: "Hand Wash  ·  $44", u: "/products/the-wash-cold-pressed-grapefruit", k: "the wash hand wash hydrating soap body cold-pressed grapefruit vegan" },
-    { t: "The Wash, Ginger + Smoky Cardamom", c: "Hand Wash  ·  $44", u: "/products/the-wash-ginger-smoky-cardamom", k: "the wash hand wash hydrating soap body ginger + smoky cardamom vegan" },
-    { t: "The Wash, Amber + Vanilla", c: "Hand Wash  ·  $44", u: "/products/the-wash-amber-vanilla", k: "the wash hand wash hydrating soap body amber + vanilla vegan" },
+    { t: "The Wash", c: "Hand Wash, three scents  ·  $44", u: "/products/the-wash-amber-vanilla", k: "the wash hand wash hydrating soap body amber vanilla cold-pressed grapefruit ginger smoky cardamom vegan" },
     { t: "Trail's End Leave-In Conditioner", c: "Hair Care  ·  $43", u: "/products/trails-end-leave-in-hair-conditioner", k: "trail end keratin hair mist care adds shine all skin types softening hair-care lack of glow volume shoppe-object transparent leave in" }
   ];
 
