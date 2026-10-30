@@ -104,9 +104,9 @@ window.GTR_KITS = [
   "id": "kit-hair",
   "label": "Hair + Scalp",
   "title": "For the one with the good hair.",
-  "copy": "Wash day, the days between, and the scalp under it all. Rosemary and mint for the roots, a little shine for the ends, a no-rinse mist for the motel with bad water pressure, and a horn comb and brush, marked with the Bull.",
+  "copy": "Wash day, the days between, and the scalp under it all. Rosemary and mint for the roots, a little shine for the ends, a quick-refresh mist for the motel with bad water pressure, and a horn comb and brush, marked with the Bull.",
   "mediaStyle": "",
-  "media": "<video src=\"/media/drycreek.mp4\" poster=\"/media/drycreek.jpg\" autoplay muted loop playsinline preload=\"metadata\" aria-label=\"Dry Creek no-rinse shampoo mist mist, used in a vintage car outside a desert diner\"></video>",
+  "media": "<video src=\"/media/drycreek.mp4\" poster=\"/media/drycreek.jpg\" autoplay muted loop playsinline preload=\"metadata\" aria-label=\"Dry Creek quick refresh hair mist mist, used in a vintage car outside a desert diner\"></video>",
   "items": [
    {
     "h": "outlaws-reserve-2-in-1-hair-skin-rinse",
@@ -125,14 +125,14 @@ window.GTR_KITS = [
    {
     "h": "keratin-shine-leave-in-hair-mist",
     "name": "Trail's End",
-    "sub": "Keratin leave-in shine",
+    "sub": "Leave-in conditioner",
     "p": "",
     "from": "gtr"
    },
    {
-    "h": "dry-creek-no-rinse-shampoo-mist",
+    "h": "quick-refresh-dry-shampoo-spray-2",
     "name": "Dry Creek",
-    "sub": "No-rinse shampoo mist",
+    "sub": "Quick refresh hair mist",
     "p": "",
     "from": "gtr"
    },

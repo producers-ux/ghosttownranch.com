@@ -19,7 +19,7 @@
   // Shopify export; regenerate this PRODUCTS block when the catalog changes.
   var INDEX = [
     // Sections / pages
-    { t: 'Hair + Scalp',    c: 'Scalp oil, leave-in shine, no-rinse mist, beard, tools', u: '/hair/', k: 'hair scalp shampoo dry shampoo conditioner leave-in oil rosemary keratin beard comb brush' },
+    { t: 'Hair + Scalp',    c: 'Scalp oil, leave-in conditioner, quick-refresh mist, beard, tools', u: '/hair/', k: 'hair scalp shampoo dry shampoo conditioner leave-in oil rosemary keratin beard comb brush' },
     { t: 'Travel',          c: 'Day Ride sets and everything carry-on sized', u: '/travel/', k: 'travel carry-on carry on tsa plane flight trip road trip travel size mini minis day ride glovebox airport 3-1-1 quart bag' },
     { t: 'Gift Guide',      c: '$30 and under, under $75, the big ones', u: '/gifts/', k: 'gift gifts guide holiday christmas present stocking stuffer for him for her under 30 under 75' },
     { t: 'Dry Goods',       c: 'Wear, carry, the ranch house', u: '/shop/#dry-goods', k: 'dry goods apparel tee tshirt hoodie sweatshirt long sleeve bag day ride carry travel clothing' },
@@ -39,7 +39,7 @@
 
     // ── PRODUCTS (generated) ──
     { t: "The Wash House Set", c: "Starter set  ·  $142", u: "/wash-house/#start", k: "wash house set starter set bath body kit the wash grapefruit hand wash hand cream golden hour body oil gift bundle save" },
-    { t: "The Hair Set", c: "Starter set  ·  $145", u: "/hair/#start", k: "hair set starter set kit outlaws reserve rosemary mint scalp oil trails end keratin bundle save" },
+    { t: "The Hair Set", c: "Starter set  ·  $136", u: "/hair/#start", k: "hair set starter set kit outlaws reserve rosemary mint scalp oil trails end keratin bundle save" },
     { t: "The Face Set", c: "Starter set  ·  $254", u: "/routines/#start", k: "face set starter set skincare kit rose cut the grade serum desert glow gold rush eye mask mojave reset bundle save" },
     { t: "Ranch Scent Set", c: "Starter set  ·  $140", u: "/ritual/#start", k: "ranch scent set starter set ranch water the still diffuser fragrance home kit bundle save" },
     { t: "Day Ride Travel Sets", c: "His or Hers  ·  from $161", u: "/travel/#start", k: "day ride travel set his hers kit carry-on travel bag dry creek still air lip butter blotting papers beard butter drawn line gift bundle" },
@@ -61,7 +61,7 @@
     { t: "Desert Glow Hydrating Facial Oil", c: "Facial Oil  ·  $68", u: "/products/desert-glow-hydrating-facial-oil", k: "desert glow hydrating facial oil avocado hydration jojoba shoppe-object" },
     { t: "DESERT VEIL: Available in Light", c: "Medium, Tan, and Deep  ·  $55", u: "/products/desert-veil-tone-correction-barrier-protection", k: "desert veil available in light medium tan and deep face care all skin types ceramides cocoa butter damaged barrier dark spots evens tone face-care gluten free nut shoppe-object stick supports vegan white correction protection" },
     { t: "Drawn Line", c: "Matte Lip Pigment  ·  $42", u: "/products/drawn-line-matte-lip-color", k: "drawn line matte lip tint makeup all skin types cream lipstick dehydrated face-care matte finish shea butter shoppe-object velvety white color" },
-    { t: "Dry Creek", c: "No-Rinse Shampoo Mist  ·  $39", u: "/products/dry-creek-no-rinse-shampoo-mist", k: "dry creek no-rinse no rinse shampoo mist dry shampoo waterless non-aerosol spray refresh roots oil volume travel carry-on hair-care" },
+    { t: "Dry Creek", c: "Quick Refresh Hair Mist  ·  $39", u: "/products/quick-refresh-dry-shampoo-spray-2", k: "dry creek quick refresh hair mist dry shampoo shampoo alternative waterless non-aerosol spray refresh roots oil volume travel carry-on hair-care" },
     { t: "Dusk Til Dawn Hydration Gel", c: "Night Gel  ·  $60", u: "/products/dusk-til-dawn-hydration-gel", k: "dusk til dawn hydration gel night hyaluronic acid overnight shoppe-object" },
     { t: "Frontier Fade Toning Exfoliant", c: "Toner  ·  $55", u: "/products/glycolic-acid-exfoliating-toner", k: "frontier fade toning exfoliant toner all skin types betaine dark spots exfoliates exfoliator face-care glycolic acid promotes the appearance of more even tone removes build-up shoppe-object sodium pca transparent exfoliating" },
     { t: "Golden Hour Body Oil", c: "Body Care  ·  $68", u: "/products/omega-6-9-glowing-skin-body-oil", k: "golden hour body oil care adds healthy glow all skin types argan black body-care dehydrated gluten free hydrating organic certified rejuvenating shoppe-object vegan vitamin omega glowing" },
@@ -83,7 +83,7 @@
     { t: "The Plunge", c: "Bath Bomb Set of 3, Salt Moon + Windbreak  ·  $46", u: "/products/the-plunge-salt-moon-bath-bomb-set-of-3", k: "the plunge bath bomb bombs set of 3 three salt moon windbreak cedarwood bitter orange sea salt eucalyptus bath soak tub wash house pre-order" },
     { t: "The Soak", c: "Bath Salt, Lights Out  ·  $38", u: "/products/the-soak-lights-out", k: "the soak lights out bath salt salts soak tub mineral magnesium epsom sea salt lavender lavandin cornflower eucalyptus relax relaxation wind down wash house" },
     { t: "The Wash", c: "Hydrating Hand Wash  ·  $44", u: "/products/sunbroke-the-wash-cold-pressed-grapefruit", k: "the wash hydrating hand soap body grapefruit shoppe-object vegan sunbroke cold pressed" },
-    { t: "Trail's End Keratin Hair Mist", c: "Hair Care  ·  $53", u: "/products/keratin-shine-leave-in-hair-mist", k: "trail end keratin hair mist care adds shine all skin types softening hair-care lack of glow volume shoppe-object transparent leave in" }
+    { t: "Trail's End Leave-In Conditioner", c: "Hair Care  ·  $43", u: "/products/keratin-shine-leave-in-hair-mist", k: "trail end keratin hair mist care adds shine all skin types softening hair-care lack of glow volume shoppe-object transparent leave in" }
   ];
 
   // ── HELPERS ───────────────────────────────────────────────────────────────
