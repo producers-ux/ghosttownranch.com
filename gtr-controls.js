@@ -52,7 +52,7 @@
     { t: "Lip Butter", c: "Peppermint + Vanilla  ·  $24", u: "/products/gtr-lip-butter", k: "gtr lip butter lip balm lips peppermint vanilla tin black silver 1 oz beeswax aloe" },
     { t: "Touch-up Blotting Papers", c: "Makeup Accessory  ·  $18", u: "/products/gtr-touch-up-blotting-paper", k: "touch-up blotting papers blotting paper oil shine face makeup accessories" },
     { t: "The Face Bundle", c: "Makeup as Skincare  ·  $186", u: "/products/the-face-bundle", k: "the face bundle makeup as skincare make-up" },
-    { t: "Hand Cream", c: "Citrus + Pink Pepper  ·  $46", u: "/products/silk-skin-hand-cream-spices-sandalwood", k: "hand cream silk skin citrus pink pepper spices sandalwood body-care wash house" },
+    { t: "Hand Cream", c: "Citrus + Pink Pepper  ·  $46", u: "/products/hand-cream-citrus-pink-pepper", k: "hand cream silk skin citrus pink pepper spices sandalwood body-care wash house" },
     { t: "Day Ride", c: "Padded Zipper Bag, Black + White  ·  $30", u: "/products/day-ride-bag", k: "day ride padded zipper bag black white pouch case travel carry accessories goods" },
     { t: "Trail Light", c: "Travel Soy Candle, with Lid  ·  $28", u: "/products/trail-light-travel-soy-candle", k: "trail light travel soy candle lid small portable scent home" },
     { t: "The Still", c: "Reed Diffuser  ·  $68", u: "/products/the-still-amber-glass-reed-diffuser", k: "the still reed diffuser amber glass scent fragrance home hang dried rough hewn dusk ember graze flax" },
