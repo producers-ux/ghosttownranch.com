@@ -130,7 +130,7 @@ window.GTR_KITS = [
     "from": "gtr"
    },
    {
-    "h": "quick-refresh-dry-shampoo-spray-2",
+    "h": "dry-creek-quick-refresh-hair-mist",
     "name": "Dry Creek",
     "sub": "Quick refresh hair mist",
     "p": "",
