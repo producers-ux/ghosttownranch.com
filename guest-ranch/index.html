@@ -278,7 +278,8 @@
     .nd-item-name{ font-family:var(--serif); font-size:15px; }
     .nd-item-meta{ font-size:12px; color:rgba(246,246,243,0.6); }
     .nd-rooms-link{ align-self:flex-start; margin-top:6px; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--parchment); text-decoration:none; border-bottom:1px solid rgba(246,246,243,0.4); padding-bottom:3px; }
-    @media (max-width:900px){ .nd-card{ grid-template-columns:1fr; } .nd-photo{ min-height:0; aspect-ratio:4/5; } }
+    .nd-body{ min-width:0; }
+    @media (max-width:900px){ .nd-card{ grid-template-columns:minmax(0,1fr); } .nd-photo{ min-height:0; aspect-ratio:4/5; } }
     @media (max-width:640px){ .nd{ padding:48px 24px 0; } .nd-body{ padding:40px 24px; }
       .nd-kit{ display:flex; overflow-x:auto; scroll-snap-type:x mandatory; scroll-padding:0 24px; margin:0 -24px; padding:0 24px 8px; scrollbar-width:none; }
       .nd-kit::-webkit-scrollbar{ display:none; }
