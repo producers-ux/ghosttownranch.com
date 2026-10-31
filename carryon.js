@@ -45,8 +45,8 @@
     var n = el.querySelector('.pcard-name, .set-name, .st-name, .gp-name, .card-name, .kit-name, .product-name, h3, h4');
     if (!n) return;
     var s = document.createElement('span');
-    s.className = 'co-inline'; s.title = 'Full size, fits your carry-on';
-    s.setAttribute('role', 'img'); s.setAttribute('aria-label', 'Full size, fits your carry-on');
+    s.className = 'co-inline'; s.title = 'Full size, carry-on ready';
+    s.setAttribute('role', 'img'); s.setAttribute('aria-label', 'Full size, carry-on ready');
     s.innerHTML = ICON;
     var sub = n.querySelector('small');               // names with a sub-line: keep the icon on the name line
     if (sub) n.insertBefore(s, sub); else n.appendChild(s);
@@ -66,7 +66,7 @@
     var h = pdp(), sub = document.getElementById('product-subtitle');
     if (h && known[h] && sub && !document.querySelector('.co-pdp')) {
       var d = document.createElement('div'); d.className = 'co-pdp';
-      d.innerHTML = '<span class="co-inline">' + ICON + '</span><span>Full size \u00b7 fits your carry-on</span>';
+      d.innerHTML = '<span class="co-inline">' + ICON + '</span><span>Full size \u00b7 carry-on ready</span>';
       sub.parentNode.insertBefore(d, sub.nextSibling);
     }
   }
