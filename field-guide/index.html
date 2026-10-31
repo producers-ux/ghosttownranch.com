@@ -907,6 +907,15 @@
     color: #B5B99A !important;
     text-decoration: none !important;
   }
+  /* Body copy is JetBrains Mono (brand.css), which runs wide: keep it calm under the headlines */
+  .wl-dek, .header-dek { font-size:clamp(15px,1.15vw,17px); line-height:1.7; }
+  .entry-text p, .split-body p, .scents-entry-intro, .scent-card-desc, .trio-body, .founders-text p, .tenet-list-desc {
+    font-size:clamp(14.5px,1.05vw,16px); line-height:1.85;
+  }
+  @media (max-width:768px) {
+    .wl-dek, .header-dek { font-size:15px; }
+    .entry-text p, .split-body p, .scents-entry-intro, .scent-card-desc, .trio-body, .founders-text p, .tenet-list-desc { font-size:14.5px; }
+  }
 </style>
   <link rel="stylesheet" href="/nav.css">
   <link rel="stylesheet" href="/brand.css">
