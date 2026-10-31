@@ -45,8 +45,8 @@
     var n = el.querySelector('.pcard-name, .set-name, .st-name, .gp-name, .card-name, .kit-name, .product-name, h3, h4');
     if (!n) return;
     var s = document.createElement('span');
-    s.className = 'co-inline'; s.title = 'Full size, carry-on ready';
-    s.setAttribute('role', 'img'); s.setAttribute('aria-label', 'Full size, carry-on ready');
+    s.className = 'co-inline'; s.title = 'Carry-on ready';
+    s.setAttribute('role', 'img'); s.setAttribute('aria-label', 'Carry-on ready');
     s.innerHTML = ICON;
     var sub = n.querySelector('small');               // names with a sub-line: keep the icon on the name line
     if (sub) n.insertBefore(s, sub); else n.appendChild(s);
@@ -63,11 +63,11 @@
       if (el.matches('.st-feature')) return;         // big starter blocks stay clean
       var h = handleOf(el); if (h && known[h]) badge(el);
     });
-    var h = pdp(), sub = document.getElementById('product-subtitle');
-    if (h && known[h] && sub && !document.querySelector('.co-pdp')) {
+    var h = pdp(), img = document.getElementById('main-image');
+    if (h && known[h] && img && !document.querySelector('.co-pdp')) {
       var d = document.createElement('div'); d.className = 'co-pdp';
-      d.innerHTML = '<span class="co-inline">' + ICON + '</span><span>Full size \u00b7 carry-on ready</span>';
-      sub.parentNode.insertBefore(d, sub.nextSibling);
+      d.innerHTML = '<span class="co-inline">' + ICON + '</span><span>Carry-on ready</span>';
+      img.parentNode.insertBefore(d, img.nextSibling);   // right under the product photo
     }
   }
 
