@@ -323,7 +323,7 @@
         if (!p) { if (!c.querySelector('img').getAttribute('src')) c.style.display = 'none'; return; }
         var img = c.querySelector('.pcard-img img');
         if (img && !img.getAttribute('src') && p.featuredImage) img.src = p.featuredImage.url + (p.featuredImage.url.indexOf('?') < 0 ? '?' : '&') + 'width=800';
-        if (c.classList.contains('soon')) return;
+        if (c.classList.contains('soon') || c.querySelector('.soon-badge')) return;
         var el = c.querySelector('.pcard-price'); if (!el) return;
         var mn = p.priceRange.minVariantPrice.amount, mx = p.priceRange.maxVariantPrice.amount;
         el.textContent = p.availableForSale ? (mn !== mx ? 'From ' : '') + money(mn) : 'Sold out';
