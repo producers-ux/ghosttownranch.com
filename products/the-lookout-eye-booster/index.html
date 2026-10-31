@@ -20,7 +20,7 @@
   <meta property="og:type" content="product" />
   <meta id="og-title" property="og:title" content="The Lookout, Eye Booster · Ghost Town Ranch" />
   <meta id="og-description" property="og:description" content="Eye care for early mornings and short nights. The Lookout is a clear gel you mix into your morning cream to help with puffiness and tired-looking eyes. Its 1%…" />
-  <meta id="og-image" property="og:image" content="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thelookout_9a57cf94-7114-4f0a-bf15-e46e2494e6bc.png?v=1793458143" />
+  <meta id="og-image" property="og:image" content="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/lookoutwithbox.png?v=1793459968" />
   <meta id="og-url" property="og:url" content="https://ghosttownranch.com/products/the-lookout-eye-booster/" />
   <meta name="twitter:card" content="summary_large_image" />
   <!-- The bare /products/ template has no product of its own, so it stays out of search.
@@ -909,7 +909,7 @@
   <link rel="stylesheet" href="/brand.css">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"The Lookout, Eye Booster","description":"Eye care for early mornings and short nights. The Lookout is a clear gel you mix into your morning cream to help with puffiness and tired-looking eyes. Its 1% caffeine wakes up the eye area, and the light, oil-free gel disappears into your cream. No extra step, just sharper eyes. How to use: Mornings, mix 1 to 2 drops into The Hold or Desert Day Cream. Tap it around the eyes first, then smooth the rest over your face. Follow with Desert Glow and Desert Veil. 15 ml / 0.51 fl oz. COSMOS Natural certified by Ecocert. Vegan, gluten-free, nut-free.","url":"https://ghosttownranch.com/products/the-lookout-eye-booster/","brand":{"@type":"Brand","name":"Ghost Town Ranch"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"36.00","availability":"https://schema.org/OutOfStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/the-lookout-eye-booster/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thelookout_9a57cf94-7114-4f0a-bf15-e46e2494e6bc.png?v=1793458143"],"category":"Eye Care"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"The Lookout, Eye Booster","description":"Eye care for early mornings and short nights. The Lookout is a clear gel you mix into your morning cream to help with puffiness and tired-looking eyes. Its 1% caffeine wakes up the eye area, and the light, oil-free gel disappears into your cream. No extra step, just sharper eyes. How to use: Mornings, mix 1 to 2 drops into The Hold or Desert Day Cream. Tap it around the eyes first, then smooth the rest over your face. Follow with Desert Glow and Desert Veil. 15 ml / 0.51 fl oz. COSMOS Natural certified by Ecocert. Vegan, gluten-free, nut-free.","url":"https://ghosttownranch.com/products/the-lookout-eye-booster/","brand":{"@type":"Brand","name":"Ghost Town Ranch"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"36.00","availability":"https://schema.org/OutOfStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/the-lookout-eye-booster/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/lookoutwithbox.png?v=1793459968","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thelookout_9a57cf94-7114-4f0a-bf15-e46e2494e6bc.png?v=1793458143","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/GTR-the-lookout-how-to-use.png?v=1793460301"],"category":"Eye Care"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ghost Town Ranch","item":"https://ghosttownranch.com/"},{"@type":"ListItem","position":2,"name":"Shop","item":"https://ghosttownranch.com/shop/"},{"@type":"ListItem","position":3,"name":"The Lookout, Eye Booster","item":"https://ghosttownranch.com/products/the-lookout-eye-booster/"}]}</script>
 </head>
 <body>
@@ -1409,6 +1409,7 @@ function renderProduct(product) {
       const atc = document.getElementById('atc-btn');
       if (atc && atc.dataset.soldOut) { delete atc.dataset.soldOut; atc.disabled = false; atc.textContent = atc.dataset.label || 'Add to Cart'; }
       selectedLabel.textContent = v.title;
+      if (typeof window.gtrSyncPreorder === 'function') window.gtrSyncPreorder(v);
       // update image if variant has its own
       if (v.image?.url) {
         mainImg.src = v.image.url;
@@ -1458,10 +1459,15 @@ function renderProduct(product) {
     var ba = document.getElementById('buy-assure'); if (ba) ba.style.display = 'none';
   } else {
     if (PREORDER_HANDLES.includes(handle)) {
-      atcBtn.textContent = 'Pre-Order';
-      atcBtn.dataset.label = 'Pre-Order';
-      comingSoonNote.textContent = 'Pre-Order \u00b7 Coming Soon';
-      comingSoonNote.style.display = 'block';
+      // The Plunge single ships now; only the sets are on pre-order.
+      window.gtrSyncPreorder = v => {
+        const pre = !(handle === PLUNGE_HANDLE && /^Single/i.test((v && v.title) || ''));
+        atcBtn.textContent = pre ? 'Pre-Order' : 'Add to Cart';
+        atcBtn.dataset.label = pre ? 'Pre-Order' : 'Add to Cart';
+        comingSoonNote.textContent = 'Pre-Order \u00b7 Coming Soon';
+        comingSoonNote.style.display = pre ? 'block' : 'none';
+      };
+      window.gtrSyncPreorder(selectedVariant);
     }
     atcBtn.addEventListener('click', () => {
       if (selectedVariant?.id) addToCart(selectedVariant.id);
@@ -1690,7 +1696,7 @@ function buildSpecs(product, variants, ingredientsHtml) {
   // Shipping
   specs.push({
     title: 'Shipping & Returns',
-    body: `<p>${PREORDER_HANDLES.includes(product.handle) ? 'Pre-order. Ships when stock arrives. Standard ground shipping from the USA.' : 'Ships within 10 business days from the USA. Standard ground shipping.'}</p>
+    body: `<p>${product.handle === PLUNGE_HANDLE ? 'The single ships within 10 business days. Sets are on pre-order and ship when stock arrives. Standard ground shipping from the USA.' : PREORDER_HANDLES.includes(product.handle) ? 'Pre-order. Ships when stock arrives. Standard ground shipping from the USA.' : 'Ships within 10 business days from the USA. Standard ground shipping.'}</p>
            ${guestMaker ? '' : `<p>For wholesale inquiries: <a href="mailto:wholesale@ghosttownranch.com" style="color:var(--dust)">wholesale@ghosttownranch.com</a></p>
            <p>Questions: <a href="mailto:howdy@ghosttownranch.com" style="color:var(--dust)">howdy@ghosttownranch.com</a></p>`}`
   });
