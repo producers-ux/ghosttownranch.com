@@ -75,11 +75,28 @@
   }).then(function (r) { return r.json(); }).then(function (j) {
     lis.forEach(function (l) {
       var p = j.data && j.data['p' + hs.indexOf(l.getAttribute('data-pk-handle'))]; if (!p) return;
-      var want = (l.getAttribute('data-pk-variant') || '').toLowerCase(), url = null;
-      if (want) (p.variants.nodes || []).forEach(function (v) { if (!url && v.image && v.title.toLowerCase().indexOf(want) > -1) url = v.image.url; });
-      if (!url && p.featuredImage) url = p.featuredImage.url;
-      var box = l.querySelector('.st-th-img');
-      if (url && box && !box.firstChild) box.innerHTML = '<img src="' + sized(url) + '" alt="' + p.title.replace(/"/g, '&quot;') + '" loading="lazy">';
+      l._pk = p; paint(l);
     });
   }).catch(function () {});
+  function paint(l) {
+    var p = l._pk; if (!p) return;
+    var want = (l.getAttribute('data-pk-variant') || '').toLowerCase(), url = null;
+    if (want) (p.variants.nodes || []).forEach(function (v) { if (!url && v.image && v.title.toLowerCase().indexOf(want) > -1) url = v.image.url; });
+    if (!url && p.featuredImage) url = p.featuredImage.url;
+    var box = l.querySelector('.st-th-img'); if (!url || !box) return;
+    var alt = (p.title + (want ? ', ' + l.getAttribute('data-pk-variant') : '')).replace(/"/g, '&quot;');
+    var img = box.querySelector('img');
+    if (img) { img.src = sized(url); img.alt = alt; }
+    else box.innerHTML = '<img src="' + sized(url) + '" alt="' + alt + '" loading="lazy">';
+  }
+  // Tiles marked data-pk-follow switch to the scent picked in their set's .st-pick buttons.
+  [].forEach.call(document.querySelectorAll('.st-pick'), function (pick) {
+    pick.addEventListener('click', function (ev) {
+      var b = ev.target.closest('button'); if (!b) return;
+      var set = pick.closest('[data-st-handle]') || document;
+      [].forEach.call(set.querySelectorAll('[data-pk-follow]'), function (l) {
+        l.setAttribute('data-pk-variant', b.getAttribute('data-value') || b.textContent); paint(l);
+      });
+    });
+  });
 })();
