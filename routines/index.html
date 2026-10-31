@@ -410,7 +410,7 @@
     }).then(function (r) { return r.json(); }).then(function (j) {
       var D = {}; hs.forEach(function (h, i) { var p = j.data && j.data['p' + i]; if (p) D[h] = p; });
       [].slice.call(document.querySelectorAll('.pcard[data-handle]')).forEach(function (c) {
-        var p = D[c.getAttribute('data-handle')], el = c.querySelector('[data-price]'); if (!p || !el) return;
+        var p = D[c.getAttribute('data-handle')], el = c.querySelector('[data-price]'); if (!p || !el || c.querySelector('.soon-badge')) return;
         el.textContent = p.availableForSale ? money(p.priceRange.minVariantPrice.amount) : 'Sold out';
       });
       [].slice.call(document.querySelectorAll('.routine')).forEach(function (sec) {
