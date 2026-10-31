@@ -1406,6 +1406,7 @@ function renderProduct(product) {
       const atc = document.getElementById('atc-btn');
       if (atc && atc.dataset.soldOut) { delete atc.dataset.soldOut; atc.disabled = false; atc.textContent = atc.dataset.label || 'Add to Cart'; }
       selectedLabel.textContent = v.title;
+      if (typeof window.gtrSyncPreorder === 'function') window.gtrSyncPreorder(v);
       // update image if variant has its own
       if (v.image?.url) {
         mainImg.src = v.image.url;
@@ -1455,10 +1456,15 @@ function renderProduct(product) {
     var ba = document.getElementById('buy-assure'); if (ba) ba.style.display = 'none';
   } else {
     if (PREORDER_HANDLES.includes(handle)) {
-      atcBtn.textContent = 'Pre-Order';
-      atcBtn.dataset.label = 'Pre-Order';
-      comingSoonNote.textContent = 'Pre-Order \u00b7 Coming Soon';
-      comingSoonNote.style.display = 'block';
+      // The Plunge single ships now; only the sets are on pre-order.
+      window.gtrSyncPreorder = v => {
+        const pre = !(handle === PLUNGE_HANDLE && /^Single/i.test((v && v.title) || ''));
+        atcBtn.textContent = pre ? 'Pre-Order' : 'Add to Cart';
+        atcBtn.dataset.label = pre ? 'Pre-Order' : 'Add to Cart';
+        comingSoonNote.textContent = 'Pre-Order \u00b7 Coming Soon';
+        comingSoonNote.style.display = pre ? 'block' : 'none';
+      };
+      window.gtrSyncPreorder(selectedVariant);
     }
     atcBtn.addEventListener('click', () => {
       if (selectedVariant?.id) addToCart(selectedVariant.id);
@@ -1687,7 +1693,7 @@ function buildSpecs(product, variants, ingredientsHtml) {
   // Shipping
   specs.push({
     title: 'Shipping & Returns',
-    body: `<p>${PREORDER_HANDLES.includes(product.handle) ? 'Pre-order. Ships when stock arrives. Standard ground shipping from the USA.' : 'Ships within 10 business days from the USA. Standard ground shipping.'}</p>
+    body: `<p>${product.handle === PLUNGE_HANDLE ? 'The single ships within 10 business days. Sets are on pre-order and ship when stock arrives. Standard ground shipping from the USA.' : PREORDER_HANDLES.includes(product.handle) ? 'Pre-order. Ships when stock arrives. Standard ground shipping from the USA.' : 'Ships within 10 business days from the USA. Standard ground shipping.'}</p>
            ${guestMaker ? '' : `<p>For wholesale inquiries: <a href="mailto:wholesale@ghosttownranch.com" style="color:var(--dust)">wholesale@ghosttownranch.com</a></p>
            <p>Questions: <a href="mailto:howdy@ghosttownranch.com" style="color:var(--dust)">howdy@ghosttownranch.com</a></p>`}`
   });
