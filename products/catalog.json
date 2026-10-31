@@ -1,30 +1,7 @@
 [
  {
-  "handle": "the-grade-peptide-anti-aging-serum",
-  "title": "The Grade Peptide Serum",
-  "vendor": "Ghost Town Ranch",
-  "tags": [
-   "Aloe Juice (Active ingredients)",
-   "Anti-age (Concern)",
-   "carry-on",
-   "Dehydrated skin (Concern)",
-   "Dry (Skin type)",
-   "face-care",
-   "Hyaluronic Acid (Active ingredients)",
-   "Normal (Skin type)",
-   "Peptides (Active ingredients)",
-   "Reduces fine lines",
-   "Serum (Type)",
-   "shoppe-object",
-   "Smooths",
-   "Sodium PCA  (Active ingredients)",
-   "Transparent (Packaging color)",
-   "White (Packaging color)"
-  ]
- },
- {
   "handle": "moisturising-day-cream",
-  "title": "Desert Day Cream",
+  "title": "Desert Day Cream, Hydrating Face Cream",
   "vendor": "Ghost Town Ranch",
   "tags": [
    "All skin types (Skin type)",
@@ -47,25 +24,6 @@
   ]
  },
  {
-  "handle": "the-shakedown-makeup-remover",
-  "title": "The Shakedown Makeup Remover",
-  "vendor": "Ghost Town Ranch",
-  "tags": [
-   "All skin types (Skin type)",
-   "Aloe Juice (Active ingredients)",
-   "carry-on",
-   "Cleanser (Type)",
-   "Cleansing (Concern)",
-   "face-care",
-   "Gentle to skin",
-   "Hyaluronic Acid (Active ingredients)",
-   "Make-up buildup (Concern)",
-   "removes make-up and impurities",
-   "shoppe-object",
-   "Transparent (Packaging color)"
-  ]
- },
- {
   "handle": "mojave-reset-cooling-face-mist",
   "title": "Mojave Reset Cooling Face Mist",
   "vendor": "Ghost Town Ranch",
@@ -81,25 +39,6 @@
    "Hydrates and refreshes the skin",
    "Prebiotics (Active ingredients)",
    "Protects the skin barrier",
-   "shoppe-object",
-   "Transparent (Packaging color)",
-   "White (Packaging color)"
-  ]
- },
- {
-  "handle": "rosemary-mint-revive-hair-scalp-oil",
-  "title": "Rosemary Mint Revive Hair + Scalp Oil",
-  "vendor": "Ghost Town Ranch",
-  "tags": [
-   "All skin types (Skin type)",
-   "carry-on",
-   "Dehydrated skin (Concern)",
-   "Dry ends (Concern)",
-   "Gives shine and healthy glow",
-   "hair-care",
-   "Lack of volume (Concern)",
-   "Nourishes hair and scalp",
-   "Rosemary Oil (Active ingredients)",
    "shoppe-object",
    "Transparent (Packaging color)",
    "White (Packaging color)"
@@ -151,8 +90,11 @@
   "title": "The Wash, Hydrating Hand Wash",
   "vendor": "Ghost Town Ranch",
   "tags": [
-   "body-care",
-   "Vegan"
+   "body wash",
+   "grapefruit",
+   "shoppe-object",
+   "vegan",
+   "wash"
   ]
  },
  {
@@ -188,31 +130,6 @@
    "fragrance",
    "phthalate-free",
    "room spray",
-   "shoppe-object"
-  ]
- },
- {
-  "handle": "desert-glow-facial-oil",
-  "title": "Desert Glow Hydrating Facial Oil",
-  "vendor": "Ghost Town Ranch",
-  "tags": [
-   "avocado",
-   "carry-on",
-   "facial oil",
-   "hydration",
-   "jojoba",
-   "shoppe-object"
-  ]
- },
- {
-  "handle": "dusk-till-dawn-hydration-gel",
-  "title": "Dusk Till Dawn Hydration Gel",
-  "vendor": "Ghost Town Ranch",
-  "tags": [
-   "carry-on",
-   "hyaluronic acid",
-   "hydration gel",
-   "overnight",
    "shoppe-object"
   ]
  },
@@ -377,7 +294,7 @@
  },
  {
   "handle": "still-air-lavender-lemon-deodorant",
-  "title": "Still Air, Natural Deodorant",
+  "title": "Still Air, Lavender + Lemon Deodorant",
   "vendor": "Ghost Town Ranch",
   "tags": [
    "All skin types (Skin type)",
@@ -395,17 +312,6 @@
    "shoppe-object",
    "Soothing",
    "Vegan (Claims)"
-  ]
- },
- {
-  "handle": "the-slow-hand-poured-colored-wax-candle-ltd-001",
-  "title": "The Slow — Ltd. Edition Candle | Dusk No. 001",
-  "vendor": "Ghost Town Ranch",
-  "tags": [
-   "candle",
-   "coconut soy",
-   "hand-poured",
-   "shoppe-object"
   ]
  },
  {
@@ -439,6 +345,46 @@
   "tags": []
  },
  {
+  "handle": "the-grade-peptide-anti-aging-serum",
+  "title": "The Grade, Peptide Anti-Aging Serum",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "Aloe Juice (Active ingredients)",
+   "Anti-age (Concern)",
+   "carry-on",
+   "Dehydrated skin (Concern)",
+   "Dry (Skin type)",
+   "face-care",
+   "Hyaluronic Acid (Active ingredients)",
+   "Normal (Skin type)",
+   "Peptides (Active ingredients)",
+   "Reduces fine lines",
+   "Serum (Type)",
+   "Smooths",
+   "Sodium PCA  (Active ingredients)",
+   "Transparent (Packaging color)",
+   "White (Packaging color)"
+  ]
+ },
+ {
+  "handle": "rosemary-mint-revive-hair-scalp-oil",
+  "title": "Rosemary Mint Revive, Hair + Scalp Oil",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "carry-on",
+   "Dehydrated skin (Concern)",
+   "Dry ends (Concern)",
+   "Gives shine and healthy glow",
+   "hair-care",
+   "Lack of volume (Concern)",
+   "Nourishes hair and scalp",
+   "Rosemary Oil (Active ingredients)",
+   "Transparent (Packaging color)",
+   "White (Packaging color)"
+  ]
+ },
+ {
   "handle": "trail-light-travel-soy-candle",
   "title": "Trail Light — Travel Soy Candle, with Lid",
   "vendor": "Ghost Town Ranch",
@@ -460,6 +406,25 @@
   "vendor": "Ghost Town Ranch",
   "tags": [
    "carry-on"
+  ]
+ },
+ {
+  "handle": "desert-glow-facial-oil",
+  "title": "Desert Glow Facial Oil",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "Adds glow",
+   "carry-on",
+   "Comforts",
+   "Dehydrated skin (Concern)",
+   "Dry (Skin type)",
+   "face-care",
+   "Facial oil (Type)",
+   "Mature (Skin type)",
+   "Multi-use",
+   "Transparent (Packaging color)",
+   "Vitamin E (Active ingredients)",
+   "White (Packaging color)"
   ]
  },
  {
@@ -643,26 +608,6 @@
   ]
  },
  {
-  "handle": "the-hold-anti-age-day-cream1",
-  "title": "THE HOLD, Anti-Age Day Cream",
-  "vendor": "Ghost Town Ranch",
-  "tags": [
-   "Aloe Juice (Active ingredients)",
-   "Anti-age (Concern)",
-   "Betaine (Active ingredients)",
-   "carry-on",
-   "face-care",
-   "Hair salon / Barbershop (Curated for )",
-   "Hyaluronic acid",
-   "Hyaluronic Acid (Active ingredients)",
-   "Luxurious  texture",
-   "Mature (Skin type)",
-   "Moisturiser (Type)",
-   "Moisturising",
-   "Shea Butter (Active ingredients)"
-  ]
- },
- {
   "handle": "wash-then-butter",
   "title": "Wash, Then Butter",
   "vendor": "Ghost Town Ranch",
@@ -787,31 +732,6 @@
   ]
  },
  {
-  "handle": "hand-body-wash-patchouli-amber-vanilla-1",
-  "title": "The Wash, Amber + Vanilla",
-  "vendor": "Ghost Town Ranch",
-  "tags": [
-   "All skin types (Skin type)",
-   "Allergen Label Free (Claims)",
-   "Betaine (Active ingredients)",
-   "Body wash (Type)",
-   "body-care",
-   "Cleansing (Concern)",
-   "Creator / Influencer (Business type)",
-   "Dehydrated skin (Concern)",
-   "Gentle to skin",
-   "Gluten Free (Claims)",
-   "Hospitality (Business type)",
-   "Hydrating",
-   "Nail salon (Business type)",
-   "Natural Certified (Claims)",
-   "Nut Free (Claims)",
-   "Spa / Massage centre (Business type)",
-   "Vegan",
-   "Vegan (Claims)"
-  ]
- },
- {
   "handle": "gold-rush-hydrogel-eye-mask",
   "title": "Gold Rush, Hydrogel Eye Mask",
   "vendor": "Ghost Town Ranch",
@@ -911,6 +831,91 @@
    "Lack of glow (Concern)",
    "Lack of volume (Concern)",
    "Spa / Massage centre (Business type)"
+  ]
+ },
+ {
+  "handle": "the-hold-anti-age-day-cream1",
+  "title": "The Hold, Anti-Age Day Cream",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "Aloe Juice (Active ingredients)",
+   "Anti-age (Concern)",
+   "Beauty salon (Business type)",
+   "Betaine (Active ingredients)",
+   "Creator / Influencer (Business type)",
+   "Ecommerce (Business type)",
+   "face-care",
+   "Hyaluronic acid",
+   "Hyaluronic Acid (Active ingredients)",
+   "Luxurious  texture",
+   "Mature (Skin type)",
+   "Moisturiser (Type)",
+   "Moisturising",
+   "Shea Butter (Active ingredients)"
+  ]
+ },
+ {
+  "handle": "dusk-till-dawn-hydration-gel",
+  "title": "Dusk Till Dawn Hydration Gel",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "Aloe Juice (Active ingredients)",
+   "Anti-age (Concern)",
+   "Beauty salon (Business type)",
+   "carry-on",
+   "Clinic / Med spa (Business type)",
+   "Damaged skin barrier (Concern)",
+   "Dehydrated skin (Concern)",
+   "face-care",
+   "Hyaluronic Acid (Active ingredients)",
+   "Makeup artist (Business type)",
+   "Mature (Skin type)",
+   "Moisture boost",
+   "Moisturiser (Type)",
+   "Normal (Skin type)",
+   "Reduces fine lines",
+   "Sodium PCA  (Active ingredients)",
+   "Sodium PCA + HA",
+   "Under-eye fatigue (Concern)"
+  ]
+ },
+ {
+  "handle": "the-shakedown-makeup-remover",
+  "title": "The Shakedown, Makeup Remover, Fragrance Free",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "Aloe Juice (Active ingredients)",
+   "Beauty salon (Business type)",
+   "carry-on",
+   "Cleanser (Type)",
+   "Cleansing (Concern)",
+   "Creator / Influencer (Business type)",
+   "Ecommerce (Business type)",
+   "face-care",
+   "Gentle to skin",
+   "Hyaluronic Acid (Active ingredients)",
+   "Make-up buildup (Concern)",
+   "Makeup artist (Business type)",
+   "removes make-up and impurities",
+   "shoppe-object"
+  ]
+ },
+ {
+  "handle": "bath-bomb-eucalyptus-wild-mint-1",
+  "title": "Bath Bomb, Eucalyptus & Wild Mint",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "All skin types (Skin type)",
+   "body-care",
+   "Creator / Influencer (Business type)",
+   "Gluten Free (Claims)",
+   "Hospitality (Business type)",
+   "Relaxation (Concern)",
+   "Self-care ritual",
+   "Spa / Massage centre (Business type)",
+   "Spa inspired",
+   "Vegan (Claims)"
   ]
  },
  {

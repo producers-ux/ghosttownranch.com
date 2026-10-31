@@ -909,7 +909,7 @@
   <link rel="stylesheet" href="/brand.css">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"The Face Bundle, Makeup as skincare. The whole face, four steps.","description":"Makeup as skincare. The whole face, four steps. Soft Proof Peptide Foundation. Buildable coverage that wears like skin. Peptides and hyaluronic acid hydrate through the day. 10 shades. Mojave Reset Cooling Face Mist. Prebiotic and cooling. Sets the face, brings it back at noon. No residue, no scent. Long Shot Peptide Mascara. Volume and length that hold. Pea peptide conditions the lash over time. Blackened Earth. Drawn Line Satin Lip Color. Creamy satin color that conditions as it wears. 01 Nude, a warm terracotta.","url":"https://ghosttownranch.com/products/the-face-bundle/","brand":{"@type":"Brand","name":"Ghost Town Ranch"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"186.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/the-face-bundle/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/makeup_cu_01_76625f25-6ae8-4755-afc2-e7335b6c86e8.png?v=1782762989","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Mojavereset-001.png?v=1793375440","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/SoftProof1.png?v=1781991647","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Longshot1.png?v=1781990962","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DrawnLine1.png?v=1781991401","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/softproof_05.png?v=1782404844"],"sku":"FACEKIT05","category":"Makeup"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"The Face Bundle, Makeup as skincare. The whole face, four steps.","description":"Makeup as skincare. The whole face, four steps. Soft Proof Peptide Foundation. Buildable coverage that wears like skin. Peptides and hyaluronic acid hydrate through the day. 10 shades. Mojave Reset Cooling Face Mist. Prebiotic and cooling. Sets the face, brings it back at noon. No residue, no scent. Long Shot Peptide Mascara. Volume and length that hold. Pea peptide conditions the lash over time. Blackened Earth. Drawn Line Satin Lip Color. Creamy satin color that conditions as it wears. 01 Nude, a warm terracotta.","url":"https://ghosttownranch.com/products/the-face-bundle/","brand":{"@type":"Brand","name":"Ghost Town Ranch"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"186.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/the-face-bundle/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/makeup_cu_01_76625f25-6ae8-4755-afc2-e7335b6c86e8.png?v=1782762989","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/mojavereset1.png?v=1781992858","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/SoftProof1.png?v=1781991647","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Longshot1.png?v=1781990962","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DrawnLine1.png?v=1781991401","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/softproof_05.png?v=1782404844"],"sku":"FACEKIT05","category":"Makeup"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ghost Town Ranch","item":"https://ghosttownranch.com/"},{"@type":"ListItem","position":2,"name":"Shop","item":"https://ghosttownranch.com/shop/"},{"@type":"ListItem","position":3,"name":"The Face Bundle, Makeup as skincare. The whole face, four steps.","item":"https://ghosttownranch.com/products/the-face-bundle/"}]}</script>
 </head>
 <body>
@@ -1367,7 +1367,7 @@ function renderProduct(product) {
   const variantGrid = document.getElementById('variant-grid');
   const isPreorder = PREORDER_HANDLES.includes(handle);
   // Default scent per product (Ranch Water opens on Hang Dried); falls back to the first in-stock scent.
-  const DEFAULT_SCENT = { 'ranch-water-body-room-fragrance': 'Hang Dried', 'the-still-amber-glass-reed-diffuser': 'Hang Dried' };
+  const DEFAULT_SCENT = { 'the-wash': 'Amber + Vanilla', 'ranch-water-body-room-fragrance': 'Hang Dried', 'the-still-amber-glass-reed-diffuser': 'Hang Dried' };
   // ?variant=<numeric id> (QR codes on product labels) opens that exact option, even if it is sold out.
   const urlVariantId = new URLSearchParams(window.location.search).get('variant');
   const requestedVariant = urlVariantId ? variants.find(v => String(v.id).split('/').pop() === urlVariantId) : null;
@@ -1433,7 +1433,7 @@ function renderProduct(product) {
     // Show the selected variant's own photo from the start (not just after a click).
     // Ranch Water opens on its main photo; a scent's photo shows once that scent is tapped.
     // A scent requested in the address shows its own photo straight away.
-    if (selectedVariant.image?.url && (requestedVariant || !['ranch-water-body-room-fragrance', 'the-still-amber-glass-reed-diffuser'].includes(handle))) mainImg.src = selectedVariant.image.url;
+    if (selectedVariant.image?.url && (requestedVariant || !['the-wash', 'ranch-water-body-room-fragrance', 'the-still-amber-glass-reed-diffuser'].includes(handle))) mainImg.src = selectedVariant.image.url;
 
     variantGrid.querySelectorAll('.variant-btn:not(:disabled)').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -1446,6 +1446,7 @@ function renderProduct(product) {
   } else {
     variantWrap.style.display = 'none';
   }
+
 
   // ATC
   const atcBtn = document.getElementById('atc-btn');
