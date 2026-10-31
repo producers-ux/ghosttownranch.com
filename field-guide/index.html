@@ -916,9 +916,22 @@
     .wl-dek, .header-dek { font-size:15px; }
     .entry-text p, .split-body p, .scents-entry-intro, .scent-card-desc, .trio-body, .founders-text p, .tenet-list-desc { font-size:14.5px; }
   }
-  /* Founders: less dead space before Out West */
-  .founders-text { padding-bottom:32px; }
-  .west-strip { padding-top:0; }
+  /* Founders: story as the center strip between the two photos */
+  .founders.f3 { display:grid; grid-template-columns:1fr minmax(0,1.05fr) 1fr; gap:56px; align-items:center; padding:80px 48px 48px; border-bottom:none; }
+  .f3-fig { margin:0; }
+  .f3-fig img { width:100%; height:auto; aspect-ratio:1/1; object-fit:cover; display:block; }
+  .f3-left img { object-position:92% 50%; }
+  .f3-fig figcaption { font-family:var(--sans); font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--ink); opacity:0.6; margin-top:12px; line-height:1.6; }
+  .f3-text { text-align:center; max-width:520px; justify-self:center; }
+  .f3-text .founders-eyebrow { display:block; }
+  .f3-text p { font-family:var(--serif); font-size:clamp(15px,1.15vw,17px); line-height:1.75; color:var(--ink); opacity:0.85; margin:0 auto 14px; }
+  .f3-text p:last-child { margin-bottom:0; }
+  .west-strip { padding-top:16px; }
+  @media (max-width:980px) {
+    .founders.f3 { grid-template-columns:1fr 1fr; gap:24px 16px; padding:56px 24px 32px; }
+    .f3-text { grid-column:1 / -1; order:-1; margin-bottom:8px; }
+    .f3-fig figcaption { font-size:10px; letter-spacing:0.16em; }
+  }
 </style>
   <link rel="stylesheet" href="/nav.css">
   <link rel="stylesheet" href="/brand.css">
@@ -989,25 +1002,23 @@
 </section>
 
 <!-- ══ THE FOUNDERS ══ -->
-<section class="founders" id="founders">
-  <div class="founders-text">
+<section class="founders f3" id="founders">
+  <figure class="f3-fig f3-left">
+    <img src="/media/browns-point-salmon-bake.webp" width="930" height="737" alt="The Salmon Bake sign above the fire pits at Browns Point, Washington" loading="lazy">
+    <figcaption>The Salmon Bake at Browns Point, where we found each other again.</figcaption>
+  </figure>
+  <div class="f3-text">
     <span class="founders-eyebrow">The founders</span>
     <h2 class="founders-name">CJ + Kate Bourne.</h2>
     <p>We grew up in the Pacific Northwest and lost track of each other for a few decades. In the summer of 2018, we found each other again at the Salmon Bake in Browns Point, Washington.</p>
-    <figure class="founders-figure">
-      <img src="/media/browns-point-salmon-bake.webp" width="930" height="737" alt="The Salmon Bake sign above the fire pits at Browns Point, Washington" loading="lazy">
-      <figcaption>The Salmon Bake at Browns Point, where we found each other again.</figcaption>
-    </figure>
     <p>That same summer came the ranch: a mid-century house on three acres in Twentynine Palms that we restored together.</p>
     <p>In 2020, he asked at the top of a run at Deer Valley.</p>
     <p>Ghost Town Ranch grew out of that work, and out of a life spent on the road across the West. It's for anyone who would rather be out there too.</p>
   </div>
-  <div class="founders-img">
-    <figure class="founders-figure" style="margin:0;width:100%;max-width:560px">
-      <img src="/media/founders-olive-harvest.webp" width="1077" height="1050" alt="Tending Manzanilla olive trees at Ghost Town Ranch in 29 Palms" loading="lazy">
-      <figcaption>Tending to Manzanilla olive trees at Ghost Town Ranch in 29&nbsp;Palms.</figcaption>
-    </figure>
-  </div>
+  <figure class="f3-fig f3-right">
+    <img src="/media/founders-olive-harvest.webp" width="1077" height="1050" alt="Tending Manzanilla olive trees at Ghost Town Ranch in 29 Palms" loading="lazy">
+    <figcaption>Tending to Manzanilla olive trees at Ghost Town Ranch in 29&nbsp;Palms.</figcaption>
+  </figure>
 </section>
 <section class="west-strip" aria-label="Out West">
   <span class="west-strip-label">Out West</span>
