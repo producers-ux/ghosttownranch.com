@@ -45,6 +45,14 @@ window.GTR_KITS = [
     "from": "gtr"
    },
    {
+    "h": "horn-comb",
+    "name": "Horn Comb",
+    "sub": "Horn · Made for GTR in England",
+    "p": "",
+    "img": "/media/horn-comb.jpg",
+    "from": "gtr"
+   },
+   {
     "h": null,
     "name": "Shoehorn Keyring",
     "sub": "Horn · Made for GTR in England",
