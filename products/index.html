@@ -1105,6 +1105,10 @@ const CERTS = [
 ];
 
 // Products that are Coming Soon — disable ATC
+// Temporarily unavailable products: a line of our own instead of a plain "Sold Out".
+const AWAY_COPY = {
+  'the-hold-anti-age-day-cream1': { btn: 'Out on the range', note: 'Temporarily unavailable in the US. Back in the saddle soon.' }
+};
 const COMING_SOON_HANDLES = ['still-air-natural-deodorant', 'the-wash-house', 'long-range-endurance-skincare-collection', 'the-field-kit'];
 // Pre-order products. Button reads "Pre-Order" and still runs through the Shopify cart to checkout.
 const LIP_BUTTER_HANDLE = 'lip-butter';
@@ -1474,6 +1478,11 @@ function renderProduct(product) {
       atcBtn.disabled = true;
       atcBtn.dataset.soldOut = '1';
       atcBtn.textContent = 'Sold Out';
+      const away = AWAY_COPY[handle];
+      if (away) {
+        atcBtn.textContent = away.btn;
+        atcBtn.insertAdjacentHTML('afterend', '<p class="away-note" style="margin:10px 0 0;font-size:13px;line-height:1.5;opacity:0.75">' + away.note + '</p>');
+      }
     }
   }
 
