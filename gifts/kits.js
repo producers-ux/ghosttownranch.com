@@ -260,7 +260,7 @@ window.GTR_KITS = [
     "h": "the-monument-candle",
     "name": "The Monument",
     "sub": "Four-wick coconut soy candle",
-    "p": "$190",
+    "p": "$210",
     "from": "gtr"
    },
    {
