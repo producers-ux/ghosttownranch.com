@@ -137,12 +137,11 @@ window.GTR_KITS = [
     "from": "gtr"
    },
    {
-    "h": null,
+    "h": "horn-comb",
     "name": "Horn Comb",
     "sub": "Horn · Made for GTR in England",
-    "p": "Soon",
+    "p": "",
     "img": "/media/horn-comb.jpg",
-    "soon": true,
     "from": "gtr"
    },
    {
@@ -193,12 +192,11 @@ window.GTR_KITS = [
     "from": "gtr"
    },
    {
-    "h": null,
+    "h": "boot-horn",
     "name": "Boot Horn",
     "sub": "Horn · Made for GTR in England",
-    "p": "Soon",
+    "p": "",
     "img": "/media/horn-shoehorn.jpg",
-    "soon": true,
     "from": "gtr"
    }
   ]
