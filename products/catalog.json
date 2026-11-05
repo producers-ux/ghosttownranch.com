@@ -890,5 +890,26 @@
    "coming-soon",
    "face-care"
   ]
+ },
+ {
+  "handle": "horn-comb",
+  "title": "Horn Comb",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "carry-on",
+   "dry-goods",
+   "hair",
+   "tools"
+  ]
+ },
+ {
+  "handle": "boot-horn",
+  "title": "Boot Horn",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "dry-goods",
+   "home",
+   "tools"
+  ]
  }
 ]
