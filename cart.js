@@ -1,3 +1,14 @@
+// Klaviyo onsite script: loads the Ranch Hand chat (Klaviyo Customer Agent) and
+// Klaviyo tracking on every page that has the cart. Public company ID, safe in the browser.
+(function() {
+  if (window.__gtrKlaviyo) return;
+  window.__gtrKlaviyo = true;
+  var k = document.createElement('script');
+  k.async = true;
+  k.src = 'https://static.klaviyo.com/onsite/js/UTbZ3B/klaviyo.js?company_id=UTbZ3B';
+  document.head.appendChild(k);
+})();
+
 // GTR Cart — one Shopify cart shared by every page.
 // Uses the Storefront Cart API and the same localStorage key (gtr_cart_id) as the
 // product pages and Ritual, so whatever a shopper adds anywhere lands in one cart
