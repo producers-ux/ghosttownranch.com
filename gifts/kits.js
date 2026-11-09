@@ -188,7 +188,7 @@ window.GTR_KITS = [
    {
     "h": "hand-cream-citrus-pink-pepper",
     "name": "Hand Cream",
-    "sub": "Citrus + pink pepper",
+    "sub": "Two scents",
     "p": "$46",
     "from": "gtr"
    },
