@@ -1367,8 +1367,8 @@ function renderProduct(product) {
   // Variants
   // Some products only offer certain options on this site (Territories prints: the two largest sizes).
   const VARIANT_ONLY = {
-    'ghost-town-ranch-skull-joshua-tree-olive-green-1': ['20″×30″', '24″×36″'],
-    'ghost-town-ranch-skull-joshua-tree-red-orange': ['20″×30″', '24″×36″'],
+    'ghost-town-ranch-skull-joshua-tree-olive-green-1': ['24″×36″'],
+    'ghost-town-ranch-skull-joshua-tree-red-orange': ['24″×36″'],
   };
   const variants = product.variants.edges.map(e => e.node)
     .filter(v => !VARIANT_ONLY[handle] || VARIANT_ONLY[handle].includes(v.title));
