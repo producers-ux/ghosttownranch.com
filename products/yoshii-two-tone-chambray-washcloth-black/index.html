@@ -1699,6 +1699,7 @@ function buildSpecs(product, variants, ingredientsHtml) {
 
   // Details
   const detailLines = [];
+  let formulaLines = false;
   const guestMaker = makerName(product);
   if (isHomeFrag) {
     detailLines.push('Skin-safe fragrances, hand-blended in the USA');
@@ -1727,11 +1728,12 @@ function buildSpecs(product, variants, ingredientsHtml) {
   } else if (NA_MADE_HANDLES.includes(product.handle)) {
     detailLines.push('Net Wt. 15 g / 0.5 oz');
     detailLines.push('Made in USA');
-  } else if (!isHomeFrag && (isCosmosCertified(product) || type.includes('skin') || type.includes('body') || type.includes('hair') || type.includes('eye') || type.includes('face') || type.includes('lip') || type.includes('makeup'))) {
+  } else if (!isHomeFrag && (isCosmosCertified(product) || type.includes('skin') || type.includes('body') || type.includes('hair') || type.includes('eye') || type.includes('face') || type.includes('lip') || type.includes('makeup') || type.includes('wash') || type.includes('soap') || (product.tags || []).some(t => /\bwash\b|soap/i.test(String(t))))) {
+    formulaLines = true;
     detailLines.push(isVegan(product) ? 'Vegan · Cruelty-Free' : 'Cruelty-Free');
     detailLines.push('Free of parabens, phthalates, and synthetic dyes');
   }
-  if (!guestMaker) detailLines.push('Frontier Modernism · Palm Springs, CA');
+  if (!guestMaker && !formulaLines) detailLines.push('Frontier Modernism · Palm Springs, CA');
 
   if (detailLines.length) {
     specs.push({
