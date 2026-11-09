@@ -909,11 +909,11 @@
   <link rel="stylesheet" href="/brand.css">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Still Air, Rosemary + Mint Natural Deodorant","description":"The West has its own kind of clean. Dry, open, unhurried. Still Air is an aluminum-free roll-on that keeps odor in check without irritation or buildup. Organic aloe and panthenol calm the skin, triethyl citrate and shikimic acid stop odor before it starts, and organic macadamia oil leaves underarms soft. It glides on, dries fast and disappears into your day. Scent: rosemary and eucalyptus up front, cool and clean, settled by lavender, orange peel, ylang-ylang and patchouli. Gentle enough for sensitive skin. How to use: Roll on clean, dry skin, 2 to 3 swipes. Once a day. 50 ml / 1.69 fl oz. Vegan. Free from aluminum and parabens.","url":"https://ghosttownranch.com/products/still-air-rosemary-mint-deodorant/","brand":{"@type":"Brand","name":"Ghost Town Ranch"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"32.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/still-air-rosemary-mint-deodorant/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/StillAir01.png?v=1794250612","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/stillair_body_2000.png?v=1782408329","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TSoLsKrFIwwD0rBkDTblqlDUS9yKGkCQ.jpg?v=1794250276"],"sku":"213994","category":"Deodorant"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Still Air, Rosemary + Mint Natural Deodorant","description":"The West has its own kind of clean. Dry, open, unhurried. Still Air is an aluminum-free roll-on that keeps odor in check without irritation or buildup. Organic aloe and panthenol calm the skin, triethyl citrate and shikimic acid stop odor before it starts, and organic macadamia oil leaves underarms soft. Scent: rosemary and eucalyptus up front, settled by lavender, orange peel, ylang-ylang and patchouli. 50 ml / 1.69 fl oz. Vegan. Free from aluminum and parabens.","url":"https://ghosttownranch.com/products/still-air-rosemary-mint-deodorant/","brand":{"@type":"Brand","name":"Ghost Town Ranch"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"32.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/still-air-rosemary-mint-deodorant/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/StillAir01.png?v=1794250612","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/stillair_body_2000.png?v=1782408329","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TSoLsKrFIwwD0rBkDTblqlDUS9yKGkCQ.jpg?v=1794250276"],"sku":"213994","category":"Body Care"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ghost Town Ranch","item":"https://ghosttownranch.com/"},{"@type":"ListItem","position":2,"name":"Shop","item":"https://ghosttownranch.com/shop/"},{"@type":"ListItem","position":3,"name":"Still Air, Rosemary + Mint Natural Deodorant","item":"https://ghosttownranch.com/products/still-air-rosemary-mint-deodorant/"}]}</script>
 </head>
 <body>
-<div hidden data-seo-snapshot><p><strong>Still Air, Rosemary + Mint Natural Deodorant</strong> — $32.00 · In stock</p><p>The West has its own kind of clean. Dry, open, unhurried. Still Air is an aluminum-free roll-on that keeps odor in check without irritation or buildup. Organic aloe and panthenol calm the skin, triethyl citrate and shikimic acid stop odor before it starts, and organic macadamia oil leaves underarms soft. It glides on, dries fast and disappears into your day. Scent: rosemary and eucalyptus up front, cool and clean, settled by lavender, orange peel, ylang-ylang and patchouli. Gentle enough for sensitive skin. How to use: Roll on clean, dry skin, 2 to 3 swipes. Once a day. 50 ml / 1.69 fl oz. Vegan. Free from aluminum and parabens.</p><p><a href="https://ghosttownranch.com/shop/">Shop all Ghost Town Ranch</a></p></div>
+<div hidden data-seo-snapshot><p><strong>Still Air, Rosemary + Mint Natural Deodorant</strong> — $32.00 · In stock</p><p>The West has its own kind of clean. Dry, open, unhurried. Still Air is an aluminum-free roll-on that keeps odor in check without irritation or buildup. Organic aloe and panthenol calm the skin, triethyl citrate and shikimic acid stop odor before it starts, and organic macadamia oil leaves underarms soft. Scent: rosemary and eucalyptus up front, settled by lavender, orange peel, ylang-ylang and patchouli. 50 ml / 1.69 fl oz. Vegan. Free from aluminum and parabens.</p><p><a href="https://ghosttownranch.com/shop/">Shop all Ghost Town Ranch</a></p></div>
 
 <!-- ── NAV ── -->
 <nav>
@@ -988,6 +988,7 @@
           <div class="variant-grid" id="variant-grid"></div>
         </div>
 
+        <div id="sub-wrap" style="display:none"></div>
         <!-- ATC -->
         <button class="atc-btn" id="atc-btn">Add to Cart</button>
         <div class="coming-soon-note" id="coming-soon-note" style="display:none">
@@ -1151,7 +1152,7 @@ async function addToCart(variantId, qty = 1) {
   if (!window.GTRCart || btn.classList.contains('loading')) return;
   btn.classList.add('loading');
   btn.textContent = 'Adding…';
-  const ok = await GTRCart.addVariant(variantId, qty);
+  const ok = await GTRCart.addVariant(variantId, qty, window.gtrSubPlan || null);
   btn.classList.remove('loading');
   btn.textContent = ok ? (btn.dataset.label || 'Add to Cart') : 'Not available yet';
   if (!ok) setTimeout(() => { btn.textContent = btn.dataset.label || 'Add to Cart'; }, 2500);
@@ -1209,6 +1210,7 @@ async function fetchProduct(handle) {
           price { amount }
           selectedOptions { name value }
           image { url altText }
+          sellingPlanAllocations(first: 5) { edges { node { sellingPlan { id name } priceAdjustments { price { amount } } } } }
         }}
       }
     }
@@ -1414,6 +1416,7 @@ function renderProduct(product) {
       if (atc && atc.dataset.soldOut) { delete atc.dataset.soldOut; atc.disabled = false; atc.textContent = atc.dataset.label || 'Add to Cart'; }
       selectedLabel.textContent = v.title;
       if (typeof window.gtrSyncPreorder === 'function') window.gtrSyncPreorder(v);
+      if (typeof window.gtrRenderSub === 'function') window.gtrRenderSub(v);
       // update image if variant has its own
       if (v.image?.url) {
         mainImg.src = v.image.url;
@@ -1488,6 +1491,49 @@ function renderProduct(product) {
       }
     }
   }
+
+
+  // Subscribe + save: shown only when the variant has a Shopify selling plan.
+  (function() {
+    const subWrap = document.getElementById('sub-wrap');
+    if (!subWrap) return;
+    if (!document.getElementById('gtr-sub-css')) {
+      const st = document.createElement('style'); st.id = 'gtr-sub-css';
+      st.textContent = '#sub-wrap{margin:4px 0 18px;border:1px solid rgba(127,127,127,.35)}#sub-wrap .sub-opt{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;font-size:14px;letter-spacing:.04em}#sub-wrap .sub-opt+.sub-opt{border-top:1px solid rgba(127,127,127,.35)}#sub-wrap .sub-opt input{accent-color:currentColor;margin:0}#sub-wrap .sub-p{margin-left:auto;white-space:nowrap}#sub-wrap .sub-more{padding:0 16px 14px 42px;font-size:13px;opacity:.85}#sub-wrap select{font:inherit;color:inherit;background:transparent;border:1px solid rgba(127,127,127,.5);padding:6px 8px;margin:2px 0 8px}#sub-wrap select option{color:#141414}';
+      document.head.appendChild(st);
+    }
+    const fmt = n => '$' + (n % 1 ? n.toFixed(2) : n.toFixed(0));
+    window.gtrRenderSub = v => {
+      const al = ((v && v.sellingPlanAllocations && v.sellingPlanAllocations.edges) || []).map(e => e.node);
+      window.gtrSubPlan = null;
+      if (!al.length || isComingSoon) { subWrap.style.display = 'none'; subWrap.innerHTML = ''; return; }
+      const base = parseFloat(v.price.amount);
+      const subPrice = a => { const p = a.priceAdjustments && a.priceAdjustments[0]; return p ? parseFloat(p.price.amount) : base; };
+      const sp = subPrice(al[0]);
+      const pct = Math.round((1 - sp / base) * 100);
+      subWrap.style.display = 'block';
+      subWrap.innerHTML =
+        '<label class="sub-opt"><input type="radio" name="gtr-buy" value="once" checked><span>One-time</span><span class="sub-p">' + fmt(base) + '</span></label>' +
+        '<label class="sub-opt"><input type="radio" name="gtr-buy" value="sub"><span>Subscribe' + (pct > 0 ? ' + save ' + pct + '%' : '') + '</span><span class="sub-p">' + fmt(sp) + '</span></label>' +
+        '<div class="sub-more" hidden>' +
+          (al.length > 1 ? '<select id="sub-freq" aria-label="Delivery">' + al.map(a => '<option value="' + a.sellingPlan.id + '">' + a.sellingPlan.name + '</option>').join('') + '</select>' : '<div style="margin-bottom:6px">' + al[0].sellingPlan.name + '</div>') +
+          '<div>Ships on your schedule. Skip, change or cancel anytime.</div>' +
+        '</div>';
+      const more = subWrap.querySelector('.sub-more');
+      const freq = subWrap.querySelector('#sub-freq');
+      const priceEl = document.getElementById('product-price');
+      const sync = () => {
+        const on = subWrap.querySelector('input[value="sub"]').checked;
+        more.hidden = !on;
+        const plan = on ? (freq ? al.find(a => a.sellingPlan.id === freq.value) : al[0]) : null;
+        window.gtrSubPlan = plan ? plan.sellingPlan.id : null;
+        priceEl.textContent = fmt(plan ? subPrice(plan) : base);
+      };
+      subWrap.querySelectorAll('input[name="gtr-buy"]').forEach(i => i.addEventListener('change', sync));
+      if (freq) freq.addEventListener('change', sync);
+    };
+    window.gtrRenderSub(selectedVariant);
+  })();
 
   // Share button
   document.getElementById('share-btn').addEventListener('click', () => {

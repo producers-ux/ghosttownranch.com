@@ -60,7 +60,7 @@
   var queue = [];
   var pairCache = {};       // handle -> product data, or false if unavailable
 
-  var LINE_FIELDS = 'id quantity merchandise { ... on ProductVariant { id title price { amount } image { url altText } product { title handle } } }';
+  var LINE_FIELDS = 'id quantity cost { totalAmount { amount } } sellingPlanAllocation { sellingPlan { name } } merchandise { ... on ProductVariant { id title price { amount } image { url altText } product { title handle } } }';
   var CART_FIELDS = 'id checkoutUrl lines(first: 50) { edges { node { ' + LINE_FIELDS + ' } } }';
 
   function esc(s) {
@@ -273,7 +273,7 @@
 
     var total = 0, count = 0;
     cart.lines.forEach(function(l) {
-      total += parseFloat(l.merchandise.price.amount) * l.quantity;
+      total += l.cost ? parseFloat(l.cost.totalAmount.amount) : parseFloat(l.merchandise.price.amount) * l.quantity;
       count += l.quantity;
     });
 
@@ -295,6 +295,7 @@
           '<div class="gtr-item-info">' +
             '<div class="gtr-item-name">' + esc(v.product.title) + '</div>' +
             (showVariant ? '<div class="gtr-item-variant">' + esc(v.title) + '</div>' : '') +
+            (l.sellingPlanAllocation ? '<div class="gtr-item-variant">Subscription · ' + esc(l.sellingPlanAllocation.sellingPlan.name) + '</div>' : '') +
             '<div class="gtr-item-qty">' +
               '<button class="gtr-qty-btn" aria-label="Decrease" onclick="GTRCart.setQty(\'' + esc(l.id) + '\',' + (l.quantity - 1) + ')">−</button>' +
               '<span class="gtr-qty-num">' + l.quantity + '</span>' +
@@ -302,7 +303,7 @@
             '</div>' +
             '<button class="gtr-item-remove" onclick="GTRCart.setQty(\'' + esc(l.id) + '\',0)">Remove</button>' +
           '</div>' +
-          '<div class="gtr-item-price">' + money(parseFloat(v.price.amount) * l.quantity) + '</div>' +
+          '<div class="gtr-item-price">' + money(l.cost ? parseFloat(l.cost.totalAmount.amount) : parseFloat(v.price.amount) * l.quantity) + '</div>' +
         '</div>';
       }).join('');
     }
@@ -366,8 +367,9 @@
 
   // ── WRITES ─────────────────────────────────────────────────────────────────
   // Resolves true if the item made it into the Shopify cart.
-  function addLine(variantId, qty) {
+  function addLine(variantId, qty, planId) {
     var line = { merchandiseId: gid(variantId), quantity: qty || 1 };
+    if (planId) line.sellingPlanId = planId;
     function has(c) {
       return !!c && c.lines.edges.some(function(e) { return e.node.merchandise.id === line.merchandiseId; });
     }
@@ -421,8 +423,8 @@
       return addLine(variantId, 1);
     },
     // Add by variant only (product pages). Opens the cart on success; resolves true/false.
-    addVariant: function(variantId, qty) {
-      return addLine(variantId, qty || 1).then(function(ok) {
+    addVariant: function(variantId, qty, planId) {
+      return addLine(variantId, qty || 1, planId).then(function(ok) {
         if (ok) GTRCart.open();
         return ok;
       });
