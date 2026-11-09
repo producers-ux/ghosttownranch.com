@@ -988,6 +988,7 @@
           <div class="variant-grid" id="variant-grid"></div>
         </div>
 
+        <div id="sub-wrap" style="display:none"></div>
         <!-- ATC -->
         <button class="atc-btn" id="atc-btn">Add to Cart</button>
         <div class="coming-soon-note" id="coming-soon-note" style="display:none">
@@ -1151,7 +1152,7 @@ async function addToCart(variantId, qty = 1) {
   if (!window.GTRCart || btn.classList.contains('loading')) return;
   btn.classList.add('loading');
   btn.textContent = 'Adding…';
-  const ok = await GTRCart.addVariant(variantId, qty);
+  const ok = await GTRCart.addVariant(variantId, qty, window.gtrSubPlan || null);
   btn.classList.remove('loading');
   btn.textContent = ok ? (btn.dataset.label || 'Add to Cart') : 'Not available yet';
   if (!ok) setTimeout(() => { btn.textContent = btn.dataset.label || 'Add to Cart'; }, 2500);
@@ -1209,6 +1210,7 @@ async function fetchProduct(handle) {
           price { amount }
           selectedOptions { name value }
           image { url altText }
+          sellingPlanAllocations(first: 5) { edges { node { sellingPlan { id name } priceAdjustments { price { amount } } } } }
         }}
       }
     }
@@ -1414,6 +1416,7 @@ function renderProduct(product) {
       if (atc && atc.dataset.soldOut) { delete atc.dataset.soldOut; atc.disabled = false; atc.textContent = atc.dataset.label || 'Add to Cart'; }
       selectedLabel.textContent = v.title;
       if (typeof window.gtrSyncPreorder === 'function') window.gtrSyncPreorder(v);
+      if (typeof window.gtrRenderSub === 'function') window.gtrRenderSub(v);
       // update image if variant has its own
       if (v.image?.url) {
         mainImg.src = v.image.url;
@@ -1488,6 +1491,49 @@ function renderProduct(product) {
       }
     }
   }
+
+
+  // Subscribe + save: shown only when the variant has a Shopify selling plan.
+  (function() {
+    const subWrap = document.getElementById('sub-wrap');
+    if (!subWrap) return;
+    if (!document.getElementById('gtr-sub-css')) {
+      const st = document.createElement('style'); st.id = 'gtr-sub-css';
+      st.textContent = '#sub-wrap{margin:4px 0 18px;border:1px solid rgba(127,127,127,.35)}#sub-wrap .sub-opt{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;font-size:14px;letter-spacing:.04em}#sub-wrap .sub-opt+.sub-opt{border-top:1px solid rgba(127,127,127,.35)}#sub-wrap .sub-opt input{accent-color:currentColor;margin:0}#sub-wrap .sub-p{margin-left:auto;white-space:nowrap}#sub-wrap .sub-more{padding:0 16px 14px 42px;font-size:13px;opacity:.85}#sub-wrap select{font:inherit;color:inherit;background:transparent;border:1px solid rgba(127,127,127,.5);padding:6px 8px;margin:2px 0 8px}#sub-wrap select option{color:#141414}';
+      document.head.appendChild(st);
+    }
+    const fmt = n => '$' + (n % 1 ? n.toFixed(2) : n.toFixed(0));
+    window.gtrRenderSub = v => {
+      const al = ((v && v.sellingPlanAllocations && v.sellingPlanAllocations.edges) || []).map(e => e.node);
+      window.gtrSubPlan = null;
+      if (!al.length || isComingSoon) { subWrap.style.display = 'none'; subWrap.innerHTML = ''; return; }
+      const base = parseFloat(v.price.amount);
+      const subPrice = a => { const p = a.priceAdjustments && a.priceAdjustments[0]; return p ? parseFloat(p.price.amount) : base; };
+      const sp = subPrice(al[0]);
+      const pct = Math.round((1 - sp / base) * 100);
+      subWrap.style.display = 'block';
+      subWrap.innerHTML =
+        '<label class="sub-opt"><input type="radio" name="gtr-buy" value="once" checked><span>One-time</span><span class="sub-p">' + fmt(base) + '</span></label>' +
+        '<label class="sub-opt"><input type="radio" name="gtr-buy" value="sub"><span>Subscribe' + (pct > 0 ? ' + save ' + pct + '%' : '') + '</span><span class="sub-p">' + fmt(sp) + '</span></label>' +
+        '<div class="sub-more" hidden>' +
+          (al.length > 1 ? '<select id="sub-freq" aria-label="Delivery">' + al.map(a => '<option value="' + a.sellingPlan.id + '">' + a.sellingPlan.name + '</option>').join('') + '</select>' : '<div style="margin-bottom:6px">' + al[0].sellingPlan.name + '</div>') +
+          '<div>Ships on your schedule. Skip, change or cancel anytime.</div>' +
+        '</div>';
+      const more = subWrap.querySelector('.sub-more');
+      const freq = subWrap.querySelector('#sub-freq');
+      const priceEl = document.getElementById('product-price');
+      const sync = () => {
+        const on = subWrap.querySelector('input[value="sub"]').checked;
+        more.hidden = !on;
+        const plan = on ? (freq ? al.find(a => a.sellingPlan.id === freq.value) : al[0]) : null;
+        window.gtrSubPlan = plan ? plan.sellingPlan.id : null;
+        priceEl.textContent = fmt(plan ? subPrice(plan) : base);
+      };
+      subWrap.querySelectorAll('input[name="gtr-buy"]').forEach(i => i.addEventListener('change', sync));
+      if (freq) freq.addEventListener('change', sync);
+    };
+    window.gtrRenderSub(selectedVariant);
+  })();
 
   // Share button
   document.getElementById('share-btn').addEventListener('click', () => {
