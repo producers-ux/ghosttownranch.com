@@ -552,4 +552,9 @@
     <priority>0.8</priority>
     <image:image><image:loc>https://cdn.shopify.com/s/files/1/0984/0174/7240/files/horn-shoehorn.jpg?v=1793868758</image:loc></image:image>
   </url>
+  <url>
+    <loc>https://ghosttownranch.com/subscriptions/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>

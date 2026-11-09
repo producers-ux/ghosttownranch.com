@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscriptions | Ghost Town Ranch</title>
+  <meta name="description" content="Subscribe + save 20% on the everyday refills. Delivered every 6 or 8 weeks. Skip, change or cancel anytime from your account.">
+  <link rel="canonical" href="https://ghosttownranch.com/subscriptions/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ghosttownranch.com/subscriptions/">
+  <meta property="og:title" content="Subscriptions | Ghost Town Ranch">
+  <meta property="og:description" content="Subscribe + save 20% on the everyday refills. Skip, change or cancel anytime.">
+  <meta name="theme-color" content="#141414">
+  <style>
+    @font-face { font-family:'PPEiko'; src:url('/PPEiko-Medium.woff2') format('woff2'); font-weight:400; font-display:swap; }
+    @font-face { font-family:'PPEiko'; src:url('/PPEiko-Thin.woff2') format('woff2'); font-weight:300; font-display:swap; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{ --parchment:#F6F6F3; --ink:#141414; --sand:#E2E4E0; --army:#5D643A; --serif:'PPEiko',Georgia,serif; --sans:'Jost',system-ui,sans-serif; }
+    body{ background:var(--parchment); color:var(--ink); font-family:var(--sans); font-weight:300; -webkit-font-smoothing:antialiased; }
+    /* ── TOP NAV (injected by /nav.js) ── */
+    #gtr-shared-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 24px 48px;
+      background: rgba(20,20,20, 0.72);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    }
+    #gtr-shared-nav .nav-logo { display:flex; align-items:center; text-decoration:none; }
+    #gtr-shared-nav .nav-logo img { height: 28px; width:auto; display:block; }
+    #gtr-shared-nav .nav-right { display: flex; align-items: center; gap: 32px; }
+    #gtr-shared-nav .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; margin:0; padding:0; }
+    #gtr-shared-nav .nav-links li { display: flex; align-items: center; }
+    #gtr-shared-nav .nav-links a {
+      font-family: var(--serif);
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      text-decoration: none; color: #F6F6F3; opacity: 0.7; transition: opacity 0.2s;
+    }
+    #gtr-shared-nav .nav-links a:hover, #gtr-shared-nav .nav-links a.active { opacity: 1; }
+    #gtr-shared-nav .nav-links a.active { border-bottom: 1px solid rgba(246,246,243,0.5); padding-bottom: 2px; }
+    #gtr-shared-nav .nav-hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; background: none; border: none; cursor: pointer;
+      padding: 6px; min-width: 44px; min-height: 44px; align-items: center;
+    }
+    #gtr-shared-nav .nav-hamburger span { display:block; width:20px; height:1.5px; background:#F6F6F3; transition:all .25s ease; transform-origin:center; }
+    #gtr-shared-nav .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    #gtr-shared-nav .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    #gtr-shared-nav .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    @media (max-width: 900px) {
+      #gtr-shared-nav { padding: 0 20px; height: 60px; }
+      #gtr-shared-nav .nav-hamburger { display: flex; }
+      #gtr-shared-nav .nav-right { gap: 8px; }
+      #gtr-shared-nav .nav-links {
+        display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(20,20,20,0.97);
+        flex-direction: column; justify-content: center; align-items: center;
+        gap: 0; z-index: 99; padding: 80px 32px 40px;
+      }
+      #gtr-shared-nav .nav-links.open { display: flex; }
+      #gtr-shared-nav .nav-links li { width: 100%; border-bottom: 1px solid rgba(246,246,243,0.1); }
+      #gtr-shared-nav .nav-links li:first-child { border-top: 1px solid rgba(246,246,243,0.1); }
+      #gtr-shared-nav .nav-links a { font-size: 13px; letter-spacing: 0.25em; padding: 22px 0; width:100%; min-height:44px; }
+    }
+
+    .sub-hero{ background:var(--ink); color:var(--parchment); padding:170px 48px 90px; }
+    .sub-in{ max-width:1100px; margin:0 auto; }
+    .eyebrow{ font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#B9BDA8; margin-bottom:16px; }
+    h1{ font-family:var(--serif); font-weight:300; font-size:clamp(44px,6vw,84px); line-height:1; letter-spacing:.01em; }
+    h1 em{ font-style:normal; color:#B9BDA8; }
+    .lede{ font-size:18px; line-height:1.65; max-width:620px; margin-top:24px; color:rgba(246,246,243,.85); }
+    .btns{ display:flex; gap:14px; flex-wrap:wrap; margin-top:36px; }
+    .btn{ display:inline-block; font-size:12px; letter-spacing:.18em; text-transform:uppercase; padding:16px 26px; text-decoration:none; border:1px solid var(--parchment); }
+    .btn.solid{ background:var(--parchment); color:var(--ink); }
+    .btn.ghost{ color:var(--parchment); }
+    .btn:hover{ opacity:.85; }
+    .steps{ padding:80px 48px; }
+    .grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:40px; }
+    .step .n{ font-size:11px; letter-spacing:.24em; color:var(--army); }
+    .step h3{ font-family:var(--serif); font-weight:300; font-size:30px; margin:12px 0 10px; }
+    .step p{ font-size:15px; line-height:1.7; color:#444644; }
+    .what{ padding:0 48px 80px; }
+    .what .box{ border-top:1px solid var(--sand); padding-top:48px; display:grid; grid-template-columns:1fr 1.4fr; gap:48px; }
+    h2{ font-family:var(--serif); font-weight:300; font-size:clamp(30px,3.4vw,46px); line-height:1.1; }
+    .list{ list-style:none; }
+    .list li{ display:flex; justify-content:space-between; gap:16px; padding:16px 0; border-bottom:1px solid var(--sand); font-size:15px; }
+    .list a{ color:inherit; text-decoration:none; }
+    .list a:hover{ text-decoration:underline; text-underline-offset:4px; }
+    .list span{ color:#6E716C; white-space:nowrap; }
+    .faq{ padding:0 48px 100px; }
+    .faq .box{ border-top:1px solid var(--sand); padding-top:48px; display:grid; grid-template-columns:1fr 1.4fr; gap:48px; }
+    details{ border-bottom:1px solid var(--sand); padding:20px 0; }
+    summary{ cursor:pointer; list-style:none; font-size:16px; display:flex; justify-content:space-between; gap:16px; }
+    summary::-webkit-details-marker{ display:none; }
+    summary::after{ content:'+'; color:#6E716C; }
+    details[open] summary::after{ content:'\2212'; }
+    details p{ font-size:15px; line-height:1.7; color:#444644; margin-top:12px; max-width:620px; }
+    details a{ color:inherit; }
+    @media (max-width:900px){
+      .sub-hero{ padding:130px 24px 64px; } .steps,.what,.faq{ padding-left:24px; padding-right:24px; }
+      .grid3{ grid-template-columns:1fr; gap:32px; } .what .box,.faq .box{ grid-template-columns:1fr; gap:24px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- top nav injected by /nav.js -->
+  <section class="sub-hero"><div class="sub-in">
+    <div class="eyebrow">Subscriptions</div>
+    <h1>Subscribe <em>+ save 20%.</em></h1>
+    <p class="lede">The things you use every day, on a schedule that fits. Choose Subscribe on any product that offers it and it ships every 6 or 8 weeks at 20% off. Skip, change or cancel anytime.</p>
+    <div class="btns">
+      <a class="btn solid" href="https://shop.ghosttownranch.com/account">Manage your subscription</a>
+      <a class="btn ghost" href="#refills">See what you can subscribe to</a>
+    </div>
+  </div></section>
+
+  <section class="steps"><div class="sub-in grid3">
+    <div class="step"><div class="n">01</div><h3>Pick Subscribe</h3><p>On the product page, choose Subscribe + save instead of One-time, then pick every 6 or every 8 weeks.</p></div>
+    <div class="step"><div class="n">02</div><h3>It ships on time</h3><p>Your first order ships now. After that, each refill ships on your schedule at the subscription price. We email before every order.</p></div>
+    <div class="step"><div class="n">03</div><h3>You stay in charge</h3><p>Sign in to your account with your email to skip a delivery, change how often it comes, update your card or cancel. No calls, no fees.</p></div>
+  </div></section>
+
+  <section class="what" id="refills"><div class="sub-in box">
+    <h2>What you can<br>subscribe to.</h2>
+    <ul class="list" id="sub-list">
+      <li><a href="/products/still-air-rosemary-mint-deodorant/">Still Air, Rosemary + Mint Deodorant</a><span>Every 6 or 8 weeks</span></li>
+      <li><a href="/products/the-wash/">The Wash, Hand Wash</a><span>Every 6 or 8 weeks</span></li>
+      <li><a href="/products/outlaws-reserve-2-in-1-hair-skin-rinse/">Outlaw's Reserve, Hair + Body Wash</a><span>Every 6 or 8 weeks</span></li>
+      <li><a href="/products/rose-cut-daily-facial-wash/">Rose Cut, Daily Facial Wash</a><span>Every 6 or 8 weeks</span></li>
+    </ul>
+  </div></section>
+
+  <section class="faq"><div class="sub-in box">
+    <h2>Questions.</h2>
+    <div>
+      <details><summary>How do I manage my subscription?</summary><p>Go to <a href="https://shop.ghosttownranch.com/account">your account</a> and sign in with the email you ordered with. We send a one-time code, no password needed. From there you can skip, reschedule, change the delivery frequency, update payment or cancel.</p></details>
+      <details><summary>Can I skip or cancel?</summary><p>Yes, anytime, from your account. There is no minimum number of orders and no fee to cancel.</p></details>
+      <details><summary>When am I charged?</summary><p>Your first order is charged at checkout. Each refill is charged on the day it is scheduled to ship, and we email you before it does.</p></details>
+      <details><summary>Can I subscribe to more than one product?</summary><p>Yes. Add each one with Subscribe selected. Products on the same schedule ship together.</p></details>
+      <details><summary>Does the 10% first-order code work too?</summary><p>Your first order can use STAYNOTORIOUS. After that, refills ship at the 20% subscription price.</p></details>
+      <details><summary>Something not right?</summary><p>Email <a href="mailto:howdy@ghosttownranch.com">howdy@ghosttownranch.com</a> and we will sort it out.</p></details>
+    </div>
+  </div></section>
+
+  <footer></footer>
+  <script defer src="/nav.js"></script>
+  <script src="/cart.js"></script>
+  <script src="/gtr-controls.js" defer></script>
+  <script src="/footer.js" defer></script>
+</body>
+</html>
