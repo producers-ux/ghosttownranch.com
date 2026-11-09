@@ -37,6 +37,28 @@
     { t: 'Horn Bowl', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn bowl catchall catch-all dish ring dish valet tray keys watch rings shave bowl shaving bowl lather shave soap bunkhouse coming soon abbeyhorn horn cattle horn ox horn handmade england made in england dry goods' },
     { t: 'Shoehorn Keyring', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn shoehorn keyring key ring keychain key chain mini shoehorn fob gift abbeyhorn horn cattle horn cow horn handmade england made in england dry goods' },
 
+    // Territories art prints (The Bull)
+    { t: 'Territories', c: 'Art Prints · The Bull', u: '/shop/#territories', k: 'territories territory prints print art print art prints poster posters wall art wall decor bull skull map maps frame framed gift home decor olive rust sky blue 24x36' },
+    { t: "The Bull, Joshua Tree", c: "Art Print, Olive Green  ·  $75", u: "/products/ghost-town-ranch-skull-joshua-tree-olive-green-1", k: "the bull joshua tree joshua tree territories print prints art print poster wall art bull skull olive green 24x36 decor gift" },
+    { t: "The Bull, Joshua Tree", c: "Art Print, Rust  ·  $75", u: "/products/ghost-town-ranch-skull-joshua-tree-red-orange", k: "the bull joshua tree joshua tree territories print prints art print poster wall art bull skull rust 24x36 decor gift" },
+    { t: "The Bull, Park City", c: "Art Print, Olive Green  ·  $75", u: "/products/park-city-olive-24-x-36", k: "the bull park city park city territories print prints art print poster wall art bull skull olive green 24x36 decor gift" },
+    { t: "The Bull, Park City", c: "Art Print, Rust  ·  $75", u: "/products/park-city-rust-24-x-36", k: "the bull park city park city territories print prints art print poster wall art bull skull rust 24x36 decor gift" },
+    { t: "The Bull, Park City", c: "Art Print, Sky Blue  ·  $75", u: "/products/park-city-blue-24-x-36", k: "the bull park city park city territories print prints art print poster wall art bull skull sky blue 24x36 decor gift" },
+    { t: "The Bull, Midway", c: "Art Print, Olive Green  ·  $75", u: "/products/midway-olive-24-x-36", k: "the bull midway midway territories print prints art print poster wall art bull skull olive green 24x36 decor gift" },
+    { t: "The Bull, Midway", c: "Art Print, Rust  ·  $75", u: "/products/midway-rust-24-x-36", k: "the bull midway midway territories print prints art print poster wall art bull skull rust 24x36 decor gift" },
+    { t: "The Bull, Bozeman", c: "Art Print, Olive Green  ·  $75", u: "/products/bozeman-olive-24-x-36", k: "the bull bozeman bozeman territories print prints art print poster wall art bull skull olive green 24x36 decor gift" },
+    { t: "The Bull, Bozeman", c: "Art Print, Sky Blue  ·  $75", u: "/products/bozeman-blue-24-x-36", k: "the bull bozeman bozeman territories print prints art print poster wall art bull skull sky blue 24x36 decor gift" },
+    { t: "The Bull, Ketchum", c: "Art Print, Olive Green  ·  $75", u: "/products/ketchum-olive-24-x-36", k: "the bull ketchum ketchum territories print prints art print poster wall art bull skull olive green 24x36 decor gift" },
+    { t: "The Bull, Ketchum", c: "Art Print, Rust  ·  $75", u: "/products/ketchum-rust-24-x-36", k: "the bull ketchum ketchum territories print prints art print poster wall art bull skull rust 24x36 decor gift" },
+    { t: "The Bull, Gig Harbor", c: "Art Print, Olive Green  ·  $75", u: "/products/gig-harbor-olive-24-x-36", k: "the bull gig harbor gig harbor territories print prints art print poster wall art bull skull olive green 24x36 decor gift" },
+    { t: "The Bull, Gig Harbor", c: "Art Print, Rust  ·  $75", u: "/products/gig-harbor-rust-24-x-36", k: "the bull gig harbor gig harbor territories print prints art print poster wall art bull skull rust 24x36 decor gift" },
+    { t: "The Bull, Gig Harbor", c: "Art Print, Sky Blue  ·  $75", u: "/products/gig-harbor-blue-24-x-36", k: "the bull gig harbor gig harbor territories print prints art print poster wall art bull skull sky blue 24x36 decor gift" },
+    { t: "The Bull, Los Olivos", c: "Art Print, Rust  ·  $75", u: "/products/los-olivos-rust-24-x-36", k: "the bull los olivos los olivos territories print prints art print poster wall art bull skull rust 24x36 decor gift" },
+    { t: "The Bull, Los Olivos", c: "Art Print, Sky Blue  ·  $75", u: "/products/los-olivos-blue-24-x-36", k: "the bull los olivos los olivos territories print prints art print poster wall art bull skull sky blue 24x36 decor gift" },
+    { t: "The Bull, Santa Ynez", c: "Art Print, Olive Green  ·  $75", u: "/products/santa-ynez-olive-24-x-36", k: "the bull santa ynez santa ynez territories print prints art print poster wall art bull skull olive green 24x36 decor gift" },
+    { t: "The Bull, Santa Ynez", c: "Art Print, Rust  ·  $75", u: "/products/santa-ynez-rust-24-x-36", k: "the bull santa ynez santa ynez territories print prints art print poster wall art bull skull rust 24x36 decor gift" },
+    { t: "The Bull, St. George", c: "Art Print, Sky Blue  ·  $75", u: "/products/st-george-blue-24-x-36", k: "the bull st. george st. george territories print prints art print poster wall art bull skull sky blue 24x36 decor gift" },
+
     // ── PRODUCTS (generated) ──
     { t: "The Wash House Set", c: "Starter set  ·  $142", u: "/wash-house/#start", k: "wash house set starter set bath body kit the wash grapefruit hand wash hand cream golden hour body oil gift bundle save" },
     { t: "The Face Set", c: "Starter set  ·  $254", u: "/routines/#start", k: "face set starter set skincare kit rose cut the grade serum desert glow gold rush eye mask mojave reset bundle save" },
