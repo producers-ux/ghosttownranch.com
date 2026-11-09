@@ -31,9 +31,9 @@ window.GTR_KITS = [
     "from": "gtr"
    },
    {
-    "h": "still-air-lavender-lemon-deodorant",
+    "h": "still-air-rosemary-mint-deodorant",
     "name": "Still Air",
-    "sub": "Lavender + lemon deodorant",
+    "sub": "Rosemary + mint deodorant",
     "p": "",
     "from": "gtr"
    },
