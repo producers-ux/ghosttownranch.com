@@ -1672,7 +1672,9 @@ function renderProduct(product) {
   const lowTags = tags.map(t => String(t).toLowerCase().trim());
   const GOODS_HANDLES = ['gtr-precision-tweezers', 'day-ride-bag', 'gtr-unisex-tee-in-black-or-bone', 'gtr-unisex-sweatshirt-in-black-french-navy-white', 'gtr-garment-dyed-long-sleeve-tee', 'sustainable-sink-tray', 'trail-light-travel-soy-candle', 'the-monument-candle', 'the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz', 'the-slow-hand-poured-colored-wax-candle-ltd-001'];
   const isGoods = lowTags.some(t => ['tools', 'dry-goods', 'apparel', 'goods'].includes(t)) || /^horn-/.test(handle) || GOODS_HANDLES.includes(handle);
-  if (makerName(product)) {
+  if (product._territories) {
+    // Territories prints: art, not a formula. No badges.
+  } else if (makerName(product)) {
     // Guest maker: no GTR formula badges
   } else if (isGoods) {
     // Our own tools and dry goods: no formula badges
@@ -1831,7 +1833,11 @@ function buildSpecs(product, variants, ingredientsHtml) {
   if (isCosmosCertified(product)) {
     detailLines.push('COSMOS Certified by ECOCERT, third-party verified');
   }
-  if (guestMaker) {
+  if (product._territories) {
+    detailLines.push('Original print, commissioned exclusively for GTR by Tejas Country Club');
+    detailLines.push('Museum-quality matte paper · 24″×36″');
+    detailLines.push('Printed to order');
+  } else if (guestMaker) {
     detailLines.push(`Made by ${guestMaker}. Part of Guest Ranch, the makers we keep company with.`);
   } else if (NA_MADE_HANDLES.includes(product.handle)) {
     detailLines.push('Net Wt. 15 g / 0.5 oz');
@@ -1841,7 +1847,7 @@ function buildSpecs(product, variants, ingredientsHtml) {
     detailLines.push(isVegan(product) ? 'Vegan · Cruelty-Free' : 'Cruelty-Free');
     detailLines.push('Free of parabens, phthalates, and synthetic dyes');
   }
-  if (!guestMaker && !formulaLines) detailLines.push('Frontier Modernism · Palm Springs, CA');
+  if (!guestMaker && !formulaLines && !product._territories) detailLines.push('Frontier Modernism · Palm Springs, CA');
 
   if (detailLines.length) {
     specs.push({
