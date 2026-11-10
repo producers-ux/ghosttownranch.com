@@ -7,6 +7,8 @@ window.GTR_TERRITORIES = {
   handle: 'gtr-territories-collection-the-bull',
   title: 'The Bull',
   size: '24″×36″',
+  // Opening photo on the page (the print itself shows once a city or colorway is picked).
+  hero: { url: '/territories-29palms.jpg', alt: 'The Bull print, 29 Palms, olive green, framed in a hallway at the ranch' },
   colors: ['Olive Green', 'Rust', 'Sky Blue'],
   prints: [
     { city: 'Joshua Tree', color: 'Olive Green', handle: 'ghost-town-ranch-skull-joshua-tree-olive-green-1' },

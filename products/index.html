@@ -1463,9 +1463,17 @@ function renderProduct(product) {
     const gridColor = document.getElementById('grid-color');
     const fmt = n => '$' + (n % 1 ? n.toFixed(2) : n.toFixed(0));
 
-    const apply = () => {
+    const hero = T.hero;
+    const thumbsEl = document.getElementById('thumbs');
+    let showHero = !!hero && !fromPrint && !requestedVariant;
+    const setImage = (src, alt) => {
+      mainImg.src = src; mainImg.alt = alt;
+      if (thumbsEl) thumbsEl.querySelectorAll('.thumb').forEach(t => t.classList.toggle('active', t.dataset.src === src));
+    };
+    const apply = (userPick) => {
       const v = find(city, color);
       if (!v) return;
+      if (userPick) showHero = false;
       selectedVariant = v;
       document.getElementById('sel-city').textContent = city;
       document.getElementById('sel-color').textContent = color;
@@ -1476,7 +1484,14 @@ function renderProduct(product) {
         const out = !cv || !cv.availableForSale;
         return `<button class="variant-btn${c === color ? ' selected' : ''}" data-color="${c}"${!cv ? ' disabled title="Not printed for this city"' : ''}>${c}${cv && !cv.availableForSale ? ' <span class="variant-out">Sold out</span>' : ''}</button>`;
       }).join('');
-      if (v.image?.url) { mainImg.src = v.image.url; mainImg.alt = v.image.altText || product.title; }
+      // Thumbs: the ranch photo and the print currently picked.
+      if (thumbsEl && hero) {
+        const shots = [{ src: hero.url, alt: hero.alt }].concat(v.image?.url ? [{ src: v.image.url, alt: v.image.altText || product.title }] : []);
+        thumbsEl.innerHTML = shots.map(x => `<img class="thumb" src="${x.src}" alt="${x.alt}" data-src="${x.src}" />`).join('');
+        thumbsEl.querySelectorAll('.thumb').forEach(t => t.addEventListener('click', () => setImage(t.dataset.src, t.alt)));
+      }
+      if (showHero) setImage(hero.url, hero.alt);
+      else if (v.image?.url) setImage(v.image.url, v.image.altText || product.title);
       document.getElementById('product-price').textContent = fmt(parseFloat(v.price.amount));
       const atc = document.getElementById('atc-btn');
       if (atc && !isComingSoon) {
@@ -1487,12 +1502,13 @@ function renderProduct(product) {
         city = b.dataset.city;
         // Keep the colorway if this city has it, otherwise the first one it does have.
         if (!find(city, color)) color = colors.find(c => find(city, c)) || color;
-        apply();
+        apply(true);
       }));
       gridColor.querySelectorAll('button:not(:disabled)').forEach(b => b.addEventListener('click', () => {
         color = b.dataset.color;
-        apply();
+        apply(true);
       }));
+      if (!userPick) return;
       try {
         const u = new URL(window.location.href);
         u.searchParams.set('print', v._print);
@@ -1960,6 +1976,7 @@ async function init() {
   if (product && TERR && handle === TERR.handle) {
     product = await fetchTerritories(product);
     product.title = TERR.title;
+    if (TERR.hero) product.images = { edges: [{ node: { url: 'https://ghosttownranch.com' + TERR.hero.url, altText: TERR.hero.alt } }] };
     product.productType = 'Territories · Art Print';
   }
 
