@@ -199,6 +199,8 @@
   }
   .wl-headline, .wl-eyebrow { text-shadow:0 2px 18px rgba(20,20,20,0.45); }
   .wl-dek { text-shadow:0 1px 14px rgba(20,20,20,0.6); }
+  .wl-hero .wl-seal { position:absolute; z-index:3; top:112px; right:56px; width:190px; height:auto; transform:rotate(-12deg); opacity:.9; object-fit:contain; }
+  @media (max-width:768px){ .wl-hero .wl-seal { width:110px; top:88px; right:20px; } }
   .wl-hero img { width:100%; height:100%; object-fit:cover; object-position:center 60%; display:block; }
   .wl-hero-overlay { position:relative; z-index:2; width:100%; display:flex; flex-direction:column; justify-content:flex-end; padding:160px 48px 64px; }
   .wl-eyebrow { font-family:var(--sans); font-size:12px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(246,246,243,0.85); margin-bottom:18px; }
@@ -959,6 +961,7 @@
 
 <!-- HERO -->
 <section class="wl-hero">
+  <img class="wl-seal" src="/gtr-roundel-stamp.png" alt="Ghost Town Ranch, Frontier Modern Apothecary">
   <div class="wl-hero-overlay">
     <span class="wl-eyebrow">The origin. The philosophy. The standard.</span>
     <h1 class="wl-headline">Wide light.<br><em>Open spaces.</em></h1>

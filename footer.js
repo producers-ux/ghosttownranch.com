@@ -19,7 +19,10 @@
     '#gtr-site-footer .gf-btn{display:inline-block;background:#F6F6F3;color:#141414;font-size:12px;letter-spacing:.18em;text-transform:uppercase;padding:15px 24px;}',
     '#gtr-site-footer .gf-btn:hover{background:#B9BDA8;text-decoration:none;}',
     '#gtr-site-footer .gf-mail{display:inline-block;margin-top:18px;font-size:14px;color:rgba(246,246,243,.85);}',
-    '#gtr-site-footer .gf-base{max-width:1500px;margin:56px auto 0;padding:24px 48px 110px;border-top:1px solid rgba(246,246,243,.14);display:flex;justify-content:space-between;gap:12px 32px;flex-wrap:wrap;font-size:12px;letter-spacing:.06em;color:rgba(246,246,243,.5);}',
+    '#gtr-site-footer .gf-base{max-width:1500px;margin:56px auto 0;padding:24px 48px 110px;border-top:1px solid rgba(246,246,243,.14);display:flex;justify-content:space-between;align-items:center;gap:12px 32px;flex-wrap:wrap;font-size:12px;letter-spacing:.06em;color:rgba(246,246,243,.5);}',
+    '#gtr-site-footer .gf-seal{width:84px;height:84px;display:block;opacity:.85;order:2;}',
+    '#gtr-site-footer .gf-base span:last-child{order:3;}',
+    '@media (max-width:640px){#gtr-site-footer .gf-base{justify-content:center;text-align:center;}#gtr-site-footer .gf-seal{order:-1;width:72px;height:72px;margin:0 auto;}#gtr-site-footer .gf-base span{flex-basis:100%;}}',
     '@media (max-width:980px){#gtr-site-footer .gf-in{grid-template-columns:1fr 1fr;}}',
     '@media (max-width:640px){#gtr-site-footer .gf-in{grid-template-columns:1fr 1fr;padding:56px 24px 0;gap:40px 24px;}#gtr-site-footer .gf-brand,#gtr-site-footer .gf-partners{grid-column:1/-1;}#gtr-site-footer .gf-base{padding:24px 24px 104px;}}'
   ].join('');
@@ -48,7 +51,7 @@
         '<a class="gf-btn" href="/wholesale/">Partner with us</a><br>' +
         '<a class="gf-mail" href="mailto:howdy@ghosttownranch.com">howdy@ghosttownranch.com</a></div>' +
     '</div>' +
-    '<div class="gf-base"><span>&copy; ' + y + ' Ghost Town Ranch &middot; Pulp Media Lab, Inc.</span><span>Palm Springs, California</span></div>';
+    '<div class="gf-base"><img class="gf-seal" src="/gtr-roundel-stamp.png" alt="Ghost Town Ranch, Frontier Modern Apothecary" loading="lazy"><span>&copy; ' + y + ' Ghost Town Ranch &middot; Pulp Media Lab, Inc.</span><span>Palm Springs, California</span></div>';
 
   var old = document.querySelector('body > footer, footer');
   if (old) old.replaceWith(f); else document.body.appendChild(f);
