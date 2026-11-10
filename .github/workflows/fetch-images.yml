@@ -1,0 +1,22 @@
+name: Fetch product images (temporary)
+on:
+  push:
+    branches: [fetch-product-images]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p _imgs
+          node -e '
+          const T="c6efa00d9c5d9849c6c13d59cca6ab82",U="https://muq7w3-im.myshopify.com/api/2025-01/graphql.json";
+          (async()=>{let after=null,out=[];for(;;){const r=await fetch(U,{method:"POST",headers:{"Content-Type":"application/json","X-Shopify-Storefront-Access-Token":T},body:JSON.stringify({query:`query($a:String){products(first:100,after:$a){pageInfo{hasNextPage endCursor} nodes{handle title vendor productType images(first:3){nodes{url}}}}}`,variables:{a:after}})}).then(r=>r.json());const p=r.data.products;out.push(...p.nodes);if(!p.pageInfo.hasNextPage)break;after=p.pageInfo.endCursor}
+          const fs=require("fs");const gtr=out.filter(p=>/ghost town ranch/i.test(p.vendor));fs.writeFileSync("_imgs/products.json",JSON.stringify(gtr,null,1));
+          for(const p of gtr){let i=0;for(const im of p.images.nodes){const u=im.url+(im.url.includes("?")?"&":"?")+"width=1600";const b=Buffer.from(await (await fetch(u)).arrayBuffer());const ext=(im.url.split("?")[0].split(".").pop()||"jpg").toLowerCase();fs.writeFileSync(`_imgs/${p.handle}-${i++}.${ext}`,b)}}
+          console.log(gtr.length,"products")})()'
+      - run: |
+          git config user.name "gtr-bot"; git config user.email "bot@ghosttownranch.com"
+          git add _imgs && git commit -m "Fetched product images" && git push
