@@ -1,0 +1,847 @@
+[
+ {
+  "handle": "peptide-anti-aging-serum",
+  "title": "The Grade Peptide Serum",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Anti-Age",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Thegrade1.png?v=1781989289"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thegrade_sm.png?v=1782594667"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/peptidebottlemage.png?v=1776860380"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "moisturising-day-cream",
+  "title": "Desert Day Cream, Hydrating Face Cream",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Moisturizer",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DesertDay001.png?v=1793450017"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertdaycream_sm.png?v=1782574483"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TxQTVaT70BfKW7a8efKPH2-2OndfKGWW.jpg?v=1793449782"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "mojave-reset-cooling-face-mist",
+  "title": "Mojave Reset Cooling Face Mist",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Face Care",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Mojavereset-001.png?v=1793375440"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/mojavereset_sp.png?v=1782576057"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/mosWZcHnF5AQ_aHta1auUUXfiK-ejCIV.jpg?v=1793374579"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "golden-hour-body-oil",
+  "title": "Golden Hour Body Oil",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Body Care",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/goldenhourbodyoil05.png?v=1793386223"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/goldenhour_body_2000.png?v=1782410035"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/oaOQNrkT1MCcB4R1iNnqy_M_CBVtxlqk.jpg?v=1793385534"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "outlaws-reserve-2-in-1-hair-skin-rinse",
+  "title": "Outlaw's Reserve Hair + Body Wash",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Shampoo",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawfinal.png?v=1793400721"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawsreserve_cu01.png?v=1782752096"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Jr9KKzoUCJR5KQvf2rD9Qri-rZFX9iD3.jpg?v=1793400439"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "the-wash",
+  "title": "The Wash, Hydrating Hand Wash",
+  "vendor": "Ghost Town Ranch",
+  "productType": "HAND SOAP",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Thewashall3.png?v=1793383434"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/GTR-the-wash-how-to-use.png?v=1793402060"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thewash_cu101.png?v=1782749647"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "the-still-amber-glass-reed-diffuser",
+  "title": "The Still, Reed Diffuser",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Home Fragrance",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thestill-main_2_bee95c14-056e-4bb2-8158-823bf81d1479.png?v=1792713601"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thestillreeds_2b23d05f-24ba-4a6e-92e4-54d50860bd64.png?v=1792714668"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Thestill-RoughHewn.png?v=1792707852"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "the-monument-candle",
+  "title": "The Monument, Mega 4-Wick Coconut-Soy Candle, 55oz",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Candle",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Themonument1_286ba5fd-33d4-46a3-a678-4a99682977ad.png?v=1781994789"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/rn-image_picker_lib_temp_c2b24e45-2c54-4479-a49f-7eebb3126cc6.png?v=1785542520"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/monument2.png?v=1783731709"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "ranch-water-body-room-fragrance",
+  "title": "Ranch Water, Body + Room Fragrance  - Six Scents",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Body & Home Fragrance",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Ranchwater-hangdried1.png?v=1792696497"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/ranchwaterspraytop.png?v=1792710548"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/RanchWater-roughhewn1.png?v=1792697422"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "sustainable-sink-tray",
+  "title": "Sustainable Sink Tray",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Tools & Accessories",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/sinktray_1.png?v=1781999392"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot2026-05-12055535.png?v=1778590648"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot_2026-05-12_055019.png?v=1778590869"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "gtr-unisex-tee-in-black-or-bone",
+  "title": "GTR Unisex Tee in Black or Bone",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Tee Shirt",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/newgtrbonet.png?v=1778979877"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Generated-with_Kive.ai_-_kive-image_28_6.png?v=1776814523"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/GTR-Bull-Icon-Unisex-Garment-Dyed-Tee-in-Bone-20260126183636.png?v=1776732749"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "gtr-unisex-sweatshirt-in-black-french-navy-white",
+  "title": "GTR Unisex Sweatshirt in Black/French Navy/White",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Sweatshirt",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/sweatshirtnavy.png?v=1778950929"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/GTRHoodie.png?v=1776857493"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Unisex-eco-sweatshirt-20250401150753.jpg?v=1776733152"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "rose-cut-daily-facial-wash",
+  "title": "ROSE CUT Daily Facial Wash",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Cleanser",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/RoseCut-001.png?v=1793376358"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/rosecut_cu01.png?v=1782752880"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/MMqpADOAwVxSRcky6a5UmMkr_cc6Sv3g.jpg?v=1793375949"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "desert-veil-tone-correction-barrier-protection",
+  "title": "DESERT VEIL: Available in Light, Medium, Tan, and Deep",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Face Care",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertveil1.png?v=1781991094"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertveil.png?v=1777556575"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertveilsingle.png?v=1777556947"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "soft-proof-peptide-foundation",
+  "title": "Soft Proof, Pigment Foundation with Peptides, 10 Shades",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Makeup",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/softproofboxmain.png?v=1793469009"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/GTR-softproof-how-to-use.png?v=1793468735"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/avuWOy6tUuf-gF2RL4rEfHfaddzHYeIo.jpg?v=1778066343"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "drawn-line-matte-lip-color",
+  "title": "Drawn Line, Matte Lip Color",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Makeup",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DrawnLine1.png?v=1781991401"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/drawnline_cu_p1.png?v=1782756042"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DrawnLine_sm.png?v=1782592085"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "long-shot-peptide-mascara",
+  "title": "LONG SHOT Peptide Mascara in Blackened Earth",
+  "vendor": "Ghost Town Ranch",
+  "productType": "mascara",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/longshotbox.png?v=1793466042"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/lonshot_sm.png?v=1782591925"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/pcoUYSSedIXC8hKjQ9buS3EysGf3_NQp.jpg?v=1793465646"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "gtr-garment-dyed-long-sleeve-tee",
+  "title": "GTR Garment-dyed long-sleeve Tee",
+  "vendor": "Ghost Town Ranch",
+  "productType": "",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/gtrlongsleevet_7f85fef8-7931-4035-b583-ef9469afcef5.png?v=1792423825"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/GTRlongsleeveT.png?v=1779369267"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/unisex-garment-dyed-heavyweight-long-sleeve-shirt-black-product-details-6a0f00f0d9953.png?v=1779369284"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "hand-cream-citrus-pink-pepper",
+  "title": "Silk Skin Hand Cream, Two Scents",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Hand Cream",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/HandCream-citruspepper.png?v=1793384753"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/handcreammesaquite01.png?v=1794256949"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/G_2H51NvGpvP-qJkNKjx2UbuYJl9a9aN.jpg?v=1793385862"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "the-face-bundle",
+  "title": "The Face Bundle, Makeup as skincare. The whole face, four steps.",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Makeup",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/makeup_cu_01_76625f25-6ae8-4755-afc2-e7335b6c86e8.png?v=1782762989"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/mojavereset1.png?v=1781992858"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/SoftProof1.png?v=1781991647"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "still-air-rosemary-mint-deodorant",
+  "title": "Still Air, Rosemary + Mint Natural Deodorant",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Body Care",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/StillAir01.png?v=1794250612"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/stillair_body_2000.png?v=1782408329"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TSoLsKrFIwwD0rBkDTblqlDUS9yKGkCQ.jpg?v=1794250276"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "the-kiss-lip-mask-7-pcs",
+  "title": "THE KISS, Lip Mask, 7 pcs",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Lip Care",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/TheKiss.png?v=1785169951"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thekiss-lipmask.png?v=1785170000"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "day-ride-bag",
+  "title": "Day Ride, Padded Zipper Bag",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Travel",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DayRide1.png?v=1791293321"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DayRide.png?v=1790825041"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Dayridewhite.png?v=1791293631"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "the-grade-peptide-anti-aging-serum",
+  "title": "The Grade, Peptide Anti-Aging Serum",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Anti-Age",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thegradebox.png?v=1793390037"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thegrade_sm.png?v=1782594667"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thegrade01.png?v=1793389952"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "rosemary-mint-revive-hair-scalp-oil",
+  "title": "Rosemary Mint Revive, Hair + Scalp Oil",
+  "vendor": "Ghost Town Ranch",
+  "productType": "hair oil",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/rosemamintoil.png?v=1793388788"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/rosemaryhairoil_sm.png?v=1782594173"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/rosemarymint1.png?v=1793388787"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "trail-light-travel-soy-candle",
+  "title": "Trail Light, Travel Soy Candle with Lid",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Candle",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Traillightmain.png?v=1789318850"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/p14HgB84igmLTWRBN2ZWAa3sXzps26qP.jpg?v=1789317126"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/jBFKneQT6qSo_LBRPlIwWpGkT2xZBDRh.jpg?v=1793459043"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "gtr-lip-butter",
+  "title": "GTR Lip Butter",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Lip Care",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/LipButter1oz.png?v=1791366646"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/lipbutter2.png?v=1790019737"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/lipbutter1.png?v=1790019697"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "desert-glow-facial-oil",
+  "title": "Desert Glow Facial Oil",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Facial Oil",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertglowbox.png?v=1793391589"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/desertglow.png?v=1782575079"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/dewertglow01.png?v=1793391491"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "gtr-touch-up-blotting-paper",
+  "title": "GTR Touch-up Blotting Papers",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Touch-up Blotting Papers",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/GTR_Blotting_Papers.png?v=1791292788"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "the-plunge-salt-moon-bath-bomb-set-of-3",
+  "title": "The Plunge, Bath Bomb",
+  "vendor": "Ghost Town Ranch",
+  "productType": "bath bomb",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/GTRBathbombset.png?v=1791555469"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/plungesingle.png?v=1793453603"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/GTRbathbomb1.png?v=1791556053"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "the-soak-lights-out",
+  "title": "THE SOAK, Lights Out",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Bath Salt",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thesoaklightsout.png?v=1792157299"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/lightsout2.png?v=1792157441"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/C9hADy0lCayEr0LPTFrEY2M5umwgs9wf.jpg?v=1793451157"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "elisa-johnson-jane-gold-metal-amber-lens",
+  "title": "ELISA JOHNSON Eyewear in Jane",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Sunglasses",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/janeminiblack_e10d0a06-016b-4185-967c-46ac0bd0185b.png?v=1792325543"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/janetortblue.png?v=1792324109"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/ElisaJohnsonJaneBlackRed.png?v=1792788598"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "gtr-beard-butter",
+  "title": "Beard Butter",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Beard Conditioner",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/LongRideBB_be2611d7-276b-4778-961f-109a43e9db98.png?v=1792366233"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "gtr-beard-wash",
+  "title": "Beard Wash",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Beard Care",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/gtrbeardwash.png?v=1792367130"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "gtr-precision-tweezers",
+  "title": "Precision Tweezers",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Tweezers",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/GTRPrecision_6bc44f4d-dec7-4c11-ba97-9a634662481d.png?v=1792368917"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "wash-then-butter",
+  "title": "Wash, Then Butter",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Beard Care",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/gtrbeardwash.png?v=1792367130"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/LongRideBB_be2611d7-276b-4778-961f-109a43e9db98.png?v=1792366233"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "horn-shoehorn-keyring",
+  "title": "Horn Shoehorn Keyring",
+  "vendor": "Ghost Town Ranch",
+  "productType": "",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/keyringhorn.png?v=1792932286"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "gold-rush-hydrogel-eye-mask",
+  "title": "Gold Rush, Hydrogel Eye Mask",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Eye Mask",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/goldrusheyemask_6f71075c-0f9b-4fb4-b076-23881e115fae.png?v=1793320492"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/daybreak1.png?v=1784677563"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot_2026-07-21_155218.png?v=1784904278"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "dry-creek-quick-refresh-hair-mist",
+  "title": "Dry Creek, Quick Refresh Hair Mist",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Dry Shampoo",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/drycreekquickrefresh.png?v=1793373965"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DryCreek_sp.png?v=1782592325"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/drycreek_washhouse_2000.png?v=1782407257"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "trails-end-leave-in-hair-conditioner",
+  "title": "Trail's End, Leave-In Hair Conditioner",
+  "vendor": "Ghost Town Ranch",
+  "productType": "",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Trailsend-001.png?v=1793370887"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Trailsendwethair.png?v=1793371555"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/VcCpb9uXGvSjiPGb0RTJ5byg_XimONGS.jpg?v=1793375082"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "the-hold-anti-age-day-cream1",
+  "title": "The Hold, Anti-Age Day Cream",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Anti-Age",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thehold01.png?v=1793393486"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thenholdbottle.png?v=1793393486"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/SegDboC2y_WjJmgQcKYmjujBKzEJoxOC.jpg?v=1793392984"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "dusk-till-dawn-hydration-gel",
+  "title": "Dusk Till Dawn Hydration Gel",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Night Gel",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/duskwithbox.png?v=1793398352"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/dusktilldawn1_ad070cba-7c2e-40a9-97ca-b228a8abbb70.png?v=1793398373"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/dusktildawn_01.png?v=1793398439"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "the-shakedown-makeup-remover",
+  "title": "The Shakedown, Makeup Remover, Fragrance Free",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Makeup Remover",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/shakedown.png?v=1793402916"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot_2026-10-30_162936.png?v=1793402991"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/pGr_kJAPNlzdFqdejYknIUzfYsQWd2qE.jpg?v=1793402635"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "bath-bomb-eucalyptus-wild-mint-1",
+  "title": "Bath Bomb, Eucalyptus & Wild Mint",
+  "vendor": "Ghost Town Ranch",
+  "productType": "",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/plungesingle.png?v=1793453603"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/A5a-cYMwPLp4kehnC2W-nWrqPBeP7-Iv.jpg?v=1793452473"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/xKZoAyJT7WhGjYkWuPcN3y3qsMspaPk1.jpg?v=1793452473"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "the-lookout-eye-booster",
+  "title": "The Lookout, Eye Booster",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Eye Cream",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/lookoutwithbox.png?v=1793459968"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/thelookout_9a57cf94-7114-4f0a-bf15-e46e2494e6bc.png?v=1793458143"
+    },
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/GTR-the-lookout-how-to-use.png?v=1793460301"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "horn-comb",
+  "title": "Horn Comb",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Hair Tools",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/horn-comb.jpg?v=1793868751"
+    }
+   ]
+  }
+ },
+ {
+  "handle": "boot-horn",
+  "title": "Boot Horn",
+  "vendor": "Ghost Town Ranch",
+  "productType": "Dry Goods",
+  "images": {
+   "nodes": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0984/0174/7240/files/horn-shoehorn.jpg?v=1793868758"
+    }
+   ]
+  }
+ }
+]
