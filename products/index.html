@@ -1077,6 +1077,7 @@
 <div class="toast" id="toast"></div>
 
 <!-- ──────────────────────────────────────────────────────────────── -->
+<script src="/territories.js"></script>
 <script>
 // ═══════════════════════════════════════════════════════════════
 //  CONFIG
@@ -1225,6 +1226,44 @@ async function fetchProduct(handle) {
       });
   } catch (e) { window.__gtrShopifyFilms = []; }
   return prod;
+}
+
+// Territories: one page for every print. Fetches each Tejas print and turns it into a
+// City + Colorway option on the Territories product (see /territories.js).
+async function fetchTerritories(parent) {
+  const T = window.GTR_TERRITORIES;
+  const q = T.prints.map((p, i) => `t${i}: product(handle: "${p.handle}") {
+      availableForSale
+      featuredImage { url altText }
+      variants(first: 20) { edges { node { id title availableForSale price { amount } } } }
+    }`).join('\n');
+  const data = await storefrontFetch(`{ ${q} }`);
+  const variants = [];
+  T.prints.forEach((p, i) => {
+    const child = data?.data?.['t' + i];
+    if (!child) return;
+    const vs = child.variants.edges.map(e => e.node);
+    const v = vs.find(x => x.title === T.size) || (vs.length === 1 ? vs[0] : null);
+    if (!v) return;
+    variants.push({
+      id: v.id,
+      title: `${p.city} / ${p.color}`,
+      availableForSale: v.availableForSale,
+      price: v.price,
+      selectedOptions: [{ name: 'City', value: p.city }, { name: 'Colorway', value: p.color }],
+      image: child.featuredImage ? { url: child.featuredImage.url, altText: `The Bull print, ${p.city}, ${p.color.toLowerCase()}` } : null,
+      sellingPlanAllocations: { edges: [] },
+      _print: p.handle,
+    });
+  });
+  if (!variants.length) return parent;
+  const lo = Math.min(...variants.map(v => parseFloat(v.price.amount)));
+  return Object.assign({}, parent, {
+    _territories: true,
+    vendor: 'Ghost Town Ranch',
+    priceRange: { minVariantPrice: { amount: String(lo), currencyCode: 'USD' } },
+    variants: { edges: variants.map(node => ({ node })) },
+  });
 }
 
 // Guest Ranch makers: anything not made by Ghost Town Ranch is credited to its maker
@@ -1400,7 +1439,69 @@ function renderProduct(product) {
   const isWaxCandle = WAX_CANDLE_HANDLES.includes(product.handle);
   const selectorLabelEl = document.querySelector('.selector-label');
 
-  if (hasVariants) {
+  if (product._territories) {
+    // Territories: two rows, City then Colorway. Size is fixed at 24″×36″.
+    variantWrap.style.display = 'block';
+    const T = window.GTR_TERRITORIES;
+    const opt = (v, n) => v.selectedOptions.find(o => o.name === n).value;
+    const cities = [...new Set(variants.map(v => opt(v, 'City')))];
+    const colors = T.colors.filter(c => variants.some(v => opt(v, 'Colorway') === c));
+    const find = (ci, co) => variants.find(v => opt(v, 'City') === ci && opt(v, 'Colorway') === co);
+    const printParam = new URLSearchParams(window.location.search).get('print');
+    const fromPrint = printParam ? variants.find(v => v._print === printParam) : null;
+    if (fromPrint) selectedVariant = fromPrint;
+    let city = opt(selectedVariant, 'City');
+    let color = opt(selectedVariant, 'Colorway');
+    variantWrap.innerHTML =
+      '<div class="selector-label">City · <span id="sel-city"></span></div>' +
+      '<div class="variant-grid" id="grid-city"></div>' +
+      '<div class="selector-label">Colorway · <span id="sel-color"></span></div>' +
+      '<div class="variant-grid" id="grid-color"></div>' +
+      '<div class="selector-label">Size · <span>' + T.size + '</span></div>' +
+      '<div style="height:18px"></div>';
+    const gridCity = document.getElementById('grid-city');
+    const gridColor = document.getElementById('grid-color');
+    const fmt = n => '$' + (n % 1 ? n.toFixed(2) : n.toFixed(0));
+
+    const apply = () => {
+      const v = find(city, color);
+      if (!v) return;
+      selectedVariant = v;
+      document.getElementById('sel-city').textContent = city;
+      document.getElementById('sel-color').textContent = color;
+      gridCity.innerHTML = cities.map(c =>
+        `<button class="variant-btn${c === city ? ' selected' : ''}" data-city="${c}">${c}</button>`).join('');
+      gridColor.innerHTML = colors.map(c => {
+        const cv = find(city, c);
+        const out = !cv || !cv.availableForSale;
+        return `<button class="variant-btn${c === color ? ' selected' : ''}" data-color="${c}"${!cv ? ' disabled title="Not printed for this city"' : ''}>${c}${cv && !cv.availableForSale ? ' <span class="variant-out">Sold out</span>' : ''}</button>`;
+      }).join('');
+      if (v.image?.url) { mainImg.src = v.image.url; mainImg.alt = v.image.altText || product.title; }
+      document.getElementById('product-price').textContent = fmt(parseFloat(v.price.amount));
+      const atc = document.getElementById('atc-btn');
+      if (atc && !isComingSoon) {
+        atc.disabled = !v.availableForSale;
+        atc.textContent = v.availableForSale ? (atc.dataset.label || 'Add to Cart') : 'Sold Out';
+      }
+      gridCity.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+        city = b.dataset.city;
+        // Keep the colorway if this city has it, otherwise the first one it does have.
+        if (!find(city, color)) color = colors.find(c => find(city, c)) || color;
+        apply();
+      }));
+      gridColor.querySelectorAll('button:not(:disabled)').forEach(b => b.addEventListener('click', () => {
+        color = b.dataset.color;
+        apply();
+      }));
+      try {
+        const u = new URL(window.location.href);
+        u.searchParams.set('print', v._print);
+        u.searchParams.delete('variant');
+        history.replaceState(null, '', u.pathname + u.search);
+      } catch (e) {}
+    };
+    apply();
+  } else if (hasVariants) {
     variantWrap.style.display = 'block';
 
     // Set label text based on product type — must happen before querying the span
@@ -1848,7 +1949,19 @@ async function init() {
     return;
   }
 
-  const product = await fetchProduct(handle);
+  // Territories: a single print's old address opens the one Territories page on that print.
+  const TERR = window.GTR_TERRITORIES;
+  if (TERR && TERR.byHandle[handle]) {
+    window.location.replace('/products/' + TERR.handle + '/?print=' + encodeURIComponent(handle));
+    return;
+  }
+
+  let product = await fetchProduct(handle);
+  if (product && TERR && handle === TERR.handle) {
+    product = await fetchTerritories(product);
+    product.title = TERR.title;
+    product.productType = 'Territories · Art Print';
+  }
 
   if (!product) {
     document.getElementById('loading').style.display = 'none';
