@@ -40,8 +40,8 @@
 .st-story-in img{flex:1 1 360px;max-width:540px;width:100%;height:auto;display:block}
 .st-stamped{position:relative;flex:1 1 360px;max-width:540px;width:100%;margin:0}
 .st-stamped img{max-width:100%}
-.st-story-in .st-stamp{position:absolute;right:-48px;bottom:-48px;width:200px;height:auto;max-width:none;transform:rotate(-14deg);opacity:.9;pointer-events:none}
-@media (max-width:768px){.st-story-in .st-stamp{width:130px;right:-10px;bottom:-34px}}
+.st-story-in .st-stamp{position:absolute;left:calc(82% - 100px);top:calc(24% - 100px);width:200px;height:auto;max-width:none;transform:rotate(-14deg);opacity:.9;pointer-events:none}
+@media (max-width:768px){.st-story-in .st-stamp{width:120px;left:calc(84% - 60px);top:calc(24% - 60px)}}
 .st-story-in>div{flex:1 1 360px;min-width:0}
 .st-story .st-eyebrow{color:#B9BE8F}
 .st-story .st-title{color:var(--parchment);margin-bottom:18px}
