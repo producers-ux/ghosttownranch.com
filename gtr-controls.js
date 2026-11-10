@@ -38,8 +38,7 @@
     { t: 'Shoehorn Keyring', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn shoehorn keyring key ring keychain key chain mini shoehorn fob gift abbeyhorn horn cattle horn cow horn handmade england made in england dry goods' },
 
     // Territories art prints (The Bull)
-    { t: 'Territories', c: 'Art Prints · The Bull', u: '/shop/#territories', k: 'territories territory prints print art print art prints poster posters wall art wall decor bull skull map maps frame framed gift home decor olive rust sky blue 24x36' },
-    { t: "The Bull", c: "Art Print, Territories  ·  $75", u: "/products/gtr-territories-collection-the-bull/", k: "the bull territories print prints art print poster wall art bull skull olive green rust sky blue 24x36 decor gift joshua tree park city midway bozeman ketchum gig harbor los olivos santa ynez st. george st george" },
+    { t: "The Bull", c: "Territories Art Print  ·  $85", u: "/products/gtr-territories-collection-the-bull/", k: "the bull territories territory print prints art prints posters wall decor map maps frame framed home decor art print poster wall art bull skull olive green rust sky blue 24x36 decor gift joshua tree park city midway bozeman ketchum gig harbor los olivos santa ynez st. george st george" },
 
     // ── PRODUCTS (generated) ──
     { t: "The Wash House Set", c: "Starter set  ·  $142", u: "/wash-house/#start", k: "wash house set starter set bath body kit the wash grapefruit hand wash hand cream golden hour body oil gift bundle save" },
