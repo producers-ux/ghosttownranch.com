@@ -171,6 +171,18 @@
       animation: breathe 2s ease-in-out infinite;
     }
 
+    .loading-compass { position:relative; width:120px; height:120px; perspective:400px; }
+    .loading-compass img { position:absolute; inset:0; width:100%; height:100%; opacity:.75; }
+    .loading-compass .loading-star { animation: compass-spin 1.8s cubic-bezier(.45,.05,.35,1) infinite; }
+    @keyframes compass-spin {
+      0%   { transform: rotateY(0deg); }
+      60%  { transform: rotateY(720deg); }
+      72%  { transform: rotateY(720deg) rotate(14deg); }
+      84%  { transform: rotateY(720deg) rotate(-6deg); }
+      100% { transform: rotateY(720deg) rotate(0deg); }
+    }
+    @media (prefers-reduced-motion: reduce) { .loading-compass .loading-star { animation:none; } }
+
     @keyframes breathe {
       0%, 100% { opacity: 0.3; transform: scale(1); }
       50%       { opacity: 0.6; transform: scale(1.05); }
@@ -940,9 +952,10 @@
 
   <!-- Loading -->
   <div class="loading-state" id="loading">
-    <img class="loading-bull"
-      src="https://ghosttownranch.com/ghost_town_ranch_bull_icon_filled_in_army_7c82d02c-6e27-47d3-9500-d2054537d8f0.png"
-      alt="" />
+    <div class="loading-compass" aria-hidden="true">
+      <img src="/media/gtr-roundel-ring-light.png" alt="">
+      <img class="loading-star" src="/media/gtr-roundel-staronly-light.png" alt="">
+    </div>
     <span style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--dust)">Loading</span>
   </div>
 
@@ -1080,6 +1093,7 @@
 <div class="toast" id="toast"></div>
 
 <!-- ──────────────────────────────────────────────────────────────── -->
+<script src="/territories.js"></script>
 <script>
 // ═══════════════════════════════════════════════════════════════
 //  CONFIG
@@ -1230,6 +1244,44 @@ async function fetchProduct(handle) {
   return prod;
 }
 
+// Territories: one page for every print. Fetches each Tejas print and turns it into a
+// City + Colorway option on the Territories product (see /territories.js).
+async function fetchTerritories(parent) {
+  const T = window.GTR_TERRITORIES;
+  const q = T.prints.map((p, i) => `t${i}: product(handle: "${p.handle}") {
+      availableForSale
+      featuredImage { url altText }
+      variants(first: 20) { edges { node { id title availableForSale price { amount } } } }
+    }`).join('\n');
+  const data = await storefrontFetch(`{ ${q} }`);
+  const variants = [];
+  T.prints.forEach((p, i) => {
+    const child = data?.data?.['t' + i];
+    if (!child) return;
+    const vs = child.variants.edges.map(e => e.node);
+    const v = vs.find(x => x.title === T.size) || (vs.length === 1 ? vs[0] : null);
+    if (!v) return;
+    variants.push({
+      id: v.id,
+      title: `${p.city} / ${p.color}`,
+      availableForSale: v.availableForSale,
+      price: v.price,
+      selectedOptions: [{ name: 'City', value: p.city }, { name: 'Colorway', value: p.color }],
+      image: child.featuredImage ? { url: child.featuredImage.url, altText: `The Bull print, ${p.city}, ${p.color.toLowerCase()}` } : null,
+      sellingPlanAllocations: { edges: [] },
+      _print: p.handle,
+    });
+  });
+  if (!variants.length) return parent;
+  const lo = Math.min(...variants.map(v => parseFloat(v.price.amount)));
+  return Object.assign({}, parent, {
+    _territories: true,
+    vendor: 'Ghost Town Ranch',
+    priceRange: { minVariantPrice: { amount: String(lo), currencyCode: 'USD' } },
+    variants: { edges: variants.map(node => ({ node })) },
+  });
+}
+
 // Guest Ranch makers: anything not made by Ghost Town Ranch is credited to its maker
 // and never carries GTR's formula badges.
 const MAKER_BY_HANDLE_PREFIX = { 'henson-shaving': 'Henson Shaving', 'kontex-': 'Kontex', 'yoshii-': 'Yoshii', 'shinto-': 'Shinto', 'kizara-': 'Kizara', 'elisa-johnson-': 'Elisa Johnson', 'filt-': 'Filt', 'tamura-': 'Tamura' };
@@ -1368,7 +1420,17 @@ function renderProduct(product) {
   }
 
   // Variants
-  const variants = product.variants.edges.map(e => e.node);
+  // Some products only offer certain options on this site (Territories prints: the two largest sizes).
+  const VARIANT_ONLY = {
+    'ghost-town-ranch-skull-joshua-tree-olive-green-1': ['24″×36″'],
+    'ghost-town-ranch-skull-joshua-tree-red-orange': ['24″×36″'],
+  };
+  const variants = product.variants.edges.map(e => e.node)
+    .filter(v => !VARIANT_ONLY[handle] || VARIANT_ONLY[handle].includes(v.title));
+  if (VARIANT_ONLY[handle] && variants.length) {
+    const lo = Math.min(...variants.map(v => parseFloat(v.price.amount)));
+    document.getElementById('product-price').textContent = '$' + (lo % 1 ? lo.toFixed(2) : lo.toFixed(0));
+  }
   const variantWrap = document.getElementById('variant-wrap');
   const variantGrid = document.getElementById('variant-grid');
   const isPreorder = PREORDER_HANDLES.includes(handle);
@@ -1393,7 +1455,69 @@ function renderProduct(product) {
   const isWaxCandle = WAX_CANDLE_HANDLES.includes(product.handle);
   const selectorLabelEl = document.querySelector('.selector-label');
 
-  if (hasVariants) {
+  if (product._territories) {
+    // Territories: two rows, City then Colorway. Size is fixed at 24″×36″.
+    variantWrap.style.display = 'block';
+    const T = window.GTR_TERRITORIES;
+    const opt = (v, n) => v.selectedOptions.find(o => o.name === n).value;
+    const cities = [...new Set(variants.map(v => opt(v, 'City')))];
+    const colors = T.colors.filter(c => variants.some(v => opt(v, 'Colorway') === c));
+    const find = (ci, co) => variants.find(v => opt(v, 'City') === ci && opt(v, 'Colorway') === co);
+    const printParam = new URLSearchParams(window.location.search).get('print');
+    const fromPrint = printParam ? variants.find(v => v._print === printParam) : null;
+    if (fromPrint) selectedVariant = fromPrint;
+    let city = opt(selectedVariant, 'City');
+    let color = opt(selectedVariant, 'Colorway');
+    variantWrap.innerHTML =
+      '<div class="selector-label">City · <span id="sel-city"></span></div>' +
+      '<div class="variant-grid" id="grid-city"></div>' +
+      '<div class="selector-label">Colorway · <span id="sel-color"></span></div>' +
+      '<div class="variant-grid" id="grid-color"></div>' +
+      '<div class="selector-label">Size · <span>' + T.size + '</span></div>' +
+      '<div style="height:18px"></div>';
+    const gridCity = document.getElementById('grid-city');
+    const gridColor = document.getElementById('grid-color');
+    const fmt = n => '$' + (n % 1 ? n.toFixed(2) : n.toFixed(0));
+
+    const apply = () => {
+      const v = find(city, color);
+      if (!v) return;
+      selectedVariant = v;
+      document.getElementById('sel-city').textContent = city;
+      document.getElementById('sel-color').textContent = color;
+      gridCity.innerHTML = cities.map(c =>
+        `<button class="variant-btn${c === city ? ' selected' : ''}" data-city="${c}">${c}</button>`).join('');
+      gridColor.innerHTML = colors.map(c => {
+        const cv = find(city, c);
+        const out = !cv || !cv.availableForSale;
+        return `<button class="variant-btn${c === color ? ' selected' : ''}" data-color="${c}"${!cv ? ' disabled title="Not printed for this city"' : ''}>${c}${cv && !cv.availableForSale ? ' <span class="variant-out">Sold out</span>' : ''}</button>`;
+      }).join('');
+      if (v.image?.url) { mainImg.src = v.image.url; mainImg.alt = v.image.altText || product.title; }
+      document.getElementById('product-price').textContent = fmt(parseFloat(v.price.amount));
+      const atc = document.getElementById('atc-btn');
+      if (atc && !isComingSoon) {
+        atc.disabled = !v.availableForSale;
+        atc.textContent = v.availableForSale ? (atc.dataset.label || 'Add to Cart') : 'Sold Out';
+      }
+      gridCity.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+        city = b.dataset.city;
+        // Keep the colorway if this city has it, otherwise the first one it does have.
+        if (!find(city, color)) color = colors.find(c => find(city, c)) || color;
+        apply();
+      }));
+      gridColor.querySelectorAll('button:not(:disabled)').forEach(b => b.addEventListener('click', () => {
+        color = b.dataset.color;
+        apply();
+      }));
+      try {
+        const u = new URL(window.location.href);
+        u.searchParams.set('print', v._print);
+        u.searchParams.delete('variant');
+        history.replaceState(null, '', u.pathname + u.search);
+      } catch (e) {}
+    };
+    apply();
+  } else if (hasVariants) {
     variantWrap.style.display = 'block';
 
     // Set label text based on product type — must happen before querying the span
@@ -1564,7 +1688,9 @@ function renderProduct(product) {
   const lowTags = tags.map(t => String(t).toLowerCase().trim());
   const GOODS_HANDLES = ['gtr-precision-tweezers', 'day-ride-bag', 'gtr-unisex-tee-in-black-or-bone', 'gtr-unisex-sweatshirt-in-black-french-navy-white', 'gtr-garment-dyed-long-sleeve-tee', 'sustainable-sink-tray', 'trail-light-travel-soy-candle', 'the-monument-candle', 'the-monument-ltd-edition-mega-4-wick-coconut-soy-candle-55oz', 'the-slow-hand-poured-colored-wax-candle-ltd-001'];
   const isGoods = lowTags.some(t => ['tools', 'dry-goods', 'apparel', 'goods'].includes(t)) || /^horn-/.test(handle) || GOODS_HANDLES.includes(handle);
-  if (makerName(product)) {
+  if (product._territories) {
+    // Territories prints: art, not a formula. No badges.
+  } else if (makerName(product)) {
     // Guest maker: no GTR formula badges
   } else if (isGoods) {
     // Our own tools and dry goods: no formula badges
@@ -1723,7 +1849,11 @@ function buildSpecs(product, variants, ingredientsHtml) {
   if (isCosmosCertified(product)) {
     detailLines.push('COSMOS Certified by ECOCERT, third-party verified');
   }
-  if (guestMaker) {
+  if (product._territories) {
+    detailLines.push('Original print, commissioned exclusively for GTR by Tejas Country Club');
+    detailLines.push('Museum-quality matte paper · 24″×36″');
+    detailLines.push('Printed to order');
+  } else if (guestMaker) {
     detailLines.push(`Made by ${guestMaker}. Part of Guest Ranch, the makers we keep company with.`);
   } else if (NA_MADE_HANDLES.includes(product.handle)) {
     detailLines.push('Net Wt. 15 g / 0.5 oz');
@@ -1733,7 +1863,7 @@ function buildSpecs(product, variants, ingredientsHtml) {
     detailLines.push(isVegan(product) ? 'Vegan · Cruelty-Free' : 'Cruelty-Free');
     detailLines.push('Free of parabens, phthalates, and synthetic dyes');
   }
-  if (!guestMaker && !formulaLines) detailLines.push('Frontier Modernism · Palm Springs, CA');
+  if (!guestMaker && !formulaLines && !product._territories) detailLines.push('Frontier Modernism · Palm Springs, CA');
 
   if (detailLines.length) {
     specs.push({
@@ -1841,7 +1971,19 @@ async function init() {
     return;
   }
 
-  const product = await fetchProduct(handle);
+  // Territories: a single print's old address opens the one Territories page on that print.
+  const TERR = window.GTR_TERRITORIES;
+  if (TERR && TERR.byHandle[handle]) {
+    window.location.replace('/products/' + TERR.handle + '/?print=' + encodeURIComponent(handle));
+    return;
+  }
+
+  let product = await fetchProduct(handle);
+  if (product && TERR && handle === TERR.handle) {
+    product = await fetchTerritories(product);
+    product.title = TERR.title;
+    product.productType = 'Territories · Art Print';
+  }
 
   if (!product) {
     document.getElementById('loading').style.display = 'none';
