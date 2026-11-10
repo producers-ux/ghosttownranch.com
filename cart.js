@@ -9,6 +9,108 @@
   document.head.appendChild(k);
 })();
 
+// Ranch Hand product cards: Klaviyo's chat cards show $0.00 on this headless site.
+// Fill each card's price from Shopify (same Storefront API as the cart), hide it if the
+// product isn't for sale, and point card links straight at ghosttownranch.com
+// (products with no page on this site, like retired items, go to /shop/), and route
+// the card's Add to cart into the GTR cart.
+(function() {
+  var SHOP = 'muq7w3-im.myshopify.com', TOKEN = 'c6efa00d9c5d9849c6c13d59cca6ab82';
+  var cache = {};
+  function handleFrom(href) {
+    var m = /\/products\/([^/?#]+)/.exec(href || '');
+    return m ? m[1] : null;
+  }
+  function price(handle) {
+    if (!cache[handle]) {
+      var page = fetch('/products/' + handle + '/', { method: 'HEAD' })
+        .then(function(r) { return r.ok; }).catch(function() { return true; });
+      var shop = fetch('https://' + SHOP + '/api/2025-01/graphql.json', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Shopify-Storefront-Access-Token': TOKEN },
+        body: JSON.stringify({ query: 'query($h:String!){product(handle:$h){availableForSale priceRange{minVariantPrice{amount}} variants(first:2){nodes{id availableForSale}}}}', variables: { h: handle } })
+      }).then(function(r) { return r.json(); }).then(function(j) {
+        var p = j && j.data && j.data.product;
+        return p && p.availableForSale ? p : null;
+      }).catch(function() { return null; });
+      cache[handle] = Promise.all([page, shop]).then(function(x) {
+        var p = x[1];
+        return {
+          listed: x[0],
+          amount: p ? Number(p.priceRange.minVariantPrice.amount) : null,
+          variants: p ? p.variants.nodes : []
+        };
+      });
+    }
+    return cache[handle];
+  }
+  function fixLinks(root) {
+    [].forEach.call(root.querySelectorAll('a[href*="/products/"]'), function(a) {
+      var href = a.getAttribute('href');
+      if (!/myshopify\.com|shop\.ghosttownranch\.com/.test(href)) return;
+      var h = handleFrom(href);
+      if (!h) return;
+      a.setAttribute('href', 'https://ghosttownranch.com/products/' + h + '/');
+      price(h).then(function(r) {
+        if (!r.listed) a.setAttribute('href', 'https://ghosttownranch.com/shop/');
+      });
+    });
+  }
+  function fix() {
+    [].forEach.call(document.querySelectorAll('.kl-hub-price[data-testid="price"]'), function(el) {
+      if (el.getAttribute('data-gtr-price')) return;
+      if (!/^\$?0(\.00)?$/.test(el.textContent.trim())) return;
+      var card = el, href = null;
+      for (var i = 0; i < 8 && card && !href; i++) {
+        var a = card.querySelector && card.querySelector('a[href*="/products/"]');
+        if (a) href = a.getAttribute('href'); else card = card.parentElement;
+      }
+      var h = handleFrom(href);
+      if (!h) { el.style.display = 'none'; return; }
+      el.setAttribute('data-gtr-price', 'pending');
+      el.style.visibility = 'hidden';
+      price(h).then(function(r) {
+        el.setAttribute('data-gtr-price', 'done');
+        if (!r.listed || r.amount == null) { el.style.display = 'none'; return; }
+        el.textContent = '$' + r.amount.toFixed(2);
+        el.style.visibility = '';
+      });
+    });
+    fixLinks(document);
+  }
+  // The card's Add to cart posts to Shopify's theme cart (/cart/add.js), which doesn't
+  // exist here. Send it to the GTR cart instead: one-option products go straight in,
+  // products with options (scents, sizes) open their page so the shopper can pick.
+  document.addEventListener('click', function(ev) {
+    var btn = ev.target.closest && ev.target.closest('[data-testid="add-to-cart-button"]');
+    if (!btn) return;
+    var card = btn.closest('[data-testid="product-info-card"]');
+    var a = card && card.querySelector('a[href*="/products/"], a[href$="/shop/"]');
+    if (!a) return;
+    ev.preventDefault();
+    ev.stopImmediatePropagation();
+    var h = handleFrom(a.getAttribute('href'));
+    if (!h) { location.href = '/shop/'; return; }
+    var page = '/products/' + h + '/';
+    price(h).then(function(r) {
+      if (!r.listed) { location.href = '/shop/'; return; }
+      var v = r.variants;
+      if (v.length === 1 && v[0].availableForSale && window.GTRCart) {
+        GTRCart.addVariant(v[0].id, 1).then(function(ok) { if (!ok) location.href = page; });
+      } else {
+        location.href = page;
+      }
+    });
+  }, true);
+
+  var queued = false;
+  new MutationObserver(function() {
+    if (queued) return;
+    queued = true;
+    setTimeout(function() { queued = false; fix(); }, 150);
+  }).observe(document.documentElement, { childList: true, subtree: true });
+})();
+
 // Territories print names for the cart (loaded once, on pages that don't already have them).
 (function() {
   if (window.GTR_TERRITORIES || document.querySelector('script[src="/territories.js"]')) return;
