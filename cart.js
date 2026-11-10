@@ -9,6 +9,15 @@
   document.head.appendChild(k);
 })();
 
+// Territories print names for the cart (loaded once, on pages that don't already have them).
+(function() {
+  if (window.GTR_TERRITORIES || document.querySelector('script[src="/territories.js"]')) return;
+  var t = document.createElement('script');
+  t.src = '/territories.js';
+  t.onload = function() { if (window.GTRCart && window.GTRCart.rerender) window.GTRCart.rerender(); };
+  document.head.appendChild(t);
+})();
+
 // GTR Cart — one Shopify cart shared by every page.
 // Uses the Storefront Cart API and the same localStorage key (gtr_cart_id) as the
 // product pages and Ritual, so whatever a shopper adds anywhere lands in one cart
@@ -289,6 +298,9 @@
       footerEl.style.display = 'flex';
       itemsEl.innerHTML = cart.lines.map(function(l) {
         var v = l.merchandise;
+        // Territories prints show as The Bull, with city and colorway underneath.
+        var terr = window.GTR_TERRITORIES && v.product && window.GTR_TERRITORIES.byHandle[v.product.handle];
+        if (terr) v = Object.assign({}, v, { title: terr.city + ' · ' + terr.color + ' · ' + window.GTR_TERRITORIES.size, product: Object.assign({}, v.product, { title: window.GTR_TERRITORIES.title + ', Territories' }) });
         var showVariant = v.title && v.title !== 'Default Title' && v.title !== 'Default';
         return '<div class="gtr-cart-item">' +
           '<img class="gtr-item-img" src="' + esc(v.image && v.image.url) + '" alt="' + esc(v.product.title) + '">' +
@@ -399,6 +411,7 @@
 
   // ── PUBLIC API ─────────────────────────────────────────────────────────────
   window.GTRCart = {
+    rerender: function() { render(); },
     open: function() {
       mount();
       document.getElementById('gtr-drawer').classList.add('open');
