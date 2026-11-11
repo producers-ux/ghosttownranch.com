@@ -921,11 +921,11 @@
   <link rel="stylesheet" href="/brand.css">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Day Ride Travel Set, His","description":"Everything for a long day out, zipped into the black Day Ride.What's packed: Day Ride Padded Zipper Bag in black. Beard Butter. Dry Creek Fine Mist Dry Shampoo. Still Air Natural Deodorant. GTR Touch-up Blotting Papers. Lip Butter.Made for the glovebox, the carry-on and the trailhead. Vegan and cruelty-free.","url":"https://ghosttownranch.com/products/day-ride-travel-set-his/","brand":{"@type":"Brand","name":"Ghost Town Ranch"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"161.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/day-ride-travel-set-his/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DayRide1_992392c7-6b04-4ccf-9813-0c135e24927c.png?v=1793331426"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Day Ride Travel Set, His","description":"Everything for a long day out, zipped into the black Day Ride.What's packed: Day Ride Padded Zipper Bag in black. Beard Butter. Dry Creek Fine Mist Dry Shampoo. Still Air Natural Deodorant. GTR Touch-up Blotting Papers. GTR Lip Butter.Made for the glovebox, the carry-on and the trailhead. Vegan and cruelty-free.","url":"https://ghosttownranch.com/products/day-ride-travel-set-his/","brand":{"@type":"Brand","name":"Ghost Town Ranch"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"161.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/day-ride-travel-set-his/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/DayRide1_992392c7-6b04-4ccf-9813-0c135e24927c.png?v=1793331426"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ghost Town Ranch","item":"https://ghosttownranch.com/"},{"@type":"ListItem","position":2,"name":"Shop","item":"https://ghosttownranch.com/shop/"},{"@type":"ListItem","position":3,"name":"Day Ride Travel Set, His","item":"https://ghosttownranch.com/products/day-ride-travel-set-his/"}]}</script>
 </head>
 <body>
-<div hidden data-seo-snapshot><p><strong>Day Ride Travel Set, His</strong> — $161.00 · In stock</p><p>Everything for a long day out, zipped into the black Day Ride.What's packed: Day Ride Padded Zipper Bag in black. Beard Butter. Dry Creek Fine Mist Dry Shampoo. Still Air Natural Deodorant. GTR Touch-up Blotting Papers. Lip Butter.Made for the glovebox, the carry-on and the trailhead. Vegan and cruelty-free.</p><p><a href="https://ghosttownranch.com/shop/">Shop all Ghost Town Ranch</a></p></div>
+<div hidden data-seo-snapshot><p><strong>Day Ride Travel Set, His</strong> — $161.00 · In stock</p><p>Everything for a long day out, zipped into the black Day Ride.What's packed: Day Ride Padded Zipper Bag in black. Beard Butter. Dry Creek Fine Mist Dry Shampoo. Still Air Natural Deodorant. GTR Touch-up Blotting Papers. GTR Lip Butter.Made for the glovebox, the carry-on and the trailhead. Vegan and cruelty-free.</p><p><a href="https://ghosttownranch.com/shop/">Shop all Ghost Town Ranch</a></p></div>
 
 <!-- ── NAV ── -->
 <nav>
@@ -1274,8 +1274,11 @@ async function fetchTerritories(parent) {
   });
   if (!variants.length) return parent;
   const lo = Math.min(...variants.map(v => parseFloat(v.price.amount)));
+  // Open on the ranch hallway shot (Lou with the 29 Palms print); choosing a print swaps to it.
+  const hero = { url: 'https://ghosttownranch.com/territories-29palms-1400.jpg', altText: 'The Bull print, 29 Palms, framed in a hallway at the ranch' };
   return Object.assign({}, parent, {
     _territories: true,
+    images: { edges: [{ node: hero }].concat((parent.images && parent.images.edges) || []) },
     vendor: 'Ghost Town Ranch',
     priceRange: { minVariantPrice: { amount: String(lo), currencyCode: 'USD' } },
     variants: { edges: variants.map(node => ({ node })) },
@@ -1479,6 +1482,7 @@ function renderProduct(product) {
     const gridColor = document.getElementById('grid-color');
     const fmt = n => '$' + (n % 1 ? n.toFixed(2) : n.toFixed(0));
 
+    let firstApply = true;
     const apply = () => {
       const v = find(city, color);
       if (!v) return;
@@ -1492,7 +1496,12 @@ function renderProduct(product) {
         const out = !cv || !cv.availableForSale;
         return `<button class="variant-btn${c === color ? ' selected' : ''}" data-color="${c}"${!cv ? ' disabled title="Not printed for this city"' : ''}>${c}${cv && !cv.availableForSale ? ' <span class="variant-out">Sold out</span>' : ''}</button>`;
       }).join('');
-      if (v.image?.url) { mainImg.src = v.image.url; mainImg.alt = v.image.altText || product.title; }
+      // First load keeps the hallway shot; a city or colorway pick shows that print.
+      if (!firstApply && v.image?.url) {
+        mainImg.src = v.image.url; mainImg.alt = v.image.altText || product.title;
+        thumbsWrap.querySelectorAll('.thumb').forEach(x => x.classList.remove('active'));
+      }
+      firstApply = false;
       document.getElementById('product-price').textContent = fmt(parseFloat(v.price.amount));
       const atc = document.getElementById('atc-btn');
       if (atc && !isComingSoon) {

@@ -1274,8 +1274,11 @@ async function fetchTerritories(parent) {
   });
   if (!variants.length) return parent;
   const lo = Math.min(...variants.map(v => parseFloat(v.price.amount)));
+  // Open on the ranch hallway shot (Lou with the 29 Palms print); choosing a print swaps to it.
+  const hero = { url: 'https://ghosttownranch.com/territories-29palms-1400.jpg', altText: 'The Bull print, 29 Palms, framed in a hallway at the ranch' };
   return Object.assign({}, parent, {
     _territories: true,
+    images: { edges: [{ node: hero }].concat((parent.images && parent.images.edges) || []) },
     vendor: 'Ghost Town Ranch',
     priceRange: { minVariantPrice: { amount: String(lo), currencyCode: 'USD' } },
     variants: { edges: variants.map(node => ({ node })) },
@@ -1479,6 +1482,7 @@ function renderProduct(product) {
     const gridColor = document.getElementById('grid-color');
     const fmt = n => '$' + (n % 1 ? n.toFixed(2) : n.toFixed(0));
 
+    let firstApply = true;
     const apply = () => {
       const v = find(city, color);
       if (!v) return;
@@ -1492,7 +1496,12 @@ function renderProduct(product) {
         const out = !cv || !cv.availableForSale;
         return `<button class="variant-btn${c === color ? ' selected' : ''}" data-color="${c}"${!cv ? ' disabled title="Not printed for this city"' : ''}>${c}${cv && !cv.availableForSale ? ' <span class="variant-out">Sold out</span>' : ''}</button>`;
       }).join('');
-      if (v.image?.url) { mainImg.src = v.image.url; mainImg.alt = v.image.altText || product.title; }
+      // First load keeps the hallway shot; a city or colorway pick shows that print.
+      if (!firstApply && v.image?.url) {
+        mainImg.src = v.image.url; mainImg.alt = v.image.altText || product.title;
+        thumbsWrap.querySelectorAll('.thumb').forEach(x => x.classList.remove('active'));
+      }
+      firstApply = false;
       document.getElementById('product-price').textContent = fmt(parseFloat(v.price.amount));
       const atc = document.getElementById('atc-btn');
       if (atc && !isComingSoon) {
