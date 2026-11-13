@@ -402,7 +402,7 @@
         var v = l.merchandise;
         // Territories prints show as The Bull, with city and colorway underneath.
         var terr = window.GTR_TERRITORIES && v.product && window.GTR_TERRITORIES.byHandle[v.product.handle];
-        if (terr) v = Object.assign({}, v, { title: terr.city + ' · ' + terr.color + ' · ' + window.GTR_TERRITORIES.size, product: Object.assign({}, v.product, { title: window.GTR_TERRITORIES.title + ', Territories' }) });
+        if (terr) v = Object.assign({}, v, { title: terr.city + ' · ' + terr.color + ' · ' + (/″/.test(v.title || '') ? v.title : terr.size), product: Object.assign({}, v.product, { title: window.GTR_TERRITORIES.title + ', Territories' }) });
         var showVariant = v.title && v.title !== 'Default Title' && v.title !== 'Default';
         return '<div class="gtr-cart-item">' +
           '<img class="gtr-item-img" src="' + esc(v.image && v.image.url) + '" alt="' + esc(v.product.title) + '">' +
