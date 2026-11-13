@@ -1248,25 +1248,26 @@ async function fetchProduct(handle) {
 // City + Colorway option on the Territories product (see /territories.js).
 async function fetchTerritories(parent) {
   const T = window.GTR_TERRITORIES;
-  const q = T.prints.map((p, i) => `t${i}: product(handle: "${p.handle}") {
+  const handles = [...new Set(T.prints.map(p => p.handle))];
+  const q = handles.map((h, i) => `t${i}: product(handle: "${h}") {
       availableForSale
       featuredImage { url altText }
       variants(first: 20) { edges { node { id title availableForSale price { amount } } } }
     }`).join('\n');
   const data = await storefrontFetch(`{ ${q} }`);
   const variants = [];
-  T.prints.forEach((p, i) => {
-    const child = data?.data?.['t' + i];
+  T.prints.forEach(p => {
+    const child = data?.data?.['t' + handles.indexOf(p.handle)];
     if (!child) return;
     const vs = child.variants.edges.map(e => e.node);
-    const v = vs.find(x => x.title === T.size) || (vs.length === 1 ? vs[0] : null);
+    const v = vs.find(x => x.title === p.size) || (vs.length === 1 ? vs[0] : null);
     if (!v) return;
     variants.push({
       id: v.id,
-      title: `${p.city} / ${p.color}`,
+      title: `${p.city} / ${p.color} / ${p.size}`,
       availableForSale: v.availableForSale,
       price: v.price,
-      selectedOptions: [{ name: 'City', value: p.city }, { name: 'Colorway', value: p.color }],
+      selectedOptions: [{ name: 'City', value: p.city }, { name: 'Colorway', value: p.color }, { name: 'Size', value: p.size }],
       image: child.featuredImage ? { url: child.featuredImage.url, altText: `The Bull print, ${p.city}, ${p.color.toLowerCase()}` } : null,
       sellingPlanAllocations: { edges: [] },
       _print: p.handle,
@@ -1459,42 +1460,51 @@ function renderProduct(product) {
   const selectorLabelEl = document.querySelector('.selector-label');
 
   if (product._territories) {
-    // Territories: two rows, City then Colorway. Size is fixed at 24″×36″.
+    // Territories: three rows, City, Colorway and Size.
     variantWrap.style.display = 'block';
     const T = window.GTR_TERRITORIES;
     const opt = (v, n) => v.selectedOptions.find(o => o.name === n).value;
     const cities = [...new Set(variants.map(v => opt(v, 'City')))];
     const colors = T.colors.filter(c => variants.some(v => opt(v, 'Colorway') === c));
-    const find = (ci, co) => variants.find(v => opt(v, 'City') === ci && opt(v, 'Colorway') === co);
+    const sizes = T.sizes.filter(s => variants.some(v => opt(v, 'Size') === s));
+    const find = (ci, co, sz) => variants.find(v => opt(v, 'City') === ci && opt(v, 'Colorway') === co && (!sz || opt(v, 'Size') === sz));
     const printParam = new URLSearchParams(window.location.search).get('print');
-    const fromPrint = printParam ? variants.find(v => v._print === printParam) : null;
+    const sizeParam = new URLSearchParams(window.location.search).get('size');
+    const fromPrint = printParam ? (variants.find(v => v._print === printParam && opt(v, 'Size') === sizeParam) || variants.find(v => v._print === printParam && opt(v, 'Size') === T.size) || variants.find(v => v._print === printParam)) : null;
     if (fromPrint) selectedVariant = fromPrint;
     let city = opt(selectedVariant, 'City');
     let color = opt(selectedVariant, 'Colorway');
+    let size = opt(selectedVariant, 'Size');
     variantWrap.innerHTML =
       '<div class="selector-label">City · <span id="sel-city"></span></div>' +
       '<div class="variant-grid" id="grid-city"></div>' +
       '<div class="selector-label">Colorway · <span id="sel-color"></span></div>' +
       '<div class="variant-grid" id="grid-color"></div>' +
-      '<div class="selector-label">Size · <span>' + T.size + '</span></div>' +
+      '<div class="selector-label">Size · <span id="sel-size"></span></div>' +
+      '<div class="variant-grid" id="grid-size"></div>' +
       '<div style="height:18px"></div>';
     const gridCity = document.getElementById('grid-city');
     const gridColor = document.getElementById('grid-color');
+    const gridSize = document.getElementById('grid-size');
     const fmt = n => '$' + (n % 1 ? n.toFixed(2) : n.toFixed(0));
 
     let firstApply = true;
     const apply = () => {
-      const v = find(city, color);
+      const v = find(city, color, size);
       if (!v) return;
       selectedVariant = v;
       document.getElementById('sel-city').textContent = city;
       document.getElementById('sel-color').textContent = color;
+      document.getElementById('sel-size').textContent = size;
       gridCity.innerHTML = cities.map(c =>
         `<button class="variant-btn${c === city ? ' selected' : ''}" data-city="${c}">${c}</button>`).join('');
       gridColor.innerHTML = colors.map(c => {
-        const cv = find(city, c);
-        const out = !cv || !cv.availableForSale;
+        const cv = find(city, c, size) || find(city, c);
         return `<button class="variant-btn${c === color ? ' selected' : ''}" data-color="${c}"${!cv ? ' disabled title="Not printed for this city"' : ''}>${c}${cv && !cv.availableForSale ? ' <span class="variant-out">Sold out</span>' : ''}</button>`;
+      }).join('');
+      gridSize.innerHTML = sizes.map(s => {
+        const sv = find(city, color, s);
+        return `<button class="variant-btn${s === size ? ' selected' : ''}" data-size="${s}"${!sv ? ' disabled title="Not printed in this size"' : ''}>${s}${sv && !sv.availableForSale ? ' <span class="variant-out">Sold out</span>' : ''}</button>`;
       }).join('');
       // First load keeps the hallway shot; a city or colorway pick shows that print.
       if (!firstApply && v.image?.url) {
@@ -1508,19 +1518,24 @@ function renderProduct(product) {
         atc.disabled = !v.availableForSale;
         atc.textContent = v.availableForSale ? (atc.dataset.label || 'Add to Cart') : 'Sold Out';
       }
+      // Keep what still exists for the new pick; otherwise fall back to what's printed.
+      const settle = () => {
+        if (!find(city, color)) color = colors.find(c => find(city, c, size)) || colors.find(c => find(city, c)) || color;
+        if (!find(city, color, size)) size = sizes.find(s => find(city, color, s)) || size;
+      };
       gridCity.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
-        city = b.dataset.city;
-        // Keep the colorway if this city has it, otherwise the first one it does have.
-        if (!find(city, color)) color = colors.find(c => find(city, c)) || color;
-        apply();
+        city = b.dataset.city; settle(); apply();
       }));
       gridColor.querySelectorAll('button:not(:disabled)').forEach(b => b.addEventListener('click', () => {
-        color = b.dataset.color;
-        apply();
+        color = b.dataset.color; settle(); apply();
+      }));
+      gridSize.querySelectorAll('button:not(:disabled)').forEach(b => b.addEventListener('click', () => {
+        size = b.dataset.size; apply();
       }));
       try {
         const u = new URL(window.location.href);
         u.searchParams.set('print', v._print);
+        u.searchParams.set('size', size);
         u.searchParams.delete('variant');
         history.replaceState(null, '', u.pathname + u.search);
       } catch (e) {}
@@ -1860,7 +1875,7 @@ function buildSpecs(product, variants, ingredientsHtml) {
   }
   if (product._territories) {
     detailLines.push('Original print, commissioned exclusively for GTR by Tejas Country Club');
-    detailLines.push('Museum-quality matte paper · 24″×36″');
+    detailLines.push('Museum-quality matte paper · 16″×20″ or 24″×36″');
     detailLines.push('Printed to order');
   } else if (guestMaker) {
     detailLines.push(`Made by ${guestMaker}. Part of Guest Ranch, the makers we keep company with.`);
