@@ -54,8 +54,8 @@
     .hw-ig-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:36px;}
     .hw-ig-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3vw,44px);margin-top:10px;}
     .hw-ig-head a{font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(246,246,243,.4);padding-bottom:3px;}
-    .hw-ig{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:start;}
-    @media (max-width:1200px){.hw-ig{grid-template-columns:repeat(2,minmax(0,1fr));}}
+    .hw-ig{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;align-items:flex-start;}
+    .hw-ig > *{flex:0 1 380px;}
     .hw-ig .instagram-media{min-width:0!important;width:100%!important;margin:0!important;}
     /* pieces */
     .hw-pieces{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:36px;}
@@ -72,7 +72,7 @@
       .hw-wrap{padding-top:64px;padding-bottom:64px;}
       .hw-story,.hw-craft .hw-wrap{grid-template-columns:1fr;}
       .hw-line{grid-template-columns:1fr 1fr;row-gap:28px;}
-      .hw-ig{grid-template-columns:1fr;}
+      .hw-ig > *{flex:1 1 100%;}
       .hw-pieces{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:44%;overflow-x:auto;gap:12px;scroll-snap-type:x mandatory;}
       .hw-piece{scroll-snap-align:start;}
     }
@@ -147,7 +147,8 @@
     'https://www.instagram.com/reel/DJOchIHsjfv/',
     'https://www.instagram.com/reel/DI_lrPms7ZS/',
     'https://www.instagram.com/p/DJbJb3msh_Y/',
-    'https://www.instagram.com/p/DI0hNy_sDiX/'
+    'https://www.instagram.com/p/DI0hNy_sDiX/',
+    'https://www.instagram.com/p/CY3hWdaseU8/'
   ];
   (function(){
     var box = document.getElementById('hw-ig');
