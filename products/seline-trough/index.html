@@ -1546,6 +1546,10 @@ function renderProduct(product) {
     descEl.textContent = parts[0].trim();
     if (parts.length > 1) ingredientsHtml = `<p>${parts.slice(1).join(' ').trim()}</p>`;
   }
+  // Horn pieces: point to the Abbeyhorn story.
+  if (['boot-horn', 'horn-comb', 'horn-shoehorn-keyring'].includes(handle)) {
+    descEl.insertAdjacentHTML('beforeend', '<p class="horn-story-link" style="margin-top:16px"><a href="/hornworks/" style="color:inherit;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px">Made by the last horn works in Britain. Read the story &rarr;</a></p>');
+  }
 
   // Cert badges — show relevant subset based on tags
   const certRow = document.getElementById('cert-row');
