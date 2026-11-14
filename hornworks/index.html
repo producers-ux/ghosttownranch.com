@@ -54,7 +54,7 @@
     .hw-ig-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:36px;}
     .hw-ig-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3vw,44px);margin-top:10px;}
     .hw-ig-head a{font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(246,246,243,.4);padding-bottom:3px;}
-    .hw-ig{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start;}
+    .hw-ig{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,400px));gap:24px;align-items:start;}
     .hw-ig .instagram-media{min-width:0!important;width:100%!important;margin:0!important;}
     /* pieces */
     .hw-pieces{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:36px;}
@@ -142,7 +142,9 @@
   <script>
   // Abbeyhorn's own Instagram posts, shown with Instagram's embed so they stay theirs.
   // Paste post or reel links here, in order.
-  var IG_POSTS = [];
+  var IG_POSTS = [
+    'https://www.instagram.com/reel/DJOchIHsjfv/'
+  ];
   (function(){
     var box = document.getElementById('hw-ig');
     if (!IG_POSTS.length) { document.getElementById('workshop').style.display = 'none'; return; }
