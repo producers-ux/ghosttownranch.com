@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPT3TQ1C0B"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BPT3TQ1C0B');</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Hornworks | Abbeyhorn for Ghost Town Ranch</title>
+  <meta name="description" content="Abbeyhorn has worked horn in England since 1749. It is the last horn works left in Britain, and it makes Ghost Town Ranch's Boot Horn, Horn Comb and horn pieces.">
+  <link rel="canonical" href="https://ghosttownranch.com/hornworks/">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ghosttownranch.com/hornworks/">
+  <meta property="og:title" content="The Hornworks | Ghost Town Ranch">
+  <meta property="og:description" content="The last horn works in Britain. Since 1749. Made for GTR in England.">
+  <meta property="og:image" content="https://ghosttownranch.com/media/horn-lou.jpg">
+  <link rel="stylesheet" href="/nav.css">
+  <link rel="stylesheet" href="/brand.css">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <style>
+    @font-face{font-family:'JBM';src:url('/fonts/jetbrains-mono-latin-300-normal.woff2') format('woff2');font-weight:300;font-display:swap;}
+    @font-face{font-family:'JBM';src:url('/fonts/jetbrains-mono-latin-400-normal.woff2') format('woff2');font-weight:400;font-display:swap;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--ink:#141414;--parchment:#F6F6F3;--soft:#DDD6C6;--army:#5D643A;--sage:#B9BE8F;--serif:'PPEiko',Georgia,serif;--mono:'JBM',ui-monospace,monospace;}
+    body{background:var(--ink);color:var(--parchment);font-family:var(--mono);font-weight:300;-webkit-font-smoothing:antialiased;}
+    a{color:inherit}
+    .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--sage);}
+    /* hero */
+    .hw-hero{position:relative;height:min(92vh,860px);min-height:520px;overflow:hidden;background:#000;}
+    .hw-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;opacity:.82;}
+    .hw-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,.15) 40%,rgba(20,20,20,.85));}
+    .hw-hero-in{position:absolute;left:0;right:0;bottom:0;z-index:2;max-width:1344px;margin:0 auto;padding:0 48px 64px;}
+    .hw-title{font-family:var(--serif);font-weight:400;font-size:clamp(48px,7vw,104px);line-height:.95;text-transform:uppercase;letter-spacing:.02em;margin:14px 0 18px;}
+    .hw-dek{font-size:14px;line-height:1.7;max-width:520px;color:var(--soft);}
+    /* story */
+    .hw-wrap{max-width:1344px;margin:0 auto;padding:96px 48px;}
+    .hw-story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:56px 80px;align-items:start;}
+    .hw-lede{font-family:var(--serif);font-weight:300;font-size:clamp(26px,2.6vw,38px);line-height:1.25;}
+    .hw-copy p{font-size:14px;line-height:1.85;color:var(--soft);margin:0 0 20px;max-width:560px;}
+    .hw-copy p strong{color:var(--parchment);font-weight:400;}
+    /* timeline */
+    .hw-line{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(246,246,243,.18);margin-top:72px;}
+    .hw-line div{padding:22px 24px 0 0;}
+    .hw-year{font-family:var(--serif);font-size:40px;line-height:1;}
+    .hw-what{font-size:12px;line-height:1.6;color:var(--soft);margin-top:10px;max-width:240px;}
+    /* craft band */
+    .hw-craft{background:#F6F6F3;color:var(--ink);}
+    .hw-craft .hw-wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:56px 80px;align-items:center;}
+    .hw-craft video{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:#ddd;}
+    .hw-craft .eyebrow{color:var(--army);}
+    .hw-craft h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,3.4vw,48px);line-height:1.05;margin:12px 0 22px;}
+    .hw-craft p{font-size:14px;line-height:1.85;color:#3e3f3c;margin:0 0 18px;max-width:520px;}
+    /* instagram */
+    .hw-ig-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:36px;}
+    .hw-ig-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3vw,44px);margin-top:10px;}
+    .hw-ig-head a{font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(246,246,243,.4);padding-bottom:3px;}
+    .hw-ig{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start;}
+    .hw-ig .instagram-media{min-width:0!important;width:100%!important;margin:0!important;}
+    /* pieces */
+    .hw-pieces{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:36px;}
+    .hw-piece{text-decoration:none;display:block;}
+    .hw-piece span.img{display:block;aspect-ratio:4/5;background:#F1F0EB;overflow:hidden;margin-bottom:12px;}
+    .hw-piece img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;}
+    .hw-piece:hover img{transform:scale(1.04);}
+    .hw-pn{display:block;font-family:var(--serif);font-size:20px;line-height:1.15;}
+    .hw-pm{display:block;font-size:12px;letter-spacing:.06em;color:var(--soft);margin-top:4px;}
+    .hw-piece.soon .hw-pm{color:var(--sage);}
+    .hw-h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3vw,44px);margin-top:10px;}
+    @media (max-width:900px){
+      .hw-hero-in,.hw-wrap{padding-left:24px;padding-right:24px;}
+      .hw-wrap{padding-top:64px;padding-bottom:64px;}
+      .hw-story,.hw-craft .hw-wrap{grid-template-columns:1fr;}
+      .hw-line{grid-template-columns:1fr 1fr;row-gap:28px;}
+      .hw-ig{grid-template-columns:1fr;}
+      .hw-pieces{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:44%;overflow-x:auto;gap:12px;scroll-snap-type:x mandatory;}
+      .hw-piece{scroll-snap-align:start;}
+    }
+  </style>
+</head>
+<body>
+  <!-- top nav injected by /nav.js -->
+  <header class="hw-hero">
+    <video src="/media/horn-lou.mp4" poster="/media/horn-lou.jpg" autoplay muted loop playsinline aria-label="Lou on the edge of a motel bed, sliding her heel into a black western boot with the GTR Boot Horn"></video>
+    <div class="hw-hero-in">
+      <div class="eyebrow">Abbeyhorn &middot; England &middot; Since 1749</div>
+      <h1 class="hw-title">The Hornworks.</h1>
+      <p class="hw-dek">The last horn works left in Britain, and the people who make our horn pieces.</p>
+    </div>
+  </header>
+
+  <section class="hw-wrap">
+    <div class="hw-story">
+      <p class="hw-lede">Abbeyhorn has worked horn in England for more than 275 years. It is the last horn works left in Britain.</p>
+      <div class="hw-copy">
+        <p>It started in 1749 as the Horn Works in Bewdley, Worcestershire, making combs, spoons, scoops and shoe lifts from the horn of local cattle. Over the next two centuries it moved north, to Gloucester, then to Kendal, and merged with an old horn comb works along the way.</p>
+        <p>Since 1991 it has worked out of a small factory in Holme, on the edge of the Lake District. The Cleasby family runs it now, the fifth owners in its long history. Paul Cleasby first walked in as an apprentice horn worker at sixteen.</p>
+        <p><strong>We went to them for the pieces we wanted to keep by the door and carry on the road.</strong> Each one is made for GTR by Abbeyhorn and marked with our Bull in silver.</p>
+      </div>
+    </div>
+    <div class="hw-line">
+      <div><div class="hw-year">1749</div><div class="hw-what">The Horn Works opens in Bewdley, Worcestershire.</div></div>
+      <div><div class="hw-year">Kendal</div><div class="hw-what">Moves north and joins an old horn comb works.</div></div>
+      <div><div class="hw-year">1991</div><div class="hw-what">Settles in Holme, on the edge of the Lake District.</div></div>
+      <div><div class="hw-year">Today</div><div class="hw-what">The last horn works left in Britain.</div></div>
+    </div>
+  </section>
+
+  <section class="hw-craft">
+    <div class="hw-wrap">
+      <video src="/media/horn-teaser.mp4" poster="/media/horn-teaser.jpg" autoplay muted loop playsinline aria-label="A polished horn shoehorn turning slowly in the light"></video>
+      <div>
+        <div class="eyebrow">The material</div>
+        <h2>Nothing wasted.<br>No two the same.</h2>
+        <p>Horn is a byproduct of the herd. Heated, it turns pliable. Pressed into a form, it holds the shape. Then it is cut, sanded and polished until the grain comes up, dark tortoise running to honey.</p>
+        <p>Because it is horn and not plastic, no two pieces are the same color, and it takes on more of a shine the more you use it. Horn glides through hair without static, and slides into a boot without crushing the heel.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="hw-wrap" id="workshop">
+    <div class="hw-ig-head">
+      <div><div class="eyebrow">From the workshop</div><h2>Inside Abbeyhorn.</h2></div>
+      <a href="https://www.instagram.com/abbeyhornltd/" target="_blank" rel="noopener">@abbeyhornltd on Instagram</a>
+    </div>
+    <div class="hw-ig" id="hw-ig"></div>
+  </section>
+
+  <section class="hw-wrap">
+    <div class="eyebrow">Made for GTR in England</div>
+    <h2 class="hw-h2">The horn pieces.</h2>
+    <div class="hw-pieces">
+      <a class="hw-piece" href="/products/boot-horn/"><span class="img"><img src="/media/horn-shoehorn.jpg" alt="The GTR Boot Horn, 16 inches of polished cow horn" loading="lazy"></span><span class="hw-pn">Boot Horn</span><span class="hw-pm">16&Prime; &middot; $165</span></a>
+      <a class="hw-piece" href="/products/horn-comb/"><span class="img"><img src="/media/horn-comb.jpg" alt="The GTR Horn Comb in polished cow horn" loading="lazy"></span><span class="hw-pn">Horn Comb</span><span class="hw-pm">4&Prime; &middot; $42</span></a>
+      <a class="hw-piece soon" href="/products/horn-shoehorn-keyring/"><span class="img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/keyringhorn.png?v=1792932286&width=600" alt="The GTR Horn Shoehorn Keyring" loading="lazy"></span><span class="hw-pn">Shoehorn Keyring</span><span class="hw-pm">3&Prime; &middot; Coming soon</span></a>
+      <a class="hw-piece soon" href="/#signup"><span class="img"><img src="/media/horn-brush.jpg" alt="Horn and boar bristle hairbrush marked with the Bull" loading="lazy"></span><span class="hw-pn">Horn Hair Brush</span><span class="hw-pm">Coming soon</span></a>
+      <a class="hw-piece soon" href="/#signup"><span class="img"><img src="/media/horn-bowl.jpg?v=2" alt="Ox horn bowl, black and amber" loading="lazy"></span><span class="hw-pn">Horn Bowl</span><span class="hw-pm">Coming soon</span></a>
+    </div>
+  </section>
+
+  <footer></footer>
+
+  <script>
+  // Abbeyhorn's own Instagram posts, shown with Instagram's embed so they stay theirs.
+  // Paste post or reel links here, in order.
+  var IG_POSTS = [];
+  (function(){
+    var box = document.getElementById('hw-ig');
+    if (!IG_POSTS.length) { document.getElementById('workshop').style.display = 'none'; return; }
+    box.innerHTML = IG_POSTS.map(function(u){
+      return '<blockquote class="instagram-media" data-instgrm-permalink="' + u + '?utm_source=ig_embed" data-instgrm-version="14"><a href="' + u + '">View this post on Instagram</a></blockquote>';
+    }).join('');
+    var s = document.createElement('script'); s.async = true; s.src = 'https://www.instagram.com/embed.js'; document.body.appendChild(s);
+  })();
+  </script>
+  <script defer src="/nav.js"></script>
+  <script src="/cart.js"></script>
+  <script src="/gtr-controls.js" defer></script>
+  <script src="/footer.js" defer></script>
+</body>
+</html>
