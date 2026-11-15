@@ -915,14 +915,6 @@
   ]
  },
  {
-  "handle": "hair-care-gift-box-1",
-  "title": "High Meadow Hair Care Gift Box",
-  "vendor": "Ghost Town Ranch",
-  "tags": [
-   "collection-box"
-  ]
- },
- {
   "handle": "body-care-gift-box",
   "title": "Body Care Gift Box",
   "vendor": "Selfnamed",
@@ -931,11 +923,13 @@
   ]
  },
  {
-  "handle": "hair-care-gift-box",
-  "title": "HIgh Meadow Hair Care Gift Box",
+  "handle": "high-meadow-hair-care-gift-box",
+  "title": "High Meadow Hair Care Gift Box",
   "vendor": "Ghost Town Ranch",
   "tags": [
-   "collection-box"
+   "gift",
+   "hair",
+   "sets"
   ]
  },
  {
