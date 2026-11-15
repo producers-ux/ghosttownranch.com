@@ -887,7 +887,7 @@
  },
  {
   "handle": "horn-comb",
-  "title": "Horn Comb",
+  "title": "The Horn Comb, Bespoke Cow Horn",
   "vendor": "Ghost Town Ranch",
   "tags": [
    "carry-on",
@@ -898,12 +898,56 @@
  },
  {
   "handle": "boot-horn",
-  "title": "Boot Horn",
+  "title": "The Boot Horn, Bespoke Cow Horn Shoehorn",
   "vendor": "Ghost Town Ranch",
   "tags": [
    "dry-goods",
    "home",
    "tools"
+  ]
+ },
+ {
+  "handle": "body-care-gift-box-1",
+  "title": "Body Care Gift Box",
+  "vendor": "Selfnamed",
+  "tags": [
+   "collection-box"
+  ]
+ },
+ {
+  "handle": "hair-care-gift-box-1",
+  "title": "High Meadow Hair Care Gift Box",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "collection-box"
+  ]
+ },
+ {
+  "handle": "body-care-gift-box",
+  "title": "Body Care Gift Box",
+  "vendor": "Selfnamed",
+  "tags": [
+   "collection-box"
+  ]
+ },
+ {
+  "handle": "hair-care-gift-box",
+  "title": "HIgh Meadow Hair Care Gift Box",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "collection-box"
+  ]
+ },
+ {
+  "handle": "tall-grass-duo-shampoo-conditioner",
+  "title": "Tall Grass Duo, Shampoo + Conditioner",
+  "vendor": "Ghost Town Ranch",
+  "tags": [
+   "bundle",
+   "conditioner",
+   "hair",
+   "sets",
+   "shampoo"
   ]
  }
 ]
