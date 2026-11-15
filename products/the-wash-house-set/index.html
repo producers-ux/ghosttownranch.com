@@ -867,6 +867,13 @@
       .nav-links li:first-child { border-top: 1px solid rgba(246,246,243,0.1); }
       .nav-links a { font-size: 13px; letter-spacing: 0.25em; padding: 22px 0; display: block; width: 100%; min-height: 44px; }
     }
+      /* Eight main nav items: one line each, tighter on narrower desktops */
+    nav .nav-links li { flex-shrink: 0; }
+    nav .nav-links a { white-space: nowrap; }
+    @media (min-width: 901px) and (max-width: 1200px) {
+      nav .nav-links { gap: 20px; }
+      nav .nav-links a { letter-spacing: 0.12em; }
+    }
       /* ── MOBILE READABILITY (phones) ── */
     html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
     .product-description img, .product-description table, .product-description iframe { max-width: 100%; height: auto; }
@@ -926,6 +933,7 @@
     <li><a href="/wash-house/">Bath + Body</a></li>
     <li><a href="/ritual/">Scent + Home</a></li>
     <li><a href="/travel/">Travel</a></li>
+    <li><a href="/dry-goods/">Dry Goods</a></li>
     <li><a href="/guest-ranch/">Guest Ranch</a></li>
   </ul>
   <div class="nav-actions" style="display:flex;align-items:center;gap:12px;">

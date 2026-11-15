@@ -22,7 +22,7 @@
     { t: 'Hair + Scalp',    c: 'Scalp oil, leave-in conditioner, quick-refresh mist, beard, tools', u: '/hair/', k: 'hair scalp shampoo dry shampoo conditioner leave-in oil rosemary keratin beard comb brush' },
     { t: 'Travel',          c: 'Day Ride sets and full-size carry-ons', u: '/travel/', k: 'travel carry-on carry on tsa plane flight trip road trip travel size mini minis day ride glovebox airport 3-1-1 quart bag' },
     { t: 'Gift Guide',      c: '$30 and under, under $75, the big ones', u: '/gifts/', k: 'gift gifts guide holiday christmas present stocking stuffer for him for her under 30 under 75' },
-    { t: 'Dry Goods',       c: 'Wear, carry, the ranch house', u: '/shop/#dry-goods', k: 'dry goods apparel tee tshirt hoodie sweatshirt long sleeve bag day ride carry travel clothing' },
+    { t: 'Dry Goods',       c: 'Wear, carry, the ranch house', u: '/dry-goods/', k: 'dry goods apparel tee tshirt hoodie sweatshirt long sleeve bag day ride carry travel clothing' },
     { t: 'Ritual',          c: 'Scent + Home',  u: '/ritual/',                k: 'candle votive diffuser fragrance scent home reed' },
     { t: 'Routines',        c: 'Skin',          u: '/routines/',              k: 'serum cream eye routine morning evening skincare face' },
     { t: 'Wash House',      c: 'At the sink',   u: '/wash-house/',            k: 'hand wash soap body cream sink bath soak bath salt bath bomb' },
@@ -31,11 +31,11 @@
     { t: 'Partners',        c: 'Trade',         u: '/wholesale/',             k: 'partners wholesale trade stockist retailer line sheet hospitality pop-up pop up collaboration collab private label' },
 
     // Horn pieces (GTR x Abbeyhorn)
-    { t: 'Horn Comb', c: '$42 · Made for GTR in England', u: '/products/horn-comb/', k: 'horn comb hair comb pocket comb beard comb grooming hair tools abbeyhorn horn cattle horn cow horn handmade england made in england dry goods' },
-    { t: 'Horn Hair Brush', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn hair brush hairbrush boar bristle brush grooming hair tools coming soon abbeyhorn horn cattle horn cow horn handmade england made in england dry goods' },
-    { t: 'Boot Horn', c: '$165 · Made for GTR in England', u: '/products/boot-horn/', k: 'boot horn bootjack horn shoehorn shoe horn long shoehorn boots bunkhouse abbeyhorn horn cattle horn cow horn handmade england made in england dry goods' },
-    { t: 'Horn Bowl', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn bowl catchall catch-all dish ring dish valet tray keys watch rings shave bowl shaving bowl lather shave soap bunkhouse coming soon abbeyhorn horn cattle horn ox horn handmade england made in england dry goods' },
-    { t: 'Shoehorn Keyring', c: 'Coming soon · Handmade in England', u: '/shop/#dry-goods', k: 'horn shoehorn keyring key ring keychain key chain mini shoehorn fob gift abbeyhorn horn cattle horn cow horn handmade england made in england dry goods' },
+    { t: 'Horn Comb', c: '$42 · Bespoke for GTR in England', u: '/products/horn-comb/', k: 'horn comb hair comb pocket comb beard comb grooming hair tools abbeyhorn horn cattle horn cow horn handmade england made in england dry goods' },
+    { t: 'Horn Hair Brush', c: 'Coming soon · Bespoke for GTR in England', u: '/dry-goods/#hornworks', k: 'horn hair brush hairbrush boar bristle brush grooming hair tools coming soon abbeyhorn horn cattle horn cow horn handmade england made in england dry goods' },
+    { t: 'Boot Horn', c: '$165 · Bespoke for GTR in England', u: '/products/boot-horn/', k: 'boot horn bootjack horn shoehorn shoe horn long shoehorn boots bunkhouse abbeyhorn horn cattle horn cow horn handmade england made in england dry goods' },
+    { t: 'Horn Bowl', c: 'Coming soon · Bespoke for GTR in England', u: '/dry-goods/#hornworks', k: 'horn bowl catchall catch-all dish ring dish valet tray keys watch rings shave bowl shaving bowl lather shave soap bunkhouse coming soon abbeyhorn horn cattle horn ox horn handmade england made in england dry goods' },
+    { t: 'Shoehorn Keyring', c: 'Coming soon · Bespoke for GTR in England', u: '/dry-goods/#hornworks', k: 'horn shoehorn keyring key ring keychain key chain mini shoehorn fob gift abbeyhorn horn cattle horn cow horn handmade england made in england dry goods' },
 
     // Territories art prints (The Bull)
     { t: "The Bull", c: "Territories Art Print  ·  $85", u: "/products/gtr-territories-collection-the-bull/", k: "the bull territories territory print prints art prints posters wall decor map maps frame framed home decor art print poster wall art bull skull olive green rust sky blue 24x36 decor gift joshua tree park city midway bozeman ketchum gig harbor los olivos santa ynez st. george st george" },

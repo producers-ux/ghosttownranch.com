@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPT3TQ1C0B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BPT3TQ1C0B');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dry Goods | Ghost Town Ranch · Wear, Carry, the Ranch House</title>
+  <meta name="description" content="Dry Goods from Ghost Town Ranch, a Frontier Modern apothecary: tees, the Day Ride bag, Hornworks horn pieces bespoke for GTR in England, Territories prints and goods from the makers on Guest Ranch.">
+  <link rel="canonical" href="https://ghosttownranch.com/dry-goods/">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ghosttownranch.com/dry-goods/">
+  <meta property="og:title" content="Dry Goods | Ghost Town Ranch">
+  <meta property="og:description" content="Wear, carry, the ranch house. Tees, the Day Ride bag, Hornworks and Territories prints.">
+  <meta property="og:image" content="https://ghosttownranch.com/media/horn-comb.jpg">
+  <style>
+    @font-face { font-family:'PPEiko'; src:url('/PPEiko-Medium.woff2') format('woff2'); font-weight:400; font-display:swap; }
+    @font-face { font-family:'PPEiko'; src:url('/PPEiko-Thin.woff2') format('woff2'); font-weight:300; font-display:swap; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{ --parchment:#F6F6F3; --ink:#141414; --sand:#E2E4E0; --army:#5D643A; --serif:'PPEiko',Georgia,serif; --sans:'Jost',system-ui,sans-serif; }
+    html{scroll-behavior:smooth;}
+    body{ background:var(--parchment); color:var(--ink); font-family:var(--sans); font-weight:300; -webkit-font-smoothing:antialiased; }
+
+    /* page header */
+    .shop-hero{ max-width:1500px; margin:0 auto; padding:112px 48px 20px; display:flex; align-items:flex-end; justify-content:space-between; gap:32px; flex-wrap:wrap; }
+    .shop-title{ font-family:var(--serif); font-weight:400; font-size:clamp(34px,4vw,52px); line-height:1; }
+    .shop-intro{ max-width:520px; margin-top:10px; font-size:14px; line-height:1.6; color:#444644; }
+    .shop-search{ flex:0 1 340px; }
+    .shop-search input{ width:100%; background:#fff; border:1px solid rgba(93,100,58,0.3);
+      color:var(--ink); font-family:var(--sans); font-size:14px; letter-spacing:0.04em; padding:12px 16px; outline:none; }
+    .shop-search input::placeholder{ color:#9A9C98; }
+    .shop-results-note{ max-width:1500px; margin:0 auto; font-size:13px; color:#666865; padding:0 48px; }
+    .shop-results-note:empty{ display:none; }
+
+    /* sticky chips */
+    .chips{ position:sticky; top:74px; z-index:40; display:flex; gap:28px; justify-content:center; flex-wrap:wrap;
+      padding:14px 24px; background:rgba(246,246,243,0.86); backdrop-filter:blur(8px); border-bottom:1px solid rgba(93,100,58,0.18); }
+    .chips a{ font-family:var(--serif); font-size:13px; letter-spacing:0.16em; text-transform:uppercase; text-decoration:none; color:var(--ink); opacity:0.7; transition:opacity .2s; }
+    .chips a:hover{ opacity:1; }
+
+    /* sections */
+    .shop-sec{ padding:56px 48px 24px; max-width:1500px; margin:0 auto; }
+    #routines{ padding-top:32px; }
+    .sec-head{ margin-bottom:28px; }
+    .sec-title{ font-family:var(--serif); font-weight:400; font-size:clamp(26px,3vw,40px); }
+    .sec-note{ font-size:13.5px; color:#666865; margin-top:8px; max-width:520px; line-height:1.6; }
+
+    .pgrid{ display:grid; grid-template-columns:repeat(4,1fr); gap:48px 36px; }
+    .pcard{ text-decoration:none; color:inherit; display:flex; flex-direction:column; }
+    .pcard-img{ position:relative; aspect-ratio:1/1; background:#fff; border:1px solid rgba(93,100,58,0.14); overflow:hidden; }
+    .pcard-img img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+    .pcard:hover .pcard-img img{ transform:scale(1.04); }
+    .pcard-img img.alt{ position:absolute; inset:0; opacity:0; background:#fff; transition:opacity .35s ease, transform .5s ease; }
+    @media (hover:hover){ .pcard:hover .pcard-img img.alt{ opacity:1; } }
+    .pcard-name{ font-family:var(--serif); font-size:17px; margin-top:16px; }
+    .pcard-sub{ font-size:12.5px; letter-spacing:0.04em; color:#666865; margin-top:3px; text-transform:uppercase; }
+    .pcard-price{ font-size:13.5px; margin-top:10px; color:var(--ink); }
+    .pcard-save{ font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ochre,#9B7A3F); margin-top:4px; }
+    .start-sec{ padding-top:24px; }
+    .pcard-desc{ font-size:12px; line-height:1.5; color:#666865; margin-top:8px; }
+    .best-badge,.soon-badge{ position:absolute; top:12px; left:12px; font-family:var(--sans); font-size:10px; letter-spacing:0.14em;
+      text-transform:uppercase; background:var(--ink); color:var(--parchment); padding:5px 9px; }
+    .soon-badge{ background:none; color:var(--army); padding:0; font-weight:500; text-shadow:none; }
+    .soon-badge-below{ position:static; display:block; margin-top:6px; text-shadow:none; }
+    .soon .pcard-img{ opacity:0.82; }
+    .soon-text{ color:var(--army); }
+    .inline-link{ color:var(--army); text-decoration:underline; text-decoration-color:rgba(93,100,58,0.5); text-underline-offset:2px; }
+    .inline-link:hover{ text-decoration-color:var(--army); }
+    .soon-intro{ grid-column:1/-1; padding-top:28px; margin-top:8px; border-top:1px solid rgba(93,100,58,0.22); }
+    .soon-intro-label{ font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--army); }
+    .soon-intro-title{ font-family:var(--serif); font-weight:400; font-size:24px; margin-top:8px; }
+
+
+    footer{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+      padding:60px 48px; margin-top:48px; border-top:1px solid rgba(93,100,58,0.18); font-size:13px; }
+    footer a{ color:var(--ink); text-decoration:none; border-bottom:1px solid rgba(20,20,20,0.3); padding-bottom:2px; }
+    .footer-left{ font-family:var(--serif); letter-spacing:0.04em; }
+
+    @media (max-width:980px){ .pgrid{ grid-template-columns:repeat(3,1fr); gap:40px 24px; } }
+    @media (max-width:640px){
+      .shop-hero{ padding:84px 24px 16px; gap:16px; }
+      .shop-search{ flex:1 1 100%; }
+      .shop-results-note{ padding:0 24px; }
+      .chips{ top:60px; gap:18px; padding:12px 16px; }
+      .chips a{ font-size:12px; }
+      .shop-sec{ padding:40px 24px 16px; }
+      #routines{ padding-top:24px; }
+      .pgrid{ grid-template-columns:repeat(2,1fr); gap:32px 16px; }
+      footer{ padding:40px 24px; }
+    }
+  
+    /* ── TOP NAV (injected by /nav.js) ── */
+    #gtr-shared-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 24px 48px;
+      background: rgba(20,20,20, 0.72);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    }
+    #gtr-shared-nav .nav-logo { display:flex; align-items:center; text-decoration:none; }
+    #gtr-shared-nav .nav-logo img { height: 28px; width:auto; display:block; }
+    #gtr-shared-nav .nav-right { display: flex; align-items: center; gap: 32px; }
+    #gtr-shared-nav .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; margin:0; padding:0; }
+    #gtr-shared-nav .nav-links li { display: flex; align-items: center; }
+    #gtr-shared-nav .nav-links a {
+      font-family: var(--serif);
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      text-decoration: none; color: #F6F6F3; opacity: 0.7; transition: opacity 0.2s;
+    }
+    #gtr-shared-nav .nav-links a:hover, #gtr-shared-nav .nav-links a.active { opacity: 1; }
+    #gtr-shared-nav .nav-links a.active { border-bottom: 1px solid rgba(246,246,243,0.5); padding-bottom: 2px; }
+    #gtr-shared-nav .nav-hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; background: none; border: none; cursor: pointer;
+      padding: 6px; min-width: 44px; min-height: 44px; align-items: center;
+    }
+    #gtr-shared-nav .nav-hamburger span { display:block; width:20px; height:1.5px; background:#F6F6F3; transition:all .25s ease; transform-origin:center; }
+    #gtr-shared-nav .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    #gtr-shared-nav .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    #gtr-shared-nav .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    @media (max-width: 900px) {
+      #gtr-shared-nav { padding: 0 20px; height: 60px; }
+      #gtr-shared-nav .nav-hamburger { display: flex; }
+      #gtr-shared-nav .nav-right { gap: 8px; }
+      #gtr-shared-nav .nav-links {
+        display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(20,20,20,0.97);
+        flex-direction: column; justify-content: center; align-items: center;
+        gap: 0; z-index: 99; padding: 80px 32px 40px;
+      }
+      #gtr-shared-nav .nav-links.open { display: flex; }
+      #gtr-shared-nav .nav-links li { width: 100%; border-bottom: 1px solid rgba(246,246,243,0.1); }
+      #gtr-shared-nav .nav-links li:first-child { border-top: 1px solid rgba(246,246,243,0.1); }
+      #gtr-shared-nav .nav-links a { font-size: 13px; letter-spacing: 0.25em; padding: 22px 0; width:100%; min-height:44px; }
+    }
+  </style>
+  <link rel="stylesheet" href="/nav.css">
+  <link rel="stylesheet" href="/brand.css">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>/* Wide Light headline style */ h1.shop-title { text-transform:uppercase; letter-spacing:0.03em; font-weight:300; } h1.shop-title em { display:block; text-transform:none; letter-spacing:0.04em; font-weight:300; }</style>
+</head>
+<body>
+
+  <!-- top nav injected by /nav.js -->
+
+  <section class="shop-hero">
+    <div>
+      <h1 class="shop-title">Dry Goods</h1>
+      <p class="shop-intro">For the road, the ranch house and everything you carry. Goods from Japan, the US and Europe, chosen to sit alongside the apothecary.</p>
+    </div>
+  </section>
+
+  <nav class="chips" aria-label="Dry Goods sections">
+      <a href="#ranch-goods">Ranch Goods</a>
+      <a href="#hornworks">Hornworks</a>
+      <a href="#territories">Territories</a>
+      <a href="#guest-ranch">Guest Ranch</a>
+      <a href="/shop/">Shop all &rarr;</a>
+  </nav>
+
+  <section class="shop-sec" id="ranch-goods">
+      <div class="sec-head">
+        <h2 class="sec-title">Ranch Goods</h2>
+        <p class="sec-note">Marked with the Bull. Unisex.</p>
+      </div>
+      <div class="pgrid">
+        <a class="pcard" href="https://ghosttownranch.com/products/gtr-unisex-tee-in-black-or-bone"><div class="pcard-img"><img src="/media/tee-worn.jpg" alt="GTR Unisex Tee in bone and black, worn on the road" loading="lazy"><img class="alt" src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Ghost-Town-Ranch-GTR-Bull-Icon-Tee-Black.png?v=1776732807" alt="" aria-hidden="true" loading="lazy"></div><div class="pcard-name">Tee</div><div class="pcard-sub">Unisex</div><div class="pcard-price">$53</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/gtr-garment-dyed-long-sleeve-tee"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/gtrlongsleevet_7f85fef8-7931-4035-b583-ef9469afcef5.png?v=1792423825" alt="Long-Sleeve Tee Garment-Dyed" loading="lazy"></div><div class="pcard-name">Long-Sleeve Tee</div><div class="pcard-sub">Garment-Dyed</div><div class="pcard-price">$64</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/day-ride-bag"><div class="pcard-img"><img src="https://or-cre.com/cdn/shop/files/DayRide1.png?v=1791293321&width=1200" alt="Day Ride padded zipper bag in black and white" loading="lazy"></div><div class="pcard-name">Day Ride</div><div class="pcard-sub">Padded Zipper Bag, Black + White</div><div class="pcard-price">$30</div></a>
+      </div>
+    </section>
+
+  <section class="shop-sec" id="hornworks">
+      <div class="sec-head">
+        <h2 class="sec-title">Hornworks</h2>
+        <p class="sec-note">Every piece starts as cattle horn, a byproduct of the herd that would otherwise go to waste. Abbeyhorn has shaped it in England since 1749, and each one carries our Bull in silver: a ranch brand, marked on the herd's own horn. Horn doesn&#39;t snag or hold static, and it takes on a polish the more you use it. No two are the same color. Made to keep. <a class="inline-link" href="/hornworks/">The Hornworks story &rarr;</a></p>
+      </div>
+      <div class="pgrid">
+        <a class="pcard" href="https://ghosttownranch.com/products/horn-comb"><div class="pcard-img"><img src="/media/horn-comb.jpg" alt="Horn comb marked with the Bull in silver" loading="lazy"></div><div class="pcard-name">Horn Comb</div><div class="pcard-sub">Horn · Bespoke for GTR in England</div><div class="pcard-price">$42</div></a>
+        <a class="pcard soon" href="/#signup"><div class="pcard-img"><img src="/media/horn-brush.jpg" alt="Horn and boar bristle hairbrush marked with the Bull" loading="lazy"><span class="soon-badge">Coming Soon</span></div><div class="pcard-name">Horn Hair Brush</div><div class="pcard-sub">Horn + Boar Bristle · Bespoke for GTR in England</div><div class="pcard-price soon-text">Join the waitlist</div></a>
+        <a class="pcard" href="https://ghosttownranch.com/products/boot-horn"><div class="pcard-img"><img src="/media/horn-shoehorn.jpg" alt="Horn boot horn marked with the Bull in silver" loading="lazy"></div><div class="pcard-name">Boot Horn</div><div class="pcard-sub">Horn · Bespoke for GTR in England</div><div class="pcard-price">$165</div></a>
+        <a class="pcard soon" href="/#signup"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/keyringhorn.png?v=1792932286&amp;width=900" alt="Horn shoehorn keyring" loading="lazy"><span class="soon-badge">Coming Soon</span></div><div class="pcard-name">Shoehorn Keyring</div><div class="pcard-sub">Oxhorn · Bespoke for GTR in England</div><div class="pcard-price soon-text">Join the waitlist</div></a>
+        <a class="pcard soon" href="/#signup"><div class="pcard-img"><img src="/media/horn-bowl.jpg?v=2" alt="Ox horn bowl, black and amber" loading="lazy"><span class="soon-badge">Coming Soon</span></div><div class="pcard-name">Horn Bowl</div><div class="pcard-sub">Shave bowl or ring dish · 4"</div><div class="pcard-price soon-text">Join the waitlist</div></a>
+      </div>
+    </section>
+
+  <section class="shop-sec" id="territories">
+      <div class="sec-head">
+        <h2 class="sec-title">Territories</h2>
+        <p class="sec-note">One icon, many territories. The Bull, marked on the places we call home ground, in Olive Green, Rust and Sky Blue. Printed on museum-quality matte paper.</p>
+      </div>
+      <div class="pgrid">
+        <a class="pcard" data-static href="/products/gtr-territories-collection-the-bull/"><div class="pcard-img"><img src="/territories-29palms-800.jpg" alt="The Bull print, 29 Palms, framed in a hallway at the ranch" loading="lazy"><img class="alt" src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/GhostTown_JT_Skull_Olive_8affd9ea-03b5-4e2c-99a2-7911ea1adca3.jpg?v=1788474871&amp;width=800" alt="The Bull print, Joshua Tree, olive green" loading="lazy"></div><div class="pcard-name">The Bull</div><div class="pcard-sub">Art Print · Choose your city, colorway and size · 16″×20″ or 24″×36″</div><div class="pcard-price">from $45</div><span hidden>Joshua Tree 29 Palms Palm Springs Desert Hot Springs Park City Midway Bozeman Ketchum Gig Harbor Los Olivos Santa Ynez St. George Olive Green Rust Sky Blue poster wall art</span></a>
+      </div>
+    </section>
+
+  <section class="shop-sec" id="guest-ranch">
+      <div class="sec-head">
+        <h2 class="sec-title">From Guest Ranch</h2>
+        <p class="sec-note">Goods from the makers we keep company with. <a class="inline-link" href="/guest-ranch/">Visit Guest Ranch &rarr;</a></p>
+      </div>
+      <div class="pgrid">
+        <a class="pcard" href="/products/the-bathrobe/"><div class="pcard-img"><img src="" alt="Casamera The Bathrobe" loading="lazy"></div><div class="pcard-name">The Bathrobe</div><div class="pcard-sub">Casamera</div><div class="pcard-price"></div></a>
+        <a class="pcard" href="/products/the-house-slipper/"><div class="pcard-img"><img src="" alt="Casamera The House Slipper" loading="lazy"></div><div class="pcard-name">The House Slipper</div><div class="pcard-sub">Casamera</div><div class="pcard-price"></div></a>
+        <a class="pcard" href="/products/blacksaw-peyote-reversible-throw/"><div class="pcard-img"><img src="" alt="Blacksaw Peyote Throw" loading="lazy"></div><div class="pcard-name">Peyote Throw</div><div class="pcard-sub">Blacksaw</div><div class="pcard-price"></div></a>
+        <a class="pcard" href="/products/elisa-johnson-jane-gold-metal-amber-lens/"><div class="pcard-img"><img src="" alt="Elisa Johnson Jane" loading="lazy"></div><div class="pcard-name">Jane</div><div class="pcard-sub">Elisa Johnson</div><div class="pcard-price"></div></a>
+        <a class="pcard" href="/products/henson-shaving-al13-v2-mild-safety-razor/"><div class="pcard-img"><img src="" alt="Henson Shaving AL13 Safety Razor" loading="lazy"></div><div class="pcard-name">AL13 Safety Razor</div><div class="pcard-sub">Henson Shaving</div><div class="pcard-price"></div></a>
+        <a class="pcard" href="/products/yoshii-two-tone-chambray-towel-set-black/"><div class="pcard-img"><img src="" alt="Yoshii chambray towel set" loading="lazy"></div><div class="pcard-name">Chambray Towel Set</div><div class="pcard-sub">Yoshii</div><div class="pcard-price"></div></a>
+        <a class="pcard" href="/products/yoshii-two-tone-chambray-bath-towel-black/"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot_2026-10-25_043136.png?v=1792928015&width=800" alt="Yoshii chambray bath towel" loading="lazy"></div><div class="pcard-name">Chambray Bath Towel</div><div class="pcard-sub">Yoshii</div><div class="pcard-price"></div></a>
+        <a class="pcard" href="/products/yoshii-two-tone-chambray-washcloth-black/"><div class="pcard-img"><img src="" alt="Yoshii chambray washcloth" loading="lazy"></div><div class="pcard-name">Chambray Washcloth</div><div class="pcard-sub">Yoshii</div><div class="pcard-price"></div></a>
+        <a class="pcard" href="/products/yoshii-two-tone-chambray-hand-towel-in-black-ghost-town-ranch/"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Screenshot_2026-10-25_043151.png?v=1792928013&amp;width=900" alt="Yoshii two-tone chambray hand towel in black" loading="lazy"></div><div class="pcard-name">Chambray Hand Towel</div><div class="pcard-sub">Yoshii · Two-tone black</div><div class="pcard-price"></div></a>
+        <a class="pcard" href="/products/yoshii-ishikoro-pebble-bath-mat/"><div class="pcard-img"><img src="" alt="Yoshii Ishikoro Pebble Bath Mat" loading="lazy"></div><div class="pcard-name">Ishikoro Bath Mat</div><div class="pcard-sub">Yoshii</div><div class="pcard-price"></div></a>
+        <a class="pcard" href="/products/shinto-2-5-ply-gauze-kitchen-towel-charcoal-1/"><div class="pcard-img"><img src="" alt="Shinto 2.5-Ply Gauze Kitchen Towel" loading="lazy"></div><div class="pcard-name">Gauze Kitchen Towel</div><div class="pcard-sub">Shinto</div><div class="pcard-price"></div></a>
+        <a class="pcard" href="/products/kizara-wood-sheet-memo-pad-small/"><div class="pcard-img"><img src="" alt="Kizara Wood Sheet Memo Pad" loading="lazy"></div><div class="pcard-name">Wood Sheet Memo Pad</div><div class="pcard-sub">Kizara</div><div class="pcard-price"></div></a>
+        <a class="pcard" href="/products/morihata-binchotan-charcoal-facial-puff/"><div class="pcard-img"><img src="" alt="Morihata Charcoal Facial Puff" loading="lazy"></div><div class="pcard-name">Charcoal Facial Puff</div><div class="pcard-sub">Morihata</div><div class="pcard-price"></div></a>
+        <a class="pcard" href="/products/pali-recycled-leather-everything-basket/"><div class="pcard-img"><img src="" alt="Be Home Pali Everything Basket" loading="lazy"></div><div class="pcard-name">Pali Everything Basket</div><div class="pcard-sub">Be Home</div><div class="pcard-price"></div></a>
+        <a class="pcard" href="/products/rowan-caddy-basket/"><div class="pcard-img"><img src="" alt="Be Home Rowan Caddy Basket" loading="lazy"></div><div class="pcard-name">Rowan Caddy Basket</div><div class="pcard-sub">Be Home</div><div class="pcard-price"></div></a>
+        <a class="pcard" href="/products/leo-dish-drying-rack-1/"><div class="pcard-img"><img src="" alt="Be Home Leo Dish Drying Rack" loading="lazy"></div><div class="pcard-name">Leo Dish Drying Rack</div><div class="pcard-sub">Be Home</div><div class="pcard-price"></div></a>
+        <a class="pcard" href="/products/filt-black-cotton-shopper-medium-220blkme/"><div class="pcard-img"><img src="" alt="Filt Market Bag" loading="lazy"></div><div class="pcard-name">Filt Market Bag</div><div class="pcard-sub">Filt</div><div class="pcard-price"></div></a>
+      </div>
+    </section>
+
+  <script>
+  (function () {
+    var cards = [].slice.call(document.querySelectorAll('a.pcard[href*="/products/"]:not([data-static])'));
+    var hs = [];
+    cards.forEach(function (c) { var m = c.getAttribute('href').match(/\/products\/([^\/?#]+)/); if (m) { c._h = m[1]; if (hs.indexOf(m[1]) < 0) hs.push(m[1]); } });
+    var q = 'query{' + hs.map(function (h, i) { return 'p' + i + ':product(handle:' + JSON.stringify(h) + '){ availableForSale featuredImage{ url } priceRange{ minVariantPrice{ amount } maxVariantPrice{ amount } } }'; }).join(' ') + '}';
+    function money(n) { n = Number(n); return '$' + (n % 1 ? n.toFixed(2) : n.toFixed(0)); }
+    fetch('https://muq7w3-im.myshopify.com/api/2025-01/graphql.json', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Shopify-Storefront-Access-Token': 'c6efa00d9c5d9849c6c13d59cca6ab82' },
+      body: JSON.stringify({ query: q })
+    }).then(function (r) { return r.json(); }).then(function (j) {
+      var D = {}; hs.forEach(function (h, i) { D[h] = j.data && j.data['p' + i]; });
+      cards.forEach(function (c) {
+        var p = D[c._h]; if (p === undefined) return;
+        if (!p) { if (!c.querySelector('img').getAttribute('src')) c.style.display = 'none'; return; }
+        var img = c.querySelector('.pcard-img img');
+        if (img && !img.getAttribute('src') && p.featuredImage) img.src = p.featuredImage.url + (p.featuredImage.url.indexOf('?') < 0 ? '?' : '&') + 'width=800';
+        if (c.classList.contains('soon') || c.querySelector('.soon-badge')) return;
+        if (c.hasAttribute('data-fixed-price')) { if (!p.availableForSale) { var fp = c.querySelector('.pcard-price'); if (fp) fp.textContent = 'Sold out'; } return; }
+        var el = c.querySelector('.pcard-price'); if (!el) return;
+        var mn = p.priceRange.minVariantPrice.amount, mx = p.priceRange.maxVariantPrice.amount;
+        el.textContent = p.availableForSale ? (mn !== mx ? 'From ' : '') + money(mn) : 'Sold out';
+      });
+    }).catch(function () {});
+  })();
+  </script>
+
+  <footer>
+    <div class="footer-left">Ghost Town Ranch &nbsp;&middot;&nbsp; Frontier Modernism</div>
+    <div class="footer-right">
+    <a href="/field-guide/">Our Story</a><a href="/wholesale/">Partners</a></div>
+  </footer>
+
+  <script defer src="/nav.js"></script>
+<script src="/cart.js"></script>
+<script src="/gtr-controls.js" defer></script>
+<script src="/footer.js" defer></script>
+</body>
+</html>

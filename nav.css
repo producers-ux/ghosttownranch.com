@@ -132,3 +132,15 @@ nav:has(.nav-hamburger) .nav-hamburger.open span:nth-child(3) { transform: trans
     min-height: 44px; width: 100%;
   }
 }
+
+/* Eight main nav items: keep labels on one line and tighten spacing on narrower desktops */
+#gtr-shared-nav .nav-links a,
+nav:has(.nav-hamburger) .nav-links a { white-space: nowrap; }
+@media (min-width: 901px) and (max-width: 1200px) {
+  #gtr-shared-nav .nav-links,
+  nav:has(.nav-hamburger) .nav-links { gap: 20px; }
+  #gtr-shared-nav .nav-links a,
+  nav:has(.nav-hamburger) .nav-links a { letter-spacing: 0.12em; }
+  #gtr-shared-nav .nav-right,
+  nav:has(.nav-hamburger) .nav-right { gap: 20px; }
+}
