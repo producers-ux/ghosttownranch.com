@@ -615,6 +615,18 @@
       padding-bottom: 20px;
     }
 
+    /* ── REVIEWS ── */
+    .reviews-section { max-width: 1200px; margin: 0 auto; padding: 8px 28px 56px; }
+    .reviews-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dust); margin: 40px 0 6px; }
+    .reviews-title { font-family: var(--serif, 'PPEiko', Georgia, serif); font-weight: 400; font-size: clamp(24px, 3vw, 34px); color: var(--parchment); margin: 0 0 28px; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2px; }
+    .review-card { background: var(--ash); padding: 28px 26px; display: flex; flex-direction: column; gap: 14px; }
+    .review-stars { color: var(--parchment); letter-spacing: 3px; font-size: 14px; }
+    .review-text { font-size: 15px; line-height: 1.7; color: var(--parchment); margin: 0; }
+    .review-name { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dust); margin-top: auto; }
+    .review-summary { display: inline-flex; gap: 10px; align-items: center; font-size: 12px; letter-spacing: 0.08em; color: var(--dust); text-decoration: none; margin: 6px 0 4px; }
+    .review-summary span:first-child { color: var(--parchment); letter-spacing: 3px; }
+
     /* ── RELATED PRODUCTS ── */
     .related-section {
       max-width: 1200px;
@@ -1070,6 +1082,12 @@
 </script>
 
 <!-- Related -->
+<section class="reviews-section" id="reviews" style="display:none" aria-labelledby="reviews-title">
+  <div class="reviews-label">From the Ranch</div>
+  <h2 class="reviews-title" id="reviews-title">What people are saying</h2>
+  <div class="reviews-grid" id="reviews-grid"></div>
+</section>
+
 <div class="related-section" id="related-section" style="display:none">
   <div class="related-label">Pairs well with</div>
   <div class="related-grid" id="related-grid"></div>
@@ -2079,7 +2097,33 @@ async function init() {
   }
 
   renderProduct(product);
+  renderReviews(product.handle); // non-blocking
   renderRelated(product); // non-blocking
+}
+
+// Approved reviews live in /reviews.json, keyed by product handle.
+function renderReviews(handle) {
+  fetch('/reviews.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : {}; }).then(function (all) {
+    var list = (all && all[handle]) || [];
+    if (!list.length) return;
+    var esc = function (t) { var d = document.createElement('div'); d.textContent = String(t == null ? '' : t); return d.innerHTML; };
+    var stars = function (n) { n = Math.max(0, Math.min(5, Math.round(n))); return '\u2605'.repeat(n) + '\u2606'.repeat(5 - n); };
+    document.getElementById('reviews-grid').innerHTML = list.map(function (rv) {
+      return '<figure class="review-card" style="margin:0"><div class="review-stars" aria-label="' + rv.rating + ' out of 5 stars">' + stars(rv.rating) + '</div>' +
+        '<blockquote class="review-text" style="margin:0">' + esc(rv.text) + '</blockquote>' +
+        '<figcaption class="review-name">' + esc(rv.name) + '</figcaption></figure>';
+    }).join('');
+    document.getElementById('reviews').style.display = 'block';
+    var avg = list.reduce(function (a, b) { return a + Number(b.rating || 0); }, 0) / list.length;
+    var t = document.getElementById('product-title');
+    if (t && !document.getElementById('review-summary')) {
+      var a = document.createElement('a');
+      a.id = 'review-summary'; a.className = 'review-summary'; a.href = '#reviews';
+      a.innerHTML = '<span aria-hidden="true">' + stars(avg) + '</span><span>' + list.length + (list.length === 1 ? ' review' : ' reviews') + '</span>';
+      a.setAttribute('aria-label', avg.toFixed(1) + ' out of 5 stars, ' + list.length + (list.length === 1 ? ' review' : ' reviews'));
+      t.insertAdjacentElement('afterend', a);
+    }
+  }).catch(function () {});
 }
 
 init();
