@@ -6,7 +6,6 @@
     { href: '/wash-house/', label: 'Bath + Body' },
     { href: '/ritual/', label: 'Scent + Home' },
     { href: '/dry-goods/', label: 'Dry Goods' },
-    { href: '/guest-ranch/', label: 'Guest Ranch' },
   ];
 
   const path = window.location.pathname;
