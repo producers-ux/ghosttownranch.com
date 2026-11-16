@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPT3TQ1C0B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BPT3TQ1C0B');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How's It Going? | Ghost Town Ranch · A Frontier Modern Apothecary</title>
+  <meta name="description" content="Thank you for trying Ghost Town Ranch. Leave a quick review, and shop the pieces people come back for.">
+  <link rel="canonical" href="https://ghosttownranch.com/review/">
+  <meta name="robots" content="noindex, follow">
+  <style>
+    @font-face { font-family:'PPEiko'; src:url('/PPEiko-Medium.woff2') format('woff2'); font-weight:400; font-display:swap; }
+    @font-face { font-family:'PPEiko'; src:url('/PPEiko-Thin.woff2') format('woff2'); font-weight:300; font-display:swap; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{ --parchment:#F6F6F3; --ink:#141414; --army:#5D643A; --serif:'PPEiko',Georgia,serif; --sans:'Jost',system-ui,sans-serif; }
+    body{ background:var(--parchment); color:var(--ink); font-family:var(--sans); font-weight:300; -webkit-font-smoothing:antialiased; }
+    .wrap{ max-width:1500px; margin:0 auto; padding:0 48px; }
+    .rv-hero{ padding:132px 0 8px; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,560px); gap:48px 72px; align-items:start; }
+    .eyebrow{ font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--army); }
+    .rv-title{ font-family:var(--serif); font-weight:300; font-size:clamp(40px,5vw,72px); line-height:1; margin-top:14px; }
+    .rv-intro{ font-size:15px; line-height:1.7; color:#444644; margin-top:20px; max-width:460px; }
+    .rv-intro a{ color:var(--army); }
+    .rv-form{ background:#fff; border:1px solid rgba(93,100,58,0.16); padding:32px; display:flex; flex-direction:column; gap:20px; }
+    .rv-form label, .rv-form legend{ font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#444644; display:block; margin-bottom:8px; }
+    .rv-form select, .rv-form input[type=text], .rv-form input[type=email], .rv-form textarea{ width:100%; font:inherit; font-size:15px; color:var(--ink); background:var(--parchment); border:1px solid rgba(93,100,58,0.25); padding:12px 14px; outline:none; border-radius:0; }
+    .rv-form textarea{ min-height:120px; resize:vertical; line-height:1.5; }
+    .rv-form select:focus, .rv-form input:focus, .rv-form textarea:focus{ border-color:var(--army); }
+    fieldset{ border:0; }
+    .stars{ display:flex; flex-direction:row-reverse; justify-content:flex-end; gap:4px; }
+    .stars input{ position:absolute; opacity:0; width:1px; height:1px; }
+    .stars label{ font-size:30px; line-height:1; color:#C9CBC4; cursor:pointer; margin:0; letter-spacing:0; text-transform:none; padding:4px; }
+    .stars input:checked ~ label, .stars label:hover, .stars label:hover ~ label{ color:var(--ink); }
+    .stars input:focus-visible + label{ outline:2px solid var(--army); }
+    .row2{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .rv-btn{ font:inherit; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; background:var(--ink); color:var(--parchment); border:0; padding:16px 24px; cursor:pointer; min-height:48px; }
+    .rv-btn[disabled]{ opacity:0.6; cursor:default; }
+    .rv-fine{ font-size:12.5px; line-height:1.6; color:#666865; }
+    .rv-msg{ font-size:14px; line-height:1.6; }
+    .rv-msg.err{ color:#8B2E2E; }
+    .rv-done{ display:none; text-align:left; padding:8px 0; }
+    .rv-done h2{ font-family:var(--serif); font-weight:400; font-size:32px; }
+    .rv-done p{ font-size:15px; line-height:1.7; color:#444644; margin-top:12px; }
+
+    .shop-sec{ padding:88px 0 24px; }
+    .sec-title{ font-family:var(--serif); font-weight:400; font-size:clamp(26px,3vw,40px); margin-top:10px; }
+    .sec-note{ font-size:13.5px; color:#666865; margin-top:8px; max-width:520px; line-height:1.6; }
+    .pgrid{ display:grid; grid-template-columns:repeat(4,1fr); gap:48px 36px; margin-top:32px; }
+    .pcard{ display:flex; flex-direction:column; }
+    .pcard > a{ text-decoration:none; color:inherit; display:flex; flex-direction:column; }
+    .pcard-img{ position:relative; aspect-ratio:1/1; background:#fff; border:1px solid rgba(93,100,58,0.14); overflow:hidden; }
+    .pcard-img img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+    .pcard > a:hover .pcard-img img{ transform:scale(1.04); }
+    .pcard-step{ font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--army); margin-top:14px; }
+    .pcard-name{ font-family:var(--serif); font-size:17px; margin-top:4px; }
+    .pcard-sub{ font-size:12.5px; letter-spacing:0.04em; color:#666865; margin-top:3px; text-transform:uppercase; }
+    .pcard-price{ font-size:13.5px; margin-top:10px; }
+    .pcard-add{ margin-top:12px; align-self:flex-start; font:inherit; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink); background:none; border:1px solid var(--ink); padding:11px 16px; min-height:44px; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; }
+    .pcard-add:hover{ background:var(--ink); color:var(--parchment); }
+
+    footer{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; padding:60px 48px; margin-top:72px; border-top:1px solid rgba(93,100,58,0.18); font-size:13px; }
+    footer a{ color:var(--ink); text-decoration:none; border-bottom:1px solid rgba(20,20,20,0.3); padding-bottom:2px; }
+    .footer-left{ font-family:var(--serif); letter-spacing:0.04em; }
+    .footer-right{ display:flex; gap:24px; }
+
+    @media (max-width:980px){ .rv-hero{ grid-template-columns:1fr; } .pgrid{ grid-template-columns:repeat(3,1fr); gap:40px 24px; } }
+    @media (max-width:640px){
+      .wrap{ padding:0 24px; } .rv-hero{ padding-top:96px; } .rv-form{ padding:22px; } .row2{ grid-template-columns:1fr; }
+      .pgrid{ grid-template-columns:repeat(2,1fr); gap:32px 16px; } footer{ padding:40px 24px; }
+    }
+  </style>
+  <link rel="stylesheet" href="/nav.css">
+  <link rel="stylesheet" href="/brand.css">
+  <link rel="stylesheet" href="/starter.css">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+
+  <!-- top nav injected by /nav.js -->
+
+  <main class="wrap">
+    <section class="rv-hero">
+      <div>
+        <div class="eyebrow">Ghost Town Ranch</div>
+        <h1 class="rv-title">How's it going?</h1>
+        <p class="rv-intro">Thank you for trying Ghost Town Ranch. Tell us what you think. A quick review helps the next person find us, and we read every one. Stay a while, and tag <a href="https://instagram.com/ghosttownranch">@ghosttownranch</a> when it lands on your shelf.</p>
+      </div>
+
+      <div>
+        <form class="rv-form" id="rv-form" novalidate>
+          <div>
+            <label for="rv-product">What did you try?</label>
+            <select id="rv-product" name="product" required>
+              <option value="">Choose a product</option>
+              <optgroup label="Wash House + Body">
+                <option>The Wash, Hand Wash</option>
+                <option>Silk Skin, Hand Cream</option>
+                <option>Golden Hour, Body Oil</option>
+                <option>Outlaw's Reserve, Hair + Body Wash</option>
+                <option>Still Air, Deodorant</option>
+                <option>The Soak, Bath Salts</option>
+                <option>The Plunge, Bath Bombs</option>
+              </optgroup>
+              <optgroup label="Hair">
+                <option>Tall Grass, Shampoo + Conditioner</option>
+                <option>Rosemary Mint Revive, Hair + Scalp Oil</option>
+                <option>Trail's End, Leave-In</option>
+                <option>Dry Creek, Hair Mist</option>
+                <option>Last Call, Styling Gel</option>
+                <option>Beard Wash or Beard Butter</option>
+              </optgroup>
+              <optgroup label="Skin + Shade">
+                <option>Rose Cut, Facial Wash</option>
+                <option>The Grade, Peptide Serum</option>
+                <option>The Hold, Day Cream</option>
+                <option>Desert Day Cream</option>
+                <option>Dusk Till Dawn</option>
+                <option>Gold Rush, Eye Mask</option>
+                <option>Drawn Line, Lip Pigment</option>
+                <option>Desert Veil, CC Stick</option>
+              </optgroup>
+              <optgroup label="Scent + Home">
+                <option>Ranch Water</option>
+                <option>The Still, Reed Diffuser</option>
+                <option>Candle</option>
+                <option>Lip Butter</option>
+              </optgroup>
+              <optgroup label="Sets + Dry Goods">
+                <option>A gift box or set</option>
+                <option>Hornworks</option>
+                <option>Something else</option>
+              </optgroup>
+            </select>
+          </div>
+          <fieldset>
+            <legend>Your rating</legend>
+            <div class="stars">
+              <input type="radio" id="s5" name="rating" value="5"><label for="s5" aria-label="5 stars">&#9733;</label>
+              <input type="radio" id="s4" name="rating" value="4"><label for="s4" aria-label="4 stars">&#9733;</label>
+              <input type="radio" id="s3" name="rating" value="3"><label for="s3" aria-label="3 stars">&#9733;</label>
+              <input type="radio" id="s2" name="rating" value="2"><label for="s2" aria-label="2 stars">&#9733;</label>
+              <input type="radio" id="s1" name="rating" value="1"><label for="s1" aria-label="1 star">&#9733;</label>
+            </div>
+          </fieldset>
+          <div>
+            <label for="rv-text">Your review</label>
+            <textarea id="rv-text" name="review" placeholder="How does it smell, feel, work? Where does it live in your house?" required></textarea>
+          </div>
+          <div class="row2">
+            <div><label for="rv-name">First name</label><input type="text" id="rv-name" name="name" autocomplete="given-name"></div>
+            <div><label for="rv-email">Email</label><input type="email" id="rv-email" name="email" autocomplete="email" required></div>
+          </div>
+          <p class="rv-fine">We use your email only to confirm the review is from a real order. We may share your first name and review on the site.</p>
+          <p class="rv-msg err" id="rv-err" role="alert" hidden></p>
+          <button class="rv-btn" type="submit" id="rv-submit">Send review</button>
+        </form>
+        <div class="rv-done" id="rv-done" tabindex="-1">
+          <div class="eyebrow">Received</div>
+          <h2>Thank you. We read every one.</h2>
+          <p>While you're here, the pieces people come back for are just below.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="shop-sec" id="shop">
+      <div class="eyebrow">Shop again</div>
+      <h2 class="sec-title">The ones people come back for.</h2>
+      <p class="sec-note">Restock what you love, or try the piece that goes with it.</p>
+      <div class="pgrid">
+        <div class="pcard" data-handle="the-wash"><a href="/products/the-wash/"><div class="pcard-img"><img src="/media/the-wash-trio.jpg" alt="The Wash hand wash in three scents" loading="lazy"></div><div class="pcard-step">Bestseller</div><div class="pcard-name">The Wash</div><div class="pcard-sub">Hydrating Hand Wash</div><div class="pcard-price" data-price>$44</div></a><a class="pcard-add" data-add href="/products/the-wash/">Choose scent</a></div>
+        <div class="pcard" data-handle="hand-cream-citrus-pink-pepper"><a href="/products/hand-cream-citrus-pink-pepper/"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/HandCream-citruspepper.png?v=1793384753&width=1000" alt="Silk Skin Hand Cream" loading="lazy"></div><div class="pcard-step">Goes with The Wash</div><div class="pcard-name">Silk Skin</div><div class="pcard-sub">Hand Cream</div><div class="pcard-price" data-price>$46</div></a><a class="pcard-add" data-add href="/products/hand-cream-citrus-pink-pepper/">Shop</a></div>
+        <div class="pcard" data-handle="golden-hour-body-oil"><a href="/products/golden-hour-body-oil/"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/goldenhourbodyoil05.png?v=1793386223&width=1000" alt="Golden Hour Body Oil" loading="lazy"></div><div class="pcard-step">Bath + Body</div><div class="pcard-name">Golden Hour</div><div class="pcard-sub">Body Oil</div><div class="pcard-price" data-price>$68</div></a><a class="pcard-add" data-add href="/products/golden-hour-body-oil/">Shop</a></div>
+        <div class="pcard" data-handle="outlaws-reserve-2-in-1-hair-skin-rinse"><a href="/products/outlaws-reserve-2-in-1-hair-skin-rinse/"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/outlawfinal.png?v=1793400721&width=1000" alt="Outlaw's Reserve Hair + Body Wash" loading="lazy"></div><div class="pcard-step">Bestseller</div><div class="pcard-name">Outlaw's Reserve</div><div class="pcard-sub">2-in-1 Hair + Body Wash</div><div class="pcard-price" data-price>$55</div></a><a class="pcard-add" data-add href="/products/outlaws-reserve-2-in-1-hair-skin-rinse/">Shop</a></div>
+        <div class="pcard" data-handle="ranch-water-body-room-fragrance"><a href="/products/ranch-water-body-room-fragrance/"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Ranchwater-hangdried1.png?v=1792696497&width=1000" alt="Ranch Water Body + Room Fragrance" loading="lazy"></div><div class="pcard-step">Scent + Home</div><div class="pcard-name">Ranch Water</div><div class="pcard-sub">Body + Room Fragrance</div><div class="pcard-price" data-price>$88</div></a><a class="pcard-add" data-add href="/products/ranch-water-body-room-fragrance/">Shop</a></div>
+        <div class="pcard" data-handle="drawn-line-matte-lip-color" data-choose="Choose shade"><a href="/products/drawn-line-matte-lip-color/"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Drawnlinewhitebullbox.png?v=1794434307&width=1000" alt="Drawn Line Matte Lip Pigment" loading="lazy"></div><div class="pcard-step">Skin + Shade</div><div class="pcard-name">Drawn Line</div><div class="pcard-sub">Matte Lip Pigment</div><div class="pcard-price" data-price>$28</div></a><a class="pcard-add" data-add href="/products/drawn-line-matte-lip-color/">Shop</a></div>
+        <div class="pcard" data-handle="tall-grass-duo-shampoo-conditioner"><a href="/products/tall-grass-duo-shampoo-conditioner/"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/tallgrassset.png?v=1794751870&width=1000" alt="Tall Grass Shampoo and Conditioner" loading="lazy"></div><div class="pcard-step">The pair</div><div class="pcard-name">Tall Grass Duo</div><div class="pcard-sub">Shampoo + Conditioner</div><div class="pcard-price" data-price>$76</div></a><a class="pcard-add" data-add href="/products/tall-grass-duo-shampoo-conditioner/">Shop</a></div>
+        <div class="pcard" data-handle="high-meadow-hair-care-gift-box"><a href="/products/high-meadow-hair-care-gift-box/"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/highmeadowbox001.png?v=1794755720&width=1000" alt="High Meadow hair gift box" loading="lazy"></div><div class="pcard-step">Gift box</div><div class="pcard-name">High Meadow</div><div class="pcard-sub">Shampoo + Scalp Oil</div><div class="pcard-price" data-price>$84</div></a><a class="pcard-add" data-add href="/products/high-meadow-hair-care-gift-box/">Shop</a></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+  (function () {
+    // Live prices, and one-tap Add to cart for single-variant products.
+    var cards = [].slice.call(document.querySelectorAll('.pcard[data-handle]'));
+    var hs = cards.map(function (c) { return c.getAttribute('data-handle'); });
+    var q = 'query{' + hs.map(function (h, i) {
+      return 'p' + i + ':product(handle:' + JSON.stringify(h) + '){ availableForSale priceRange{ minVariantPrice{ amount } } variants(first:20){ nodes{ id availableForSale } } }';
+    }).join(' ') + '}';
+    function money(n) { n = Number(n); return '$' + (n % 1 ? n.toFixed(2) : n.toFixed(0)); }
+    fetch('https://muq7w3-im.myshopify.com/api/2025-01/graphql.json', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Shopify-Storefront-Access-Token': 'c6efa00d9c5d9849c6c13d59cca6ab82' },
+      body: JSON.stringify({ query: q })
+    }).then(function (r) { return r.json(); }).then(function (j) {
+      cards.forEach(function (c, i) {
+        var p = j.data && j.data['p' + i], btn = c.querySelector('[data-add]'), pr = c.querySelector('[data-price]');
+        if (!p) { c.style.display = 'none'; return; }
+        if (!p.availableForSale) { pr.textContent = 'Sold out'; btn.style.display = 'none'; return; }
+        pr.textContent = money(p.priceRange.minVariantPrice.amount);
+        var vs = p.variants.nodes || [];
+        if (vs.length === 1) {
+          btn.textContent = 'Add to cart';
+          btn.addEventListener('click', function (e) {
+            if (!window.GTRCart || !GTRCart.addVariant) return;   // falls back to the product page
+            e.preventDefault();
+            btn.textContent = 'Adding…';
+            GTRCart.addVariant(vs[0].id.split('/').pop(), 1).then(function (ok) {
+              btn.textContent = ok ? 'Added' : 'Add to cart';
+              if (window.gtag) gtag('event', 'add_to_cart', { source: 'review_page', item: c.getAttribute('data-handle') });
+            });
+          });
+        } else {
+          btn.textContent = c.getAttribute('data-choose') || 'Choose scent';
+        }
+      });
+    }).catch(function () {});
+  })();
+
+  (function () {
+    // Reviews are sent to Klaviyo as a "Left Review" event on the customer's profile.
+    var form = document.getElementById('rv-form'), err = document.getElementById('rv-err'), btn = document.getElementById('rv-submit');
+    function fail(m) { err.textContent = m; err.hidden = false; }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); err.hidden = true;
+      var f = new FormData(form), email = (f.get('email') || '').trim(), rating = f.get('rating');
+      if (!f.get('product')) return fail('Choose the product you tried.');
+      if (!rating) return fail('Pick a star rating.');
+      if (!(f.get('review') || '').trim()) return fail('Write a line or two about it.');
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return fail('Add the email you ordered with.');
+      btn.disabled = true; btn.textContent = 'Sending…';
+      var params = new URLSearchParams(location.search);
+      var body = { data: { type: 'event', attributes: {
+        properties: { product: f.get('product'), rating: Number(rating), review: f.get('review').trim(),
+          first_name: (f.get('name') || '').trim(), source: params.get('utm_source') || 'direct' },
+        metric: { data: { type: 'metric', attributes: { name: 'Left Review' } } },
+        profile: { data: { type: 'profile', attributes: { email: email, first_name: (f.get('name') || '').trim() || undefined } } }
+      } } };
+      fetch('https://a.klaviyo.com/client/events/?company_id=UTbZ3B', {
+        method: 'POST', headers: { 'Content-Type': 'application/json', 'revision': '2024-10-15' }, body: JSON.stringify(body)
+      }).then(function (r) {
+        if (!r.ok) throw new Error(r.status);
+        form.style.display = 'none';
+        var d = document.getElementById('rv-done'); d.style.display = 'block'; d.focus();
+        if (window.gtag) gtag('event', 'review_submit', { rating: Number(rating), source: params.get('utm_source') || 'direct' });
+      }).catch(function () {
+        btn.disabled = false; btn.textContent = 'Send review';
+        fail('That did not go through. Try again, or email it to howdy@ghosttownranch.com.');
+      });
+    });
+  })();
+  </script>
+
+  <footer>
+    <div class="footer-left">Ghost Town Ranch &nbsp;&middot;&nbsp; Frontier Modernism</div>
+    <div class="footer-right"><a href="/field-guide/">Our Story</a><a href="/wholesale/">Partners</a></div>
+  </footer>
+
+  <script defer src="/nav.js"></script>
+<script src="/cart.js"></script>
+<script src="/starter.js" defer></script>
+<script src="/gtr-controls.js" defer></script>
+<script src="/footer.js" defer></script>
+</body>
+</html>
