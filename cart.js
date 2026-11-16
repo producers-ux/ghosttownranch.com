@@ -156,6 +156,7 @@
     'rosemary-mint-revive-hair-scalp-oil':  'trails-end-leave-in-hair-conditioner',
     'outlaws-reserve-2-in-1-hair-skin-rinse': 'rosemary-mint-revive-hair-scalp-oil',
     'dry-creek-quick-refresh-hair-mist':      'trails-end-leave-in-hair-conditioner',
+    'last-call-plant-protein-styling-gel': 'outlaws-reserve-2-in-1-hair-skin-rinse',
     'day-ride-bag':                           'drawn-line-matte-lip-color'
   };
   var FALLBACK = ['ranch-water-body-room-fragrance', 'day-ride-bag'];

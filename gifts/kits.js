@@ -145,6 +145,13 @@ window.GTR_KITS = [
     "from": "gtr"
    },
    {
+    "h": "last-call-plant-protein-styling-gel",
+    "name": "Last Call",
+    "sub": "Plant protein styling gel",
+    "p": "",
+    "from": "gtr"
+   },
+   {
     "h": "horn-comb",
     "name": "Horn Comb",
     "sub": "Horn · Made for GTR in England",
