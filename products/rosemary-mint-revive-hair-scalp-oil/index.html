@@ -1604,6 +1604,45 @@ function renderProduct(product) {
         if (v) selectVariant(v);
       });
     });
+
+    // Two or more options (tees: Color + Size) get one row per option instead of combined buttons.
+    const optNames = (variants[0].selectedOptions || []).map(o => o.name);
+    if (optNames.length > 1 && !isWaxCandle) {
+      const val = (v, n) => (v.selectedOptions.find(o => o.name === n) || {}).value;
+      const values = optNames.map(n => [...new Set(variants.map(v => val(v, n)))]);
+      const pick = Object.fromEntries(optNames.map(n => [n, val(selectedVariant, n)]));
+      const match = p => variants.find(v => optNames.every(n => val(v, n) === p[n]));
+      const canBuy = v => v && (v.availableForSale || isPreorder);
+      const last = optNames.length - 1;
+      const attr = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+      variantWrap.innerHTML = optNames.map((n, i) =>
+        `<div class="selector-label">${attr(n).replace(/\b\w/g, c => c.toUpperCase())} · <span data-sel="${i}"></span></div>` +
+        `<div class="variant-grid" data-opt="${i}"></div>`).join('');
+      const render = () => {
+        optNames.forEach((n, i) => {
+          variantWrap.querySelector(`[data-sel="${i}"]`).textContent = pick[n];
+          const grid = variantWrap.querySelector(`[data-opt="${i}"]`);
+          grid.innerHTML = values[i].map(x => {
+            const ok = i === last
+              ? canBuy(match({ ...pick, [n]: x }))
+              : variants.some(v => val(v, n) === x && canBuy(v));
+            return `<button class="variant-btn${x === pick[n] ? ' selected' : ''}" data-val="${attr(x)}"${ok ? '' : ' disabled title="Sold out"'}>${attr(x)}${ok ? '' : ' <span class="variant-out">Sold out</span>'}</button>`;
+          }).join('');
+          grid.querySelectorAll('.variant-btn:not(:disabled)').forEach(b => b.addEventListener('click', () => {
+            pick[n] = b.dataset.val;
+            // Keep the other picks if that combination exists; otherwise move to one that can be bought.
+            if (!canBuy(match(pick))) {
+              const alt = variants.find(v => val(v, n) === pick[n] && canBuy(v));
+              if (alt) optNames.forEach(m => { pick[m] = val(alt, m); });
+            }
+            const v = match(pick);
+            if (v) selectVariant(v);
+            render();
+          }));
+        });
+      };
+      render();
+    }
   } else {
     variantWrap.style.display = 'none';
   }
