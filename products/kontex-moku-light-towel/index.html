@@ -1785,7 +1785,7 @@ function buildSpecs(product, variants, ingredientsHtml) {
   // Shipping
   specs.push({
     title: 'Shipping & Returns',
-    body: `<p>${product.handle === PLUNGE_HANDLE ? 'The single ships within 10 business days. Sets are on pre-order and ship when stock arrives. Standard ground shipping from the USA.' : PREORDER_HANDLES.includes(product.handle) ? 'Pre-order. Ships when stock arrives. Standard ground shipping from the USA.' : 'Ships within 10 business days from the USA. Standard ground shipping.'}</p>
+    body: `<p>${product.handle === PLUNGE_HANDLE ? 'Sets are on pre-order and ship when stock arrives. Free U.S. shipping on orders of $150 or more.' : PREORDER_HANDLES.includes(product.handle) ? 'Pre-order. Ships when stock arrives. Free U.S. shipping on orders of $150 or more.' : 'Free U.S. shipping on orders of $150 or more.'}</p>
            <p>For wholesale inquiries: <a href="mailto:wholesale@ghosttownranch.com" style="color:var(--dust)">wholesale@ghosttownranch.com</a></p>
            <p>Questions: <a href="mailto:howdy@ghosttownranch.com" style="color:var(--dust)">howdy@ghosttownranch.com</a></p>`
   });
