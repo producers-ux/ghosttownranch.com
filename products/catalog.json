@@ -914,18 +914,12 @@
  },
  {
   "handle": "body-care-gift-box-1",
-  "title": "Body Care Gift Box",
-  "vendor": "Selfnamed",
+  "title": "Washstand Hand Care Gift Box",
+  "vendor": "Ghost Town Ranch",
   "tags": [
-   "collection-box"
-  ]
- },
- {
-  "handle": "body-care-gift-box",
-  "title": "Body Care Gift Box",
-  "vendor": "Selfnamed",
-  "tags": [
-   "collection-box"
+   "gift",
+   "hand-care",
+   "sets"
   ]
  },
  {
