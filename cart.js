@@ -410,7 +410,7 @@
           '<div class="gtr-item-info">' +
             '<div class="gtr-item-name">' + esc(v.product.title) + '</div>' +
             (showVariant ? '<div class="gtr-item-variant">' + esc(v.title) + '</div>' : '') +
-            (l.sellingPlanAllocation ? '<div class="gtr-item-variant">Subscription · ' + esc(l.sellingPlanAllocation.sellingPlan.name) + '</div>' : '') +
+            (l.sellingPlanAllocation ? '<div class="gtr-item-variant">Standing Order · ' + esc(l.sellingPlanAllocation.sellingPlan.name) + '</div>' : '') +
             '<div class="gtr-item-qty">' +
               '<button class="gtr-qty-btn" aria-label="Decrease" onclick="GTRCart.setQty(\'' + esc(l.id) + '\',' + (l.quantity - 1) + ')">−</button>' +
               '<span class="gtr-qty-num">' + l.quantity + '</span>' +
