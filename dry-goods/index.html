@@ -33,6 +33,8 @@
     .shop-hero{ max-width:1500px; margin:0 auto; padding:112px 48px 20px; display:flex; align-items:flex-end; justify-content:space-between; gap:32px; flex-wrap:wrap; }
     .shop-title{ font-family:var(--serif); font-weight:400; font-size:clamp(34px,4vw,52px); line-height:1; }
     .shop-intro{ max-width:520px; margin-top:10px; font-size:14px; line-height:1.6; color:#444644; }
+    .hero-film{ flex:0 0 260px; aspect-ratio:4/5; overflow:hidden; background:#141414; }
+    .hero-film video{ width:100%; height:100%; object-fit:cover; display:block; }
     .shop-search{ flex:0 1 340px; }
     .shop-search input{ width:100%; background:#fff; border:1px solid rgba(93,100,58,0.3);
       color:var(--ink); font-family:var(--sans); font-size:14px; letter-spacing:0.04em; padding:12px 16px; outline:none; }
@@ -87,6 +89,7 @@
     @media (max-width:980px){ .pgrid{ grid-template-columns:repeat(3,1fr); gap:40px 24px; } }
     @media (max-width:640px){
       .shop-hero{ padding:84px 24px 16px; gap:16px; }
+      .hero-film{ flex:0 0 auto; width:58%; }
       .shop-search{ flex:1 1 100%; }
       .shop-results-note{ padding:0 24px; }
       .chips{ top:60px; gap:18px; padding:12px 16px; }
@@ -157,6 +160,7 @@
       <h1 class="shop-title">Dry Goods</h1>
       <p class="shop-intro">For the road, the ranch house and everything you carry. Goods from Japan, the US and Europe, chosen to sit alongside the apothecary.</p>
     </div>
+    <a class="hero-film" href="/hornworks/" aria-label="The Hornworks story"><video src="/media/horn-teaser.mp4" poster="/media/horn-teaser.jpg" autoplay muted loop playsinline preload="metadata" aria-label="A polished horn shoehorn turning slowly in the light"></video></a>
   </section>
 
   <nav class="chips" aria-label="Dry Goods sections">
