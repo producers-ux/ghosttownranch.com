@@ -1478,10 +1478,10 @@ function renderProduct(product) {
       subWrap.style.display = 'block';
       subWrap.innerHTML =
         '<label class="sub-opt"><input type="radio" name="gtr-buy" value="once" checked><span>One-time</span><span class="sub-p">' + fmt(base) + '</span></label>' +
-        '<label class="sub-opt"><input type="radio" name="gtr-buy" value="sub"><span>Subscribe' + (pct > 0 ? ' + save ' + pct + '%' : '') + '</span><span class="sub-p">' + fmt(sp) + '</span></label>' +
+        '<label class="sub-opt"><input type="radio" name="gtr-buy" value="sub"><span>Standing Order' + (pct > 0 ? ' + save ' + pct + '%' : '') + '</span><span class="sub-p">' + fmt(sp) + '</span></label>' +
         '<div class="sub-more" hidden>' +
           (al.length > 1 ? '<select id="sub-freq" aria-label="Delivery">' + al.map(a => '<option value="' + a.sellingPlan.id + '">' + a.sellingPlan.name + '</option>').join('') + '</select>' : '<div style="margin-bottom:6px">' + al[0].sellingPlan.name + '</div>') +
-          '<div>Ships on your schedule. Skip, change or cancel anytime.</div>' +
+          '<div>A Standing Order is a regular delivery you set once. It ships on your schedule until you say stop. Skip, change or cancel anytime. <a href="/subscriptions/" style="color:inherit">How it works</a></div>' +
         '</div>';
       const more = subWrap.querySelector('.sub-more');
       const freq = subWrap.querySelector('#sub-freq');
