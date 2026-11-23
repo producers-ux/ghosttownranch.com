@@ -54,6 +54,27 @@
     .sec-note{ font-size:13.5px; color:#666865; margin-top:8px; max-width:520px; line-height:1.6; }
 
     .pgrid{ display:grid; grid-template-columns:repeat(4,1fr); gap:48px 36px; }
+    /* Territories band */
+    .terr-band{ max-width:none; background:#E2E4E0; padding:72px 48px 56px; margin:24px 0 0; }
+    .terr-band > *{ max-width:1500px; margin-left:auto; margin-right:auto; }
+    .terr-lead{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:56px; align-items:center; }
+    .terr-eyebrow{ font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--army); margin-bottom:12px; }
+    .terr-copy .sec-note{ font-size:15px; max-width:440px; }
+    .terr-cta{ display:inline-block; margin-top:24px; font-family:var(--serif); font-size:13px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink); text-decoration:none; border-bottom:1px solid var(--ink); padding-bottom:4px; }
+    .terr-hero .pcard-img{ aspect-ratio:4/3; border:0; }
+    .terr-row{ display:flex; gap:28px; overflow-x:auto; scroll-snap-type:x mandatory; padding:48px 0 8px; scrollbar-width:thin; }
+    .terr-print{ flex:0 0 170px; scroll-snap-align:start; text-decoration:none; color:var(--ink); text-align:center; }
+    .terr-frame{ display:block; aspect-ratio:2/3; padding:10px; background:#fbfaf6; border:7px solid #1c1a17; box-shadow:0 10px 24px rgba(20,20,20,0.14); transition:transform .4s ease; }
+    .terr-frame img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .terr-print:hover .terr-frame{ transform:translateY(-4px); }
+    .terr-city{ display:block; margin-top:16px; font-family:var(--serif); font-size:15px; }
+    .terr-state{ display:block; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#666865; margin-top:4px; }
+    @media (max-width:860px){
+      .terr-band{ padding:48px 24px 40px; }
+      .terr-lead{ grid-template-columns:1fr; gap:28px; }
+      .terr-print{ flex-basis:132px; }
+    }
+
     .pcard{ text-decoration:none; color:inherit; display:flex; flex-direction:column; }
     .pcard-img{ position:relative; aspect-ratio:1/1; background:#fff; border:1px solid rgba(93,100,58,0.14); overflow:hidden; }
     .pcard-img img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
@@ -165,12 +186,12 @@
 
   <nav class="chips" aria-label="Shop categories">
       <a href="#start-here">Start here</a>
+      <a href="#territories">Territories</a>
       <a href="#routines">Face</a>
       <a href="#hair">Hair</a>
       <a href="#wash-house">Bath + Body</a>
       <a href="#ritual">Scent + Home</a>
       <a href="#dry-goods">Dry Goods</a>
-      <a href="#territories">Territories</a>
       <a href="/gifts/">Gifts &rarr;</a>
   </nav>
 
@@ -189,6 +210,31 @@
         <a class="pcard" href="https://ghosttownranch.com/products/the-wash/"><div class="pcard-img"><img src="/media/the-wash-trio.jpg" alt="The Wash hand wash in Amber + Vanilla, Ginger + Smoky Cardamom and Cold-Pressed Grapefruit" loading="lazy"><span class="best-badge">Bestseller</span></div><div class="pcard-name">The Wash</div><div class="pcard-sub">Hydrating Hand Wash, three scents</div><div class="pcard-price">$44</div></a>
         <a class="pcard" href="https://ghosttownranch.com/products/drawn-line-matte-lip-color"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/Drawnlinewhitebullbox.png?v=1794434307" alt="Drawn Line Matte Lip Pigment" loading="lazy"></div><div class="pcard-name">Drawn Line</div><div class="pcard-sub">Matte Lip Pigment</div><div class="pcard-price">$42</div></a>
         <a class="pcard" href="https://ghosttownranch.com/products/golden-hour-body-oil"><div class="pcard-img"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/goldenhourbodyoil05.png?v=1793386223" alt="Golden Hour Body Oil" loading="lazy"></div><div class="pcard-name">Golden Hour</div><div class="pcard-sub">Body Oil</div><div class="pcard-price">$68</div></a>
+      </div>
+    </section>
+
+  <section class="shop-sec terr-band" id="territories">
+      <div class="terr-lead">
+        <div class="terr-copy">
+          <div class="terr-eyebrow">Wall Art</div>
+          <h2 class="sec-title">Territories</h2>
+          <p class="sec-note">One icon, many territories. The Bull, marked on the places we call home ground, from the high desert to the mountain towns. Olive Green, Rust and Sky Blue, printed on museum-quality matte paper.</p>
+          <a class="terr-cta" href="/products/gtr-territories-collection-the-bull/">Find your town &rarr;</a>
+        </div>
+        <div class="terr-hero">
+          <a class="pcard" data-static href="/products/gtr-territories-collection-the-bull/"><div class="pcard-img"><img src="/territories-29palms-1400.jpg" alt="The Bull print, 29 Palms, framed in a hallway at the ranch" loading="lazy"><img class="alt" src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/GhostTown_JT_Skull_Olive_8affd9ea-03b5-4e2c-99a2-7911ea1adca3.jpg?v=1788474871&amp;width=800" alt="The Bull print, Joshua Tree, olive green" loading="lazy"></div><div class="pcard-name">The Bull</div><div class="pcard-sub">Art Print · Choose your city, colorway and size · 16″×20″ or 24″×36″</div><div class="pcard-price">from $45</div><span hidden>Joshua Tree 29 Palms Palm Springs Desert Hot Springs Park City Midway Bozeman Ketchum Gig Harbor Los Olivos Santa Ynez St. George Olive Green Rust Sky Blue poster wall art</span></a>
+        </div>
+      </div>
+      <div class="terr-row" aria-label="Territories prints by town">
+          <a class="terr-print" href="/products/gtr-territories-collection-the-bull/?print=ghost-town-ranch-skull-joshua-tree-olive-green-1"><span class="terr-frame"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/GhostTown_JT_Skull_Olive_8affd9ea-03b5-4e2c-99a2-7911ea1adca3.jpg?v=1788474871&amp;width=600" alt="The Bull print, Joshua Tree, Olive Green" loading="lazy"></span><span class="terr-city">Joshua Tree</span><span class="terr-state">California</span></a>
+          <a class="terr-print" href="/products/gtr-territories-collection-the-bull/?print=park-city-blue-24-x-36"><span class="terr-frame"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/dece5140-5858-4bd0-b624-ced71ddc45ef.jpg?v=1788538500&amp;width=600" alt="The Bull print, Park City, Sky Blue" loading="lazy"></span><span class="terr-city">Park City</span><span class="terr-state">Utah</span></a>
+          <a class="terr-print" href="/products/gtr-territories-collection-the-bull/?print=los-olivos-rust-24-x-36"><span class="terr-frame"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/d0e4cd4a-b258-4e72-872e-bd131aee2d41.jpg?v=1788538507&amp;width=600" alt="The Bull print, Los Olivos, Rust" loading="lazy"></span><span class="terr-city">Los Olivos</span><span class="terr-state">California</span></a>
+          <a class="terr-print" href="/products/gtr-territories-collection-the-bull/?print=bozeman-olive-24-x-36"><span class="terr-frame"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/c73c689d-3755-4e3a-9de8-3e0a58876891.jpg?v=1788538511&amp;width=600" alt="The Bull print, Bozeman, Olive Green" loading="lazy"></span><span class="terr-city">Bozeman</span><span class="terr-state">Montana</span></a>
+          <a class="terr-print" href="/products/gtr-territories-collection-the-bull/?print=gig-harbor-blue-24-x-36"><span class="terr-frame"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/c0548a9d-9612-4e18-8395-27a85f65ddbb.jpg?v=1788538506&amp;width=600" alt="The Bull print, Gig Harbor, Sky Blue" loading="lazy"></span><span class="terr-city">Gig Harbor</span><span class="terr-state">Washington</span></a>
+          <a class="terr-print" href="/products/gtr-territories-collection-the-bull/?print=santa-ynez-rust-24-x-36"><span class="terr-frame"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/83d5f92f-cab4-4192-a0d2-1de1911fd6f2.jpg?v=1788538510&amp;width=600" alt="The Bull print, Santa Ynez, Rust" loading="lazy"></span><span class="terr-city">Santa Ynez</span><span class="terr-state">California</span></a>
+          <a class="terr-print" href="/products/gtr-territories-collection-the-bull/?print=ketchum-olive-24-x-36"><span class="terr-frame"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/e2c86578-0967-45b4-a6fb-35fef701864f.jpg?v=1788538509&amp;width=600" alt="The Bull print, Ketchum, Olive Green" loading="lazy"></span><span class="terr-city">Ketchum</span><span class="terr-state">Idaho</span></a>
+          <a class="terr-print" href="/products/gtr-territories-collection-the-bull/?print=st-george-blue-24-x-36"><span class="terr-frame"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/85205e53-d4c6-43cc-ae41-ec132037a95d.jpg?v=1788538562&amp;width=600" alt="The Bull print, St. George, Sky Blue" loading="lazy"></span><span class="terr-city">St. George</span><span class="terr-state">Utah</span></a>
+          <a class="terr-print" href="/products/gtr-territories-collection-the-bull/?print=midway-rust-24-x-36"><span class="terr-frame"><img src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/e16aed88-08c4-4622-9244-c0b46933cf22.jpg?v=1788538510&amp;width=600" alt="The Bull print, Midway, Rust" loading="lazy"></span><span class="terr-city">Midway</span><span class="terr-state">Utah</span></a>
       </div>
     </section>
 
@@ -309,15 +355,6 @@
 
 
 
-  <section class="shop-sec" id="territories">
-      <div class="sec-head">
-        <h2 class="sec-title">Territories</h2>
-        <p class="sec-note">One icon, many territories. The Bull, marked on the places we call home ground, in Olive Green, Rust and Sky Blue. Printed on museum-quality matte paper.</p>
-      </div>
-      <div class="pgrid">
-        <a class="pcard" data-static href="/products/gtr-territories-collection-the-bull/"><div class="pcard-img"><img src="/territories-29palms-800.jpg" alt="The Bull print, 29 Palms, framed in a hallway at the ranch" loading="lazy"><img class="alt" src="https://cdn.shopify.com/s/files/1/0984/0174/7240/files/GhostTown_JT_Skull_Olive_8affd9ea-03b5-4e2c-99a2-7911ea1adca3.jpg?v=1788474871&amp;width=800" alt="The Bull print, Joshua Tree, olive green" loading="lazy"></div><div class="pcard-name">The Bull</div><div class="pcard-sub">Art Print · Choose your city, colorway and size · 16″×20″ or 24″×36″</div><div class="pcard-price">from $45</div><span hidden>Joshua Tree 29 Palms Palm Springs Desert Hot Springs Park City Midway Bozeman Ketchum Gig Harbor Los Olivos Santa Ynez St. George Olive Green Rust Sky Blue poster wall art</span></a>
-      </div>
-    </section>
 
   <script>
   (function () {
