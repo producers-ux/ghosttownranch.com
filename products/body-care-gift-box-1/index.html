@@ -940,11 +940,11 @@
   <link rel="stylesheet" href="/brand.css">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Washstand Hand Care Gift Box","description":"Washstand is the sink-side pair: The Wash and Silk Skin, boxed together. Wash, then cream. Two steps for hands that don’t stop moving.The Wash, Hydrating Hand Wash, Cold-Pressed Grapefruit (16.57 fl oz)A gentle, hydrating wash with aloe juice, jojoba oil and shea butter. Rich lather, clean rinse, and enough scent to fill the room.Silk Skin, Hand Cream, Citrus + Pink PepperA rich, fast-absorbing cream with sunflower seed oil and cocoa seed butter. Deep hydration with no greasy weight. Dry, overworked skin softens on contact.Bright grapefruit and citrus with a hit of pink pepper. Sharp, clean, all edge.The RitualWash with The Wash. Follow with Silk Skin while hands are still soft.COSMOS NATURAL certified by ECOCERT. Vegan · Cruelty-Free · No Dyes · No Parabens · No Phthalates. Recyclable bottles, gift boxed and ready to give.$90 if bought separately.","url":"https://ghosttownranch.com/products/body-care-gift-box-1/","brand":{"@type":"Brand","name":"Ghost Town Ranch"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"78.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/body-care-gift-box-1/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/washstandgiftbox.png?v=1795118227","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/gtr-hand-wash-grapefruit-google.jpg?v=1794408101","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/HandCream-citruspepper.png?v=1793384753"],"sku":"286664"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Washstand Hand Care Gift Box","description":"Washstand is the sink-side pair: The Wash and Silk Skin, boxed together. Wash, then cream. Two steps for hands that don’t stop moving.The Wash, Hydrating Hand Wash, Cold-Pressed Grapefruit (16.57 fl oz)A gentle, hydrating wash with aloe juice, jojoba oil and shea butter. Rich lather, clean rinse, and enough scent to fill the room.Silk Skin, Hand Cream, Citrus + Pink PepperA rich, fast-absorbing cream with sunflower seed oil and cocoa seed butter. Deep hydration with no greasy weight. Dry, overworked skin softens on contact.Bright grapefruit and citrus with a hit of pink pepper. Sharp, clean, all edge.The RitualWash with The Wash. Follow with Silk Skin while hands are still soft.","url":"https://ghosttownranch.com/products/body-care-gift-box-1/","brand":{"@type":"Brand","name":"Ghost Town Ranch"},"offers":{"@type":"Offer","priceCurrency":"USD","price":"78.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://ghosttownranch.com/products/body-care-gift-box-1/"},"image":["https://cdn.shopify.com/s/files/1/0984/0174/7240/files/washstandgiftbox.png?v=1795118227","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/gtr-hand-wash-grapefruit-google.jpg?v=1794408101","https://cdn.shopify.com/s/files/1/0984/0174/7240/files/HandCream-citruspepper.png?v=1793384753"],"sku":"286664"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ghost Town Ranch","item":"https://ghosttownranch.com/"},{"@type":"ListItem","position":2,"name":"Shop","item":"https://ghosttownranch.com/shop/"},{"@type":"ListItem","position":3,"name":"Washstand Hand Care Gift Box","item":"https://ghosttownranch.com/products/body-care-gift-box-1/"}]}</script>
 </head>
 <body>
-<div hidden data-seo-snapshot><p><strong>Washstand Hand Care Gift Box</strong> — $78.00 · In stock</p><p>Washstand is the sink-side pair: The Wash and Silk Skin, boxed together. Wash, then cream. Two steps for hands that don’t stop moving.The Wash, Hydrating Hand Wash, Cold-Pressed Grapefruit (16.57 fl oz)A gentle, hydrating wash with aloe juice, jojoba oil and shea butter. Rich lather, clean rinse, and enough scent to fill the room.Silk Skin, Hand Cream, Citrus + Pink PepperA rich, fast-absorbing cream with sunflower seed oil and cocoa seed butter. Deep hydration with no greasy weight. Dry, overworked skin softens on contact.Bright grapefruit and citrus with a hit of pink pepper. Sharp, clean, all edge.The RitualWash with The Wash. Follow with Silk Skin while hands are still soft.COSMOS NATURAL certified by ECOCERT. Vegan · Cruelty-Free · No Dyes · No Parabens · No Phthalates. Recyclable bottles, gift boxed and ready to give.$90 if bought separately.</p><p><a href="https://ghosttownranch.com/shop/">Shop all Ghost Town Ranch</a></p></div>
+<div hidden data-seo-snapshot><p><strong>Washstand Hand Care Gift Box</strong> — $78.00 · In stock</p><p>Washstand is the sink-side pair: The Wash and Silk Skin, boxed together. Wash, then cream. Two steps for hands that don’t stop moving.The Wash, Hydrating Hand Wash, Cold-Pressed Grapefruit (16.57 fl oz)A gentle, hydrating wash with aloe juice, jojoba oil and shea butter. Rich lather, clean rinse, and enough scent to fill the room.Silk Skin, Hand Cream, Citrus + Pink PepperA rich, fast-absorbing cream with sunflower seed oil and cocoa seed butter. Deep hydration with no greasy weight. Dry, overworked skin softens on contact.Bright grapefruit and citrus with a hit of pink pepper. Sharp, clean, all edge.The RitualWash with The Wash. Follow with Silk Skin while hands are still soft.</p><p><a href="https://ghosttownranch.com/shop/">Shop all Ghost Town Ranch</a></p></div>
 
 <!-- ── NAV ── -->
 <nav>
@@ -1917,7 +1917,16 @@ function buildSpecs(product, variants, ingredientsHtml) {
   // Details
   const detailLines = [];
   let formulaLines = false;
+  // Gift sets: their own Details lines (certification, badges, value).
+  const SET_DETAILS = {
+    'sunup-face-care-gift-box': ['COSMOS NATURAL certified by ECOCERT', 'Vegan · Cruelty-Free · No Dyes · No Parabens · No Phthalates', 'Gift boxed and ready to give', '$208 if bought separately'],
+    'body-care-gift-box-1': ['COSMOS NATURAL certified by ECOCERT', 'Vegan · Cruelty-Free · No Dyes · No Parabens · No Phthalates', 'Recyclable bottles, gift boxed and ready to give', '$90 if bought separately']
+  };
+  const setDetails = SET_DETAILS[product.handle];
   const guestMaker = makerName(product);
+  if (setDetails) {
+    detailLines.push(...setDetails);
+  } else {
   if (isHomeFrag) {
     detailLines.push('Skin-safe fragrances, hand-blended in the USA');
     detailLines.push('Made from the finest fragrances and ingredients');
@@ -1955,6 +1964,7 @@ function buildSpecs(product, variants, ingredientsHtml) {
     detailLines.push('Free of parabens, phthalates, and synthetic dyes');
   }
   if (!guestMaker && !formulaLines && !product._territories) detailLines.push('Frontier Modernism · Palm Springs, CA');
+  }
 
   if (detailLines.length) {
     specs.push({
