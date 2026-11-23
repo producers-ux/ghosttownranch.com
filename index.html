@@ -1038,6 +1038,43 @@
   </div>
 </section>
 
+<!-- ══ NIGHT DESK ══ -->
+<style>
+.nd-sec{background:#0B0B0B;color:var(--parchment);border-top:1px solid #262626}
+.nd-in{max-width:1344px;margin:0 auto;padding:88px 48px 96px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr);gap:40px 56px;align-items:center}
+.nd-film{position:relative;margin:0;background:#000}
+.nd-film video{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.nd-sec .st-eyebrow{color:#B9BE8F}
+.nd-sec .st-title{color:var(--parchment);margin-bottom:18px;font-size:clamp(30px,3.2vw,44px)}
+.nd-copy p{font-family:var(--sans);font-size:15px;line-height:1.7;color:#DDD6C6;margin:0 0 28px;max-width:440px}
+.nd-ask{display:inline-block;font-family:var(--sans);font-size:12px;letter-spacing:.18em;text-transform:uppercase;background:var(--parchment);color:var(--ink);border:0;padding:15px 24px;cursor:pointer}
+.nd-ask:hover{background:#fff}
+.nd-ig{display:block;margin-top:18px;color:#B9BE8F;font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-decoration:none}
+@media (max-width:900px){.nd-in{grid-template-columns:1fr;padding:64px 24px 72px}.nd-film{order:-1}}
+</style>
+<section class="nd-sec" id="night-desk" aria-labelledby="nd-title">
+  <div class="nd-in">
+    <div class="nd-copy">
+      <div class="st-eyebrow">Night Desk &middot; Open all night</div>
+      <h2 class="st-title" id="nd-title">Nobody asks<br>where you&rsquo;re headed.</h2>
+      <p>The desk never closes. Ask the Ranch Hand what to gift, what to pack, or how to wind down, any hour. There&rsquo;s always a person behind the desk, too.</p>
+      <button class="nd-ask" type="button" data-nd-ask>Ask the Ranch Hand</button>
+      <a class="nd-ig" href="https://instagram.com/ghosttownranch" target="_blank" rel="noopener noreferrer">The Night Desk series on Instagram &rarr;</a>
+    </div>
+    <figure class="nd-film">
+      <video src="/media/night-desk.mp4" poster="/media/night-desk.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Night Desk: a woman in sunglasses trades her room key at a motel front desk, smiles, and walks out into the rain while the night clerk watches"></video>
+    </figure>
+  </div>
+</section>
+<script>
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('[data-nd-ask]')) return;
+  var b = document.querySelector('button.kl-hub-launcher');
+  if (b) b.click();
+  else location.href = 'mailto:howdy@ghosttownranch.com';
+});
+</script>
+
 <!-- ══ WHERE IT BEGAN ══ -->
 <section class="st-story">
   <div class="st-story-in">
