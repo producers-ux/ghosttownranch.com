@@ -1093,6 +1093,26 @@ document.addEventListener('click', function(e) {
   </div>
 </section>
 
+<!-- ══ DISPATCH ══ -->
+<style>
+.dp-sec{background:#141414;color:var(--parchment);border-top:1px solid #262626}
+.dp-in{max-width:1344px;margin:0 auto;padding:56px 48px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;text-decoration:none;color:inherit}
+.dp-eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#B9BE8F;margin-bottom:12px}
+.dp-title{font-family:var(--serif);font-weight:300;font-size:clamp(28px,3.2vw,44px);line-height:1.05;margin:0}
+.dp-read{font-family:var(--sans);font-size:12px;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--parchment);padding:15px 24px;white-space:nowrap;transition:background .2s,color .2s}
+.dp-in:hover .dp-read{background:var(--parchment);color:var(--ink)}
+@media (max-width:900px){.dp-in{padding:48px 24px}}
+</style>
+<section class="dp-sec" aria-label="Dispatch No. 01">
+  <a class="dp-in" href="/wash/">
+    <div>
+      <div class="dp-eyebrow">Dispatch No. 01 &middot; The Wash</div>
+      <h2 class="dp-title">The first thing you touch every day.</h2>
+    </div>
+    <span class="dp-read">Read the dispatch &rarr;</span>
+  </a>
+</section>
+
 <!-- ══ CERT STRIP ══ -->
 <div class="cert-strip">
   <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">COSMOS NATURAL · ECOCERT</span></div>
