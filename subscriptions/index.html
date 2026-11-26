@@ -62,48 +62,48 @@
       #gtr-shared-nav .nav-links a { font-size: 13px; letter-spacing: 0.25em; padding: 22px 0; width:100%; min-height:44px; }
     }
 
-    .oan{ background:var(--ink); color:var(--parchment); padding:0 48px 90px; }
-    .oan-head{ display:flex; justify-content:space-between; align-items:baseline; gap:16px; border-top:1px solid rgba(246,246,243,.15); padding-top:40px; margin-bottom:20px; }
+    .so-hero{ background:var(--ink); color:var(--parchment); padding:132px 48px 56px; }
+    .so-in{ max-width:1180px; margin:0 auto; }
+    .eyebrow{ font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#B9BDA8; margin-bottom:14px; }
+    h1{ font-family:var(--serif); font-weight:300; font-size:clamp(40px,5.4vw,72px); line-height:1; }
+    h1 em{ font-style:normal; color:#B9BDA8; }
+    .terms{ display:flex; flex-wrap:wrap; gap:8px 26px; list-style:none; margin-top:22px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; }
+    .terms li::before{ content:'\2014'; color:#B9BDA8; margin-right:8px; }
+    .shop{ padding:48px 48px 72px; }
+    .shop-head{ display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:22px; }
+    h2{ font-family:var(--serif); font-weight:300; font-size:clamp(28px,3vw,40px); line-height:1.1; }
+    .tabs{ display:flex; gap:6px; flex-wrap:wrap; }
+    .tabs button{ font:inherit; font-size:11px; letter-spacing:.16em; text-transform:uppercase; background:none; border:1px solid var(--sand); color:var(--ink); padding:10px 14px; min-height:40px; cursor:pointer; }
+    .tabs button[aria-pressed="true"]{ background:var(--ink); color:var(--parchment); border-color:var(--ink); }
+    .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:28px 20px; }
+    .card{ display:flex; flex-direction:column; min-width:0; }
+    .card[hidden]{ display:none; }
+    .card .img{ display:block; aspect-ratio:4/5; background:var(--sand); overflow:hidden; margin-bottom:12px; }
+    .card .img img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s; }
+    .card .img:hover img{ transform:scale(1.03); }
+    .card .nm{ font-family:var(--serif); font-size:20px; line-height:1.15; color:inherit; text-decoration:none; }
+    .card .ds{ font-size:12px; color:#6E716C; margin:3px 0 10px; }
+    .card .pr{ font-size:14px; margin-bottom:10px; }
+    .card .pr s{ color:#8A8D87; margin-right:8px; }
+    .card select{ font:inherit; font-size:13px; width:100%; min-height:40px; padding:0 10px; border:1px solid var(--sand); background:#fff; color:var(--ink); margin-bottom:8px; border-radius:0; }
+    .card .add{ margin-top:auto; font:inherit; font-size:11px; letter-spacing:.16em; text-transform:uppercase; background:var(--ink); color:var(--parchment); border:0; min-height:44px; padding:0 14px; cursor:pointer; }
+    .card .add:hover{ opacity:.88; }
+    .card .add[disabled]{ opacity:.45; cursor:default; }
+    .card.skel .img{ animation:pulse 1.4s ease-in-out infinite; }
+    @keyframes pulse{ 50%{ opacity:.55; } }
+    .note{ font-size:13px; color:#6E716C; margin-top:28px; }
+    .note a{ color:inherit; }
+    .oan{ background:var(--ink); color:var(--parchment); padding:56px 48px 64px; }
+    .oan-head{ display:flex; justify-content:space-between; align-items:baseline; gap:16px; margin-bottom:18px; }
     .oan-head h2{ color:var(--parchment); }
-    .oan-head .eyebrow{ margin:0; }
     .oan-strip{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
     .oan-strip figure{ margin:0; min-width:0; }
     .oan-strip video{ width:100%; aspect-ratio:9/16; display:block; background:#000; object-fit:cover; }
     .oan-strip figcaption{ display:flex; justify-content:space-between; gap:10px; padding-top:10px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#B9BDA8; }
     .oan-strip figcaption b{ color:var(--parchment); font-weight:400; }
-    @media (max-width:900px){
-      .oan{ padding:0 24px 64px; }
-      .oan-strip{ grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:72%; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:6px; }
-      .oan-strip figure{ scroll-snap-align:start; }
-    }
-    .sub-hero{ background:var(--ink); color:var(--parchment); padding:170px 48px 90px; }
-    .sub-in{ max-width:1100px; margin:0 auto; }
-    .eyebrow{ font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#B9BDA8; margin-bottom:16px; }
-    h1{ font-family:var(--serif); font-weight:300; font-size:clamp(44px,6vw,84px); line-height:1; letter-spacing:.01em; }
-    h1 em{ font-style:normal; color:#B9BDA8; }
-    .lede{ font-size:18px; line-height:1.65; max-width:620px; margin-top:24px; color:rgba(246,246,243,.85); }
-    .btns{ display:flex; gap:14px; flex-wrap:wrap; margin-top:36px; }
-    .btn{ display:inline-block; font-size:12px; letter-spacing:.18em; text-transform:uppercase; padding:16px 26px; text-decoration:none; border:1px solid var(--parchment); }
-    .btn.solid{ background:var(--parchment); color:var(--ink); }
-    .btn.ghost{ color:var(--parchment); }
-    .btn:hover{ opacity:.85; }
-    .steps{ padding:80px 48px; }
-    .grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:40px; }
-    .step .n{ font-size:11px; letter-spacing:.24em; color:var(--army); }
-    .step h3{ font-family:var(--serif); font-weight:300; font-size:30px; margin:12px 0 10px; }
-    .step p{ font-size:15px; line-height:1.7; color:#444644; }
-    .what{ padding:0 48px 80px; }
-    .what .box{ border-top:1px solid var(--sand); padding-top:48px; display:grid; grid-template-columns:1fr 1.4fr; gap:48px; }
-    h2{ font-family:var(--serif); font-weight:300; font-size:clamp(30px,3.4vw,46px); line-height:1.1; }
-    .list{ list-style:none; }
-    .list li{ display:flex; justify-content:space-between; gap:16px; padding:16px 0; border-bottom:1px solid var(--sand); font-size:15px; }
-    .list a{ color:inherit; text-decoration:none; }
-    .list a:hover{ text-decoration:underline; text-underline-offset:4px; }
-    .list li.grp{ font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#6E716C; padding-top:28px; border-bottom:1px solid var(--sand); }
-    .list span{ color:#6E716C; white-space:nowrap; }
-    .faq{ padding:0 48px 100px; }
-    .faq .box{ border-top:1px solid var(--sand); padding-top:48px; display:grid; grid-template-columns:1fr 1.4fr; gap:48px; }
-    details{ border-bottom:1px solid var(--sand); padding:20px 0; }
+    .faq{ padding:56px 48px 88px; }
+    .faq .box{ display:grid; grid-template-columns:1fr 1.4fr; gap:48px; }
+    details{ border-bottom:1px solid var(--sand); padding:18px 0; }
     summary{ cursor:pointer; list-style:none; font-size:16px; display:flex; justify-content:space-between; gap:16px; }
     summary::-webkit-details-marker{ display:none; }
     summary::after{ content:'+'; color:#6E716C; }
@@ -111,73 +111,47 @@
     details p{ font-size:15px; line-height:1.7; color:#444644; margin-top:12px; max-width:620px; }
     details a{ color:inherit; }
     @media (max-width:900px){
-      .sub-hero{ padding:130px 24px 64px; } .steps,.what,.faq{ padding-left:24px; padding-right:24px; }
-      .grid3{ grid-template-columns:1fr; gap:32px; } .what .box,.faq .box{ grid-template-columns:1fr; gap:24px; }
+      .so-hero{ padding:96px 20px 36px; } .shop{ padding:32px 16px 56px; } .oan{ padding:44px 20px 52px; } .faq{ padding:44px 20px 72px; }
+      .grid{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px 12px; }
+      .card .nm{ font-size:17px; }
+      .oan-strip{ grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:72%; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:6px; }
+      .oan-strip figure{ scroll-snap-align:start; }
+      .faq .box{ grid-template-columns:1fr; gap:20px; }
     }
   </style>
 </head>
 <body>
   <!-- top nav injected by /nav.js -->
-  <section class="sub-hero"><div class="sub-in">
+  <section class="so-hero"><div class="so-in">
     <div class="eyebrow">Ghost Town, USA &middot; Open all night</div>
     <h1>The Standing Order. <em>We keep your name on the ledger.</em></h1>
-    <p class="lede">Pick the goods you use every day and how often. Every 6, 8 or 12 weeks it arrives on its own, 20% off every time. Skip, change or cancel anytime.</p>
-    <div class="btns">
-      <a class="btn solid" href="#standing-order-list">Start a Standing Order</a>
-      <a class="btn ghost" href="https://account.ghosttownranch.com">Manage your Standing Order</a>
-    </div>
+    <ul class="terms"><li>20% off, every time</li><li>Every 6, 8 or 12 weeks</li><li>Skip or cancel anytime</li></ul>
   </div></section>
 
-  <section class="oan" aria-labelledby="oan-h"><div class="sub-in">
-    <div class="oan-head">
-      <h2 id="oan-h">Open All Night</h2>
-      <span class="eyebrow">Tap for sound</span>
+  <section class="shop" id="standing-order-list" aria-labelledby="shop-h"><div class="so-in">
+    <div class="shop-head">
+      <h2 id="shop-h">Put it on order.</h2>
+      <div class="tabs" role="group" aria-label="Filter">
+        <button type="button" data-f="all" aria-pressed="true">All</button>
+        <button type="button" data-f="hair" aria-pressed="false">Hair + beard</button>
+        <button type="button" data-f="body" aria-pressed="false">Bath + body</button>
+        <button type="button" data-f="face" aria-pressed="false">Face</button>
+      </div>
     </div>
+    <div class="grid" id="so-grid"></div>
+    <p class="note">Your first order ships now; after that it arrives on your schedule. Skip, change or cancel from <a href="https://account.ghosttownranch.com">your account</a>.</p>
+  </div></section>
+
+  <section class="oan" aria-labelledby="oan-h"><div class="so-in">
+    <div class="oan-head"><h2 id="oan-h">Open All Night</h2><span class="eyebrow" style="margin:0">Tap for sound</span></div>
     <div class="oan-strip">
-      <figure><video src="/media/open-all-night/ep1.mp4" poster="/media/open-all-night/ep1.jpg" controls playsinline preload="metadata"></video><figcaption><b>No. 1</b><span>New in town</span></figcaption></figure>
-      <figure><video src="/media/open-all-night/ep2.mp4" poster="/media/open-all-night/ep2.jpg" controls playsinline preload="metadata"></video><figcaption><b>No. 2</b><span>The back room</span></figcaption></figure>
-      <figure><video src="/media/open-all-night/ep3.mp4" poster="/media/open-all-night/ep3.jpg" controls playsinline preload="metadata"></video><figcaption><b>No. 3</b><span>Standing order</span></figcaption></figure>
+      <figure><video src="/media/open-all-night/ep1.mp4" poster="/media/open-all-night/ep1.jpg" controls playsinline preload="none"></video><figcaption><b>No. 1</b><span>New in town</span></figcaption></figure>
+      <figure><video src="/media/open-all-night/ep2.mp4" poster="/media/open-all-night/ep2.jpg" controls playsinline preload="none"></video><figcaption><b>No. 2</b><span>The back room</span></figcaption></figure>
+      <figure><video src="/media/open-all-night/ep3.mp4" poster="/media/open-all-night/ep3.jpg" controls playsinline preload="none"></video><figcaption><b>No. 3</b><span>Standing order</span></figcaption></figure>
     </div>
   </div></section>
 
-  <section class="steps"><div class="sub-in grid3">
-    <div class="step"><div class="n">01</div><h3>Choose Standing Order</h3><p>On any product page, choose Standing Order instead of One-time, then pick every 6, 8 or 12 weeks.</p></div>
-    <div class="step"><div class="n">02</div><h3>It arrives on schedule</h3><p>Your first order ships now. After that, each delivery ships on your schedule at the Standing Order price. We email before every order.</p></div>
-    <div class="step"><div class="n">03</div><h3>You stay in charge</h3><p>Sign in to your account with your email to skip a delivery, change how often it comes, update your card or cancel. No calls, no fees.</p></div>
-  </div></section>
-
-  <section class="what" id="standing-order-list"><div class="sub-in box">
-    <h2>What you can<br>put on order.</h2>
-    <ul class="list" id="sub-list">
-      <li class="grp">Hair</li>
-      <li><a href="/products/outlaws-reserve-2-in-1-hair-skin-rinse/">Outlaw's Reserve, Hair + Body Wash</a><span>Every 6, 8 or 12 weeks</span></li>
-      <li><a href="/products/rosemary-mint-revive-hair-scalp-oil/">Rosemary Mint Revive, Hair + Scalp Oil</a><span>Every 6, 8 or 12 weeks</span></li>
-      <li><a href="/products/dry-creek-quick-refresh-hair-mist/">Dry Creek, Quick Refresh Hair Mist</a><span>Every 6, 8 or 12 weeks</span></li>
-      <li><a href="/products/trails-end-leave-in-hair-conditioner/">Trail's End, Leave-In Conditioner</a><span>Every 6, 8 or 12 weeks</span></li>
-      <li><a href="/products/last-call-plant-protein-styling-gel/">Last Call, Plant Protein Styling Gel</a><span>Every 6, 8 or 12 weeks</span></li>
-      <li><a href="/products/gtr-beard-wash/">Beard Wash</a><span>Every 6, 8 or 12 weeks</span></li>
-      <li><a href="/products/gtr-beard-butter/">Beard Butter</a><span>Every 6, 8 or 12 weeks</span></li>
-      <li class="grp">Bath + Body</li>
-      <li><a href="/products/still-air-rosemary-mint-deodorant/">Still Air, Rosemary + Mint Deodorant</a><span>Every 6, 8 or 12 weeks</span></li>
-      <li><a href="/products/the-wash/">The Wash, Hand Wash</a><span>Every 6, 8 or 12 weeks</span></li>
-      <li><a href="/products/hand-cream-citrus-pink-pepper/">Silk Skin Hand Cream</a><span>Every 6, 8 or 12 weeks</span></li>
-      <li><a href="/products/golden-hour-body-oil/">Golden Hour, Body Oil</a><span>Every 6, 8 or 12 weeks</span></li>
-      <li><a href="/products/the-soak-lights-out/">The Soak, Lights Out</a><span>Every 6, 8 or 12 weeks</span></li>
-      <li><a href="/products/the-plunge-salt-moon-bath-bomb-set-of-3/">The Plunge, Bath Bomb</a><span>Every 6, 8 or 12 weeks</span></li>
-      <li><a href="/products/gtr-lip-butter/">Lip Butter</a><span>Every 6, 8 or 12 weeks</span></li>
-      <li class="grp">Face</li>
-      <li><a href="/products/rose-cut-daily-facial-wash/">Rose Cut, Daily Facial Wash</a><span>Every 6, 8 or 12 weeks</span></li>
-      <li><a href="/products/the-shakedown-makeup-remover/">The Shakedown, Makeup Remover</a><span>Every 6, 8 or 12 weeks</span></li>
-      <li><a href="/products/mojave-reset-cooling-face-mist/">Mojave Reset, Cooling Face Mist</a><span>Every 6, 8 or 12 weeks</span></li>
-      <li><a href="/products/the-grade-peptide-anti-aging-serum/">The Grade, Peptide Serum</a><span>Every 6, 8 or 12 weeks</span></li>
-      <li><a href="/products/moisturising-day-cream/">Desert Day Cream</a><span>Every 6, 8 or 12 weeks</span></li>
-      <li><a href="/products/the-hold-anti-age-day-cream1/">The Hold, Anti-Age Day Cream</a><span>Every 6, 8 or 12 weeks</span></li>
-      <li><a href="/products/dusk-til-dawn-hydration-gel/">Dusk Till Dawn, Hydration Gel</a><span>Every 6, 8 or 12 weeks</span></li>
-      <li><a href="/products/desert-glow-facial-oil/">Desert Glow, Facial Oil</a><span>Every 6, 8 or 12 weeks</span></li>
-    </ul>
-  </div></section>
-
-  <section class="faq"><div class="sub-in box">
+  <section class="faq"><div class="so-in box">
     <h2>Questions.</h2>
     <div>
       <details><summary>What is a Standing Order?</summary><p>A regular delivery you set once. You choose the products and how often, every 6, 8 or 12 weeks, and we send them on that schedule at 20% off until you say stop. You can skip, change or cancel anytime.</p></details>
@@ -196,5 +170,109 @@
   <script src="/cart.js"></script>
   <script src="/gtr-controls.js" defer></script>
   <script src="/footer.js" defer></script>
+  <script>
+  {
+    const SHOP = 'muq7w3-im.myshopify.com', TOKEN = 'c6efa00d9c5d9849c6c13d59cca6ab82';
+    // [handle, short name, what it is, filter]
+    const LIST = [
+      ['the-wash','The Wash','Hand wash','body'],
+      ['outlaws-reserve-2-in-1-hair-skin-rinse','Outlaw’s Reserve','Hair + body wash','hair'],
+      ['still-air-rosemary-mint-deodorant','Still Air','Deodorant','body'],
+      ['hand-cream-citrus-pink-pepper','Silk Skin','Hand cream','body'],
+      ['golden-hour-body-oil','Golden Hour','Body oil','body'],
+      ['gtr-beard-wash','Beard Wash','Beard wash','hair'],
+      ['gtr-beard-butter','Beard Butter','Beard butter','hair'],
+      ['rosemary-mint-revive-hair-scalp-oil','Rosemary Mint Revive','Hair + scalp oil','hair'],
+      ['dry-creek-quick-refresh-hair-mist','Dry Creek','Hair refresh mist','hair'],
+      ['trails-end-leave-in-hair-conditioner','Trail’s End','Leave-in conditioner','hair'],
+      ['last-call-plant-protein-styling-gel','Last Call','Styling gel','hair'],
+      ['rose-cut-daily-facial-wash','Rose Cut','Daily facial wash','face'],
+      ['the-grade-peptide-anti-aging-serum','The Grade','Peptide serum','face'],
+      ['moisturising-day-cream','Desert Day Cream','Day cream','face'],
+      ['the-hold-anti-age-day-cream1','The Hold','Anti-age day cream','face'],
+      ['dusk-til-dawn-hydration-gel','Dusk Till Dawn','Hydration gel','face'],
+      ['desert-glow-facial-oil','Desert Glow','Facial oil','face'],
+      ['mojave-reset-cooling-face-mist','Mojave Reset','Face mist','face'],
+      ['the-shakedown-makeup-remover','The Shakedown','Makeup remover','face'],
+      ['gtr-lip-butter','Lip Butter','Lip butter','face'],
+      ['the-soak-lights-out','The Soak','Bath salts','body'],
+      ['the-plunge-salt-moon-bath-bomb-set-of-3','The Plunge','Bath bomb','body']
+    ];
+    const grid = document.getElementById('so-grid');
+    const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const fmt = n => '$' + (n % 1 ? n.toFixed(2) : n.toFixed(0));
+    const weeks = n => (String(n).match(/\d+/) || [n])[0] + ' weeks';
+    grid.innerHTML = LIST.map(() => '<div class="card skel"><span class="img"></span></div>').join('');
+
+    const fields = 'handle availableForSale featuredImage { url(transform:{maxWidth:600}) altText } ' +
+      'variants(first: 20) { nodes { id title availableForSale price { amount } ' +
+      'sellingPlanAllocations(first: 5) { nodes { sellingPlan { id name } priceAdjustments { price { amount } } } } } }';
+    const q = 'query {' + LIST.map((p, i) => 'p' + i + ': product(handle: ' + JSON.stringify(p[0]) + ') { ' + fields + ' }').join(' ') + '}';
+
+    fetch('https://' + SHOP + '/api/2025-01/graphql.json', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Shopify-Storefront-Access-Token': TOKEN },
+      body: JSON.stringify({ query: q })
+    }).then(r => r.json()).then(j => {
+      const items = LIST.map((p, i) => ({ meta: p, prod: j && j.data && j.data['p' + i] }))
+        .filter(x => x.prod && x.prod.availableForSale && x.prod.variants.nodes.some(v => v.availableForSale && v.sellingPlanAllocations.nodes.length));
+      if (!items.length) throw new Error('none');
+      grid.innerHTML = items.map((x, i) => {
+        const [handle, name, what, f] = x.meta;
+        const vs = x.prod.variants.nodes.filter(v => v.availableForSale && v.sellingPlanAllocations.nodes.length);
+        const img = x.prod.featuredImage;
+        return '<div class="card" data-f="' + f + '" data-i="' + i + '">' +
+          '<a class="img" href="/products/' + esc(handle) + '/">' + (img ? '<img src="' + esc(img.url) + '" alt="' + esc(img.altText || name) + '" loading="lazy">' : '') + '</a>' +
+          '<a class="nm" href="/products/' + esc(handle) + '/">' + esc(name) + '</a>' +
+          '<div class="ds">' + esc(what) + '</div>' +
+          '<div class="pr"></div>' +
+          (vs.length > 1 ? '<select class="v" aria-label="' + esc(name) + ' option">' + vs.map(v => '<option value="' + esc(v.id) + '">' + esc(v.title) + '</option>').join('') + '</select>' : '') +
+          '<select class="f" aria-label="' + esc(name) + ' delivery"></select>' +
+          '<button class="add" type="button">Add Standing Order</button>' +
+        '</div>';
+      }).join('');
+      [].forEach.call(grid.querySelectorAll('.card'), card => {
+        const x = items[card.dataset.i];
+        const vs = x.prod.variants.nodes.filter(v => v.availableForSale && v.sellingPlanAllocations.nodes.length);
+        const vSel = card.querySelector('.v'), fSel = card.querySelector('.f'), pr = card.querySelector('.pr'), btn = card.querySelector('.add');
+        const variant = () => vSel ? vs.find(v => v.id === vSel.value) : vs[0];
+        const plans = () => variant().sellingPlanAllocations.nodes;
+        const fillPlans = () => {
+          const keep = fSel.value;
+          fSel.innerHTML = plans().map(a => '<option value="' + esc(a.sellingPlan.id) + '">Every ' + esc(weeks(a.sellingPlan.name)) + '</option>').join('');
+          if ([].some.call(fSel.options, o => o.value === keep)) fSel.value = keep;
+          price();
+        };
+        const price = () => {
+          const v = variant(), a = plans().find(p => p.sellingPlan.id === fSel.value) || plans()[0];
+          const base = parseFloat(v.price.amount);
+          const sub = a && a.priceAdjustments.nodes.length ? parseFloat(a.priceAdjustments.nodes[0].price.amount) : base * 0.8;
+          pr.innerHTML = '<s>' + fmt(base) + '</s>' + fmt(sub);
+        };
+        if (vSel) vSel.addEventListener('change', fillPlans);
+        fSel.addEventListener('change', price);
+        fillPlans();
+        btn.addEventListener('click', () => {
+          if (!window.GTRCart) { location.href = '/products/' + x.meta[0] + '/'; return; }
+          btn.disabled = true; btn.textContent = 'Adding…';
+          GTRCart.addVariant(variant().id, 1, fSel.value).then(ok => {
+            btn.disabled = false;
+            btn.textContent = ok ? 'On the ledger' : 'Add Standing Order';
+            if (ok) setTimeout(() => { btn.textContent = 'Add Standing Order'; }, 2500);
+            else location.href = '/products/' + x.meta[0] + '/';
+          });
+        });
+      });
+    }).catch(() => {
+      grid.innerHTML = LIST.map(p => '<div class="card" data-f="' + p[3] + '"><a class="nm" href="/products/' + esc(p[0]) + '/">' + esc(p[1]) + '</a><div class="ds">' + esc(p[2]) + '</div><a class="add" style="display:flex;align-items:center;justify-content:center;text-decoration:none" href="/products/' + esc(p[0]) + '/">Choose Standing Order</a></div>').join('');
+    });
+
+    document.querySelector('.tabs').addEventListener('click', e => {
+      const b = e.target.closest('button'); if (!b) return;
+      [].forEach.call(document.querySelectorAll('.tabs button'), x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+      [].forEach.call(grid.querySelectorAll('.card'), c => { c.hidden = b.dataset.f !== 'all' && c.dataset.f !== b.dataset.f; });
+    });
+  }
+  </script>
 </body>
 </html>
