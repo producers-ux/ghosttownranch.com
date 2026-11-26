@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Standing Order | Ghost Town Ranch</title>
-  <meta name="description" content="The Standing Order: set it once and your daily goods arrive every 6, 8 or 12 weeks at 20% off. Skip, change or cancel anytime from your account.">
+  <meta name="description" content="The Standing Order. We keep your name on the ledger: your daily goods every 6, 8 or 12 weeks, 20% off every time. Skip, change or cancel anytime.">
   <link rel="canonical" href="https://ghosttownranch.com/subscriptions/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ghosttownranch.com/subscriptions/">
@@ -62,6 +62,20 @@
       #gtr-shared-nav .nav-links a { font-size: 13px; letter-spacing: 0.25em; padding: 22px 0; width:100%; min-height:44px; }
     }
 
+    .oan{ background:var(--ink); color:var(--parchment); padding:0 48px 90px; }
+    .oan-head{ display:flex; justify-content:space-between; align-items:baseline; gap:16px; border-top:1px solid rgba(246,246,243,.15); padding-top:40px; margin-bottom:20px; }
+    .oan-head h2{ color:var(--parchment); }
+    .oan-head .eyebrow{ margin:0; }
+    .oan-strip{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    .oan-strip figure{ margin:0; min-width:0; }
+    .oan-strip video{ width:100%; aspect-ratio:9/16; display:block; background:#000; object-fit:cover; }
+    .oan-strip figcaption{ display:flex; justify-content:space-between; gap:10px; padding-top:10px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#B9BDA8; }
+    .oan-strip figcaption b{ color:var(--parchment); font-weight:400; }
+    @media (max-width:900px){
+      .oan{ padding:0 24px 64px; }
+      .oan-strip{ grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:72%; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:6px; }
+      .oan-strip figure{ scroll-snap-align:start; }
+    }
     .sub-hero{ background:var(--ink); color:var(--parchment); padding:170px 48px 90px; }
     .sub-in{ max-width:1100px; margin:0 auto; }
     .eyebrow{ font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#B9BDA8; margin-bottom:16px; }
@@ -105,12 +119,24 @@
 <body>
   <!-- top nav injected by /nav.js -->
   <section class="sub-hero"><div class="sub-in">
-    <div class="eyebrow">The Standing Order</div>
-    <h1>The Standing Order <em>+ save 20%.</em></h1>
-    <p class="lede">A standing order is a regular delivery you set once, the old-fashioned way. Pick the goods you use every day, choose how often, and they arrive on schedule at 20% off. Every 6, 8 or 12 weeks. Skip, change or cancel anytime.</p>
+    <div class="eyebrow">Ghost Town, USA &middot; Open all night</div>
+    <h1>The Standing Order. <em>We keep your name on the ledger.</em></h1>
+    <p class="lede">Pick the goods you use every day and how often. Every 6, 8 or 12 weeks it arrives on its own, 20% off every time. Skip, change or cancel anytime.</p>
     <div class="btns">
-      <a class="btn solid" href="https://account.ghosttownranch.com">Manage your Standing Order</a>
-      <a class="btn ghost" href="#standing-order-list">See what you can put on order</a>
+      <a class="btn solid" href="#standing-order-list">Start a Standing Order</a>
+      <a class="btn ghost" href="https://account.ghosttownranch.com">Manage your Standing Order</a>
+    </div>
+  </div></section>
+
+  <section class="oan" aria-labelledby="oan-h"><div class="sub-in">
+    <div class="oan-head">
+      <h2 id="oan-h">Open All Night</h2>
+      <span class="eyebrow">Tap for sound</span>
+    </div>
+    <div class="oan-strip">
+      <figure><video src="/media/open-all-night/ep1.mp4" poster="/media/open-all-night/ep1.jpg" controls playsinline preload="metadata"></video><figcaption><b>No. 1</b><span>New in town</span></figcaption></figure>
+      <figure><video src="/media/open-all-night/ep2.mp4" poster="/media/open-all-night/ep2.jpg" controls playsinline preload="metadata"></video><figcaption><b>No. 2</b><span>The back room</span></figcaption></figure>
+      <figure><video src="/media/open-all-night/ep3.mp4" poster="/media/open-all-night/ep3.jpg" controls playsinline preload="metadata"></video><figcaption><b>No. 3</b><span>Standing order</span></figcaption></figure>
     </div>
   </div></section>
 
