@@ -899,6 +899,40 @@
   </div>
 </section>
 
+<!-- ══ STANDING ORDER ══ -->
+<style>
+.so-sec{background:#0B0B0B;color:var(--parchment)}
+.so-in{max-width:1344px;margin:0 auto;padding:80px 48px 88px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px 64px;align-items:center}
+.so-sec .st-eyebrow{color:#B9BE8F}
+.so-sec .st-title{color:var(--parchment);margin-bottom:18px;font-size:clamp(34px,4vw,56px)}
+.so-copy p{font-family:var(--sans);font-size:16px;line-height:1.7;color:#DDD6C6;margin:0 0 26px;max-width:480px}
+.so-terms{display:flex;flex-wrap:wrap;gap:10px 28px;margin:0 0 32px;padding:0;list-style:none;font-family:var(--sans);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--parchment)}
+.so-btns{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.so-go{display:inline-block;font-family:var(--sans);font-size:12px;letter-spacing:.18em;text-transform:uppercase;background:var(--parchment);color:var(--ink);padding:15px 24px;text-decoration:none}
+.so-go:hover{background:#fff}
+.so-more{color:#B9BE8F;font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-decoration:none}
+.so-film{margin:0;justify-self:center;width:min(100%,340px);background:#000}
+.so-film video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block}
+@media (max-width:900px){.so-in{grid-template-columns:1fr;padding:64px 24px 72px}.so-film{width:min(100%,300px)}}
+</style>
+<section class="so-sec" id="standing-order" aria-labelledby="so-title">
+  <div class="so-in">
+    <div class="so-copy">
+      <div class="st-eyebrow">The Standing Order &middot; Open all night</div>
+      <h2 class="st-title" id="so-title">We keep your name<br>on the ledger.</h2>
+      <p>Pick the goods you use every day and how often. It arrives on its own. No need to ask.</p>
+      <ul class="so-terms"><li>20% off, every time</li><li>Every 6, 8 or 12 weeks</li><li>Skip or cancel anytime</li></ul>
+      <div class="so-btns">
+        <a class="so-go" href="/subscriptions/#standing-order-list">Start a Standing Order</a>
+        <a class="so-more" href="/subscriptions/">How it works &rarr;</a>
+      </div>
+    </div>
+    <figure class="so-film">
+      <video src="/media/open-all-night/ep3.mp4" poster="/media/open-all-night/ep3.jpg" controls playsinline preload="metadata" aria-label="Open All Night, No. 3: Audra writes Saylor's name in the ledger and sets down his usual, Outlaw's Reserve"></video>
+    </figure>
+  </div>
+</section>
+
 <!-- ══ THE COLLECTION ══ -->
 <section class="road collection" id="objects" style="--cols:3">
   <div class="road-head">
@@ -1075,24 +1109,6 @@ document.addEventListener('click', function(e) {
 });
 </script>
 
-<!-- ══ WHERE IT BEGAN ══ -->
-<section class="st-story">
-  <div class="st-story-in">
-    <figure class="st-stamped">
-      <img src="/where-it-began.jpg" alt="Family photos from early trips across the American West" loading="lazy">
-      <img class="st-stamp" src="/gtr-roundel-stamp.png" alt="Ghost Town Ranch, Frontier Modern Apothecary" loading="lazy" width="220" height="220">
-    </figure>
-    <div>
-      <div class="st-eyebrow">The wide open</div>
-      <h2 class="st-title">Wide light.<br>Open spaces.</h2>
-      <p>Ghost Town Ranch began on family trips across the American West, and it carries that feeling wherever it goes: big sky, long light, room to breathe.</p>
-      <p>The wide open isn&rsquo;t a place on a map. It&rsquo;s a way of living. Fewer things, made well. Scent that opens up a room. Skin care that does its job and gets out of the way.</p>
-      <p>Raw frontier, modernist polish. For every body, wherever your open space happens to be.</p>
-      <a href="/field-guide/">Read the Field Guide &rarr;</a>
-    </div>
-  </div>
-</section>
-
 <!-- ══ DISPATCH ══ -->
 <style>
 .dp-sec{background:#141414;color:var(--parchment);border-top:1px solid #262626}
@@ -1111,6 +1127,24 @@ document.addEventListener('click', function(e) {
     </div>
     <span class="dp-read">Read the dispatch &rarr;</span>
   </a>
+</section>
+
+<!-- ══ WHERE IT BEGAN ══ -->
+<section class="st-story">
+  <div class="st-story-in">
+    <figure class="st-stamped">
+      <img src="/where-it-began.jpg" alt="Family photos from early trips across the American West" loading="lazy">
+      <img class="st-stamp" src="/gtr-roundel-stamp.png" alt="Ghost Town Ranch, Frontier Modern Apothecary" loading="lazy" width="220" height="220">
+    </figure>
+    <div>
+      <div class="st-eyebrow">The wide open</div>
+      <h2 class="st-title">Wide light.<br>Open spaces.</h2>
+      <p>Ghost Town Ranch began on family trips across the American West, and it carries that feeling wherever it goes: big sky, long light, room to breathe.</p>
+      <p>The wide open isn&rsquo;t a place on a map. It&rsquo;s a way of living. Fewer things, made well. Scent that opens up a room. Skin care that does its job and gets out of the way.</p>
+      <p>Raw frontier, modernist polish. For every body, wherever your open space happens to be.</p>
+      <a href="/field-guide/">Read the Field Guide &rarr;</a>
+    </div>
+  </div>
 </section>
 
 <!-- ══ CERT STRIP ══ -->
